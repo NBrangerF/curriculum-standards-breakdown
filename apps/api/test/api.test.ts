@@ -1274,3 +1274,21 @@ test('development API routes are not publicly available', async () => {
         }
     }
 })
+
+test('learning-resource API supports catalog filters and standard reverse lookup', async () => {
+    const headers = { 'x-forwarded-for': 'learning-resource-api-test' }
+    const listResponse = await publicApp.request('/api/v1/learning-resources?limit=5', { headers })
+    assert.equal(listResponse.status, 200)
+    const listBody = await json(listResponse)
+    assert.ok(Array.isArray(listBody.data))
+    assert.equal(listBody.meta.limit, 5)
+
+    const reverseResponse = await publicApp.request('/api/v1/standards/SC-D2-SC-010/learning-resources', { headers })
+    assert.equal(reverseResponse.status, 200)
+    const reverseBody = await json(reverseResponse)
+    assert.equal(reverseBody.data.standard_code, 'SC-D2-SC-010')
+    assert.ok(Array.isArray(reverseBody.data.resources))
+
+    const invalidGrade = await publicApp.request('/api/v1/learning-resources?grade=10', { headers })
+    assert.equal(invalidGrade.status, 422)
+})

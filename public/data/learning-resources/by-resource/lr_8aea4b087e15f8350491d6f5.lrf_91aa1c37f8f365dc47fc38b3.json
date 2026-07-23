@@ -1,0 +1,821 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_b7559fb0e84953e11ff74898",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "假设我们的任务是在 React 中创建一个概念验证——一个允许用户添加、编辑和删除他们想做的任务的应用程序，并且在不删除任务的情况下将其标记为完成。这篇文章将引导你完成基本的 App 组件结构和样式，为以后添加的单个组件定义和交互性做好准备。",
+        "text_hash": "5b6cb45aa55278efa858010f74983d04eb4ac49e520c377f40f4f7a0b45f5a2f",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6c17718cb77972a9d92ce505",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你需要对照我们的版本检查你的代码，你可以在我们的 todo-react 仓库 中找到一个完成版本的 React 应用代码。关于运行中的实时版本，参见  .",
+        "text_hash": "5b81f39107e0aeb2853a76b0c9125190c945fa14043657819aec5718bbee9fd9",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_3fd4a3924b260d4fc7030e7a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "条件：",
+        "text_hash": "a26bfcbf7ac83a58f6458cd6a626af0220da03ec89d28a4bfff781916ac26766",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_04c20fc21815ee31619b12f3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "熟悉核心  HTML 、 CSS\n          和  JavaScript  语言，了解 终端/命令行 。",
+        "text_hash": "20ee108d088053019336acfd2e231e8d705313fd4eff985f768bbfeda18817d2",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c6bea45895da08e11c9bd996",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：",
+        "text_hash": "4d2d25a2888d3e7c13db6b2e275e0179ab434807992666123db412d5f31e27a0",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_89f651c924d9024a30adbcf7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "介绍我们待办清单的案例，并获得基本的  App  结构和样式。",
+        "text_hash": "9030974f1a54fb121ac4e78ae4b851afb47d0ae073cc8482f219001d99fe526a",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f4dd51aef055e7a9f00ac191",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "用户故事",
+        "text_hash": "5f778a4d80947b5ef859fcfb6f30e6038e8f98191da1f0f00e62fe956a5dc5a4",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8bd5340b43d62a16431116c5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在软件开发中，用户故事是从用户的角度出发的一个可操作的目标。在我们开始工作之前，定义用户故事将帮助我们集中精力开展工作。我们的应用程序应该满足以下的故事：",
+        "text_hash": "8a2ed19e7f2cbc41524c0c08347f81a7f30fd29fd25f140b525a19473930f57b",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_14fb8a4fdb6222b123845185",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "作为一名用户，我可以",
+        "text_hash": "96de64513785b829888b9c90cda6d4a05fe6e32337ee5fe7264b4bc926090384",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8ad93e799313a63c2eb163e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "读取任务清单。\n使用鼠标或键盘，添加一个任务。\n使用鼠标或键盘，将任何任务标记为已完成。\n使用鼠标或键盘，删除任何任务。\n使用鼠标或键盘，编辑任何任务。\n查看一个特定的任务子集：所有的任务、仅活动中的任务，或只有已完成的任务。",
+        "text_hash": "369fb6a2d30f1a222491f4d5d6195fa8ab7b5c1c46e0eff900f51be9c195cc1a",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_3b2a08cdfdc4518866bd651e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们将逐一处理这些故事。",
+        "text_hash": "ac01e9be178a0b3d8b60aa1f8b246348b18484cd586d76031580051d4829746f",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_730b0bee8f93ca0896020688",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始前的清理",
+        "text_hash": "10a45f34b1775756fdcb2f8f9c1fbfc201e929839b4405d73a22fd8f5b489e1e",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_de05c62fc5079a61aacde5cd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "create-react-app 添加了一些我们在项目中完全不会用到的文件。",
+        "text_hash": "d515bfcf70e98929448992af29c2d0bebbe16fb3411e63e4d04312066c481ddc",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6fb3cdaeb8a814b2c9258528",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们不打算写每个组件的样式表，所以首先从 App.js 的顶部删除 App.css 的导入。\n我们也不打算使用 logo.svg 文件，所以也要删除这个导入。",
+        "text_hash": "0853c593a781531dfeb3d2327acda194dd37919d93e2b8e3eac8e05a036b12dc",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_1b0b8410da85b95e71a830d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "然后，复制并粘贴以下命令到你的终端，删除一些不需要的文件。确保你是在应用程序的根目录下开始的！",
+        "text_hash": "cacf6d4dc1e054d83172c374e4a0036d7fa1c107c8fcd7badcb99ea8038b7c95",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d56aa0fd34fbedfc739e861f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "bash\n# Move into the src directory of your project\ncd src\n# Delete a few files\nrm -- App.test.js App.css logo.svg serviceWorker.js setupTests.js\n# Move back up to the root of the project\ncd ..",
+        "text_hash": "8d44cd6b9bae9df460e5c4a7fdaa1a93fe9fa4052f3d8f516ecf019a767c3fe4",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_08f861a8e1c1f474bc53defb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "注意：",
+        "text_hash": "4c847838756576dfc94ae24814cfa40dfd36533332a256060bb04de51b1a0185",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1acddc6c9566e267b13de4db",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们要删除的两个文件是用来测试应用程序的。我们在这里不涉及测试。\n如果你停止了你的服务器来做上面提到的终端任务，你必须用 npm start 再次启动它。",
+        "text_hash": "3bc9c441a7215b3fb8f6e524bb98822cd53d569707c036f0ee70aa2520fc9e00",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_955bf96b69609642d261ba3e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "项目启动代码",
+        "text_hash": "ddac158331a105d7d661e3e51aa8c9a6109171eb6c5c99a2dc2ff9988ce1ac3d",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_efaf8ecd3279587282d0e27e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "作为这个项目的起点，我们将提供两样东西。一个 App() 函数来代替你现在的函数，还有一些 CSS 来改变你的应用程序的样式。",
+        "text_hash": "d63ccaf42477682c75be13d74f353910edc2eb5b92a3aa36cba73addf019f1dc",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_17e56eef492ed9a960c71f5d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "JSX",
+        "text_hash": "32da9b7e410fa51d1b9b2578ce81064e4a3199d9af00128f658abd5cf4a0fe33",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d9af9f0813e37eff382a7bbf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "复制以下片段到你的剪贴板，然后粘贴到 App.js 中，使其取代现有的 App() 函数：",
+        "text_hash": "835dffdbb659d833ff031517b7fc72b9f8d0088d736cc2705645d6ac3026adba",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_34fcba7355978d4f07934739",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction App(props) {\n  return (",
+        "text_hash": "3a8906c43a54cd5894bddb69555790c695f3255d5b29da60147776cfe901544d",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7b409f813220a6444b612717",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "TodoMatic",
+        "text_hash": "0190a292389733f47f1fcb05f94bcedf4147262496ea345aa70293715f672a19",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dde32e9ec3354ef53891d86f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "What needs to be done?",
+        "text_hash": "7e39c74288efef6b38855cf5505e70aca4ba6c330a137133f8f280968c034534",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9cd2e29e2388ea3901a2a2f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Add",
+        "text_hash": "9fd728c66c9a256b121472dabf32a34317aed01d8427d70ec830289cf23a7cc8",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_61f22830c2d8d539d2fb863c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Show\n           all\n            tasks",
+        "text_hash": "5c58289e2db39b147949bf9f9965ddaad0340a810a4212f945e580b3cf081f10",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_85f2226168fde1195f71c010",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Show\n           Active\n            tasks",
+        "text_hash": "6e9a80d27301e1eee2303ae3e9840d6ae7207a7a1ec57aa169339ea0b1adb08c",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3c68cea9ed9bb544c13215c7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Show\n           Completed\n            tasks",
+        "text_hash": "c2e1ed973c523b79fd2450226a68b8064fffab8a0a7560ee0d6b06b58e259a0b",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5dfeb56197163603e9610fb5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "3 tasks remaining",
+        "text_hash": "918336b82390e1b302e67ca6cb62d59151772222814cfb3d2f68b33bfedbaa83",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_29faaf5d65724411e4d7913e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Eat",
+        "text_hash": "ebecb9cef8f2103c8885e5732df330174d137867b033b179cefc94b1ea23bb6d",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d26af9d95fe0840313ea46d3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Edit  Eat",
+        "text_hash": "c8ec3a724a980e20acd929a13ecb00f83b00b5e68bb97ea169a285a398919cfd",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9bcd6800c9225910cb962ac2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Delete  Eat",
+        "text_hash": "7b3a808e393389529a7c2b5090f14805dbaa18d9c85061afdd2f9c8361e28ef3",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1acb2eab22733df097f1f80b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Sleep",
+        "text_hash": "d466bcf52eb6921b1e747e51bf2cc1441926455ba146ecc477bed1574e44f9c0",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_13830bfc3d637d0565fa767a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Edit  Sleep",
+        "text_hash": "7f23922b97cf924be57f25ba1a8c26307836fbb807c80724df87d8aea04e4c1e",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6ff009dcdabc63a2b31b00e4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Delete  Sleep",
+        "text_hash": "cee856dcca233775461b761d2c114b7a4775429d9a0807dfec8853f5018145f1",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4bbe17ed514d204320497bb2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Repeat",
+        "text_hash": "b6b7a0065808a62e7d5781b356c5ddba4e000433c34b5d561d200158a4443eb1",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0141d5c89e89af914e5c04b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Edit  Repeat",
+        "text_hash": "d921106a237291b81637936999ddbad4476741403cbd3caa224d615e76b6fe89",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b77617577e89c57c0fa38c04",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Delete  Repeat",
+        "text_hash": "ac7a3a4c51c1cd71093e9e8ffbbac5609841394cbc0e574d26edf0749d14329d",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0737669ef7ad7c889ec57719",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ");\n}",
+        "text_hash": "a2d0828ab6e1f1583be4e2374894bd3199c33ead09388dd551c177aa90b2214b",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e6f395b1e364537be4e50055",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在打开 public/index.html，把   元素的文本改为 TodoMatic 。这样，它将与我们应用程序顶部的   相匹配。",
+        "text_hash": "5880dc6923fe5462e0448cc8ad7184fa00f029fa4fcaac97835da3d69814b2bf",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_260f36612eba3d7156931799",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n TodoMatic",
+        "text_hash": "b28c65ea5b32c9da2afff7da18fd4a8c0cb18898026b2b3adc16eb77e67d83f8",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_50478b407f555dad1266806e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当你刷新浏览器时，你应该看到类似这样的东西：",
+        "text_hash": "7044a8a4dea8f22780c86d928c3e86dd5c5dc03324a100cdf88d4b77704dcf0c",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_77b029000c18723f569d3e68",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "todo-matic app, unstyled, showing a jumbled mess of labels, inputs, and buttons",
+        "text_hash": "538937fb710122622d90b06ac30e9dd73941c2133080f060cbed0fe1d43538ab",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_62a84cdf28d0f12cb367aaa3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "它很难看，而且还没有功能，但这没关系——我们一会儿就会为它设计样式。首先，考虑一下我们的 JSX，以及它是如何与我们的用户故事相对应的。",
+        "text_hash": "b1e9c4328166171743c05e0377e11ddc3f1fef92fde48a35e15baf9b81a1a59e",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_62212d04239102561ccb416b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们有一个   元素，有一个   用于写出一个新任务，还有一个按钮用于提交表单。\n我们有一组按钮，用于筛选我们的任务。\n我们有一个标题，用于告诉我们还有多少任务。\n我们有三个任务，安排在一个无序的列表中。每项任务都是一个列表项（ ），有编辑和删除的按钮，还有一个复选框可以将其勾选为完成。",
+        "text_hash": "ee5e37c18aae9264d95550e9f672f4d8862bd60fe446e435d9d207281a370c5c",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_5920de4eabb507fefd9be804",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些表格将允许我们*添加*任务；按钮让我们可以对任务进行*筛选*；我们通过标题和列表*查看*任务。用于*编辑*任务的 UI 目前很缺乏。这没关系——我们以后再写。",
+        "text_hash": "5a074db479a07152d65a7e3f1d709e963c633b60924aaa69377208b5a6c205a6",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1d2fdec2fd8f9a1b80700cb9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "无障碍功能",
+        "text_hash": "63434d474d43107e2533a343a28d8681137cb37147866710a6e45b78c0ce1bc1",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_222e99e8e501c215d6f37dcc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可能会注意到这里有一些不寻常的属性。比如说：",
+        "text_hash": "b8c1fee40a1a805bdfb4dad06cc1e65f944e82760a21852d0834d49286d2f92a",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0f0c176a1420fa0702753913",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_607ec31760fa65f7e4cba0ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Show\n   all\n    tasks",
+        "text_hash": "55640b88228743ffe5b4a5a1f6fc632814278ed973c62fb12a755b6c6c947c79",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e49cfb5ca0ba54b06f13e57b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里的 aria-pressed 告诉辅助技术（比如屏幕阅读器），该按钮可以有两种状态。按压 或 未按压 。可以把它们看作 开 和 关 。设置为 true 意味着该按钮默认是被按下的。",
+        "text_hash": "b3dce77af5d6ea816ee8a6b7cac323f841feb6e67fdf300011dbae08a237284c",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bec7c848ef7f821b74941e58",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "visually-hidden 这个类还没有效果，因为我们还没有包含任何 CSS。一旦我们把样式写好，任何带有这个类的元素都会被隐藏起来，视力正常的用户不会看到，而屏幕阅读器用户仍然可以使用——这是因为视力正常的用户不需要这些词；它们的存在是为了给没有额外视觉环境帮助的屏幕阅读器用户提供更多关于这个按钮的信息。",
+        "text_hash": "27e56b65cea1b7e42ea25b06bccde7a3b1fee1256b100b0583030a7a0c1b3934",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_11e481370260da0e76e58412",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "再往下，你可以找到我们的   元素：",
+        "text_hash": "f2dcb83cea175556226ee5446f9973598aee9c92d2767446a2eaf10d46dca942",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_24eebca3139f24d85d6dcd99",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_44fc242a5611aa06b35befea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "role 属性帮助辅助技术解释一个标签代表哪种元素。默认情况下，  被视为一个列表，但我们即将添加的样式将改变它。添加 role 将恢复 ul 元素的“列表”含义。如果你想了解更多关于为什么要这样做，你可以看看 Scott O'Hara's article, \"Fixing Lists\".",
+        "text_hash": "430cb6abdde1fe75c677092c0ce66f2d52b0a504347ceb915290cda2ee0e73e4",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bc31d20681d5be8e77fffbfe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "aria-labelledby 属性告诉辅助技术，我们把列表标题当作标签，用来描述它下面的列表的目的。这种关联能让列表包含更多信息，这可以帮助屏幕阅读器用户更好地理解它的目的。",
+        "text_hash": "911c6750a097b098010eeb400afe84da09bc33ff7164f0bde10d518f68307a75",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_31d66933b8df4aae5d7e47c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最后，我们列表项中的标签和输入有一些 JSX 特有的属性：",
+        "text_hash": "24b0574e066ee88eece5697cb610841be98cfb894726f78b6fbf6addcf8e4b17",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_19c66f41170ad97e00715cc2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6f986fc35dfb3f31d63afd49",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Eat",
+        "text_hash": "ebecb9cef8f2103c8885e5732df330174d137867b033b179cefc94b1ea23bb6d",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_327bc3d8fd16416f30d8d3e4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "标签中的 defaultChecked 属性告诉 React 最初要检查这个复选框。如果我们像在普通的 HTML 中那样使用 checked，React 会在浏览器控制台中记录一些与处理复选框事件有关的警告，这是我们不想要的。现在不用太担心这个问题——我们将在以后使用事件的时候讨论这个问题。",
+        "text_hash": "e7c5a14aee3a5f58d376fb86f0c9c1dd76fcdd9d641f29d05c6d11b824923168",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ac68c8679113a660ab47962e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "htmlFor 属性对应于 HTML 中使用的 for 属性。因为 for 是一个保留词，我们不能在 JSX 中使用 for 作为属性，所以 React 使用 htmlFor 代替。",
+        "text_hash": "a8283011d7a4141a0e64c183aded1ef0b49d5700fbf91561b4fe381893e28bf2",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72a9000a86460253134e494b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "说明：",
+        "text_hash": "3e633a204a634ff20472f885b6163e390c1012e02cb0456dbd990f52162ddb93",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2d8a753ef56261f7a7db7106",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要在 JSX 属性中使用布尔值（true 和 false），你必须用大括号把它们括起来。如果你写 defaultChecked=\"true\"，defaultChecked 的值将是 \"true\"——一个字符串字面。记住——这实际上是 JavaScript，而不是 HTML!\n在前面的代码片段中使用的 aria-pressed 属性的值是 \"true\"，因为 aria-pressed 不是像 checked 那样是一个真正的布尔属性。",
+        "text_hash": "a03f6840ec0a12f9954c716334c09fced44f4aa1edc0d2ba788a3c1b41232c7a",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_27a11d878472a23be4884e77",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "实现样式",
+        "text_hash": "72a0b8a7a79264dc300bc5d53153aa06fd2c0317639da5504198aa392468e021",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_86ee1cbe6bbfc6b98433cf1f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "将下面的 CSS 代码粘贴到 src/index.css 中，使其取代当前的内容：",
+        "text_hash": "7fe66932f1804b303f8e3f690066b0ee5429f2cd0bf68356ebc4ba36554327af",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_92efba6ed23be7cb03a887f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n/* RESETS */\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n*:focus {\n  outline: 3px dashed #228bec;\n  outline-offset: 0;\n}\nhtml {\n  font: 62.5% / 1.15 sans-serif;\n}\nh1,\nh2 {\n  margin-bottom: 0;\n}\nul {\n  list-style: none;\n  padding: 0;\n}\nbutton {\n  border: none;\n  margin: 0;\n  padding: 0;\n  width: auto;\n  overflow: visible;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  line-height: normal;\n  -webkit-font-smoothing: inherit;\n  -moz-osx-font-smoothing: inherit;\n  -webkit-appearance: none;\n}\nbutton::-moz-focus-inner {\n  border: 0;\n}\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n  line-height: 1.15;\n  margin: 0;\n}\nbutton,\ninput {\n  overflow: visible;\n}\ninput[type=\"text\"] {\n  border-radius: 0;\n}\nbody {\n  width: 100%;\n  max-width: 68rem;\n  margin: 0 auto;\n  font:\n    1.6rem/1.25 Arial,\n    sans-serif;\n  background-color: #f5f5f5;\n  color: #4d4d4d;\n}\n@media screen and (min-width: 620px) {\n  body {\n    font-size: 1.9rem;\n    line-height: 1.31579;\n  }\n}\n/*END RESETS*/\n/* GLOBAL STYLES */\n.form-group > input[type=\"text\"] {\n  display: inline-block;\n  margin-top: 0.4rem;\n}\n.btn {\n  padding: 0.8rem 1rem 0.7rem;\n  border: 0.2rem solid #4d4d4d;\n  cursor: pointer;\n  text-transform: capitalize;\n}\n.btn.toggle-btn {\n  border-width: 1px;\n  border-color: #d3d3d3;\n}\n.btn.toggle-btn[aria-pressed=\"true\"] {\n  text-decoration: underline;\n  border-color: #4d4d4d;\n}\n.btn__danger {\n  color: #fff;\n  background-color: #ca3c3c;\n  border-color: #bd2130;\n}\n.btn__filter {\n  border-color: lightgrey;\n}\n.btn__primary {\n  color: #fff;\n  background-color: #000;\n}\n.btn-group {\n  display: flex;\n  justify-content: space-between;\n}\n.btn-group > * {\n  flex: 1 1 49%;\n}\n.btn-group > * + * {\n  margin-left: 0.8rem;\n}\n.label-wrapper {\n  margin: 0;\n  flex: 0 0 100%;\n  text-align: center;\n}\n.visually-hidden {\n  position: absolute !important;\n  height: 1px;\n  width: 1px;\n  overflow: hidden;\n  clip: rect(1px 1px 1px 1px);\n  clip: rect(1px, 1px, 1px, 1px);\n  white-space: nowrap;\n}\n[class*=\"stack\"] > * {\n  margin-top: 0;\n  margin-bottom: 0;\n}\n.stack-small > * + * {\n  margin-top: 1.25rem;\n}\n.stack-large > * + * {\n  margin-top: 2.5rem;\n}\n@media screen and (min-width: 550px) {\n  .stack-small > * + * {\n    margin-top: 1.4rem;\n  }\n  .stack-large > * + * {\n    margin-top: 2.8rem;\n  }\n}\n.stack-exception {\n  margin-top: 1.2rem;\n}\n/* END GLOBAL STYLES */\n.todoapp {\n  background: #fff;\n  margin: 2rem 0 4rem 0;\n  padding: 1rem;\n  position: relative;\n  box-shadow:\n    0 2px 4px 0 rgba(0, 0, 0, 0.2),\n    0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);\n}\n@media screen and (min-width: 550px) {\n  .todoapp {\n    padding: 4rem;\n  }\n}\n.todoapp > * {\n  max-width: 50rem;\n  margin-left: auto;\n  margin-right: auto;\n}\n.todoapp > form {\n  max-width: 100%;\n}\n.todoapp > h1 {\n  display: block;\n  max-width: 100%;\n  text-align: center;\n  margin: 0;\n  margin-bottom: 1rem;\n}\n.label__lg {\n  line-height: 1.01567;\n  font-weight: 300;\n  padding: 0.8rem;\n  margin-bottom: 1rem;\n  text-align: center;\n}\n.input__lg {\n  padding: 2rem;\n  border: 2px solid #000;\n}\n.input__lg:focus {\n  border-color: #4d4d4d;\n  box-shadow: inset 0 0 0 2px;\n}\n[class*=\"__lg\"] {\n  display: inline-block;\n  width: 100%;\n  font-size: 1.9rem;\n}\n[class*=\"__lg\"]:not(:last-child) {\n  margin-bottom: 1rem;\n}\n@media screen and (min-width: 620px) {\n  [class*=\"__lg\"] {\n    font-size: 2.4rem;\n  }\n}\n.filters {\n  width: 100%;\n  margin: unset auto;\n}\n/* Todo item styles */\n.todo {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n.todo > * {\n  flex: 0 0 100%;\n}\n.todo-text {\n  width: 100%;\n  min-height: 4.4rem;\n  padding: 0.4rem 0.8rem;\n  border: 2px solid #565656;\n}\n.todo-text:focus {\n  box-shadow: inset 0 0 0 2px;\n}\n/* CHECKBOX STYLES */\n.c-cb {\n  box-sizing: border-box;\n  font-family: Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  font-weight: 400;\n  font-size: 1.6rem;\n  line-height: 1.25;\n  display: block;\n  position: relative;\n  min-height: 44px;\n  padding-left: 40px;\n  clear: left;\n}\n.c-cb > label::before,\n.c-cb > input[type=\"checkbox\"] {\n  box-sizing: border-box;\n  top: -2px;\n  left: -2px;\n  width: 44px;\n  height: 44px;\n}\n.c-cb > input[type=\"checkbox\"] {\n  -webkit-font-smoothing: antialiased;\n  cursor: pointer;\n  position: absolute;\n  z-index: 1;\n  margin: 0;\n  opacity: 0;\n}\n.c-cb > label {\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit;\n  display: inline-block;\n  margin-bottom: 0;\n  padding: 8px 15px 5px;\n  cursor: pointer;\n  touch-action: manipulation;\n}\n.c-cb > label::before {\n  content: \"\";\n  position: absolute;\n  border: 2px solid currentcolor;\n  background: transparent;\n}\n.c-cb > input[type=\"checkbox\"]:focus + label::before {\n  border-width: 4px;\n  outline: 3px dashed #228bec;\n}\n.c-cb > label::after {\n  box-sizing: content-box;\n  content: \"\";\n  position: absolute;\n  top: 11px;\n  left: 9px;\n  width: 18px;\n  height: 7px;\n  transform: rotate(-45deg);\n  border: solid;\n  border-width: 0 0 5px 5px;\n  border-top-color: transparent;\n  opacity: 0;\n  background: transparent;\n}\n.c-cb > input[type=\"checkbox\"]:checked + label::after {\n  opacity: 1;\n}",
+        "text_hash": "d3c3e96051931d003cda60364cf9d1a1a2457039e499fd874d8be9bd3b87b979",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3a0f96d89332dd1506c5904e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "保存并刷新浏览器，你的应用程序现在应该有正常的样式。",
+        "text_hash": "57d177cd48105b180d9591ba0b04493634067a33ea4a1d400bf6f9b20012e1af",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_521a8380b36a6dae896fdd76",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_54fba28c3d686a9830b34562",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在，我们的待办清单应用程序终于看起来像一个真正的应用程序了！问题是：它实际上什么都没做。我们将在下一章开始解决这个问题。",
+        "text_hash": "975d72fd4009125db620ef4742c6226069a6495558eed1d136b8b9a9b2081d00",
+        "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_91aa1c37f8f365dc47fc38b3",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。开始我们的 React 待办清单，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "开始我们的 React 待办清单，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/frameworks-libraries/react-todo-list-beginning",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "开始我们的 React 待办清单"
+  },
+  "resource_id": "lr_8aea4b087e15f8350491d6f5",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_c7cfe034dc992e09a7ceed3a",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "开始我们的 React 待办清单",
+    "text_hash": "adde13817ec021748c49ebfa799076cbd9e2458e5394b0b8deca37df2ad4c101",
+    "variant_version_id": "lrzv_b0c8556cb5fc912283155b43"
+  },
+  "variant_id": "lrz_f0f2cb549fc7e2bf787692c3",
+  "variant_version_id": "lrzv_b0c8556cb5fc912283155b43",
+  "visual_dependency": "helpful"
+}

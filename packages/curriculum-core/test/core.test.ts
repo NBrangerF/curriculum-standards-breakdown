@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict'
+import { randomUUID } from 'node:crypto'
+import { tmpdir } from 'node:os'
 import { test } from 'node:test'
 import { resolve } from 'node:path'
 import {
@@ -9,7 +11,10 @@ import {
     createKnowledgeGraphIndex,
     createMeilisearchDocuments,
     FileCurriculumRepository,
+    FileLearningResourceRepository,
     FileTextbookRepository,
+    learningResourceHash,
+    learningResourceIds,
     TextbookDetailRecordSchema,
     filterStandards,
     getLearningContext,
@@ -47,6 +52,30 @@ test('projectStandard hides admin fields by default', () => {
     assert.equal('review_status' in projected, false)
     assert.equal('source_standard_original' in projected, false)
     assert.equal('grade_assignment_type' in projected, false)
+})
+
+test('learning resource identities separate stable identity from content version', () => {
+    const resourceId = learningResourceIds.resource('bookdash', 'a-beautiful-day')
+    assert.equal(resourceId, learningResourceIds.resource('bookdash', 'a-beautiful-day'))
+    assert.match(resourceId, /^lr_[a-f0-9]{24}$/)
+
+    const firstVersion = learningResourceIds.resourceVersion(resourceId, { title: 'A Beautiful Day', revision: '1' })
+    const secondVersion = learningResourceIds.resourceVersion(resourceId, { title: 'A Beautiful Day', revision: '2' })
+    assert.notEqual(firstVersion, secondVersion)
+    assert.match(learningResourceHash({ b: 2, a: '中文\r\n' }), /^[a-f0-9]{64}$/)
+    assert.equal(
+        learningResourceHash({ b: 2, a: '中文\r\n' }),
+        learningResourceHash({ a: '中文\n', b: 2 })
+    )
+})
+
+test('learning resource repository fails open to an empty catalog before first generation', async () => {
+    const repository = new FileLearningResourceRepository(resolve(tmpdir(), `kebiao-missing-${randomUUID()}`))
+    assert.deepEqual(await repository.search(), [])
+    const standard = await repository.getForStandard('CN-D1-FAKE-001')
+    assert.equal(standard.standard_code, 'CN-D1-FAKE-001')
+    assert.deepEqual(standard.resources, [])
+    assert.deepEqual(standard.alignments, [])
 })
 
 test('buildGroundedStandardContext separates sources and quarantines flagged content', () => {

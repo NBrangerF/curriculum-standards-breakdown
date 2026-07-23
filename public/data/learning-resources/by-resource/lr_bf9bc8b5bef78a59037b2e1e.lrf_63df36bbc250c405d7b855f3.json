@@ -1,0 +1,1910 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_5600e87ec49edb57d4d827e2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子是一种用于按行或按列布局元素的一维布局方法。元素可以伸展以填充额外的空间，或收缩以适应较小的空间。本文将解释所有的基础知识。",
+        "text_hash": "e223752682914affd940fb57422421d1aea4f9a9fb5c98e8d60e434e85e3bc32",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6cb35bcd67e6c7b7152c1980",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：",
+        "text_hash": "60df7f5b49d0fd69c1a1ee4bda41ede8b786ae9d162b8a9a73e264bbf703119b",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5af8190844296345ca8abac8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "了解 使用 HTML 组织内容 、 CSS 样式基础 、 基础文本和字体样式 ，熟悉  CSS 布局基础概念 。",
+        "text_hash": "6d80caf3e16cd51f18d09e68a0f7fffbdd89653965e2954e5190a071f3ae3feb",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dd3cd39cdf1411b4c0c007a3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "学习成果：",
+        "text_hash": "df8de6d6c94c82775b23d09ee691c8bdfb524942bb01bfb0aa149aa4e1411a2a",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_577647fba93bf96dec38e5af",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子的目的——在一维方向上灵活布局一组块级或行内元素。\n           弹性布局术语——弹性容器、弹性项目、主轴和交叉轴。\n           了解  display: flex  默认提供的效果。\n           如何将内容换行换列。\n           弹性项目尺寸调整与排序。\n           内容对齐与排列。",
+        "text_hash": "2af8e23d3d871730c36b64d3b0a8705d2a3ddc55cf99b71e71d894e57716567d",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_35120b12a8b84343a90afabd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为什么使用弹性盒子",
+        "text_hash": "41be66dd375500e146ab4c907c4e5d3691f440eb67a2b0a49d618bcd93a8f03f",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b3c026403860015326a9aa0f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS 弹性盒子布局可让你：",
+        "text_hash": "3604aa3d9275e825956ee070b02318a87dc6519858b1f7d2023f506f1ae2300e",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ffd9fc0a58be48f311466023",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "将内容块在父容器内垂直居中。\n让容器的所有子元素均分可用宽度/高度，无论可用宽度/高度有多少。\n使多栏布局中的所有列采用相同的高度，即使它们包含的内容量不同。",
+        "text_hash": "3d7aba7595d8db379f80c7c0d01c69d7a61db3bf6df4445d93340b62b62b1b45",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_dfa17a424d4afe82b58313b9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子特性可能是满足一维布局需求的完美解决方案。让我们深入探讨，一探究竟！",
+        "text_hash": "a034e9516e442b54844d45e76a66fdff181155f138bbfcdeb886b5d279f29612",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fb3dc1642a7822b2ce192b4c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\nScrimba 的 Flexbox 入门指南  _MDN 学习合作伙伴_  提供了一份交互式指南，介绍了弹性盒子在 Web 中的广泛应用及其学习的重要性，并通过一个典型用例展示弹性盒子的强大功能。",
+        "text_hash": "bf1a603f43e3f7683d53575b1353ef477f32fa1094cd275915cfe03b36dc6da5",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_36d0cafff059243ec31bb8ee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个简单的例子",
+        "text_hash": "d6b26a4bca9cc3f77e620b2d2b085c857674f964038d19dcdf21b36fe21cd3c6",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_08a0547e9e3377a9e402c66b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在本文中，你将通过一系列练习来了解弹性盒子的工作原理。开始之前，请先将 HTML 和 CSS 文件保存到本地。在现代浏览器（如 Firefox 或 Chrome）中加载这些文件，并在代码编辑器中查看代码。或者，点击“运行”按钮在代码演练场中打开它们。",
+        "text_hash": "1e333c9799cc2473463631e1a84f1ee16860598cebf47bf813627cf719f9d1d9",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3ee8f16715c77a61e5752774",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html live-sample___flexbox_0",
+        "text_hash": "356f55548b30979c918ede169d9130b4f1fcdeda20b93f12c2e1d97c12738787",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a1a0b57a4484da970e59f5f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子示例",
+        "text_hash": "31684cfcf19eae38a7d6b542ab2f04c29fce4424472d683afd46bc633b549180",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4dd733525bb9c92d29ed6043",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一篇文章\n     内容",
+        "text_hash": "69166a02999777dbe07404d4a3a62556588dfb10be2780746da198fdcb03fc28",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e4e95bd34cb0480bdeb15ee6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二篇文章\n     内容",
+        "text_hash": "9fb2dac3d811ab5bac1f010e04734c12713509078f56a8800143d62e48b8c919",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_896a7c7e1587b997bd5776bb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第三篇文章\n     内容",
+        "text_hash": "4da2b4124e3f1419ecfcf762bc2275a7e8cc91dab38efb142bbfc7380f2e8ca1",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_de2199b7442811a42e78347e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css live-sample___flexbox_0\nbody {\n  font-family: sans-serif;\n  margin: 0;\n}\nheader {\n  background: purple;\n  height: 100px;\n}\nh1 {\n  text-align: center;\n  color: white;\n  line-height: 100px;\n  margin: 0;\n}\nsection {\n  zoom: 0.8;\n}\narticle {\n  padding: 10px;\n  margin: 10px;\n  background: aqua;\n}\n/* 在这里添加弹性盒子 CSS */",
+        "text_hash": "46b9f255d9a9a55366425f4e059750e3c1075dc62fc0a1e5c8ccfc219519d5c4",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_88ee05cd1a60fe7860160dce",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以看到这个页面有一个含有顶级标题的  元素，和一个包含三个  的 。我们将使用这些来创建相当标准的三列布局。",
+        "text_hash": "c628050897bec8f913c41ebad2544f7e181ef320ea56c23cf17185961995ef62",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bc9efa3cec0a6762ef19a4a3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "指定哪些元素应作为弹性盒子进行布局",
+        "text_hash": "41b330469b3780853bc5532d28c5af1660e3b78dca157cbb831187224057100c",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f54ea6a890eaf85adabb4c6a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，我们需要选择将哪些元素将设置为弹性盒子。为此，我们需要在目标元素的父元素上设置一个特殊的  值。在本例中，我们需要对  元素进行布局，因此将该属性设置在  上：",
+        "text_hash": "92db0cef693545eb894bb2d218185302670219900b5bce64713879bf6542ba12",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0b584588821cd6f544359f54",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden live-sample___flexbox_1",
+        "text_hash": "ee55d4b00d7fbadfd9b5728556b63bed9cdd75818977c11085fb2a23ba1bb167",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cc8c679bc7767f6a06a6fcbb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子示例",
+        "text_hash": "31684cfcf19eae38a7d6b542ab2f04c29fce4424472d683afd46bc633b549180",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_969eb0b7b9e8537656e36a64",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一篇文章\n     内容",
+        "text_hash": "69166a02999777dbe07404d4a3a62556588dfb10be2780746da198fdcb03fc28",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_625afc6c4022c6be53aa7268",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二篇文章\n     内容",
+        "text_hash": "9fb2dac3d811ab5bac1f010e04734c12713509078f56a8800143d62e48b8c919",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dbe31197911f0087421a8c6d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第三篇文章\n     内容",
+        "text_hash": "4da2b4124e3f1419ecfcf762bc2275a7e8cc91dab38efb142bbfc7380f2e8ca1",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9d857093575ce4780dbd04da",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden live-sample___flexbox_1\nbody {\n  font-family: sans-serif;\n  margin: 0;\n}\nheader {\n  background: purple;\n  height: 100px;\n}\nh1 {\n  text-align: center;\n  color: white;\n  line-height: 100px;\n  margin: 0;\n}\nsection {\n  zoom: 0.8;\n}\narticle {\n  padding: 10px;\n  margin: 10px;\n  background: aqua;\n}\n/* 在这里添加弹性盒子 CSS */",
+        "text_hash": "d828a83043ca74abdabd17b13882a91143d7531e839b6f6ed9c6cac50d721927",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_46a9f9b8fd392179e1d11f5a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css live-sample___flexbox_1\nsection {\n  display: flex;\n}",
+        "text_hash": "3e3080a25027c882da4d575e5af5d13191448528572dbf2c41f4eec4c53c3b78",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2b895c0a0cd17b28bc407778",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这会使   元素成为一个**弹性容器**，其子元素则成为**弹性项目**。效果如下：",
+        "text_hash": "e4456d30fb94a6e31f515b90aa010884e12c16bbf3940245a131ab082d774d31",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d44cae67435fda183bc9d4a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这一行声明就满足了我们所有需求。太神奇了，对吧？我们得到了一个多列布局，所有列的宽度相等，高度也完全一致。这是因为弹性项目（弹性容器的子元素）的默认值正是为了解决此类常见问题而设计的。",
+        "text_hash": "ba93d69ce58e954332e23ec2796b34e97d04c888c603cd6d64d25e0f0a5199f2",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f0839655bf4f2f4ca2620202",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们回顾一下这里发生了什么。为元素添加值为 flex 的 ，会将其转换为弹性容器。就其与页面其余部分的交互方式而言，该容器被视为块级内容。当元素转换为弹性容器时，其子元素也会被转换为（并按弹性项目进行布局）弹性项目。",
+        "text_hash": "d9ae1cf67134b7af7777a8c08ff94f5fe78ded6cb43bf97ecb9a620628dcb626",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_388fa0408b0b6d3d8b97866d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以使用外部 display 值（例如 display: inline flex）将容器设置为行内布局，这会影响容器本身在页面中的布局方式。旧版 inline-flex 显示值同样会将容器显示为行内元素。本教程将重点探讨容器内内容的行为，但若想了解行内布局与块级布局的效果差异，可查阅 display 属性页面上的值比较。",
+        "text_hash": "8a643910e2aaada31a36383ac48807f0e14bdd251033cb9b13c57a5da508cb28",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5f6f21befbc1aa769d733ee8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来的章节将更详细地解释什么是弹性项目，以及当你将一个元素设为弹性容器时，该元素内部会发生什么。",
+        "text_hash": "5cf3b22106e6c74fe776bdf15a761ec8d9b742929c5fb9c91e56adf9a2bb29b8",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_190e00ba9612db206ca872c7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性布局模型",
+        "text_hash": "72c2093f70c2e90c640b0473c749a55b9798ffe376c702e70716dd8bab2982d3",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e68515875dbada4a3e6eb826",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当元素作为弹性布局项进行布局时，它们会沿着两个轴来布局：",
+        "text_hash": "d5f6b0f0e95a1ff4d3b0b44d6c0752ee9530b68fde9302e19ba04de88d76a5e0",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1cf779c464f24aaf3c946d27",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在从左到右的语言环境中，三个弹性项目在弹性容器中并排布局。主轴——即弹性项目布局方向上的弹性容器轴——为水平方向。主轴的两端分别为 main-start 和 main-end，分别位于左侧和右侧。交叉轴为垂直方向，与主轴垂直。交叉轴的两端分别为 cross-start 和 cross-end，分别位于顶部和底部。弹性项目沿主轴的长度（在此情况下即宽度）称为主尺寸，沿交叉轴的长度（在此情况下即高度）称为交叉尺寸。",
+        "text_hash": "0bc762817daf54769c2d4d23963bc2a0beb9ee4d12c7ee5124a011f0381e92f7",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9204f87004f9a1d6751d89af",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**主轴**（main axis）是指沿弹性项目布局方向延伸的轴（例如，横跨页面的一行，或纵向排列的一列）。该轴的起始点和终点分别称为**主起始点**和**主终点**。从主起始点边缘到主终点边缘的长度即为**主尺寸**。\n**交叉轴**（cross axis）是指与弹性项目布局方向垂直的轴。该轴的起始点和终点分别称为**交叉起始点**和**交叉终点**。从交叉起始点到交叉终点的长度即为**交叉尺寸**。\n设置了 display: flex 的父元素（在本例中是 ）被称之为**弹性容器**（flex container）。\n在弹性容器内作为弹性盒布局的项目称为**弹性项目**（flex item）（本例中是  元素）。",
+        "text_hash": "21f45c0c31028952f72c0bdee88b62461cdd07c4e2a872474c9a8f081fca4039",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_0e289a741fd47894db5d60c8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "了解这些术语以便你阅读后续章节。如果你对使用的任何术语感到困惑，你可以随时返回这里。",
+        "text_hash": "e5304950a0304c7d89c0a9d3ee4845c49d7fd3afb24c7e18b9f3aeb2d7dc5f76",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0bd1bbeba2fe138bc4703ae4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "列还是行？",
+        "text_hash": "e9418d5c2e82bb689d0e665687c4bd29139ae3672168a1c2786f39a6066f7391",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_cfe3775845ceebd9655101bb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子提供了  这样一个属性，它可以指定主轴的方向（弹性盒子子类放置的地方）——它默认值是 row，这使得它们在按你浏览器的默认语言方向（在英语/中文浏览器中，是从左到右）排成一行。",
+        "text_hash": "88c81f529a67d202db92790fa4adcc0944757bb608eec72b30c6f73e0261e3f5",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c0ac90bd1a7fd3ffc06a96eb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "尝试将以下声明添加到  元素的 css 规则里：",
+        "text_hash": "b30c8cf39fb3f777cca43af24e083fd943f69dc3b29717bbd38a4c54bd153be0",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_28d2bf0ee98ff8ac450bd29d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nflex-direction: column;",
+        "text_hash": "34798dc2337e5c149055ad953deba4f80540db4d60a23d475be50e210f1eede9",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9621f67bf4f708c194b9b2ca",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你会看到，这会将那些元素设置为列布局，就像我们添加这些 CSS 之前。在继续之前，请从示例中删除此规则。",
+        "text_hash": "333b753a1a26bf21efa2885fcfd728fb8a468ebc0571aa456fa26656da50e0c0",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b185446f60d474f22bc4e882",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你还可以使用 row-reverse 和 column-reverse 值反向排列弹性项目。用这些值试试看吧！",
+        "text_hash": "938ea8eec070d18959d4c9a07a808d5685c4aebcbdaa98da300b59693df8efc9",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_d147c1a5112a156123f3b7d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "换行",
+        "text_hash": "bd609a8e2d40f3ef65f1f81e7fa834f4f5283277e1ae96605a408071c2675b6e",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_9b1e70a91d3da86e9a8640b7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在布局中使用固定宽度或高度时，会出现一个问题：最终，Flexbox 的子元素会溢出其容器，从而破坏布局。在下面的示例中，我们有 5 个 ，由于它们的 min-width 属性设置为 400px，因此无法完全容纳，从而产生了水平滚动条。",
+        "text_hash": "dcaeae6d7dba35e58012de59323163d5c19ddb184a297a3bbaa70a398a50f0ff",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dfe22eeb5b497170c23386be",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden live-sample___flex-wrap_0",
+        "text_hash": "a3b7e0a96ad003b19536644f77683247ec4ea92d2398691eb9e5a23b79825a69",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f886a64fe8b08f4decbc393d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子示例",
+        "text_hash": "31684cfcf19eae38a7d6b542ab2f04c29fce4424472d683afd46bc633b549180",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_96b2e97cf376ec5be7b3b256",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一篇文章\n     内容",
+        "text_hash": "69166a02999777dbe07404d4a3a62556588dfb10be2780746da198fdcb03fc28",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ec09ee2150d5f523b171b280",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二篇文章\n     内容",
+        "text_hash": "9fb2dac3d811ab5bac1f010e04734c12713509078f56a8800143d62e48b8c919",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_45cc4aed9dfae7e44bdd9f36",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第三篇文章\n     内容",
+        "text_hash": "4da2b4124e3f1419ecfcf762bc2275a7e8cc91dab38efb142bbfc7380f2e8ca1",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bcb60303aa73d5a28a7fa62e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第四篇文章\n     内容",
+        "text_hash": "8099d5eb1f688d760624bec54c5a7d51d9deae2425ddaf1c14450f33063d4d93",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e3dbd3ae24da63647fde745c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第五篇文章\n     内容",
+        "text_hash": "067776e7ed8ddac90c3ab4520b44118205e7e6ee35bba2c1fceda737dcfdbc5d",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4db3fc14943e2c61a361c56d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden live-sample___flex-wrap_0\nbody {\n  font-family: sans-serif;\n  margin: 0;\n}\nheader {\n  background: purple;\n  height: 100px;\n}\nh1 {\n  text-align: center;\n  color: white;\n  line-height: 100px;\n  margin: 0;\n}\narticle {\n  min-width: 400px;\n  padding: 10px;\n  margin: 10px;\n  background: aqua;\n}\nsection {\n  display: flex;\n  flex-direction: row;\n  zoom: 0.8;\n}",
+        "text_hash": "c37960b44b3793c1621bb44602a7ec5e214d25fd1544a82aaad3c27d756b0300",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_842c74a5da66ec55ad62852a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里我们可以看到，子元素确实超出了容器的边界。默认情况下，如果 flex-direction 设置为 row，浏览器会尝试将所有弹性项目排列在一行中；如果 flex-direction 设置为 column，则会尝试排列在一列中。",
+        "text_hash": "efe4cae49ba815ab3882d3f54bf510151fdaad53703d47333bf2d0bc7dfbe438",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fa18268c5c1689083e8e473e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden live-sample___flex-wrap_1",
+        "text_hash": "6b4652b74d2fa5c6d6677f0817da93deb87b293e48ee1860e7f7a0e4b419683c",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3d1b14cef45aa8708ac90b20",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子示例",
+        "text_hash": "31684cfcf19eae38a7d6b542ab2f04c29fce4424472d683afd46bc633b549180",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c5ce647397b60672ade7d686",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一篇文章\n     内容",
+        "text_hash": "69166a02999777dbe07404d4a3a62556588dfb10be2780746da198fdcb03fc28",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7e4edbcbf17b2db366f97930",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二篇文章\n     内容",
+        "text_hash": "9fb2dac3d811ab5bac1f010e04734c12713509078f56a8800143d62e48b8c919",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d95693b44427fcff37383356",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第三篇文章\n     内容",
+        "text_hash": "4da2b4124e3f1419ecfcf762bc2275a7e8cc91dab38efb142bbfc7380f2e8ca1",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_008ec80d77cf8f153bd87e5c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第四篇文章\n     内容",
+        "text_hash": "8099d5eb1f688d760624bec54c5a7d51d9deae2425ddaf1c14450f33063d4d93",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a13f0c356bcddd566262dbe5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第五篇文章\n     内容",
+        "text_hash": "067776e7ed8ddac90c3ab4520b44118205e7e6ee35bba2c1fceda737dcfdbc5d",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f56ed44816403e69f20c7767",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden live-sample___flex-wrap_1\nbody {\n  font-family: sans-serif;\n  margin: 0;\n}\nheader {\n  background: purple;\n  height: 100px;\n}\nh1 {\n  text-align: center;\n  color: white;\n  line-height: 100px;\n  margin: 0;\n}\narticle {\n  min-width: 400px;\n  padding: 10px;\n  margin: 10px;\n  background: aqua;\n}\nsection {\n  display: flex;\n  flex-direction: row;\n  zoom: 0.8;\n}",
+        "text_hash": "12eddf8239c9a208e9468e8708fd11ba07721e1724473797ef46b1294d1538b0",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7c46bd02027af0aa58db0652",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "解决此问题的一种方法是在  规则中添加以下声明：",
+        "text_hash": "eda8a54daaf1683cd2a35128cef892f5b80fa1db35467c9d803b94d4f0b6d222",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8406c59de1e5a9c370de77e3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css live-sample___flex-wrap_1\nsection {\n  flex-wrap: wrap;\n}",
+        "text_hash": "b3d4d62307ccca8771e6f28199e600ce0b9a0ebfc26c8c41b18a5733cd1c69a0",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_94c625096f5d53b737f0a9a9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你会发现，加入这一部分后，布局效果会好得多：",
+        "text_hash": "babc6512cd3f7bb1110f69f5897d9dadf0ed9076fadea2b92c5bbe7b88cde7e0",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3bfc74f2d3712eea3c65b779",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在我们有了多行布局。每行都会合理地容纳尽可能多的弹性盒子子元素。任何溢出的内容都会移至下一行。",
+        "text_hash": "3e01d2dba4b7b871794d47aa82587b751818036a4da971aaf567ae1562e13a4b",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_df3b668b3519f4f642f2db9c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们还可以进一步调整。首先，改变  属性值为 row-reverse。现在你会发现，多行布局依然存在，但布局起点已切换至浏览器窗口的对角线另一端，且内容流向也发生了逆转。",
+        "text_hash": "3e3510534756a473634af01ba367077a1cd900c6aca3ed2fcb80ae76ebcc38b0",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_376045d9bd789363b057f73c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "flex-flow 简写",
+        "text_hash": "ab4ab09c09ac26091cfed8eac875e7a91df7a757da985ffc3404f41909cef22d",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_770c27d23b766b7450340bb5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "到这里，应当注意到存在  和  的的简写形式：。比如，你可以将",
+        "text_hash": "5daf0591b0d4dbde4fa96fb7cd81490669f7d34e977cfd205ef9a50ecaedc165",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0d4628db5dffb9f42a2e4b0b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nflex-direction: row;\nflex-wrap: wrap;",
+        "text_hash": "1b2d9e59d1e6960fd8f05e788ebcd3c75cb3258e858bbe18f0d405b6eddae921",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_40b78779dbd2fa2bf6c03f2d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "替换为",
+        "text_hash": "7d37f059645bf210d081ffac012bd8d7c9a42b27ad323d7ec3c6e10183887e35",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_15e3343b094254892e26c3d4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nflex-flow: row wrap;",
+        "text_hash": "a856b6a166a64089e8d6c7f8a13173d8592d7aff44ad09840351b89196e06d30",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0f0b302d5f17868524e789cb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性项目的动态尺寸",
+        "text_hash": "56dc50726aac2611a1931ef172e84f3faa44a66fa0b28f1cd3f40ee2a206d651",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_c5616b1d7cc76409b25dd8bc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在让我们回到第一个示例，看看如何控制弹性项目相对于其他弹性项目所占的空间比例。",
+        "text_hash": "199bd3e4adcb13bbcbb8ae7bffdb8f18c17b70f32bf929e097ac5513b80b9a19",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_458195391fa3dbd7d61946bb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden live-sample___flexbox_2",
+        "text_hash": "146bf178944b281038dc374d54c6cd14268e435681b497313f64ea4cb22a1366",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_76c1f37e703bd5b31062eecb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子示例",
+        "text_hash": "31684cfcf19eae38a7d6b542ab2f04c29fce4424472d683afd46bc633b549180",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e555373f71bdc225b6284f59",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一篇文章\n     内容",
+        "text_hash": "69166a02999777dbe07404d4a3a62556588dfb10be2780746da198fdcb03fc28",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b8fdd430f3329a6cf9e660ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二篇文章\n     内容",
+        "text_hash": "9fb2dac3d811ab5bac1f010e04734c12713509078f56a8800143d62e48b8c919",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e170df3ac32051ac0ec9ae93",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第三篇文章\n     内容",
+        "text_hash": "4da2b4124e3f1419ecfcf762bc2275a7e8cc91dab38efb142bbfc7380f2e8ca1",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9f99c812bb6eb7485a764d24",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden live-sample___flexbox_2\nbody {\n  font-family: sans-serif;\n  margin: 0;\n}\nheader {\n  background: purple;\n  height: 100px;\n}\nh1 {\n  text-align: center;\n  color: white;\n  line-height: 100px;\n  margin: 0;\n}\narticle {\n  padding: 10px;\n  margin: 10px;\n  background: aqua;\n}\nsection {\n  zoom: 0.8;\n  display: flex;\n}",
+        "text_hash": "00f92f0309cfe59755563f8dbcc6fe3c8c3d04059b4abd07440007dc5135476e",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_14beff04319f87a9ab6d629c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在本地副本中，将以下规则添加到 CSS 文件末尾：",
+        "text_hash": "5b5d14f1cabef17f2ed8edb72ca1bba0e73d5703883cf4010e30145c1de9e39b",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1b334e52c9b747bad1482232",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css live-sample___flexbox_2\narticle {\n  flex: 1;\n}",
+        "text_hash": "c2b49e2b1a11f34070cfa39da783065d1602d3d29ab2300f0a5b39f7a98e4f4a",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2ff84114018af686b2ef6c27",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这是一个无单位的比例值，表示每个 flex 项沿主轴的可用空间大小。本例中，我们设置  元素的 flex 值为 1，这表示每个元素占用空间都是相等的，占用的空间是在设置内外边距之后剩余的空间。该值将按比例分配给各个弹性项目：如果将每个弹性项目的值设为 400000，效果将完全相同。",
+        "text_hash": "a911e709b03b42018d41c58dd78ee5e1470e3030101c11f2020210271d7889af",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_37f9a6cc9a2f9975101adc87",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden live-sample___flexbox_3",
+        "text_hash": "b034be0a55798164b764033ec0a967d98c0153360ec3d5f54b66655dab95378f",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e61140a7cffdb1d5e096f353",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子示例",
+        "text_hash": "31684cfcf19eae38a7d6b542ab2f04c29fce4424472d683afd46bc633b549180",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b463d4a5895900d384fdfabd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一篇文章\n     内容",
+        "text_hash": "69166a02999777dbe07404d4a3a62556588dfb10be2780746da198fdcb03fc28",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_57d1b9a2c26d214b3f33d3c9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二篇文章\n     内容",
+        "text_hash": "9fb2dac3d811ab5bac1f010e04734c12713509078f56a8800143d62e48b8c919",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ce2814556fc8dd0bb202dc2f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第三篇文章\n     内容",
+        "text_hash": "4da2b4124e3f1419ecfcf762bc2275a7e8cc91dab38efb142bbfc7380f2e8ca1",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c1ead4eb4a52c1c3ce4a891c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden live-sample___flexbox_3\nbody {\n  font-family: sans-serif;\n  margin: 0;\n}\nheader {\n  background: purple;\n  height: 100px;\n}\nh1 {\n  text-align: center;\n  color: white;\n  line-height: 100px;\n  margin: 0;\n}\narticle {\n  padding: 10px;\n  margin: 10px;\n  background: aqua;\n}\nsection {\n  zoom: 0.8;\n  display: flex;\n}\narticle {\n  flex: 1;\n}",
+        "text_hash": "98b3e0f6ca7ffa56215d5b1942b34752e62741853e377ec7d55960a18b3add9c",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5eaea2525edb9cf567e946ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在在上一个规则后面添加：",
+        "text_hash": "75c510fc658e3ce7e9ce4974271ed21595110f6bf5addbeea37f84a2c5184eba",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9bdbec65777b6f5ba2727b81",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\narticle:nth-of-type(3) {\n  flex: 2;\n}",
+        "text_hash": "18074f553d2e0cf4870cc7358ad1e5db64ce20bb74c4c43df92bd6d2b433bc13",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eab2825f1e25260225df1b3e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在当你刷新，你会看到第三个  占用的可用宽度是另外两个的两倍。目前总共有四个比例单位可用（因为 1 + 1 + 2 = 4）。前两个弹性项目各占一个单位，因此它们各自占据可用空间的 1/4。第三个项目占两个单位，因此它占据了可用空间的 2/4（即一半）。",
+        "text_hash": "d5420592fbda4cf0eb6590e355bdbe622129092a5c2f324ae3b302f8a1294248",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_50f295e38d145aa7969ece27",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你还可以指定 flex 的最小值。尝试修改现有的 article 规则如下：",
+        "text_hash": "6d16ddfb7576e2a4c7bf20644435b8743a93b43df0de92bdc076ef2d57adbdef",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_16650d1394c5dba8bd294032",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden live-sample___flexbox_4",
+        "text_hash": "3d35f49e9dcd99ad9180e3f0d8aac25577a2c203ce1db089ed867d9a24464094",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_18e6b372f44cbb1088323210",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子示例",
+        "text_hash": "31684cfcf19eae38a7d6b542ab2f04c29fce4424472d683afd46bc633b549180",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_25729faf902ab4c44a7040d8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一篇文章\n     内容",
+        "text_hash": "69166a02999777dbe07404d4a3a62556588dfb10be2780746da198fdcb03fc28",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e5df30e9734c5e3cfbe8b4a2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二篇文章\n     内容",
+        "text_hash": "9fb2dac3d811ab5bac1f010e04734c12713509078f56a8800143d62e48b8c919",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f4532df2b0f31807a22760fb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第三篇文章\n     内容",
+        "text_hash": "4da2b4124e3f1419ecfcf762bc2275a7e8cc91dab38efb142bbfc7380f2e8ca1",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b1eec7a42298e55a0f16f26d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden live-sample___flexbox_4\nbody {\n  font-family: sans-serif;\n  margin: 0;\n}\nheader {\n  background: purple;\n  height: 100px;\n}\nh1 {\n  text-align: center;\n  color: white;\n  line-height: 100px;\n  margin: 0;\n}\narticle {\n  padding: 10px;\n  margin: 10px;\n  background: aqua;\n}\nsection {\n  zoom: 0.8;\n  display: flex;\n}",
+        "text_hash": "bf987b26b74d90ddec8ff00958a918c46cfa5b6701d49ed9c0129afafb993817",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_02d283af479896ea0e6c8220",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css live-sample___flexbox_4\narticle {\n  flex: 1 100px;\n}",
+        "text_hash": "09bed0ef0d89a635c22f5e801369584425f0cd861fd442beabf82186e4a784b0",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7e6409499a92ea2ff04192fc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "article:nth-of-type(3) {\n  flex: 2 100px;\n}",
+        "text_hash": "89e6efde4fa1cbf1e11a34e3bc5885d995d7030bf144c568dbcdab3a3c29f380",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5b23371f524daaa2f8c95afb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这表示“每个 flex 项将首先给出 100px 的可用空间，然后，剩余的可用空间将根据分配的比例共享”。尝试刷新，你会看到分配空间的差别。",
+        "text_hash": "91e384e43a8db01ad3ef93c7442ceae418ef9e34625a80966062b615e6594528",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bf462281bfa6b5cee636921c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "所有弹性项目都有 100 像素的最小宽度——这是通过“flex”属性设置的。前两个弹性项目的 flex 值为 1，第三个弹性项目的 flex 值为 2。这将弹性容器中的剩余空间划分为 4 个比例单位。前两个弹性项目各分配 1 个单位，第三个弹性项目分配 2 个单位，因此第三个弹性项目的宽度大于另外两个（它们的宽度相同）。",
+        "text_hash": "18c808756197c1aa68437069b5585b71e903c6be088847e8b03ef8c9e22df10f",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d6420dd67263a2b958d4a5da",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子的真正价值体现在其灵活性与响应性上。无论调整浏览器窗口大小，还是添加另一个  元素，布局都能保持正常运行。",
+        "text_hash": "34fbbe5b33b87145719e625e26ee14d5ce8cb63ba2dbff85e492fe5e4f902776",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6d25bf94d51956daed4dc76a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "flex：简写与全写",
+        "text_hash": "cbc6617241fb5b2a256d2676d63880a425fcc8648c18153a527f17ee5b02d703",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2adb0d4278cb95e3db716e8f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "是一个可以指定最多三个不同值的简写属性：",
+        "text_hash": "88f5713498fa4893600134dd0bbe5865c3879d69fc21648fc1b59cac7d99b4fc",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b4c7cd48aca6602ae2aae117",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一个就是上面所讨论过的无单位比例。可以单独指定  全写属性的值。\n第二个无单位比例值————一般用于溢出容器的弹性项目。这指定了从每个弹性项目中取出多少溢出量，以阻止它们溢出它们的容器。这是一个相当高级的弹性盒子特性，我们不会在本文中进一步说明。\n第三个是上面讨论的最小值。可以单独指定  全写属性的值。",
+        "text_hash": "322ce70f459cec41f76d9a41e1c8016c5f16f01dd153bcd008574ee3ff1f3f68",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_3d4afa9035a16d3e9461c694",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们建议不要使用 flex 全写属性，除非你真的需要（比如要去覆盖之前写的）。使用全写属性会多写很多的代码，它们也可能有点让人困惑。",
+        "text_hash": "e45a7cf6645e839e068d68f52ba589dc58c46612a80c38fc7a13d59a75d33484",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d7f1e570c539347b8d88ff5e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "水平和垂直对齐",
+        "text_hash": "1f3a0a340d8ff3feccbdcdd3aeb9950e65ef59140978b25e9d6c2bf3554c459e",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_792eb4af90b396b0ae49fa54",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "还可以使用弹性盒子的功能让弹性项目沿主轴或交叉轴对齐。让我们一起看一下新例子：",
+        "text_hash": "6df39a163f34d1e97403f7e3d690ad411fb02b02703a5bf02e114d65fe97aaad",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eff200c89fd50223289ba932",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html live-sample___flex-align_0",
+        "text_hash": "e173bc80fe030f1345b2357fb1d29707663f61abfeaa95531eec0c3232746fae",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ca7d39fc7f877440f0debb14",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "微笑\n   大笑\n   眨眼\n   耸肩\n   脸红",
+        "text_hash": "323de97a195a04bbf81c6650b6bfa619c691d6b5987f8fe0acc1232de8bf3b1a",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_94305e2baccd6d3039d85e39",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css live-sample___flex-align_0\nbody {\n  font-family: sans-serif;\n  width: 90%;\n  max-width: 960px;\n  margin: 10px auto;\n}\ndiv {\n  height: 100px;\n  border: 1px solid black;\n}\nbutton {\n  font-size: 18px;\n  line-height: 1.5;\n  width: 15%;\n}\n/* 在这里添加弹性盒子 CSS */",
+        "text_hash": "522b9e1664cf481f159f85122af204e94671fad48ed22163f067cb2479cb5810",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f030fce742b655687c327b3c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们将把它改造成一个整洁且灵活的按钮/工具栏。目前，你会看到一条水平菜单栏，上面的一些按钮被挤在左上角。",
+        "text_hash": "e7473a208642511ec39d3c4b68bbbeb7ce694212d108db54f4f7d8d261aee180",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_407b44adcc05d4f0d85aef47",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，将此示例下载到本地。",
+        "text_hash": "5ba7cbebb0ed1120eac651cfa18cac71a6ba08ca1f0c50368106c1d9e18f4852",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3dae722d970da4616d1dbefe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在，请在示例 CSS 的末尾添加以下内容：",
+        "text_hash": "285cba1c508f9a742fd140acd04a54ef51ea702cc987fd60e0ae154d4c391352",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6e839f9daecf5a945416c67b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden live-sample___flex-align_1",
+        "text_hash": "57d3cd0bbadec0263d2d3f8f98266256486823842b24043b3f698615fb449a23",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_af32422905adbf7d8f5b3061",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "微笑\n   大笑\n   眨眼\n   耸肩\n   脸红",
+        "text_hash": "323de97a195a04bbf81c6650b6bfa619c691d6b5987f8fe0acc1232de8bf3b1a",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0914c432184e5e0e2f3c84e0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden live-sample___flex-align_1\nbody {\n  font-family: sans-serif;\n  width: 90%;\n  max-width: 960px;\n  margin: 10px auto;\n}\ndiv {\n  height: 100px;\n  border: 1px solid black;\n}\nbutton {\n  font-size: 18px;\n  line-height: 1.5;\n  width: 15%;\n}\n/* 在这里添加弹性盒子 CSS */",
+        "text_hash": "ba346fb59983b0be695f62e33a37b97cbc837d4ac018328edb12604c57207289",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_32e097bdbfa85c2eb759dae1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css live-sample___flex-align_1\ndiv {\n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n}",
+        "text_hash": "7e85d14d3f9c465cc41ffb10a0283170fb7fd9db83a4c89f5c39a1ed3effe1f2",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c7fb16e60e9e3efe64f54eab",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "刷新一下页面，你就会看到这些按钮很好的垂直水平居中了。我们是通过两个新的属性做到的。通过将 align-items 属性设置为 center，弹性项目被定位在交叉轴的中心。通过将 justify-content 属性设置为 space-around，弹性项目在主轴上均匀分布。",
+        "text_hash": "03ce015cd2e36e0a51795e3fa8572539db11ecf45414bd2d77ef92a9985a4369",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f5d62c59169fb05ffd4cf9f6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "控制弹性项目在交叉轴上的位置。",
+        "text_hash": "5936847dd7b9f16812fbe778129014bec409473898868aefb0d778bf747e4802",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cd9b0da8bb837468e3f47897",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "默认情况下，normal 值在弹性盒子中表现为 stretch。这会将所有弹性项目沿交叉轴方向拉伸以填满父容器。如果父容器在交叉轴方向上没有固定尺寸，那么所有弹性项目的高度（或宽度）都会与最高的（或最宽的）弹性项目一致。这就是为什么我们在第一个示例中默认得到了高度相等的列。\n我们在上述代码中使用的 center 值会让项目保持其固有尺寸，但沿横向轴居中。这就是为什么当前示例中的按钮在垂直方向上居中的原因。\n你还可以使用 flex-start、self-start 或 start 以及 flex-end、self-end 或 end 这样的值，它们将分别将所有项目对齐到横向轴的起始端和结束端。baseline 值将根据弹性项目的基线进行对齐；基本上，每个弹性项目第一行文本的底部将与那个基线到横向起始点距离最大的元素的第一行底部对齐。详见 。",
+        "text_hash": "30fcb3d792c548b652c5b5242c3ccd9f2b842c2956d1ce73cafa3d7567ea297f",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_b28cf8b87ce0dd4297b31816",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以通过为单个弹性布局项应用  属性，来覆盖  的行为。例如，请尝试在 CSS 中添加以下内容：",
+        "text_hash": "ec31dfbf0d777cb4bdfaa8dd8a6861b24a28b55d0cea30c14aa6c0a113f78021",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_96e842c6a9e1f8aa10dddfc8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden live-sample___flex-align_2",
+        "text_hash": "febb7f19bee6f31fdb3f4de464e2e333b17e152890b1bf97cbb161c1c99ab203",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9530bddfc74e2771c80e2ed5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "微笑\n   大笑\n   眨眼\n   耸肩\n   脸红",
+        "text_hash": "323de97a195a04bbf81c6650b6bfa619c691d6b5987f8fe0acc1232de8bf3b1a",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3fc76a93db52d5ad449048d9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden live-sample___flex-align_2\nbody {\n  font-family: sans-serif;\n  width: 90%;\n  max-width: 960px;\n  margin: 10px auto;\n}\ndiv {\n  height: 100px;\n  border: 1px solid black;\n}\nbutton {\n  font-size: 18px;\n  line-height: 1.5;\n  width: 15%;\n}\ndiv {\n  display: flex;\n  align-items: center;\n  justify-content: space-around;\n}\n/* 在这里添加弹性盒子 CSS */",
+        "text_hash": "758b0e605d67d7e036bf104a46946537b54c1940da26354aaa490955363de897",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eddc03bfcb10e1857d4bfa63",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css live-sample___flex-align_2\nbutton:first-child {\n  align-self: flex-end;\n}",
+        "text_hash": "046ea28c838280c5b6d4f3c895a652781cf2102a5a86aca3f773bbd3b61d1df5",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_03a894b34aa2c8d118a2830c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "看看这会产生什么效果，完成后再将其删除。",
+        "text_hash": "95deac5bdd05cb0599b94c87699fe6255ffd22ff179f0e16588d59bab12d6382",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_417fa8a6adfc87fe46792940",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "控制弹性项目在主轴上的位置。",
+        "text_hash": "3f1b64f9ab2a2df1f55511e971723b954bd39cb452cb803675c9bd606d84d928",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d0ab4ef3a8cc86e6d0b7432b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "默认值为 normal，其行为与 start 相同，即让所有项目位于主轴的起始端。\n可以使用 end 或 flex-end 让它们位于主轴的末端。\nleft 和 right 的行为取决于书写模式的方向，分别对应 start 或 end。\ncenter 也是 justify-content 的一个取值。它会使弹性项目位于主轴的中心。\n上文中使用的 space-around 非常实用——它会将所有项目均匀地分布在主轴上，并在两端各留出一小段间距。\n还有另一个值 space-between，它与 space-around 非常相似，区别在于它不会在两端留出任何间距。",
+        "text_hash": "402b91735579235c32a56a8d5632843687ecbc6d36d50f9c4887a2987534095c",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_0b86576b05841c40eaea1298",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在弹性盒布局中， 属性将被忽略。",
+        "text_hash": "563efb771430a76b8cde0ddd55c8e52dad192fe86a572cef983ce4d10afe0a06",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8d3d1745d7f24a861796cda3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在继续下面之前，多多使用提到过的属性吧，看看它们的效果。",
+        "text_hash": "b821ce7daeb4996090be054dc879289c8dc874c15cddf9e7bfe2b599cfc2d6ba",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3d76fb18d36c1027e7fe28a5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性项目排序",
+        "text_hash": "961c3bc33d6f0369e789915b655ec775751372a914c2146673f658b8ff990afb",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e84262380c4fa4728990840e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子还提供了一种特性，可以在不影响源代码顺序的情况下更改弹性项的布局顺序。这也是传统布局方法无法实现的。",
+        "text_hash": "105d1fa35aff92524944667c900bdc4645a7f7dd50812210b3c0a8dab57f1771",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_598c0dad7a5ee78ed0eb06b7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "请尝试在按钮栏示例代码中添加以下 CSS：",
+        "text_hash": "78bfea41e84f5d987c3af15a8444b8a4f49fb37b679d4456f69a4df2455f3d61",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_766927c7866cbe948fb44680",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nbutton:first-child {\n  order: 1;\n}",
+        "text_hash": "7d2c3a29baaa579565d2c28619bf5b63a16e34e23ece147c9868672b4a91fe08",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_437e4674111b7ed12bbcbd30",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "刷新下，然后你会看到“微笑”按钮移动到了主轴的末尾。下面我们谈下它实现的一些细节：",
+        "text_hash": "cad9b91225c7fdd3ca0e492929a4cadcb58e06faa6d3490dbf729dcbb27057d5",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72b67d4a6aa176bfeaa98951",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "所有弹性项目默认的  值是 0。\norder 值大的 flex 项比 order 值小的在显示顺序中更靠后。\n相同 order 值的 flex 项按源代码顺序显示。所以假如你有四个元素，其 order 值分别是 2、1、1 和 0，那么它们的显示顺序就分别是第四、第二、第三和第一。\n第三个元素显示在第二个后面是因为它们的 order 值一样，且第三个元素在源代码顺序中排在第二个后面。",
+        "text_hash": "6c70649d40068811546c3b26db8e54282d51d59bb060880f04d04f8fd49b9795",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_c6f81b188b22b1718a27a740",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你也可以给 order 设置负值使它们比值为 0 的元素排得更前面。比如，你可以设置“脸红”按钮排在主轴的最前面：",
+        "text_hash": "880beb1802ccf2111dd6457320638f90ecc278baaef88b26f427823dec5055b4",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d07c212247bf4155c0facaf1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nbutton:last-child {\n  order: -1;\n}",
+        "text_hash": "230f98f2264541a0c808a2185097b241034e336cb1d6338fefb8824a9dd87c85",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c1b47631aaddbe9e324ad528",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "虽然可以使用 order 属性更改顺序，但 Tab 键的焦点顺序仍与代码中的顺序一致。更改可聚焦元素的顺序可能会对键盘用户的可用性产生负面影响！",
+        "text_hash": "941c3478bcde93c409d5077bfec7ec13e94519bc76f9e5c8b6751a61b36d8821",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d7681c4a737a0d73abd67178",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "嵌套弹性盒子",
+        "text_hash": "af2cd21822ab986c2a03b2b40c3eff2e565fc82324f94dbd044141c223e76f13",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_6c98580c9c05319f58989ed2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用弹性盒子可以创建相当复杂的布局。将一个弹性项目同时设置为弹性容器是完全可以的，这样它的子元素也会像弹性盒子一样进行布局。",
+        "text_hash": "2f4dc06c9fb86182be9bd23f33d53ddb264127ebf1821ee8140955921ba2ff93",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_10adba93ce6df1af5d65844d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden live-sample___flex-nesting",
+        "text_hash": "ed7fa6b3638ace6c0dd59f402c9100f694058abfe2d05122f0bc01d951284a3f",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7be6da73a110769c8d7d85c3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "复杂的弹性盒示例",
+        "text_hash": "65337fe38db0c95d7c58156abd9e1b49662986f7deffd848a4344309563461d0",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_aed6f98b4ed757cadf239096",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一篇文章\n     内容",
+        "text_hash": "69166a02999777dbe07404d4a3a62556588dfb10be2780746da198fdcb03fc28",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6b5cba8ca971ec068db42958",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二篇文章\n     内容",
+        "text_hash": "9fb2dac3d811ab5bac1f010e04734c12713509078f56a8800143d62e48b8c919",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_92b7c3010058be0e3ead6ef1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "微笑\n       大笑\n       眨眼\n       耸肩\n       脸红",
+        "text_hash": "70059a88177cdaaa3d947529b9ed9d3663fa27be133b44490c6efeab9f579363",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_471cf0b780d411d422744891",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一段",
+        "text_hash": "8cb12a5df279b33a918e109c1835cab99c33247c95ad96b1e49eee0f695256ac",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3bbda485d10c8c407aaafd14",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二段",
+        "text_hash": "3619a6450268c556b963cc57e8375b2d906e85d0db2407164240ed100095d91d",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ffdde1b8b6c7b1acbffa4b33",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden live-sample___flex-nesting\nbody {\n  font-family: sans-serif;\n  margin: 0;\n}\nheader {\n  background: purple;\n  height: 100px;\n}\nh1 {\n  text-align: center;\n  color: white;\n  line-height: 100px;\n  margin: 0;\n}\narticle {\n  padding: 10px;\n  margin: 10px;\n  background: aqua;\n}\nsection {\n  display: flex;\n  zoom: 0.8;\n}\narticle {\n  flex: 1 170px;\n}\narticle:nth-of-type(3) {\n  flex: 3 170px;\n  display: flex;\n  flex-flow: column;\n}\narticle:nth-of-type(3) div:first-child {\n  flex: 1 100px;\n  display: flex;\n  flex-flow: row wrap;\n  align-items: center;\n  justify-content: space-around;\n}\nbutton {\n  flex: 1 auto;\n  margin: 5px;\n  font-size: 18px;\n  line-height: 1.5;\n}",
+        "text_hash": "ef3a220945fef3300738b55c5bb11b4ba6e9ea68acd8685658abd19093d16a4c",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d08b86f6fb26328144651e51",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个复杂的布局包含几个既是弹性项目又是弹性容器的元素。其 HTML 代码相当简单。我们有一个  元素，其中包含三个  元素。第三个  中包含三个  元素，而第一个  包含五个  元素：",
+        "text_hash": "385772a2f2c0f7b726ce42a587b78791e64f4beadf9b106a0aefcb4dd90af4f9",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d4429e081fea5e24fb471275",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "plain\nsection - article\n          article\n          article - div - button\n                    div   button\n                    div   button\n                          button\n                          button",
+        "text_hash": "67f77cc33ff4cfc43b0001d9f17bbb22d0d78395d7c8c93d0f6a795c301af7e8",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f0809c7aab83de7904fa3fa8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在让我们看一下布局用到的代码。",
+        "text_hash": "4c689b24c455f9f6535447dca15470e30288a8d8299ee387587d4d4dbb11243c",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_685d357f11aa063412738c4a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，我们设置  的子节点布局为弹性盒子。",
+        "text_hash": "2171a214cce87ca444212bc88c2f49de5eea08ebbcd786a25cb570dce00367ef",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_52be918f04eb4bd5617624ff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nsection {\n  display: flex;\n}",
+        "text_hash": "dc48c5619352ecf3c3e7ad31477839efe0cafd2a335dac91ae5788826925d7f5",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_47a42757cb2d594ce0bffe17",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下面我们给  元素设置 flex 值。特别注意这里的第二条 CSS 规则——我们设置第三个  也要将其子元素像弹性项目一样进行布局，但这次我们将它们以列的形式进行布局。",
+        "text_hash": "5140e6c129c2da7f5184a0b7211294d79e521c8fe3f1ce47d6628e1b0292d4a7",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5ec3531ef2ea81b34f60888a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\narticle {\n  flex: 1 200px;\n}",
+        "text_hash": "7dd955064b398362a4720d61cda6b06f76a8b967ef3bacedd22d02663a973984",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_737a14e7fb59ce6c4155582f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "article:nth-of-type(3) {\n  flex: 3 200px;\n  display: flex;\n  flex-flow: column;\n}",
+        "text_hash": "e7070b9e9a515c3ed3bad8329fd7a1226069ec1828676d34fc2d3da83e703141",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fa9cd75aa5c808b1ca98be2a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来，我们选择了第一个 。首先使用 flex: 1 100px; 简单的给它一个最小的高度 100px，然后设置它的子节点（ 元素）为弹性项目。在这里我们将它们放在一个包装行中，使它们居中对齐，就像我们在前面看到的单个按钮示例中做的那样。",
+        "text_hash": "70970aa1205982415546064f2a28e01ad64d485983a4937b0d1a0eca3c1158e7",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_21cd670b1e90c7f61429c1f3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\narticle:nth-of-type(3) div:first-child {\n  flex: 1 100px;\n  display: flex;\n  flex-flow: row wrap;\n  align-items: center;\n  justify-content: space-around;\n}",
+        "text_hash": "349aa5210f8fc9c1af0fd04c1ec41a2b360af0a16a1b9c25806aa99c942a4fd1",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5a55e1b99c88c620aaa42e87",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最后，我们为按钮设置了一些尺寸。这次我们为其赋予了 1 auto 的 flex 值。这会产生一个非常有趣的效果，如果你尝试调整浏览器窗口的宽度，就会看到。按钮会尽可能地占据空间。同一行中会排列尽可能多的按钮，直到布局看起来舒适为止；超过这个数量时，它们就会换行。",
+        "text_hash": "2d37003d9a810b5604b62dce94f96b89ca0881df4644f915e77d011e68f75034",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8d310dbb820d2d07b614c969",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nbutton {\n  flex: 1;\n  margin: 5px;\n  font-size: 18px;\n  line-height: 1.5;\n}",
+        "text_hash": "cfeddc2f88319227dc4debe679c8acc62bf24cdacee516d4aaa8e01f72c17db2",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_094a819d4bb8e442d4a09994",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_aebcbca17a4f88201f32f462",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "至此，我们对弹性盒子基础知识的介绍就到此结束。希望你在学习过程中感到有趣，并在后续学习中多加实践。在下一篇文章中，我们将提供一些测试题，供你检验自己对这些知识的掌握和记忆情况。",
+        "text_hash": "c99620d95d51a2bcfc913b8d4aa6d86af8e8c1cc64768894d1b0161d07848177",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e7ca356cf0f746392d9254a8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "参见",
+        "text_hash": "d27f89055b790f219353b4388307a138320ad4c9f05b64b170c43a2969c7e89c",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_106bdf54bf3fb29af681ae99",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子的基本概念\n在弹性容器中对齐项目\n弹性项目排序\n控制主轴上弹性项目的比例\nCSS 弹性盒子布局模块\nCSS 弹性盒子技巧——一篇以视觉吸引人的方式解释弹性盒子所有内容的文章\n弹性盒子青蛙游戏——学习和更好地了解弹性盒子基础知识的教育游戏",
+        "text_hash": "976e4154e3f72458d4900ed34894bfde6431063af086c0ba67c44c9dd0b61347",
+        "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+      },
+      "type": "unordered_list"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_63df36bbc250c405d7b855f3",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。弹性盒子，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "弹性盒子，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/flexbox",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "弹性盒子"
+  },
+  "resource_id": "lr_bf9bc8b5bef78a59037b2e1e",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_181eeebfe89c5bb14eef09f5",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "弹性盒子",
+    "text_hash": "8956758c3f9f7a9a102fc73c2be90744b87098fbf5ab3b3dd4506ec1a568b0fa",
+    "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb"
+  },
+  "variant_id": "lrz_200f0cd2d500410c32488111",
+  "variant_version_id": "lrzv_b1e79b6ffe8ad81f20f3cbdb",
+  "visual_dependency": "helpful"
+}

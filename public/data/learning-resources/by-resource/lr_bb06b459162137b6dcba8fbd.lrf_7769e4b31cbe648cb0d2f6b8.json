@@ -1,0 +1,1558 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_29a0b6534dcc1467e1ba3c54",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "紧接上文继续，有时候，我们制作涉及非语义 HTML 和动态的 JavaScript 内容更新的复杂 UI 控件可能很困难。**WAI-ARIA** 是一项技术，它可以通过浏览器和一些辅助技术来帮助我们进一步地识别以及实现语义化，这样一来能帮助我们解决问题，也让用户可以了解发生了什么。接下来我们将展示如何运用它来优化无障碍体验：",
+        "text_hash": "96fab7b163bc21246df864ae7efcfac9f4d51157a311f3c98e3d21d5dec1f180",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7443ab450324ba7aac6c8e3a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提要求：",
+        "text_hash": "3fce9976d86dc4537fb1016ab8390336d4782ac0235ea359486cb323073834a7",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1f46622ba4691749349d874f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基础的电脑知识，对于 HTML，CSS，JavaScript 的了解， 还有对于前文课程的了解 。",
+        "text_hash": "b29ce7c944183daafab1bb969ac12463bf0c57f536efbc93c8a5ef9efadc07be",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ad0534fb3b690647d6340a8b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：",
+        "text_hash": "4d2d25a2888d3e7c13db6b2e275e0179ab434807992666123db412d5f31e27a0",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7d3ecfb6bd19f86684f9ef65",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "进一步了解\n        WAI-ARIA，明白他如何提供有效的语义，以便接下来在有需要的时候提供无障碍优化。",
+        "text_hash": "2faedf3b75f4422dc5446f0cab66e91bcb24af25e7b413b6dfb7a31de48794e8",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_05ceb6d48bac194154ffa6dc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "何为 WAI-ARIA?",
+        "text_hash": "e1cf7e317b68c196f84f5b7dbd2657f089d87af7e9ac46bcd7fdcda6950dc76f",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_6199afdc0612cbe7bf6331bf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们开始看看何为 WAI-ARIA，以及它能给我们什么用。",
+        "text_hash": "479a8f2ddf1271805f1afc0714bb6265f679ced7604d0be22e33e17da1311bf6",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1c95469c23733be12a4fd719",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一堆新的问题",
+        "text_hash": "4f289db06c21d52270e557b242f1e7a9a2fac31830b33796ad84fb390c07095e",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_9c9f627ab382b74c13340993",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当 Web 应用开始变得越来越复杂和动态化，一堆全新的无障碍访问问题和特性接踵而至。",
+        "text_hash": "69aa9c7a7745b17256d6292207f1804de626149e0f32106d67b151c7d77e8f6b",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6f1dce3ac3bcfde329bb6ec2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "例如，HTML5 提出了几种语义化标签用于定义常规页面的特性（例如 nav、footer 等等）。在这些标签可用之前，我们一般简单地用 div 带上 ID 抑或是 class 来解决问题，例如： 。但是这种实践是问题丛生的，因为没有简单的方法可以轻松地用可编程的方法找到特定页面功能，例如主导航。",
+        "text_hash": "1881f12c61475349836232e15413b39bd58e4bfd490de38f717c6c5ba9a8b88a",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4d1b05c4ca08bdd9d7f59ff3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最早的解决方案是加一个或者多个隐藏的链接来跳转到我们想要的位置，例如（这里用导航举例）：",
+        "text_hash": "9395ac9ccedafe1abf3e407da2691e5b1bc6de8e2def6fe5811ffdaf57d25604",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d45cb1cd82a39c765c5ebd05",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Skip to navigation",
+        "text_hash": "1bfef271373a2f91acd9257cead22d97f1e348ddc46ee40c8ebaadc681a51d6d",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_03542464c4b1be5d84e4d665",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但这仍然是不准确的，而且只能在屏幕阅读器开启页面顶部读取时使用。",
+        "text_hash": "c328f582f5e013f20a9a93e578c815347fcc1d507efbd51d063e97a5f0fd0283",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_59ba0ff6a8c4dd85a44ec7e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "另一个例子：应用开始支持一些复杂的类型输入，像是日期选择器可选择日期，抑或是范围选择器可以用滑块选择值，HTML5 提供了以下的类型：",
+        "text_hash": "5f868aefd7e88b308998f98e8109e9b9b17521af40f667c92e79042026ccdd5f",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7de54f94750126bee74eda71",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fadce2e5b09b76e79f64c52c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "他对于跨浏览器的支持并不好，而且他的样式修改也很麻烦，这使得他在网页的集成设计上难以有所用途。所以我们常常会用 JavaScript 库来做这事，所以会用一系列嵌套的 div 或者带有 class 的 table 元素，然后用 CSS 来制定样式，JavaScript 来控制行为。",
+        "text_hash": "8b5f19ac3aa4d7079bc5f0213e32ef17d903a58010fb3ed4cc1623fdf768ce6e",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8892048c06891f73d9d0be75",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这样的问题是视觉上这样做事可行的，但屏幕阅读器对此会感到一无所知，他只能告诉用户她看到一堆复杂结构的元素，且毫无语义可言。",
+        "text_hash": "ab8234df38ac6f9db8e0b67ba7a6b56c42a865f2ec2f3c63d4f5ee86c90d74a0",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6e89253ed0efab5880f50b79",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "进入 WAI-ARIA",
+        "text_hash": "26fc336ccc768ddf27f7e2a797f975f0b065d83aa428829f86d3754654d33d75",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0380cc8a2cabba6f86129c3d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "WAI-ARIA 是 W3C 编写的规范，定义了一组可用于其他元素的 HTML 特性，用于提供额外的语义化以及改善缺乏的无障碍。以下是规范中三个主要的特性：",
+        "text_hash": "8a56d70658d4a62c6a613b24e432da06878d5f8babeea3cae21a08767a473d8d",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f7d7447cba2a6f471b217b07",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "角色\n  - : 这定义了元素是干什么的。许多「标志性的角色」，其实重复了 HTML5 的结构元素的语义价值。例如 role=\"navigation\" () 或者 role=\"complementary\" ()，这也有一些描述其他页面结构的（角色），例如 role=\"banner\", role=\"search\", role=\"tabgroup\", role=\"tab\" 等等。我们通常能从 UI 层面找到它们。\n属性\n  - : 定义元素的属性，使元素具备额外的含义或语义。例如，aria-required=\"true\" 指定表单输入元素需要被填写才能有效，而 aria-labelledby=\"label\" 允许你在元素上设置一个 ID，用于在页面中的其他地方（包括多个元素）引用其作为标签，  不可能做到这一点。举个例子：你可以用 aria-labelledby 指定在  中包含的关键描述是多个表格单元的标签，或者将它指定为图像的替代文本——为图像替代文本指定额外信息，而无需在每一个 alt 属性中重复。你可以在替代文本中查看示例。\n状态\n  - : 用于表达元素当前的条件的特殊属性，例如 aria-disabled=\"true\"，屏幕阅读器就会这个表单禁止输入。状态和属性的差异之处就是：属性在应用的生命周期中不会改变，而状态可以，通常我们用编程的方法改变它，例如 JavaScript。",
+        "text_hash": "51b912c0f76caf249e867d0b897a674b504b6658bba95663823f3d7c53782118",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_cfdecb18dad05058d2259bf3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "关于 WAI-ARIA 属性重要的一点是它不会对 web 页面有任何影响，除了让更多的信息从浏览器暴露给无障碍 API，这也是屏幕阅读器这一类软件的信息源。WAI-ARIA 不会影响网页的结构，以及 DOM 等等，尽管这些属性可用于作为 css 选择器。",
+        "text_hash": "409789cbdfe09000337b4cac9d3f2c56eb3627c2772950725e6236ff3cb75729",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_defea6a48f87d08288051c94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n关于 ARIA 的角色和他的用法，如需了解更多信息，尽在 WAI-ARIA 规范，查看 角色定义\n规范同时也包含了属性和状态的一个列表，链接有更多详尽信息：查看 属性和状态的定义（所有的 aria-\\* 属性）",
+        "text_hash": "615b5c814dd63cb6b8e4111182fc03b4074c2c7d2976610f976e49cbe48213e3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_4136fe94741050d331e39d80",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在哪里支持 WAI-ARIA？",
+        "text_hash": "8ab07605902dec51be2cd6e0375b5f9dcb0a4a17d60fbcd5158ea3c11230b987",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0d6c20fe5ab0afe43131b219",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这不是一个容易回答的问题。很难找到一个确定的资源，说明支持 WAI-ARIA 的哪些功能，以及在哪里，因为",
+        "text_hash": "264b5b5eeb94c4a2da3bdc3e4e6fcd4feb966cf5145fe7df938388ce7d2d4509",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_da257d2c01a5c4b8e68e6811",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "WAI-ARIA 规范的特性太多了。\n操作系统、浏览器、屏幕阅读器三者相加的组合太多了，这些都需要考虑。",
+        "text_hash": "53d632cf7b90d6af83128c8cf7aeaaaa2f0e1aa0cd650741995aef262b0f9722",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_5b3a1bbb006298e72327cbf5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最后一个关键点——首先使用屏幕阅读器，你的操作系统需要运行具有必要的辅助功能 API 的浏览器，以便公开屏幕阅读器完成工作所需的信息。大部分流行的操作系统都有一到两个支持屏幕阅读器的浏览器。Paciello 组织有一个新的帖子，以供参考： Rough Guide: browsers, operating systems and screen reader support updated.",
+        "text_hash": "ef6aaad9be0778ff2f7f780c1037aa2511ef8bc0fcca77815fc1f2aae4280aae",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_137764eecd05d0f685c0e491",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来，你需要考虑下有问题的浏览器是否支持无障碍特性以及提供他们 API 格式的信息暴露，并且屏幕阅读器是否识别信息并且正确地传达给用户。",
+        "text_hash": "c88b95cbdc398322e697c91e01ebe53f2772ab34a9b9b00d3c7edd7009e935cf",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_83b84bde35efb194eb84780e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "文章到现在，可以看得出浏览器端对于无障碍的支持做的很好。 caniuse.com 这一网站显示全球浏览器支持 WAI-ARIA 的比率达到了 88%。\n屏幕阅读器支持无障碍特性反而没达到这个水平，但是主流的屏幕阅读器做到了。你可以通过查看 Powermapper 来了解支持级别 WAI-ARIA Screen reader compatibility 。",
+        "text_hash": "2accba8c497db2fae7cc860dadc97323665299d0d65cbc723659adf84e8850a8",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_afc50529f76a56f9da8dbe4b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们目的不是详细介绍所有的 WAI-ARIA 特性，以及它大部分支持的细节。相反，介绍最主要的 WAI-ARIA 功能。我们没有提到的任何支持细节，你可以假定该特性得到了良好的支持。我们将清楚地介绍例外情况。",
+        "text_hash": "7eb06d335b8fbe33ddaf618a8e148ecc7fdf35351ed9f7e661c68eec2ed20068",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f48ec46e705061ef6863d77b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n一些 JavaScript 库支持 WAI-ARIA，意味着生成 UI 界面时，例如复杂的表单控件，他们会添加 ARIA 属性来优化它的无障碍特性。如果你再找一些第三方 JavaScript 解决方案来进行快速的 UI 开发，当你做选择的时候，必须重视 UI 小部件的无障碍。一个良好的例子就是 jQuery UI (请看 About jQuery UI: Deep accessibility support), ExtJS 还有 Dojo/Dijit。",
+        "text_hash": "6c98f01c88b5a7169c05763bb6883eb5d5a572a3239d77c5006d5878d53099e5",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_6277b01cc03cf80ce7b82397",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "何时你应使用 WAI-ARIA?",
+        "text_hash": "d333bf3d2ddf26b977a862304ace27c36baf47b250aed1a6383f5acb4b167220",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b039e954050f5123d6ccb9b5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们过去讨论了一些促使 WAI-ARIA 诞生的问题。但基本上是以下四个主要领域：",
+        "text_hash": "e3bb8ee9acb85071e6af611c05ef3323aae12f705d9699f13bf335380ca2fd35",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6105d4ac27bb2d35e48a6d43",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**路标/地标**（**Signposts/Landmarks**）：ARIA 的 角色 属性值可以作为地标来复制 HTML5 元素的语义化（例如 nav tag）。或者超越 HTML5 的语义，给不同的功能块提供「路标」，例如 search, tabgroup, tab, listbox 等等。\n**动态的内容更新：** 屏幕阅读器往往难以报告一直变化的内容，用无障碍特性我们能使用 aria-live 来通知屏幕阅读器某一部分的内容更新了。例如XMLHttpRequest 或者 DOM APIs。\n**优化键盘的无障碍操作**: 默认的 HTML 元素是具有自带的键盘辅助功能的。当其他元素与 JavaScript 一起进行交互时，键盘的辅助功能和屏幕阅读器的报告会因此收到影响（例如你将会难以用 tab 到达理想的位置）。这是无法避免的，WAI-ARIA 提供了提供了一种允许其他元素获得焦点的方法（使用 tabindex）。\n**非语义控件的无障碍**：当一系列嵌套的   与 CSS / JavaScript 一起用于创建复杂的 UI 功能，或者通过 JavaScript 大大地增强或者更改原生的控件，无障碍将会变得极其困难——屏幕阅读器将会难以找到语义内容线索。在这种情况下，AIRA 可以帮助提供缺少了的功能，例如 button, listbox，或者 tabgroup，另外和 aria-required 或 aria-posinset 这样的属性可以提供有关功能的更多线索。",
+        "text_hash": "b496c4e587882633bb475562d97c84ceac49ee67bc8d2df4a3ab054f9c59712f",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_970e5b311a92ba4de6447e55",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "注意：**你只在需要的情况下使用无障碍特性！**理想的情况下，你只要用原生的 HTML 来实现屏幕阅读器所需的语义化内容即可。有些时候这是不可能的，一来是你对于代码的整体的控制是有限的，另一方面是总会有复杂到原生 HTML 无法支持的功能需要你实现。在这个场景下，WAI-ARIA 将会变成有价值的可访问优化功能。",
+        "text_hash": "5f8bed573240cee720c4623f76a58fd7f779efa6e148ffc36c1a0e2dc4d56c1d",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_42533805024318ae6b5fa0c2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**但还是要重申：当你需要的时候再使用无障碍特性！**",
+        "text_hash": "9b13e6e7dc25a01bdd51d4242ffb65387ee8e5c3aef62489534594c39ebac4e2",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f1cb77c4aa4612d6dda7ac66",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n另外，请尝试确保你的真实用户来测试你的网站：普通人，使用屏幕阅读器的用户，使用键盘导航的人。他们会提供你更多的见解。",
+        "text_hash": "68d2d61979b5732c5e3f4295c28535d69b78dbf9fda794b49fc049289eda803e",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_79369a5c2856cd950688c249",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "实用的 WAI-ARIA 实现",
+        "text_hash": "a512747864931418b076894dd376533dce47dfedf4e945accb453370fc7d5546",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_5bbb731e9a18b999d9770509",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在下一节中，我们将更详细地研究这四个方，并提供一些实例。继续之前你最好安装一个屏幕阅读器，以便你测试接下来的用例。（接下来的屏幕阅读器默认为 Mac 的 VoiceOver，Windows 用户可以尝试 JAWS 或者 Window Eyes）",
+        "text_hash": "1b8c870993323f8bee71b1b387f2a68ed59589d3278ce40ae7a84fd78211bbd3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_98b4abcc899664aaa7b38b38",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "查看我们的 testing screenreaders 得到更多关于屏幕阅读器的信息。",
+        "text_hash": "a43acb3bc796cdaf43b61b144c84520359326d20ebb9ca9ec6dcd5638c42906b",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_987bfca810db81e74b685e80",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "路牌/地标",
+        "text_hash": "dab5a5da00d437ae43bdf8c30a749511f8ffe1860e4624f0ec8e282c0384557d",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e96b4fd539f90b2ed133deb2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "WAI-ARIA 给浏览器增加了 role 属性，这允许我们给站点中的元素增加我们想要的语义属性。第一个主要区域便是用于为屏幕阅读器提供信息，以便用户可以找到常见的页面元素。我们来举个例子，一个没有角色的站点的例子（在线演示）的页面结构：",
+        "text_hash": "5218fba493cd30c0b1120517721365fb1bb37a11e7dc24b57e2fb277565d2310",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ed001ce79a32935d51e9f1cf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c68552fbcc2b272bcf6c1c00",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e460741f2fa21ca8be318984",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3b3f3d6dc77173a9c22b8f61",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...\n   ...",
+        "text_hash": "eb152a9462f82f4cde958e1ad2a1807e8963e94a4b8a388f09a1da07a28d5a6a",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_34db708f9a3a3cc68ae76a27",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1a5e14c1fa433c2f0413d878",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你用现代浏览器打开，并用屏幕阅读器测试，你就已经得到你要的信息了。例如 VoiceOver 会给你以下信息（会以英文念出）：",
+        "text_hash": "6e3fae8a0f04bfd32fe9092599f9d16b002e2ad454b64970eac746cb7d3e9e02",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a57cd31ecb6cb0a7385d44f1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在   元素 — \"banner, 2 items\" (它包含标题和  ).\n在   元素 — \"navigation 2 items\" (它包含一个列表和一个表单).\n在   元素 — \"main 2 items\" (它包含文章和侧边栏).\n在   元素 — \"complementary 2 items\" (它包含列表和标题。\n在搜索表单输入 — \"Search query, insertion at beginning of text\".\n在   元素 — \"footer 1 item\".",
+        "text_hash": "705854aa05801e96f47a55a1bcde1611373684b28d0b9a762af83a8fb72e231f",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_5ed5e71888409920cec560a1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你转到 VoiceOver 的地标菜单（使用 VoiceOver 绑定键（你可以在 VoiceOver Utility 中设置） + U 访问，然后使用光标或者键盘来选择菜单选项），你将看到大部分元素都已很好地列出，因此可以快速访问它们。",
+        "text_hash": "fb218953ea100d567d8035459469d6e2681b898c0171aec1ccde18331bb23e63",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7f35ef5312568f8fe46f89a4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "尽管如此，我们可以做的更好。这个搜索表单是一个人们愿意找到的重要的地标，我们可以设置 input 的类别为 search ( )。另外，在一些老的浏览器（尤其是 IE8）是无法识别的这些 HTML5 的元素语义化的。",
+        "text_hash": "b97ef260bc3df7a220b7ebecdf5a045095545c8f8a6f71813e46f50af2e7af16",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ada2a6f286d0851096060673",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们来优化上文代码并且用上无障碍特性。首先我们给 HTML 的结构加上角色。你可以复制上文 demo 的 index.html 和 style.css 继续修改，或者看我们的网站无障碍角色版本例子（在线 demo），结构如下：",
+        "text_hash": "c1f838469dd510071dc6289cd37593e8b158bfcbf43551b6b98ee4998d0913a1",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a0295df16ae3dc640a3abc3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f269a477c72cc140bc5f04a2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fde3686edbeb4e36e2bf77c7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_973221d3073e126133a126e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...\n   ...",
+        "text_hash": "eb152a9462f82f4cde958e1ad2a1807e8963e94a4b8a388f09a1da07a28d5a6a",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4aef3d13903d477cbadb116f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0a48443ca0f4d386aee9510b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们用了一个额外的功能：input 元素用了属性 aria-label, 它给它一个描述性标签，可以由屏幕阅读器读出，尽管我们没有 label 元素。在这些情况下，这非常有用——像这样的搜索表单是一个非常常见的，易于识别的功能，添加 label 会破坏页面设计。",
+        "text_hash": "d5a5f1283d17f9530022dba3fb3d7e4673b18edd85a8534a6776e273a3f6adee",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_50a3e87c7ed60581252d09c3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9b3e9d0e9d465ab2952e6900",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在我们再用 VoiceOver，会得到以下改进：",
+        "text_hash": "53f47511292f79a706b0123b67d592fba2c14d8dd2b44e383d0ea238c80e926c",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d35a4abf0c83cfd55f7a75d0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "搜索表单在浏览页面时和地标菜单中都作为单独的项目存在。\n因为有 aria-label ，那么读取到这个 input 他的内容会被高亮念出。",
+        "text_hash": "dab683ecec2b30c99dd47602afae66622fa37cfebc372002a75da70316ed3d82",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_3dd645450b61892ba50edea7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "除此之外，为了让 IE8 等旧版浏览器的用户更容易访问该网站，ARIA 角色的使用就很值得了。如果由于某种原因，你的网站仅使用\\  构建，那么你肯定很需要用 ARIA 角色以提供所需的语义！",
+        "text_hash": "5ee483c093830f055556d232375a4dbe8f91f29d5eee16a464dd0717b6048254",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f42b7486b99b1c1adc526cc4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "搜索表单的改进语义表明当超出 HTML5 中可用的语义时 ARIA 可以实现的功能。你接下来可以看到这些语义和 ARIA 属性的强大功能，尤其是 非语义控件的无障碍那一段。接下来我们将明白 ARIA 如何在进行动态内容更新时给我们帮助。",
+        "text_hash": "179a76cd461ea89e29736cae21a506dccab15f2bca850146188e83d813dc5245",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a50653df9eaef3af66bd3be",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "动态内容更新",
+        "text_hash": "69e5d859104b84c5f73ae28ef68791358f24d794d5d9867cd666a881d5569ca1",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_30b92946eba69f6653a60c39",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用屏幕阅读器可以轻松访问读取到 DOM 中的内容，从文本内容到附加到图像的 alt 文本。所以具有大量文本内容的传统静态网站易于为视碍人士提供信息。",
+        "text_hash": "5d6eff2271df7fd756d5937f2604427e867666c2d3e06023af79cf9f2e258f03",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f043951101a1754823cf3829",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "问题在于现代 Web 应用程序通常不仅仅是静态文本——它们往往有很多动态更新内容，即通过 XMLHttpRequest，Fetch 或DOM API 等机制重新加载整个页面的内容。这些有时被称为**实时区域**。",
+        "text_hash": "e7e62cfdc16b53b4d9414bea3eddff34b7793bf2ab8dbf88591c26af357e30da",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2e000df212eabd2338f627b3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们来看一个小例子——aria-no-live.html（在线 demo）。在这个例子我们引用一个小的随机引用块：",
+        "text_hash": "c17c05f3b4d8ce5fe966135a93b42d9589038aec3bc7bdc7a20e0e7e5b854a3d",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0f914209513607a1063c6d96",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0a526a26ca37e40a97b41d94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Random quote",
+        "text_hash": "9bd94f2093f9b9ee139ff43850b96e9ec648db63f4cb3c71817fe0e0a9af888e",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_53ebbfdfce60cfbf2aa37be9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们的 JavaScript 使用  API 加载一个 JSON 文件（里头包含了一系列的名人名言），一旦完成我们就开始用一个  循环以十秒一次的频率显示出来。",
+        "text_hash": "3e95ded6fd8d1a3c1ff28d2a8e5983dc265b8d5084cddf3ddc3cf0415090c9e3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9900f7479fcf47a4bb74f8af",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst intervalID = setInterval(showQuote, 10000);",
+        "text_hash": "b7ec93b1b7c146a28eb4c4d957d926ba8d5fb3258efb6c9c597b26efd7ffcf34",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7e7644567100be2cfd04292e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这当然是可行的，但是对于无障碍可不友善——这种内容变化是不会被屏幕阅读器察觉到的，所以用户不会发现发生了什么。这是一个简单的例子，但你可以想象一下：如果你开发的一个复杂 UI 而且内容频繁变化的应用，例如聊天室，或者一个策略游戏的界面，或者一个实时更新的购物车展示。如果没有某种方式提示用户有内容更新，那就不可能以任何有效的方式来使用应用。",
+        "text_hash": "68d491ecf0cb82476dc61ecd457586bf0889f8734f744fe5bc811ad09b0ee725",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6ff3fa353c61dd8cfbd01d06",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "幸运的是，WAI-ARIA 提供了一种有效的机制来发起提示——aria-live。将此应用于元素会让屏幕阅读器读出更新的内容。读取内容的紧急程度取决于属性值：",
+        "text_hash": "da15c52b2bb8978d66a22560397fe7e4ab026726c988003da57a422bb5a7951e",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1fadcca38a18faebe8acf7a1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "off：默认值，更新不会提醒。\npolite：只有用户空闲的情况下提醒。\nassertive：尽快提醒。\nrude：会以打断用户操作的方式直接提醒。",
+        "text_hash": "3a23eeabab46db0fb57bf0fc815f3143ebf09f6708b05eb2c002044eb6471dbd",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_f0a5ef37a356a21c6dedb584",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "通常来说 assertive 设置足以让你的更新在显示时按时序读出，因此，如果改变多次，那么他只会念出最后一个改变。除非紧急程度高到需要覆盖其他的更新才选择使用 rude 。",
+        "text_hash": "3451925ae1c4b1f7cffe5a619072ee686d67ace0871a901dd416eba973126334",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9b3b204639524c2eb2d95c80",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们可以复制 aria-no-live.html 和 quotes.json ，然后像下面一样更新你的   tag ：",
+        "text_hash": "a95cb10b3b4a6f79a86365c1750b1a98a1ed017c13d38f09f675eb47ecf95d40",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6a8bb0f054cdd0f477238c94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_85fb9349a44a2581bc7ddb8a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这会让你的屏幕阅读器在更新时可以读取内容。",
+        "text_hash": "05cf8246bab4040e25602a1c60b26f6b5f6d1b4c1f8ce70e749618a1d10730f0",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4f3f3e80cb8adf8b964e0e22",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n当你用 file:// 协议头来发 XMLHttpRequest 大部分浏览器会抛出 security exception。所以你可能要设置一个 web 服务器来作为请求源，例如，使用 GitHub，或者设置一个本地服务器 Python's SimpleHTTPServer。",
+        "text_hash": "e5a3aac762ce08b5587e197a0fb96d392ab10689e25dd712fc92dc07d8d18956",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_ad1f614aee24540eba7d8058",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里有一个附加的考虑——只读取更新的文本位。如果我们总是读出标题可能会很好，这样用户就可以记住正在读出的内容。为了能做到这个，我们增加了 aria-atomic 给 section。再次更新  ，像这样：",
+        "text_hash": "328b2e9087e5fc5d07d481afefef9e1deae71163e01592a757607cb5ad21a2fd",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1d6310c5c6c1f09930445850",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8c79c6f51e22a157b6b9f2f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个 aria-atomic=\"true\" 属性告诉屏幕阅读器去读取整个元素的内容作为一个原子单位，而不是里头某个字符串更新了。",
+        "text_hash": "869d54a4316ab762f36af148f47fe2b61656fd074210cf7ab9416240ebcd6a38",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_51d9e2e0dd2cabad066abee3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可在此完成此例子 aria-live.html (在线 demo).",
+        "text_hash": "db4d2d2d29927708e513d1129b6176868b9d2b43ca2bacae283a548e21866ac1",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_64b2c72929074afa1621d055",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\naria-relevant 属性对于控制更新实时区域时读取的内容也非常有用。例如，你读取内容添加或删除。",
+        "text_hash": "5033799ab05cbf2c7e9c82d104094a8a480bd8062496726c069a3fedb3beccd1",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_355ed9bd916f2985a98b7def",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "优化键盘的无障碍操作",
+        "text_hash": "db662b284e9557a18d63a8e8ddd08083c84ab4e7874712e81b05f25ed5e5122c",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_fc94acf1afef7968ae960956",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "正如上下文中其他几处讨论的，HTML 在无障碍方面的关键优势之一是按钮，表单控件和链接等功能的内置键盘无障碍。平时你可以使用 Tab 键在控件之间移动，使用 Enter / Return 键选择或激活控件，偶尔也可以根据需要使用其他控件（例如上下光标在  框中的选项之间移动）。",
+        "text_hash": "f97757a3fd0578eab4ccab445b2d052525421929d7d4c13f34aa23d4a237796c",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_32483a9fb26cc915f13b1fad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是在一些时候，你最终还是得编写代码去使用非语义元素作为按钮（或其他类型的控件），或者使用可聚焦控件来达到错误的目的。你可能正在尝试修复一些你之前的错误代码，或者你可能正在构建某种需要它的复杂小部件。",
+        "text_hash": "dab78951f700179571160e556055b15e5053bec8b11f3621369ba8b229745f83",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_08dba82590f889d1a23ba858",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在让不可聚焦代码可聚焦这一方面，WAI-ARIA 用一些新的值来扩展了tabindex 的属性：",
+        "text_hash": "51910e26cab84cb2d0d478d31d2999e2641ed23d06fe22c6d96a20a826cf56e1",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f62c63ca2df81eea2ec18cd2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "tabindex=\"0\" — 如上所述，这个值让不能被 tab 的元素变得 tabbable。这是 tabindex 最有用的值。\ntabindex=\"-1\" — 这允许通常不可列表的元素以编程方式来接收 focus。例如用：JavaScript，或者作为链接的目标。",
+        "text_hash": "c4573046fe7eb4499d721561062e7fe67a217e2bb5d32e0f65dc740adf3be073",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_5c3188ba12be4dafebd1d9ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们更详细地讨论了这一点，并在 HTML 辅助功能文章中显示了一个典型的实现\n——请看重新建立键盘的无障碍。",
+        "text_hash": "992a08e69f980fd73f4f945b9f5f16554ff99b3ebf2a505e79a12c067058152f",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2ef9822160f3e37ce3980e6d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "非语义控件的无障碍",
+        "text_hash": "e0e57a1d7409b4dd0630d6fe295ecdfc2a5d579d153e59ce58bb966eb3c4199b",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a636b6c4884c9b5c8b3a09a8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当一系列嵌套的  s 与 CSS / JavaScript 一起用于创建复杂的 UI 功能，或者通过 JavaScript 大大地增强或者更改原生的控件，不仅键盘无障碍受损。而且如果没有语义或其他线索，屏幕阅读器用户会发现很难弄清楚该功能的作用。在这种情况下，ARIA 可以帮助提供那些缺失的语义。",
+        "text_hash": "c5e9cde7c5e1cc36bc11ec889ac0955479c0acf0370511fff70d1305ec768679",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c55bcecbe553445e5013b857",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "表单验证和错误显示",
+        "text_hash": "77d0ed07090abe24f6b3176078674bdde50148567d64390ef8eef823ad580b12",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_26be8881365e139900a264a8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，让我们在此访问之前的文章（重读保持别抢眼）。在本节的最后，我们展示了当你尝试提交表单时，如果存在验证错误，我们在错误消息框中包含了一些 ARIA 属性：",
+        "text_hash": "9824841b116d2f9fc1b24a27883d3522792b79bd5b7a19c9b49aa8904f571367",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8d05ac0aae49f08aaf6c6225",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8e48d79089659339bb16b1f0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "role=\"alert\" 自动将其转变为实时区域，所以它一变化就会念出来。也语义化地说明了这是一个 alert 信息（重要的 时间/上下文 敏感信息），而且展现了一种更好，更加易于读取的警告用户的方式（模态警告例如 alert() 的调用会导致一系列的无障碍问题，详情请看Popup Windows ）。\n一个 aria-relevant 的值为 all 会指示屏幕阅读器在对其进行任何更改时读出错误列表的内容 — 即为错误的增加或者消失。这是很有用的，因为用户需要知道具体哪个错误的出现或者消失，不仅仅是表单错误列表出现了增加或者删除。",
+        "text_hash": "67a55a428e7f3350b0d052dbc3b101ec902ab2c113f0b0015571de8962a7486e",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_a246eb2bb06f2523654f681f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们可以在 ARIA 的应用上更进一步，并提供更多验证上的帮助。例如支出某个字段是否必填，或者是要填的年龄的区间该是多少？",
+        "text_hash": "bbd6683b455d95feffeafa33932f39e3ee576eb0653e6194a6e69084a30251e4",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_25498efa4baa79c2121520e7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，复制刚刚的 form-validation.html 还有 validation.js 文件，然后保存到本地。\n把两个文件都用文本编辑器打开并且看看运作原理。\n首先，在  标签的正上方添加一个段落，如下，并用星号标记表单\\ 。这通常是我们为有视力的用户标记必填字段的一个常用手法。",
+        "text_hash": "7a75a904d459fcd1360599a12687fd5d3764d12efda13c4cded712af8c98a2cb",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_6f8006eefc5e977135c2ada9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n    Fields marked with an asterisk (*) are required.",
+        "text_hash": "47d0ec7d152a63ee33b04254cc3877d444de7e07a382822fddb97b75b111da99",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b4816a719e2eba024bc8fe94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这对于具备视力的人显而易见，但是对于屏幕阅读器用户而言就不友好了。所幸 WAI-ARIA 提供了 aria-required 属性来让屏幕阅读器获取提示来告诉用户这个 input 必须填写，更新你的   元素如下：",
+        "text_hash": "e6cfca51e3764e021c8ba905f9a2e9ab56281bc3af28ca9946e54a21921b30a8",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_025d7982d068fd8013d51e51",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_aa1b318e4ead0a34f8a25e96",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你过你保存了并且现在用屏幕阅读器测试，你会听到如下内容：「Enter your name star, required, edit text」\n回到第二个关于数值范围的讨论，通常我们会用一个 tooltips 来展示，或者用 placeholder 显示提示信息。WAI-ARIA 有一个 aria-valuemin 和 aria-valuemax 属性来执行最大最小值，但现阶段看来支持程度并不好。另一个好办法就是用 placeholder 属性，当用户输入的时候，就会念出 placeholder 的内容最为信息提示。更新你的数值输入 input 如下：",
+        "text_hash": "849e0db8e02b23bccabc3e7fdcae57b9d0e960287691f0ab2f38afde0c344417",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_cfb1ea629b86b7f751824f19",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_aafa1f47c593ff3750ed35e4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在这里看这个在线完成的例子 form-validation-updated.html.",
+        "text_hash": "37289b1e5dfd85a81bdf47c39e0e4171beaa089ee519a3e6a673642cc3a891b1",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_b9ac3c3d4ca651ba3c8afa94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "除了经典的  元素之外，WAI-ARIA 还支持一些高级表单标注技术。我们已经讨论过使用 aria-label 属性来提供标签，我们不希望标签对于有视力的用户是可见的（参见上面的路牌/地标部分）。还有一些其他标签技术使用其他属性，例如 aria-labelledby ，如果你想将非 \\  元素指定为标签或标签多个表单输入具有相同的标签，并且 aria-describedby，如果你想关联 带有表单输入的其他信息，并将其读出。请查阅文章获得更多细节： WebAIM's Advanced Form Labeling article",
+        "text_hash": "5fa53f6d2887012fa616bb9e8a57f6751923ebbd28efc16c812b3a375e6610e6",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_576fd549ffc2598e413947a9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "还有许多其他有用的属性和状态，用于指示表单元素的状态。例如：aria-disabled=\"true\" 可用于表示该表单字段已禁用。许多浏览器只会跳过禁用的表单字段，它们甚至不会被屏幕阅读器读出，但在某些情况下它们会被识别出来，所以最好包含这个属性让屏幕阅读器知道禁用的输入事实上已经被禁用。",
+        "text_hash": "3e98cca1901f30c303b2c08fd68604a239eeecdf74e2f33bfb983e2e1d49a57e",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_89efb24f3b5973078f85532d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果输入的禁用状态可能会改变，那么指示它何时发生以及结果是什么也是一个好主意。例如，在我们的form-validation-checkbox-disabled.html 这一 demo 中，有一个复选框，选中后，启用另一个表单输入以允许输入更多信息。我们已经建立了一个隐藏的实时区域：",
+        "text_hash": "1387afdac48b17707316535c7090c5955c9068601071332ec18ccc3a0a9d84e9",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e9ada7e4ff03a91240a3dd28",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ef5de890e4ac61e61a3f3cfb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这是使用绝对定位隐藏的视图。当选中/取消选中此项时，我们会更新隐藏的实时区域内的文本，以告诉屏幕阅读器用户检查此复选框的结果是什么，以及更新aria-disabled状态和一些可视指示器：",
+        "text_hash": "b1eff5d29e96462b177590df0f5788a0e99263d241a368a65f7c330f360a9f0f",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c8e499a4721f4c23734eb0db",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction toggleMusician(bool) {\n  const instruItem = formItems[formItems.length - 1];\n  if (bool) {\n    instruItem.input.disabled = false;\n    instruItem.label.style.color = \"#000\";\n    instruItem.input.setAttribute(\"aria-disabled\", \"false\");\n    hiddenAlert.textContent =\n      \"Instruments played field now enabled; use it to tell us what you play.\";\n  } else {\n    instruItem.input.disabled = true;\n    instruItem.label.style.color = \"#999\";\n    instruItem.input.setAttribute(\"aria-disabled\", \"true\");\n    instruItem.input.removeAttribute(\"aria-label\");\n    hiddenAlert.textContent = \"Instruments played field now disabled.\";\n  }\n}",
+        "text_hash": "d0af2be804beda9707260e5b6343c53931a5390ca0d29967353e55127fdf57a2",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_30eab7273af131c6b08412c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "描述非语义的 button 是个 button",
+        "text_hash": "6aaa173219eb49fd71816e501eb7bc2983ac4d665d401a2d9687da0f4ea79dcd",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f7851147c97ae9eac6054776",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在本课程中已经有几次，我们已经提到了原生的无障碍（以及使用其他元素伪造导致的无障碍问题）按钮，链接或表单元素（请参阅 HTML 辅助功能文章中的UI 控件，以及优化键盘的无障碍操作，上面）。基本上，利用 tabindex 和一些 JavaScript 的话，大部分情况下添加键盘辅助功能不会有多少麻烦。",
+        "text_hash": "56da95255f4e484b200279ccdee934477a164d1afc9871e2430599aa86e03b4d",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_39cdcf53542aeb6c24478c70",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是屏幕阅读器呢？他们还是看着这个元素并不是一个 button，如果你用屏幕阅读器测试我们的 fake-div-buttons.html 例子，你会听到一段短语描述这个按钮，内容大概是 \"Click me!, group\"，显然这会让人疑惑。",
+        "text_hash": "ee1a532145d298cfafa6efd2766e4c9e342d9ffc229c3f86118b2bbaccdcdfd9",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6ad5ff0e35cca5b6822cae8e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "依旧，WAI-ARIA 的角色可以解决一切，复制文件 fake-div-buttons.html，然后加上 role=\"button\" 到每一个 button  ，如下所示",
+        "text_hash": "9b55ba358bb8513d38db0a7149b8516f11449f8b6df1097a990a28e1b1bcb6b6",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fce9132971ed22aa110eca01",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ded566e3730c15f1df92c881",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Click me!",
+        "text_hash": "c87289bf72718e99e1a01b0120e7f29e2962a67549d4138e92a2f1ef4e3d1a87",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b54ed6298fec78264c5ff15d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这时候再用屏幕阅读器，这次你会听到短语“Click me!, button”——舒服了。",
+        "text_hash": "bd7f5d296e269d2d46ab644cf798b5abee53916a5c279e2b6bc633c1eb9e5911",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_821498f8daf21bd5dbd017b9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n别忘了无论如何用正确的语义化元素是最佳选择。如果你想创建一个按钮，你可用  元素，你应该用  元素！",
+        "text_hash": "63c3be6557af9d80a0b945fd0c5fdfdd98d46eac5b8e0bd3b83c01314478b7f9",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_53817f4002f954f753cee9ef",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "通过复杂的小部件做引导用户",
+        "text_hash": "a1148c0e5c3e37a74684904d2fcca07a56a79a38abc03d6f4a3426dcc290f751",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f9a4399dec8de12995a6ed54",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "还有许多其他 roles 可以将非语义元素结构识别为常见的 UI 功能，这些功能超出了标准 HTML 中可用的功能，例如 combobox, slider, tabpanel, tree.。你可以在 Deque university code library 中看到许多有用的示例，以便了解如何使这些控件做到无障碍的。",
+        "text_hash": "788f2f5a9b83f74ee3e1b66959c712bc31559411c7864a8fd69f438b2d73be0f",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7f083935ad8f50382538a4d9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们来看看我们自己的一个例子。我们将返回到我们简单的绝对定位选项卡界面（请参阅我们的 CSS 和 JavaScript 无障碍的文章的隐藏的东西部分），你可以在 Tabbed info box example中找到它（源码地址）。",
+        "text_hash": "06576b6f8921a19dc44a8b864cff5878c566569f3863a01e9e33eaf00f61d953",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b8bddb6317a5aeda6970178e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个例子在键盘无障碍方面运行良好——你可以愉快地在不同选项卡之间进行 tab 并选择它们然后显示选项卡内容。它也是相当容易访问的——你可以滚动浏览内容并使用标题进行导航，即使你无法看到屏幕上发生的事情。然而，内容并不明显——屏幕阅读器目前将内容报告为链接列表，以及一些内容包含三个标题。它不会让你知道内容之间的关系。为用户提供有关内容结构的更多线索总是好的。",
+        "text_hash": "cb89fced10c10b113a85d06ca88b4e9ae9cb3939753aafc60c0c3bbc6c2584ca",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_93a73daa1e2b8aaa03d55bea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了优化它，我们创建了一个新的示例，名为 aria-tabbed-info-box.html（查看在线运行的实例）。我们更新了选项卡式界面的结构，如下所示：",
+        "text_hash": "ae0c2bc5f4330ae8ba5f7c3d447ef2e5b1b9ca9a80bbd6e521871f2d7715326b",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_50716d3b525fa1b7b574d64c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e97064f41ee6a654951c10fc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Tab 1",
+        "text_hash": "612f4cf9947453c12875e1ac334b8e548eed38c0612d46ceb49d810281f36bd6",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_915b6127c92fcf88a39169ce",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Tab 2",
+        "text_hash": "2fc3c437326b2bc30fb6bf1b17daf427dca5660b8d9bba0e372ba36495970e5a",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_441133fce26a9c813fa47b9f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Tab 3",
+        "text_hash": "bf92e42539e04d4d1739160fe08f377fea2cca0f9736ede726e36f66036619e8",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bda218e13b8ad5c234799381",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_24d60b0b42a73d01ca146ae9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...\n   ...",
+        "text_hash": "eb152a9462f82f4cde958e1ad2a1807e8963e94a4b8a388f09a1da07a28d5a6a",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_77a5a5e625ca418ecfe975b4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n这里最明显的变化是我们删除了最初在示例中出现的链接，并且只使用了列表项作为选项卡——这样做是因为它使屏幕阅读器用户不那么容易混淆（链接并不会跳转，它们只更改视图），它允许大小修改/位置变化一类的特性更好地工作——当这些被放在链接上时，浏览器始终报告“1 of 1”，而不是“1 of 3”、“2 of 3”等。",
+        "text_hash": "6b1b7a907777968f7a9234fdb8e482091f9c37324be951a8cf9797fa4e104094",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_6a6ed194dda102108cfee42a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "以下刚刚用上的新特性：",
+        "text_hash": "51b191bf46a6212e65cbb27612abf044c356eaba9e1665ba49395eb3bd847896",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_36551b83d431c2cd72a41e88",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "新角色 — tablist, tab, tabpanel — 这些确定几个 tab 表界面的重要区域——tabs 的容器，tabs 自身，还有他们的一致性 tabpanels。\naria-selected — 定义了 tab 当前正在被选中。和 tabs 被用户选中不同，这种值一般是由 JavaScript 修改。\naria-hidden — 对屏幕阅读器隐藏一些元素，和 tabs 被用户选中不同，这种值一般是由 JavaScript 修改。\ntabindex=\"0\" — 当我们删除链接时，我们需要为列表项提供此属性，以便为其提供键盘焦点。（为没有 tabindex 特性的元素也提供 tabindex 特性）\naria-setsize — 此属性允许你指定屏幕阅读器元素是某个系列的一部分，以及该系列具有多少项。\naria-posinset — 这个属性允许你设置一个元素在一个系列中的位置，随着 aria-setsize，他告诉屏幕阅读器（用于设置文件目录树视图）足够的信息去告诉你现在在 item \"1 of 3\" 位置等。大部分情况下，浏览器是可以从 DOM 层次结构中推断出这些信息，但它肯定有助于提供更多线索。",
+        "text_hash": "d89d81bfad75812c12d971716d426ef95896e2d54201b89f525400ff75af01f5",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_6cf3999b6d646227e9dd760c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在我们的测试中，这个新结构确实有助于改善整体情况。这些选项卡现在被识别为选项卡（例如，屏幕阅读器说出「选项卡」），所选选项卡由“选择”表示，并使用选项卡名称读出，屏幕阅读器还会告诉你当前所在的选项卡编号。此外，由于aria-hidden 设置（只有非隐藏的选项卡有 aria-hidden=\"false\" 设置），非隐藏内容是唯一可以向下导航的内容，这意味着所选内容更容易找到。",
+        "text_hash": "325ab6734041b39b11a7baca2c3a8abfd41f6dc66a725de17345b41764c67736",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5cec48abf6b9cd14c752b21d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你有不想让屏幕阅读器读出来的东西，你可以给它一个 aria-hidden=\"true\" 属性。",
+        "text_hash": "e48ec32b298276345fc24f0205178b0a3ea65289e4d9d4e5c93b898265104478",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_dd188780c2b94f78b6965bb4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ae5f9b40f6bc282d86f04afb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本文并不是 WAI-ARIA 中的所有内容，但它应该为你提供足以了解使用它的信息，并提供了最常见的几种模式。",
+        "text_hash": "69b3613c58d1f36402a6ecf0e7184bc1f9428dd99a352939fd605085445ec9aa",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ebb392831d0cc2458bcdc26d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "其他链接",
+        "text_hash": "1fc0e4822506962d49d4ac794d4f1e512dcc90f5c65fdf89b816267c10ddb79a",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8cb9f4ecec769d78407b8fbf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Definition of Roles — ARIA roles reference.\nDefinitions of States and Properties (all aria-\\* attributes) — properties and states reference.\nDeque university code library — a library of really useful practical examples showing complex UI controls made accessible using WAI-ARIA features.\nWAI-ARIA Authoring Practices — very detailed design patterns from the W3C, explaining how to implement different types of complex UI control whilst making them accessible using WAI-ARIA features.\nARIA in HTML — A W3C spec that defines, for each HTML feature, what accessibility (ARIA) semantics that feature implicitly has set on it by the browser, and what WAI-ARIA features you may set on it if extra semantics are required.",
+        "text_hash": "c21e36a115d7f55a3348d6055efff299572fa6d4d9c3dacee2141d6da926f4a1",
+        "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+      },
+      "type": "unordered_list"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_7769e4b31cbe648cb0d2f6b8",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。WAI-ARIA 基础，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "WAI-ARIA 基础，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/accessibility/wai-aria-basics",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "WAI-ARIA 基础"
+  },
+  "resource_id": "lr_bb06b459162137b6dcba8fbd",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_7e23fcc5c8f7e3b89c2cf0e2",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "WAI-ARIA 基础",
+    "text_hash": "734979da103f87190f87c783615d5e72439f7c3fc3f52dbc4aa8c6763c821eb4",
+    "variant_version_id": "lrzv_72be4de128acbf26d042ec86"
+  },
+  "variant_id": "lrz_20fc1a9022860f50261e4022",
+  "variant_version_id": "lrzv_72be4de128acbf26d042ec86",
+  "visual_dependency": "helpful"
+}

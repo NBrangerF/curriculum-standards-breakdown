@@ -16,6 +16,7 @@ import { LoadingState, ErrorState, CopyLinkButton } from '../components/StateCom
 import FavoriteButton from '../components/FavoriteButton'
 import StandardRelationPanel from '../components/StandardRelationPanel'
 import StandardTextbookLinks from '../features/textbooks/StandardTextbookLinks'
+import StandardLearningResources from '../features/learning-resources/StandardLearningResources'
 import { useUiV2 } from '../components/RouteUiBoundary.jsx'
 import { Tooltip } from '../ui/primitives/Tooltip.jsx'
 import { copyToClipboard, mergeLearningMapStateIntoURL, parseLearningMapStateFromURL } from '../data/query'
@@ -313,7 +314,6 @@ function StandardDetailPage() {
     const [capabilityGraphLoading, setCapabilityGraphLoading] = useState(false)
     const [subjects, setSubjects] = useState([])
     const [skills, setSkills] = useState([])
-    const [resourcesExpanded, setResourcesExpanded] = useState(false)
     const [relationsExpanded, setRelationsExpanded] = useState(false)
     const [activeSection, setActiveSection] = useState('standard-skills')
     const [codeCopyStatus, setCodeCopyStatus] = useState('idle')
@@ -857,33 +857,13 @@ function StandardDetailPage() {
                 </div>
             </section>
 
-            {/* P1: Resources Placeholder */}
             <section className={styles['resources-section']} id="standard-resources" data-reading-section="standard-resources">
                 <div className="container">
-                    <button
-                        className={`${styles['resources-header-btn']} ${resourcesExpanded ? styles.expanded : ''}`}
-                        onClick={() => setResourcesExpanded(!resourcesExpanded)}
-                        aria-expanded={resourcesExpanded}
-                        aria-controls="standard-resource-content"
-                    >
-                        <span className={styles['resource-title']}><span className={styles['resource-symbol']} aria-hidden="true"></span>教学资源</span>
-                        <span className={styles['coming-soon-badge']}>即将上线</span>
-                        <span className={`${styles['toggle-icon']} ${resourcesExpanded ? styles.up : ''}`} aria-hidden="true"></span>
-                    </button>
-                    {resourcesExpanded && (
-                        <div className={styles['resources-placeholder']} id="standard-resource-content">
-                            <div className={styles['placeholder-content']}>
-                                <span className={styles['placeholder-index']} aria-hidden="true">R</span>
-                                <h3>教学资源即将上线</h3>
-                                <p>未来将支持绑定课例、活动设计、任务单等教学资源</p>
-                                <ul>
-                                    <li>典型课例与教学设计</li>
-                                    <li>学生活动与评估工具</li>
-                                    <li>教师参考资料</li>
-                                </ul>
-                            </div>
-                        </div>
-                    )}
+                    <header className={styles['section-title-row']}>
+                        <h2>学习资源</h2>
+                        <p className={styles['candidate-notice']}>从开放资源中提取、转为简体中文，并通过内容—课标证据检查。</p>
+                    </header>
+                    <StandardLearningResources standardCode={code} />
                 </div>
             </section>
 

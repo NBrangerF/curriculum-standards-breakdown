@@ -1,0 +1,1525 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_a0d5cd37dddbe5cc20f87d27",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "此时，我们的 App 是一个单体。在我们能使用它之前，我们需要把它分解成可管理的、可描述的组件。React 对于什么是组件和什么不是组件并没有任何硬性规定，这完全取决于你！在这篇文章，我们将向你展示一种合理分解 App 的方法。",
+        "text_hash": "3447ddb005367ce3c0084a455ba6166966a50282bc3a7cce20f848d23d9d0398",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_23e71b7c181800d208752171",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：",
+        "text_hash": "60df7f5b49d0fd69c1a1ee4bda41ede8b786ae9d162b8a9a73e264bbf703119b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e645fe9d170f654d426c5bc5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "熟悉核心  HTML 、 CSS\n           和  JavaScript  语言，了解 终端/命令行 。",
+        "text_hash": "87122dabb51cad2d1ae1fe86a0fb71151dec610198e25c410f36599d07f4c3f8",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_db039d2ca8a5cdd25efd3bae",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：",
+        "text_hash": "4d2d25a2888d3e7c13db6b2e275e0179ab434807992666123db412d5f31e27a0",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_048d3fd271906437adfecf9f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "展示一种合理分解待办事项 App 的方法。",
+        "text_hash": "990c8f60c14b1775f789a8bdb2f6dec0ddee2c1266645dcd544c1045eb9a4781",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ddd687e823c63b254a75aed0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "定义第一个组件",
+        "text_hash": "ab6bcb6c31693f860cd020230ab48c5fcefe0b8a3ce5b6157bcd0c2d5adb779d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_9a549a492068646943953401",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在缺乏经验的情况下，定义一个组件会比较棘手，不过这些提示可以帮助你：",
+        "text_hash": "72f3024a8cb5df7cf46a5334746879637a43f2cc018c188aaba27ba8671b4f36",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_61db6aaf60effa5c516762a5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果它在程序里看起来是个明显的“块”，那它可能是个组件。\n如果它在程序里经常会被复用，那它可能是个组件。",
+        "text_hash": "a2c27b165791cd76dbd39b6425f6ee676669d539c95eac2ce4ad37df7d0ff91a",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_da3caca905707683cf54c39b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二条很有价值：使用通用的 UI 元素作为组件，可以让你只更改一处，就能更改所有使用该组件的地方。现在你也不必马上把所有东西都拆成组件。让我们从第二点开始做起，将 UI 中重用最多、最重要的部分抽取为一个组件：一个待办事件项。",
+        "text_hash": "e6d9f1acdc490880ea8735a43c79fe3f26dcfc929d105040c16f9def1ffa6406",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4f8c4d618b5a8a17cc2bedb5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "编写",
+        "text_hash": "08474360ee8b0aa841b72138682a5a8ebb2ff854c47d61f52fdf931d4226b316",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2b5614e3e98d86c2197382cb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在制作组件之前，我们应该为它新建一个文件。实际上我们应该为它新建一个文件夹。下面的命令可以新建一个 component 文件夹，在这之中又新建了一个叫做 Todo.js 的文件。在你运行这些命令之前，请确保你在 App 的根目录下。",
+        "text_hash": "edfaf3df3c69776868f0df4df57fdbe06e7e8b7144bfdb10c96c261ae1ad6049",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5c7f89821f11724cbab8534f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "bash\nmkdir src/components\ntouch src/components/Todo.js",
+        "text_hash": "6bd794618e78973a172ee020acb7ab50154ee9ff412804520756043da9257623",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_35906d501f0c5168e0f46c59",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "新的 Todo.js 文件是空的。打开它，并添加第一行。",
+        "text_hash": "b09ad61835e5c282b6f7ca3d90a2801313d06574c22e22731d2532cf3b3bd3c5",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a40cf9c89911252d3a20aae",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nimport React from \"react\";",
+        "text_hash": "eaa932271156444a68576351d8a611f8200eb22ec245ea9f9425a0f4cede9e32",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3254b823bdcd2f204395a19e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "既然我们要做一个叫做 Todo 的组件，就要在 Todo.js 中加入相关代码。如下所示，这段代码中，我们使用了一行代码定义了函数并导出了它。",
+        "text_hash": "89e97de1105c4f3e6ff861b92e2edb9bd8ea82a4ed7fe6dfb44dc28cdbebba65",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0b2ad129486f69da22cd334b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nexport default function Todo() {\n  return (\n    // …\n  );\n}",
+        "text_hash": "5a420945d22af3a8ad1d7261cdf8dd336af2ff9c03ec053a3ccbaa222ae94534",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7ef0f7e6e98887fdc5c97039",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目前为止很顺利，但我们的组件必须返回一些东西！回到 src/App.js，从无序列表中复制第一个   并将其粘贴到 Todo.js，代码看起来像这样：",
+        "text_hash": "aac4d56594a29407d7fdac436749ef16ab0eb834a022301955cc028e08c276d4",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3c59bee8f9f820b1d6c318f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nexport default function Todo() {\n  return (",
+        "text_hash": "759622971e7393523fed213ff046fa85717754954fa2fa6009379f4b67b16e23",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_477a6b4244e6e334e6ad7609",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Eat",
+        "text_hash": "ebecb9cef8f2103c8885e5732df330174d137867b033b179cefc94b1ea23bb6d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1c5ab9c3d90d818fc1d1fd07",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Edit  Eat",
+        "text_hash": "c8ec3a724a980e20acd929a13ecb00f83b00b5e68bb97ea169a285a398919cfd",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_490f8088015eff41fd5e22ea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Delete  Eat",
+        "text_hash": "7b3a808e393389529a7c2b5090f14805dbaa18d9c85061afdd2f9c8361e28ef3",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a6533a5351c103eaf0f10d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ");\n}",
+        "text_hash": "a2d0828ab6e1f1583be4e2374894bd3199c33ead09388dd551c177aa90b2214b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a7e8ba143da66a9b99d89424",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n组件必须返回一些东西。如果你试图渲染一个不返回任何东西的组件，React 会在浏览器中提示出现错误。",
+        "text_hash": "8b060b1f51451204f905500acaa2f3bda1d0782bc7e4fc44e4dbaa9d9c1f6080",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_bb5fc459148c1ba1531146c8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "到现在为止，我们的 Todo 组件已经完成，我们可以使用它了。在 App.js 中，在文件顶部添加以下代码，导入 Todo 组件：",
+        "text_hash": "e3a6c5b74a86cde44541809b6234358c337dca1c22bc738c789543235269bd6e",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_639a168356466bcb2d6561ec",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nimport Todo from \"./components/Todo\";",
+        "text_hash": "a235e793933959cd1a0a0397ad0a4ba8084a14fbe1137ca02ee186d13df9a48d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f8e4be77be9c7f3618070387",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "导入组件之后，你可以调用   组件来替换 App.js 中的所有  。你的   看起来应该像这样：",
+        "text_hash": "d64889ebe6e80350e079f4416b68eda259c2dfe427aaa7b30975aba7eee18689",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5343421a8f7e700f02d99a08",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js",
+        "text_hash": "16cedf80ade01c62bdd1ae931d0492330c0b62bf294c08c095ce2fab21a9298d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fa39e79d02e60d4a396a2277",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当你查看浏览器时，你会注意到一些不幸的事：现在你的清单重复显示了三次！",
+        "text_hash": "8c3bd7633446a9a1d1b18df383d979c01e85a4cf40a39179629872ac7bb63246",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5fb83b27702d473da0105375",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 App 中，Todo 组件重复出现，因为标签被硬编码到组件中",
+        "text_hash": "e1fb5b2822cf855a914242bcbcf9607ae912efd90f46cb1c0d0138f01ea0ea04",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f21f21f1f4400dc9729db489",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们想得不仅仅是 Eat，我们还有其他事情要做。接下来我们将尝试使用不一样的方式来调用组件，渲染出不同的内容。",
+        "text_hash": "446c29b36b0f89ed56d09224713741ec63635425304a4679b6b53b0517beed0e",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_56f5b8e0bc9d60f4ebe98991",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "制作 _不同_ 的",
+        "text_hash": "807b1b2d6cfeb31be6660c80f03f284b615ea047582b8f5610c117b07d3a8215",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_df8c9acee55b3805e449dc9d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "组件之所以强大，是因为它们让我们可以重用 UI 的各个部分，并让我们可以引用一处作为 UI 各个部分的源头。问题是，我们通常不希望重复使用每个组件的全部内容；我们希望重复使用大多数部分，并改变小部分内容。这就是 props 的用处。",
+        "text_hash": "72803f8fba45ae27b691805e7ebf82f3b2437a9a15cb5402313ceb6b91571f8b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_11a9e778647f7625f6b04df5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "name 里有什么？",
+        "text_hash": "169b46bfe6d2ba2ac6f17d94a4efbd5413beff930ea9b37fecf5158c60cdbb23",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_4a22bbdae2be01f411adbdbf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了跟踪我们要完成的任务名称，我们应该确保每个   组件渲染一个不同的名称。",
+        "text_hash": "d8dc07c0095d95ccbb2003f8c48b122ff92424978fc4dae915827c79d4845427",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9f28ca27493ced07e8ef7084",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 App.js 中，给每个   传递一个 name prop。我们使用之前的任务名称来传递：",
+        "text_hash": "151111e8370b42623c0ff3842938c314f74a3b6133e4fd2e169f1c40f740d7a3",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_69231de3f51e1b989c7c27a7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js",
+        "text_hash": "16cedf80ade01c62bdd1ae931d0492330c0b62bf294c08c095ce2fab21a9298d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2d7baf0fc10792a5c31a7e7c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当你刷新浏览器，你会看到和以前完全一样的东西。我们给了   一些 props，但还没有使用它们。让我们回到 Todo.js 修改一下。",
+        "text_hash": "cf71cb9d036f60b9adc5553b5d2e1a7ca1b4e2f6f010a2abb5add1a32dd06310",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_778c6c20baaf2262d37f3bad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先修改你的 Todo() 函数定义，使其接受 props 参数。如果你想检查 props 是否被组件正确接收，你可以像之前那样使用 console.log() 检查你的 props。",
+        "text_hash": "97a1c6f59878c8399b6a490850d8c63937fd148347dba651747e0cdb0b9bf1e3",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9bf6823683f7177902f1cf33",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一旦你确信你的组件得到了它的 props，你就可以用 name prop 来替换每次出现的 Eat。记住：当你在 JSX 表达式的中，你可以使用大括号来注入一个变量的值。",
+        "text_hash": "bad70d89b31bcb9d71c8e66ed7ddbb22b62449bdad7f03e4a3769d47b08b1e1f",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_de2d15e64aca4427931380c3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "把所有这些操作汇总在一起，你的 Todo() 函数看起来应该像这样：",
+        "text_hash": "d26ed39a359e112937fa110f7d2c52485b5ef11ea39e60185ee57419349626fb",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4d0dbaaa61c306b81bfa430a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nexport default function Todo(props) {\n  return (",
+        "text_hash": "4322be20f6915908e46c77633a0174be445324cd076fb49d73323cdcda94c1c0",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f09f29e051de143b6ce7427a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "{props.name}",
+        "text_hash": "0a60c92d3df904e6b39172e6f352fde759b508d40476731b4e32bf1f17ee73ac",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_13038564cc39ad3559ba5fbc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Edit  {props.name}",
+        "text_hash": "59be6bbaaec52cf4aff31101e8839e069c0f3a1d1e493f8a43831f4296d3b622",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a03c131942d9a0d9869d3e95",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Delete  {props.name}",
+        "text_hash": "6917453bb783e96c3abfe55bcac68673a6acb0962a010d643c3b121feb984839",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_51e4471e35cc2a3bc94151ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ");\n}",
+        "text_hash": "a2d0828ab6e1f1583be4e2374894bd3199c33ead09388dd551c177aa90b2214b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8d3b49b0659ebc228bd35c79",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "*现在*你的浏览器应该显示三个不同的任务。但另一个问题仍然存在：它们都是被默认勾选的。",
+        "text_hash": "689cf25dac9a26f99bb4a6c6554936071a80eba1f7bccef43e4931ab0bd92397",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9c939e77fb3df10090cbc1e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在有了不同标签的待办事项，标签以 props 的形式传入组件。",
+        "text_hash": "881c2b0fb9e21841190ccfd84b5b24ee251e40004bece5b92240204eaa0e9e70",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6a935f8de2d030ae61aad1c9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "是否 completed？",
+        "text_hash": "bfbc556269a05564baa675203cacdcca7bef478bb58bd1c3f442193fc47b7cf1",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1a186772efee7ba14e18cafc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在原来的静态列表中，只有 Eat 被选中。我们想重新利用构成   组件的大部分 UI，但只修改一处。这个工作很适合另一个 prop! 在 App.js 中给每个   传递一个新的 props completed。第一个（Eat）的值应该是 true；剩下的应该是 false。",
+        "text_hash": "4f203ef4a5b1e2f23f7ee544ec99c7a467c827ad9b4f86f6f230c30116b21c3e",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_878c227511e3ee0528e8470f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js",
+        "text_hash": "16cedf80ade01c62bdd1ae931d0492330c0b62bf294c08c095ce2fab21a9298d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f2bbc8ba8cea576136261f44",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在这之前，我们必须确保 Todo.js 已经使用了这些 props。修改   上的 defaultChecked 属性，使其等于 completed prop。",
+        "text_hash": "bfc0ea53c7df1dc85324fad8bc8ab4c9b8812c6160039a1e722b9427b93e7115",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_76fe5b4ad83d5af157a1d6a2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js",
+        "text_hash": "16cedf80ade01c62bdd1ae931d0492330c0b62bf294c08c095ce2fab21a9298d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cf5c76e8666386d050633e65",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你的浏览器应该会更新，现在只有 Eat 被选中了。",
+        "text_hash": "b43f589b4e82b09f8ad3c281e178af0f0c3eef2905968530000637c0a62e1faa",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9837a1ee2723c19218857339",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们的待办事项现在有了不同的选中状态——一些复选框被选中了，其他的没有",
+        "text_hash": "a89b4e6e1b6b40c87cef22df2089064fbcf05aeb754da3ec2db39242a22d9461",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b59bf96eaa3c8ddeaff9c597",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你修改每个   组件的 completed prop，你的浏览器会根据选中或不选中去相应的渲染复选框。",
+        "text_hash": "51612c4be6f4ca502fa3f83116c3cecad51df8b93a01d19d4229053cdb7d31b7",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_882ad707e8b981f4d38d7f08",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "请给我一些 id",
+        "text_hash": "33fefb2a87745e90473ccad47f74f26efcb19a75846275764cdb2ca71d1854ba",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_811e0745db81f027f85b341a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们的   组件给每个任务的 id 属性都设为 todo-0 了。这是个不好的 HTML 写法，因为 id 属性必须是不同的（它们被 CSS、JavaScript 等用作文档片段的唯一标识符）。这意味着我们需要给每一个 Todo 组件一个不同 id prop。",
+        "text_hash": "7feb459bf4b90e0f3adaf81d350ad87c99acfda2b9da41240c6bb06832d0a9f8",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7ad226188cc29488eb08db15",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了遵循最初的规则，让我们给每个   组件实例一个 todo-i 格式的 ID，其中数字 i 每次增加一。",
+        "text_hash": "5539e63f3ea4c7b3c536eb831a38ebdcb5edbec3b097e7b956a49124bc96059b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5d55263cf32c43b8920580bc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js",
+        "text_hash": "16cedf80ade01c62bdd1ae931d0492330c0b62bf294c08c095ce2fab21a9298d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_01aebbdd83939149712d0522",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在回到 Todo.js 来使用 id prop。需要替换   元素的 id 属性，以及 label 的 htmlFor 属性。",
+        "text_hash": "b29d73509635d6fe8c96eafb133077fe656e77782800fdd6ee69ccd0035920ed",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_319f604b49bd40755d5e1d79",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js",
+        "text_hash": "16cedf80ade01c62bdd1ae931d0492330c0b62bf294c08c095ce2fab21a9298d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1b44a1c4c97ee39d5c5048f4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "{props.name}",
+        "text_hash": "0a60c92d3df904e6b39172e6f352fde759b508d40476731b4e32bf1f17ee73ac",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_35b8a668b10f8b4b4f30e423",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "到目前为止，还算不错？",
+        "text_hash": "9523d5b16682e51f33b9380c3c9305503bbbdab7e2064316afa9ae4a564e73a8",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_be1d009115694f9dfb5a4fb7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目前为止，我们使用 React 很顺利，不过可以做的更好！我们的代码有些重复。渲染我们的   组件的三行文字几乎是相同的，只有一点不同：每个 prop 的值。",
+        "text_hash": "6cd2b27a1a8e964b0c3986821cf228d7f3539877ab58b3c79bc2a043d364bdc1",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b02c75fdb66d4ed0633d606d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们使用一个 Javascript 的核心能力来整理我们的代码：迭代。想使用迭代，我们首先应该重新思考我们的任务。",
+        "text_hash": "561396d635d1cdc3713806189ee20272671061d07b096447e135600f255dc6c3",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d75e0e8f86fbf5b0f8be66a7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "任务作为数据",
+        "text_hash": "2953662dc12d645b8bde704dff3d96a5f1a29bc4386a7de5bfa37eac494d8208",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_edf2d5b7018b165aed28b484",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在每个任务都包含三份信息：它的名称、是否被选中，及它唯一的 ID。这些数据可以很好地转化为一个对象。因为我们有多个任务，所以用一个对象数组可以很好地表示这些数据。",
+        "text_hash": "99022898a87626d7acd291202f0bb5b2c7a7854efc26845ee17d84e9bd0a1e4c",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_71e19342a9d21eeaca027b26",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 src/index.js 中，在最后一条导入下面，在 ReactDOM.render() 上面，新建一个 const 数据。",
+        "text_hash": "bb377357140f8976e4e9b1c79e9d92f00d64c458f49a923aeba648bdfafa9c08",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ebd866f3e1a7305771cda6bb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst DATA = [\n  { id: \"todo-0\", name: \"Eat\", completed: true },\n  { id: \"todo-1\", name: \"Sleep\", completed: false },\n  { id: \"todo-2\", name: \"Repeat\", completed: false },\n];",
+        "text_hash": "a9fe8b04f4d1a038c920e475a3f85910ebeb34d11faf755cff032daa8de3fe9f",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1c0615b77cd939bd30db3ef1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "然后，我们将 DATA 作为一个 prop 传入  ，叫做 tasks。src/index.js 的最后一行看起来应该像这样：",
+        "text_hash": "1a0acb81d2e8e62d93656a745aad3089b6120ac63c94f3b51368ee1f6073b7d9",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ba8d878774724df0d61ab24f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nReactDOM.render( , document.getElementById(\"root\"));",
+        "text_hash": "e20122fd04b519f40275080a450f76828bbf0e62822459dd69a2023a8db95a5a",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7bc11fc37563072564539a49",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个数组现在可以在 App 组件中以 props.tasks 使用。你可以使用 console.log() 去检查它。",
+        "text_hash": "24948ce17ce8b874cc2c5254c6049b5375325d555f5c9d37601a32a76c9678f1",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6430c5e5f715306afa0bf61d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\nALL_CAPS 这个常量名称在 JavaScript 中没有特殊意义；它们是一种惯例，告诉其他开发者“这个数据在这里定义后将永远不会改变”。",
+        "text_hash": "767367ce69cd29fb74ba049b0848c48ecc24658f434295137e7356717012c638",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_7864c29b7808d22b691f5c2a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用迭代进行渲染",
+        "text_hash": "3508dbded522548cbbb2f3d0c079ddf7c68005121a0eaaaee9e151606b6ba6c3",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ff8c86b77efe75d12475cf70",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了渲染我们的对象数组，我们会把其中的每个对象变成一个   组件。JavaScript 给了我们一个数组方法，用于将数据转换为其他东西：Array.prototype.map()。",
+        "text_hash": "e768b324bb46f4f0c599e0da1ec39768009b51648d363496b843fe59172828c8",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0e73991d77e1b31ee42317ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 return 语句的上方，新建一个叫 taskList 的 const，然后使用 map() 去转换它。我们先把 tasks 数组变成简单的东西：每个任务的 name：",
+        "text_hash": "a8b6d02318b714377d660315b4cd70bdf30f28fa97c57f0370d5794a4eeac632",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f25dfc1b97bb0c713316e278",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst taskList = props.tasks?.map((task) => task.name);",
+        "text_hash": "86c0ba5d4673817cc2642ab348053af1dd6d2f23da6954ea62198caf6065b2fc",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_65907aff25bbd1c3cf6f3232",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们尝试使用 taskList 替换所有   的 children：",
+        "text_hash": "27c6694a42d4e1c3667fadcd5646c81d278195a888869a80be8b33800603b6a4",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_676df2e2e5d3d4794e5dae17",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js",
+        "text_hash": "16cedf80ade01c62bdd1ae931d0492330c0b62bf294c08c095ce2fab21a9298d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_79557c44eed14428c9395bc1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "{taskList}",
+        "text_hash": "bb80b9fb69827612ed3a72a3980473c8ff32f30238b2f39f88c97122e8ed1ee0",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7afea206144f58dcb0636131",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这让我们能够再次显示所有的组件，但我们还有更多的工作要做：目前浏览器将每个任务的名称显示为非结构化文本。我们忘记了 HTML 结构—— 、复选框和按钮！",
+        "text_hash": "1b3a83bf5b623d94ff0be58ff7e99657b24dea13bbaba92dc058369488765cf6",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eb961e65f903f774d4b8b3a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们的待办事项中，其标签刚好显示在一行上。",
+        "text_hash": "e15d662509c338c2e1b0c4020db326b8a49a1f1d9c3d0869adf24c5892eaf3c3",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6a4a5e210a1bf168d53a6016",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了解决这个问题，我们需要从 map() 函数 return 一个   组件——记住 JSX 允许我们将 JavaScript 和标记结构混合起来！让我们用下面的方法替代已有的试试：",
+        "text_hash": "52478fcb073bc90b93801ff50703b98c1fedcf8a919031a60155292720002528",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_40b0b0820735a2c7f58bffc7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst taskList = props.tasks.map((task) =>  );",
+        "text_hash": "bb904de6ed3dbe5db8423bd11370d44aea71883ce302eee5342134308f8e641b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c1fed45358684f56fa00fd7e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "回顾一下你的 App；现在你的任务看起来更像以前的样子，不过它们缺少自身的名字。记住，我们映射的每个任务都有 id、name 和 checked 属性，我们要把这些属性传递给   组件。如果你把它们放在一起，我们就会得到这样的代码：",
+        "text_hash": "0d2531d751bc88697569068caca9d12cf52c1de7a1422f39b39dc356518e0d7f",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5dd093b8b513f711fb95c1ef",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst taskList = props.tasks.map((task) => (",
+        "text_hash": "886529777f0c58ac703c67dad2b646debca5b2caaf75345527a407df195cbabf",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6d60f9811bdc4a5bba04def5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "));",
+        "text_hash": "0c049cf1444bfb9b41131eea0a974d8ea4750a88dde275f3d9c18627e27dd09b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_67c71d2e1481a51169a6e519",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在 App 看起来像之前一样了，而我们的代码也变得没有那么重复了。",
+        "text_hash": "7c181ab42562e659a75783fb4e02961dd80ab9e65a20084267070e5bd5312e94",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_857318d023834c8d4964cf76",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "特殊的 key",
+        "text_hash": "748fe179f264a2d582f773310a7a1dd2386b731436537e66b902198edb89d5dd",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8ad2599afa0bdfb9b2eb1246",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在 React 正在将我们的任务从一个数组中渲染出来，它必须跟踪谁是谁，以便正确的渲染它们。React 通过自行猜测来保持对每一项的追踪，不过我们通过给   传递一个 key prop 来帮助 React 保持追踪。key 是一个被 React 管理的特殊的 prop，你不能将其用于其他目的。",
+        "text_hash": "20df21aa27d36021ce694f1cde3ba9df1aa7aa0791094918834420af9ddec731",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_07704b2508120516c27ea849",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "因为每个 key 必须是不同的，我们复用每个任务对象的 id 属性来作为它的 key。像这样更新你的 taskList 常量：",
+        "text_hash": "4d2c73923d99f7fdfa0c9e1ed38ae2cc8e0b63d8f4edd65d394f6f6fa34c50e2",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_47e0c36d37aae4ec731398bc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst taskList = props.tasks.map((task) => (",
+        "text_hash": "886529777f0c58ac703c67dad2b646debca5b2caaf75345527a407df195cbabf",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_604dc129e3b14438b30fabb6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "));",
+        "text_hash": "0c049cf1444bfb9b41131eea0a974d8ea4750a88dde275f3d9c18627e27dd09b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d7b65703ebb41e09c21da409",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**你应该传递不同的 key 给任何使用迭代方式渲染的东西**。你的浏览器中不会有什么明显变化，不过如果你不使用不同的 key，React 会在你的 console 中记录一个警告，并且你的 App 可能会表现的很奇怪！",
+        "text_hash": "b86e9e3733a2943a8e3bb01e9a6820e3746d8a6b04c821a851db7f326f6072ba",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_66a5543b7000ffb393624d52",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "整合 App 的其他部分",
+        "text_hash": "9dc512f3a54a1fff7102aacbcf50f1c68f0b9455d4295f57f9610c5796737231",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e385d088376289011b69385c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在我们已经把最重要的组件整理好了，我们可以把我们 App 的其他部分也变成组件。记住，组件要么是明显的 UI 片段，要么是重复使用的 UI 片段，或者两者都是，我们可以再制作这两个组件：",
+        "text_hash": "efaef8855377a2ad8682977edd61a3cd1784f0c4e64ac1db7057686900aaf2b2",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_acecfc0468a1127b4454381d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "-",
+        "text_hash": "3973e022e93220f9212c18d0d0c543ae7c309e46640da93a4a0314de999f5112",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_36a93181356472c002dccb69",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "既然我们知道需要两个文件，我们可以使用一个终端命令来批量新建文件。在你的终端中运行这段代码，注意要在你的 App 的根目录下：",
+        "text_hash": "563f2f9fab229b39fc69ea99284b62f28af43599e04e9086cacf14344283411a",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b57ae3f9505d7ffc13e689c8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "bash\ntouch src/components/Form.js src/components/FilterButton.js",
+        "text_hash": "2308227332d604fdc4f62d44d85a1adba97fd5ef77f17831dc727e2864a1ce46",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a1f2914b2be066fc9fd21b56",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "组件",
+        "text_hash": "783d638053ea1897952a99591341259d3b8167aeb56aa4f31a01100dc42deaeb",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8c6f89f43c20d397c5b93e97",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "打开 components/Form.js 并按照以下几点来做：",
+        "text_hash": "09d19f0f68ce42382d2de8e1c1253cf8405379f4a7450eb73bbda062530be5a5",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dfd55d129ba46bb2cf27599e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在顶部导入 React，像我们在 Todo.js 中做的一样。\n做一个新的 Form() 组件，其基本结构与 Todo() 相同，并导出该组件。\n从 App.js 中复制   标签和它们之间的所有内容，并将它们粘贴到 Form() 的 return 语句中。\n在文件末尾导出 Form。",
+        "text_hash": "f3cb99502ea199f049e03e7aa400670b91b1b4b1936fa57d75abfd512257ce96",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_0b213c40671555e5e70fbe58",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你的 Form.js 文件应该看起来像这样：",
+        "text_hash": "98552cde8dbb1c86cfd238d8cc60e6268e89c5205782db0ae9a339a865ceacaf",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_882f330e80d59f00793f7d8c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nimport React from \"react\";",
+        "text_hash": "eaa932271156444a68576351d8a611f8200eb22ec245ea9f9425a0f4cede9e32",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5240fd75b96e4d198ef61efe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "function Form(props) {\n  return (",
+        "text_hash": "46681c850a0700ab5355ed8e4b77714f1f97356de0ef02cb2e7a729d017767f5",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_193d00b636d7a47c55355e1e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "What needs to be done?",
+        "text_hash": "7e39c74288efef6b38855cf5505e70aca4ba6c330a137133f8f280968c034534",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eb0af3b471a1583d66953d7d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Add",
+        "text_hash": "9fd728c66c9a256b121472dabf32a34317aed01d8427d70ec830289cf23a7cc8",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_04b379ed1bb12561dd9dc9ca",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ");\n}",
+        "text_hash": "a2d0828ab6e1f1583be4e2374894bd3199c33ead09388dd551c177aa90b2214b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5dba8d384bdbc0528f51b6e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "export default Form;",
+        "text_hash": "40dac829df8fea7c042610faca83264cd7f768c61ad46145df4c930f89e36910",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_057c5bb9f693c32f0722b4dd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "\\  组件",
+        "text_hash": "205e5a949bbe004181388b412e518d339d609b27e2134ed8f395c32d3e029380",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e7c9eed1e93703f9be9aed18",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Do the same things you did to create Form.js inside FilterButton.js, but call the component FilterButton() and copy the HTML for the first button inside the   element with the class of filters from App.js into the return statement.",
+        "text_hash": "a855429a606746fca0622758ab242c3efe109e1787792d9f0fa7569d073b4b57",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8b8d21c93f7c9b9940955c57",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "按照新建 Form.js 时的方法新建 FilterButton.js，但是组件名应该为 FilterButton() ，还要拷贝 App.js 中，class 为 filters 的   元素中的，第一个按钮的 HTML，然后放在 return 语句中。",
+        "text_hash": "a497051b376a0a27e767eaa11253b7cdce169c7810f1a773c6b7fbcba9981a5d",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b78c31f31d35ee82c3037342",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "文件看起来应该像这样：",
+        "text_hash": "a3cc1e4b7a2c191441ed1ffa8263e8068fc4ed1ec90e9ec6e420c063d84c19cb",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b67b26eaa98821f5fb744a59",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nimport React from \"react\";",
+        "text_hash": "eaa932271156444a68576351d8a611f8200eb22ec245ea9f9425a0f4cede9e32",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_13b8e369ba3f916b0d1df55f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "function FilterButton(props) {\n  return (",
+        "text_hash": "0bc51a7c627c8153adb6e34f46506b148146788fa24bbeb5fe4f9790fbf0d106",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7d7b60f382fbf39b99dd40a1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Show\n       all\n        tasks",
+        "text_hash": "ec8bd6435ad41b8cd07b37b2b555c9417647dd808aeb2d9223083e4f14ff9b96",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bdcd76a0ba183f131be7ffe2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ");\n}",
+        "text_hash": "a2d0828ab6e1f1583be4e2374894bd3199c33ead09388dd551c177aa90b2214b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_091920e6fdcf6abe4c701c96",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "export default FilterButton;",
+        "text_hash": "7b7155846a36b70da7e9ad0a28c8d422e726b12ae6217e5979e0b1f68b02683b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2772aa6e9cf560ff2ef891f3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可能会注意到，我们在这里犯了和第一次在   组件中同样的错误，即每个按钮将是相同的。没关系！我们将在以后修复这个组件，具体在 Back to the filter buttons。",
+        "text_hash": "15c7b94f3aa22886d6fe954320be2f956e64e5c311901cba3911f34ecde6a2c2",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_14e2581615dc4c20e348cb5a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "导入所有组件",
+        "text_hash": "1cd34a119becfeb69dfebb1c099ea0be83b8d7bcd3e4b8582b129cde60794f02",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ba2d4e37ff3a65ca8b488f12",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们来使用所有的新组件。",
+        "text_hash": "ddc36d0f95bd02299369f48b40d05a4b1a7cdd08745f31ab6915712be4bf464a",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b379e8d6bf61997715f36905",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 App.js 的顶部再添加一些 import 语句，以导入它们。",
+        "text_hash": "711abdce3bc293b9cd6327f880e02bf9654b6aa14ab3cea0ab4e423bb6c04cfb",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b52ab7c97ae4865e5f12da7a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "然后更新 App() 中的 return 语句，使其渲染我们的组件。当你完成时，App.js 文件应该像这样：",
+        "text_hash": "de9ce72e3c522a253eb3c552c36b084cc92b2592124f082b85e62b33f3ad0c8b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ce0fda39fd3560488b94f858",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nimport React from \"react\";\nimport Form from \"./components/Form\";\nimport FilterButton from \"./components/FilterButton\";\nimport Todo from \"./components/Todo\";",
+        "text_hash": "86dcc7d7c220e5c7a0f4403c6a6dcef29ed8f6894ae9dfecc57bfdc6040fcfa9",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9ffe1804ce74b9013e1fd103",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "function App(props) {\n  const taskList = props.tasks.map((task) => (",
+        "text_hash": "393ecf962fd75a62c857993e78cff5ff40b42f2c0c79d6f502b8b20a2d60078b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e74e3169dbdf84889560775a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "));\n  return (",
+        "text_hash": "ca25f367c4675710b99c338429d0d0e95a2d3ab309f575b18c30f6deed319b71",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1e7f21f8c4f3eab3f6790ff2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "TodoMatic",
+        "text_hash": "0190a292389733f47f1fcb05f94bcedf4147262496ea345aa70293715f672a19",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4abd3bcae67b45423e30931d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "3 tasks remaining",
+        "text_hash": "918336b82390e1b302e67ca6cb62d59151772222814cfb3d2f68b33bfedbaa83",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6acba82cc38b665765a6084c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "{taskList}",
+        "text_hash": "bb80b9fb69827612ed3a72a3980473c8ff32f30238b2f39f88c97122e8ed1ee0",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_78be9267dfc0dbaf276eb46f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ");\n}",
+        "text_hash": "a2d0828ab6e1f1583be4e2374894bd3199c33ead09388dd551c177aa90b2214b",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1464ad563dd311ba8cbf6ae7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "export default App;",
+        "text_hash": "9b1c5e45a305523763a5ac8ffe6d38f4bb0bf81751f7b481541cc24cab9866ee",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_06bd87c3b3e71ccc0ecce710",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有了这些，我们*几乎*已经准备好在 React App 中处理一些交互性问题了！",
+        "text_hash": "6c82af2c1de3c9d961620ef35be6f210366471f22675d3c6792a2442dd24abfe",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4cdbd090a7cf35573e383292",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_280018c481535fb7ae6b8f4a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本文到此为止——我们已经深入探讨了如何将你的 App 很好地分解成组件，并有效地渲染它们。现在我们将继续研究如何在 React 中处理事件，并添加一些交互性。",
+        "text_hash": "2091e927d60359cbcce13772e6ea69e497580ca0e2fd685c5a6dde2245ef79de",
+        "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_a64d736cbc13b56a4bec7973",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。组件化我们的 React App，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "组件化我们的 React App，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/frameworks-libraries/react-components",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "组件化我们的 React App"
+  },
+  "resource_id": "lr_378b96f5a2fd8ff4fba634b1",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_92f099a230c53ebebb5e9104",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "组件化我们的 React App",
+    "text_hash": "2f5b889dc7d827b5bab8076768216098c58c4fcb126de87d6869bbf374f17c7c",
+    "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2"
+  },
+  "variant_id": "lrz_a011738ac8bc4cab3dc5058f",
+  "variant_version_id": "lrzv_e2505eb39733bc4a4df072b2",
+  "visual_dependency": "helpful"
+}

@@ -1,0 +1,1767 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_f60cf5e9f92b9a2c9164d3c9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "定位允许你从正常的文档流布局中取出元素，并使它们具有不同的行为，例如放在另一个元素的上面，或者始终保持在浏览器视窗内的同一位置。本文解释的是定位 () 的各种不同值，以及如何使用它们。",
+        "text_hash": "66476f841f8d4c07ed04ff0166e15f9fcfe6b7be20496e39867fdd09767e4fdf",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e3f165620ba1f3acaa52641f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：",
+        "text_hash": "60df7f5b49d0fd69c1a1ee4bda41ede8b786ae9d162b8a9a73e264bbf703119b",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f8882fbaf9f02dd407f565a5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 基础 (学习\n         HTML 导学 ) 和\n        CSS 怎样工作的 (学习\n          CSS 导学 )",
+        "text_hash": "16fda5a0b44e523aa7658022987465208b1b86d3488cc0aae234b2c05d9650da",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_034fe9ae831df3c73ff20f2c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：\n       了解 CSS 定位的工作原理",
+        "text_hash": "f3a9b6d757bd128e9a53970f0ca6301342bc58be15dd05bd815b656c3a497dea",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b7136ed642f3d554fc6f3b92",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "文档流",
+        "text_hash": "ee04101fcec7b993587a5225b26305215aba7a0e1a567373f639774d64b57dac",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_37ecb8fd8e92a2b1c1815bbb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "定位是一个相当复杂的话题，所以我们深入了解代码之前，让我们审视一下布局理论，并让我们了解它的工作原理。",
+        "text_hash": "a1ffac49215080a781fcbfce7a49759808d4add775983a58fe60ad93c5258588",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f6ee5ad1504c7b198ea00eb3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，围绕元素内容添加任何内边距、边界和外边距来布置单个元素盒子——这就是盒模型 ，我们前面看过。默认情况下，块级元素的内容宽度是其父元素的宽度的 100％，并且与其内容一样高。内联元素高宽与他们的内容高宽一样。你不能对内联元素设置宽度或高度——它们只是位于块级元素的内容中。如果要以这种方式控制内联元素的大小，则需要将其设置为类似块级元素 display: block;。",
+        "text_hash": "617f4cf0588d0f7d630af8e4e05a7ec45b6aa9b9d1af692a4c68c08c5a64c988",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_84c893a50553cd607aae05ae",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这只是解释了单个元素，但是元素相互之间如何交互呢？**正常的布局流**（在布局介绍文章中提到）是将元素放置在浏览器视口内的系统。默认情况下，块级元素在视口中垂直布局——每个都将显示在上一个元素下面的新行上，并且它们的外边距将分隔开它们。",
+        "text_hash": "7f95b7837855d8f5faa002b529010ef97059184d364e7161976bade06b42ddd7",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_faa284d407fd480da80e1388",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "内联元素表现不一样——它们不会出现在新行上；相反，它们互相之间以及任何相邻（或被包裹）的文本内容位于同一行上，只要在父块级元素的宽度内有空间可以这样做。如果没有空间，那么溢流的文本或元素将向下移动到新行。",
+        "text_hash": "203fc0d40a9210634912222c7a7857b13e93aab55ec72444b3976e1e4f40267e",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f80d67ad7d9cf32937cb5c8d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果两个相邻元素都在其上设置外边距，并且两个外边距接触，则两个外边距中的较大者保留，较小的一个消失——这叫外边距折叠, 我们之前也遇到过。",
+        "text_hash": "9d347d8cdffcf423c2319f3f9dba1c3187854685bad7596f872d935c40bebd97",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a92d9a82aa30cbb00a6c91ca",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们来看一个简单的例子来解析这一切：",
+        "text_hash": "3c5e7c176d6f267673562bc31ace92f49f584eb271f1b54f6cdcfb4c7c2c2e0b",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9951d2b1394f595f51a817f3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Basic document flow",
+        "text_hash": "30eb592e27d365bd5819d9ffd2c53910f01d95716e53932c11201c35b99d9a1f",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b5fdd2d5f0237436543f3bf0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am a basic block level element. My adjacent block level elements sit on new\n  lines below me.",
+        "text_hash": "a17fb371cdd0173b5972f74a4adeeb1aed6a37d798bdd85b22257365002f15ce",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9882a3a0cf7a1629964c4f59",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "By default we span 100% of the width of our parent element, and we are as tall\n  as our child content. Our total width and height is our content + padding +\n  border width/height.",
+        "text_hash": "7709c8aa113e6c8bee3e49cd6a78d21c3c1af6b0068d34440862c164431274f8",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_927eb1eef8bda9eb867069eb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "We are separated by our margins. Because of margin collapsing, we are\n  separated by the width of one of our margins, not both.",
+        "text_hash": "2ace5fb6efdc62778aebbb87a12f8154272933e92ef1e386371459a75bf21b39",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_86cbc4f2a057c58db23d3000",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "inline elements  like this one  and  this one  sit on\n  the same line as one another, and adjacent text nodes, if there is space on\n  the same line. Overflowing inline elements will\n   wrap onto a new line if possible (like this one containing text) ,\n  or just go on to a new line if not, much like this image will do:",
+        "text_hash": "769c9f2a5b6c56d9f705b49ed4a279f3379ef18a0261ba4467792369c7697ce6",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_be477200de86366b3bc95430",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nbody {\n  width: 500px;\n  margin: 0 auto;\n}",
+        "text_hash": "acede2712ed262081b8217c91e093636c21386796e87b698b3bd71b3fc5e3109",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_041f025921533deb895593e3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p {\n  background: aqua;\n  border: 3px solid blue;\n  padding: 10px;\n  margin: 10px;\n}",
+        "text_hash": "c0ae514fe772ac5942a51e65af07ecae57a8d889b0de63148f432f6264e53c5b",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_80f9b70c91a05ba2f864e93b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "span {\n  background: red;\n  border: 1px solid black;\n}",
+        "text_hash": "4a83ccb97a50c2033a1adf0e7c0cc8122963885f8f5bd4b32d9de7852dbaaa50",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f773e603a868e6715e6cdd75",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在我们阅读本文时，我们将多次重复这个例子，因为我们要展示不同定位选项的效果。",
+        "text_hash": "ba8302f68943733b92afbd6d589e8ccd97cfa4cf85eca7c282e2605f349c3306",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2bbc5aa9d03ed1d16b1882f0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果可能，我们希望你在本地计算机上跟随练习——从 GitHub 仓库下载一个 0_basic-flow.html (源代码) 然后用它作为我们的起步点。",
+        "text_hash": "a80678868751bdab6a89802c88d55a62707490c295b544d44a753ebb2fdc49eb",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_42874d08a90dd1927123b9f4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "介绍定位",
+        "text_hash": "84ebd3199a7c766b44ae18fb1ba7fb2d1053eb12c719a4039abc7238909f98e1",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f37118ba2c0cf0d91db1c9be",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "定位的整个想法是允许我们覆盖上面描述的基本文档流行为，以产生有趣的效果。如果你想稍微改变布局中一些盒子的位置，使它们的默认布局流程位置稍微有点古怪，不舒服的感觉呢？定位是你的工具。或者，如果你想要创建一个浮动在页面其他部分顶部的 UI 元素，并且/或者始终停留在浏览器窗口内的相同位置，无论页面滚动多少？定位使这种布局工作成为可能。",
+        "text_hash": "43ed8aad5e341a6f98ac88ed0b6be128eef8adf678a6451af035957ea7fbddda",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_65ad60680855ce33888e77bb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有许多不同类型的定位，你可以对 HTML 元素生效。要使某个元素上的特定类型的定位，我们使用属性。",
+        "text_hash": "6849f1043e9ff03818ac54303dc8f01f41d318f2d75d13405d91f51ce4efbb4c",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1cbfcd9228cda13179b58fb9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "静态定位",
+        "text_hash": "3cf654c24e51e20bd991ef94c7fc96600eb0c23b15bdc94175084c2881716a2f",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f5aa3f75fa376b23b224e97f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "静态定位是每个元素获取的默认值——它只是意味着“将元素放入它在文档布局流中的正常位置——这里没有什么特别的。",
+        "text_hash": "c7b70e6d21381659677b0696f7f18eda16dd9b6723796754e4b740ac6f49594c",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d720456d9ab3e40dc03d09ee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了演示这一点，并为以后的部分设置示例，首先在 HTML 中添加一个positioned 的 class 到第二个：",
+        "text_hash": "a6e3bde2e8c9edbae0f9d96049790bb7873f08cc77c0a36794a628f61cc6ebe5",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_24aa462b136af0b2023dacbe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n ...",
+        "text_hash": "74f9ab1c281ef8613feecca5d0e2b5031952b1f2cc69939aee2d1aad05b6e605",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_027aca9ad2b76210fb6cf4b9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在，将以下规则添加到 CSS 的底部：",
+        "text_hash": "66e63dbc4b44cd67be02a2d920baa577b145a982b80ffeb673700306e72ce399",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bdb94cd7fb9479612ef5fb8d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.positioned {\n  position: static;\n  background: yellow;\n}",
+        "text_hash": "8eb346b13d9a4793c6929240483e145b1a38858cc5be4cb59cb2f9766199b574",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5da5a07ee1931378a04c9bde",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果现在保存和刷新，除了第 2 段的更新的背景颜色，根本没有差别。这很好——正如我们之前所说，静态定位是默认行为！",
+        "text_hash": "79b7d26e329fd30b9a139f667bfa3b0a03d6c152a17616aec09b6cea70608ca7",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0f663739dc9b6d8838d414f5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在 1_static-positioning.html 查看这个例子 (see source code)。",
+        "text_hash": "0bc83ec3544eb7c5e6061e1a509cb38dd393b32c0d6b0a3e113018094fd8bb6d",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_b5b39fca1508a6214a8c47d8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "相对定位",
+        "text_hash": "0eb6600f5b3087ef4ef05497abffc96289cb1eb3234e5051e50aae57755408f1",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ee67f6c559fad0a394bf9361",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "相对定位是我们将要看的第一个位置类型。它与静态定位非常相似，占据在正常的文档流中，除了你仍然可以修改它的最终位置，包括让它与页面上的其他元素重叠。让我们继续并更新代码中的 position 属性：",
+        "text_hash": "f96cea13046cf8998fc41f21c5ca5dd2707165fbdc9c374fbc3db32a3fdd4639",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1346261e8bcab2381077a2f5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nposition: relative;",
+        "text_hash": "32f9d2ba2c637a4f984f2a4b935d955afc92b7eca842c91cc5fdd47fc9acc6cc",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_14bdd78b1bbf54e7135c7530",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你在此阶段保存并刷新，则结果根本不会发生变化。那么如何修改元素的位置呢？你需要使用，，和属性，我们将在下一节中解释。",
+        "text_hash": "3a3ad8632cc5546addb1478707809319cedf2adae6375b1b44efe2c9272ba6c5",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f18229df19bd7503d89d6b63",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "介绍 top、bottom、left 和 right",
+        "text_hash": "88cb7d9a65fc34b8d9dc23928fdfef4822e604131ba1a6d84398e64c1d459c7b",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_5fab3061de4c22b3986303b8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ", , , 和  来精确指定要将定位元素移动到的位置。要尝试这样做，请在 CSS 中的 .positioned 规则中添加以下声明：",
+        "text_hash": "a0403e3bbf2721d970636557c7ac41fb8859290a59b6c58ae4636fc0c3885c99",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_57a54c757d96455700652ebc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\ntop: 30px;\nleft: 30px;",
+        "text_hash": "4fb3ac1267e18753c41f2f00c2d5414a65e7c0350fc2abcb4fc5b5df78872361",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2a0ed7a72cfd280c5443103d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n这些属性的值可以采用逻辑上期望的任何单位——px、mm、rem、% 等。",
+        "text_hash": "61ee35b7759acdb413011cfcd4252c29f97fcefe83d36920b841365987000e64",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_78186566f8b33b56834ed33c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你现在保存和刷新，你会得到一个这样的结果：",
+        "text_hash": "4a572931aa2672b5e94a13b65ba1786a864c92175e7e416779cad59b02aa864a",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c7542d2b0f69bae87d2a6a25",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Relative positioning",
+        "text_hash": "00d3240c6dc24facb65d8d30458cf0eee7e2e3a73fe7cc0b32cc69ad648fd83c",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_68fa1c4b86952f73b5a959f9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am a basic block level element. My adjacent block level elements sit on new\n  lines below me.",
+        "text_hash": "a17fb371cdd0173b5972f74a4adeeb1aed6a37d798bdd85b22257365002f15ce",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_34fe4e040f7c642773e18b33",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "By default we span 100% of the width of our parent element, and our are as\n  tall as our child content. Our total width and height is our content + padding\n  + border width/height.",
+        "text_hash": "65a74fc1ff974a1a27aa097b4b334810c9afd0724f882ad74938089abc748e51",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_04a383ac074666c766aa3d13",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "We are separated by our margins. Because of margin collapsing, we are\n  separated by the width of one of our margins, not both.",
+        "text_hash": "2ace5fb6efdc62778aebbb87a12f8154272933e92ef1e386371459a75bf21b39",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_027a12fc174d330b86d15501",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "inline elements  like this one  and  this one  sit on\n  the same line as one another, and adjacent text nodes, if there is space on\n  the same line. Overflowing inline elements\n   wrap onto a new line if possible — like this one containing text ,\n  or just go on to a new line if not, much like this image will do:",
+        "text_hash": "cf2be202ffc1f350d23eae278e9aab3725c33593bc43dc675c8e33e8d608b4bf",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f55d379a3bb026a7e6eac48b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  margin: 0 auto;\n}",
+        "text_hash": "9097aeedd52123c11538e03bbb1a81d3333311636149eabad5644ed9d791b6e9",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c9b7a50cc3582eae49ed87d1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p {\n  background: aqua;\n  border: 3px solid blue;\n  padding: 10px;\n  margin: 10px;\n}",
+        "text_hash": "c0ae514fe772ac5942a51e65af07ecae57a8d889b0de63148f432f6264e53c5b",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2715a06737f91d2b84d3ecc1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "span {\n  background: red;\n  border: 1px solid black;\n}",
+        "text_hash": "4a83ccb97a50c2033a1adf0e7c0cc8122963885f8f5bd4b32d9de7852dbaaa50",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_092bd052c094d518384cc5c5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".positioned {\n  position: relative;\n  background: yellow;\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "c71230fa5c98bf5d7e148bb10b22fc5688049152517caa9aec903b67c401b425",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a5a9e5898c9a699425a64965",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "酷，是吗？好吧，所以这个结果这可能不是你期待的——为什么它移动到底部和右边，但我们指定顶部和左边？听起来不合逻辑，但这只是相对定位工作的方式——你需要考虑一个看不见的力，推动定位的盒子的一侧，移动它的相反方向。所以例如，如果你指定 top: 30px;一个力推动框的顶部，使它向下移动 30px。",
+        "text_hash": "902852c3f8e171960cbf1afe38ae265872d81a08f86f6fe3846ba9d1960b5654",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_061318b58e4284d09d86a117",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在 2_relative-positioning.html 查看这个例子 (see source code)。",
+        "text_hash": "0de20f32b49827495d50373d14b37226b74393d57fbd6f9d86b7bc5e0243d22c",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_2c8fb7d275dce59b43409fe3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "绝对定位",
+        "text_hash": "a639dd9be3d2fe1911f17b4bc95a780844fcf5cbaff554e3f0e8b2eab3988dd8",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_4fdcf78f0a76a9d4618878ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "绝对定位带来了非常不同的结果。让我们尝试改变代码中的位置声明如下：",
+        "text_hash": "ecaa47b2aa8f361ca4d7c426799786bf047c52a97d4d94ba5d01f44f1ca83c0e",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b82a437f0d6abadd4e5e6e27",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nposition: absolute;",
+        "text_hash": "f5450e3e161069b52406d3c53c82d698679cb853e8f27488ec3f8e09c7d8256a",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cb997ffd9f10ba4152c6b729",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你现在保存和刷新，你应该看到这样：",
+        "text_hash": "62b6f211170668382237554a97f58ec9235252f2b9b7d87fe71345a698ce7588",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e10eefe6472a6fb77a4b08d0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Absolute positioning",
+        "text_hash": "c106351d7eeec941496ad837e1bb57986d4af0a082eb293bd2b64f22e77c7cac",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d7f8af68d05c58ce50c27852",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am a basic block level element. My adjacent block level elements sit on new\n  lines below me.",
+        "text_hash": "a17fb371cdd0173b5972f74a4adeeb1aed6a37d798bdd85b22257365002f15ce",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bf99c3c7dcb9b9121a0caea5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "By default we span 100% of the width of our parent element, and we are as tall\n  as our child content. Our total width and height is our content + padding +\n  border width/height.",
+        "text_hash": "7709c8aa113e6c8bee3e49cd6a78d21c3c1af6b0068d34440862c164431274f8",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a04e6bb3169694d48222da1c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "We are separated by our margins. Because of margin collapsing, we are\n  separated by the width of one of our margins, not both.",
+        "text_hash": "2ace5fb6efdc62778aebbb87a12f8154272933e92ef1e386371459a75bf21b39",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_69ca639a14a9169719e3b9e8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "inline elements  like this one  and  this one  sit on\n  the same line as one another, and adjacent text nodes, if there is space on\n  the same line. Overflowing inline elements\n   wrap onto a new line if possible — like this one containing text ,\n  or just go on to a new line if not, much like this image will do:",
+        "text_hash": "cf2be202ffc1f350d23eae278e9aab3725c33593bc43dc675c8e33e8d608b4bf",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e4ac1fce0be3e0e5e46ec5a6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  margin: 0 auto;\n}",
+        "text_hash": "9097aeedd52123c11538e03bbb1a81d3333311636149eabad5644ed9d791b6e9",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9bce894c27cece370349b7e2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p {\n  background: aqua;\n  border: 3px solid blue;\n  padding: 10px;\n  margin: 10px;\n}",
+        "text_hash": "c0ae514fe772ac5942a51e65af07ecae57a8d889b0de63148f432f6264e53c5b",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_59495ab7f99c5091ce0ddac2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "span {\n  background: red;\n  border: 1px solid black;\n}",
+        "text_hash": "4a83ccb97a50c2033a1adf0e7c0cc8122963885f8f5bd4b32d9de7852dbaaa50",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_23f5cfb28675da5aedc99cc8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".positioned {\n  position: absolute;\n  background: yellow;\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "5e2e94f31a75e18a515d9aea74f8c63ab74eaf05c1045bf2c59bd500d9739edb",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_db05cca16cb5e226b62e0daa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，请注意，定位的元素应该在文档流中的间隙不再存在——第一和第三元素已经靠在一起，就像第二个元素不再存在！好吧，在某种程度上，这是真的。绝对定位的元素不再存在于正常文档布局流中。相反，它坐在它自己的层独立于一切。这是非常有用的：这意味着我们可以创建不干扰页面上其他元素的位置的隔离的 UI 功能。例如，弹出信息框和控制菜单；翻转面板；可以在页面上的任何地方拖放的 UI 功能……",
+        "text_hash": "bbfabed061401a867a52f432d78a588a7459e97e5945cdd728b8839e068ff17d",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_972108eb8ee64b40c9ca6af5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二，注意元素的位置已经改变——这是因为，，和以不同的方式在绝对定位。它们指定元素应距离每个包含元素的边的距离，而不是指定元素应该移入的方向。所以在这种情况下，我们说的绝对定位元素应该位于从“包含元素”的顶部 30px，从左边 30px。",
+        "text_hash": "a16a5361ec7f8044b5d6765952a168542d5908d1378c1e3f429df84e2447452f",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e610aee159817f6041274467",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果需要，你可以使用 ，、 和  调整元素大小。尝试设置 top: 0; bottom: 0; left: 0; right: 0; 和 margin: 0; 对你定位的元素，看看会发生什么！之后再回来",
+        "text_hash": "5b0543dd1a1396b8f29b9660e0b8b50ec1831d81bd6544d19b79148c71e517a0",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_c2d276df48b5e0ca69c6650b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n是的，margins 仍会影响定位的元素。然而 margin collapsing 不会。",
+        "text_hash": "3e10532017417d25fbdd508b88353844ca2bb31b2d574f9c096f73400cb390ff",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_1044a429289a788397184030",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在3_absolute-positioning.html 查看这个例子 (see source code)。",
+        "text_hash": "bc67e297cddce515fc26697b3ab02c33c4fe7e7af7fc4e33bfaa652a98081038",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_6c08c28090ce10524a5fda5d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "定位上下文",
+        "text_hash": "b13c8a41fd2e41fa36e21a031e32d29c298531ef00c8dfa3fcb73649f1df4675",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_eb9963dcae6ab47313941a4a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "哪个元素是绝对定位元素的“包含元素“？这取决于绝对定位元素的父元素的 position 属性。",
+        "text_hash": "b72e7c225946fd57e47b7f4bff835d2028194ceffe8edba9091f7bc4481ae416",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e02b84b1391144a36b9ff8ee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果所有的父元素都没有显式地定义 position 属性，那么所有的父元素默认情况下 position 属性都是 static。结果，绝对定位元素会被包含在**初始块容器**中。这个初始块容器有着和浏览器视口一样的尺寸，并且\\ 元素也被包含在这个容器里面。简单来说，绝对定位元素会被放在\\ 元素的外面，并且根据浏览器视口来定位。",
+        "text_hash": "6f487bad3cffa7a633b3ab6c1120e721df24f9f7f9efd96d9efbc98779fdd082",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4525c52a4f20f42373497e51",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "绝对定位元素在 HTML 源代码中，是被放在 \\  中的，但是在最终的布局里面，它离页面（而不是 \\ ）的左边界、上边界有 30px 的距离。我们可以改变**定位上下文**——绝对定位的元素的相对位置元素。通过设置其中一个父元素的定位属性——也就是包含绝对定位元素的那个元素（如果要设置绝对定位元素的相对元素，那么这个元素一定要包含绝对定位元素）。为了演示这一点，将以下声明添加到你的 body 规则中：",
+        "text_hash": "88f7a87ddae103e367d5e2d88843c0b8640965560e49bafa472422640bae6f03",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9f0ff31552232d24a838cd9c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nposition: relative;",
+        "text_hash": "32f9d2ba2c637a4f984f2a4b935d955afc92b7eca842c91cc5fdd47fc9acc6cc",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4e0d46ca1e4c2c97e19d6f4d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "应该得到以下结果：",
+        "text_hash": "adad43a3b7a0cb4e1862d6fcf8a1bf279c52a56b499e2acda6ff0c0c26fea715",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7cc4478d32032233ed44aa99",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Positioning context",
+        "text_hash": "55f8d1b6fd0c7f10c81f1e110038ec34ebda21356e401dd941a2dc4701b02924",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72a52117afa337c19fc5686c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am a basic block level element. My adjacent block level elements sit on new\n  lines below me.",
+        "text_hash": "a17fb371cdd0173b5972f74a4adeeb1aed6a37d798bdd85b22257365002f15ce",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9c86f6288627ad5fca9c268b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Now I'm absolutely positioned relative to the\n   &lt;body&gt;  element, not the  &lt;html&gt;  element!",
+        "text_hash": "c7191a05e2ae0e9702b3863d8c2efb38d1d16a277db045d6c2d9d8b3b759caed",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_86bf14996ec76cd0b5f7d3bf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "We are separated by our margins. Because of margin collapsing, we are\n  separated by the width of one of our margins, not both.",
+        "text_hash": "2ace5fb6efdc62778aebbb87a12f8154272933e92ef1e386371459a75bf21b39",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4c77d46090791b0a72959cc8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "inline elements  like this one  and  this one  sit on\n  the same line as one another, and adjacent text nodes, if there is space on\n  the same line. Overflowing inline elements\n   wrap onto a new line if possible — like this one containing text ,\n  or just go on to a new line if not, much like this image will do:",
+        "text_hash": "cf2be202ffc1f350d23eae278e9aab3725c33593bc43dc675c8e33e8d608b4bf",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_474e6cf79c4a02937a650b74",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  margin: 0 auto;\n  position: relative;\n}",
+        "text_hash": "c518672ed5c436025dd5bafa470199cb6620d1c8efd1c92d192d5dd42034880c",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_32fa544bcdbe81f571115e53",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p {\n  background: aqua;\n  border: 3px solid blue;\n  padding: 10px;\n  margin: 10px;\n}",
+        "text_hash": "c0ae514fe772ac5942a51e65af07ecae57a8d889b0de63148f432f6264e53c5b",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7b4639a4b0a3a53453e00e6f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "span {\n  background: red;\n  border: 1px solid black;\n}",
+        "text_hash": "4a83ccb97a50c2033a1adf0e7c0cc8122963885f8f5bd4b32d9de7852dbaaa50",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e175964ffe5fb835f788b1e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".positioned {\n  position: absolute;\n  background: yellow;\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "5e2e94f31a75e18a515d9aea74f8c63ab74eaf05c1045bf2c59bd500d9739edb",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_be1519c7ef16dc359b776efe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "定位的元素现在相对于元素。",
+        "text_hash": "e1eccb938aad88f664565138f986e8590e07dee5258a64f93183914f06510eab",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5a4622103a1014897b402e1a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在这里看到这个例子 4_positioning-context.html (see source code).",
+        "text_hash": "33a318b88c515d0123031e38bdfc9dd05a89eab1f9ebf41573d54381f3c07088",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_b639703e961cd29fa951b054",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "介绍 z-index",
+        "text_hash": "91ee904bd7418b680255c9ee99f6501b3dede9f877c0ce0b33c2fd6be42c208e",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_37100c777ed1c6fa365bc8a5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "所有这些绝对定位很有趣，但还有另一件事我们还没有考虑到——当元素开始重叠，什么决定哪些元素出现在其他元素的顶部？在我们已经看到的示例中，我们在定位上下文中只有一个定位的元素，它出现在顶部，因为定位的元素胜过未定位的元素。当我们有不止一个的时候呢？",
+        "text_hash": "f0d5fcb44e343f1994ae8449d0b226d7246a37ef651a31cf088b240cff0dd796",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ca79a2a5de240f58fc1c29f6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "尝试添加以下到你的 CSS，使第一段也是绝对定位：",
+        "text_hash": "9b1f1bcf5faa3db2c129843dbd31a7d9d146dd5002233120a71f6110af5843de",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_01be80bd888e7a206ba44d48",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\np:nth-of-type(1) {\n  position: absolute;\n  background: lime;\n  top: 10px;\n  right: 30px;\n}",
+        "text_hash": "5217743a03843e5ee8ec5013edca7e5abeaedff7b60a5b8def04001d8654f0f5",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_efe4bc7f32c8a0b2945286b7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "此时，你将看到第一段的颜色为绿色，移出文档流程，并位于原始位置上方一点。它也堆叠在原始的 .positioned 段落下，其中两个重叠。这是因为 .positioned 段落是源顺序 (HTML 标记) 中的第二个段落，并且源顺序中后定位的元素将赢得先定位的元素。",
+        "text_hash": "e99b6822fcf4b2380677f63ed6f9bd53e89467b6634e53c923d7db58bf827ddd",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0cb38ea5e4cfd61e7238a9ec",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以更改堆叠顺序吗？是的，你可以使用属性。 “z-index”是对 z 轴的参考。你可以从源代码中的上一点回想一下，我们使用水平（x 轴）和垂直（y 轴）坐标来讨论网页，以确定像背景图像和阴影偏移之类的东西的位置。 （0,0）位于页面（或元素）的左上角，x 和 y 轴跨页面向右和向下（适合从左到右的语言，无论如何）。",
+        "text_hash": "166c90f1255c511acf5202277019435bb949f8f760493781146dd94972ecda35",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b93ab3d3e7df950f3a1d9e23",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "网页也有一个 z 轴：一条从屏幕表面到你的脸（或者在屏幕前面你喜欢的任何其他东西）的虚线。 值影响定位元素位于该轴上的位置；正值将它们移动到堆栈上方，负值将它们向下移动到堆栈中。默认情况下，定位的元素都具有 z-index 为 auto，实际上为 0。",
+        "text_hash": "a498e3c68035e92a33846550f1bbb83079d20da191e2145ea1f51a65a877b1d3",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4890b2d5f460eff723801265",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要更改堆叠顺序，请尝试将以下声明添加到 p:nth-of-type(1) 规则中：",
+        "text_hash": "64f14d2cb3186a1e4658fa2c401664fd039f5bed9865f9ff41020e12ceb246ea",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f213c1593bd8bb5aa4b082a9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nz-index: 1;",
+        "text_hash": "daf14e1178a6a5c9434946457e9f49bcdf689fc43bb670222bc5a2b1bba98b8d",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_07824df8e30586d39e7dd156",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你现在应该可以看到完成的例子：",
+        "text_hash": "8535e679f39c1eea154a503018a61b2c3d7f74c72621e5d4f1f99fa76b229de5",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_81d9ef53794df7322b6ff4df",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n z-index",
+        "text_hash": "c03f89d3fdeb69059de0d9034bea1078240e2dd2bd3929f2874c06e357d788e6",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_929df8ed07d956ac2a6dc00e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am a basic block level element. My adjacent block level elements sit on new\n  lines below me.",
+        "text_hash": "a17fb371cdd0173b5972f74a4adeeb1aed6a37d798bdd85b22257365002f15ce",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f37a1463f09158792a43a4e2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Now I'm absolutely positioned relative to the\n   &lt;body&gt;  element, not the  &lt;html&gt;  element!",
+        "text_hash": "c7191a05e2ae0e9702b3863d8c2efb38d1d16a277db045d6c2d9d8b3b759caed",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3e1a44dd6ef6dfcba15a9bb9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "We are separated by our margins. Because of margin collapsing, we are\n  separated by the width of one of our margins, not both.",
+        "text_hash": "2ace5fb6efdc62778aebbb87a12f8154272933e92ef1e386371459a75bf21b39",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_85f1a7e671463b9c4f42e764",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "inline elements  like this one  and  this one  sit on\n  the same line as one another, and adjacent text nodes, if there is space on\n  the same line. Overflowing inline elements\n   wrap onto a new line if possible — like this one containing text ,\n  or just go on to a new line if not, much like this image will do:",
+        "text_hash": "cf2be202ffc1f350d23eae278e9aab3725c33593bc43dc675c8e33e8d608b4bf",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_37a80a49e51d04fe02f67146",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  margin: 0 auto;\n  position: relative;\n}",
+        "text_hash": "c518672ed5c436025dd5bafa470199cb6620d1c8efd1c92d192d5dd42034880c",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_03483864ad4a8de7a84c4ae3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p {\n  background: aqua;\n  border: 3px solid blue;\n  padding: 10px;\n  margin: 10px;\n}",
+        "text_hash": "c0ae514fe772ac5942a51e65af07ecae57a8d889b0de63148f432f6264e53c5b",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f73f8179b9e8b2442d81a66c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "span {\n  background: red;\n  border: 1px solid black;\n}",
+        "text_hash": "4a83ccb97a50c2033a1adf0e7c0cc8122963885f8f5bd4b32d9de7852dbaaa50",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b6cf90639e1cec0555f35955",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".positioned {\n  position: absolute;\n  background: yellow;\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "5e2e94f31a75e18a515d9aea74f8c63ab74eaf05c1045bf2c59bd500d9739edb",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7b8671a72ef49fa75cbb2dec",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p:nth-of-type(1) {\n  position: absolute;\n  background: lime;\n  top: 10px;\n  right: 30px;\n  z-index: 1;\n}",
+        "text_hash": "6b6008a19b61c617302e96fb3fc407f1155e18e0e5fba1e69564ad6613515fd2",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fe1e9e5301c5bfce5f32a068",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "请注意，z-index 只接受无单位索引值；你不能指定你想要一个元素是 Z 轴上 23 像素——它不这样工作。较高的值将高于较低的值，这取决于你使用的值。使用 2 和 3 将产生与 300 和 40000 相同的效果。",
+        "text_hash": "b04d0bfa838ff0608524a6006fabb464388b13a10b34098bd2a71c469c0ed6a3",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_66b7a93c052d2223fd502f4b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在这里看到这个例子 5_z-index.html (see source code).",
+        "text_hash": "71b1d97acbc8abe99767d422f0393bde651acf9012e24bea556dd33302dfe8a2",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_3309239e8f8450ad50b1c138",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "固定定位",
+        "text_hash": "148f23f61b318e81eb06276d67c9098f48f0dbdca117cfb6163336520c5385a1",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_28ff3197f4b003f5ecb77054",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "还有一种类型的定位覆盖——fixed。这与绝对定位的工作方式完全相同，只有一个主要区别：绝对定位将元素固定在相对于其位置最近的祖先。（如果没有，则为初始包含它的块）而固定定位固定元素则是相对于浏览器视口本身。这意味着你可以创建固定的有用的 UI 项目，如持久导航菜单。",
+        "text_hash": "fcdd3c7bdbe29c1ad5bb85c71a328e83fcd367dde4e253c048d6d8cb028c7260",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ece7c323da82d5ac00363524",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们举一个简单的例子来说明我们的意思。首先，从 CSS 中删除现有的 p:nth-of-type(1) 和.positioned 规则。",
+        "text_hash": "0a485d719e9bdd8e12255b6c7263d2369cbfcc9fe73f4aeddf72c700ea2b201d",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_74b7f0b88c942631f26b39db",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在，更新 body 规则以删除position: relative; 声明并添加固定高度，如此：",
+        "text_hash": "6f5093935565e50d709a6e392bb5552dd16837f442173b18fffd4c2b73dbe907",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a4b138a69dcf646e0afeb28",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nbody {\n  width: 500px;\n  height: 1400px;\n  margin: 0 auto;\n}",
+        "text_hash": "9aa8ae704230e44bb95aa3aba0278f069d4dabf08b82328931c3e4206b4d551f",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e83c665f08164099cb62f275",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在我们要给元素 position: fixed;，并让它坐在视口的顶部中心。将以下规则添加到 CSS：",
+        "text_hash": "2369e032d0ef2a82ca5d60936bd3061ac542b075bf82c01fdd46055b3f590d42",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7e2438e19bf50bfc75eec87b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nh1 {\n  position: fixed;\n  top: 0;\n  width: 500px;\n  margin: 0 auto;\n  background: white;\n  padding: 10px;\n}",
+        "text_hash": "1fee56ea738fd0cf9b2594b72ece9c2f8c642df167a169815d89b7b2d42c48e2",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_58278b6997c5b600b6e847b2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "top: 0;是要使它贴在屏幕的顶部；我们然后给出标题与内容列相同的宽度，并使用可靠的老技巧 margin: 0 auto; 使它居中。然后我们给它一个白色背景和一些内边距，所以内容将不会在它下面可见。",
+        "text_hash": "2170a4794c3e36b4374da7308775d7bae7ac680a5651c96567415c1978655723",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1e486989fff6a30616a99bda",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你现在保存并刷新，你会看到一个有趣的小效果，标题保持固定，内容显示向上滚动并消失在其下。但是我们可以改进这一点——目前标题下面挡住一些内容的开头。这是因为定位的标题不再出现在文档流中，所以其他内容向上移动到顶部。我们要把它向下移动一点；我们可以通过在第一段设置一些顶部边距来做到这一点。添加：",
+        "text_hash": "59656a30a6b20aa291855d729de2bef3ee4aea986658c6e32c28e499c4d45cb9",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2b7fea5573d593e3506cf8d3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\np:nth-of-type(1) {\n  margin-top: 60px;\n}",
+        "text_hash": "7680da897f78ddb0cc265236e177f6c58541ec8afe6d81582149189a62fc6bb6",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7ac30eae17c495dc9a8c41c6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你现在应该看到完成的例子：",
+        "text_hash": "eb2f76f75755d358b0fa925b83d28d609894d5f20b822a690db7d2eee1d5a8fe",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9eb030ed208c5e04ca7cf526",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Fixed positioning",
+        "text_hash": "b588890699027a1f92f90bbdc86ae51a531f86c15d910fc7e2994e5704265478",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a11a08f4473bb7f28181386b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am a basic block level element. My adjacent block level elements sit on new\n  lines below me.",
+        "text_hash": "a17fb371cdd0173b5972f74a4adeeb1aed6a37d798bdd85b22257365002f15ce",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_be6a04b3576aa5741da06f5a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I'm not positioned any more...",
+        "text_hash": "acb73009b3b067374b1ddbffe293d73e9d396ff89d5df2ebcd75b3f326137730",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8330fd7996660dde42764346",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "We are separated by our margins. Because of margin collapsing, we are\n  separated by the width of one of our margins, not both.",
+        "text_hash": "2ace5fb6efdc62778aebbb87a12f8154272933e92ef1e386371459a75bf21b39",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5d560f31eb55af9df3b30eeb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "inline elements  like this one  and  this one  sit on\n  the same line as one another, and adjacent text nodes, if there is space on\n  the same line. Overflowing inline elements\n   wrap onto a new line if possible — like this one containing text ,\n  or just go on to a new line if not, much like this image will do:",
+        "text_hash": "cf2be202ffc1f350d23eae278e9aab3725c33593bc43dc675c8e33e8d608b4bf",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_10cdc642511d7699a3faaef6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  height: 1400px;\n  margin: 0 auto;\n}",
+        "text_hash": "ae5a61a4e8bee424cb205b6a01abdbc30ddeaeb90e24e77423f0fb3fdae0f85c",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cdc989a56e632d76e6f1c8a2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p {\n  background: aqua;\n  border: 3px solid blue;\n  padding: 10px;\n  margin: 10px;\n}",
+        "text_hash": "c0ae514fe772ac5942a51e65af07ecae57a8d889b0de63148f432f6264e53c5b",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cc0f0a32f7339ef4c552333f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "span {\n  background: red;\n  border: 1px solid black;\n}",
+        "text_hash": "4a83ccb97a50c2033a1adf0e7c0cc8122963885f8f5bd4b32d9de7852dbaaa50",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_da8e730603489086a2305427",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "h1 {\n  position: fixed;\n  top: 0px;\n  width: 500px;\n  margin: 0 auto;\n  background: white;\n  padding: 10px;\n}",
+        "text_hash": "24e8683e0e75bde414fc4dd5728d5e877f8a55fce32297027cd8e4078f4f2800",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3cbbcfe05e076076f0fae9fd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p:nth-of-type(1) {\n  margin-top: 60px;\n}",
+        "text_hash": "02619f272bca991a893ff52f1ef9aac2e39bc1ede8430322f6229a9398d3efc6",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_06f4f4c5658a7a84b765f82d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在这里看到这个例子6_fixed-positioning.html (see source code).",
+        "text_hash": "a9607463d1033714977819da49f2f668d19669d39a2799f82d70a2265c073319",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_64fb9a9097436a6c62a284e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "position: sticky",
+        "text_hash": "e7884f49b03b0dec644c8765f60f6a7f6ff44671bb62eed0895b6cbfc115232e",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b0f6bd4511445b149ceef81b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "还有一个可用的位置值称为 position: sticky，比起其他位置值要新一些。它基本上是相对位置和固定位置的混合体，它允许被定位的元素表现得像相对定位一样，直到它滚动到某个阈值点（例如，从视口顶部起 10 像素）为止，此后它就变得固定了。例如，它可用于使导航栏随页面滚动直到特定点，然后粘贴在页面顶部。",
+        "text_hash": "52d1144198b6d4cfc294c987e69f4560011da5cead294a7d7bc488f282140f11",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_480ae2896bcd014fe282e624",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Sticky positioning example",
+        "text_hash": "fd20dd5b7b1a11edcb089aa563565014cc4d91f05e5f0981c8b922b2a171e229",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_87ecde603ecc6b8322ced6c3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Sticky positioning",
+        "text_hash": "90c668d83096da8611e9feba6486a8458271cd114ee359922c97beb390cd59c0",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3c573256d68791f69a48b408",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus\n  ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus\n  laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum,\n  tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus\n  neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat\n  volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros\n  pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec\n  lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "5fa54c4ad33e3cc2e98867e33b5a66bc4a422049a1de5e0f071f54ce07fa9ab4",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f2bf2e6076c2492de8f817a6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Sticky",
+        "text_hash": "8747176853dbc234a9425ebc9dc231c5bf734107b8a475785b9d15ab1190ce15",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cad1c11d32fc643cbe696285",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_377e78d1b6113aaa34a312f0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus\n  ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus\n  laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum,\n  tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus\n  neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat\n  volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros\n  pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec\n  lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "5fa54c4ad33e3cc2e98867e33b5a66bc4a422049a1de5e0f071f54ce07fa9ab4",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e1e866bf861eb458636182f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  margin: 0 auto;\n}",
+        "text_hash": "9097aeedd52123c11538e03bbb1a81d3333311636149eabad5644ed9d791b6e9",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_786453f747d5824ec0a0c761",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".positioned {\n  background: rgba(255, 84, 104, 0.3);\n  border: 2px solid rgb(255, 84, 104);\n  padding: 10px;\n  margin: 10px;\n  border-radius: 5px;\n}",
+        "text_hash": "4d48eaa01e73a48ac28103d2aba8a96ba56f6d01f7f49f6813ec7459cc0bd734",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_33955637c17ae752135d87a7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.positioned {\n  position: sticky;\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "1d4fa283aa86c02d4468eeb8dce80b3a84110c54f479a084e3ed858079e5ac09",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bc4ec6c6d8a10602bb4e37b4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "滚动索引",
+        "text_hash": "d4548b647a76af3b5b8b784043244888082a3fc147caef9f4490b71a4dad3bf1",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_c84eeaf441e63a2fa1ff515f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "position: sticky 的另一种有趣且常用的用法，是创建一个滚动索引页面。在此页面上，不同的标题会停留在页面顶部。这样的示例的标记可能如下所示：",
+        "text_hash": "4380f7fa0c40eb65f087507cccb9cc4a4ffdbd626d291490cbe66a1818f32889",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0fbe666963b4c9721e2adf85",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Sticky positioning",
+        "text_hash": "eddceb690b01b8f5ee6df65bd3da0eaae8251c314672ef2d9a8e57e5e710c606",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5ef411dd17002f4f3491c5b4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A\n   Apple\n   Ant\n   Altimeter\n   Airplane\n   B\n   Bird\n   Buzzard\n   Bee\n   Banana\n   Beanstalk\n   C\n   Calculator\n   Cane\n   Camera\n   Camel\n   D\n   Duck\n   Dime\n   Dipstick\n   Drone\n   E\n   Egg\n   Elephant\n   Egret",
+        "text_hash": "154ca26bcb01de000df3b0f3e1d737a8a03ddbf20556245c95d3b5e7ce5def50",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3589d6b8606ffc08a63a3f92",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS 可能如下所示。在正常布局流中，元素将随内容滚动。当我们在元素上添加position: sticky，并将的值设置为 0，当标题滚动到视口的顶部时，支持此属性的浏览器会将标题粘贴到那个位置。随后，每个后续标题将替换前一个标题，直到它向上滚动到该位置。",
+        "text_hash": "735397233dac7d39ee24fb5cd5a043bd6c11216078e1ccf41fe4a08bfe423534",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_553640efc178093148eb6055",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\ndt {\n  background-color: black;\n  color: white;\n  padding: 10px;\n  position: sticky;\n  top: 0;\n  left: 0;\n  margin: 1em 0;\n}",
+        "text_hash": "0e2fb7f28731be56d0a334b462c9e8171ee45a63ad2a602eff49864c87c00c8e",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d2185caf7a129418282a3ef2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  height: 1400px;\n  margin: 0 auto;\n}",
+        "text_hash": "ae5a61a4e8bee424cb205b6a01abdbc30ddeaeb90e24e77423f0fb3fdae0f85c",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2ad643b604ca26476cdaa635",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Sticky positioning",
+        "text_hash": "90c668d83096da8611e9feba6486a8458271cd114ee359922c97beb390cd59c0",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_86b021293b81b4d3f587439d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A\n   Apple\n   Ant\n   Altimeter\n   Airplane\n   B\n   Bird\n   Buzzard\n   Bee\n   Banana\n   Beanstalk\n   C\n   Calculator\n   Cane\n   Camera\n   Camel\n   D\n   Duck\n   Dime\n   Dipstick\n   Drone\n   E\n   Egg\n   Elephant\n   Egret",
+        "text_hash": "154ca26bcb01de000df3b0f3e1d737a8a03ddbf20556245c95d3b5e7ce5def50",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b622f88f7e8a0d09321873ac",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在 7_sticky-positioning.html 查看这个例子 (see source code)。",
+        "text_hash": "1f3b2d0c74394fed0a70127f818a4e336127a47fe21cce2d20a42e27790aa675",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_4c1f069771925f5f84a6ba3f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "技能测试！",
+        "text_hash": "82b5c8cd03fff6874fe35527b00f721a90fe9c0b9c85fbea52a6788fce64f682",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f40d89d4c70552c3fb388a1c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这篇文章到此为止了，但你们能记住最重要的信息吗？在继续之前，你可以找到一些进一步的测试来验证是否完全掌握了这个知识：技能测试：定位。",
+        "text_hash": "4af268c264109522800ec83a46b3e7cd91b0e76a7a5d0a7c19f7b2c8f27203ee",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3c50c7c70f3e381bd436e61a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_9e749ae1f60f18e525eaa4b5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我相信你用基本定位愉快地玩耍；它是创建复杂的 CSS 布局和 UI 功能背后的基本工具之一。考虑到这一点，在下一篇文章中，我们将更有趣的定位——我们将进一步，开始建立一些真实世界有用的东西。",
+        "text_hash": "30866fbfc0170d1c713c32f1b490abea0c72f15cbd6cacf47acc36ca49d7b45f",
+        "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_6633a2cf237be81f36ba7593",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。定位，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "定位，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/positioning",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "定位"
+  },
+  "resource_id": "lr_9237978a50a72543e2ccd502",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_990e5186a2347e9be52b2e65",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "定位",
+    "text_hash": "49726f09c8123a40dbe9916705980fa88cf6cc4711d7780c509e5534bedbe826",
+    "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d"
+  },
+  "variant_id": "lrz_b6071816df2a19559d6fc562",
+  "variant_version_id": "lrzv_6dfeeb04eacd022fe833850d",
+  "visual_dependency": "helpful"
+}

@@ -30,7 +30,10 @@ const cache = {
     subjectStats: null,
     codeToSubjectMap: null,
     codeAliases: null,
-    capabilityGraphs: new Map()
+    capabilityGraphs: new Map(),
+    learningResourceCatalog: null,
+    learningResourcesByStandard: new Map(),
+    learningResourceStandards: new Map()
 }
 
 // ============================================
@@ -58,6 +61,59 @@ async function fetchJSON(path) {
         throw new Error(`Failed to load ${path}: ${response.status} ${response.statusText}`)
     }
     return response.json()
+}
+
+export async function loadLearningResourceCatalog() {
+    if (cache.learningResourceCatalog) return cache.learningResourceCatalog
+    const data = await fetchJSON('/learning-resources/catalog/index.json')
+    cache.learningResourceCatalog = data
+    return data
+}
+
+export async function loadLearningResource(resourceId, fragmentId = '') {
+    const catalog = await loadLearningResourceCatalog()
+    return (catalog.resources || []).find(resource => (
+        resource.resource_id === resourceId && (!fragmentId || resource.fragment_id === fragmentId)
+    )) || null
+}
+
+export async function loadLearningResourcesForStandard(standardCode) {
+    if (cache.learningResourcesByStandard.has(standardCode)) {
+        return cache.learningResourcesByStandard.get(standardCode)
+    }
+    try {
+        const data = await fetchJSON(`/learning-resources/by-standard/${encodeURIComponent(standardCode)}.json`)
+        cache.learningResourcesByStandard.set(standardCode, data)
+        return data
+    } catch {
+        const empty = { standard_code: standardCode, resources: [], alignments: [] }
+        cache.learningResourcesByStandard.set(standardCode, empty)
+        return empty
+    }
+}
+
+export async function loadStandardsForLearningResource(resourceId, fragmentId = '') {
+    const cacheKey = `${resourceId}:${fragmentId}`
+    if (cache.learningResourceStandards.has(cacheKey)) {
+        return cache.learningResourceStandards.get(cacheKey)
+    }
+    try {
+        const data = await fetchJSON(`/learning-resources/by-resource/${encodeURIComponent(resourceId)}.alignments.json`)
+        const standards = await Promise.all(
+            (data.alignments || [])
+                .filter(alignment => !fragmentId || alignment.fragment_id === fragmentId)
+                .map(async alignment => ({
+                alignment,
+                standard: await loadStandardByCode(alignment.standard_code)
+            }))
+        )
+        const result = standards.filter(item => item.standard)
+        cache.learningResourceStandards.set(cacheKey, result)
+        return result
+    } catch {
+        cache.learningResourceStandards.set(cacheKey, [])
+        return []
+    }
 }
 
 // ============================================

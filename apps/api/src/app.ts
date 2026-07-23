@@ -3,6 +3,7 @@ import { Hono, type Context } from 'hono'
 import {
     CoverageAnalyzeRequestSchema,
     FileCurriculumRepository,
+    FileLearningResourceRepository,
     FileTextbookRepository,
     PlanParseRequestSchema,
     PlanToStandardsRequestSchema,
@@ -67,12 +68,14 @@ function publicOpenApiDocument(source: string) {
 export interface CurriculumAppOptions {
     textbookRepository?: FileTextbookRepository
     textbookAssetService?: TextbookAssetService
+    learningResourceRepository?: FileLearningResourceRepository
 }
 
 export function createApp(repository: FileCurriculumRepository, options: CurriculumAppOptions = {}) {
     const app = new Hono<ApiBindings>()
     const textbookRepository = options.textbookRepository || new FileTextbookRepository(resolveDataRoot())
     const textbookAssetService = options.textbookAssetService || new TextbookAssetService()
+    const learningResourceRepository = options.learningResourceRepository || new FileLearningResourceRepository(resolveDataRoot())
 
     app.use('*', requestIdMiddleware)
     app.use('*', securityHeadersMiddleware)
@@ -175,6 +178,67 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
                 grade_bands: Object.keys(manifest.target_policy || {}),
                 skills: ['TS1', 'TS2', 'TS3', 'TS4', 'TS5', 'TS6', 'TS7']
             }
+        })
+    })
+
+    app.get('/api/v1/learning-resources', async c => {
+        const version = await repository.loadDataVersion()
+        const rawGrade = c.req.query('grade')
+        const grade = rawGrade ? Number(rawGrade) : undefined
+        if (rawGrade && (!Number.isInteger(grade) || Number(grade) < 1 || Number(grade) > 9)) {
+            return apiError(c, 422, 'validation_error', '年级必须是 1–9 的整数。')
+        }
+        const items = await learningResourceRepository.search({
+            subject: c.req.query('subject'),
+            stage: c.req.query('stage') as 'primary' | 'junior' | undefined,
+            grade,
+            role: c.req.query('role'),
+            type: c.req.query('type'),
+            source: c.req.query('source'),
+            query: c.req.query('q')
+        })
+        const limit = Math.min(200, Math.max(1, Number(c.req.query('limit') || 50)))
+        const offset = Math.max(0, Number(c.req.query('offset') || 0))
+        return ok(c, version, items.slice(offset, offset + limit), {
+            total: items.length,
+            limit,
+            offset
+        })
+    })
+
+    app.get('/api/v1/learning-resources/:resource_id', async c => {
+        const version = await repository.loadDataVersion()
+        const resource = await learningResourceRepository.get(
+            c.req.param('resource_id'),
+            c.req.query('fragment_id')
+        )
+        if (!resource) return apiError(c, 404, 'not_found', '未找到学习资源。')
+        return ok(c, version, resource)
+    })
+
+    app.get('/api/v1/learning-resources/:resource_id/standards', async c => {
+        const version = await repository.loadDataVersion()
+        const fragmentId = c.req.query('fragment_id')
+        const resource = await learningResourceRepository.get(c.req.param('resource_id'), fragmentId)
+        if (!resource) return apiError(c, 404, 'not_found', '未找到学习资源。')
+        const alignments = await learningResourceRepository.getStandardsForResource(resource.resource_id, fragmentId)
+        return ok(c, version, alignments, { total: alignments.length })
+    })
+
+    app.get('/api/v1/standards/:code/learning-resources', async c => {
+        const version = await repository.loadDataVersion()
+        const standardResult = await resolveStandardOrError(c, c.req.param('code'))
+        if (standardResult.response) return standardResult.response
+        const result = await learningResourceRepository.getForStandard(
+            standardResult.resolved!.record!.code,
+            {
+                componentId: c.req.query('component_id'),
+                role: c.req.query('role')
+            }
+        )
+        return ok(c, version, result, {
+            total: result.resources.length,
+            alignment_count: result.alignments.length
         })
     })
 

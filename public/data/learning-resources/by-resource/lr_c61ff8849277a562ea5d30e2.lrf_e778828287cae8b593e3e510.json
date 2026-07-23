@@ -1,0 +1,161 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_71a49bce010281b4cdbfe1fd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "此刻，我们已经看过 CSS 的基础知识，如何设置文本的样式，以及如何设置和操作内容所在的框。现在是时候看看如何把你的盒子放在与视口相关的正确位置上。我们已经涵盖了必要的先决条件，所以我们现在可以深入到 CSS 布局，查看不同的显示设置，涉及浮动和定位的传统布局方法，以及像 flexbox 这样的现代布局工具。",
+        "text_hash": "6f9cd083f54d5ebdf4e683175f2e38b3e85fb1787a36b1b0586ae627bcde56e3",
+        "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_37f1e8821c32d33d3014cefa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提条件：",
+        "text_hash": "d5c3242c4ea6d378e9620c1d77dce7110d6d8f03c7ddad944b39f25cf0bf77f3",
+        "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0568ebc85eb327ee0b677a6b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在开始前，你应该已经具备：",
+        "text_hash": "632aa4e5a4c7e00170197a64e218e470544c2a49d8fedbe458613fecb21fa35e",
+        "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_29d2f63d0bb16a2033710a30",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对 HTML 的基础了解，在Introduction to HTML部分讨论过的。\n一定的 CSS 基础，在Introduction to CSS部分讨论过的。\n了解如何样式化盒子模型.",
+        "text_hash": "2248f89d06633b3f9604d7a46cc32dcd2c51c110ecb270a1c813be672e0b49ef",
+        "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_f2beaf0ba28e32b1eaae7693",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你在一台电脑/平板电脑/其他设备上工作，而你没有能力创建自己的文件，你可以尝试（大部分）在线编码程序中的代码示例，如 JSBin 或 Glitch 。",
+        "text_hash": "92a3be3193bdb73d6f2f0f3d8ca024dc728bfd051a6cb3d880d760c62ab4557d",
+        "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_d9decb16d1f6a3af3b23c5f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "指南",
+        "text_hash": "6eadeddb7e7047ab68755c3e205a8443064a8dc6e26ff4e39ad67209132b6319",
+        "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_07ed0ccafa38b2ee41a84c18",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些文章将提供在 CSS 中可用的基本布局工具和技术的指导。",
+        "text_hash": "57e415eef70448d9831878cc914e046a47353f9920888294f798b72673278b8f",
+        "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2c99fc5a3dd3596c29ebf631",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "介绍 CSS 布局\n  - : 本文将重述一些我们在之前的模块中已经涉及的 CSS 布局功能——例如不同的  值——并介绍我们将在本单元中涵盖的一些概念。\n弹性盒\n  - : 弹性盒 是一种新技术，但在如今各个浏览器都广泛支持的情况下，它已经开始准备广泛应用了。弹性盒子提供了工具，允许快速创建曾经被证明用 CSS 很难实现的一些复杂，灵活的布局和功能。本文将解释所有的基本原理。\n网格\n  - : 网格是一个成熟的设计工具，许多现代网站布局是基于规则网格。在本文中，我们将看看基于网格的设计，以及如何使用 CSS 来创建网格——两者都通过现在的工具，和刚刚开始在浏览器中可用的新技术。\n浮动\n  - : 最初对于文本块中的浮动图像，属性已经成为在网页上创建多个列布局的最常用工具之一。本文解释所有。\n定位\n  - : 定位允许你从常规文档布局流程中取出元素，并使它们具有不同的行为，例如坐在另一个之上，或始终保持在浏览器视口内的同一位置。本文解释不同的 值，以及如何使用它们。\n多列布局\n  - : 多列布局声明提供了一种多列组织内容的方式，正如你在一些报纸中看到的那样。这篇文章介绍怎么使用这一特性。\n响应式设计\n  - : 随着越来越多的屏幕尺寸出现在支持 Web 的设备上，响应式 Web 设计（RWD）的概念出现了：一组允许网页改变其布局和外观以适应不同的屏幕宽度、分辨率等的实践。这一想法改变了我们为多设备 Web 设计的方式，在本文中，我们将帮助你了解掌握它所需的主要技术。\n媒体查询入门指南\n  - : **媒体查询** 提供了一种仅当浏览器和设备环境与你指定的规则匹配时才应用 css 的方法，例如“viewport（视区）宽度大于 480 像素”。媒体查询是响应式 Web 设计的一个关键部分，因为它们允许你根据视区的大小创建不同的布局，但也可以用于检测有关网站运行环境的其他内容，例如用户是否使用触摸屏而不是鼠标。在本节中，你将首先了解媒体查询中使用的语法，然后在一个演示如何使简单设计具有响应性的示例中继续使用它们。\n传统布局方法\n  - : 网格系统是 css 布局中使用的一个非常常见的特性，在 css 网格布局之前，它们往往使用浮动或其他布局特性来实现。你可以将布局想象为一组列（例如 4、6 或 12），然后将网页内容放入这些列中。在本文中，我们将探讨这些旧方法是如何工作的，以便你了解在处理旧项目时如何使用它们。\n支持旧浏览器\n  - : 在本模块中，我们建议使用弹性盒和网格作为主要布局方法。但是，你的网站会遇到使用旧浏览器的访问者，或者不支持你使用的新布局方法的浏览器。在网络开发上一直有这种状况——那就是随着新特性的开发，不同的浏览器将优先支持不同的特性。本文解释了如何使用现代 web 技术而不将使用旧版本浏览器的用户拒之门外。\n测试：基本布局掌握\n  - : 通过布置网页来测试你对不同布局方法的知识的掌握。",
+        "text_hash": "1d5638518643d94b63332b30bd12e455fb13daf8920784ac112d759c9eb3e110",
+        "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_9d11c2b8a83ccc8ae256d02d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "参见",
+        "text_hash": "d27f89055b790f219353b4388307a138320ad4c9f05b64b170c43a2969c7e89c",
+        "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_4e434be56c69e7172b587dbd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "练习定位案例\n  - : 在最后一篇文章中介绍了定位的基础知识，现在将讨论构建几个真实世界的例子，以说明你可以通过定位做什么样的事情。",
+        "text_hash": "5a49d40120aa825eb1c4927b5c6fa0b1ec905998d6fd5d4ebe9ca88159dc5cf9",
+        "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+      },
+      "type": "unordered_list"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_e778828287cae8b593e3e510",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。CSS 布局，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "CSS 布局，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "CSS 布局"
+  },
+  "resource_id": "lr_c61ff8849277a562ea5d30e2",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_42ae818b55b120fd3804ebf5",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "CSS 布局",
+    "text_hash": "cb1381540b8f4512843a8baccf8979ba5068b8e93a4875509facf20baa489c61",
+    "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5"
+  },
+  "variant_id": "lrz_dfe90725ac522c11c55118db",
+  "variant_version_id": "lrzv_9a8fb54ce43df4c1f2eb4df5",
+  "visual_dependency": "helpful"
+}

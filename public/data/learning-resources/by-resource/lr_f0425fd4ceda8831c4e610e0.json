@@ -1,0 +1,1855 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_c78d9ff7d28683f549c8778b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 CSS 布局中，网格系统是一种非常常见的布局方式，并且在 CSS 网格布局之前，它们倾向于由浮动和其他的布局功能实现。假想你的布局是一组数字标注的列（例如 4、6 或者 12），然后把你的内容填充到这些想象的列中。这篇文章将要探讨这种早期的方法是怎么实现的，来帮助你在旧项目工作时更好地理解他们。",
+        "text_hash": "3bba554b9f111ae836941c52bdfb315c631a0eb6bc86553be7595e424356755c",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cff45378d520ff4134a5df94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "学习前提：",
+        "text_hash": "92f9fa8d90ac99ee6f0e1eae6c76803e80ad87f2380a21145361516bc2e87289",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_af56754dc9c05e25233548ea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 基础 (学习\n         Introduction to HTML ),并且了解 CSS 是怎么工作的 (学习\n         Introduction to CSS\n        and  Styling boxes .)",
+        "text_hash": "ca0286d7b9a1481b7948444c43b954e01f8ad07d9f9663ea392573457d97c64b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_609c1124668f52d3797a7f36",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：\n       了解浏览器 CSS 网格布局系统的基本概念。",
+        "text_hash": "85a44868c9afd7ed4c4a9e57a3a24031c0ca4a8c5a770f1a47bd58d54f897777",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9e078f4b0ec1fbfac1c6cf5d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS 网格布局之前的布局与网格系统",
+        "text_hash": "e8e59d3f461ddc7a3cbc563f964d7d3ad4dabd3e6d9ab1e1694ea9e20a1883b5",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ffee77074ae3d9ca39ff8c81",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个来自设计领域的人或许会惊讶，CSS 直到最近才有网格系统，不仅如此，我们还用了许多次优方法来建立类网格设计。我们现在把这些称为“古老”的方法。",
+        "text_hash": "73e199eda3b55d97a2d7cf3c3696459ed86135eceae8342d55120c5030d000da",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6b64b92d0fe6e67f7648af68",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对于新项目来说，大多数情况下 CSS 网格布局（CSS Grid Layout）被用来和其他一个或多个现代的布局方法结合，以形成布局的基础。但是你会时不时的遇到采用这种古老方法的“网格系统”。值得了解它们是如何工作的，以及为什么它们和 CSS 网格布局不同。",
+        "text_hash": "a651033cf1ab99102968ab32533adbecf2651705945ef1e8d5e556621653c948",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d84b9daebba2a94c62e92c6c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个课程将会解释基于 float 和 flexbox 的网格系统和网格框架是如何工作的。学习过网格布局之后，你可能会惊讶，这些看起来真的好复杂！如果你需要为不支持新技术的老浏览器上创建后备代码的话，这些知识将会变的十分有用，而且你也可以在使用这些类别系统的已有工程上工作。",
+        "text_hash": "e2331198cc22d708383e4da97b3aedcf52e508ad9159d9bfc59da014d2472a95",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d2c2d3c2f970f259fc19f067",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "值得铭记在心的是，在我们探索这些系统时，它们里面没有哪个的建立方式是像通过 CSS 网格布局创建网格那样，真的建立一个网格。他们通过给目标一个大小，然后推动它们，让它们**看起来**像网格一样排列成一条线。",
+        "text_hash": "7c52163eb741d1d8f87b2e0bf97b62de7346ac976b56ccb37f7992cf92733c8b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_737cd72ce2e44f7e134a351a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "两列布局",
+        "text_hash": "af4bc174bc8c64b98c7e2d8f557021f9ef1adaec48b2a8128ac9d6ee4cd9159e",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_4607fff474c92f7f6bca7709",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们从最简单的实例开始——一个两列布局。你可以按照步骤在你的电脑上创建一个新的 index.html，先用一个简单 HTML 模板填充它，然后在适当的位置填充下面的代码。在这节底部，你可以看到一个展示最终代码样貌的实时实例。",
+        "text_hash": "61792b4743363ce51ab8775cbeec4956a2f995f0990699c153e0b2a169906e2e",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2324c67b31cb9d6a97321242",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，我们需要在我们的栏中放入一些内容。把现在在 body 中的内容替换成下面的代码：",
+        "text_hash": "43f51f81febf7b6153d9944aaa36ad3f033cb6a3fb3cd1a758d395a6784b4855",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bf5925a9fadda37064f30727",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n 2 column layout example",
+        "text_hash": "0285cfbfbfac7a87bb6e32a3f16e56f1eadb21f4c84a01285f5c8ea4f7ae8f3d",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d0cab9456dd0ead337cedf44",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "First column",
+        "text_hash": "e348d568f8eb341a2bfa7bb1e9f18cd7e5c5c0802f73fd38d5cd38bd80ea78de",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_04d21aa326bf2f8901ad98cc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at\n    ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer\n    ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur\n    vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus.\n    Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus\n    sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus.\n    Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis,\n    eget fermentum sapien.",
+        "text_hash": "76002a3ca579e02cfaa70a5d7fdd89d2e4bb2fb820bcf6240f1cf46a1a0e4508",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c2a487b03c084601f359760e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Second column",
+        "text_hash": "1a5898666a8fc14610c9c60c888b4ed8a41dacee3410bfff6f6015ce9c557ed9",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_61511c6903e66146c82ee5f5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n    ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n    est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n    tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies\n    lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n    vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n    penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "90c82efe18e665385de0f1ce0f02a008d04542953535258b76840f3f01673b3d",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ff143d81448848960836a0a9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "每一列都需要一个上一级元素来包含内容，这样我们可以一次性操作所有内容。在这个例子中我们选择了，但是你可以选择其他更合适的，例如, , 和 ，或者是任何别的元素。",
+        "text_hash": "09ac2f512a47973d47d4e4d143b92275e09d2c5920e3fd23600b57ddd8b45a75",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f214edae71bdb992211dba48",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在我们来看 CSS。首先，应用以下的代码来对 HTML 进行基本设置：",
+        "text_hash": "ab23bf58b3ab463cba424adab677a91084d43e6e312f8d3700acfd56c9d7b807",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_00e76e6ebb470a8cd5dd16d7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 0 auto;\n}",
+        "text_hash": "9e8fc96aab4481144d1cd8b7a873c158fafc4d62ce16b248bd6cfe99df408ddc",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_db6ec689775306e500db9100",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "body 将会占据 90% 的视口宽度，直到达到 900 像素，在这种情况下，它将固定并保持在视口正中。默认情况下，它的子项（the  和两个 ）将会达到正文宽度的 100%。如果我们希望两个，一个浮在窗口的一边，另一个浮动在另一边的话，我们需要将它们的宽度设置为其父元素的 100% 或者更小，以便他们可以并排放置。将下面的代码加在 CSS 的底部：",
+        "text_hash": "7eced016451ba6c8c4382b85b8fb384fed6414fc97c87e83537a937eb2f5136a",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1b8a58a78cf26e86bb709564",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\ndiv:nth-of-type(1) {\n  width: 48%;\n}",
+        "text_hash": "39bba7caaf2e90cc4b5bb36a6c93875adcf45bcf3946d2db297ef9db8d3a59d4",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_61cf7a052a6e772e2b393765",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "div:nth-of-type(2) {\n  width: 48%;\n}",
+        "text_hash": "24b78a35d9da16ecea49972c0b4237418921779c73230a489e38bdc77f0500f4",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_751cbf5e75d7161b1a29f853",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里我们将它们都设置为了父元素宽度的 48%——总共是 96%，在两栏之间留 4% 的空隙，为它们提供一些宽松的空间。现在我们只需要将让列浮动，像这样：",
+        "text_hash": "515201d421e4f359df7ea214347a793a6021d964a3644a7fccf8e7b4a95954bd",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_303e39a30a359fcc66f58306",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\ndiv:nth-of-type(1) {\n  width: 48%;\n  float: left;\n}",
+        "text_hash": "a342b5515d49a70e143a60a8c241f8736f2d66066a82dbc28ea67eef5220178a",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2b7dd5e0db4bd38c6e6039d0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "div:nth-of-type(2) {\n  width: 48%;\n  float: right;\n}",
+        "text_hash": "b7086155d0ef72ebc9846b7836de005a8472cd8b8767a9a3b840262510024a03",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_61f115184a702e45198f20e0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "将这些都放在一起，会得到这样的结果：",
+        "text_hash": "1ec45932d8688f638226d5c7725448950ef90811653293bbf77c4bef69b470e1",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2bc280203bdd0b761e5b35a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你有没有注意到我们在宽度的表示上都用的是百分比——这是一个很好的策略，这创建了一个**流动布局（liquid layout），**能够适应不同的屏幕大小，在小一些的屏幕上也能使列保持一样的比例。试一试自己来调整浏览器窗口的宽度，这是响应式网页非常有价值的一个工具。",
+        "text_hash": "2700944eb81040dbd6ca5d702178bcb4be3469dacbf8672fdec169cce60b62cd",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dce50d5b99e4513d3ec06b44",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在 0_two-column-layout.html 实时查看这个实例（另见源代码）。",
+        "text_hash": "cae1db2852f3bff8a12da8daf3ad64daaaf74c4e517d358fc87ffa8db7312271",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_21cf5055e5eab4d4425ea635",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "创建简单的传统网格框架",
+        "text_hash": "523fa358c36ff3a718b1324e5fc35cc0fb6819336ec883e5aa465fecb40d87b4",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_50784228ec1746bdca9d036f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "大多数传统的框架使用属性来使列相邻排列，让它们看起来像是一个网格。以用 float 创建网格的流程工作，可以向你展示它们工作的原理，并介绍一些更高级的概念，并在浮动和清除这节课中学到的内容之上搭建更多的东西。",
+        "text_hash": "4422d7927c9d0e7ff35d78c99ac5a9db48b247c116946c87462c79a34456eb2f",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_db8d37e0ce0a604fa62baf66",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最简单的一类网格创建是固定宽度的——我们只需要计算设计中总的宽度、列的数目、每一列和间隔的宽度。但是，如果我们决定设计的网格是可以根据浏览器宽度缩放的，我们则需要计算每一列和间距的所占的宽度的百分比。",
+        "text_hash": "1c7f1a56c7672a4d5144df78e47de2a692950b954fe590ebfb26bfa9b19be221",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_872ac921785c2c4d5e297550",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下一部分我们将学习如何创建这两种方式的网格。我们会构建一个有 12 列的表格——我们选择了 12 这个常见的数字，来看它对不同情景的适应情况，因为 12 可以被 6，4，3，和 2 完全整除。",
+        "text_hash": "ff9841d524e2dd939a0819056c8784d68744fabe23c2861ed097826a33691046",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4d4e39bc8617d844e3c452d3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个简单的固定宽度网格",
+        "text_hash": "84c4e32ecb6cef52a050f8f11fe2f5128a0ba8f9ff05f3972d5b08b364ceee15",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_38793c7f134068e37efb6a76",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们先来创建一个固定列宽度的网格系统吧。",
+        "text_hash": "3c3be477e18b2d1d5070ddd17e8b625120abfc2b17af479003c4e20e5cab1f3d",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3cb5530806da450e1d87c556",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，把 simple-grid.html 下载储存下来，其 body 中包含以下的标记：",
+        "text_hash": "ea63bb12310e5e0fe2fdc7f760740fb74c6dea80c43b59455c721c3e56512b13",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_19b8e21824ed8938face3972",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8c04c07bc36fb0af43fa10b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "1\n     2\n     3\n     4\n     5\n     6\n     7\n     8\n     9\n     10\n     11\n     12",
+        "text_hash": "23293aee84fff2861d38c512ad16967d9277b8f0bb53eba665fdc1029d8c3e51",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1dffe14f4568dbb438bc1bea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "13\n     14\n     15\n     16",
+        "text_hash": "e3cda651d440b908ad81ba520b6e7c633ef14556fa0de08b431320d90f41eda4",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1d310aeb16e436792ca09009",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们的目标是把它变成一个有两行十二列的演示网格——第一行显示各列的大小，第二行显示网格上不同大小的区域。",
+        "text_hash": "6ff04c79f8c0c0509bb2942eb89ba5d6c1e1659b117aa5107b44de6b27b503b6",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5bcc63cec7bccad36803e85c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在中，加入下面的代码，使容器右侧的内边距为 20 像素，总的宽度变为 980 像素。这样给我们留出 960 像素可以放置列和它们的间隔——这种情况下，内边距会被从总的内容宽度中减去，因为我们在中将站点上所有的元素设置成了border-box （可以查看完全改变盒模型，获得更多解释）。",
+        "text_hash": "b7574a48f926fd1b8641fb47d6ea8088fb5fe0f7d4d0ffc5879df742614966c5",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c55e7f437f8f9daa7594daa3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n{\n  box-sizing: border-box;\n}",
+        "text_hash": "aef3c27e0d63aac99d3b397c37a0f83e9049fcd094e2a2948c64b4c7c54b763e",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a7faa2b7c91b478b97d235ce",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "body {\n  width: 980px;\n  margin: 0 auto;\n}",
+        "text_hash": "365af1b9116af4dd3f38b56427d9b77f8e3bad56c6c05329436810d1ef294c41",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_26cbd122c751a3b8bc2388aa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper {\n  padding-right: 20px;\n}",
+        "text_hash": "ba0c7f2ead28f3e2647d51962f15b1b03afea6e66c91d6e8701abd5a3d7a6914",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_552fd511aaa4db4168e45c32",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在使用包装了网格每行的列容器，清除网格中每行的浮动，在你前面的规则里加入下面的规则：",
+        "text_hash": "0702a9054226e57bbb7fe259da727fa03143b9dfac982783de0e39e926c856ca",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7724465bc357d46d3bee2733",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.row {\n  clear: both;\n}",
+        "text_hash": "64dc1d00acbe848ceeabb920e75bd8c6ba6aa7490b954f3e34eebbebca37eef3",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3f9fd0ad1b706392c7435c13",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "应用这条清除规则，意味着我们不用在每行上都填充 12 列元素。行与行之间不会互相干扰，并保持分隔。",
+        "text_hash": "f5c6f28e7f97d06462f1d806e8f106ca10654ea3a50a98d233c13e344eb1446b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cea5eacd3dd0bd2cf6bc5aff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "列与列之间保持 20 像素的间隔。我们使用每列元素的左外边框来实现这个间隔。然后我们一共有 12 个间隔 — 12 x 20 = 240。",
+        "text_hash": "787fa8d833122e9874a4434961b9650b924d5aa8b834c9b1646bdc78f562a7d2",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6efb2eff16e1b386b6b488e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们需要从 960px 的总宽减去这个间隔，然后剩下 720 像素给我们的列。如果用 720 除以 12，我们知道每列有 60 个像素宽。",
+        "text_hash": "0a444bd4dce4438055c929b25510bd367f30af7377d5fe2bdbad7b6bae73cb76",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b8cbc9636e9ded1cd76205b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来我们给.col类写一个规则，让它向左浮动，给它设置 20 像素的来实现一个间隔，再设置 60 像素的。把下面的规则加到你的 CSS 底部：",
+        "text_hash": "ce02560999a42c8e533c8435a073809cad7eec600106e7d42bc34ad717720485",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9b52d1d15b1a8df128275fe9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.col {\n  float: left;\n  margin-left: 20px;\n  width: 60px;\n  background: rgb(255, 150, 150);\n}",
+        "text_hash": "bf9036c4e1d6ad6a281f3a77369e87501d706442208a2f689b8d79aa15e936af",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_85134884466159f393ee9876",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "单个列的最上面一行现在铺开成为了一个排列整齐的网格。",
+        "text_hash": "b1edc3cff051a121c37e013d46548beccf1e2da71c8135ca03775d67efef4af4",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9d1ec8ec5e3e01f89d4abd35",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n我们也已经让每列变成亮红色，这样你就能准确看到每列占据了多少空间。",
+        "text_hash": "a199a2ac00859c68760356813e41da13ba6f63daef8fa873805e357fc11cdfe5",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_f0114b985b425e2288a024e3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果我们想让布局容器横跨多列，必须要给它设置特殊的类，来适应列的数量的 值（加上间隔的值）。我们需要新建额外的类来允许横跨 2-12 列。每个宽度是将该列数的列宽加上间隔宽度相加的结果，这些宽度总是比列数少一个。",
+        "text_hash": "724ca5562ad8dfeee039e6da26d9fbd2afbffd0474d52ace0f2c1940c17477dc",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6fdbbc28100af1ac036fddbd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在你的 CSS 底部加入下面的内容：",
+        "text_hash": "3d24bb360e696d5a44f4b712c7d433d6ef44a4dce633dde35aee5048b32088a4",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_74cf60a7c9f98b4595a14455",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n/* Two column widths (120px) plus one gutter width (20px) */\n.col.span2 {\n  width: 140px;\n}\n/* Three column widths (180px) plus two gutter widths (40px) */\n.col.span3 {\n  width: 220px;\n}\n/* And so on... */\n.col.span4 {\n  width: 300px;\n}\n.col.span5 {\n  width: 380px;\n}\n.col.span6 {\n  width: 460px;\n}\n.col.span7 {\n  width: 540px;\n}\n.col.span8 {\n  width: 620px;\n}\n.col.span9 {\n  width: 700px;\n}\n.col.span10 {\n  width: 780px;\n}\n.col.span11 {\n  width: 860px;\n}\n.col.span12 {\n  width: 940px;\n}",
+        "text_hash": "d0ca4df6f39284c4edbdf10f90d3d1b51dfdb89a0326e493ad00243a3173269c",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_17046b0ae7f851939aa3b6db",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "创建了这些类以后，我们可以在网格上布局不同宽度的列。试试保存并在你的浏览器上加载这个页面，来查看效果。",
+        "text_hash": "a4d2b2849ddba668c9bfd6f1bd2636f67d4b90e143cc0967a3f1f15430f80d54",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_570496d80decf53d7ebd3e0b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你在让上面的示例实现的时候正遇到麻烦，尝试将它和我们在 GitHub 上的完成版进行比较（再看下实时的示例）。",
+        "text_hash": "03ec7ca71977893e5fb8137a088f9c3cde8bb6b617a1dd297e1fc4addeabeffe",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_e97433be3481dca46b075b53",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "试试修改这些类，甚至添加、删除一些容器，来看看你能怎么改变这个布局。例如，你可以把第二行写成这样：",
+        "text_hash": "479a833a4700fc17a85a38b1d02bd4f46d36ee28a4bcfd0103d7b537b943ade9",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_951309cf15a26a8b94c38d4e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6f2b4a951a171fe5f6406aa8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "13\n   14",
+        "text_hash": "b7430baec6a83f859b804ec112e993829ac4fabd2837c39478a649b3edf631f3",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5706d8c75e3f35b8b728d41c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在你的网格布局生效了。你可以简单的定义这些行，和每行的列数，然后给他们添加你想要的内容。真棒！",
+        "text_hash": "c84efc8e1b5f5cce9ee0d013f294173abe46f17e49ce6729b660a4f52acfa9cd",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b9326c578e4e0210068f2bf9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "创建液态网格",
+        "text_hash": "53d3d7040c93c092a196ff44b5fd19d38662ac4d54a858721ad8ab3aeef03ce5",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_da25bfc541eedbe284650a06",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个网格表现的不错，但是它长度固定。我们实际却想要一个弹性（流体）的网格，它可以随着浏览器的大小的变化自动伸缩。为了达成这个目标，我们需要把相应的像素的长度变为百分比长度。",
+        "text_hash": "6f2e7b0647a982bd0ac210a21d58d9546b442dfd51871d2217b3e155ea0c80bc",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_46a6a4094beee4b9895181e5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "把固定宽度转为伸缩的基于百分比宽度的算式在下面：",
+        "text_hash": "b2cdc3aec96f739a92eb4a4e388d896fceed2d7f0f658d1461fcee5a93ea13be",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_17901d637545f25381a1b854",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "plain\ntarget / context = result",
+        "text_hash": "0115771faecf17c64b4d2603eeb900deb6c81444e7fea6e3b1849278d96afa3f",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cb758ad31836f8e8004bf467",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在我们的列宽里，我们的**目标列长度**是 60 像素，我们的**上下文**是 960 像素的包装。我们可以这么计算百分比：",
+        "text_hash": "7e66f5495b5e77331c0e25562b7715de886dda2073350823b8f85624f5f69d6c",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6f9a83a273bd7c91adc094c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "plain\n60 / 960 = 0.0625",
+        "text_hash": "acbc14c511b786aa5adef7d393503e4715e8f11096749e504d47b117094d2357",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d33d5f330efe45fdc55f64c9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "然后我们挪动小数点两位，得到百分数 6.25%。所以在 CSS 里面，我们可以用 6.25% 代替 60 像素。",
+        "text_hash": "d462a1948bf2e12339f4a110eefa10ad01fa59d4dd8b0c608c67c921a4d54b76",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ea17797b1bd186651e457fdc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们需要同样这么算间隔：",
+        "text_hash": "e72616cef0e1fac4254f790e01707f26cd06fc0c9c171448090bbfc0230c7729",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8abd69ae62acc86034c57b41",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "plain\n20 / 960 = 0.02083333333",
+        "text_hash": "197c67a123c52a07eb59c5c535e9d63f6eb2cdde5a12053ae7f691f7b02bebd7",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72da75173f554518e0ddedb0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "所以我们需要用 2.08333333% 代替.col里的 20 像素，和.wrapper里的 20 像素。",
+        "text_hash": "0f3ebc20161a3b28b558f9e928dc77673ca86240e7034969d701467f934c060b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1af325d146b2e6e870448c45",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "更新我们的网格",
+        "text_hash": "7d86d55d53456fbd3cfec0de4338682df7c62961cc97f90249d79e4c4a631427",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ced13530989d0b578554036d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "创建一个之前例子网页的副本。然后开始这个章节，或者制作一个simple-grid-finished.html代码的本地副本，以将其作为入手点。",
+        "text_hash": "b603d9e7867828bdb94e245683393a4899620a2fae37ba42ba7c9c820d39da97",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a5b4ec13339c2f8c788a18ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "更新第二个 CSS 规则（有着.wrapper选择器），像下面这样：",
+        "text_hash": "274c54aedfab67425418a00bee1bb57008295f8055242f65da1e714d90623c5e",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e01ced39c6994ae7ac14eeee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nbody {\n  width: 90%;\n  max-width: 980px;\n  margin: 0 auto;\n}",
+        "text_hash": "b33224b58e5b566ac691a723249ac91c76e7bd54590f6c87563972b1a14d26e9",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ea8545e95e52f2594e9df9ba",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper {\n  padding-right: 2.08333333%;\n}",
+        "text_hash": "3643a2d40526709358f5f206bea9c6df75595aeb5b5b18a34a80d5ebc12fc7a2",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6bf35927d1187a93cb88e53f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们不仅给它一个百分比的，还添加了属性，来确保布局不过于宽。",
+        "text_hash": "9fe9416c0ab691c6f7cece59c6c2e01dea5a93fe9041f7c81065b7512fd04e48",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1fc37c0b44eaff45706d71f7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下一步，更新第四条 CSS 规则（有.col选择器），像这样：",
+        "text_hash": "8b24418d5b78b36531b724023aa8e1089b9cdd8f3c122a6801b38ca1c04528ba",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1cff03bc44cf68b4b0d0f7d3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.col {\n  float: left;\n  margin-left: 2.08333333%;\n  width: 6.25%;\n  background: rgb(255, 150, 150);\n}",
+        "text_hash": "0b709011a22129d73e2ad3dd044eeece8bc28666c511c602b5487df45ad7b4d4",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_de8ddad8ec0adccb7715796d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在做些稍微麻烦的事 — 我们需要更新所有 .col.span 规则来把像素变为百分比。这需要点时间计算；为节省你的功夫，我们在下面替你做了。",
+        "text_hash": "9284c3b287b75066975f055935aeb13cdbdfa3d94c61fb35e55676b5f2f0ffbf",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1e209d50a33edbe25db74674",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "像下面这样更新 CSS 规则的底部块：",
+        "text_hash": "ad03cd40a33beb66902211d2ab3c8b41de59202bbc4a50716418e505e4a0ca5e",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c4223fd6d4ba8a0ffbefa42e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n/* Two column widths (12.5%) plus one gutter width (2.08333333%) */\n.col.span2 {\n  width: 14.58333333%;\n}\n/* Three column widths (18.75%) plus two gutter widths (4.1666666) */\n.col.span3 {\n  width: 22.91666666%;\n}\n/* And so on... */\n.col.span4 {\n  width: 31.24999999%;\n}\n.col.span5 {\n  width: 39.58333332%;\n}\n.col.span6 {\n  width: 47.91666665%;\n}\n.col.span7 {\n  width: 56.24999998%;\n}\n.col.span8 {\n  width: 64.58333331%;\n}\n.col.span9 {\n  width: 72.91666664%;\n}\n.col.span10 {\n  width: 81.24999997%;\n}\n.col.span11 {\n  width: 89.5833333%;\n}\n.col.span12 {\n  width: 97.91666663%;\n}",
+        "text_hash": "aaacda85f1c26f6982aa1c35e1628f56afc8c2ceab5abf5b14711d2925ac4236",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ba8a4624920e89ecb430351f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在保存你的代码，从浏览器里加载它，尝试改变视口长度——你应该可以看到网格完美地适配了。",
+        "text_hash": "9d00e6688fe441cb573d5b50756fa6c9f19f89004b50a13ffa34ebf6fd2f393b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_38faae92f802340872b7d3e7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你在让上面的示例实现的时候正遇到困难，试着把它和我们GitHub 上的完成版比较（另见实时的示例）。",
+        "text_hash": "64d1449b5f79587ff14222e896bcb9f69741ad0cc517ab2124e5bcd58b14bbdc",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_eb81552f8762be8b3122256f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用 calc() 函数的更简单计算",
+        "text_hash": "55f2b09575e044e254fa8e1cee5202a606d9ed204ab9489272d3484640bfec4d",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_eb49e7629fb71636051346a6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以用  函数来在 CSS 里面做数学方面的计算——这允许你在 CSS 里插入简单的算式，来计算那些值。这个会很有用，特别当你有个复杂计算的时候，甚至你还可以在算式里用不同的单位，比如“我想要这个元素一直比它父元素少 50 像素”。看下这个来自 MediaRecorder API 教程的示例。",
+        "text_hash": "8dc740b9334684d690e78142ae8712e387acb528ba84e7a70aa1b93d0d5d63f2",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_05dd4f375e918d6ef264ec89",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "言归正传，来讲我们的网格！我们网格里跨越超过一列的列，它的总长是 6.45% 乘跨越的列数加 2.08333333%，乘间隔数（间隔数总等于行数减一）。calc() 函数允许我们就在宽度值里面这么计算，所以对跨越 4 列的列我们可以这么算：",
+        "text_hash": "5301eacacb251eb29e64b021892bb762e7e48ee7753557691be1dc78d4ee9205",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_65ed03dfc7c7067a2807c624",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.col.span4 {\n  width: calc((6.25% * 4) + (2.08333333% * 3));\n}",
+        "text_hash": "7e8aeffe3b464840e8dd37900809714081f9354f00e28cd1c00a1b0e6f63c176",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f2ae10b9e856b22788eb4864",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "试着用下面的内容替换你底部的规则块，然后在浏览器中重载，看看你是否能得到相同的结果：",
+        "text_hash": "e7450b8dbf1f37d960ca3aa965e299caf63908b97850c84c59878f07f5039eed",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_73fe932dbd0342b57045bdd1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.col.span2 {\n  width: calc((6.25% * 2) + 2.08333333%);\n}\n.col.span3 {\n  width: calc((6.25% * 3) + (2.08333333% * 2));\n}\n.col.span4 {\n  width: calc((6.25% * 4) + (2.08333333% * 3));\n}\n.col.span5 {\n  width: calc((6.25% * 5) + (2.08333333% * 4));\n}\n.col.span6 {\n  width: calc((6.25% * 6) + (2.08333333% * 5));\n}\n.col.span7 {\n  width: calc((6.25% * 7) + (2.08333333% * 6));\n}\n.col.span8 {\n  width: calc((6.25% * 8) + (2.08333333% * 7));\n}\n.col.span9 {\n  width: calc((6.25% * 9) + (2.08333333% * 8));\n}\n.col.span10 {\n  width: calc((6.25% * 10) + (2.08333333% * 9));\n}\n.col.span11 {\n  width: calc((6.25% * 11) + (2.08333333% * 10));\n}\n.col.span12 {\n  width: calc((6.25% * 12) + (2.08333333% * 11));\n}",
+        "text_hash": "298c7dd64f23fe8470ba78117083d310b5dc41b8ca87f96a7c62b236780af133",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cce65178eb5c44895152e89e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你能在 fluid-grid-calc.html 里看到我们的完成版（另见实时版）。",
+        "text_hash": "28f4c189a2054874aec445d99e4a80ce5d736a4f574a21aea347da02b3bef3be",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_aeb548e3f4ab92464b196a21",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你不能让这个正常工作，可能是你的浏览器不支持calc()函数，尽管各浏览器对它的支持相当好——远至 IE9 那样老。",
+        "text_hash": "1a4a3758330f1b2545636b953d5fabde11db54405c95ef54bda04ac142a2fb1e",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_e299c42b8773af74adb54cad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "语义 vs.“无语义”网格系统",
+        "text_hash": "07c1ffec59245620f9e95b4be947cfb54080cbd21163f4cae3b626efd4b910e4",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_112bd164eb21ddb400fb3f9a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在标记中添加类以定义布局，意味着你的内容和标记与你的可视化表示相关联。你将会偶尔听到，这种使用 CSS 类的方式，被描绘成“无语义”：描述了内容的外观，而不是描述内容的语义性的类的使用。这是我们的span2、span3等类所面临的情况。",
+        "text_hash": "1537fa1e22065a43a9867d3218e5f6e3d0b71b85156eb674e47a960e57e746b6",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_74ddb29c52ba3f3bfbcd5ba2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些并不是唯一的方法，你或许会转头决定使用网格，然后向已有的语义类里面加入尺寸信息。例如，如果你有一个带有content类的，而且你想让它横跨 8 列，你可以从span8类里面复制整个关于宽度的规则，结果是像这样的一条规则：",
+        "text_hash": "6097ee48f5ea0858fcc760cafb114fa7d85c90ba7aaef1dbeed8706078f828b7",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f11fe8c35e619ae42c28fa8d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.content {\n  width: calc((6.25% * 8) + (2.08333333% * 7));\n}",
+        "text_hash": "d1fa53ea9c0f042fcaaf23accf970e06152ef63a7da2bc57c21ffde7fd139b71",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_303080fdd7f9e64787df93f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你要用预处理工具，如Sass，你可以建立一个简单的类（mixin）以插入那个值。",
+        "text_hash": "2413fb990e4ee97e03825c246f3b6f39c82c6d3755e86b4461c1ca66b3ce8f5b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_f615da1ebc9aba020eb3ed55",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在我们的网格里启用偏移容器",
+        "text_hash": "04b25a232870d892743412197bb02d08712cbfc932fe8f0046bfb9caefa93dcc",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_bd9262204fb340fd7ca71a9a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们创造的网格很有效。只要我们想把所有容器都从网格的左手边对齐。如果我们想在第一个容器前来个空列，或者容器之间来个空列，我们需要新建一个偏移类，为站点加上左外边距，来可见地推动网格。再来点数学计算！",
+        "text_hash": "3f4e7f42837a29ef24fa9bd761345fb9e54e8d697337abaf220ce357dbd8ab53",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_63d8152758c6efe55d3e9bb2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们实际试试吧。",
+        "text_hash": "b5c63decaa8c249195b19a9611dd58ba9767e8792b1c105c64a36e1cc85f167f",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_81d381da07b38f7898988fda",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "从你以前的代码开始，或者把我们的fluid-grid.html文件用作起始点。",
+        "text_hash": "e8b026327dd8076d4b5e164bf2727ddfb844dd68b7ca150d2938eff40551ea5b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_910435ea462d08a22df991e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们在 CSS 上搞一个类，它会给一个容器元素来个一列宽度的偏移。将下面的内容加到你的 CSS 的底部：",
+        "text_hash": "65201ccf9d61cbbcc0edc21daa34f9cd59db05ecb9aa3c2b41605c80ef72cbe9",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2483d05e4b2725fcb9540613",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.offset-by-one {\n  margin-left: calc(6.25% + (2.08333333% * 2));\n}",
+        "text_hash": "27184f977f07edd5824c409872ebb3e77e3a94b4b41a18c094fb29e11317cadf",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8336f7c1f516850a0716ed09",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "或者假如你更愿意自己算百分比，用下面这个：",
+        "text_hash": "757a456a55214486efc35cdaa36cde26eae1595d6f0ff5dd1fb11dc01d24bb9e",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1144089df83d8f72ebe57ca3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.offset-by-one {\n  margin-left: 10.41666666%;\n}",
+        "text_hash": "b5ff1744a8bd9a2a71e92b24849c6e771190144f26cf9fa0200d7b93f9a61e01",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3052b08dc8d7063f63189370",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "想要给一个容器的左边加个有一列宽的空白的话，你可以在容器上添加这个类。例如，如果你在 HTML 中有这个内容的时候：",
+        "text_hash": "c160f43b04b52c30432894ab507877b699c01bbc576c9691d7c6292ea335e9e4",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2472e45f5b903286989e06f4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n 14",
+        "text_hash": "9d05354a60268bf97107b66c8b8efe12c854bf42a1e919f5fed0aa839cdddac2",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4750c145edca04e03660ecbc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "试着用下面的替换：",
+        "text_hash": "76ffeb5df8b0d11d3c1f6f7f3e961559919a86af45241734563ef2b6c3cc0b79",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_43a0838e6ae065e3af038ecd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n 14",
+        "text_hash": "9d05354a60268bf97107b66c8b8efe12c854bf42a1e919f5fed0aa839cdddac2",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1c78f51591766d61b8154180",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n注意你需要别让横跨多列的列太多，给偏移留点空间！",
+        "text_hash": "406dbbe041b15aedd7f1112a9200dcab26ef28c873560263f9c0f2af50d4cb12",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_90508564ab1dbb7ad5bf22dd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "试着载入，刷新来查看区别，或者查看我们的fluid-grid-offset.html示例（另见实时示例）。完成的示例应该看起来像这样：",
+        "text_hash": "07ff783e0a312cf3a60b31bba8e230ff1c49c87a7701d35709915f67e2192ff3",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_be02083fdd623d0a9b322233",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n作为额外练习，你能实现一个 offset-by-two 类吗？",
+        "text_hash": "2ef8347b43f23699944a68f0088ee5c9ca5c92453d89cb0558d29ad42c31edc7",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_9e585fb273c5cdf855c79312",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "浮动网格的限制",
+        "text_hash": "d00a331fdae33fdc15eda42195b47293492fe1c881683c7727f6f7c68b1c58e7",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f4b3fe44959c0889deafe7b3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当你想用这个网格系统时，你得仔细看看你的总长是否正确，并且每行中的元素所横跨的列数不超过这一行可容纳的列数。由于浮动布局实现的方式，如果网格列的数目对与网格来说太大，在最后边的元素会跑到下一行去，搞坏了布局。",
+        "text_hash": "9d882fd99ff1e194ef2100a04ee17050c0c1109029382cb17da472461c7441b9",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c73957d6a813ecea3eb68302",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "还要记住，如果元素内容比行宽，它会溢出，看起来一团糟。",
+        "text_hash": "4712cd1473093b21b15d841e6eed55d789fb9b3411856a0fa92e44e2fcca1fe8",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_37a06e5e2f5fa8ad6c3679ae",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个系统的最大限制是，它本质上是一维的。我们在处理列、让元素跨越列，但是处理不了行。如果不设置一个确定的高度，用老方法很难控制元素高。这个方法很不灵活 —它只有在你确定你的内容有个明确的高的情况下有用。",
+        "text_hash": "a24417cee9291582ac17c7a91602885ac941e5723c06c12b8585b1b7d44f3f83",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_797e413847ea7efb28badad4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒网格？",
+        "text_hash": "a72b4b8ac62dab949742cac97afd9ccdfc7b29342e7f4ac9195d5ffc9af6a457",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_07c0f106b16568e08a30d709",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你读了之前关于flexbox的文章，你大概会想，弹性布局是个写网格布局的好办法。现在有很多基于弹性布局的网格布局，并且弹性布局可以解决很多上面讲的问题。",
+        "text_hash": "84867c0cba99b3270d256eae19e76b290b40d4ad3bab8e00664d5dff802dc9fb",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_33a2c47472490c4d06020cea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是，弹性布局不是为网格布局而设的，把它当网格布局来用也有新的挑战。举个简单的例子，我们可以使用我们在上面使用过的同样的示例标记，用下面的 CSS 样式化wrapper、row和col类：",
+        "text_hash": "ac4d54e7ccd67df492a817e8a54e2eee1e24c9d635b86af8e577a642004e2b6c",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c0041038cfe2b3638c75db35",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nbody {\n  width: 90%;\n  max-width: 980px;\n  margin: 0 auto;\n}",
+        "text_hash": "b33224b58e5b566ac691a723249ac91c76e7bd54590f6c87563972b1a14d26e9",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b0541e9802062c17c62317cf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper {\n  padding-right: 2.08333333%;\n}",
+        "text_hash": "3643a2d40526709358f5f206bea9c6df75595aeb5b5b18a34a80d5ebc12fc7a2",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d0908092f5286cd103a93b48",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".row {\n  display: flex;\n}",
+        "text_hash": "0c657f849233de185d13739d23e98de83a005f4bbcea011e343688345993c787",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_26f48ac6d64e1cf3d0ade3f7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".col {\n  margin-left: 2.08333333%;\n  margin-bottom: 1em;\n  width: 6.25%;\n  flex: 1 1 auto;\n  background: rgb(255, 150, 150);\n}",
+        "text_hash": "7d4ec245432f848687c87fd1c15131bd11f8bd7afac6ae8651017aa8d3ee2f19",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e6709b5e78c51645526dc28a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以试着在你自己的示例里做这些替换，或者看下我们的flexbox-grid.html示例代码（另见实时版）。",
+        "text_hash": "47e90fdec4558e4e1c595877d62ddf91b17cf42dbd84a32a84b2fab664ec1aee",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ade35bee7f9a739a91ca2d36",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里，我们会把每行变成一个弹性容器。有了弹性盒为基础的网格，我们仍然需要行，以让我们的元素加起来能不超过 100%。我们将容器设为display: flex。",
+        "text_hash": "a5e15b0f21734ebc98f9bcddc332aa29acc700db1107e28d432600bd0bf4ac35",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_85ddaa91e38afadc2001611e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在.col上。我们设定属性的第一个值（）为 1，这样我们的物件可以变大；第二个值（）为 1，这样我们的物件可以缩小；第三个值（）为auto。因为我们的元素的被设定了， auto将会使用和flex-basis 值一样的宽度。",
+        "text_hash": "b4c56b0a91913ec9002d6dc18dfd079a3b25357f1b443e6821157c16f9b2957b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_318bc8061f2261111afb3749",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在顶行，我们有十二个整齐的盒子，它们在视口宽度改变时同等地放大缩小。可是在下一行，我们只有四个物件，它们也从六十像素的基础上变大变小。因为它们只有四个，它们可以长得比上一行的物件更快，结果是它们都占据了第二行的相同宽度。",
+        "text_hash": "c853ae8401a231dc7ad5b92c73eb4a2184966cecd35aa4f3412653fa8b60356f",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_953ff0e36a12077778d20179",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了解决这个问题，我们仍然需要包含span类，以提供一个用于那个元素的，可以替换掉为 flex-basis所使用的值的宽度。",
+        "text_hash": "09481e928d18c8ac965fc0ad6dfb883e98db6f498d97f96a6b44d6e1667fa121",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e1f9db27155523b27db3919c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "它们也不遵从上面的物件使用的网格，因为它们对它一无所知。",
+        "text_hash": "a9b4b1fd7e14723ba3edb0c10b5d2c789a10b9e466d3657baa4bc80811962109",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a20382f70736931def0b1380",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒设计上是**一维**。它处理单个维度，行的或者列的。我们不能创建一个对行列严格要求的网格，意即如果我们要在我们的网格上使用弹性盒的话，我们仍然需要计算浮动布局的百分比。",
+        "text_hash": "1cadbcb4c44a6c753a0d911851c6ec03c3711be6f7430ec6c4692185bdb50f43",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8d7790818797cfe451282411",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在你的工程中，由于弹性盒相比浮动能提供附加的对齐和空间分布能力，你可能仍然选择使用弹性盒“网格”。但是你应该清楚，你仍然是在使用一个被设计用来做其他事情的工具。所以你可能觉得，这就像是在你抵达你想要的结果之前，让你跳过额外的坑。",
+        "text_hash": "b72abeefa7db4de12b84f423b920a36ba09b685edca1f1850d0756b7afc0ca4f",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2ab5f2fd983dc286b3f04c4d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第三方网格系统",
+        "text_hash": "f5690f1347fb6d842b704526b9aa42965e1966227b6ce235f24935b01a61001a",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_815e239b1c28debfd61b7778",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "既然我们理解了我们的网格计算背后的数学了，我们现在该看看一些常用的第三方网格系统了。如果你在互联网上搜索“CSS 网格框架”的话，你会发现一个包含了可选项的庞大列表。流行的框架，例如Bootstrap和Foundation，就包含了网格系统。此外还有独立的网格系统，不是用 CSS 开发的就是用预处理器开发的。",
+        "text_hash": "06f2887a513ea3a2ffdb39c221585affe26d819585bc7c905519bfa0932fbe28",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_158d8bc307c3c52fe8932125",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们看下这些独立系统其中的一个，它阐释了利用网格框架工作的常见技术。我们将要使用的网格是 Skeleton 的一部分，它是一种简单的 CSS 框架。",
+        "text_hash": "ac16983132e6fb36fe5dbed8fde4edaf80041209911c45ab030b04db6569067d",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0375a2f1b72212e5dc8655bb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "访问Skeleton 网站以开始，选择“Download”下载 ZIP 文件。解压文件，把 skeleton.css 和 normalize.css 复制到一个新路径下。",
+        "text_hash": "3469f68814b543bfb32ccad258a1717c9a1c47d6c303885953688138ed7f7f87",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_97e56cb9447f819ac6d433dc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "制作一个html-skeleton.html文件的副本，在同 skeleton 和 normalize CSS 相同的路径下保存副本。",
+        "text_hash": "cfa1359c1599feaf49c0cdbeec5423377845e29997e8e488492da3855f494825",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9357c8874e7773e7eb475577",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 HTML 页面包含 skeleton 和 normalize CSS，通过把以下内容加到文件头部的方式：",
+        "text_hash": "79460ea29b37ac99a78603c7735b269dc932d392c48e7fb85d5a8bce061d7ab3",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4673e92d2bbd695b52c64b21",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f8b7a139d4ec049198d01211",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Skeleton 不仅包含了网格系统，它还包含了用于排版和其他能作为起始点的页面元素上的 CSS。我们现在把这些部分留作默认值，我们在这里真正感兴趣的是网格。",
+        "text_hash": "b798e37694cf31fab16697b7ac7aee6822f2cfd081408cff66ef7def61e66cea",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_576b43a1f92fe0f32a19cbc5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\nNormalize 是由 Nicolas Gallagher 编写的一个很有用的小 CSS 库，它自动做了一些有用的基础布局修正，让元素默认的样式化在不同浏览器中更加协调。",
+        "text_hash": "7700fae8a61cd9cf697bfeb516d2451f6ee0520d1093e48a5b713d3a5e6a17fd",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_54b85d15d3356fd9c7c3a620",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们将会使用和在前面的示例中相似的 HTML。将下面的内容加到你的 HTML body 中：",
+        "text_hash": "516556efa78ebef68204f12c2525f550a11b3ad4b9cad3d06cea5ea8cdafe81b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_beeb682fbd3d6c619f976c04",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_99c3fc0622fc6b3cac61d1de",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "1\n     2\n     3\n     4\n     5\n     6\n     7\n     8\n     9\n     10\n     11\n     12",
+        "text_hash": "23293aee84fff2861d38c512ad16967d9277b8f0bb53eba665fdc1029d8c3e51",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7b5f85cb7abc9473ef58c734",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "13\n     14\n     15\n     16",
+        "text_hash": "e3cda651d440b908ad81ba520b6e7c633ef14556fa0de08b431320d90f41eda4",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_358359c7cbebeb7a6f879773",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要开始使用 Skeleton，我们需要给包装的一个container类——这已经包含在了我们的 HTML 里面。这让最大宽度为 960 像素的内容居中了。你可以看看盒子现在是怎么不会宽于 960 像素的。",
+        "text_hash": "e2ade56503d0308277230896ca4b6d9a91fce4a011e4e7d067f94c806334091d",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_746bf1a5385c626aca4af246",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以看看 skeleton.css 文件里，CSS 在我们应用这个类的时候是如何使用的。 用值为auto的左右外边距居中，左边和右边还应用了 20 像素的内边距。同我们前面做过的那样，Skeleton 同时把 Skeleton属性设为border-box值，所以这个元素的内边距和边框将会被包含在整个 width 里面。",
+        "text_hash": "3059e54899b26ea5bf0624c3499a8a343c36e575b349238a42899ab259b5f191",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3616731cbfb492c14f70a8e8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  position: relative;\n  width: 100%;\n  max-width: 960px;\n  margin: 0 auto;\n  padding: 0 20px;\n  box-sizing: border-box;\n}",
+        "text_hash": "e508c3ea13012689881edf6fedf79a5cb875a8ebb2dab6117e033cb38f7c8845",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b80965a659a01dd40164a7b8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果它们在行里面的话，元素只会是网格的一部分，所以对于前面的示例，我们需要一个额外的 或者其他带有row类的、内嵌到content  和我们实际的内容容器的 之间的元素。我们也已经做了这件事。",
+        "text_hash": "4513456c12e881136467f4cac931235321c91b73e591a5ac8c0f2d3063373e43",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f6bbcc0b4c028f0b684e00d7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在让我们铺开容器盒子。Skeleton 基于一个 12 列的网格。顶端一行的盒子都需要加上one column的类，以让它们横跨一列。",
+        "text_hash": "63d0319db6885569cfd9eca7f2feb32113a5e85106a0cf323526395aefd6ba06",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_df9f2706619ceefb0689e52c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在加上这些，像是在下面的节录里面显示的那样：",
+        "text_hash": "a631307dd888975661ea0c5804b5106089951c8727d9c4e30eeb40daa0200c6b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5beaf06f17294c2c6683751d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_708d653c35ed2f202651ff22",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "1\n     2\n     3\n    /* and so on */",
+        "text_hash": "c88d1c81ca9b0332ab3adfca9284425a7d274f289119c4c9e70699b0d1468aa1",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c66e728cb0f6714e6f5c6914",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "然后，给第二行的容器加上解释它们应该横跨几个列的类，像这样：",
+        "text_hash": "4e9041fe400458a7e6852b5c61a5dd59fb2d783c42940bc6ef484cdc1f12f83b",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72201847ede8aa945bb7d67e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_902410d2e5a9f3408b585c64",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "13\n   14\n   15\n   16",
+        "text_hash": "ec5e0f1f9f83e0425cf8d05735da3a61e888508d04a7d52d2067e1b9ea394c59",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6a6d04bbbba07b927e07b8fd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "试着保存你的 HTML，在你的浏览器里面载入，看下效果。",
+        "text_hash": "06ac2aeab6259ea922046497bcfa111da13d381845a3d21489a706172b047789",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2f7a9831f9450f48a7c8e5e5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你在实现这个示例的时候遇到麻烦，试着拿它和我们的html-skeleton-finished.html文件进行比较（另见实时运行版）。",
+        "text_hash": "81786f1016c6072290b15fa10e1a85a75305aebb4b46946c8571efacaa387024",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_43e1c206821d52b640d1e212",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你看下 skeleton.css 文件的内容，你能理解这是如何实现的。例如，Skeleton 有下面的定义内容，用于样式化加入了“three colomns”类的元素。",
+        "text_hash": "d707c11640560fa6b17de5840cafadbdcf664fa8de5ebb3026b26be5b943f870",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_42a8e5134b2bfc86b7e1fbd8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.three.columns {\n  width: 22%;\n}",
+        "text_hash": "6d7d92355650242bc18633fcbe988f908befb349f6a0841b9c8189d26e4d7c33",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2f7fcbfe5bd48f79649712f1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Skeleton（或者其他任何网格框架）正在做的所有事情是，设定一个预定义的类，你可以通过把它们加到你的标记文件里面的方式使用这些框架，和你自己做计算这些百分数的工作完全是一样的。",
+        "text_hash": "ca39ef566708e7d8b06ea16ad0b27a01a154af9cb2fc5690f98d08498b3726bd",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7aaec42a286d077fd8d02393",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "正如你所看到的这样，我们使用 Skeleton 的时候，几乎不需要写多少 CSS。它在我们向标记文本里面加类的时候，替我们处理了所有的浮动。正是把布局的责任甩给其他人的可能性，使得使用用于网格系统的框架成为了一个强制性的选择！但是现在来看，有了 CSS 网格布局，许多开发者正在停止使用这些框架，转而使用 CSS 提供的内建的原生网格。",
+        "text_hash": "7f06c5556a163ef69ebee6e7045d07cb6d4276c45fee93fd7a6b0262b5c2e05e",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6fb79c2cc742673bfcc04433",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "小结",
+        "text_hash": "6bf8bdb1f6eefac69dfc0691f9fa2fa123d921db1a75ed8c06cb86814c72d655",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d508e541a79cf685d8f7bc8c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你现在理解了多种网格系统是如何建立的。这将会在处理老网站的时候，以及理解 CSS 网格布局的原生网格和那些老系统的不同的时候帮到你。",
+        "text_hash": "0f7d503cd840f99fcb61fcd524ac96e369c83f0a7b767966dc18ddc050649e6d",
+        "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_cb932d1ea6a3c283f2d4d17f",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。传统的布局方法，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "传统的布局方法，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/legacy-layout-methods",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "传统的布局方法"
+  },
+  "resource_id": "lr_f0425fd4ceda8831c4e610e0",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_f729609dba777be7a99c611f",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "传统的布局方法",
+    "text_hash": "d9a2d54376f9dab4d8f8cba70c9a51b6b04ded93a84d2f74e0b5396487a600d7",
+    "variant_version_id": "lrzv_4c812d7baab47995e5a65429"
+  },
+  "variant_id": "lrz_42edcb3f08feb07d0c369922",
+  "variant_version_id": "lrzv_4c812d7baab47995e5a65429",
+  "visual_dependency": "helpful"
+}

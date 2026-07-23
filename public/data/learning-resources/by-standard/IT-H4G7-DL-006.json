@@ -1,0 +1,262 @@
+{
+  "alignments": [
+    {
+      "alignment_id": "lra_2470b6ed3c00368dab022a7d",
+      "alignment_version_id": "lrav_e4c1a1545f981630fdb6e631",
+      "evidence_quote_zh": "使用这种两位数字（即二进制）系统，是计算机上存储的所有数据以及互联网上传输的所有数据的基础。",
+      "fragment_id": "lrf_84907b7751f1afc222bf193c",
+      "learning_component_ids": [
+        "lc_b33018cdec055332"
+      ],
+      "pedagogical_role": "explore",
+      "rationale_zh": "资源讲解二进制如何作为计算机存储数据和互联网传输数据的基础，具体落实了理解网络数据编码、传输和呈现原理中的编码与传输对象。",
+      "relation_type": "supports",
+      "resource_id": "lr_d1201ab84604ec725bb4d306",
+      "standard_code": "IT-H4G7-DL-006",
+      "target_block_ids": [
+        "lrtb_5f36f95bd5b817cefa1d2bf3"
+      ],
+      "variant_version_id": "lrzv_9c69d4bd9343965578bb9fc5"
+    },
+    {
+      "alignment_id": "lra_a2495fa04b0c928d1ddcee76",
+      "alignment_version_id": "lrav_e9c6b9e4c40c4706287b4662",
+      "evidence_quote_zh": "我们要看的方法叫作行程长度编码（Run-Length Coding），它是传真机工作方式的基础。",
+      "fragment_id": "lrf_60280b9ac32050dccbd74cb6",
+      "learning_component_ids": [
+        "lc_8b8445efef6e93ab",
+        "lc_b33018cdec055332"
+      ],
+      "pedagogical_role": "explore",
+      "rationale_zh": "资源具体讲解数字图片的压缩表示方法，并点名行程长度编码这一数据编码做法，可支撑学生理解网络数据编码、传输和呈现相关原理，以及说明该数据处理过程的基本做法。",
+      "relation_type": "supports",
+      "resource_id": "lr_7bb085cf2131fbe2a3023554",
+      "standard_code": "IT-H4G7-DL-006",
+      "target_block_ids": [
+        "lrtb_30774494b35164ca2e9af56f"
+      ],
+      "variant_version_id": "lrzv_5a2a5789404a32084670199b"
+    }
+  ],
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "resources": [
+    {
+      "blocks": [
+        {
+          "target_block_id": "lrtb_851198625dec190d08ba2791",
+          "text": {
+            "locale": "zh-Hans-CN",
+            "qa_status": "passed",
+            "text": "二进制表示",
+            "text_hash": "cb8dae64269f831ef976f92e20c93bccdcceb600e80f991cbdc6a6924c814a9a",
+            "variant_version_id": "lrzv_9c69d4bd9343965578bb9fc5"
+          },
+          "type": "heading"
+        },
+        {
+          "target_block_id": "lrtb_5f36f95bd5b817cefa1d2bf3",
+          "text": {
+            "locale": "zh-Hans-CN",
+            "qa_status": "passed",
+            "text": "计算机上的所有数据都表示为数字——这就是我们把它们称为数字设备的原因！\n计算机上的数字极其简单——它们只有两个值（通常写作 0 和 1），因为以这种方式制造设备更便宜、更快速。\n使用这种两位数字（即二进制）系统，是计算机上存储的所有数据以及互联网上传输的所有数据的基础。\n“二进制表示”活动探索了如何使用如此简单的数字来表示各种事物——数字、字母、日期等等。\n与此同时，我们还会巩固一些数学中的基本事实，并从新的角度看待我们自己的十进制数字系统。",
+            "text_hash": "3eb5270da1a0d0ad220a9c426477f99ce31b414fdbb53a3e880b5f22c6f60ffb",
+            "variant_version_id": "lrzv_9c69d4bd9343965578bb9fc5"
+          },
+          "type": "paragraph"
+        },
+        {
+          "target_block_id": "lrtb_f89cf6557c19664e30f09279",
+          "text": {
+            "locale": "zh-Hans-CN",
+            "qa_status": "passed",
+            "text": "引导者准备",
+            "text_hash": "e32814b0f7f82138fb6559a44a774aceb4f107bffd42098d57f31e69fc0dca31",
+            "variant_version_id": "lrzv_9c69d4bd9343965578bb9fc5"
+          },
+          "type": "heading"
+        },
+        {
+          "target_block_id": "lrtb_5785f04f28ba14d860f1b478",
+          "text": {
+            "locale": "zh-Hans-CN",
+            "qa_status": "passed",
+            "text": "通读关于如何远程开展 CS Unplugged 内容的指南。\n浏览幻灯片，并用你将用于演示的视频会议软件进行试用。\n如果你不熟悉原版不插电活动，请回顾这些课程的线下版本。\n用二进制表示你的出生月份，或你想使用的某个月份，例如 October 是“no, yes, no, yes, no”。\n*可选：* 在课前让参与者制作一套二进制卡片作为任务，这样他们可以亲手体验二进制卡片。\n*可选：* 你可以使用实物投影仪来演示二进制表示，而不是使用交互式二进制卡片。\n  使用实物投影仪更接近在实体课堂中的做法；如果你使用在线交互版本，应强调在实践中最好有一套卡片，并且至少把一套卡片举到摄像头前，展示在线版本所模拟的内容。",
+            "text_hash": "8d81bd537d1be2946a7106c7e60c56617af171f5abb95d09c841ad4d7a60ec7b",
+            "variant_version_id": "lrzv_9c69d4bd9343965578bb9fc5"
+          },
+          "type": "unordered_list"
+        }
+      ],
+      "description": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "",
+        "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "variant_version_id": "lrzv_9c69d4bd9343965578bb9fc5"
+      },
+      "estimated_minutes": 30,
+      "fragment_id": "lrf_84907b7751f1afc222bf193c",
+      "generation_id": "lrg_20260723125753_1958e36c",
+      "mapped_china_grade_scope": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mapped_china_stage": null,
+      "mapped_subject_slugs": [
+        "information-technology"
+      ],
+      "pedagogical_roles": [
+        "explore",
+        "practice"
+      ],
+      "provenance": {
+        "adaptation_notice": "简体中文翻译与结构化整理由 kebiao 完成。Binary Representation，CS Unplugged，CC BY-SA 4.0",
+        "attribution_text": "Binary Representation，CS Unplugged，CC BY-SA 4.0",
+        "canonical_url": "https://www.csunplugged.org/en/topics/binary-representation/",
+        "license_id": "CC-BY-SA-4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_revision": "85d827420c9a939c9e22fd11dccf773a5eb8ccbf",
+        "source_title": "Binary Representation"
+      },
+      "resource_id": "lr_d1201ab84604ec725bb4d306",
+      "resource_type": "activity",
+      "resource_version_id": "lrv_a37a99170be1e9ce3fb42141",
+      "source_id": "cs-unplugged",
+      "title": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "二进制表示",
+        "text_hash": "cb8dae64269f831ef976f92e20c93bccdcceb600e80f991cbdc6a6924c814a9a",
+        "variant_version_id": "lrzv_9c69d4bd9343965578bb9fc5"
+      },
+      "variant_id": "lrz_d956d5a9136770418118551b",
+      "variant_version_id": "lrzv_9c69d4bd9343965578bb9fc5",
+      "visual_dependency": "helpful"
+    },
+    {
+      "blocks": [
+        {
+          "target_block_id": "lrtb_e53e3a46d7ea8c535dc21098",
+          "text": {
+            "locale": "zh-Hans-CN",
+            "qa_status": "passed",
+            "text": "图像压缩",
+            "text_hash": "1249ebc059247fc4cfabcd36d893cca388b3383503c274d4666e862d6e98bfeb",
+            "variant_version_id": "lrzv_5a2a5789404a32084670199b"
+          },
+          "type": "heading"
+        },
+        {
+          "target_block_id": "lrtb_30774494b35164ca2e9af56f",
+          "text": {
+            "locale": "zh-Hans-CN",
+            "qa_status": "passed",
+            "text": "数字图片以数百万个像素（百万像素）存储。\n以原始形式存储时，它们可能会占用大量存储空间，并且在线浏览时下载速度很慢。\n但大多数图片都会使用巧妙的压缩方法转换为缩减形式，使它们在存储和在线浏览时高效得多。\n在这个练习中，我们将观察简单图像中的一种模式，计算机可以利用这种模式来提高效率。\n我们要看的方法叫作行程长度编码（Run-Length Coding），它是传真机工作方式的基础。\n尽管如今传真机已不那么常见，但这种方法现在仍作为保持 JPG 图像较小的几种方式之一被使用。\n而且，把一幅图表示为数字本身也是一种有趣的方式。",
+            "text_hash": "df425e20d95bec8221b73233b7beee27b5ee4843cfdbc72c102f60a49cb2d81d",
+            "variant_version_id": "lrzv_5a2a5789404a32084670199b"
+          },
+          "type": "paragraph"
+        },
+        {
+          "target_block_id": "lrtb_490469f570bb148caa44d244",
+          "text": {
+            "locale": "zh-Hans-CN",
+            "qa_status": "passed",
+            "text": "引导者准备",
+            "text_hash": "e32814b0f7f82138fb6559a44a774aceb4f107bffd42098d57f31e69fc0dca31",
+            "variant_version_id": "lrzv_5a2a5789404a32084670199b"
+          },
+          "type": "heading"
+        },
+        {
+          "target_block_id": "lrtb_a1d1fca8dc5eff5fc50e2de1",
+          "text": {
+            "locale": "zh-Hans-CN",
+            "qa_status": "passed",
+            "text": "通读关于如何远程开展 CS Unplugged 内容的指南。\n浏览幻灯片，并用你将用于演示的视频会议软件进行试用。\n如果你不熟悉原版不插电活动，请回顾该课程的线下版本。",
+            "text_hash": "0f8b48023200ddfa96a081931d36e4d4ae1219b6578bd4ad4f28982c799996c6",
+            "variant_version_id": "lrzv_5a2a5789404a32084670199b"
+          },
+          "type": "unordered_list"
+        },
+        {
+          "target_block_id": "lrtb_855434caa28a85cfe5105ede",
+          "text": {
+            "locale": "zh-Hans-CN",
+            "qa_status": "passed",
+            "text": "资源：",
+            "text_hash": "47b379c7205287edd0c83e76c125cea5d2710db2e92f619205302722a9390f0c",
+            "variant_version_id": "lrzv_5a2a5789404a32084670199b"
+          },
+          "type": "heading"
+        },
+        {
+          "target_block_id": "lrtb_bc1321d45ad4f5a617b26326",
+          "text": {
+            "locale": "zh-Hans-CN",
+            "qa_status": "passed",
+            "text": "纸和笔，用于记录最先揭示的数字。",
+            "text_hash": "1cb210bb8aa5e338f262c6bae3b6187e18658c97988abaacacb26a6bf6868eb1",
+            "variant_version_id": "lrzv_5a2a5789404a32084670199b"
+          },
+          "type": "unordered_list"
+        }
+      ],
+      "description": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "",
+        "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "variant_version_id": "lrzv_5a2a5789404a32084670199b"
+      },
+      "estimated_minutes": 30,
+      "fragment_id": "lrf_60280b9ac32050dccbd74cb6",
+      "generation_id": "lrg_20260723125753_1958e36c",
+      "mapped_china_grade_scope": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mapped_china_stage": null,
+      "mapped_subject_slugs": [
+        "information-technology"
+      ],
+      "pedagogical_roles": [
+        "explore",
+        "practice"
+      ],
+      "provenance": {
+        "adaptation_notice": "简体中文翻译与结构化整理由 kebiao 完成。Image Compression，CS Unplugged，CC BY-SA 4.0",
+        "attribution_text": "Image Compression，CS Unplugged，CC BY-SA 4.0",
+        "canonical_url": "https://www.csunplugged.org/en/topics/image-compression/",
+        "license_id": "CC-BY-SA-4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_revision": "85d827420c9a939c9e22fd11dccf773a5eb8ccbf",
+        "source_title": "Image Compression"
+      },
+      "resource_id": "lr_7bb085cf2131fbe2a3023554",
+      "resource_type": "activity",
+      "resource_version_id": "lrv_a08cd5aa2a956a135a994163",
+      "source_id": "cs-unplugged",
+      "title": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "图像压缩",
+        "text_hash": "1249ebc059247fc4cfabcd36d893cca388b3383503c274d4666e862d6e98bfeb",
+        "variant_version_id": "lrzv_5a2a5789404a32084670199b"
+      },
+      "variant_id": "lrz_d133688559a1019f2ee61824",
+      "variant_version_id": "lrzv_5a2a5789404a32084670199b",
+      "visual_dependency": "helpful"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "standard_code": "IT-H4G7-DL-006"
+}

@@ -1,0 +1,1184 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_bd5cad328495bd7c180d7579",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "早年设计 Web 时，页面是以适配特定的屏幕大小为考量创建的。如果用户正在使用比设计者考虑到的更小或者更大的屏幕，那么结果从多余的滚动条，到过长的行和没有被合理利用的空间，不一而足。随着人们使用的屏幕尺寸的种类越来越多，出现了响应式网页设计的概念（_responsive web design，RWD_），RWD 指的是允许 Web 页面适应不同屏幕宽度因素等，进行布局和外观的调整的一系列实践。这是改变我们设计多设备网页的方式的思想，在这篇文章里，我们将会帮你理解掌握它时所需知道的主要技能。",
+        "text_hash": "b5b7fc17b4a8f8d80a795c65ef9e7c889d9f2ef66fc716552190e5f3eedd7c05",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a2aea47858e3d20159d6be50",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "学习前提：",
+        "text_hash": "92f9fa8d90ac99ee6f0e1eae6c76803e80ad87f2380a21145361516bc2e87289",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ad13344fb42a4deb7d6a2a0f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 基础（学习 Introduction to HTML ），以及对 CSS 工作方式的理解（学习 CSS first steps 和 CSS building blocks ）",
+        "text_hash": "f7b064b471964e2f36adef6e34cc039c11b63fa6fec22488482fec1d9bac8e34",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_071c8a23d76e1518d044e104",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：\n       理解响应式设计的基础概念以及历史",
+        "text_hash": "532b01a66efb2be6e79c919ac3d8eb15641d398f6a919505cc28ba08ebf8c886",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4eec3ec4ee818c123b3f89d5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "历史上的网站布局",
+        "text_hash": "f890ff652a8deec51fba0d743614ef4d1eae99c5983867a327d4e388bf9ee082",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e0f593b433f060a9a3da2864",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在历史上的某个时刻，设计网站时，你有两个选择：",
+        "text_hash": "f0e9ae2a21afdee598a2ada648b767bf8e239da61bbf6413e60e7061b71627dc",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_295cf5d9075425c4d5286932",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以创建一个“液态”站点，它会拉伸以充满整个浏览器视窗；\n或者是一个“固定宽度”站点，它有一个以像素计的固定尺寸。",
+        "text_hash": "f1fbc8cd745580a893a5df2160c48a83fa3cbbaca2b454a2c230993edd8e94bc",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_625f57eb10c0ac11c728f50b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这两种途径会倾向于导致它的表现只有在设计者的屏幕上才是最佳的！液态站点导致了小屏幕上的设计会挤成一团（如下所示），以及大屏幕上难以阅读的很长的行长度。",
+        "text_hash": "6dec769ce785154bb07f5b6d2ddb024365b97d6798242aa41292fed7e6cd3543",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_485c2ac048c4fb8a2dca6a5a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A layout with two columns squashed into a mobile size viewport.",
+        "text_hash": "c47b28ae018df27b269bf9b7d9dd4dec8bfd48fc4db94600872d7531fc8de64e",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7afdc3b94402ad7c5f2f8a3f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n看一下这个简单的流式布局：示例，源代码。当查看示例时，来回拖拽你的浏览器窗口，改变其大小，看下不同尺寸下的显示情况。",
+        "text_hash": "2627b834aade975007c8d67bfb9e271d6626799f64e68f7ff853b0f476dd2d2d",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_17197745e5cd764d50ab3e94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "固定宽度站点的一个可能的后果是，在比站点更窄的屏幕上会出现一个水平滚动条（如下所示），在大屏幕上的设计边缘还会有许多空白。",
+        "text_hash": "2d07862177bb5c983120308eadf0daf5c7e602be9220fc61451c787ce3f34d8d",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a086e422a1c2545b5e93234d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A layout with a horizontal scrollbar in a mobile viewport.",
+        "text_hash": "fe65dc08a0b192587a4649b46d6d062b13549edf55446b330266aac53706169a",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2232fefab8bc4e6594c8f0fa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n看下这个简单的固定宽度布局：示例，源代码，重新观察一下你调整浏览器窗口大小后的结果。",
+        "text_hash": "2eb5c7c549664e9c70bb75901da533d60a495dd9b2b5e1d4c6e329b2dc7ac639",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_5c516ec29fa6745c68569d2c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n上面的截屏是在火狐开发者工具的响应式设计模式中截取的。",
+        "text_hash": "c818e854ffefd58031059cd271250020454690a3b051a8822f0cf0380b37577b",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_6edaf0ab872beef5edbb9a95",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "随着移动 Web 在早期的功能手机上开始成为现实，希望拥抱移动端的公司普遍希望为他们的网站创建一个有着不同的网址的移动版本（大多是像*m.example.com*或者*example.mobi*这类）。这意味着一个网站需要开发两个分开的版本，而且要保持时效性。",
+        "text_hash": "2717eb23b99dbfcba5021543efb0afef17a60243f37761686e9c381df7fc7a6c",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e55a8837aaf1c5204a06dbe4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "除此以外，这些移动网站的体验经常缩水。由于移动设备变得更加强大，足以显示完整的网站，对于那些被困在移动版网站的移动端用户来说，这是很折磨人的，他们因此也没法获取他们知道在支持所有功能的桌面版网站上能找到的信息。",
+        "text_hash": "42f0785e94e594e698142ea4d24cd09f76195ff46a0af1b5f389b0f7431d5ba3",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9552192c307fda79a92caeb7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "响应式设计之前的灵活布局",
+        "text_hash": "cc9cd1e24e0618f9eb0bca8aad2ca2cb1db987cf04e06e2ca7154c4c7791a648",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f1bd017c8f1ecb03300d0ecb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "人们开发了许多方式，尽力解决建设网站时使用液态和固定宽度的方式所带来的弊端。2004 年，Cameron Adams 写了一篇题为《Resolution dependent layout》的帖子，描述了一种可以创造适应多种屏幕分辨率的设计的方式。这种方式需要 JavaScript 来探测屏幕的分辨率，载入恰当的 CSS。",
+        "text_hash": "a530b208b69686103dce17c30de250d7687c4ff16dca3da736cfc8a7f9e40b4b",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_40221915694de85691a505c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Zoe Mickley Gillenwater 深刻影响了她的著作，在里面描述并标准化了可变站点建立的不同方式，试图在充满屏幕和完全保持固定尺寸之间找到最佳平衡。",
+        "text_hash": "1d9768ce1d8b1a667b0e666c42c18963a1b58cef675eb03b4d83ca793b380ce6",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0eec9338a4f36517006028a5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "响应式设计",
+        "text_hash": "8801a7a65da581d9aabdfde6b65e6fd03a3baa93ceb4e27a4f1a32a8b8738565",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_33e1df7e4ad2d4910fff3cd5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "“响应式设计”这个词是Ethan Marcotte 在 2010 年首度提出的，他将其描述为三种技术的混合使用。",
+        "text_hash": "c27002839bfaf2fc6fa28ba5dfe90798a1fc5d87037700f173ea806aadeefafd",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e77250c1c461a7eb42488359",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一个是液态网格，这早先已由 Gillenwater 进行探讨，可以在 Marcotte 的文章《Fluid Grids》（出版于 2009 年的《A List Apart》上）中读到。\n第二个是液态图像的理念。通过使用相当简单的将设置max-width属性设置为100%的技术，图像可以在包含它们的列变得比图像原始尺寸窄的时候，缩放得更小，但总不会变得更大。这使得图像可以被缩放，以被放到一个灵活尺寸的列，而不是溢出出去，同时也不会在列宽于图像的时候，使图像变得太大以至于画质变得粗糙。\n第三个关键的组件是媒体查询。媒体查询使以往 Cameron Adams 探讨过的、由 JavaScript 实现的布局类型切换，可以只使用 CSS 实现。和所有尺寸的屏幕都使用一种布局不同的是，布局是可以改变的：侧栏可以在小屏幕上重新布局，而替代用的导航栏也可以显示出来。",
+        "text_hash": "df1bab0a8d10493d8f06c671f283fc4bf01b29b7d896bfb79680a9d1b7ef47d0",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_fae5bd9d9472ae8234757e71",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "需要你理解的很重要的一点是**响应式 Web 设计不是单独的技术**，它是描述 Web 设计的一种方式、或者是一组最佳实践的一个词，它是用来建立可以**响应**查看内容的设备的样式的一个词。在 Marcotte's 原来的探索中，这意味着灵活网格（使用 float）和媒体查询，但是在这篇文章写就的几乎十年以后，Web 的响应式工作已经成为了默认做法。现代的 CSS 布局方式基本上就是响应式的，而且我们在 Web 平台上内置了新的东西，使得设计响应式站点变得容易。",
+        "text_hash": "439320bf49c8ab63f5322ed8e4580818d8ac86af407b0c2e2e46f2ae2eb4076a",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8cf641a054e8cae910b693d2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这篇文章的余下部分会为你指出，在建立响应式站点的时候，你可能会用到的各式 Web 平台的特色功能。",
+        "text_hash": "0fc1edc0c5f13e64f0e3485406d0e83748a6dbde12053bc928445e15aef6a86e",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_835ec27457f8586193d136d2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "媒介查询",
+        "text_hash": "6f3771a1b49261a13430bc13a2a8662884b25cabcb6f1272ce4985ba877b2fc9",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_4c96f34c8556b39c013bf262",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "响应式设计仅仅是因为媒介查询才新兴起来的。媒介查询第三级规范已经在 2009 年成为了候选推荐，这意味着它可视为准备好在浏览器中开始支持了。媒介查询允许我们运行一系列测试，例如用户的屏幕是否大于某个宽度或者某个分辨率，并将 CSS 选择性地适应用户的需要应用在样式化页面上。",
+        "text_hash": "27db5d476787a6033863c0432ffb1ac273823b371cc288bf0e75f0da5f92a6e0",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8830009f307c8865c2827f30",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "例如，下面的媒体查询进行测试，以知晓当前的 Web 页面是否被展示为屏幕媒体（也就是说不是印刷文档），且视口至少有 800 像素宽。用于.container选择器的 CSS 将只会在这两件前提存在的情况下应用。",
+        "text_hash": "8ce24f44df848ef34a40651f6945e8fc53a84c2ce17474470f04933598ca9011",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3e70f3f52096bfbfd53e12f3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media screen and (min-width: 800px) {\n  .container {\n    margin: 1em 2em;\n  }\n}",
+        "text_hash": "a6e725bc1fdd6bd00c5cd5eef04d3309f38e1091c261fdd4681086a743bc8aa1",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_243d691d160be811e0e35c3b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以在一张样式表上加入多条媒体查询，调整整个页面或者部分页面以达到适应各式屏幕尺寸的最佳效果。媒体查询，以及样式改变时的点，被叫做*断点*（breakpoints）。",
+        "text_hash": "510c09f5d6f7937da7f94e07f435ac8bb32f82bfb45efb317d34bec50d2c7bff",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_41abc0e3ca35fc30718fb2b1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用媒体查询时的一种通用方式是，为窄屏设备（例如移动设备）创建一个简单的单栏布局，然后检查是否是大些的屏幕，在你知道你有足够容纳的屏幕宽度的时候，开始采用一种多栏的布局。这经常被描述为**移动优先**设计。",
+        "text_hash": "797613ab76aa6f83113e1623c4827fab4ac0443d6c3266b3db5678fe1e829c91",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0775ff0e46a89116360c1884",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 MDN 文档中的媒体查询中了解更多",
+        "text_hash": "855e65bf5f3656466dd7cf1f9e2f600f983805e428bd2618e30add7782fbff63",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_786b4c5c56cb1e652315096d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "灵活网格",
+        "text_hash": "eb3359f28e29c8db8ccf3f0102d70969d131d9872a636dbd3e22a0e8520dd5d8",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_7a04993c94af88e6d49e4ef7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "响应式站点不只是在断点之间改变它们的布局，它们是建立在灵活网格上的。一个灵活网格意味着你不需要适配每个可能使用的设备尺寸，然后为其建立一个精确到像素级的适配布局。那种方式在现存有如此多种不同大小设备的前提下是不可能实现的，比如至少在台式机上，人们并不总是让他们的浏览器窗口最大化的。",
+        "text_hash": "057bdafcd5286c078dff8e0888bf7e82d0bd5a218a6e2bb79c4cc0d916ecb7b7",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0f03ffbecc6916e7fc60edc7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用灵活网格，你只需要加进去一个断点，在内容看起来不齐整的时候改变设计。例如如果一行随着屏幕大小增加而增长得不可读的长，或者是一个盒子在变窄时把每行的两个单词挤到一起。",
+        "text_hash": "81551721bbf0ebdcc99b8ef3980800e0961a529d9890c81eebfa14e1e97db512",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5d84ec56b558b679b6cf8d2c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "早年间进行响应式设计的时候，我们唯一的实现布局的选项是使用float。灵活浮动布局是这样实现的，让每个元素都有一个作为宽度的百分数，而且确保整个布局的和不会超过 100%。在他对于液态网格文章的原文中，Marcotte 详细描述了一种布局的法则，通过使用像素并把布局转化为百分数的方式设计。",
+        "text_hash": "bda8e0fb6ca880da0c86a62dd1d8a6ba63bdfa34e7c3e584bf07c536f109c59e",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2561bbfb86a7bf54cedf9cf1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "plain\ntarget / context = result",
+        "text_hash": "0115771faecf17c64b4d2603eeb900deb6c81444e7fea6e3b1849278d96afa3f",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8ec0b28d52daa78c6c421d91",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "例如如果我们的预期栏尺寸为 60 像素，而且它所在的上下文（或者容器）为 960 像素，我们在将零点二的空间移动到右边以后，用 960 去除 60，得到我们能够使用在我们的 CSS 上的值。",
+        "text_hash": "264fc1bc673f0e654f21ad953ad766e20c1fb3f90ca6ef57239b3cb14e4e54ae",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8778ca5a3d6ac03bdffa47e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.col {\n  width: 6.25%; /* 60 / 960 = 0.0625 */\n}",
+        "text_hash": "63010d65fac0e5f7fad43c3beb0b845b4306f0e2d22c6ebcdb2e61f75f3aacd1",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_60d4ec408e71caa0d37e1458",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这种方式将会在今天整个 Web 上的许多地方上看到，而且它被我们的Legacy layout methods一文中的布局一节中记载。可能你将会在工作中遇到使用这种方式的站点，所以有必要理解它，即使是在你不用建立一个使用浮动基础的灵活网格的情况下。",
+        "text_hash": "db1e0747dea498cdc84968ad0b8179fdf6e77604f8e57cc0384e288685e85131",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b09f782fd13dd94709f9863e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下面的例子阐释了一个使用媒体查询和灵活网格的简单响应式设计。在窄屏幕上，布局将盒子堆叠在另一个的上面：",
+        "text_hash": "f26d69b96baf6437c4d386ba158719756581ef7d0633c316b0e873c4a17657c3",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_895c12d057e0fa706d802cc9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A mobile view of the layout with boxes stacked on top of each other vertically.",
+        "text_hash": "51738fd79fbee57889525b531db08cb983fa79ce4898f1cfcb982307b6988e26",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0259423fcf93a2bccc697944",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在宽些的屏幕上，它们变成了两列：",
+        "text_hash": "2cb7054f21b23e99c9726fc63a05e7a2a9f5d1e263beee4f23f10b27e3e5838b",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3cf155f23e3f2d8e2511e725",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A desktop view of a layout with two columns.",
+        "text_hash": "1832d81067bffc780fd1072af1db9c4e05991a8f783de801b0bfc2be62ac9dd8",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e40dcc7ab01c28d2fad67ee0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在 GitHub 上找到此示例的实时示例和源代码。",
+        "text_hash": "0828f50cfab74a9ad5f3ec7eda5770d70bf8ff43978699458407ee257c4c450d",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_6cea65cb1ac42a7e264ec855",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现代布局技术",
+        "text_hash": "c8d6da7b3a97c27b78fc3c1002128f8d3d9938678a972d860a1ca934bd814501",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b2a5f1594e8b49a6ef09a739",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现代布局方式，例如多栏布局、伸缩盒和网格默认是响应式的。它们都假设你在尽力创建一个可伸缩网格，而且给了你更容易这样做的方式。",
+        "text_hash": "a88c4bd962daef6f98224ea29b1b5016eaed2953a424365820c6e83d0f299fc6",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f26278f137b6f3a1bf169bc8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "多个列",
+        "text_hash": "2396cfcd01f7cd987edd740469b4cc24b7248fc375bdba65e8ce8fcba605630f",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_3e0e2309ffb7910aa8e17035",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些布局方式中最老的一个是多个列，即当你指定一个column-count的时候，这意指你希望把你的内容分成多少列。浏览器之后会算出这些列的大小，这是一个随着屏幕尺寸变化的尺寸。",
+        "text_hash": "b7b31fa839fb00bff7be8fea7f3102d603e60c3422e0079ec26e415801e11f98",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_21f66b152dafd8a247955179",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  column-count: 3;\n}",
+        "text_hash": "db55bd7d399828aa3b86743a2cf86193405ff251791284dd26e041288cbb6a71",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_45dd5bb440e9515ff023a0fa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你却去指定column-width的话，你是在指定一个*最小*宽度。浏览器会尽可能多数量地创建这一宽度的列，只要它们可以恰当地放进容器里面，然后将所有列之间的剩余空间共享出去。因而列的数量会随着空间的多少而改变。",
+        "text_hash": "e0a31629c0efe7e489838d37203466a5f848e5309a6ca9359c99f061799f1b23",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e023f62388b82c31aeab662b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  column-width: 10em;\n}",
+        "text_hash": "4060979aa222dfd354830533009354d9015ba06a161ae82b505da9c90ab2044e",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1099b0373aa15261e3a5ef19",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "伸缩盒",
+        "text_hash": "a7ce065c37b60e29afc5283f94ecd6f3310a87be514ff592f26f919281f2f74e",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_5342660be6cf172c4639cc25",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在伸缩盒中，初始的行为是，弹性的物件将参照容器里面的空间的大小，缩小和分布物件之间的空间。通过更改flex-grow和 flex-shrink的值，你可以指示在物件遇到周围有更多或者更少的空间的情况下，你所期望的物件表现。",
+        "text_hash": "c8d37118626b6c251acfe2f721a3c4b661224af2c064e916203f40c6fda65637",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_27bcc7b67544e8ec8530ea59",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在下面的示例中，和布局专题的弹性盒子：弹性元素的动态尺寸中所描述的那样，使用了flex: 1的简写，可伸缩物件每个将会占据一份可伸缩容器中相等大小的空间。",
+        "text_hash": "9c54616a93a7bb6be57a64b3b1813d4f553b30136e31f3b53f23738000796821",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ab761627b119a4c34d552f6c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: flex;\n}",
+        "text_hash": "7e112aa691497e83847f6e11c8fc77583d65b5212233a9c7e4235af9abaccb1e",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_044c58469fb1be565eba74eb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".item {\n  flex: 1;\n}",
+        "text_hash": "d2cdcc7835d31876c8b90fe3fe98b8bef89afd6dcb6c4b5a80de58752e644260",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6164c5e9becf9300e62bc896",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n作为一个示例，我们已经重构了上面的简单响应式布局，这次我们用了伸缩盒。你可以看看我们是怎么样才不再需要使用奇怪的百分数值来计算列的尺寸的：示例、源代码。",
+        "text_hash": "ef1e5bf638b5d0d2dc8772fdb5c8b14602af21408adf69ebc10c264a2560ba88",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_4ba1e857223fbeb6550ded6f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS 网格",
+        "text_hash": "bab77b1b4c07899c1f9b4febc69618a60c914a4e249f347373fa7cc93007d23c",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b618414a16a7a024e412d456",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 CSS 网格布局中，fr单位许可了跨网格轨道可用空间的分布。下面的示例创建了一个有着 3 个大小为1fr的轨道的网格容器。这会创建三个列轨道，每个占据了容器中可用空间的一部分。你可以在使用 fr 单位的灵活网格下的学习布局网格专题了解更多和这一方式相关的信息。",
+        "text_hash": "8e38fad7ae707f0db80651ccbfb3d60300069fef70bf00cecc5b222f0d2cc23a",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_84d96ebd7a4f896c7baaf216",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n}",
+        "text_hash": "a07833408f585f24a92d4eb3239e002080d25cd559eee1c22b5da8a82fabcc14",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7c4e784cf4233785be39a4ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n网格布局版本的代码要更简单，因为我们可以在.wrapper 上定义列：示例，源代码。",
+        "text_hash": "3cbfe5523d9abee5834baffe4184efac2194bde83764f9913bbd18cb04232e1f",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_7a859cd01ea22412413e8075",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "响应式图像",
+        "text_hash": "e928114ede718538f7f683c8f719a244164ba0f7a92a6b027ad5d914cddada81",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_14540d5c6c98edb17a56a22b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最简单的处理响应式图像的方式是在 Marcotte 的早年的关于响应式设计的文章上所描述的那样。基本来说，你可以用一张有着所需最大尺寸的图像。然后缩放它。这仍然是今日所使用的一种方式，而且在大多数样式表里面，你在某些地方可以找到下面的 CSS：",
+        "text_hash": "4e836311ec992458e424dacaeaabfd981cc0d339e92435914b10f258befda3d8",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_de67f6972a0ba3a3403ec53a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nimg {\n  max-width: 100%;\n}",
+        "text_hash": "60e167f3c0a218c550b32cb5e7f3d77c4056d5afba75cef3416fd3a457f30aec",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9b60c844532dc80646b9950c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这种方式有显然的弊端。图像有可能会显示得比它的原始尺寸小很多，以至于浪费带宽——一个移动端用户会下载几倍于他们在浏览器窗口中实际看到的大小的图像。此外，你可能不想在移动端和桌面端有相同的图像宽高比例。例如，在移动端，方形图像的表现会很好，但是在桌面端显示同样的内容则应用宽图像。或者，认识到移动端更小尺寸的图像的你也许会希望同时展示一张不同的图像，一张在小一点的屏幕上更容易理解的图像。这些东西不能简单通过缩放图像解决。",
+        "text_hash": "7c2d4a7ec54865ff5ddcbdff2ee0224ceda8bc50fa3838bb51567df488d61862",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_61b880c3a88085c2ea361b02",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "响应式图像，使用了元素和 srcset和sizes 特性，解决了这两个问题。你可以提供附带着“提示”（描述图像最适合的屏幕尺寸和分辨率的元数据）的多种尺寸，浏览器将会选择对设备最合适的图像，以确保用户下载尺寸适合他们使用的设备的图像。",
+        "text_hash": "8b5788a7e37fa918278d630c01caeb1b7599b830a0860be9f86744d9b683fb2a",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9b6ce043ccd8f93268a9648b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你也可以给用于不同尺寸的图像做“艺术指导”，为不同的屏幕尺寸提供不同的图像裁切或者完全不同的图像。",
+        "text_hash": "fde5e5fd13903de37716ecf2fa58bc9ddca32b9ddd695e19cafc758feff926c1",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_54786ab51c050fbfaba4b3d7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以在 MDN 这里的学习 HTML 一节中找到详细的响应式图像指南。",
+        "text_hash": "69bb89e1ce3c394ad4324ec8f89d159e680d176caf08f0c0656593ba4830fd0d",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a5fac735c22cda35a4067535",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "响应式排版",
+        "text_hash": "62321fd49ef0efbbfc4145863008acb938d06a247cfbd8aaca6b8e985b37ee53",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e5d6b1b16c2663969b49c0b4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在早期的工作没有考虑的一个响应式设计的元素是响应式排版的理念。本质上讲，这描述了根据屏幕真实使用范围的多少，在媒体查询的同时改变字体大小。",
+        "text_hash": "10a744c49c247f30313310875874eb209b233721a069b252055afe0a9a4acbe3",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_01aa317b43a70dae90308d13",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在本例子中，我们想讲我们的一级标题设置为4rem，也就是说它将会有我们的基础字体的四倍大。这真的是个很大的标题！我们只想在大些的屏幕上有这么个超大的标题，那我们先弄个小点的标题，再使用媒体查询，在我们知道用户使用至少1200px的屏幕的时候，拿大些的尺寸覆写它。",
+        "text_hash": "34025b3d94935c4f215ad8c47f1cf512fd0e7e9581fc120f3e76a3cf7f285921",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e4a93451c5db9f0ca93909af",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nhtml {\n  font-size: 1em;\n}",
+        "text_hash": "38cb7e559cdc868b462b6c4c5f938c2eb5c348fb62b3fb2c5c18afcdf6c9e75c",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2eee3df2a3ac3b9fdfd72b56",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "h1 {\n  font-size: 2rem;\n}",
+        "text_hash": "88bb2cf73ee4890bde046fbb49387e4c4d8449b811347527f9057f56af336bb3",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_19b05f273f60cc79d66b7900",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "@media (min-width: 1200px) {\n  h1 {\n    font-size: 4rem;\n  }\n}",
+        "text_hash": "b89aef844dccd591eb6b1cd83b0e4be6b81b64f4b8dcd772c4f05beec45377ba",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_74f76f7d2ca15abb4d31d819",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们已经编辑了我们在上面的响应式网格示例，让它同时包含了使用了圈出方式的响应式类型。你也可以看下随着布局变为两栏，标题是怎样转换大小的。",
+        "text_hash": "8e44e3f3f432890f9c767264c213691017584e8bab6746578661a4e08b03aa09",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_74fda1515999061cdd66ef35",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "移动端，标题变小了：",
+        "text_hash": "6e8550b4e8d9ed99b8c04322dc4112e21d4582a28d1d746661d169f9c99f25a9",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5729586a06a5d6f5b973574b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A stacked layout with a small heading size.",
+        "text_hash": "e6ed62585a32feca9b064a7b1816816499f5e62a6aea8d61ef98c9546c5db06f",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6d415692ff68c8fcf295eaf7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但在桌面端，我们看到了大点的标题：",
+        "text_hash": "68d45475933609e6bf87d25f3d6864de15e735de7c7a9f162f431255a240fea0",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2426039787bac50e8dcde79d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A two column layout with a large heading.",
+        "text_hash": "6bc7efc82c10d6a3d89618565c33e5944bfd9d1751144a7b86ef8b2a6210692a",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b374be80ec1f559b8b6234fa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n查看这个编排好的示例：示例，源代码。",
+        "text_hash": "8a9e1bacd158a65aed21f1e00e8d63fed14d9966538bc0a50176f75db9a6b7aa",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_b66ef3375f999cb6fcb18477",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "正如这种排版方式展示的这样，你不需要让媒介查询只能改变页面的布局。它们也能用来调节每个元素，让它们在别的大小的屏幕上更加可用或者更具吸引力。",
+        "text_hash": "be7a1a21a846a40c1deafdd894f93be4dac8c3422cafac6b685d166bb32b19bb",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2be54ca61c5290416d10f251",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用视口单位实现响应式排版",
+        "text_hash": "a9130591501bedf16703eb41224da46ea9aa0058a5275ef4ff4f82e9c60057c0",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_c8ae7efac69449d82897460a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个有趣的方式是使用视口单位vw来实现响应式排版。1vw等同于视口宽度的百分之一，即如果你用vw来设定字体大小的话，字体的大小将总是随视口的大小进行改变。",
+        "text_hash": "8dae41da7789cbe4c26a4359832e13a827fa38e6a9ca5060e058e5e1dfdf9f2e",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_05077235f69b9c1e3d1efdcd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nh1 {\n  font-size: 6vw;\n}",
+        "text_hash": "604b3e14547a65c4756400c671da09f1753099800910f220b9bfea9538e48386",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a1daff3e4dfd2a9621232ee3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "问题在于，当做上面的事情的时候，因为文本总是随着视口的大小改变大小，用户失去了放缩任何使用vw单位的文本的能力。**所以你永远都不要只用 viewport 单位设定文本。**",
+        "text_hash": "aa7099c0ba2690a598637b39d8aba9cf1d4efa2406778ee657a80ad8ec8e6cd6",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_97eeeb3597830070b4ff18f1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里有一个解决方法，它使用了calc()，如果你将vw单位加到了使用固定大小（例如em或者rem）的值组，那么文本仍然是可放缩的。基本来说，是vw加在了放缩后的值上。",
+        "text_hash": "1875f4281ca0c7ca2770933adef2fea081280de666141408d291a63a8be31c02",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e17aa44ead52b1319b20c8a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nh1 {\n  font-size: calc(1.5rem + 3vw);\n}",
+        "text_hash": "e5ccb058af172ac1738f53a84359bb10013c0ada376a427d8c651be1260cf847",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1826bc8017d3561520389341",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这就是说，我们只需要指定标题的字体大小一次，而不是为移动端设定它，然后再在媒介查询中重新定义它。字体会在你增加视口大小的时候逐渐增大。",
+        "text_hash": "40d2eec3fa23c038db792111832036f15cb7f6a45c5351c3b3f9787cef181cdd",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e3453aa8090a1d1500b9b2bd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n查看这种情况的一个编排好的示例： 示例，源代码。",
+        "text_hash": "75512023be3c5b4f86cb0f51faa3c03b185714ec8a4fbfea2cc4f3c87ec7d806",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_a6cdd7f1d227fa414ec71371",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "视口元标签",
+        "text_hash": "844791e137e783b9f4c76122f6f7633a3bd044e3c80529ef61c67eb9cd1d91a6",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b5c58276192a31389cb7590d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你看看一张响应式页面的 HTML 源代码，你通常将会在文档的 看到下面的标签。",
+        "text_hash": "d533505a82ba0d694d4125e7ed4891446a1bb8e6e7faa07ee4cc587b1824058c",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e44dd932fa6a1bea576ae29f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d42295be43aaf4ff147aa038",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个元标签告诉移动端浏览器，它们应该将视口宽度设定为设备的宽度，将文档放大到其预期大小的 100%，在移动端以你所希望的为移动优化的大小展示文档。",
+        "text_hash": "ca9a859277c90e0db7a625da7bd6cf8b5df633ee7f9355e36e0bd183560cc9f9",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a0831492418c9f3d5802bd7c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为何需要这个？因为移动端浏览器倾向于在它们的视口宽度上说谎。",
+        "text_hash": "28570658f683bb0443da44b077020255566aa87da9e8af755ba5fd67347b4fa4",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_05243aca85ffff0a2e74d56b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个元标签的存在，是由于原来 iPhone 发布以后，人们开始在小的手机屏幕上阅览网页，而大多数站点未对移动端做优化的缘故。移动端浏览器因此会把视口宽度设为 960 像素，并以这个宽度渲染页面，结果展示的是桌面布局的缩放版本。其他的移动端浏览器（例如谷歌安卓上的）也是这么做的。用户可以在站点中放大、移动，查看他们感兴趣的那部分，但是这看起来很不舒服。如果你不幸遇到了一个没有响应式设计的网站，今天你还会看到这种情况。",
+        "text_hash": "544278385d85af5b9f8788b807a84fb7fc3778821336fb4f6c05c2821314f1e6",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4b98635121be69a6520c5dbe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "麻烦的是，你的带断点和媒介查询的响应式设计不会在移动端浏览器上像预期那样工作。如果你有个窄屏布局，在 480 像素及以下的视口宽度下生效，但是视口是按 960 像素设定的，你将不会在移动端看到你的窄屏布局。通过设定width=device-width，你用设备的实际宽度覆写了苹果默认的width=960px，然后你的媒介查询就会像预期那样生效。",
+        "text_hash": "0c578f9131b5087d6fb20e63c5eadc3da87252c3a28cdeaa0895e95b522d350c",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_428be122d1b5272ff0e3230b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**所以你应该在你的文档头部*总是*包含上面那行 HTML。**",
+        "text_hash": "c9c50d442fa208041d46fa469469e11e033a1870f32f3ad9583e868a3fc12e2a",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c530d7795d650bffe5ecb484",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "和视口元标签一起，你可以使用另外几个设定，但大体说来，上面那行就是你想要使用的。",
+        "text_hash": "d042c1a7038bc176aea5718aad667e92217c9ca9483f69318857693bf1b3d14b",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e277fa3ba7aac5295f3a6fa1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "initial-scale：设定了页面的初始缩放，我们设定为 1。\nheight：特别为视口设定一个高度。\nminimum-scale：设定最小缩放级别。\nmaximum-scale：设定最大缩放级别。\nuser-scalable：如果设为no的话阻止缩放。",
+        "text_hash": "4d28bd11ba16fefe19cd3626d833ebc7bd156e51727b8aa5e61c0eab480b342c",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_5e4511488447851d3499daa6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你应该避免使用minimum-scale、maximum-scale，尤其是将user-scalable设为no。用户应该有权力尽可能大或小地进行缩放，阻止这种做法会引起访问性问题。",
+        "text_hash": "3578867f26bd8714502fe18a5d0692da53e43d37f5c3fcb2fe4be87f5c5be413",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5ae71fa12721055caebecb3f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "小结",
+        "text_hash": "6bf8bdb1f6eefac69dfc0691f9fa2fa123d921db1a75ed8c06cb86814c72d655",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2f6336b92a6334a1387ef318",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "响应式设计指的是一个响应浏览环境的网页或者应用设计。它涵盖了很多 CSS 和 HTML 的功能和技术，现在基本上就是我们默认建设网站的方式。想一下你在手机上访问的网站，遇到一个缩放的桌面版网站，或者你需要向侧边滚动来寻找东西的网站可能是相当不寻常的。这是因为 Web 已经迁移到了这种响应式设计的方式上。",
+        "text_hash": "a7eee86a72b0b289496c6dbcceb269b24349908f216d4e07f2d57cecbe2867e5",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fd633e101426d9f165260b5f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在这些课里学到的布局方式的帮助下，实现响应式设计也变得愈加简单。如果你今天新近了解 Web 开发，那么你与响应式设计早期相比，手边有多得多的工具。因而，你有必要检查下你所引用的任何材料的年纪。尽管历史上的文章仍然有用，现代的 CSS 和 HTML 的使用让创建一个优雅且实用的设计变得远远更加容易，且无论你的访客使用什么设备浏览网站。",
+        "text_hash": "befc5b7db75e11d63dba882fe831ddfce1fd2d13075b90e9222a7bfcf5320795",
+        "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_ae0a93b0cb8652cbdd4ee421",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。响应式设计，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "响应式设计，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/responsive-design",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "响应式设计"
+  },
+  "resource_id": "lr_f0d79824aa82d8750cd9f8b5",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_66d077010bd00d1fd7d7c014",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "响应式设计",
+    "text_hash": "8801a7a65da581d9aabdfde6b65e6fd03a3baa93ceb4e27a4f1a32a8b8738565",
+    "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c"
+  },
+  "variant_id": "lrz_e2df9212b596a7cc6ff5c3ec",
+  "variant_version_id": "lrzv_1c87a21f2f19ed194ac93f6c",
+  "visual_dependency": "helpful"
+}

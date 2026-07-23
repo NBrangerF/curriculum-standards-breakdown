@@ -1,0 +1,1393 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_737468c866bb145b28ec231e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在本章节我们开始大致了解框架，简要回顾 JavaScript 和框架的历史，为什么框架会存在以及它们提供了什么，如何开始考虑选择一个框架并学习，以及对于客户端框架还有什么替代方案。",
+        "text_hash": "e27281abcb060031b867bbce34fde939c4f2b1926cc7edaa9b3f2352e6c0d743",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9f11e045fcf8fa58626da91c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：\n    熟悉  HTML ,  CSS , 以及  JavaScript  语言的核心。",
+        "text_hash": "270facaf5e3f9acb8982057ea72855e862faab991cf0a96e76eff50b3c6a9b13",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0929ca8c3da8cec19cab8394",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：\n    了解客户端 JavaScript 框架是如何存在的，它们能解决什么问题，还有哪些替代方案，以及如何选择一个框架。",
+        "text_hash": "b30d19d4cef4540368ffe70b7916a008ed939dbb532bef00ab960fbb4b6882b2",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cacb878930843c40fd1b2c56",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "简史",
+        "text_hash": "d38ee9eaa61283350342785cd54969446030f8f16c3384c93b66ac7a731a1df5",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_746c9e6170fb1e74d7320e24",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当 JavaScript 在 1996 发布以后，它给 web 增加了少许的交互性和乐趣，在那个时候，网页仍由静态文档组成。web 应该不仅仅是阅读的地方，更是创造的地方。JavaScript 变得越来越流行。使用 JavaScript 的开发者们创造工具来解决他们遇到的问题，并且将其打包成称为**库**的可复用组件，这样就能和他人共享解决方案。这种共享库的体系帮助塑造了 web 的增长。",
+        "text_hash": "d29181397f95f94d8aa4f98842ea5568584b6219657c35dedebca7b5202f5ccc",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fae42d3aff3f09d1138c37ec",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在，JavaScript 是 web 的一部分，95% 的网页都在使用，而且 web 又是现代生活的一部分。用户在 web 上写文章，管理预算，听音乐，看电影，以及和相隔万里的人通过文字，音频，视频聊天来实时交流。web 让我们能够做到那些过去只能在电脑上安装本地应用程序才能做到的事。这些现代的，复杂的，具有交互性的网站通常被称为 **web 应用程序**。",
+        "text_hash": "f441d86355f570d60138fcbfa20927cd6eef8104f69db2506fa32cd147a6eb92",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_48c9e5977a834a0100a31019",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现代 JavaScript 框架的到来加快了打造高度动态化和交互性强的应用程序的速度。**框架**就是提供该如何构建应用程序的意见的库。这些意见能使应用具有可预测性和同质性。可预测性让软件能在扩展到很大规模的同时仍保持可维护性。可预测性和可维护性对于一个软件的长久健康运行是十分重要的。",
+        "text_hash": "2767075ee05bfbf3912306e00d60076def8b12c735ef09e36427e71609e07a81",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f1754c021e032f0cf41f5749",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在现代 web 中，JavaScript 框架为众多令人印象深刻的软件提供支持——包括许多你可能每天都使用的网站。你正在阅读的这个 MDN Web 文档页面，就是使用 React / ReactDOM 框架驱动前端的。",
+        "text_hash": "74d67b0a75427cac8866638ff8c2c392d6de499c8c5fa6a9f9457c69fe26b05f",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a0867b000c8a7b9be48e286",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有哪些框架？",
+        "text_hash": "74b97987985e3e72d1821d33630f82aa0fdea4c3ba318d73beeb6fa33db258c3",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1038f387d52eac9c0a5404eb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有很多框架可供你选择，但以下主要介绍目前公认的“四大框架”。",
+        "text_hash": "4d3ef27fd23fda8e6243d265a4e2b5b430cf62c913d813253ac505350b939cc4",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_39557c5d0c2233d78ca15c98",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Ember",
+        "text_hash": "cb1655db847dad4c82840dd4673a6af736cc3cc437db70c23f357ac82b47cc43",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_742c4c227ac9724d031851ba",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Ember 于 2011 年 12 月发布，最初作为 SproutCore 项目的延续而开始。比其新式的替代品（例如 React 和 Vue），作为老框架，它的用户人数要少得多。但因其稳定性、社区支持以及编程原则都非常良好，它仍然享有很高的知名度。",
+        "text_hash": "634282b6b1ba227de4dd74e4e417d377a0d80db3ed9dfd8e56f753baf52acdcd",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6d5876782c8e4fbd2282c7a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始学习 Ember",
+        "text_hash": "3b484fba9dca4667636cca00058a69950955ebbbb883d356581e4477427b182a",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_37974bd38d2583f4cda1182c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular",
+        "text_hash": "e790528b387973d01ebab781a9b2c6417cd16e82ecd06b4e40b9f1508b92a3f7",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8f9bdbe5d8d4cb890b528d5b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 是一个开源 Web 应用程序框架，正式发布于 2016 年 9 月 14 日。它由构建 AngularJS 的团队完全重写，并由 Google 的 Angular 团队社区共同领导。",
+        "text_hash": "d784f9d400a31ba1069ec8677d709f40910115ad252bec4265312eb2e8d0d547",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e90aeca70f79c6532a581c1c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 是一种基于组件的框架，使用声明式的 HTML 模板。在应用构建时，框架的编译器将 HTML 模板转换为优化好的 JavaScript 指令，这一过程对开发者是透明的。Angular 使用 TypeScript，它是 JavaScript 的超集，我们将在下一章中对其进行更多介绍。",
+        "text_hash": "810bbfcca7e6106f7783feb753008173fb626172547469926d9cbba62517947c",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9d83382d1741d3371be8d74b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始学习 Angular",
+        "text_hash": "909e2b335f38d98e5c8027b26b11b810fec111e47787c9b77cccdc7340fcb0e7",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6d1ba57b001eb5ae21984643",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Vue",
+        "text_hash": "b111a2a2185caed785909f1d526207fa2f56160ca1b9f84c82c9bbf49310d05d",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_132da7053049202cbe427b1d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在学习了 AngularJS 的源码之后，Evan You（尤雨溪）在 2014 年第一次发布 Vue 。Vue 是“四大框架”中最年轻的，但在最近，它的人气迅速上升。",
+        "text_hash": "06de3c4d6f207b3ddfb797f5e92f601440a4ea704960d9e1064233eece95e356",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7db6758e37693b6fa0afde54",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Vue，就像 AngularJS，用它自己的代码拓展了 HTML。除此之外，它还主要依赖于现代的、标准化的 JavaScript。",
+        "text_hash": "af54c521f864f69d5d7d06f65b293470c26034e7ce3e949fd190c7649a37b6e8",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_367c90ae10f56fc800cd6187",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始学习 Vue",
+        "text_hash": "aafc96d839c32c5da702d17535a00e9191f7dc35ea5c6d781de0ecefed5c6489",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_91d055d75577d161100fd5f9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "React",
+        "text_hash": "01fad993ff61aca9a1f2f07100c95eb1559d8b6440a00cb974a92810a6b5a2dc",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a2f5d2fb44ad551b0b159948",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Facebook 在 2013 年发布了 React。在当时 React 已经被用于 Facebook 内部用来解决许多问题。严格来说 React 本身并不是框架，而是一个用来渲染用户界面组件的库。React 被用来组合*其他*用来构建应用的库——React 和 React Native 让开发者能够用 JavaScript 构建移动应用；React 和 ReactDOM 使他们能够被用来制作 web 应用程序等。",
+        "text_hash": "651f56add0db2b6725afc38a2810bdbcb0d0d0930ba1a7866d0fb5e39be36408",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_383dd7b86e8dbff568e528a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "因为 React 和 ReactDOM 被经常放在一起使用，通俗地讲，React 可以被理解为是一个 JavaScript 框架。当你通读了这个模块时，我们将使用这种口语化的理解进行描述。",
+        "text_hash": "21e75235b117fddf71a4f374455a151e13c6b21668d955c05870a5271f9f728e",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dbd4a2df40a0d9c328fa2022",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "React 用类似 HTML 的语法的 JSX 拓展了 JavaScript。",
+        "text_hash": "62141d750b66af524216a7cb1003f9ee1d5f61c43edbd1ec48329026290106ff",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5171402948b23593113c8ed0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始学习 React",
+        "text_hash": "3e12af3e0ca040552a033db6819fe69c084a8acee9a24492a00bbf3024724ae7",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7be62aab91f48e458ead5f94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "框架为何会存在？",
+        "text_hash": "c6e6290b76ae5eff6697d02528997b4729bc6bbe5e3f9a0dca1ee87b0d713c2c",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d806870f6e721e0ddbb45fb4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们已经讨论了因为什么契机而创造了框架，但我们仍不知道为什么开发者认为有必要创造它。要知道这个问题的答案，我们首先需要来看一看软件开发中的各种挑战。",
+        "text_hash": "6793c3221ebe5bf1643f72b77ac0844381886ecfe09f2653933915fe86d03826",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ecddc3d15e4cac32df176fff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设想一个很常见的软件：一个待办事项清单创建器，在接下来的章节中我们会使用各种框架来实现它。这个应用应让用户可以完成诸如呈现任务列表、添加和删除任务等操作，且在完成这些操作的同时能可靠地跟踪和更新应用程序的底层数据。在软件开发中，这种底层数据被称为状态（state）。",
+        "text_hash": "1494a2678aebbf2171b0a57f8cec14d14ee7cfa60aee0595c94b89b836875fe0",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8731a50408f3847616641f8f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "上述每个目标理论上都很简单。我们可以遍历数据来列出清单，添加一个对象来创建新任务，使用标识符来查找、编辑和删除任务。需要注意的是，用户都是在浏览器中使用应用的这些功能，然而这就引出了一些问题： **每当我们修改应用的数据时，我们都需要更新用户界面以使其匹配。**",
+        "text_hash": "b24410c4a7f44d50a07239c74bce87fe2d6adbeaf1ec8c755b0b254aa5215e13",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a60c79a14e26b79981cdff85",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们可以通过待办事项清单应用的一个功能来展现这个问题的难点：呈现任务清单。",
+        "text_hash": "c1a212b9bce4167b140c81296c136acf5d3c42aca99ca5b9700a3cabde4b8445",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cd310dd268c90001293e1052",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "冗长的 DOM 操作",
+        "text_hash": "6e3becc00ac2e06d5b5121fe239dcf65a7c5077eded94fa10bf30dc2e7ce308b",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_94d62a6bf0e1704e33271cd2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "构建 HTML 元素并适时在浏览器中呈现它们需要大量的 JavaScript 代码。假设我们的状态——底层数据，是一个结构如下的对象数组：",
+        "text_hash": "75deeb9dbd1a264ec16542463ac53befa918c8eff69a4428cbce5d49dedcc9a2",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cb6df665ffc0183629902ab5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst state = [\n  {\n    id: \"todo-0\",\n    name: \"Learn some frameworks!\",\n  },\n];",
+        "text_hash": "daa28c0a9b91cc08fb075d3751e6a861568458ab9bce6d3c6f7b7c39462df6ce",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_459d1e007fc002eb20d5b13b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如何向用户展示其中一个任务？我们想将每个任务表示为一个列表项——无序列表元素（ ）中的一个 HTML   元素。我们该如何实现？可以像下面这样：",
+        "text_hash": "208d116288e94036172167efb181d378a33051c21eec5bea50648abd975b3c06",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c7ab62afc9c4e9f0d794d7de",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction buildTodoItemEl(id, name) {\n  const item = document.createElement(\"li\");\n  const span = document.createElement(\"span\");\n  const textContent = document.createTextNode(name);",
+        "text_hash": "0abca91de78021076091d89c36c4d0b50b6c79dc093e09504e695bfa87f32167",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_08aff1210c4187187ffdf850",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "span.appendChild(textContent);",
+        "text_hash": "59f7e0d6c69b04db36275f399deb7ea67c492928fc4b7ffeeb60db5222972d76",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a03382a4b6346591baad7659",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "item.id = id;\n  item.appendChild(span);\n  item.appendChild(buildDeleteButtonEl(id));",
+        "text_hash": "72c0bda9fc71adde25e923b0c9daf506a7c4173c5fbcdb211a35fb7c55c60b11",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e753acd96315f4daae3897aa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "return item;\n}",
+        "text_hash": "d41a47317d67a0e67f2e7dd85a7e2f180933407ef6d4223d17641cd2dffa8c75",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d778684526bf8e3c5c62fbe3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在这里，我们使用 document.createElement() 方法来创建我们的   元素，以及另外几行代码来创建它需要的属性和子元素。",
+        "text_hash": "16a49fc0193763414526994ab1a624e9e1db5e2faa9af82f2fb80d6001548abe",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_69d792bafc8ab828b6df8093",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "该代码片段的第十行引用了另一个构建函数：buildDeleteButtonEl()。它遵循与我们用来构建列表项元素时类似的模式：",
+        "text_hash": "8f29802767d43a70d8ea09f835f2d38d31d78aa5a585a5f8942d1910f00ca3e6",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3adb129c490aecb1208e79fe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction buildDeleteButtonEl(id) {\n  const button = document.createElement(\"button\");\n  const textContent = document.createTextNode(\"Delete\");",
+        "text_hash": "8c603dc2f687319602184cba53f181c6ecfa28f8c062c2254bb3b5d7963b8d31",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e8dd88dd6c9066a102218914",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "button.setAttribute(\"type\", \"button\");\n  button.appendChild(textContent);",
+        "text_hash": "fa07bf794e0501b3099cf5b049b4f60e3695e788abe4b936592b8aa2c30abf26",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_802e4a6cfa1a235384941fb8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "return button;\n}",
+        "text_hash": "11ae9ead5a0667c4b7b9d009ffbfad79fd9aa2041d108811026f9d669a1c43af",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ce5c613cd26a7e8cb06e4d85",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个按钮只有当我们决定实现删除功能时，才会生效。要在页面上渲染我们的列表项，代码看起来可能是这样的：",
+        "text_hash": "fa8942ea089889e587307e2be29178d1b95bf4860ee920d76da9f80370efba3d",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_681d921cb962de5c67419a9b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction renderTodoList() {\n  const frag = document.createDocumentFragment();\n  state.tasks.forEach((task) => {\n    const item = buildTodoItemEl(task.id, task.name);\n    frag.appendChild(item);\n  });",
+        "text_hash": "9fe3f3302ee54c3f80194549a6c482ffd2234dcbb01fa0fdf8051fe615b86092",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6b024cc56533ad972ecb87b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "while (todoListEl.firstChild) {\n    todoListEl.removeChild(todoListEl.firstChild);\n  }\n  todoListEl.appendChild(frag);\n}",
+        "text_hash": "4c9128cc463d597bea5fdcc1b59a4b48558b55982bd17b7adbeaa74b92084fa4",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6e2ce976c044e1274075c60d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们现在已经有超过 30 行*仅*服务于用户界面的代码——*只*作用于在 DOM 中渲染某些内容的步骤——并且我们还没有为列表添加样式呢！",
+        "text_hash": "d2a9cc6752bd1c104b65fbab3c1bdb4a4afb422397991a26d65639e3544fe2d8",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_15d852a664e3584a0c2766ca",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如本例所示，直接使用 DOM，我们需要了解有关 DOM 工作原理的许多内容：如何创建元素；如何改变它们的属性；如何将元素放在一起；如何让它们出现在页面上。这些代码实际上都没有处理用户交互，或添加删除之类任务。如果我们添加这些功能，我们必须记得在正确的时间以正确的方式更新我们的用户界面。",
+        "text_hash": "e2cc27990fc674372eb6b9e40401b4a96c166b784de7d88d81cc9b5aa50d0b22",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6a622d66af90b47b63a17b6e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "JavaScript 框架的出现是为了使这些工作变得更容易——它们的存在是为了提供更好的*开发体验*。它们没有给 JavaScript 带来新的功能；但它们使你可以更轻松地使用 JavaScript 来构建现代的 web。",
+        "text_hash": "7acba14ddbe7dbd31393ff720be29ad6d361dd89791e03f3c579dc90a3fc747d",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_73be590d3cabe3fee6c8dbf5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你想查看本节中的代码示例，可以查看 CodePen 上该应用的可用版本, 该版本还允许用户添加和删除新任务。",
+        "text_hash": "28d40932d691908d322766bf10106b984aab9abc13a36f012051204b7742f496",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0f460f4533dd1d12ba681336",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有关本节中使用的 JavaScript 的更多信息：",
+        "text_hash": "a848a5b5bdac1dbba64e66d41ce9b04f092fd5d2f6f2c332ba9d6acaf5b30c1c",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b6536aa69d40346874b8c49f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "document.createElement()\ndocument.createTextNode()\ndocument.createDocumentFragment()\neventTarget.addEventListener()\nnode.appendChild()\nnode.removeChild()",
+        "text_hash": "664b0bbbf990c43f275227e1b40692c1a0020ff8b3f2764ec5900fba5e48d274",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_8089c367a5db20946cfa25f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "另一种打造用户界面的方式",
+        "text_hash": "0a59430b59a82fb3f0d4406a97ea9774232f6ee4bd7081d3cef6406eaa8b772a",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8097615d7ec317e731024c30",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "JavaScript 框架都提供了一种更具以*声明性*的方式地编写用户界面的方法。也就是说，它们允许你编写描述用户界面的代码，然后框架将你编写的描述用户界面的代码通过在幕后的 DOM 显现出来。",
+        "text_hash": "5453024bed8ed92570ca328f9814834dab0d9607fba2912c2896a936611198ef",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_07c3fada559cb370742cd986",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "原生 JavaScript 使用循环来构建新 DOM 元素的方法乍一看很难理解。相对地，让我们看一看使用 Vue 来呈现任务清单的方式：",
+        "text_hash": "0756ef7bf1407883e58fa9ff0ca3cf3c5a1ec56828a40bdcbbeb6849901e7d1e",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_56ce111d610eedd71dac6570",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d63458f95648d13b459a42d5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "\\\n     Delete",
+        "text_hash": "2a45385f39fc1f90edcc50ee0c2f8c9b39600003dd3d7ceca12e495b6894916a",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_29e628d9434bce0cc16ec643",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你没看错。以上用了 JavaScript 框架的代码用了 6 行就实现了刚刚需要 32 行代码才能实现的功能。如果你对这里的大括号和 v- 属性不熟悉，没关系；你会在后面的模块中学习到 Vue 特有的语法。这里要指出的是，这段 Vue 代码看起来很像它所代表的用户界面，而原生 JavaScript 代码则不然。",
+        "text_hash": "1ead8e310e12fa93c5f4bbacb65067acd5851bc598557f0957a7672ffd92b6ff",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b139d707900b29e64831f4a4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "幸亏有了 Vue，让我们不必编写自己的函数来构建用户界面；我们仅仅需要向 Vue 描述每个项目应该是什么样子，然后 Vue 会以很好的、高效的方式帮我们处理好。因此熟悉 Vue 的开发者可以轻松的加入我们的项目，快速地搞清楚项目是如何运作的。不仅仅是 Vue：使用其他框架也可以提高团队和个人的效率。",
+        "text_hash": "556e0316a8082abd8cf5dbd4f6a9b8631ca53278300b84b5320e031eec3a98bd",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_473aa1a5337aeea88915b9a9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "其实在原生 JavaScript 中也可以做*与此类似*的事情。模板字符串使得编写表示最终元素外观的 HTML 字符串变得容易起来。对于像创建上文示例的待办事项清单那样简单的应用来说，这可能是一种有用的方法，但它对于管理数千条数据记录，且可以在用户界面上渲染许多独特元素的大型应用程序来说，是难以维护的。",
+        "text_hash": "877ba3a954d632845e45519f1b22419e63e7f8912a48b8d5ee623233d12e8493",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_91beb5c0f764f0dca3c65cee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "框架提供给我们的其他功能",
+        "text_hash": "e4c09587bb762af18c9daa7bdd7375c9696dc71fe426b8e183484a18cb8d32cb",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8725cd3e2d5b2e549c4cf6ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们看看使用框架还有哪些好处。正如我们之前提到的，虽然框架的优秀特性在原生 JavaScript 中也可以类似地实现，但是使用框架可以消除必须自己解决这些问题的认知负担。",
+        "text_hash": "0d13a57d4f7e1b0feed54f1f816f0bac1e938d78c2bd11d285a418ff919e0175",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b797ab1f7bab3cea9c4c218d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "工具",
+        "text_hash": "5ca6730d441522017552bf309fcddbed161b77440dc3a11d9945788d802afdb3",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1811ef16b2cc5b5c96d793b1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "由于此模块中的每个框架都有一个庞大而活跃的社区，因此每个框架的体系都提供了工具来改善开发体验。这些工具让诸如添加测试（确保你的应用表现应有的行为）和 linting（确保你的代码没有错误且排版统一）变得更加容易。",
+        "text_hash": "3b16c0a8fe6b108be88d90e1660bfb8b08990190d6b5a8b88799e26322bf1e4d",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b507fbe88886a025d42084bf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你想了解有关 Web 工具概念的更多详细信息，请阅读客户端工具概述。",
+        "text_hash": "ae2543ca885e3afae4981eaccd606e2087a9245a19ce2b9c452c2c8f236dab99",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_9dc2b4f01adb8d14418faa46",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "组件化",
+        "text_hash": "ddd0b1b77c2983844ba63d683bd8b607da648df0ea83993c5f3c782386203cea",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a1afdfdd65fbcef555789930",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "大多数框架都鼓励开发者将其用户界面的不同部分抽象为*组件（components）*——可维护、可重用且可以相互通信的代码块。与给定组件相关的所有代码都可以存在于一个文件（或几个特定文件）中，因此身为开发者的你就可以轻松地知道去哪里修改目标组件。在原生 JavaScript 中，你就必须花时间创建自己的一套高效、可扩展的编码约定来实现这一点。如果让许多 JavaScript 开发者使用他们自己的设备，最终可能会导致与用户界面某个部分相关的所有代码分布在一个文件中——或者完全分布在另一个文件中。",
+        "text_hash": "9fc05438d7da359bc1fea7738c470026049f6aa95fde2aa3a06ad791c9d7355f",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b93e56dc1f13a0bcdd8034c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "路由",
+        "text_hash": "b9670c85a4ab939eebef4821f4f6dad33dd7bc541eea594653d1fdd2ba1ee733",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_74de1246d7de48709053124a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Web 最重要的特点是它允许用户从一个页面导航到另一个页面——毕竟，它是一个相互链接的文档网络。当你点击网站上的链接时，你的浏览器会与目标服务器通信，获取新内容后将其显示给你。当浏览器这样做时，地址栏中的 URL 会发生变化。你可以记下来这个新 URL 并稍后返回该页面——或者把这个 URL 分享给其他人，以便他们轻松找到相同的页面。你的浏览器会记住你的导航历史记录，并允许你来回导航（译者注：其实就是浏览器的前进后退功能）。这被称作**服务端路由**。",
+        "text_hash": "fdd0d3d627a01bfb1351312d96b9110e61582f51b2274606aea64fb310e456b5",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cc14793f9f8ceb06205e1d45",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现代 Web 应用程序通常不会获取和渲染新的 HTML 文件——它们加载单个 HTML shell，并不断更新其中的 DOM 而无需将用户导航到 Web 上的新地址。(这被称为**单页应用程序（single page app）** 或 **SPA**)。每个新的伪网页通常称为一个 _view_，且在默认情况下，不会做任何路由。",
+        "text_hash": "0ce3071e0aaec4daf0eb111e287f2279082115fc3d00f13e9770a2e1a564917f",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_59e96d2bcecd4562dac4cfdf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当 SPA 足够复杂并呈现足够多的独特视图时，将路由功能引入你的应用程序非常重要。人们习惯于能够链接到应用程序中的特定页面，在他们的浏览器中前进和后退等等，当这些标准的 Web 功能被破坏时，他们的体验会受到影响。当客户端应用程序以这种方式处理路由时，它被恰当地称为**客户端路由**。",
+        "text_hash": "f105a6777eb687dcfdc8423f576e3cb9048124eadc15891fea60c15fd9cb98f5",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1b8557ed4cebc747ccefb561",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "_可以使用_ JavaScript 和浏览器的原生功能来实现路由功能，但是流行的、活跃开发的框架具有配套库，使路由功能在开发过程中更直观。",
+        "text_hash": "878dfe3e7ab69c57ec7237e7b2984f6fb9876bacf7442174eb34422b85f6718e",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_50801bf4f5bb26e61d24d7b3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用框架的注意事项",
+        "text_hash": "5840be49b1e8be5920d3ee9344c6746719ae1acc17984e1bb4fae32e96e4b95f",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_07d022bf0d77aeb618061090",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "作为一名高效的 web 开发者，意味着使用最合适的工具来完成工作。JavaScript 框架使前端应用开发变得容易，但它们并不是解决所有问题的灵丹妙药。本节讨论在使用框架时你应该考虑的一些事项。请记住，你也许根本不需要框架——要注意不要为了使用框架而使用框架。",
+        "text_hash": "74a9b61e7d25f002f2d6d73029e32c29fa742ee0cab599649bfcb16d4d922601",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_04c0ff4c05a434ad76c72cdc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "熟悉工具",
+        "text_hash": "b76bc8331e8e00659d2276e7ecf5a63253ca48ff0fa712479f98bb8d62841493",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_fb3102e9410e4272670dbc22",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "就像原生 JavaScript 一样，框架需要时间来学习，也有它们自己的特性。在你决定为项目使用框架之前，确保你有足够的时间学习它的特性，使它发挥功效，而不是阻碍你，并确保你的团队成员也对它满意。",
+        "text_hash": "bcb1b176476633bafba26cc4041298dd648062b41fc25d844cfd6b5ca2da49e7",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_628aade4d7b9427c25acc7e0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "过度工程化",
+        "text_hash": "463eda2c7bcd76477598b6d1087927840862247d12d95c8989f41e9472e3c4fa",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_477d51ef22644fedc9606901",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你的 web 开发项目是一个只有几个页面的个人作品集，并且这些页面几乎没有交互功能，那么可能根本不需要框架（及其所有的 JavaScript）。也就是说，框架并不是完全统一的，其中一些框架比其他框架更适合于小型项目。Sarah Drasner 在 Smashing 杂志的一篇文章中写道：作为一种使网页的一小部分具有交互性的工具 Vue 是如何取代 jQuery 的 。",
+        "text_hash": "62c5a04159c949cd6e59d97efb33c8e5a90e0c71cb44b1cccff116a237661208",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6a30a9ddcf0efbeea3ea48a2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "大型代码库与抽象",
+        "text_hash": "9191a1ac7cd4b56e6e06cd141266f3423a0e46b2731c6fe3e0cea3f702b9f2d1",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_46d0d538dadecfaa68c21ed2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "通过在幕后处理 DOM 交互，框架允许你编写更多的声明式代码，有时总体上可以编写*更少*的代码。这种抽象对于你作为开发者的体验非常好，但它也是有代价的。为了将你编写的内容转换为 DOM 的变更，框架必须运行自己的代码，这反过来又会使你最终的软件变得更大，并且花费更高的运行成本。",
+        "text_hash": "c9282ad8c8491e847b9f0b4d263c40bd17699667ee8eb4909f32a3983a2054bb",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c6e05554266abc7aa606badb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一些额外的代码是必不可少的，且一个支持 tree-shaking 的框架（在构建过程中删除应用程序实际未使用的代码）将使你保持应用程序的小型化；但这些额外的代码仍然是你在考虑应用程序性能时需要记住的一个因素，尤其是在网络或存储限制更严格的设备上，比如手机。",
+        "text_hash": "0b7a5c6b9108452484df7e6e2e68f8983728b31445117bf6a6f901a9fc50fa05",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f140da5e0e5ccb774d7071a3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "框架的抽象不仅影响 JavaScript，还影响你与 web 的关系。无论你如何构建 web，最终，用户都是与 HTML 交互。用 JavaScript 编写整个应用可能会使你忽略 HTML 及其各种标签的用途，并导致产出一个无语义且难以使用的 HTML 文档。实际上，完全依赖 JavaScript 有可能写出脆弱的应用，且没有 JavaScript 就无法运行。",
+        "text_hash": "e6129963795e11ac1e26d893ae296929b39d1dd327061dd1e943dbda218458f9",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f7602e725d6b2741a4289540",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "框架不是问题的根源。错误的优先级可能使得*任何*应用变得脆弱、臃肿和难以使用。框架对开发者很友好，如果你的首要任务是制作一个复杂的 web 应用程序，那么很容易做到。然而，如果你没有考虑性能和无障碍，那么框架将放大这种脆弱、臃肿和难以使用。现代开发者的这种重心放在了框架上，已经在许多地方颠倒了 web 的结构。现代 web 通常把 JavaScript 放在首位，用户体验放在最后，而不是一个健壮的、内容优先的文档网络。",
+        "text_hash": "867f976657cb2fede2ff82dd350c7fd3ddb5308aa616e07f895f2d89462687b7",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0828408e55cec92c792352ea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "框架驱动页面的无障碍",
+        "text_hash": "5c316b984238958f70e453a0a2aae7d4379183fa644f243b6df3fd56cfc03f11",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0d055e2b55fc5e422e02fdeb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们在上一节中所说的基础上继续，并更多地谈谈无障碍。使用户界面无障碍总是需要一些思考和努力，而框架可能会使这个过程复杂化。你通常必须使用高级框架 API 来访问本地浏览器的功能，如 ARIA live regions 或专注于对它们的管理。",
+        "text_hash": "522de085cdb497132f4c0b4e763eee2e6464dc538facbb2db5b3d9e0b1a5e515",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ec3fefed077f928fda1a9f81",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在某些情况下，框架应用程序会造成传统网站不存在的无障碍问题。这方面的典型例子是前面提到的客户端路由。",
+        "text_hash": "316eb91c87518b4901772d34e1b08333536ac3d495f12d008a429be027628497",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b60985f8147258f4429dae25",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用传统的（服务器端）路由，导航 Web 具有可预测的结果。浏览器知道将焦点设置到页面顶部，辅助技术将宣读页面的标题。每次导航到新页面时，这些事情都会发生。",
+        "text_hash": "72097505ece76a9f0e6b05930485883853d06f55ddaa5cba4b915e0d7626c256",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_651a8adde6bc7c6c7ed560f9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用客户端路由，你的浏览器不会加载新的网页，因此它不知道它应该自动调整焦点还是宣读新的页面标题。框架作者投入了大量的时间和精力来编写 JavaScript 来重新创建这些特性，即使这样，也没有一个框架能做到非常完美。",
+        "text_hash": "35782eb9ed9baa7e43c69805fb5d946331c4b249c4f8374ccec4e0733691176a",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8fef180442208c13903cbcf3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "结果是，你应该从*每个* Web 项目的一开始就考虑无障碍，但请记住，如果你不这样做，使用框架的抽象代码库更有可能遇到的无障碍问题。",
+        "text_hash": "e5e106bf95dc02e47549c1abb539363c086191678ddd548374420f82a7b9e6a9",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1b8f4b9fecc4cd7f7192137c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如何选择一个框架",
+        "text_hash": "ae6d0e24821e25b4a7a55b9f36ca7f28636206c57f600baa83c6bf600b329277",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d9eb40cb01b7f26737a3ccae",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本模块中讨论的每个框架都采用不同的 Web 应用程序开发方法。每一个都在定期改进或变化，各有利弊。选择合适的框架是一个依赖于团队和项目的过程，你应该自己做研究，发现什么适合你的需求。尽管如此，我们确定了你可能需要考虑的几个问题，以便更有效地研究你的选择：",
+        "text_hash": "4ceee620a8e86e9c38fa108190902eb918a23c78809c7bee7d22bb19bb26ac81",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2a5181b2ca5fdf6153314631",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "框架支持哪些浏览器？\n框架使用哪些领域特定语言？\n该框架是否有强大的社区和良好的文档（和其他支持）可用？",
+        "text_hash": "44c6b576f42cea96615c28f145c9f61ff111dc3a980bae3c33e3c46a3ab6fc91",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_cead55ab82e1775b2b4b34f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本节中的表提供了每个框架提供的浏览器支持以及它的 **DSL 语言** 的简要描述。\n广义上，领域专用语言（**DSL**）是与软件开发的特定领域相关的编程语言。在框架的环境中，DSL 是 JavaScript 或 HTML 的变体，使让使用该框架开发变得更容易。至关重要的是，没有一个框架要求开发者使用特定的 DSL，但它们几乎都是在设计时考虑特定的 DSL。选择不使用框架首选的 DSL 将意味着你错过了改善开发者体验的功能。",
+        "text_hash": "3ff24b95370c92f577be3526bc5eca0f536f571d4cc2c3ea35cb7076703da109",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ad0654aedd4e36676afedb67",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在为任何新项目做出选择时，你应该认真考虑框架的模型和 DSL。不匹配的浏览器支持可能会成为用户的障碍；不匹配的 DSL 支持可能会成为你和你的团队成员的障碍。",
+        "text_hash": "7aa7e2a9f14e0d5434d73930a030edef9e0835278261ece084de539efa7d0a23",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d5de8dc70a68ac46a952b530",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "| 框架    | 浏览器支持                                 | DSL 偏好   | 支持的 DSL             |\n| ------- | ------------------------------------------ | ---------- | ---------------------- |\n| Angular | IE9+                                       | TypeScript | 基于 HTML、TypeScript  |\n| React   | 现代的浏览器（IE9+ with Polyfills）        | JSX        | JSX、TypeScript        |\n| Vue     | IE9+                                       | 基于 HTML  | 基于 HTML、JSX、Pug    |\n| Ember   | 现代的浏览器（IE9+ in Ember version 2.18） | Handlebars | Handlebars、TypeScript |",
+        "text_hash": "507ffe959c5620ad00c705b4a812fa670f7085acf8df0b24e41087ed20f602ee",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ccaa8b9c795f696b2b8fa1ca",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n我们描述为“基于 HTML”的 DSL 没有官方名称。它们并不是真正的 DSL，但它们是非标准的 HTML，所以我们认为它们值得强调。",
+        "text_hash": "8d77fc879adf02a26d60bb02f104f305ed066cf15b9a12566629c4574ae60144",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_5b83b5c0525cfeabe6dec64e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "参考来源：",
+        "text_hash": "03c6e760036931b7a28a9ab03a1d259f0009f63a9f4457f45bb62130ae2528e2",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f65282fb92b3c1e756e84cd1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "React 浏览器支持：官方文档\nEmber 浏览器支持：Ember 3.0 发布\nEmber 模板语言（官方文档）",
+        "text_hash": "4fe71f8f25f1a59f60d0360e383aae462ac4c989b57080196eef84b5afa5cd8e",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_59fad08a9bfc2b9b964082d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "框架是否有强大的社区？",
+        "text_hash": "98cb3ce57e45cfa980b2a1ad258e3f264ea1e9895022c98964f5cdd2925b28ba",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a469da34a430192395e8b64e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这也许是最难衡量的指标，因为社区规模与易于看见的数字并不直接相关。你可以查看一个项目的 GitHub star 数或每周 npm 下载量，以了解它的受欢迎程度，但有时最好的做法是搜索一些论坛或与其他开发者交谈。这不仅仅是社区的规模，还包括社区的欢迎和包容性，以及文档的好坏。",
+        "text_hash": "8a70301e10191deed7d21c2bdcbc95f955ee9b2310b20685e29243c223dd09d2",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fe6bfefb3959325b9d27f9ce",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在互联网上的意见",
+        "text_hash": "a99546f45c514cd24aa1767e90f4ea0985d7d1be1d8e9b3850637572af63af14",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_aedaff8fab4c22a62486e0af",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "不要只关注我们在这件事上的话——网上到处都有讨论。维基媒体基金会最近选择使用 Vue 作为其前端，并发布了关于框架采用方面的 RFC。RFC 的作者 Eric Gardner 概述了维基媒体项目的需求，以及为什么这个框架是团队不错选择。这个 RFC 是一个很好的例子，说明在计划使用前端框架时，你应该做一点调查和研究。",
+        "text_hash": "1dd5cfa912f6e1eea0efa1127f8c5a688c7edae81e563aeeb0364a25b6c5eedb",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5b83d145bf848b7f4ce87a15",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "JavaScript 状况调查包含了来自 JavaScript 开发者的有效反馈。它涵盖了许多与 JavaScript 相关的主题，包括关于框架的使用和开发者对框架的好恶的数据。目前，好几年的数据可以让你感受到一个框架的受欢迎程度。\nVue 团队详尽地将 Vue 与其他流行框架进行了比较。在这种比较中可能有一些偏见（他们注意到了这一点），但尽管如此，它还是一个宝贵的资源。",
+        "text_hash": "a0e1f85c77e2fae536193fce6f6547493e28579e238fa959cbcb9a3fe33f3053",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_51e61741619463b5a2f4409b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "客户端框架的替代方案",
+        "text_hash": "f03be3bbd2e48ea12f2a3d115ba0f61a1348af0e7c3454e1d8f4a20efde71d3f",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_37438576a1ab5fb8b1ea250d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你正在寻找工具来加快 Web 开发过程，并且你知道你的项目不需要很多客户端 JavaScript，你可以寻求其他几种构建 Web 的解决方案：",
+        "text_hash": "dd118330654990627aad179a29668d35dc8ba548b24488858be0c95ed4e23cbb",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_80ae5fe0d6d18b4b063c5007",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "内容管理系统\n服务端渲染\n静态站点生成器",
+        "text_hash": "ebb5cc0d5e967d0ed27b88e04432e53b57ead60870d5e64969b8790a16f63f71",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_bfb30677ba7cd22561b8cfc4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "内容管理系统",
+        "text_hash": "f4196f2b1e94c92e12a05944ad40aaa0a227d5fd08a04e025f8c434a2e53223c",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_28ccc373b7764e424f8242e7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**内容管理系统**（**CMS**）是任何允许用户在不直接编写代码的情况下创建网页内容的工具。对于大型项目来说，它们是一种很好的解决方案，尤其是那些需要由编码能力有限的内容编写者来编写的项目，或者希望节省时间的程序员。然而，它们确实需要大量的时间来设置，使用 CMS 意味着你至少放弃了对网站最终输出的一些控制。例如：如果你选择的 CMS 默认不编写无障碍的内容，通常很难改进这一点。",
+        "text_hash": "eab12cc23e7493c9f75386596c2760f4776e8807d8ba921dbe5e706645252866",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_34da8b5478f0a8fea0e17f34",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "受欢迎的 CMS 的一些例子：Wordpress、Joomla 和 Drupal。",
+        "text_hash": "af3b6e0fe801ac03db33afc44a4c041e9c1ffc69c01205e657857a1f98149bdc",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7f956b0c88b90a89b26b2760",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "服务端渲染",
+        "text_hash": "ef66f81349d276800988eef385b2422c5025c58821be65eae892ba2fe42a1cc2",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_4e5c07514f9afe37766cbbc6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**服务端渲染**（**SSR**）是一种应用程序体系结构，在该体系结构中，呈现单页应用程序是服务器的工作。这与客户端渲染相反，服务端渲染是构建 JavaScript 应用程序最常见、最直接的方式。服务端渲染对于客户端的设备压力更小，因为你只发送渲染过的 HTML 文件，但它比客户端渲染更加难以构建。",
+        "text_hash": "ae27a9c9adf8bf258d449232600bd03e75a9711aa59bdcf90d19667e90bd55d3",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e0e64bd7b72e0a9f1fe30f32",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本模块中介绍的所有框架都支持服务端渲染和客户端渲染。给 React 的 Next.js，给 Vue 的 Nuxt.js（是的，这很令人困惑，它们没有关系），给 Ember 的 FastBoot 还有给 Angular 的 Angular Universal 。",
+        "text_hash": "934ff1577181416b1f982f8d36cc4eedeca70219fd2d5a30d8cb7a9a83f15422",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eab2bde29170daab05c585bc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n有些 SSR 解决方案是由社区编写和维护的，而有些是由框架的维护者提供的“官方”解决方案。",
+        "text_hash": "ef241eb2bbb76cd01b3c9de8cf3477363c387bdba08bb576e2626a9d03d9e7f7",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_9a4b3b847c2866adc3f65310",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "静态站点生成器",
+        "text_hash": "6e6495df1c71e20466fc3fef326e6f88faf220612921f2c28948f5a9b40d8d14",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ce90282ca9610cbe169eb8a4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "静态站点生成器是动态生成多页面网站的所有网页的程序——包括任何相关的 CSS 或 JavaScript——这样它们就可以在任何地方发布。发布主机可以是一个 GitHub Page，一个 Netlify 实例，或者任何你选择的私有服务器。这种方法有很多优点，主要是在性能方面（用户的设备不使用 JavaScript 构建页面，它已经完成了）和安全性（对静态页面的攻击更少）。这些网站仍然可以使用 JavaScript，它们需要它，但并不*依赖*于它。静态站点生成器需要时间来学习，就像任何其他工具，它可能是你开发过程中的障碍。",
+        "text_hash": "4c3c5a83bef9ff8814e88ce8eb1768d14695a62170ee7866bccf75ea1bc2cbdc",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f419ee3d819358296fde88be",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "静态站点可以可以生成你想要独特的页面。正如框架使你能够快速编写客户端 JavaScript 应用程序一样，静态网站生成器使你能够快速创建本来需要单独编写的 HTML 文件。与框架一样，静态站点站生成器允许开发者编写定义网页公共部分的组件，并将这些组件组合在一起创建最终页面。在静态站点生成器的相关术语中，这些组件称为**模板**。由静态站点生成器构建的 Web 页面甚至可以成为框架应用程序的主页：例如，如果你想让静态生成的网站的一个特定页面在用户访问 React 应用程序时启动它，你可以这样做。",
+        "text_hash": "8faf38224fd33fb6813157341d4349fd8fd72c60d6bc1a7ba86280fd8b555696",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_35a07baba14a1e8b81b2abf4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "静态站点生成器已经存在了相当长的时间，并且正在不断优化与自我革新。现在有不少非常好的可选项，如基于不同技术栈并提供独特功能的 Astro、Eleventy、Hugo、Jekyll 以及 Gatsby。类似于 Docusaurus 和 VitePress 这样的其他选项并没有使用模板，而是使用客户端框架，但也会生成类似的经过优化后的静态文件。",
+        "text_hash": "03313bdc31a6629590cb856b2ed2e1132d71ae92c392eb80fdb5e56a0799200e",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2133422908bf5a5ffe864ac0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你想了解更多关于静态网站生成器的信息，去看一看 Tatiana Mac 的 Eleventy 新手指南。在该系列的第一篇文章中，她解释了什么是静态网站生成器，以及它如何与发布 Web 内容的其他方法联系起来。",
+        "text_hash": "c3827d7aa5b29b749350d8d5d3ff8d706d1f378bae0856fb1d79e17dafda9443",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1fba75e224447eccb2c75b6c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f630a1c969ed39616815a5b8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们对框架的介绍到此结束——我们还没有教给你任何代码，但希望我们已经给你一个有用的背景，说明为什么要使用框架，以及如何选择框架，让你兴奋地了解更多信息，并参与进来！",
+        "text_hash": "75ba1041bccb68866d6011c105352d2b5730619200ab4c2f5c2f18699cf63f49",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9d71b31226d9506ecaa07414",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们的下一篇文章将深入到较低的层次，看看框架倾向于提供的特定类型的功能，以及它们的工作原理。",
+        "text_hash": "e04acffb3d19fab890e83195e101f576a96fdf45470fa955b5e18282fd2c9c2e",
+        "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_6e6da8644c1023486d11b270",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。客户端框架介绍，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "客户端框架介绍，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/frameworks-libraries/introduction",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "客户端框架介绍"
+  },
+  "resource_id": "lr_8c1b3f521084327b9359be3c",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_086971774c79c3ef1be9eb22",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "客户端框架介绍",
+    "text_hash": "2d208b549fa7c54c742fbacad8217e746e67654013d5b32505bed79b2a986720",
+    "variant_version_id": "lrzv_72b518154665e3448ec5233c"
+  },
+  "variant_id": "lrz_0fe1d901a97e290972a3e914",
+  "variant_version_id": "lrzv_72b518154665e3448ec5233c",
+  "visual_dependency": "helpful"
+}

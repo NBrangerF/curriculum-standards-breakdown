@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "public_locale": "zh-Hans-CN",
+  "opencc_config": "tw2sp",
+  "localization_mode": "faithful_translation",
+  "allowed_latin_categories": [
+    "url",
+    "code",
+    "formula",
+    "unit",
+    "proper_name",
+    "legal_attribution"
+  ],
+  "blocked_patterns": [
+    "[\\u3400-\\u4DBF\\u4E00-\\u9FFF]+[裏於與為這個們學習資資訊國]",
+    "(?:^|\\n)[A-Za-z][A-Za-z\\s,.;:'\"!?()\\-]{80,}(?:$|\\n)"
+  ],
+  "required_checks": [
+    "target_locale",
+    "opencc_idempotent",
+    "source_block_coverage",
+    "numbers_preserved",
+    "formulas_preserved",
+    "urls_preserved",
+    "residual_language",
+    "safety_warning_preserved"
+  ]
+}
+

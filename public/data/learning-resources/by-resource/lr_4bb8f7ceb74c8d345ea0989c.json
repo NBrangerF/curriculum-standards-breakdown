@@ -1,0 +1,1492 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_2ba57f5737555bdb1631ee45",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来，我们将关注无障碍工具，介绍可用于解决无障碍问题的各类工具，并帮助你了解残障人士为方便浏览网页所使用的**辅助技术**。在后续文章中，将使用本文介绍的这些工具。",
+        "text_hash": "d767f886c2274cea67732849f1847a0d922fba980ed67a541fe2ef34fe40b927",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4e816cef08d90e33fbbf8166",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：",
+        "text_hash": "60df7f5b49d0fd69c1a1ee4bda41ede8b786ae9d162b8a9a73e264bbf703119b",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c6c5b6f0a56077383e3c7e05",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "熟悉  HTML  和  CSS  语言，理解 基本的无障碍概念 。",
+        "text_hash": "b0f443b930810b03d635935cd40081ef088393fddcd55b4ff93735ae62336591",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cff7fcf61fc789ea4aff0e80",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "学习成果：",
+        "text_hash": "df8de6d6c94c82775b23d09ee691c8bdfb524942bb01bfb0aa149aa4e1411a2a",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f50d88928fc4203b9f29a305",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "熟悉可用于解决无障碍问题的各类工具，例如审计工具。\n           配置屏幕阅读器，并利用其在桌面端和移动端测试网站。\n           熟悉其他类型的辅助技术，例如大字体或盲文键盘、替代指针设备以及屏幕放大软件。\n           用户测试与自动化测试并重的重要性。",
+        "text_hash": "8d91cc1f600331997cb199ada85919ead04ed7edea2278008497e6983b911e92",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b3e3abe746a396ed04dd14da",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "无障碍工具",
+        "text_hash": "77078fa80770dcffffcd849c7746c7e01abe605deac1ddf35662dea36e14191d",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_044e8de8c49166d57dd139f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下面我们就来看看可以用来测试网站无障碍性并修复发现的问题的工具和方法。",
+        "text_hash": "ea5b9f847e298b66eb5befb4b4c4d4baea841f8f565513f78b18476121ec4a34",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_04d3f1b7f1d23b2758a6404d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "测试源代码顺序",
+        "text_hash": "84b7a32a8f96a45b2aff2abd869cd1160e8d2638a0571c851a6613163f74a9ba",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1af776a0a2b51a2aad201879",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你的内容在源代码顺序上应符合逻辑——虽然稍后可以通过 CSS 以不同方式呈现内容，但首先应确保其底层结构正确。这是因为辅助技术会根据源代码的顺序读取网站内容，而残障人士通常会修改或禁用部分 CSS 以提高内容的可读性（常见示例包括增大字体大小和应用高对比度配色方案）。",
+        "text_hash": "b4738e7e0cc50a4a11d1cf03999bd002167783c7073fa927b5a7dcb5c15b64b4",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c7c97d488bedcd677d84dad5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要测试源代码顺序，你可以关闭网站的 CSS，看看在没有 CSS 的情况下内容是否易于理解。你可以手动从代码中移除 CSS 来实现这一点，但最简单的方法是使用浏览器功能，例如：",
+        "text_hash": "6ef91700285d07fb5d15c45aa3e07eabe4ba89e99c36ed1ccbc0bca37d2ea494",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c9871867f44ae6fc5d419fe6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Firefox：从主菜单中选择*视图 > 页面样式 > 无样式*。\nSafari：打开浏览器开发者工具，点击开发者工具面板左上角附近的“设备设置”按钮（形状像一台电脑显示器），然后在弹出的面板中勾选“禁用 CSS”复选框。\nChrome/Edge：安装 Web Developer Toolbar 扩展程序，然后重启浏览器。点击扩展程序菜单中现已出现的“Web Developer”齿轮图标，然后选择 _CSS > 禁用所有样式_。",
+        "text_hash": "891c7da30a139eec431030f698e5f4a176739859e70c095e7e1618ea56128597",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_8c37ad177d8cb45c6dd89f0e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "颜色对比度检测工具",
+        "text_hash": "b402a1ad7189463b1c3929afd25e6f874c4e3c18b9d96970842fb7e762916d66",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d7a77064011ea4f03cabeee3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在为网站选择配色方案时，应确保文字（前景色）与背景色形成良好的对比。你的设计可能看起来很酷，但如果用户无法阅读内容，那就毫无意义。请使用 WebAIM 的色彩对比度检测器等工具，检查你的配色方案是否具有足够的对比度。",
+        "text_hash": "1c7a526c2d62ebb191c551fb921e3fbc3c239c9e7329052fd9d72d8fea2ba09a",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c22445a7361c4e109f5a2dd7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "另一个建议是，避免仅依靠颜色来标识或突出显示重要信息，因为色盲等视力障碍者可能会忽略这些提示。例如，不要仅用红色标记表单中的必填字段，而应同时使用星号和红色进行标记。",
+        "text_hash": "012015f6519f2e7166a042bec0e229672cdcbe53a31dba6a3fbb60f01965ce77",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_299e9f3555f2e663b7b83a84",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n高对比度还能让使用光面屏幕的智能手机或平板电脑用户，在阳光直射等明亮环境下更清晰地阅读网页内容。",
+        "text_hash": "5a806de748b687e5133fce9fc5a892b12d464be38e1004405fd8e1c1d9ca42f4",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_e5685e5923388b7cb59c1740",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "审计工具",
+        "text_hash": "4a7a75c7a3dd45ec5f7abf67990ee89991650921b04ced2cc4f4a6b51b04400a",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_28ec4a3f576a85a98c3df9d7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目前有多种审计工具可供使用，可以将网页提交至这些工具进行检测。它们会分析网页内容，并返回该页面存在的无障碍问题列表。让我们以 Wave 为例，这是一个在线无障碍测试工具，它接受网页地址，并返回该页面的标注视图，其中无障碍问题会被突出显示。",
+        "text_hash": "b9657d76f919937717d9f1c71c0a244d3e625a136b669f0df972f667e1bdb317",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eb11b455a5c9a9f606273bcf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "访问 Wave 主页。\n在页面顶部附近的文本输入框中输入我们的示例 bad-form.html 的 URL。然后按回车键，或点击/轻触输入框最右侧的箭头。\n该网站将突出显示存在的无障碍问题。点击显示的图标，即可查看 Wave 评估中识别出的每个问题的详细信息。",
+        "text_hash": "c2342ab1e070141e93bcdd658ff5e8e10f8f5b4df779a6b68932f8d63c37370b",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_646cc0735c34dacf4d188596",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "其他值得一试的无障碍检测工具：",
+        "text_hash": "89beadaa8a82d7a41258bd316e6b05667b0ec5016c4a51b0a19dbdb1949f158e",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4cbef4f3d2be32779dcf2963",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Firefox 无障碍检查器\nANDI 书签小工具\nGoogle Lighthouse 无障碍审计",
+        "text_hash": "3d9386770584c7032f811f1e36a8aa2ed61b7fa0b3e62527740392ef24e9372b",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_5111bc024faf137111fbcf39",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n仅靠这些工具并不足以解决所有无障碍问题。需要综合运用这些工具、专业知识与经验、用户测试等手段，才能全面了解情况。",
+        "text_hash": "9f49afd55222afa65c9ea54ab63d994fc6cbf9744235422457256e1e3df91c29",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_b888b5a6913fee77f3de31bf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Deque 的 aXe 工具比我们上面提到的审计工具功能更全面一些。与其他工具一样，它会检查网页并返回无障碍错误。其中最直接实用的形式可能是浏览器扩展程序：",
+        "text_hash": "d726944d9b88eeb8b689f39f20506ea48205af4d8f6a7851b0328aeaab18c9ee",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5f0da168a085b9b273ecd87e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Chrome 版 aXe\nFirefox 版 aXe",
+        "text_hash": "c1c57c25f4394db63dcf160b76c261b7c4c8242276af4f55362a2b82f47cc592",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_02d00f89a9314e4061862eab",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些扩展会在浏览器开发者工具中添加一个“无障碍”选项卡。例如，我们安装了 Firefox 版本，然后用它来审计我们的 bad-table.html 示例。我们得到了以下结果：",
+        "text_hash": "28b248de8b7fe4cb94c258d548fecb91843e8a033cc47c31d21f0fd7d197be91",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6faf7a681e71c08196b07867",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Axe 工具识别出的无障碍问题截图。",
+        "text_hash": "43ce0cf82b06ef93352796247fba95507eb3be43b46bdc831301236f571b8eab",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0b9c81f29ee82f22f94fd7e7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "aXe 还可以通过 npm 安装，并可与 Grunt 和 Gulp 等任务运行器、Selenium 和 Cucumber 等自动化框架、以及 Jasmine 等单元测试框架，此外还有更多支持（详情请参阅 aXe 主页）。",
+        "text_hash": "9534b673fcd9f0006ccf378fb4ccbba2db6185fddaeb4764af6f48be170db07d",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0dcaf1aa6c8734efef1f1929",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "屏幕阅读器",
+        "text_hash": "761f13e94a07a0a9a16a87af75150f34c907df67e770d62ff03ba11764d00f81",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_496920331b2df909ef7b6d6a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "残障人士使用最广泛的辅助技术（AT）之一——也是在测试网页无障碍性时最常使用的一种——就是**屏幕阅读器**。这是一种能够朗读网页内容或用户操作系统中已安装的其他应用程序内容的软件。屏幕阅读器使人们无需查看任何视觉内容即可使用计算机。",
+        "text_hash": "deca44e3f7b62e984cdee7b78b5552e86dd8cf33a1c0dd8956a373ba09ce1801",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a644cfb46a151f46739e8f13",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Web 浏览器会向屏幕阅读器（及其他辅助技术）提供有关页面内容的信息，以便它们通过一种称为无障碍树的表示形式与用户进行交互。该结构提供语义信息，例如元素的名称和描述、其用途或角色（是按钮还是输入框？），以及它们是否处于特定状态（例如，对话框是打开还是关闭？）。",
+        "text_hash": "8a610b8524d0c31f0e0517bd6b056978a2231d8c69c7d39ebc1c330d6c224874",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9f6e3f4fcdc810f5df7e72eb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对于一段文本而言，这些信息可能微不足道——因为文本听起来基本上与书面内容一致——但涉及下拉菜单或视频播放器等用户界面功能时，情况就会变得复杂。这就是为什么正确使用语义化 HTML 非常重要，本模块的下一篇文章将对此进行详细探讨。如果使用错误的元素对内容进行标记，可能会让屏幕阅读器用户感到困惑。",
+        "text_hash": "0f9afe320740d4e02a3f71a10f67d2cfdcfc8f57d548104e08f4eb25ab07732c",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c6ad5818b5da1e808a175597",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "请确保在开发机上安装了一款或两款屏幕阅读器，并按照下文所述，尝试通过屏幕阅读器访问你常用的网站。了解视障人士如何使用网络，是设计出能更好地服务于所有人的产品的关键。",
+        "text_hash": "9d398c5f21cf1631e8fae4c40a9a67c56f7bc55721a608dcb9c69e66963a58b8",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_82aff3f5fc2b86368c6c3410",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "都有哪些可用的屏幕阅读器？",
+        "text_hash": "a19b0682a618fe21acd9e0a592b7599ecd94dc9af1e27391779f0a821d3fe363",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_3c4b3311545d42bdc1b20c13",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目前有几种屏幕阅读器可供选择：",
+        "text_hash": "004c0093b5752fa3711f2440e0f955a0c4dc0bc35b98e2454a95b624a63f52e8",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_765e1a9a09acd92a027ebea4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有些是付费的商业产品，例如 JAWS（Windows）。\n有些是免费产品，例如 NVDA（Windows）、ChromeVox（Chrome、Windows 和 macOS），以及 Orca（Linux）。\n有些是内置于操作系统中的，例如旁白（macOS 和 iOS）、ChromeVox（Chromebook）以及 TalkBack（Android）。",
+        "text_hash": "50f5bf9b90eb6b567f5fe5edcaf001fea9eff632510affab443fcacdc6f3b695",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_70b92afe903aef5226ed6ed5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "通常情况下，屏幕阅读器是运行在宿主操作系统上的独立应用程序，不仅可以朗读网页内容，还能朗读其他应用程序中的内容（但并非总是如此；例如，ChromeVox 就是一款浏览器扩展程序）。不同屏幕阅读器的具体行为和控制方式往往存在一些差异，因此需要查阅所选屏幕阅读器的文档以获取详细信息。话虽如此，它们的工作原理基本上是相似的。",
+        "text_hash": "ca447c271fa59100ef9818c279df6af3015c12688b162052732f5cd34bd2a9fe",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2bcf207b039a1cc082013b6a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在接下来的几节中，我们将使用几种不同的屏幕阅读器进行一些测试，以便让你大致了解它们的工作原理以及如何使用它们进行测试。",
+        "text_hash": "9631c28d90177e8e0294dddb293118083fa54164e0f093ed0658300321e2d639",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_487b4a7f45078e641149c06f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\nWebAIM 的为屏幕阅读器兼容性进行设计提供了关于屏幕阅读器使用情况以及最佳实践的一些有用信息。参见屏幕阅读器用户调查第 10 期结果，其中包含一些有趣的屏幕阅读器使用统计数据。",
+        "text_hash": "2d2560069bf56d79b51fb968705a9d5441adb8a87a87ed872af3c6a17d16666c",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_edc097181104d97b2d1762c8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "旁白",
+        "text_hash": "101f6e6d6095ef5e9c57dc2f71e38d0f4d62423cc5fa4d0b069ac78434020272",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_4ca3bb10e10861d8db1c69b4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "旁白（VoiceOver，VO）是 Apple Mac/iPhone/iPad 预装的免费功能，因此如果使用 Apple 产品，它在桌面端和移动端测试中都非常实用。我们在 MacBook Pro 的 macOS 系统上进行了测试。",
+        "text_hash": "b5e3c8b7d3a239673adc5f0e54cfecf7acc68fdc51317d7c2d4dfb585ac93d2e",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2db64f6ee48bc8dba5487ebe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要启用该功能，请按  Cmd  +  F5 。如果之前从未使用过 VO，系统会显示一个欢迎界面，可以在其中选择是否启动 VO，并完成一个非常实用的教程来学习如何使用它。要关闭该功能，请再次按下  Cmd  +  F5 。",
+        "text_hash": "1655577879135f633a8f4bb1e4f202b58066ba758c291354441b16044aab4e71",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6868a66fd2c15cc5b8f3b12a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n应该至少完成一次教程——这是学习 VO 的非常有效的方式。",
+        "text_hash": "a1e2af2de6a5b72cfb4b59701a476fb1280a76c1add532c31b368af19568375b",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_a8faf01179d6b4482a2021d5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当旁白启用时，显示界面基本保持不变，但你会在屏幕左下角看到一个黑色方框，其中包含旁白当前所选内容的相关信息。当前选中的内容还会被高亮显示，并带有黑色边框——这种高亮效果被称为**旁白光标**。",
+        "text_hash": "f491f27caabc379f2ba60fa8996da749128a50f1b757383ad6e03936dd9796c0",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8d5c8931e8564556cbe5f78f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一张示例截图，展示了在 MDN 主页上使用旁白进行无障碍测试的情况。图片左下角高亮显示了网页上选中的内容。",
+        "text_hash": "f6fd3432bd6c046df093c913ba72484ac3bef164d050e3ede528736bc8f75f69",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_122a6a9789d53d7569b837fd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要使用旁白，你需要频繁使用“旁白修饰键”——这是除了实际的旁白键盘快捷键之外，还需要按下的单个键或组合键，才能使快捷键生效。使用此类修饰键在屏幕阅读器中很常见，目的是避免其命令与其他命令发生冲突。对于旁白而言，修饰键可以是  CapsLock ，也可以是  Ctrl  +  Option 。",
+        "text_hash": "fb70eb36a9b31ee49a5b08bb0213aee3841758a23ca9297db97896fd33baf0f0",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3a8c3afef5f169cd1e5e08c3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "旁白拥有许多键盘命令，我们在此无法一一列举。下表列出了网页测试所需的基本命令。在键盘快捷键中，“VO”代表“旁白修饰键”。",
+        "text_hash": "52b4644bd93a9ab885c96d7a74b9added7f8669fb6828402dffb259d10fdbe43",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_765bebe28ace7717e1d328a3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "常见的旁白快捷键",
+        "text_hash": "278e701dc98f70b21f657bc90a0757fbe3f7c7c3e8465e0844b2d7f990c61e07",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bd248cd49b073820bec231ba",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "快捷键\n       描述",
+        "text_hash": "0744a54ff345fefb7298e31f70cd58b46cc08a3fe1392d6d72405b4e7942633b",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5cc58eadc2bad3a6db560318",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO + 光标键\n       上/下/左/右移动 VO 光标。",
+        "text_hash": "638ab41a2556583adc125badf4b58b924f500bdfc2e631ef1586e22006ca0005",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fdb14bfda6870e567b1a0634",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO + 空格键",
+        "text_hash": "c4797c9a6d1238dfb57f39f9cd4cd1727430396e3f67048af7cc834049ccaf2f",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6f87210c189b1ced5d22592c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "选择/激活由 VO 光标高亮显示的项目。这包括在“转子”中选中的项目（见下文）。",
+        "text_hash": "1d85783077532b6fba926976865fa80d877ebe16fbb640a8514bbcd69aeb322f",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3fcf07cae99bc44136623bb6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO +  Shift  + 下光标键",
+        "text_hash": "a5702124a4d5f14c77bc61d781664d8244b0fe90593200511788f337cb3f359a",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_37b482c3d2509c06a866d102",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "进入一组对象（例如 HTML 表格或表单）。进入该组后，可以像往常一样使用上述命令在组内移动并选择对象。",
+        "text_hash": "3d2252c87e68ce32563bfb7291375420c14ecbe770d6f405b8cc69c1ce5ff29c",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f1ff97bc8dd2f925e20630ee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO +  Shift  + 上光标键\n       移出所在的组。",
+        "text_hash": "b9243117865086240b2d08b812cbe2488a451bb5eda4e97bab832d35e50e84a9",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1a88071fa435200f20dde9a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO +  C\n       （在表格内时）读取当前列的表头。",
+        "text_hash": "149f549aaa41d8db23612581a3dc0ac1394f4f44b534c9f34432359f2652d6ce",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8f19ee770469e9580bbea509",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO +  R\n       （在表格内时）读取当前行的表头。",
+        "text_hash": "aa0ad732d7222e17e9b83cd106ab5afc2ca9a9024a5ef227891d8355cf3259b9",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4ca974c652640e765c179a03",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO +  C  +  C （连续按两次 C 键）\n       （在表格内时）读取当前列的全部内容，包括表头。",
+        "text_hash": "cd46acfb4c286a9c850259be5ac2f0a46f29e53837b91ff72afc7c4674cb0e96",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9074ab4a419821128fe4f29f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO +  R  +  R （连续按两次 R 键）\n       （在表格内时）读取当前行的全部内容，包括表头。",
+        "text_hash": "b7252aa1ed03d2bc6d8f257dd14bf15bbe2b79e418dfa62a063ed2135c7960f9",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4db7686fa1c58a075034fbf8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO + 左光标键、VO + 右光标键\n       （在某些水平排列的选项中，例如日期选择器）在选项之间切换。",
+        "text_hash": "6456175c49d0d73bd08f9e85e32a1b35324aa9815893881c461c156973b07f2d",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_37ddc360b361068750cf7669",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO + 上光标键、VO + 下光标键\n       （在某些水平排列的选项中，例如日期选择器）更改当前选项。",
+        "text_hash": "c94fe6913527419ece8ac609505ae5f99405a463317bda1acf45c76f7efef50b",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1e4dc29b4b56ce1278c81aef",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO +  U\n       打开“转子”，其中会显示标题、链接、表单控件等的列表，便于导航。",
+        "text_hash": "a2cac3a45f02295edd91cb1fece23f4358d79bc1533bd773863216a89b7b1c9a",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b168852830da3635329365b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO + 左光标键、VO + 右光标键\n       （在“转子”中时）在“转子”中可用的不同列表之间切换。",
+        "text_hash": "0f3a684ff21977d856e606d828e728e5721ea0bf5534b13321ef8af58c032595",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_927edb894885322176f34e58",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO + 上光标键、VO + 下光标键\n       （在“转子”中时）在当前“转子”列表中的不同项之间切换。",
+        "text_hash": "e1c6f61746db6fe26e767a9f09e4f63e2b1b8d0b1dc9a0bd4889966f65dd60b9",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_be8f9f69ceb6edbf3b84ea75",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Esc\n       （在“转子”中时）退出“转子”。",
+        "text_hash": "613dd1f2943abf628757945b9bfc585dcf6c53ba3a5bd5e8d127a77bd65effba",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0e9f3c040ee3cf1d0c8ce8e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Ctrl\n       （当 VO 正在朗读时）暂停/恢复语音。",
+        "text_hash": "890d5e73f67dbbe2b972a69d7a0ee3bbe32a88bf8a01555df0761398ae69dfab",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_80e11f8ca1d767e066f1f6f0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO +  Z\n       重复语音的最后部分。",
+        "text_hash": "0252566b1777339c3ba800362686cfc0803f4b505a261b961f9beee261316c0b",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9311a0a3cb65d893f76e02c5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "VO +  D\n       进入 Mac 的 Dock，以便选择要运行的应用程序。",
+        "text_hash": "783000110868c97c4bbe1474d8708c73ff819fdda7b01bd70c7b169ac1771de7",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9ef15cd3301ac5f1ebe39b7a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些命令看起来很多，但习惯之后其实也没那么难，而且 VO 会定期提醒你在特定情况下该使用哪些命令。现在就试着用用 VO 吧；之后你可以继续尝试屏幕阅读器测试部分中的部分示例。",
+        "text_hash": "aeb9f28a3a6c7ac4a0926b5dd10f00a35d62e27d40b6a34c989cf373bcb48822",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_70f93f9b66ae4e382fae3904",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "NVDA",
+        "text_hash": "426219f2bc19829619cd8e71b51d7b93f6ad4b0634f74d3681a80f34d9162edb",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_cb61e493da5232486fa24725",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "NVDA 仅支持 Windows 系统，需要先安装该软件。",
+        "text_hash": "88ac2b4ccdaab0e849762eb0541ce4bd4aafb1663ee6bdace850864bd4d7f1d8",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9b6e47d3ece96c801fd41b3e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "从 nvaccess.org 下载 NVDA，然后进行安装。可以选择捐赠或免费下载；此外，在下载前还需要提供电子邮件地址。\n安装完成后，双击程序文件或快捷方式即可启动 NVDA，或者使用键盘快捷键  Ctrl  +  Alt  +  N 。启动后，你将看到 NVDA 欢迎对话框。在此可以从几个选项中进行选择，然后点击 _OK_ 按钮开始使用。",
+        "text_hash": "65e4c18fae6c664e406950bb306b09879129464846ccf72d35688eaf7bc1334d",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_44eb096a0d6ea5b89bd4cc1e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "此时，NVDA 将在你的计算机上处于活动状态。",
+        "text_hash": "dca7083737894764e5a7edee54ee2d849a565d08af6869177a797a0598e51f26",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5ded8050964f95dc029253ae",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用 NVDA 时，将频繁用到“NVDA 修饰键”——这是你需要在实际的 NVDA 键盘快捷键之外额外按下的键，才能使快捷键生效。NVDA 修饰键可以是  Insert （默认），也可以是  CapsLock （可在 NVDA 欢迎对话框中勾选第一个复选框后，在点击 _OK_ 之前进行选择）。",
+        "text_hash": "af719d4c3da5f41c95027187519e93b8309c18ea76127c384a321a99c5f1e9e9",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5b82aec95c039d1662fd0060",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n在突出显示当前位置和操作状态方面，NVDA 比旁白更为含蓄。当你在标题、列表等内容中滚动时，当前选中的项目通常会以一条细微的轮廓线进行高亮显示，但并非所有内容都会如此。如果完全迷失了方向，可以按 Ctrl + F5 刷新当前页面，然后从头开始。",
+        "text_hash": "d9f8b15d0f7c111e8d214d47e1f072a1e1be63914c897845320aee4557b2a874",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_fdead0d3b15e7155d315378c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "NVDA 拥有许多键盘命令，我们在此不会一一列举。下表列出了网页测试中所需的基本命令。在键盘快捷键中，“NVDA”表示“NVDA 修饰键”。",
+        "text_hash": "7b2a7fdd26b697d07da1e9f992dadb9db37b1d50f41a46a63b5fa31820afb4f4",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8ed9251f005c529d968ab829",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "常见的 NVDA 快捷键",
+        "text_hash": "1ba81961a59173bf9760660aadb27607329f7f18ddd69aaf78bb489099342890",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a2d4a680aadba47a2bb1e059",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "快捷键\n       描述",
+        "text_hash": "0744a54ff345fefb7298e31f70cd58b46cc08a3fe1392d6d72405b4e7942633b",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_81428cace9ef5e8b620710e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "NVDA +  Q\n       启动后再次按此快捷键可退出 NVDA。",
+        "text_hash": "746e11d94de1c223d2420eaa3bc06a65b0215754305334ed72b5caae21d1d975",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0faa7e585a18f98b427f4e9f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "NVDA + 上光标\n       朗读当前行。",
+        "text_hash": "4e1cbeb4e85ee8157fd20ab68300078290ddc2a748c8af7955d30bef7399c610",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e808bc33fdd6dfa4de82d9cf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "NVDA + 下光标\n       从当前位置开始连续朗读。",
+        "text_hash": "e563a5ede49bc8b4ea1f9730a33b56a193ebc0ea75b5f9c7cefbb11a98aa4eb5",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7014a0abc658c8558da0ead3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "上光标和下光标，或  Shift  +  Tab  和  Tab\n       移动到页面上的上一个/下一个项目并朗读它。",
+        "text_hash": "f410e660892a2538f711803030603f08aee2df9ae8b8b52f976f5e56699e4a19",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_221fb3584a79843ccef5b9e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "左光标和右光标\n       在当前项目内移动到上一个/下一个字符并朗读它。",
+        "text_hash": "038a359fbf8471a8052f64a6e815be53f69870e0fedd5033d45ac4f264870116",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8e0d66245375cafa4aea95f0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Shift  +  H  和  H\n       移动到上一个/下一个标题并朗读它。",
+        "text_hash": "57d2815d659525ee48323305e07667f10b12ca921dc29364c12f92156a1f1ac0",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0b5241b5bb0f2efcad69cbb6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Shift  +  K  和  K\n       移动到上一个/下一个链接并朗读它。",
+        "text_hash": "1bea09baad07b6092874b127ae5fee6feae87c5252fefd0c2f6b5905a7267b17",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9deef584e966ede0d9d15ba2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Shift  +  D  和  D",
+        "text_hash": "6cbce63bd7541914000779af58e79e3b688835683b2207c50c1b3cdb1757373c",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a210ee4988085410ca06e704",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "移动到上一个/下一个文档地标（例如  &lt;nav&gt; ）并朗读它。",
+        "text_hash": "205a726736735be3900f22474b08ac8166f499ce215331b0fc585bb21403a843",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1a4567dd839e866da18ccef9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Shift  +  1 – 6  和  1 – 6\n       移动到上一个/下一个标题（级别 1–6）并朗读它。",
+        "text_hash": "27990ff0fd096c08800efead717b55be77b7cd8a800baf176e82b3a66ea7cfa4",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_105d20dbffac051d70576ce6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Shift  +  F  和  F\n       移动到上一个/下一个表单输入框并将焦点移至其上。",
+        "text_hash": "aa497c3f901221838b23b4ade696fb026ff1853867050a39e36a9efe0137ed9d",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e00cb8affde0d231b0067f1f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Shift  +  T  和  T\n       移动到上一个/下一个数据表格并将焦点移至其上。",
+        "text_hash": "85345d214b8f0c48182f003ae8c165dbc092d7fdd3bf8b2f69c16bd402c00ba3",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9f3aa6625897131cfdf25a28",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Shift  +  B  和  B\n       移动到上一个/下一个按钮并朗读其标签。",
+        "text_hash": "3aaad2871ee58898c3d3565641235834a9fdd11d2d381be6455ad5fd07609595",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b9a0d2cf85accdc090f8403a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Shift  +  L  和  L\n       移动到上一个/下一个列表并朗读其第一个列表项。",
+        "text_hash": "fbc804ded8d34609b5146f79b22ebbb5d76d5a29b06b651c7dca1a96ba26f709",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_77fbe2b4a0c18bbb236d7f55",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Shift  +  I  和  I\n       移动到上一个/下一个列表项并朗读它。",
+        "text_hash": "6db3b133d5fd7cd9503eb06d0c61c253cc56f474243392d3aad9af98f71dbe76",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f1cfac04eb9d35400967b8fc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Enter / Return\n       （当选中链接、按钮或其他可激活项目时）激活该项目。",
+        "text_hash": "6dc850c4f82981a504bf7b46b827c32acf8fea60df61cf8b56a07e9f8b9bd7d5",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a3882176e6184cb5c5f931ff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "NVDA +  空格键\n       （当表单被选中时）进入表单以便选择各个项目，或如果已在表单内则退出表单。",
+        "text_hash": "536a4310fc3baf8c3cfa87265087c4090b6996956f0f3881e8bba0bef9119830",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a90051970f48f0adf86bbea6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Shift  +  Tab  和  Tab\n       （在表单内部时）在表单输入框之间移动。",
+        "text_hash": "2446b76ac16b95c223ec120b64b39650839c5fb618080ef9fa1da4d6ea4a72be",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1daa398a61390db9a6863859",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "上光标和下光标\n       （在表单内部时）更改表单输入的值（适用于选择框等控件）。",
+        "text_hash": "b20a82e2ae2ffbc27ed6b5d2711e06c68592e93d104eab1850a96fdeeb5955c1",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b558aabff329dbeba0d3c697",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "空格键\n       （在表单内部时）选中当前值。",
+        "text_hash": "e99755bb2cb8c5db33275e7faea2fab5abc3c0969a0d17ffa8f5b4a121d340eb",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ff077621a609b24de4480b3f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Ctrl  +  Alt  + 方向键\n       （当表格被选中时）在表格单元格之间移动。",
+        "text_hash": "2bc9091696f4a53f13a6ac552d538a8a36c9894aaac6e8f9e720a60798c1b7b4",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72306dd7d575f161b57bd12e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "屏幕阅读器测试",
+        "text_hash": "693bdda9818e8a579f13b5fa6193ec993f28ddc6a363f2b87466b76bfd8549ec",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ab7ebd4c658a6e5fb173f9a1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "既然已经习惯使用屏幕阅读器，我们希望你能利用它进行一些简单的无障碍测试，从而了解屏幕阅读器如何处理网页中设计合理与不合理的功能：",
+        "text_hash": "9da51ac4046a6f3d80ddcfbe3b46ac7cd4fdb5ad7f0a6c2ffa814795694e1fc7",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fd2ab4e72de9566f96d0642b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "查看 good-semantics.html，注意屏幕阅读器是如何识别标题并将其作为导航元素使用的。现在请查看 bad-semantics.html，注意屏幕阅读器无法获取任何此类信息。试想，当需要浏览一页非常长的文本时，这会多么令人烦恼。\n查看 good-links.html，注意这些链接在脱离上下文时（例如在旁白转子中）依然通顺易懂。而 bad-links.html 中的链接则并非如此——它们全都是简单的“点击此处”。\n查看 good-form.html，注意表单输入框是如何通过其标签进行描述的，因为我们添加了相应的  元素。而在 bad-form.html 中，这些输入框的标签却显示为“blank”之类的无用内容。\n查看我们的 punk-bands-complete.html 示例，你会发现屏幕阅读器能够将内容的行和列关联起来并一次性读出，这是因为我们正确定义了表格标题。而在 bad-table.html 中，所有单元格都无法建立任何关联。请注意，当页面上仅有一个表格时，NVDA 的行为似乎会略显异常；可以改用 WebAIM 的表格测试页面 进行测试。",
+        "text_hash": "8b64f74c0315b6354c934309167e54b60f331c53d87c2251c3883e7fe33022c5",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_7fc4234dae6aa0b35af05c94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "其他工具",
+        "text_hash": "da83883e170a28659a375dd4c28ce295d62b948db4ab6c84a7513910c593ed4f",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1a47d28c4de197240d1f4bb0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "屏幕阅读器是网页开发人员最常接触的辅助技术类型之一，但除此之外还有其他类型的辅助技术，了解用户可能使用哪些辅助技术来访问你的内容非常有用。本节对其中一些进行了概述。",
+        "text_hash": "b585ee7e47ac29ff2f68d81c34a4aa28a5c4b75754e75bfd220e8b38d72abaa4",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bd50c33232d75269e47dd018",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "大字键盘或盲文键盘",
+        "text_hash": "32bcb219e9fd7c8cda9e37e15742ce9d3c74b6b9e1780372efaf3eddb8e3ef64",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_277e2edfb18181e140f19470",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "可以购买专为视障用户或老年用户设计的大字键盘，以及专为盲人和重度视障人士设计的盲文键盘。",
+        "text_hash": "4212d1a07cf0438398d458eb72d156a1968e45aa1ea5541bf7bdbc13a26c1af3",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d0bd18590de84e4f554430ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "其他指针设备",
+        "text_hash": "fb0040df8504b187408397926809d43dd7feb865e3baead62e7d6413880997d2",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0a3f34e987af7d321e6ff9aa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "提到指针设备，鼠标无疑是最典型的例子，但还有专为不同类型活动障碍的用户设计的其他指针设备，以便他们更轻松地操作用户界面：",
+        "text_hash": "75294c17d367ede6f3003023bb1e494d083be01a1d019a8a852a931ed4ebf0eb",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a82a1275595629fdbbd2eb99",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "轨迹球：类似于倒置的鼠标，轨迹球由一个固定在桌面上的球体组成，通过滚动该球体来移动光标。与鼠标相比，它被认为更精准、更易于操作，特别是对于手部活动受限的人来说。\n操纵杆：一种通过移动控制杆来移动光标的设备。操纵杆的精准度虽不及轨迹球，但适用于各种身体障碍者，甚至包括重度残疾人士。\n触控板：大多数现代笔记本电脑都配备触控板（有时也称为轨迹板）——这是一种平坦的触觉传感器，允许你用手指移动光标，并像操作移动设备一样执行多指手势。对于未内置触控板的设备，可以购买外置触控板。有些人认为触控板比鼠标更精准。",
+        "text_hash": "26f4d353c4fee5661a654e224d6adb988788c53d548b5b1176b489625aee9cad",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_50bb4fe1bafa613a5e7c9ca9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "屏幕放大工具",
+        "text_hash": "66406376686401190f03af18232dfa8f4b5e7e7675c72d61e9605254d0eab6c4",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_7d6782f49a8e0f46c019b2c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "屏幕放大工具可为视力受限的用户提供设备屏幕的放大视图，使他们能够更轻松地理解和操作设备内容；此外，这些工具还提供其他功能，例如针对色盲用户的色彩调整，以及调整鼠标指针和文本光标的大小，使其更易于辨识。",
+        "text_hash": "872608a669dc01e7f5c6ab2c76b144ccb33afb24bb9cb1cf3729dace2f107f70",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5be51984d7eb235ba4239d39",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目前有软件和硬件两种类型的屏幕放大器可供选择：",
+        "text_hash": "c3faa903d6cd699ba30dca476fb321e00715cb16d1d26b673149c2a5488ea7b5",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_91f9ff9e3b59ea2ba33603e3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "大多数现代操作系统都内置了用于放大整个屏幕或部分屏幕的应用程序，例如 macOS 上的“Zoom”或 Windows 上的“放大镜”。这些应用程序通常还提供统一增大文字大小、鼠标光标大小等选项。此外，也有第三方软件可供选择。\n硬件屏幕放大器通常由一个独立屏幕组成，该屏幕放置在设备屏幕旁边或前方，将屏幕内容或其部分内容放大后投射出来。",
+        "text_hash": "2ddb8309cfad1b47ae019fd85d4e51b9d2955f7bfc661299663ef51e79878a71",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_637c83820d4202baed4febfa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "语音识别软件",
+        "text_hash": "119b8b272fc765152665039887f6dafed25a78a8296e1038573a6acdfbb25c96",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_424a91c92bc587269a343dbb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "语音识别软件允许通过语音下达指令来控制设备，以及/或口述电子邮件或文档的内容，由计算机代为输入文字。这对无法使用键盘或其他控制方式的人来说非常有用。",
+        "text_hash": "6e852f1b775019c99f4dcabd8a5a2c34bdc5fbf18b0fcfc9da26ed0005aa3de3",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_456f7762502846f0b8f63cad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现代操作系统已内置相关功能（例如 Mac 上的“语音输入”或 Windows 上的“语音访问”），此外还有各种第三方应用程序可供选择，从桌面应用到浏览器扩展应有尽有。",
+        "text_hash": "f53bbc8e2a120a4dd5c196730bae4e7f6bd072e259facbd3b412e84f592636e4",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1755de64ca9972df2322d8bc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开关控制",
+        "text_hash": "fc0dbfd40adf46dd6924f3540952715fe273598c3aaac35beea253aa4889061a",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_098ec2640aa7ec91b6a487c0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开关控制为行动能力极度受限或存在认知障碍的用户提供了一种与设备交互的机制。",
+        "text_hash": "8a96f3ad5ac9763af363169a3b4b7fd04ff3a8388a0e6bdd7e3bb1d3383f5b7e",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_06d4e836e151c2df1366eba2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开关控制的设置通常包括两个部分：",
+        "text_hash": "6584b39d5ed739cdb197a9a4a5830226641a2cca048e00ad031901d61625b600",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ee4170bd1e49083d9a3a119e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "用于激活设备上各项选项的物理开关或按钮。还可以将开关功能分配给设备上的常规按钮（例如音量控制键）或键盘上的按键。\n一种设备模式或第三方软件插件，用于使设备与开关或按钮控制兼容。例如，Android 系统中的“开关访问”模式，可循环显示不同情境下的各项选项（例如主屏幕上的应用），当滚动到所需选项时，即可通过按钮或开关进行选择。",
+        "text_hash": "da02a82bf0df028c172b1871b1c4ce325b75fe08e97e38f209e7eb1e7d73f6d2",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_a4e55d1560a70e950ad13660",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "无障碍规划",
+        "text_hash": "da2e0430615d3173d3490fd099d8d8b9bc9ff1196094117c14fd7a6278339af6",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_4e9c763e4337e17dab586591",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在每个项目启动之初，你就应该仔细考虑无障碍问题。确保在初期设计阶段就将可访问性纳入考量，这样你就可以：",
+        "text_hash": "93160c7ace62a3b4128e38dab41d46571e0c8a4d480bddc1844507a658488de6",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_775a17942354b2fc8ddb93ac",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "打好基础，例如采用良好的文档结构，并为图片提供替代文本。\n针对可能存在无障碍问题的功能，仔细考虑最佳解决方案。例如，音频和视频对某些人来说肯定无法访问，因此你应该提供替代方案，例如文字稿和字幕。\n避免后期出现代价高昂的错误。项目临近尾声时发现的问题，其修复所需的时间和成本往往远高于早期发现的问题。",
+        "text_hash": "692b200361f9d7838c3a31dc11cf88a238a8680e1957b00781a584bbb4837b02",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_d29e71202d9ef857a4f8252d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "用户测试",
+        "text_hash": "698e9a2f94a018584cd46dd4d4b1083b71a31e72d66307394d6530c965c68bd3",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_caa020ee7fe94740b520ba37",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "仅靠自动化工具无法确定网站上的无障碍问题。每个网站项目都需要制定一份用户测试策略，强烈建议你将一些无障碍用户群体纳入其中：",
+        "text_hash": "46e329cb63c1e04d6b92dfbaf38dd60a190697d76e006ca1ec3f86c326040ba5",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_63774a2ae2e2e3b4f2eda834",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "尽量邀请屏幕阅读器用户、仅使用键盘的用户、听力障碍用户、行动不便的用户等参与测试。\n让每个群体先对网站进行整体体验，从浏览首页和其他主要页面开始，并尝试一些核心功能。典型示例包括购买产品或进行预订。询问他们对网站的印象以及遇到的具体问题。\n接下来，请他们重点关注包含特定无障碍顾虑的功能或工作流程，例如复杂的表单控件或视频播放器。询问他们在用户体验方面觉得有哪些不足，以及希望看到哪些改进。",
+        "text_hash": "f7ad10d101f6075d7c7704cfe9038f6a40e92495e2ca5509411046abb0325880",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_7ad2ab4f6649a186aecf9577",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有些项目会有预算支付测试小组的费用，而有些项目则依赖无偿志愿者，甚至同事和朋友。",
+        "text_hash": "3f4581e7e4baa0d766f1c9f538bb4f2d6dab14120747d12cde005bc8e7844b53",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5f9097571c95add11f371bc2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "无障碍测试清单",
+        "text_hash": "845fa35d7069b344c2ff61f975cd4941e2150f9deb0c8d4f5cb080f65d4b194d",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_89528ff3e5d759bc4730b9b8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "以下列表提供了一个供你参考的无障碍测试清单，以确保你的项目已经执行了推荐的无障碍测试：",
+        "text_hash": "32aad7df9953e3017cd5ddddd5f53746e66a63ff8b52175813443867aa99aa86",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_269dfed44bcd04c1600b95d8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "确保你的 HTML 尽可能语义化正确。验证它是一个不错的开始，使用审计工具也是如此。\n检查在 CSS 关闭的情况下，你的内容是否仍然有意义。\n确保你的功能可通过键盘访问（参见尽可能使用语义化 UI 控件），使用 Tab、Return/Enter 等键进行测试。\n确保你的非文本内容都有替代文本。审计工具可帮助你发现此类问题。\n确保网站的颜色对比度可接受，使用合适的检查工具。\n确保隐藏内容可被屏幕阅读器识别。\n尽可能确保功能在不使用 JavaScript 的情况下也可用。\n适当使用 ARIA 来改善无障碍性。\n使用审计工具对你的网站进行测试。\n使用屏幕阅读器对其进行测试。\n在你网站的某个容易被找到的位置包含一份无障碍性政策/声明，说明你所做的工作。",
+        "text_hash": "eb463ca6d61f98396059c642f22565d2dc6046c70219c6c6d811d5422186fbde",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_0c5d9c8a0ded5f2e801e5f91",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_dc135a527e0edbeacc234af7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "希望本文能让你对可用于解决无障碍问题的工具，以及残障人士为访问网络所使用的辅助技术有所了解。",
+        "text_hash": "41763179c6a6e377d92919c7cec91c97f29fcca127884a79f2644e1e4bdd202d",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_39ce98a12dffc037b71bd9ea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在下一篇文章中，我们将探讨如何编写符合无障碍标准的 HTML。",
+        "text_hash": "e0d8fb9cc774e8093e0f8ad04de76696467e560c035b389344a7c0f2f8809f03",
+        "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_44de6e0d4e495009038adbdb",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。无障碍工具与辅助技术，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "无障碍工具与辅助技术，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/accessibility/tooling",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "无障碍工具与辅助技术"
+  },
+  "resource_id": "lr_4bb8f7ceb74c8d345ea0989c",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_0c1fd83d7e4806e13b938117",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "无障碍工具与辅助技术",
+    "text_hash": "a95e3b3a36e6a270f342f28a1d259bb6cdf568e04465f4ad27b45de0707e7ce2",
+    "variant_version_id": "lrzv_88ad0483733db95ba6b53e02"
+  },
+  "variant_id": "lrz_6992d82447d60b81ddb9c576",
+  "variant_version_id": "lrzv_88ad0483733db95ba6b53e02",
+  "visual_dependency": "helpful"
+}

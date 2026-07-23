@@ -83,3 +83,25 @@ test('CurriculumClient exposes trusted search and stable plan alignment routes',
         'https://api.example.com/api/v1/plans/generate-weekly-schedule'
     ])
 })
+
+test('CurriculumClient exposes learning-resource queries in both directions', async () => {
+    const calls: string[] = []
+    const client = new CurriculumClient({
+        baseUrl: 'https://api.example.com',
+        fetch: async input => {
+            calls.push(String(input))
+            return new Response(JSON.stringify({ data: [], meta: { request_id: 'req_lr' } }), {
+                status: 200,
+                headers: { 'content-type': 'application/json' }
+            })
+        }
+    })
+    await client.listLearningResources({ subject: 'science', grade: 7, source: 'oak' })
+    await client.getLearningResource('lr_1234567890abcdef12345678', 'lrf_1234567890abcdef12345678')
+    await client.getLearningResourceStandards('lr_1234567890abcdef12345678', 'lrf_1234567890abcdef12345678')
+    await client.getStandardLearningResources('SC-D4-SC-001', { role: 'explain' })
+    assert.equal(calls[0], 'https://api.example.com/api/v1/learning-resources?subject=science&grade=7&source=oak')
+    assert.equal(calls[1], 'https://api.example.com/api/v1/learning-resources/lr_1234567890abcdef12345678?fragment_id=lrf_1234567890abcdef12345678')
+    assert.equal(calls[2], 'https://api.example.com/api/v1/learning-resources/lr_1234567890abcdef12345678/standards?fragment_id=lrf_1234567890abcdef12345678')
+    assert.equal(calls[3], 'https://api.example.com/api/v1/standards/SC-D4-SC-001/learning-resources?role=explain')
+})

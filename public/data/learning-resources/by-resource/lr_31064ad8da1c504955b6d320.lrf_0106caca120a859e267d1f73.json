@@ -1,0 +1,109 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_be09c2677043d6ea18c83659",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让角色跳跃",
+        "text_hash": "8d41de91dc964284b94ccbaf3f92c60c261ea71fc4dd8466dd3d93f9a6bdeb60",
+        "variant_version_id": "lrzv_f40d76f6df22e368fb8ecb6c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b068bec472d5f8209243509b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让角色向上跳起，然后落回同一个位置。",
+        "text_hash": "ccbb791f8577a37a1f8e6a30af5e087e1ab104c9086c39e6eaa5cab8a36ff553",
+        "variant_version_id": "lrzv_f40d76f6df22e368fb8ecb6c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_941a05450c344ce7053f357c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n选择角色精灵。添加一个新脚本，使其在玩家按下空格键时向上滑行。\nGiga Walking 精灵。{:width=\"100px\" height=\"100px\" style=\"object-fit: contain;\"}\nblocks3\n+当按下 [space v] 键\n+在 (0.3) 秒内滑行到 x: (-100) y: (80)\n使用与角色起始位置相同的 x 位置。为跳跃最高点选择一个更高的 y 位置。示例角色从 x: -100, y: -70 开始，并跳到 y: 80。",
+        "text_hash": "c29048b17d6645a2ce50efa45d82f27c170f3ed93019f507557ec211a3432017",
+        "variant_version_id": "lrzv_f40d76f6df22e368fb8ecb6c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_fd4fdc0a530147435cc908db",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n添加另一个滑行积木，让角色落地。\nGiga Walking 精灵。{:width=\"100px\" height=\"100px\" style=\"object-fit: contain;\"}\nblocks3\n当按下 [space v] 键\n在 (0.3) 秒内滑行到 x: (-100) y: (80)\n+在 (0.7) 秒内滑行到 x: (-100) y: (-70)\n最终的 x 和 y 值必须与绿旗脚本中角色的起始位置相匹配。",
+        "text_hash": "a6a10c3f088dc4fb210f6914e71c11091395c08be226f8bcc230b340710a29a9",
+        "variant_version_id": "lrzv_f40d76f6df22e368fb8ecb6c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_e813a42ac2763529dc59eb8f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n**测试你的项目。** 按下空格键时，角色应该向上跳起并回落。",
+        "text_hash": "139bd4325946ec72b70255b2cb59b96558c76d904e02381608776b59e8a835b1",
+        "variant_version_id": "lrzv_f40d76f6df22e368fb8ecb6c"
+      },
+      "type": "quotation"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_f40d76f6df22e368fb8ecb6c"
+  },
+  "estimated_minutes": 45,
+  "fragment_id": "lrf_0106caca120a859e267d1f73",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": null,
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explore",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "简体中文翻译与结构化整理由 kebiao 完成。dino-jump，Raspberry Pi Foundation，CC BY-SA 4.0",
+    "attribution_text": "dino-jump，Raspberry Pi Foundation，CC BY-SA 4.0",
+    "canonical_url": "https://github.com/raspberrypilearning/dino-jump",
+    "license_id": "CC-BY-SA-4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source_revision": "org-snapshot-1784806353655",
+    "source_title": "Dino Jump"
+  },
+  "resource_id": "lr_31064ad8da1c504955b6d320",
+  "resource_type": "activity",
+  "resource_version_id": "lrv_24d0bbe5f33bfb26f2d96edb",
+  "source_id": "raspberry-pi-learning",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "恐龙跳跃",
+    "text_hash": "f0ff963a0a60f1547bdedf0d15ef1f862507a5ff8f89ca3957f353e574f017fc",
+    "variant_version_id": "lrzv_f40d76f6df22e368fb8ecb6c"
+  },
+  "variant_id": "lrz_781b5ed4dbabf225485256be",
+  "variant_version_id": "lrzv_f40d76f6df22e368fb8ecb6c",
+  "visual_dependency": "helpful"
+}

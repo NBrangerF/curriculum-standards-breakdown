@@ -1,0 +1,1261 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_2753a794cbba4cc72aff501d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "每种主流的 JavaScript 框架都有自己不同的方式更新 DOM、处理浏览器事件并为开发者提供愉快的使用体验，这篇文章将探索“四大”框架的主要特性，从较高的层次探讨框架的工作方式以及它们之间的区别。",
+        "text_hash": "06d842361565f11bc4d20a061c4bd956ea8b2b98f032767f8f693aaecfd9755f",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_685382cf266ca6704a185d0c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "预备条件：",
+        "text_hash": "069369e508ae5bc77a0b08b307d76492faf616fcd6ef4d3d67582aa4333bb255",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_87c8af87b610584133bc6e10",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "熟悉  HTML 、 CSS  和  JavaScript  语言的核心知识。",
+        "text_hash": "9453a2f0722a67f3f1634f89e6931b4782c6e5e911d3edecb823bc9719fae801",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_01332268e233500e00788b05",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：\n       了解框架主要代码的特性。",
+        "text_hash": "1999619f3c155fdeffb2a4817c926e75974d8264996abc13aa3a81328ea07edf",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_78f074fe038e7c6aab561623",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "领域特定语言",
+        "text_hash": "4726524c0ca2fac709fe2feb9b0aba20453df295c558b898a06e8bd2b19a6041",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_fa531b4fc989eb50d28e5fd9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本模块中讨论的所有框架都基于 JavaScript，并且都允许你使用领域特定语言（DSL）来构建应用程序。特别地，React 已经普及了使用 **JSX** 来编写其组件，而 Ember 则使用 **Handlebars**。与 HTML 不同，这些语言知道如何读取数据变量，并且此数据可用于简化编写 UI 的过程。",
+        "text_hash": "6c6f592a03145c1e67311e8936de810a3af3ac96c7a5770a57f9d8295fdfa6e1",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_38c60028e397031dacc33a8e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基于 Angular 框架的应用程序会大量地使用 **TypeScript**。TypeScript 不关心用户界面的编写，但它仍然是一种领域特定语言（DSL），而且与原生 JavaScript 有着很大的不同。",
+        "text_hash": "16edd083f137c8a79f69a12cf18c4c712309a3f4cb2fb8b115944ba64f42d85a",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6ff98cc388a0e293f3bd26ac",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "DSL 不能直接由浏览器解析；它们首先要被转换成 JavaScript 或 HTML。虽然转换在开发流程中是一个额外的步骤，但是框架通常会包含处理此步骤所需的工具，或者与该步骤相适应。虽然你可以不使用这些领域特定语言构建框架应用程序，但使用它们会简化你的开发过程，还能更容易地从这些框架的周边社区中找到帮助。",
+        "text_hash": "52fabe55f4972b660554b497211d8f2d2dfd862e0bfcef69f73ae17cf7b83ec2",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c764d965126a867f44afc919",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "JSX",
+        "text_hash": "32da9b7e410fa51d1b9b2578ce81064e4a3199d9af00128f658abd5cf4a0fe33",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_5d420cc7f89b8d61237ef6b9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "JSX 代表 JavaScript 和 XML，是 JavaScript 的扩展，为 JavaScript 环境带来了类似 HTML 的语法。它由 React 团队发明，用于 React 应用程序，但也可用于开发其他应用程序——例如 Vue 应用程序。",
+        "text_hash": "034c2354afa3f7cbf80b25de384b1827daa4ec354ee4d77bfda7e07e82870e86",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72180725fb458ccac6a85954",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这是一个简单的 JSX 示例：",
+        "text_hash": "5f957152bd3626b07efe5a9ecde83bae603914507bb57b5f6281b8c3748ea322",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2b2d279380b17617a5678ab0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst subject = \"World\";\nconst header = (",
+        "text_hash": "57d1e26dbd4c2aeab08274fd2163439344cb45e154abfd02a16e760405fbd159",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6c3a6d5d3e1f4cb25d8366c8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Hello, {subject}!",
+        "text_hash": "1d737854a79bb2f149d96980ba0a45432d6c984bb784f08cd70ce999a90871d4",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_843d6a16e22341d4fbaf7e0b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ");",
+        "text_hash": "9d8b2b5670d18da8a99f6152f7ee75558019cd106d8032bf7c1117bd37273e37",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1cf8b24aa16afb5bfc332134",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "小括号内的表达式表示一个 HTML   元素，里面还有一个   元素。第 4 行 subject 周围的花括号告诉应用程序要读取常量 subject 的值并将其插入到我们的   元素当中。",
+        "text_hash": "1024ef143ed84db59a33d99dd2319c533ffeaebd7791d78873e463a66463b4ce",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_874cd04dceb2b71954eb1903",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当与 React 一起使用时，上一个片段中的 JSX 将被编译成这样：",
+        "text_hash": "970cf575832837f4577d9eed33dc4cbda83a3246537b0ce5dffedad532a91841",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cf3d479b5c0dfbd906224dee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst subject = \"World\";\nconst header = React.createElement(\n  \"header\",\n  null,\n  React.createElement(\"h1\", null, \"Hello, \", subject, \"!\"),\n);",
+        "text_hash": "6b6f83b7b6b0fc4d9290b7ab0731083e1cb6a21a3dc33f25aa4fe9525d6640a7",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4ca24c8adb5fb6b989be755f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当最终被浏览器渲染时，上述片段将产生如下的 HTML 内容：",
+        "text_hash": "96cb102a28396a390f13f4f93b7aefa132cd81b774f784e107e1ea8b0a74e0ab",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b980e89a472a443199b2eca5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_31cce4ee4a8b1e9d4be58bfe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Hello, World!",
+        "text_hash": "dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c353a241f436f3e9cef72931",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Handlebars",
+        "text_hash": "b27088909ce924aefb3bde2ba4c51bfc30aaf5ba88f29e2690e6f986e5b5fd33",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_5ec0b03d9e49710d9e68b2b1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Handlebars 是一种简单的模板语言，虽然它并非仅可用于 Ember 应用程序，但它在 Ember 应用程序中被大量使用。Handlebars 代码类似于 HTML，但它可以选择从其他地方获取数据。这些数据可用于影响应用程序最终构建的 HTML。",
+        "text_hash": "3cc689f08200442ca873f2c7efe11eb4c86007972dc0e7382f63547e0b4e0a9a",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_caf1b25a384f4f1fc9975473",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "与 JSX 相似的是，Handlebars 使用花括号来注入变量的值。不相似的是，Handlebars 使用双花括号，而不是单花括号。",
+        "text_hash": "3828f492be8d3aae9e4c51facdcb3dfa44d4444e40f9a3da494d292b5313b0ab",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_56a0d7dedc1c0b57f18f3cc3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下面是一个简单的 Handlebars 示例：",
+        "text_hash": "8fbc2bdefe7890e31b248aeb661188520da6478bea310356bb92c4715f141cd3",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_08134ba5d4123750381a64fc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "给定以下 Handlebars 模板：",
+        "text_hash": "91fac2e9d821818ee585ed653135d5dfa91826b580ef1349156a83415044dc61",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b00ef45a7f289ac84b4e5a3b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7d389b287d98234523caf62b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Hello, \\!",
+        "text_hash": "d762f1f02cbaeb7eecad34a996607906282739a6d6e0abab45ef472f8d38f363",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_69414a2ec13abee9272929db",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "还有以下数据：",
+        "text_hash": "449f0d1ff66cf1f0f9263252316babae076d2086ea25215db6d97974ee9e1b60",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_06fc580c05636b292776df5d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\n{\n  subject: \"World\";\n}",
+        "text_hash": "64ea55e62e42794137e65ed3f0f75559b7750be4df7d63cd11acf5c9100eedcd",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_90003e1cf4a0b57e947c7f68",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Handlebars 将像这样构建 HTML：",
+        "text_hash": "e3097867015431bf64f4d24e6294b6844f797e960faba8922cd22a427896c994",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_01d867b2c5b155e8fc2824c0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_999b618eba631c59cd0a69cb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Hello, World!",
+        "text_hash": "dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7bc19748d1947b38ef7c025e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "TypeScript",
+        "text_hash": "ed0504f70a48ffe9ed17e7ddee02a72a9c8af602aee1f7ce11853975ce911733",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b881220978719b0913aeff8a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "TypeScript 是 JavaScript 的*超集*，这意味着它*扩展*了 JavaScript——所有 JavaScript 代码都是有效的 TypeScript 代码，但反之则不然。TypeScript 可以让开发者们“严格地”执行他们的代码。例如，要写一个函数 add()，它接受整数 a 和 b 并返回它们的总和。",
+        "text_hash": "60f082b4f324fccd659708ae3a994bfe8bce37afa42ecf0bf98593ede14b2fc7",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5cdf4b53504a7122c4e2304f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 JavaScript 中，可以这样编写：",
+        "text_hash": "24b8cc286a0ba59839bdb3791324d14c036c98204c7eb43de17a2953489657dc",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f638368779574174da8a335a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction add(a, b) {\n  return a + b;\n}",
+        "text_hash": "92791c5aea0c158fc2cdb494986fe52e8bdf3673d3530787f1c652be236e60de",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_57d4ff832d3fa0fe488cda0d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对于习惯 JavaScript 的人来说，这段代码非常简单明确，但它仍然可以更加清晰明确。JavaScript 允许我们使用 + 运算符将字符串连接在一起，所以，如果传入 add() 函数的 a 和 b 是字符串，这个函数在技术上仍然可以工作——但是它可能不会给你期望的结果。如果我们只想允许将数字传递给这个函数怎么办？可以使用 TypeScript：",
+        "text_hash": "6697837c74786c7e531ef6f40ec362f577a38ffc9cad8d3e3ad8fe47cdbfbfb3",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b17530307eafb9f45a4aec53",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction add(a: number, b: number) {\n  return a + b;\n}",
+        "text_hash": "58b45e08c08d3231b82e2ee2d5c758973ccb4c67a9e10c069fa115240c6187b5",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a992876e9a7efdf4d9a6fd9e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 a 和 b 后面的 : number 代码告诉 TypeScript a 和 b 都必须是数字。这样的话，当我们再次将字符串（例如 '2'）传入这个函数的时候，TypeScript 就会在编译期间报告错误，而我们将被迫修复这个错误。虽然可以编写自己的 JavaScript 来做到与 TypeScript 一样的效果，但是这会使我们的写的代码更加繁杂。让 TypeScript 为我们处理此类检查或许更有意义。",
+        "text_hash": "683322f5909e4ab36d9e1bf5f8ea637c8b0070e1838f78880249b5427e66e0e4",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_65b3c920a01676ebd3d708fc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "编写组件",
+        "text_hash": "16272b988dd9256f894ad7a0a305540c8e5c038a90c6d5d067bbf767a190a9b2",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_64dc4042a01c87b1669c4ba5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如前一章所述，大多数框架都有某种组件模型。React 组件可以使用 JSX 编写，Ember 组件可以使用 Handlebars 编写，Angular 和 Vue 组件可以使用模板语法轻松地扩展 HTML。",
+        "text_hash": "91b2f8acbddcd863a03f0dbcc6e8b5806d9b947dfec721391b3526ea3ec75603",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cace59de90907229a7b05ebc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "不管框架的作者们对于如何编写组件的看法有多么不同，每个框架的组件都提供了一种方法来描述组件可能需要的外部属性、组件应该管理的内部状态以及用户在组件上可以触发的事件。",
+        "text_hash": "52f82dbb522e3396471521c804dea671fad1b6dcf2046586a8453b3c51580692",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_71fa436c60fffdfd617bd0ef",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本节其余部分的代码片段将使用 React 作为示例，并使用 JSX 编写其组件。",
+        "text_hash": "e73da654fae73b10dcc48abca985b24da11dd6728aca7ddf8060c8f370fbe651",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3bc80d853aa049d4f2b970f5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "属性",
+        "text_hash": "86de52d178203799951d818b1d3af85f13288de66bf2b0373cc21f53b1e42ff4",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1e3d11a646648b490823df4d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "属性（**props**）是渲染组件所需要的外部数据。假设你正在为一个在线杂志建立网站，你需要确保每一个撰稿人都能得到他们工作的荣誉。你可能会创建一个 AuthorCredit 组件，与每篇文章一起使用。这个组件需要显示作者的头像和关于他们的简短的介绍。为了知道渲染什么样的图片，打印什么样的介绍，AuthorCredit 需要接受一些属性。",
+        "text_hash": "897d87d1022c3fbb487b79f1f6b1d311401ac0a2b3d4ab69f48f77b7e63d7fff",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e8f5210d38ed53d3e5cbe416",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个 AuthorCredit 组件的 React 写法可能看起来像这样：",
+        "text_hash": "f02255d330866bc14d9729c82ee3e6eaa53c07fd650c1a278a84a44b44d147b1",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4b0f6dcb9ae81ade7bcb3ce4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction AuthorCredit(props) {\n  return (",
+        "text_hash": "381b367d52eff02e795d61a5fd8adbb630fa53065ff4f1bba996f8a1956c01b5",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_36a803315da53edcdba2df19",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "{props.byline}",
+        "text_hash": "42e23474f3b8c5cea225d595cce238adba270f416f1abc1d0446a054b0021319",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7aea79e9013b1b221d7b3972",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ");\n}",
+        "text_hash": "a2d0828ab6e1f1583be4e2374894bd3199c33ead09388dd551c177aa90b2214b",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_76d92557626c7948e87e2204",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "{props.src}、{props.alt} 和 {props.byline} 代表我们将插入组件中属性的位置。为了渲染这个组件，我们会在我们想要渲染它的地方（可能是在另一个组件里面）写下这样的代码：",
+        "text_hash": "e56589887263d059e91cc6d3a45f9b44941d120ee27f27d372c9a62da5a81fda",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_35fcf99983b6e073d9bb79e2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js",
+        "text_hash": "16cedf80ade01c62bdd1ae931d0492330c0b62bf294c08c095ce2fab21a9298d",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e875686140ec788ca74d6953",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这将最终在浏览器中呈现以下   元素，其结构由 AuthorCredit 组件定义，其内容由 AuthorCredit 组件调用中的 props 定义：",
+        "text_hash": "3260ca76761c0eaefaa376befaca61285cd4ce0e40f2bc8a658b5e07aef6ed0e",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a2eab229f5ad4a9a47f9b979",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4b43406d886e3b789b330476",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Zelda Schiff is editor-in-chief of the Library Times.",
+        "text_hash": "1a6173e8d26a45b321cab9b19b8830e09e55a660ff103cc4848eabbf726cd5c1",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_58ab306ceb9ca5157d302bbf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "状态",
+        "text_hash": "6320b4a8722a851fb99566e4eac1cfd4b93bc684b3a33d9f5cae37a116b8c734",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_c267fcb8b7a1b75c55487f16",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们在上一章谈到了**状态**的概念，强大的状态处理机制是高效框架的关键，每个组件都可能有需要控制其状态的数据。只要组件还在使用，这种状态就会以某种方式持续存在。像属性一样，状态可以用来影响组件的渲染方式。",
+        "text_hash": "fb4c8671216e921de34d280ccf29734990ae4c5a40d62aff299552c1dc9791b4",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a55568e352b60a5ac162229c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "作为一个示例，考虑一个计算它被点击了多少次的按钮。这个组件应该负责跟踪自己的 _count_ 状态，可以这样写：",
+        "text_hash": "c1ca4b046b4cd1cb6941707ae5f417cfa9f20a0b1fceff6bd6296e6eeade20b0",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_78773e365832af13d738b2a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction CounterButton() {\n  const [count] = useState(0);\n  return  Clicked {count} times ;\n}",
+        "text_hash": "197c774ea0002f3076ce19e6a2c87d04d2d907049cff4e368da57c4764644f40",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e9443bae2b4535991df6e626",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "useState() 是一种 **React 钩子**，根据给定初始值，跟踪其更新时的变化。代码最初在浏览器会渲染成下面这样：",
+        "text_hash": "da29c836a63ac2ef0fe14a09918950f46829fb48fe2150adad5248daa418a181",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6d3a3621ebfb9f272ccfb7e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Clicked 0 times",
+        "text_hash": "0fdecfcd18fe98a321f56aa2e219c210e4b6f1442d9468a828f99780a287f549",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6806c7bc3e3ca535ab2d2675",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "useState() 调用会在整个应用中全程稳定跟踪 count 的值，你不需要再自行撰写代码处理这些。",
+        "text_hash": "8662617cd57353d23a2576c85a85ac9245bdbe9ea08f532f5feef5442069c126",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_00281ba22836950e8351fdde",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "事件",
+        "text_hash": "c560201b331c54435b445baebe03b8922d6ef6a80065411ed3f379eb8bef9848",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d6a743feab2a6b872732842f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了实现交互性，组件需要对浏览器事件做出响应，这样我们的应用程序才能对用户做出响应。每个框架都为监听浏览器事件提供了自己的语法，这些语法参考了相应的浏览器原生事件的名称。",
+        "text_hash": "dfc3ad8545c9770614e93382b577a7ee678e5311c719f2835830875a6f549173",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_90cf14d7a8e4a41568cdff5c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 React 中，监听 click 事件需要一个特殊的属性 onClick。让我们更新上述 CounterButton 代码，允许它为每次点击计数：",
+        "text_hash": "b812cd39d8a692daffd0e51df8ecca5e6d658f423c1a250689cb1f3a3b93521a",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b6c9ba042438acf38bdf9c74",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction CounterButton() {\n  const [count, setCount] = useState(0);\n  return (\n      setCount(count + 1)}>Clicked {count} times\n  );\n}",
+        "text_hash": "e750d2e42fb52facea34e8e049d9d22c4f16e3161074a92d1757aade377bf966",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c6b31127850af271c4835897",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在这个版本中，我们使用额外的 useState() 功能来创建一个特殊的 setCount() 函数，我们可以调用它来更新 count 的值。我们在第 4 行调用这个函数，并将 count 设置为其当前值加 1。",
+        "text_hash": "0a54135721262e1a9ca388b108d566518daca2a26b3fe93a881a20e56815c1a5",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_00ec12b497a13ca8b64231db",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为组件添加样式",
+        "text_hash": "750b8db0b11e032ed44121222ad18dc650be9cc51829c25f2963abbb11aa5d3c",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_06ebba1ce7705b5e892db430",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "每个框架都提供了一种为你的组件或整个应用程序定义样式的方法。尽管每个框架定义组件样式的方法略有不同，但它们都给了你多种方式。通过添加一些辅助模块，你可以用 Sass 或 Less 来为你的框架应用程序设计样式，或者用 PostCSS 来转译你的 CSS 样式表。",
+        "text_hash": "d56e6e9a6c7be034b5d660396af6211f853d1402dae2873f5a4429ec7a0090bd",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9236f72e35c0fc1d38834178",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "处理依赖",
+        "text_hash": "cbeedaf27400d5bf4f3ff5948165ac59045d49d057423aeaa366968c8333a958",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_579576725c1fff133b6f8b93",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "所有主要的框架都提供了处理依赖关系的机制——在其他组件内使用组件，有时还会涉及到多层次。与其他功能一样，不同框架的确切机制会有所不同，但最终结果是一样的。组件倾向于使用标准的 JavaScript 模块语法将组件导入其他组件，或者至少是类似的东西。",
+        "text_hash": "c10c14572cb0d2926febaf8267bbe6ae11994f4aa136064d54dd57fc788671f2",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a181347c5a11fa4d6fa9ec54",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "组件嵌套",
+        "text_hash": "f019dc69ef1cacc9997e6713a1cd7a39588e81c73543280a68f534812cd53241",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d80bbafd089d62c494ce1913",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基于组件的用户界面架构的一个关键好处是，组件可以被组合在一起。就像你可以把 HTML 标签写在彼此里面来建立一个网站一样，你可以在其他组件里面使用组件来建立一个网络应用。每个框架都允许你编写利用（并因此依赖）其他组件的组件。",
+        "text_hash": "8fa160623e5d341ebdda91ebb08c731200ada029cba9e6647efb4b36c25887f5",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f4a1be360974f0a8cea1aa50",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "例如，我们的 AuthorCredit React 组件可能被用于 Article 组件中。这意味着 Article 需要导入 AuthorCredit。",
+        "text_hash": "889e61d21b409dc8e15e20a0542ffb75f9735a583523f021f9902395d6d9ac98",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6cb7ad51aa3de74cb63c554b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nimport AuthorCredit from \"./components/AuthorCredit\";",
+        "text_hash": "92c2870e70caa71a542ea591d56016761e194f9f84430d1087161a71e7c13b93",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_164fefd509e32a9e90073867",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一旦完成导入，就可以在 Article 组件中使用 AuthorCredit 组件：",
+        "text_hash": "2eeff994cd53f46f900bf9fb5ffe1d720106e664c5f791dbe0dd9878bd2dd77d",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_060325f7dbc8ef58d732d3f4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\n// …",
+        "text_hash": "4fb89959b61431c9afe8d55e6c531e8a696d19fa4d4f26ac9347af9ed3d9ff91",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1d11daec1207838897ce4862",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "// …",
+        "text_hash": "2acd627eb8e8a3e8fb5c98ef23a10b6a8697107396ed2ca5168ae057d7c71f89",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_538dc4470ac9100881e7573f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "依赖注入",
+        "text_hash": "bf38f828e0b413177c248d5f20a04119c1f59a9546beff1eb7a2098ef75829fe",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_312ce8e7200a591c4cd6d393",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现实世界的应用往往涉及到多层次嵌套的组件结构。一个 AuthorCredit 组件嵌套了很多层，可能由于某些原因，需要来自我们应用程序根层的数据。",
+        "text_hash": "f370792dfddddced97599075b4be94d772ad308504508fcd8c48d610aadc223f",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e7872ce74c2b828d9b4b21ec",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "比方说，我们正在建立这样的杂志网站：",
+        "text_hash": "719d957d7ec1ca080414e8ec907ce86277949e5cf738182b572c37b39211f8af",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_41fa320879bb60d62f7554e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js",
+        "text_hash": "16cedf80ade01c62bdd1ae931d0492330c0b62bf294c08c095ce2fab21a9298d",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_34a1696dc3fad53a643ee888",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们的 App 组件有 AuthorCredit 组件需要的数据。我们可以重写 Home 和 Article，让它们向下传递属性，但如果我们的数据的来源和目的地之间有很多层，这就会变得很繁琐。这也是不合理的：Home 和 Article 实际上没有使用作者的肖像或署名，但如果我们想把这些信息放到 AuthorCredit 中，我们需要改变 Home 和 Article 来适应它。",
+        "text_hash": "5e38fa9e026e7f18ddb3ff45da8af9c2d640148af7b89f2a77301b9266e85854",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_471d22332a21761fdafa88a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "通过许多层组件传递数据的问题被称为“属性穿透”，它对大型应用来说并不理想。",
+        "text_hash": "b23d486c24d9dc66a1b745e27732c8f634f2ac2e8001dd7d36b3ab5b202830f6",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d000c57b84f6d693c4e9c0e3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了规避属性穿透，框架提供了依赖注入的功能，这是一种将某些数据直接传递给需要它的组件的方法，而不需要通过中间的层次。每个框架都以不同的名称和方式来实现依赖注入，但效果最终是一样的。",
+        "text_hash": "8539681c319e0d738e8c63d5e44d2013948e38a45b584fa35992ed1c78671825",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_91b6fe62f52b2235264145f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 把这个过程称为依赖注入；Vue 有 provide() 和 inject() 组件方法；React 有一个 Context API；Ember 通过服务分享状态。",
+        "text_hash": "429b05e4f48d305505c613c1923806087686585f7415257b61bc73045fee346b",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fa5f8d33016e306365e45731",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "生命周期",
+        "text_hash": "9ebe1ab0d17f69dd928afeffe48f2e22be4cb80a669c4f1307894def12315f80",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_4598297ef3f7718234893b0e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在框架上下文中，一个组件的**生命周期**是一个组件从被追加到 DOM 然后被浏览器渲染（通常称为*挂载*）到从 DOM 中移除（通常称为*卸载*）所经历的一系列阶段的集合。每个框架对这些生命周期阶段的命名都不同，而且不是所有的框架都能让开发者访问相同的阶段。所有的框架都遵循相同的一般模型：它们允许开发者在组件*挂载*、*渲染*和*卸载*以及这之间的许多阶段执行某些动作。",
+        "text_hash": "bc3f99de5cc732e4cb42d70264326a55c07395ec715d43b9ba1f5905bebc6bdd",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8640de5783d36db6b347ff7b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "*渲染*阶段是最需要了解的，因为它在用户与应用程序交互时重复的次数最多。每当浏览器需要渲染一些新的东西时，它就会运行，无论这些新的信息是对浏览器中的内容进行补充、删除，还是对现有内容进行编辑。",
+        "text_hash": "5d742c241cd7c3886909819377b9d4d6266011a88433ef22bd068ebcdb5b97d2",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_896687741e8b237b90a5a038",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个 React 组件的生命周期图提供了对这个概念的总体概述。",
+        "text_hash": "3e3daff2362469b6c0c433002c8dc758d704ed9e97ecaf3037ca9a465af813be",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3f4720d67b60db1b0774027e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "渲染元素",
+        "text_hash": "5a0b59e1e8a70ce099f0b05d6a68426be430baba32659f18d90792f0024d3966",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b6768ded985b5f5a46d15494",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "就像生命周期一样，框架对如何渲染应用程序采取了不同但相似的方法。所有的框架都会跟踪浏览器 DOM 的当前渲染版本，并且每个框架都会对 DOM 在应用程序中的组件重新渲染时应该如何变化做出略有不同的决定。因为框架为你做出了这些决定，所以你通常不会自己与 DOM 交互。这种远离 DOM 的抽象比自己更新 DOM 更复杂、更耗费内存，但如果没有它，框架就不能让你以它们所熟知的声明性方式编程。",
+        "text_hash": "0713d7c61587a19a4836fea8896f3226f8465431fe65eccb7f5143b6616f0610",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_430cdcb9524f728fe6304096",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**虚拟 DOM** 是一种方法，此时关于浏览器的 DOM 信息被存储在 JavaScript 内存中。你的应用程序更新这个 DOM 副本，然后将其与“真正的”DOM（为你的用户实际渲染的 DOM）进行比较，以决定要渲染什么。应用程序建立一个“diff“来比较更新的虚拟 DOM 和当前渲染的 DOM 之间的差异，并使用该差异将更新应用到真实 DOM。React 和 Vue 都利用虚拟 DOM 模型，但它们建立“diff”或渲染应用的逻辑并不完全相同。",
+        "text_hash": "663d78844d59c838f82a542aebf743d0eadfa1e9657d31c07bb249f948b958cf",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f1aa99618d4347e0555e7bda",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以在 React 文档阅读到更多有关虚拟 DOM 的信息。",
+        "text_hash": "9919c16ad70fa8169335f2a0a173f33b7352c04dd97d472cde4e105fc46c32b3",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_af17d502665b3865de255943",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**增量式 DOM** 与虚拟 DOM 类似，它建立一个 DOM“diff”来决定渲染什么，但不同的是，它不在 JavaScript 内存中创建一个完整的 DOM 副本。它忽略了 DOM 中不需要被改变的部分。Angular 是本模块到目前为止讨论的唯一一个使用增量 DOM 的框架。",
+        "text_hash": "19d8a4380afc7ed6ad74c98d03ed658573d329a15139fab8e09080de03a05a79",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b69c2f2cb19b885b8d3ecb18",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以在 Auth0 博客阅读到更多有关增量式 DOM 的信息。",
+        "text_hash": "a5eaf6ef06af1a89e4b059356ba38cedf67bffe28d607aba87e079788a0b6ade",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e4fbe7a6ee512dc61be32ae2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**Glimmer VM** 是 Ember 独有的。它既不是虚拟 DOM，也不是增量 DOM；它是一个独立的过程，通过它，Ember 的模板被转换为一种“字节码”，比 JavaScript 更容易和更快地阅读。",
+        "text_hash": "4cee1da66c2ec47cbdc51b8cc5214271f202d8f727fc963a30e82e2ec4a6bddb",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dc2dc27021184599f56ab468",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "路由",
+        "text_hash": "b9670c85a4ab939eebef4821f4f6dad33dd7bc541eea594653d1fdd2ba1ee733",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ec7b631ee232f87218022d7b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "正如前一章中提到的，路由是网络体验的一个重要部分。为了避免在具有大量视图的足够复杂的应用程序中出现破碎的体验，本模块中涉及的每个框架都提供了一个库（或多个库），帮助开发人员在其应用程序中实现客户端路由。",
+        "text_hash": "d08a2da983a07c113cd2cfbbcb6d099d45d5723beff3ba30bc0a3f6af9b5a816",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ffef7c1b1f2dbed9ed779333",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "测试",
+        "text_hash": "6aa8f49cc992dfd75a114269ed26de0ad6d4e7d7a70d9c8afb3d7a57a88a73ed",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a601bd2d28f8c353efdd4180",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "所有的应用程序都受益于覆盖测试，以确保你的软件继续以你期望的方式运行，Web 应用程序也不例外。每个框架的生态系统都提供工具，以促进测试的编写。测试工具并没有内置于框架本身，但用于生成框架应用程序的命令行界面工具使你能够访问适当的测试工具。",
+        "text_hash": "fd6a9aca1169592076b9e89c8cfbc842d424e5f1ad192933d9ffb3675bc93112",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6bf1f4c9f047fdfa4abed3f0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "每个框架在其生态系统中都有广泛的工具，具有单元和集成测试的能力。",
+        "text_hash": "b1ab78d2c743b32db651bc13042a95866e8028254d3cfd4191a7c4989d5a588a",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c601a295ce91fbd037ae4fd9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Testing Library 是为许多 JavaScript 环境准备的一套测试工具，包括 React、Vue 和 Angular。Ember 文档涵盖了 Ember 应用的测试。",
+        "text_hash": "070b86b486c97490ceb1fffd410483abdae53152a0e53ac8abe308d4bbf319cf",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4bbb1961937f09b9a209af9f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这是在 React 测试库的帮助下为我们的 CounterButton 写的一个快速测试。它测试了一些东西，比如按钮的存在，以及按钮在被点击 0 次、1 次和 2 次后是否显示了正确的文本：",
+        "text_hash": "6bda55909209d99e8c0afd9e3bd7a5a227dba9841b8d51a2f3b43cf4b7196199",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_df4b2c4338416c62ad0248c7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nimport React from \"react\";\nimport { render, fireEvent } from \"@testing-library/react\";\nimport \"@testing-library/jest-dom/extend-expect\";",
+        "text_hash": "2959c7c5a549ef744c07bfabf2fc517839e7c31a9b413fcf05232e4f00e7cd04",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_476efe47b881555c08bd249d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "import CounterButton from \"./CounterButton\";",
+        "text_hash": "154bef501d7c7b506e70468bd4f2d3b2f30ece1ce7579c092e9b51413a7445e5",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8c5aa05e25fab931d1ba6d4a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "it(\"Renders a semantic button with an initial state of 0\", () => {\n  const { getByRole } = render( );\n  const btn = getByRole(\"button\");\n  expect(btn).toBeInTheDocument();\n  expect(btn).toHaveTextContent(\"Clicked 0 times\");\n});",
+        "text_hash": "729642a8fc4d30908529886777a10869f46a9242a56d1242fbd555e9c3230e6d",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c80d7b8673a13cb746987696",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "it(\"Increments the count when clicked\", () => {\n  const { getByRole } = render( );\n  const btn = getByRole(\"button\");\n  fireEvent.click(btn);\n  expect(btn).toHaveTextContent(\"Clicked 1 times\");\n  fireEvent.click(btn);\n  expect(btn).toHaveTextContent(\"Clicked 2 times\");\n});",
+        "text_hash": "e47e7b6483734bf6be0f78ed35cbcdec425c4209e5e48d704e823489c851a616",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5464a62c9af167950d599177",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_67a4e3318ee8b3cdd7ef475a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在，你应该对你在使用框架创建应用程序时要使用的实际语言、功能和工具有了更多的了解。我相信你一定很想去做一些编码工作，这就是你接下来要做的事情！在这一点上，你可以选择你想先开始学习哪个框架：",
+        "text_hash": "8f5d71740f650aa8a8d2cf4068f8699adadb4f5c98abad6cdc16e7db8ee9861e",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_40bea59b27e82b8124a13d64",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "React\nEmber\nVue\nSvelte\nAngular",
+        "text_hash": "e6508156734629ed4925aaa27fb74943808e7776a3a83f3c914006ee92050bf0",
+        "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+      },
+      "type": "unordered_list"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_a32ab5290928fa26cc9162ec",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。框架的主要特性，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "框架的主要特性，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/frameworks-libraries/main-features",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "框架的主要特性"
+  },
+  "resource_id": "lr_816669c8a969cfa59f615499",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_95ce4d2658476cc066be2be9",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "框架的主要特性",
+    "text_hash": "f4b80710d817e26230739f2198c8bb723254f830f92b25efee0edd7dec204440",
+    "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5"
+  },
+  "variant_id": "lrz_c64af4509cfdabb557b61a38",
+  "variant_version_id": "lrzv_62f6f3c7b031bdf8c48072c5",
+  "visual_dependency": "helpful"
+}

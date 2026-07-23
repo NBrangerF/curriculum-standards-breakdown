@@ -2,6 +2,7 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { buildTrustProjection, projectTrustedRecord } from './lib/trust-metadata.mjs'
+import { buildLearningResourcePublicData } from './learning-resources/build-public-data.mjs'
 
 const PUBLIC_STANDARD_FIELDS = [
     'code', 'subject', 'subject_slug', 'domain', 'subdomain', 'display_subcategory', 'standard_title',
@@ -216,11 +217,17 @@ dataVersion.source_of_truth = {
 dataVersion.public_projection = 'public_v2_capability_graph_sidecar'
 writeJson(join(outputRoot, 'data_version.json'), dataVersion)
 
+const learningResources = buildLearningResourcePublicData({
+    dataRoot: join(resolve(args.source, '..'), 'learning-resources'),
+    outputRoot: join(outputRoot, 'learning-resources')
+})
+
 console.log(JSON.stringify({
     source: sourceRoot,
     output: outputRoot,
     records: Object.keys(codeToSubject).length,
     public_fields: publicColumns.size,
     aliases: aliasCandidates.size,
-    trust: trustProjection.summary
+    trust: trustProjection.summary,
+    learning_resources: learningResources
 }, null, 2))

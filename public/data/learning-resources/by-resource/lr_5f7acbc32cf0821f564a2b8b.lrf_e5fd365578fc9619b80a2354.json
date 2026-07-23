@@ -1,0 +1,1382 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_0b8fd8dd5cbe7b36471785ef",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当 CSS 和 JavaScript 使用得当，很有可能改善 Web 访问体验，相反如果滥用的话，则会在极大程度上损害无障碍。本文概述了一些应该被考虑的 CSS 和 JavaScript 的最佳实践，这些实践保证了即使是复杂的内容也可以尽可能的容易被访问。",
+        "text_hash": "df02a12e5f222584f9b7d8e7e930a22082581dd3c776d160db361f1ed9fe4c5c",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_abe88a794bf93c9cad839c6e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "准备：",
+        "text_hash": "d6e97a563d1d65c29a9032bc426ca233113c23108d8b86162ff0f7cf0ccd55ed",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6ba7a49122e706bc3d42ba18",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基本的计算机读写能力，对 HTML、CSS 和 JavaScript 的基本理解，以及对 无障碍 的理解。",
+        "text_hash": "df7917144e303b24e2a33ce8536506dca600114fc0f851f5546639d930f6ab0c",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0ec27723152b7e6207d9d418",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：",
+        "text_hash": "4d2d25a2888d3e7c13db6b2e275e0179ab434807992666123db412d5f31e27a0",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d58643ffecaec3f457283a86",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "熟悉在 Web 文档中适当地使用 CSS 和 JavaScript，以最大限度地提高无障碍，并且不损害它。",
+        "text_hash": "0f9a3ddeee08ec196dead8245604f71ed189c83317980fdb234cc2f4d0076639",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_89b2a9ee2c0905be04fc1346",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS 和 JavaScript 也是无障碍的吗？",
+        "text_hash": "5c5e359e62966d78fec3466b61e6ff31f0cc65047d0eb10bee44f31e5c25c198",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_3983bc1c78928c4e4cfad59b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS 和 JavaScript 对无障碍直接的重要性都不如 HTML，但是它们仍然能够帮助或破坏无障碍，这取决于它们是如何被使用的。换句话说，重要的是考虑一些最佳实践建议，以确保使用 CSS 和 JavaScript 不会破坏文档的无障碍。",
+        "text_hash": "75db7dc9a96c9c34407e04c697b092afed3278a50f950119d724986f8547836e",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a1f58268ddc3da64936d46a8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS",
+        "text_hash": "b581e46042cbfbb0af4542a858079a84fd3ae98e5563f615710191d5b3597680",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_bc9c4c9c9245435167fe981c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们从 CSS 开始吧！",
+        "text_hash": "99eb132582cc5fccb0472e8d082ee548ce5e7cf97b77b2d541c0daa5453af8c4",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e865db01017c81a720438cd9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "正确的语义和用户期望",
+        "text_hash": "a2c6cf726705678bb1e603d954deefa40fa1277dbd92ae443cf0ae2282c12bae",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_789c2f4f9d15502479943754",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "可以使用 CSS 使任何 HTML 元素看起来像任何东西，但这并不意味着你应该这样做。正如我们经常提到的 HTML：辅助功能的良好基础，你应该尽可能为作业（job）使用适当的语义元素。如果不这样做，它可能会对每个人造成混乱和可用性问题，尤其是对残障用户。使用正确的语义与用户期望有很大的帮助——元素的外观和功能会根据它们的功能进行某些方式的显示，而且用户期望这些常见的约定。",
+        "text_hash": "30c3909e8ffbfea6b10ad222497c8db57884837cc87d79a48352db79e4f8b44a",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fdeb3cdfbf9de013e486c4c0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "例如，如果开发人员没有适当地使用标题元素标记内容，则屏幕阅读器用户无法通过标题元素导航页面。同样，如果对标题进行样式设置，则标题将失去其视觉目的，使其看起来不像标题。",
+        "text_hash": "7855545a91cb884202834d548d97fb61252c7b719ab9b118a9a600baa5291a45",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1fc2a8bf9873751b92c7d4d4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "经验法则是，你可以更新页面功能的样式以适应你的设计，但不要更改它太多，使其不再按预期的外观或活动。以下各节总结了要考虑的主要 HTML 功能。",
+        "text_hash": "5d1ea90e0a277169539d6c17c7fb74bb046224c825f1d444bab922745b0fd572",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_28ad4e1ab2aa9eb267f6bfb9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "“标准”的内容结构",
+        "text_hash": "56b4bccadb54c5c4650953231db67282878ec65b92aac108a5f216b5e153c79b",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f9533ea9a011d44491e6ffcd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "标题、段落、列表和页面的核心文本内容：",
+        "text_hash": "f902eee59123e83194509a220b24904dfc4ffb654783612ddc7b5f970d70b9fc",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_436da2179ede9909d2f346ac",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Heading",
+        "text_hash": "7ce80d415f8ccbd07da7d3140401c3aabfebee49dfb305616e1657fa2eca5dc4",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_29c8d31e9f0a445559af8f3c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Paragraph",
+        "text_hash": "c3b03dd28595bab26cafb9a1182c697ecd3179b8295b3e5b04aaea74573fa507",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a6650de8f3ebc78a91ba8295",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "My list\n   has two items.",
+        "text_hash": "a0a9c31cd9895d89f01c088068909f6b99e15c1150cb34a2b5a5637eeac0082a",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1be0b0b2f466514ab70ba904",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一些典型的 CSS 如下所示：",
+        "text_hash": "240b3edf04e8ac65741559bdb65a5cd1dd099723a14d238e772a549db97e8af5",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1dd8a5ab0b2524883c8bf2a5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nh1 {\n  font-size: 5rem;\n}",
+        "text_hash": "d0eb05d1ea7948038233985d2de068e3f97b4efa48d44bf3ca7d89f89c6c1bd7",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a079e6d617b3197ab7dc0c79",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p,\nli {\n  line-height: 1.5;\n  font-size: 1.6rem;\n}",
+        "text_hash": "c9fcf5c82231f21b3cf23374cd36cee3c7ce33de1d603dee2a4a95dde4995a1b",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b4700ebd737789cd3a0a3819",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你应该：",
+        "text_hash": "57ba72b2f247bec89457246de18e71b8034141d3f8f5b91ea0605459eef60aaa",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1848be324e301d6107d54e38",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "选择合理的字体大小、行高、字母间距等，使文本具有逻辑性、清晰性和阅读舒适性。\n确保标题从正文文本中脱颖而出，通常像默认样式一样大而粗壮。你的列表应类似于列表。\n文本颜色应与背景颜色形成良好对比。",
+        "text_hash": "25fa92ff0fc0c5f8c9d30d47007d16fda70ae81d6793c208da6e94c256872e55",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_eca4b372da0bbd934efb41f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有关详细信息，请参阅 HTML 文本基础知识和设置文本样式。",
+        "text_hash": "f7ed9e206d55ff9ebf0a844aacf06d508378da0740b39311785473336ab2ef43",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c41fea9552fdf434512cf2a2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "强调的文本",
+        "text_hash": "e443baded3168c0deb8626a4814d9965f70e7d6683ad53ce0d8b0da1621c40f3",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_7c2e00dad327d7093f7077ca",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "内联标记，赋予其包裹的文本特别强调：",
+        "text_hash": "059c855bdcc63c5c58a8986497452d9b53c7ff2f176edc8bd21e1b9659ce63e6",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3560c01b99b5f5221267a47b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n The water is  very hot .",
+        "text_hash": "5905ff3e52d4d1eea00be933c409af240bdaaea606c0684c0146355705c95144",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a858b82f340773ad4d84dc09",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Water droplets collecting on surfaces is called  condensation .",
+        "text_hash": "054bef9bd68ab483ec6a9bfe42795d0921df573c770d96e35e83d975cb3a47a1",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ca02401c60522b668e0607a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可能希望向强调的文本添加一些简单的颜色：",
+        "text_hash": "fc338b7f20c8f2e0c4f2395c89542cafb2ad26c4cf956e14581fd1e476bc32ec",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e3f52e24a5ee949c399d017d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nstrong,\nem {\n  color: #a60000;\n}",
+        "text_hash": "0d2d17fd62d25e62ff1f0dbd760de194ce7cd5e79ac5d0e9ab18360f824b80d7",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_db2150ce7e490947b482e3af",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是，你很少需要以任何显著的方式设置强调元素的样式。粗体和斜体文本的标准约定非常容易识别，更改样式可能会导致混淆。有关强调的更多信息，参见重点强调。",
+        "text_hash": "d3f15153c7fb9c6a84b47f5064f35c6f1b76592d1a7bffc7d44b089511131906",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7e4cca32d621b5a3eff872d5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "缩写",
+        "text_hash": "25c18a4122f968f89b9ae65b030e8ea50af6db2020f72d49a238d2925b58dab6",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1a3c27094b48ad234eaa83c7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "允许缩写、首字母缩略词或初始化与其扩展关联的元素：",
+        "text_hash": "5622b17458cca064120c974154f41fc5f52615c8ed481a851229f50e663bc762",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ff5174f685f1600f69412f91",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e6dacb7cac9f16026e92d55c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Web content is marked up using\n   HTML .",
+        "text_hash": "e4fb31d2ed7051f5f11d02d8a1f1c5bb8b5adcdc79d1040179eba7f42d4a4959",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8ad7fd75cb97e26d90c74e15",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "同样，你可能希望以某种简单方式设置样式：",
+        "text_hash": "8534dd78cc901e09d20f1100b5f963a7d6cd8626cf6e863d36d25b39e3729dd7",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d3e49f83764ecea8eb4fdb5e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nabbr {\n  color: #a60000;\n}",
+        "text_hash": "3a4623fb8a5fbe0b4b500259b0e0d16d4700b50696be5d44b88453382ef4251c",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8d2e22be6474672d1cc53eaa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "缩写的公认样式约定是虚线下划线，偏离这一原则明显是不明智的。有关缩写的更多，参见缩略语。",
+        "text_hash": "3cfa8f040acff1e2cab6044d3deaf16a95613f710895579a5942c51421e04907",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_84606188d59d5b6f680b2278",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "链接",
+        "text_hash": "305378ddd2b86b6099122790c1c703b06e8095662b6d8306ba31c2ab8602fb68",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d2ebf143c744f1d1ed83f5f5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "超链接——你到达新网站的方式：",
+        "text_hash": "be7079a85df96fb7a17476fd63e35083a77e1743e6b6b16cb6cf40df15341bd9",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5b97d450cd5635f02cc6c627",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Visit the  Mozilla homepage .",
+        "text_hash": "07e2cd457dea204e9f03cc8afe182d6281f92c891f6c4ab206c9b8362cc371ce",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_373b11bb5b5b4c97ed0852c9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一些非常简单的链接样式如下所示：",
+        "text_hash": "a81c8242b569d2ae2cf1dc1c0cabff09f867c4259a23c30b5dc8a42e4f8c3777",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_70a07e50b2b266f1c377083b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\na {\n  color: #ff0000;\n}",
+        "text_hash": "b8b12d2c9c2ec96330add4230424a7bf3df166c5a9c4dc7b9d8b696f4b81620a",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dbe746b211def9f59b2ad568",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "a:hover,\na:visited,\na:focus {\n  color: #a60000;\n  text-decoration: none;\n}",
+        "text_hash": "dd783199b1c08c0792bf1c87ed0a85d2325dc012b7f940f64e8023b6c66dfee8",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_daec944b99221cb8692fdc9a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "a:active {\n  color: #000000;\n  background-color: #a60000;\n}",
+        "text_hash": "d4bf029aed0c2cd52ca0770e489bbda60bb74679bf34c991c562d75a0dc5e6fb",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c992d53d8337039f32d09afa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "标准链接约定为下划线，标准状态为不同颜色（默认：蓝色），以前访问过链接时另一种颜色变化（默认：紫色），以及激活链接时的另一种颜色（默认：红色）。此外，当链接被鼠标悬停时，鼠标指针将变为指针图标，并且链接在聚焦（例如通过 tabbing）或激活时变成高亮。下图显示了 Firefox（虚线轮廓）和 Chrome（蓝色轮廓）中的高光：",
+        "text_hash": "323dacc66365220d3831146c7334c735a66befb10601b9c7aca176edda08ce02",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_04040284d7b03f8e68f9da08",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以使用链接样式进行创意，只要用户在与链接交互时不断提供反馈即可。当状态发生变化时，确实应该发生某些情况，并且不应删除指针光标或大纲——对于使用键盘控件的人来说，两者都是非常重要的辅助功能。",
+        "text_hash": "6a4a7c12a8583a5281c486c55887b121fb214ccf03b03e652547ff775af50c01",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d09650f8698ce434f3ed8474",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "表单元素",
+        "text_hash": "735b91a285e6696e1915aa2948189e80765d78cc2c9c16acff39c00cf3206c6b",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0a087b9894d995eb656b3767",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "允许用户将数据输入到网站的元素：",
+        "text_hash": "71794e8b648e74a420a014f55fc05b0c672963d4be23598115a61a6ef524c7c9",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_48f3909314b8eaeec6bc9f6a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_73332a85a4a60d4236bfb05f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Enter your name",
+        "text_hash": "0421de120444dad31b883893333d474e505557cf255c2afd5d86389247ab6094",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9efff4903fadba5e5051cd6a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以在我们的 form-css.html 示例中看到一些很好的示例 CSS（查看示例）。",
+        "text_hash": "c641c2d79c1cc68fa1da57787ca723d33fdca19eb246b0bec6dc8b7f373e8594",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_76457299ade8999973d660de",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你将为表单编写的大多数 CSS 将用于调整元素大小、排列标签和输入，以及让它们看起来整洁。",
+        "text_hash": "7d9409fbc183be95b0d73255652c32bdde35bfb246f9e9d3bc1aa878edbe5251",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f29e609eeea90dfea99dab2f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是，你不应过多偏离元素在聚焦时接收的预期视觉反馈表单，这与链接基本相同（见上文）。你可以设置焦点/悬停状态样式，使这种行为在浏览器中更加一致，或者更适合你的页面设计，但不要完全摆脱它——同样，人们依靠这些线索来帮助他们了解发生了什么。",
+        "text_hash": "5bd760facae435c283bdcb55b60a144704f8d4c628b149195b24f2bf657d65e6",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_63d06d729a40b6f0f824a57b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "表格",
+        "text_hash": "22d9e7c54b88cacdc223175acba5c30086d60437fa47c854f74d9153770e413d",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a028d846562ffb74494da30b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "用于显示表格数据的表。",
+        "text_hash": "958b18812f787f8dc7f8a9a6a863d8e35bea0b30a26b527371a015175524493b",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6ab9b27101fb6bb7a275a124",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以在 table-css.html 示例中看到表 HTML 和 CSS 的一个很好的简单示例（查看示例）。",
+        "text_hash": "b83ef893c154f5e90d546fb766e2a619fe1cb50312a09af32e9ebfc376580015",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2ae291d79b7fe007086009d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "表的 CSS 通常使表更适合你的设计，看起来不那么难看。最好确保表标题醒目（通常使用粗体），并使用斑马条带化使不同的行更易于解析。",
+        "text_hash": "49bab0970344554561bee7df69f921780fdfca7497ed2e68eba68ab516bb0c8b",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ee906f22430db34b6833d95a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "颜色和颜色对比度",
+        "text_hash": "1a4ae464e2b123e5ac025c5870cc7c097d74510c0cbb0641aa0379f8782b9568",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e99525408343c1e5356ad6fb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为网站选择配色方案时，请确保文本（前景）颜色与背景颜色对比度良好。你的设计可能看起来很酷，但如果有视觉障碍（如色盲）的人无法阅读你的内容，则设计就无一好可做。",
+        "text_hash": "b61b582a022536301e2e5b138fbb8fdeef5a941910d97b4c3fba435c82ec38f4",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_262f2656ced2777bbd8265fb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有一个简单的方法来检查你的对比度是否足够大，不会引起问题。有许多对比检查工具可以在线输入你的前景和背景颜色，以检查它们。例如，WebAIM 的颜色对比度检查器易于使用，并说明了你需要满足有关颜色对比度的 WCAG 标准的内容。",
+        "text_hash": "8348cae70e2a97e899e4984a8f5ea236fe4751f3530029c1ae0e8140c895cc12",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7035eb28cc276c96b73147af",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n高对比度还允许任何使用带有光面屏幕的智能手机或平板电脑的人在明亮的环境中 (如阳光) 更好地阅读页面。",
+        "text_hash": "00c7c61b8ef1a87308acb49bb2f85da0584ad473a2eb6b2fe0429eb4e447b602",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_4fbb5cdd33cb68fece620717",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "另一个提示是不要仅仅依靠颜色来提供路标/信息，因为对于那些看不到颜色的人来说，这没有什么用。例如，不要用红色标记所需的表单字段，而是用星号和红色标记它们。",
+        "text_hash": "5ce8aa473af90dcfe90fa0afaea2656dfbaacc52989f12de2cd568f335aad8bd",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9c033136f150bde526e3b124",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "隐藏的东西",
+        "text_hash": "8d7f54cb44c1739f48fd9b529a915f7dd82921969ee88b07003ea60385fd0d48",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1b0ceeb56cbc82acf8ac3be0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在很多情况下，可视化设计需要并非同时显示所有内容。例如，在我们的 Tabbed info box 示例（参见源码），我们有三个信息面板，但我们将它们放在彼此之上，并提供可以单击以显示每个选项卡的选项卡（也可以使用键盘——你也可以使用 Tab 和 Enter/Return 以选择它们）。",
+        "text_hash": "c439655fb7424ee7a9c647f37a0e1a78a85f9ce099f27cb5c22986b6702129c2",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_339136b7c29f14349316dafc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "屏幕阅读器用户并不关心这些内容 , 只要资源的顺序有意义，他们就对内容感到满意，并且他们可以获得所有内容。绝对定位（如本示例所示）通常被视为隐藏内容以进行视觉效果的最佳机制之一，因为它不会阻止屏幕阅读器访问它。",
+        "text_hash": "7a1ed63efac618af009286d59374b3bf3b5b928ee5ca8ba819e239611163e3bc",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6207db8d751e2eef0a59e72e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "另一方面，不应使用 :hidden 或 :none，因为它们会隐藏屏幕阅读器中的内容。当然，除非你希望从屏幕阅读器中隐藏此内容，这是有充分理由的。",
+        "text_hash": "e36bf7555a89cee7db6dfeddc82833e14497069b65275fa37746f6b73e8f6bd5",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_11c1f48dfb1598d8c27e1f6a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n专为屏幕阅读器用户设计的不可见内容有围绕本主题的更多有用详细信息。",
+        "text_hash": "441ed8792aed75e12b12e0497c2ed5cbe68d534fe5e0f02b39e7d9a34da4b8ec",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_b9cf41cfe12e70d8a7fa6748",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接受用户覆盖样式",
+        "text_hash": "fe3991c133bff686f0a331f030f0d7081bdf7a2ae63e23207a9d9cb277e196be",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1abad4f4627c3a37379ede56",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接受用户覆盖你的样式",
+        "text_hash": "ad74bf357eef3ebc72686c227bfea295938c99bdc3e796a42f7bdfc77b2c0d2a",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0499738f9aac4d2f1da9acf7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "用户可以使用自己的自定义样式覆盖样式，例如：",
+        "text_hash": "3b13185c635518d36f6adba41ed7125525705b7340e869e51c8d9f43770aa5b6",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3b9fe0baedc9faa5cc8bd27a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "请参阅 Sarah Maddox 的如何在 Firefox 中使用自定义样式表（CSS）以获得有用的指南（介绍了如何在 Firefox 中手动执行此操作），以及 Adrian Gordon 的如何在 Internet Explorer 中使用自定义样式表（CSS）是介绍关于 IE 浏览器类似文章。\n使用扩展程序可能更容易，例如，时尚扩展适用于 Firefox、Safari、Opera 和 Chrome。",
+        "text_hash": "3c4638d208142f0e9c9f0cb7e8d510342d46b0961c329b7c822bb73ab00717b0",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_284835a8a724906e7f8d8a5f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "用户可能出于各种原因执行此操作。视力受损的用户可能希望使其访问的所有网站上的文本变大，严重色缺乏（severe color difeciency）的用户可能希望将所有网站置于易于查看的高对比度颜色中。无论需要什么，你都应该对此感到满意，并使你的设计足够灵，以便此类更改在你的设计中起作用。例如，你可能希望确保主要内容区域可以处理较大的文本（可能它将开始滚动以允许查看所有文本），并且不会只是隐藏它，或者完全中断。",
+        "text_hash": "986048736d2963d54a77aa7b9025bf7ca23ed61cb83d930e2ab94fea57d69741",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cc37d353a0820cea084d3725",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "JavaScript",
+        "text_hash": "b27ad06d123c6145fba7e9217a4cfbf2488b4743810ed8c8ff14ad01a5bbe515",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_27f2e2a5d81a32948069e166",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "JavaScript 还可能会中断无障碍，具体取决于其使用方式。",
+        "text_hash": "591f4320a90dea623a4ba8901e7113ca216989408b889323d4102bdcf040e09f",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bcf803604aa0663380294651",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现代 JavaScript 是一种功能强大的语言，如今我们可以使用它，从简单的内容和 UI 更新到成熟的 2D 和 3D 游戏。没有任何规则规定所有内容都必须对所有人 100% 无障碍——你只需尽力而为，并使你的应用尽可能无障碍。",
+        "text_hash": "c2ab834b7a704a6894990e5b5443c7c53007dde52ee8c2436cd4058b3561e64f",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5116ea4c083cbe4b2ba434c0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "简单的内容和功能可以说是很容易使访问——例如文本，图像，表格，窗体和按钮，激活功能。正如我们在 HTML：辅助功能的良好基础一文中提到的，主要注意事项包括：",
+        "text_hash": "430f57375f59f2310c24ecc5a09c38d2122fb5f11658bf51eefeba7d64d5d356",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ad7e3c312a83d3f8dec60e17",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "良好的语义：为正确的工作使用正确的元素。例如，确保你使用标题和段落，以及  和  元素\n确保内容以文本形式提供，要么直接作为文本内容、表单元素的良好文本标签，也可以确保替代文本（例如图像的 alt 文本）。",
+        "text_hash": "22df2192ae52a713fd62e186f5ca50e7bcb10f907ca09d4e71de6cbccf29b5a5",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_4e87ce1b2011d60351b0f0b7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们还查看了如何使用 JavaScript 在缺少功能的地方构建的示例 , 参见重新建立键盘的无障碍。这不是理想的——实际上，你应该只使用正确的元素为正确的作业——但它表明在情况下它是可能的，由于某种原因，你不能控制使用的标记。提高非语义 JavaScript 支持的小部件的无障碍的另一种方法是使用 WAI-ARIA 为屏幕阅读器用户提供额外的语义。下一篇文章还将详细介绍这一点。",
+        "text_hash": "c2a7608c73250bcd0cb77764cf2d6ac34c28cf26060492a28cb05e4655844925",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d1b4e52dbcb091fa4632091e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "复杂的功能，如 3D 游戏是不容易提高无障碍的 ––使用 WebGL 创建的复杂 3D 游戏将在  元素上呈现，该元素目前没有提供文本替代或其他信息的功能视障用户使用。可以说，这样的游戏并没有真正有这群人作为它的主要目标观众的一部分，这将是不合理的，期望你使它 100% 访问盲人，但你可以实现键盘控制，所以它可以使用非鼠标用户，并使配色方案的对比度足以让有颜色缺陷的人使用。",
+        "text_hash": "70e978d69f0653714cd51ddfc1331101f5de7b73e7c3e8977fff3a7dcda639b6",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a62a20511dfcd685ec499f66",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "太多 JavaScript 导致的问题",
+        "text_hash": "55b66dd3b72479e383320570ba27899d49021089f0d960ee2ca45260ec49b289",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_bcee386fab47b87cf19e219f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "过于依赖 JavaScript 会导致许多问题。有时你会看到一个网站，其中一切都已经用 JavaScript 完成——JavaScript 生成 HTML，CSS 等等。随之而来的会是各种访问性问题，因此这样做是不建议的。",
+        "text_hash": "f4175b8becfd31e3d076b6a5dc4df5e11694871349313fa085e728e34e610421",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3a6859622f6165eaaf968b2a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "正确的工作需要使用正确的元素和技术！仔细考虑：消息框是否必须用 JavaScript 3D 实现，纯文本是否就刚好。仔细考虑是否需要复杂的非标准表单小部件，或者文本输入是否就行。如果可能，不要使用 JavaScript 生成所有 HTML 内容。",
+        "text_hash": "5142b13c8e29688ad7c6e56b8d2f8b74cd352305e1f7cc1158749fa4c026d9fe",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3d11bc1b728e4bad4028d338",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "保持别抢眼",
+        "text_hash": "08a6b01541c5f22fb270b876b0da625f4ba5b3cf0ff0d87d991d5231e5a7c6e7",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ba18668d9f840805213e0d59",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在创建内容时，应牢记**不唐突的（unobtrusive）JavaScript** 原则。不唐突的 JavaScript 的想法是，它应该尽可能用于增强功能，而不是完全构建它——基本功能最好在没有 JavaScript 的情况下正常工作，尽管人们认识到，这并不总是一个选项。但同样，它的大部分是尽可能使用内置的浏览器功能。",
+        "text_hash": "5b283c2017cb54e053d8fc3f560178a8ce433a1d7216b7e1b488829908535164",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_683e5cafcced548ae59f6719",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "不唐突的 JavaScript 使用的良好示例包括：",
+        "text_hash": "db0afe924d1289c407118b8d06481c8c75e76cc9d5495cc670e08428067ced03",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9972b018676814b6e7e32da4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "提供客户端表单验证，它快速提醒用户表单条目出现的问题，而无需等待服务器检查数据。如果表单不可用，则窗口仍然有效，但验证速度可能较慢。\n为 HTML5   提供自定义控件，这些控件仅供键盘用户访问，以及如果 JavaScript 不可用 (默认   浏览器控件在大多数浏览器中无法使用键盘访问)，就直接通过链接访问视频。",
+        "text_hash": "f9b65c09d9523d1c66d708d0bd8f0d9e9315baf7a7323865487f3e053a6871af",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_f857ff017646a2544f91675a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "例如，我们编写了一个快速而糟糕的客户端客户端表单验证示例——参见form-validation.html（查看在线演示）。在示例中，你会看到一个简单的表格；当你尝试提交一个或两个字段为空的表单时，提交将失败，并且会出现一个错误消息框，告诉你出了什么问题。",
+        "text_hash": "c2808190e83e5d4109df116d7eeede6d203928bb106401ce57c7369ee1196b3d",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_51092f3e74d844f33bb69b0b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这种表单验证并不引人注目——在 JavaScript 不可用的情况下，你仍然可以很好的使用表单，并且任何合理的表单实现都将激活服务器端验证，因为恶意用户很容易绕过客户端验证（例如，通过在浏览器中关闭 JavaScript）。客户端验证对于报告错误仍然非常有用——用户可以立即了解他们所犯的错误，而不必等待到服务器的往返和页面重新加载。这是一个明确的可用性优势。",
+        "text_hash": "eb89a5dbbcb25d496ef6411fc51366e8d8e090c6d3ae27b55c1a9b465af9deb0",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_533e20cb00f062bf4b60bb65",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n此简单示例中尚未实现服务器端验证。",
+        "text_hash": "a86c3b041a82582273c20e1acd135f7cd761ed7f6052db4687d84205e00a492b",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_2b5e37a14b46923fa891344a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们使此表单验证非常容易访问。我们使用  元素来确保表单标签明确链接到其输入，因此屏幕阅读器可以一起读取它们：",
+        "text_hash": "c78365b5a0563ffa96cb2d06c5c1a2d00c086e333cc5f7e5b84c1a89c0a9bf7d",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3237d461a40cd71b96fc38fd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Enter your name:",
+        "text_hash": "b254503726f014eaecdf9b543cc33cb1b7509c83fb04e6e0d60f3d44d54aaea4",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fdd0dd1f1d4f33da72e3d5bc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们仅在提交表单时执行验证。这样，我们就不会过于频繁地更新 UI，反之则可能混淆屏幕阅读器（可能还有其他）用户：",
+        "text_hash": "22ca0804e3963dafa66e0f49c1306f2a73d7a659f82fff87038ecb4c691fde2b",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4e74831196bb0ccec4527914",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nform.onsubmit = validate;",
+        "text_hash": "cb5ed202061abb6791dd4a5b0e3cfe27e2e124837c0d1d633b44204be4ef423c",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_abf9246a16f7984fecd93828",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "function validate(e) {\n  errorList.innerHTML = \"\";\n  for (var i = 0; i   [!NOTE]\n在此示例中，我们使用绝对定位而不是其他方法（如可见性或显示）隐藏和显示错误消息框，因为它不会干扰屏幕阅读器从中读取内容。",
+        "text_hash": "87c5e931b74235f2e31544f8eefa6e8e44ef60362f36f3ee08627c4b2a49fbde",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c7423261230a1b75be0a1297",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "实际表单验证会比这复杂得多——你需要检查输入的名称实际上看起来像一个名称，输入的年龄实际上是一个数字，并且与真实情况符合（例如，不是负数或四位数字）。在这里，我们刚刚实现了一个简单的验证，是否将值填充到每个输入字段（if(testItem.input.value === '')）。",
+        "text_hash": "2462a436acee13101588cc287386dfe92135cd7cc617eb9b09c7869e0b45d639",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2dcd45f4c6fc44df194db921",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "执行验证后，如果测试通过，则提交表单。如果存在错误（if(errorList.innerHTML !== '')），则我们停止表单提交（使用 preventDefault()），并显示已创建的任何错误消息（见下文）。此机制意味着只有存在错误时才会显示错误消息，这是一个明确的可用性优势。",
+        "text_hash": "84a0c7e8262c637192dcb3790fe1b03d7f6b344aeb45ca9f3dba93f4592da458",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_34330534b38962d38ba3c973",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对于提交表单时没有填写值的每个输入，我们创建一个包含链接的列表项，并将其插入到 errorList 中。",
+        "text_hash": "786328e67ce2d68bec4c17de4cbbfbfc1e8d9e6663d349c0b353c4b210167fac",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6303df5c2780ca09f01ddde0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nfunction createLink(testItem) {\n  var listItem = document.createElement(\"li\");\n  var anchor = document.createElement(\"a\");\n  anchor.textContent =\n    testItem.input.name +\n    \" field is empty: fill in your \" +\n    testItem.input.name +\n    \".\";\n  anchor.href = \"#\" + testItem.input.name;\n  anchor.onclick = function () {\n    testItem.input.focus();\n  };\n  listItem.appendChild(anchor);\n  errorList.appendChild(listItem);\n}",
+        "text_hash": "242d0086707efddbdbe6e01b3e14922bf8c4a85c51cdecc8d2b73163dc0bd0ee",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ee53fa0abef4f7a033ce27e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "每个链接都有双重用途，即它不仅告诉你错误是什么，而且可以单击它或激活它直接跳转到有问题的输入元素，并且更正输入。",
+        "text_hash": "a93d02ad9128795d5adf861a319ef19996dbd52274deb85b43229dd8914bffd0",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2b769185fca537a1600333f7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n此示例的 focus() 部分有点棘手。Chrome 和 Edge（以及较新版本的 IE）将在单击链接时聚焦元素，而无需 onclick/focus() 代码块。Safari 只会突出显示表单元素，并自行显示链接，因此需要 onclick/focus() 代码块来实际聚焦它。Firefox 没有在上下文中正确的聚焦输入，因此 Firefox 用户目前无法利用这一点（尽管其他一切都正常）。Firefox 问题应该尽快会得到修复——现在的工作是使 Firefox 行为与其他浏览器的行为相同（参见 Firefox bug 277178）。",
+        "text_hash": "ae3c67c3953799753a273b0464eab69b6824c53249c6c4ad28e5d7acdfa3d91d",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_02f2028d5ab061f12453348b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "此外，errorField 被放置在源顺序的顶部（与 UI 中使用 CSS 时相比，位置不同），这意味着用户可以准确找出表单提交时的问题，并通过返回到页面的开头，来获悉有问题的输入元素。",
+        "text_hash": "b2f3a652c20a8c0445635ccfe1f8a45093f44b89da28b5f6ce4ca9e45c49011b",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_20af356d2b7524fac491dd35",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最后，我们在演示中使用了一些 WAI-ARIA 属性，以帮助解决因为内容区域不断更新而未重新加载页面，导致的辅助功能问题（默认情况下，屏幕阅读器不会选取该属性或提醒用户）：",
+        "text_hash": "e329865074c14db07e1d264bec54f9a09dc67388dee8f4fb49bd652719b2a4d6",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d38067eb82de3396e36a8334",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_85bf112fa9b3efcdb06db989",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们将在下一篇文章中解释这些属性，其中将更详细地介绍 WAI-ARIA。",
+        "text_hash": "1e375c596d5efb75e63572fc5783c82612d2d35f6b5cb9a8a533805dc7dc6413",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b9095c5ff9f5336051a93183",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n一些人可能会考虑这样一个事实，即 HTML5 表单有内置的验证机制，如 required、min/minlength 和 max/maxlength 属性（详细信息，请参阅 元素引用）。我们最终没有在演示中使用这些功能，因为不是所有的浏览器都支持（例如，仅 IE10 及以上版本支持，Safari 不支持）。",
+        "text_hash": "71b08af8ad700694b0f67d344a8883acdf03e6118b3c9c7ff0cf354a507dcbc3",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_8809ef3e623b35e835896925",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\nWebAIM 的可用且无障碍的表单验证和错误恢复提供了一些有关无障碍表单验证的更多的有用信息。",
+        "text_hash": "d4557b54703dc2a3c69116c6854a72d36e70f9c1f864a9e929d01dd185138137",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_dd2cbe2ef53d8dc18b658aad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "其他 JavaScript 无障碍问题",
+        "text_hash": "64367a979bd2de6b05a4b0f6aa12aa4aff6d383d27fac3b582652bb63a3be533",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_198b32f426ee20237c1f22a8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在实现 JavaScript 和考虑无障碍时，还有其他需要注意的事项。一旦发现将会添加更多。",
+        "text_hash": "c834dc4c23890448af2c3ad4393162d10ffb8bea19730000bb59d058e92edb46",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0156a39ecb98afb63e4d4068",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "鼠标特定事件",
+        "text_hash": "428f870e8deed8596c2449caf5fd03e910a322edee61d7178b713c807c34e234",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_5edd03cdc38b88c5a99f0228",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "正如你所知，客户端 JavaScript 使用事件处理程序，实现大多数用户交互，它允许我们运行函数以响应某些事件的发生。某些事件可能有辅助功能问题。你将遇到的主要示例是鼠标特定的事件，如鼠标悬停（mouseover）、鼠标划出（mouseout）、双击（dblclick）等。使用其他机制（如键盘控件）无法访问为这些事件而运行的功能。",
+        "text_hash": "2228c7d34d4a320f5506f7f71fd3ba9057e4c9a2880ce04b58cb2df7c0441d59",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6697fecb950e5e6b2ade5086",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了缓解此类问题，你应该将这些事件与可以通过其他方式（所谓的设备独立事件处理程序）激活的类似事件相结合——focus 和 blur 将为键盘用户提供无障碍。",
+        "text_hash": "902256664f74ec5fe774b2adf868ce42a89feca12a793169d70001aea39bde24",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_efc97cc1ee4241590b3ade47",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们看一个示例：突出显示了何时可能有用。我们想要实现一个缩略图：当鼠标悬停或聚焦在图像上，可以放大图像（正如电子商务产品目录所展示的）。",
+        "text_hash": "f94115bb39bf28606776440f01a02bbc994f21489bf81ea54af16a196bc9d266",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0d9a2e20d0b721cf5e218fa8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们做了一个非常简单的示例，你可以在 mouse-and-keyboard-events.html 中找到（参见源码）。该代码具有显示和隐藏放大图像的两个函数。它由以下几行行实现，这些行将它们设置为事件处理程序：",
+        "text_hash": "cbbd38e4b9beb2b63e275db2e39917f4927be23d109e5f361eee2d890e3a2205",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_48b7cf6a60cbd5a4def3a516",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nimgThumb.onmouseover = showImg;\nimgThumb.onmouseout = hideImg;",
+        "text_hash": "a9e5a07dfbb864a6f37565fbe28f2e1196527c9908a97ae51b0e5c6d8c5b75f2",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f2cb794202b6a5d116be8da1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "imgThumb.onfocus = showImg;\nimgThumb.onblur = hideImg;",
+        "text_hash": "667ae800696a39cfb6525114c358edc3931ad7cf12b435c3f1f7a3fd76ac8f55",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1d00530a4c67984a5ebb2635",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当鼠标指针在缩略图上悬停或者移开，将分别调用前两行代码。此时不允许我们通过键盘访问缩略图——为了允许这一点，我们调用后两行代码，它们在图像聚焦和失焦时 (聚焦停止) 运行函数。这可以在图像加 tab 键实现，因为我们为图像的属性设置 tabindex=\"0\"`。",
+        "text_hash": "bca552edab553573010072de26d6969d01adcde28f054f2748c42348c3d14fb5",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_77461a057bae8bdf52440f69",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Click 事件很有趣——听起来它依赖于鼠标，但是大多数的浏览器，在有焦点的链接或者表单元素上，按下 enter/return 之后，或者在触屏设备上点击一个元素，都将会激活 onclick 事件处理程序。但是，当你允许非默认可聚焦事件使用 tabindex 进行焦点处理时，默认情况下不起作用，在这种情况下，你需要在按下确切键时进行专门检测（参见重新建立键盘的无障碍）。",
+        "text_hash": "55cdf3e590f68b29603e2be6900fe5399f18b481c9398912ca808bd52bc445bf",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bce3d1d476e5d6c1c7dfcbb5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2e59c9ee1556da98af3c072d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们希望这篇文章在网页设计中关于 CSS 和 JavaScript 的无障碍问题提供了足够多的细节。",
+        "text_hash": "cd0c5b550817e45421e9d29b8676931ad82f295b415d0fc3081f0d56c8d06131",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_84cec64d169f1a6d08ceab64",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下一篇内容是，WAI-ARIA！",
+        "text_hash": "b66187f50588f40091ea11933e7aeb2ddc3257d064beeeb15d2e9a045cf87908",
+        "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_e5fd365578fc9619b80a2354",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。CSS 和 JavaScript 无障碍最佳实践，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "CSS 和 JavaScript 无障碍最佳实践，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/accessibility/css-and-javascript",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "CSS 和 JavaScript 无障碍最佳实践"
+  },
+  "resource_id": "lr_5f7acbc32cf0821f564a2b8b",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_81550cb9b56e7881c589ee0e",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "CSS 和 JavaScript 无障碍最佳实践",
+    "text_hash": "eb01b2a9c0c9ec67f3e4c034db0c301aa560a1b065ee9b7b0fb9d343eb3b0fb8",
+    "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf"
+  },
+  "variant_id": "lrz_e82a87aa08f723b2c764d743",
+  "variant_version_id": "lrzv_1c7b8e31ae90c25a9f2748bf",
+  "visual_dependency": "helpful"
+}

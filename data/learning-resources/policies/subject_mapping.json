@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "rules": [
+    { "source_pattern": "mathematics|math", "mapped_subject_slugs": ["math"], "status": "candidate" },
+    { "source_pattern": "natural science|physical science|biology|chemistry|physics", "mapped_subject_slugs": ["science"], "status": "candidate" },
+    { "source_pattern": "computing|computer science|web|programming|digital", "mapped_subject_slugs": ["information-technology"], "status": "candidate" },
+    { "source_pattern": "story|reading|language|literacy", "mapped_subject_slugs": ["chinese", "english"], "status": "candidate" },
+    { "source_pattern": "music|sonic pi", "mapped_subject_slugs": ["arts"], "status": "candidate" }
+  ],
+  "note": "Source subjects remain separate from mapped Chinese subjects; no rule creates a curriculum alignment."
+}
+

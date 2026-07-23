@@ -1,0 +1,1360 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_b62c3572593347b86308462c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**CSS 媒体查询**为你提供了一种应用 CSS 的方法，仅在浏览器和设备的环境与你指定的规则相匹配的时候 CSS 才会真的被应用，例如“视口宽于 480 像素”的时候。媒体查询是响应式 Web 设计的关键部分，因为它允许你按照视口的尺寸创建不同的布局，不过它也可以用来探测和你的站点运行的环境相关联的其他条件，比如用户是在使用触摸屏还是鼠标。在本节课，你将会先学习到媒体查询的语法，然后继续在一个被安排好的示例中使用它，这个示例还会告诉你一个简单的设计是可以怎么被弄成响应式的。",
+        "text_hash": "66353819cb103ffaf4334578c19692d25ccea4c0864545b225e4b9a092b0faa0",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a195550bd326d146c8491860",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "学习前提：",
+        "text_hash": "92f9fa8d90ac99ee6f0e1eae6c76803e80ad87f2380a21145361516bc2e87289",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d8fe8cb70cd579b730815bb6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 基础知识（学习 Introduction to HTML ），对 CSS 工作方式的大致了解（学习 CSS first steps 和 CSS building blocks ）",
+        "text_hash": "8d309064889d9082be31e5909adbb4ca96efca238c1514a0567f92567510c467",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_451c8e935db903c3c24fdd67",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：\n       理解如何使用媒体查询和用它建立响应式设计的最常见方法。",
+        "text_hash": "6e1f27262b2806eb3325e8a2b95d31501cad278fe70185198d5299e9b9994617",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_05345df28453fe321ab0fe9e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "媒体查询基础",
+        "text_hash": "dd077e41f9394eac1e926ed73e55b310a0ddcb013eb7181ed8d382f37075b68d",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2ece438f99c96a836d337c8d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最简单的媒体查询语法看起来是像这样的：",
+        "text_hash": "31fe623e8e844a20d3b3fda022686f02509583d41e2edc1bfbab2d0add0356a0",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72679178ea70f835eb8d3f8c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media media-type and (media-feature-rule) {\n  /* CSS rules go here */\n}",
+        "text_hash": "36c22dedb1b8e06455672155806bd4187f87d4ae5f2cc0171dc21837d586ec80",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e007fce2bbead8d129b01cad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "它由以下部分组成：",
+        "text_hash": "ae45dd1556a3fc0b2f8b3e2298948f0e068ea1aa41f944b08c08729d15384021",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_61f754de8060ea539fce3eb8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个媒体类型，告诉浏览器这段代码是用在什么类型的媒体上的（例如印刷品或者屏幕）；\n一个媒体表达式，是一个被包含的 CSS 生效所需的规则或者测试；\n一组 CSS 规则，会在测试通过且媒体类型正确的时候应用。",
+        "text_hash": "c60124b3c709f8bcd1591a0b67013412552a6c61c7fd64069ac1981c71e669b9",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_43860b51421c6096608a9b34",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "媒体类型",
+        "text_hash": "296225a8ac50bbe989321696fce502a9791a9e540d38121fef2a99d714726e41",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_437f2dc861a9104ac12f8013",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以指定的媒体类型为：",
+        "text_hash": "a5b16dfb45d59f6913438bf9271e11d4db9e2e4bd2f4d5f0712d2adaa058b473",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_706b7c4298f61cf65f62b318",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "all\nprint\nscreen\nspeech",
+        "text_hash": "9c8f6243cc3bd9e1b9d3e763d1faefb83fe122ae3380d451ba25e59e5e8d34c9",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_3be821ccc1c6f1a1f13dc290",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下面的媒体查询将会在页面被打印的时候把 body 设定为只有 12pt 大小。当页面在浏览器中载入的时候，它将不会生效。",
+        "text_hash": "63e5ada30756eddb2a05735c1a2dce4c4d002a2b094e27b34cff58792d0b17a4",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a21fb2c4ca51f04303b0b976",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media print {\n  body {\n    font-size: 12pt;\n  }\n}",
+        "text_hash": "45493f234013b0958b8a8fa410b47af8892fb37cfea260ab2a660671cdc13c3d",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c7011e4d51ab333ccbde7dfd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n这里的媒体类型是和所谓的不同的东西。",
+        "text_hash": "c621eecd7a1d76c91b8477b518a77680f646c73cc219adb0643ecf4ea24bc30c",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_aac5edd7fd25658d6b9a5c76",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n在第三级媒体查询规范中，定义了其他一些媒体类型，它们已经不被建议使用，而且应该被避免使用。",
+        "text_hash": "75b6635e851e0324765c37bedd4be7d106809a15e8a5d3a63bb33e4abefd7eba",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_32cd42fb9fd67d8b91be3501",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n媒体类型是可选的，如果你没有在媒体查询中指示一个媒体类型的话，那么媒体查询默认会设为用于全部媒体类型。",
+        "text_hash": "782d31598c48dcf9b4ef7c6641194d5c8cc7767f2bb748371958ee023b198e61",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_e73d3a649a6e986c06c16308",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "媒体特征规则",
+        "text_hash": "cda3e0344f5b6be000c84718f855f15483c7493ee2af1d13ece8c38552a6ed44",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8b88d7f469e86534af6a7e84",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在指定了类型以后，你可以用一条规则指向一种媒体特征。",
+        "text_hash": "e35563548db657365de8a221e1d4dd1c573751e30391e972a00981fd825f81b0",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_832d0f0ff4ae5ffcd3a8b51b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "宽和高",
+        "text_hash": "adc555ef7b57288a788f22789877b5718e0ce4981ddac76f284a66a75b52f477",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_3bc654c551838fd485155253",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了建立响应式设计（已经广受浏览器支持），我们一般最常探测的特征是视口宽度，而且我们可以使用min-width、max-width和width媒体特征，在视口宽度大于或者小于某个大小——或者是恰好处于某个大小——的时候，应用 CSS。",
+        "text_hash": "eb8af7ae146effc5e8d57fb077fbe186d3352b78826f50089abc735671c0e926",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fcd557eb3d2d8dfa354c18ae",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些特征是用来创建响应不同屏幕大小的布局的。例如，要想在视口正好是 600 像素的时候，让 body 的文本变为红色，你可能会使用下面的媒体查询。",
+        "text_hash": "883512901f57b67810c9bc1afd4df54d3fd21176432e49f92de3a82a2a84b947",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e4f797626dc16724832ee7f9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media screen and (width: 600px) {\n  body {\n    color: red;\n  }\n}",
+        "text_hash": "6990bbede9819cab9c2b1ef46b9a17c8eb07793876d407a4c5a2366f53d87ea1",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4d9717af18d9551eb4c67c7a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中打开这个示例，或者查看源代码。",
+        "text_hash": "ed0e5d267dae1a9b7786b71a06c89ae038b2d561c4d2d1a95b059c713df272fa",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3938e1a730d5cbd2850ed3e7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "width（和height）媒体特征可以以数值范围使用，于是就有了min-或者max-的前缀，指示所给的值是最小值还是最大值。例如，要让颜色在视口窄于 400 像素的时候变成蓝色的话，可以用max-width：",
+        "text_hash": "9d80bb12384ca0fbbedbd11c90da69c9d7c0fcbc8d1209c1ea9c09632e517b2c",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1d36fb071ac863d33b14d14f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media screen and (max-width: 400px) {\n  body {\n    color: blue;\n  }\n}",
+        "text_hash": "a020e7c3aabc373c48a2da8a988e02a5fdaf0ee10bb5e20364a6419741170f8a",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ce5555d87a2ddd610826b9b9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中打开示例，或者查看源代码。",
+        "text_hash": "5bd671ca196fc91c372bba5aed93eadef5bcc88d2b6f1d27e281c058ea22806a",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a46f45a49aa17ad5b743c411",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "实践中，使用最小值和最大值对响应式设计有很多的用处，所以你会很少见到width或height 单独使用的情况。",
+        "text_hash": "7520043be95641df3b9f894be9b42ce7df70a780bf1a196e29614675a8071ff2",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7b2ba871253858de403f24b5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "还有许多其他媒体特征可以供你测试，尽管于 4 级和 5 级媒体查询规范中引入了一些新特征，它们受浏览器支持仍然有限。在 MDN 上，每个特征都已经同浏览器支持信息一同记载下来，你可以在使用媒体查询：媒体特征中找到一张完整的列表。",
+        "text_hash": "a6a2083f9d9a0533ba67396e3c16fd8fd34a74cb100e87541ff700cdc80c6ac4",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9c8bbf3cc05891e88b41f366",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "朝向",
+        "text_hash": "5f0c7123242dc9cc447924661b95ba79268582aaf956cebdc88fce05806e69a5",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2df0ef7444c65c452cd6c892",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个受到良好支持的媒体特征是orientation，我们可以用它测得竖放（portrait mode）和横放（landscape mode）模式。要在设备处于横向的时候改变 body 文本颜色的话，可使用下面的媒体查询。",
+        "text_hash": "7c1dc737957f1b38a6f1ec404376ae3f9ed86c9ebccf41ba2e0a35c7cc201516",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0ae612db5e8cd57bf8e58a31",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media (orientation: landscape) {\n  body {\n    color: rebeccapurple;\n  }\n}",
+        "text_hash": "d19ff1aca8c94762aa67d51ca586447a60cc6f93b8b1ddac71c2f23308cd07eb",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_474777faf599b9c3cec13cb8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中打开此示例，或者查看源代码。",
+        "text_hash": "da83ebd576f0f621341ce96c0a1ca47b6454905f12e3d27e31712f4048a48738",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d1500285c56cf42177c622ef",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "标准的桌面视图是横放朝向的，在这种朝向上能够表现良好的设计，在处于竖放模式的手机或平板电脑上可能不会表现得这么好。对朝向的测试可以帮你建立一个为竖放设备优化的布局。",
+        "text_hash": "2b8991a67f5945f03d4ddc6b6f1d7214f0eddea1d1e6ef738b9c855562e6b9a7",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2ae3b9d81d4135b5cc730d4b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用指点设备",
+        "text_hash": "b02171f9ee5e5df825c0b7f1c69cd51df63f12791461167f38597b03df86ddb8",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_cb6a046a172b064322d0589a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "作为四级规范的一部分，hover媒体特征被引入了进来。这种特征意味着你可以测试用户是否能在一个元素上悬浮，这也基本就是说他们正在使用某种指点设备，因为触摸屏和键盘导航是没法实现悬浮的。",
+        "text_hash": "45e866e03e3d80168d5dd1151835e976ceb76f214b54921139eca596895779d0",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ed6af817f77e0aa9fe7b4a95",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media (hover: hover) {\n  body {\n    color: rebeccapurple;\n  }\n}",
+        "text_hash": "4665087be6c24be3cae9ce330876741fe9f46be5658b2fd907a62bc30d838af5",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_36702859de11350c6c9152f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中打开此示例，或者查看源代码。",
+        "text_hash": "da83ebd576f0f621341ce96c0a1ca47b6454905f12e3d27e31712f4048a48738",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_911094e10dcd677cb462490f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果我们知道用户不能悬浮的话，我们可以默认显示一些交互功能。对于能够悬浮的用户，我们可以选择在悬浮在链接上的时候，让这些功能可用。",
+        "text_hash": "63cffad71745c00c895d6aff40555f9e80ffa247365c2b10bd8bfc1fc2349b6b",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dd86d195740d4dba21ac6ffe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "还是在四级规范中，出现了pointer媒体特征。它可取三个值：none、fine和coarse。fine指针是类似于鼠标或者触控板的东西，它让用户可以精确指向一片小区域。coarse指针是你在触摸屏上的手指。none值意味着，用户没有指点设备，也许是他们正只使用键盘导航，或者是语音命令。",
+        "text_hash": "c29b137823d7030ad6741e66b1d2d33bfa851ea7fea43c361d63d2b6fec62b1a",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f15ffb1a9340da3ed483dd79",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用pointer可以在用户使用屏幕时进行交互时，帮你更好地设计响应这种交互的界面。例如，如果你知道用户正在用触摸屏设备交互的时候，你可以建立更大的响应区域。",
+        "text_hash": "780b337e6fc139eaaf53ca3ab46c43f562bed757a9cb3b57d661980ee3ba0461",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_311bee1c30f93499d8b52cb5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "更复杂的媒体查询",
+        "text_hash": "504457f464cb6fb7fa81785a17d0752ff2ed2d70d65b73fe04df6e4664c03801",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b3feedfb3d4c02ed3bbc9d93",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有了所有不同的可用的媒体查询，你可能想要把它们混合起来，或者建立查询列表——其中的任何一个都可以匹配生效。",
+        "text_hash": "1ac1e955769944d2c723b4d5a97fe9375b0c0718fda263c15bb0d71550ef1fac",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ca3e3fe0926bd6e9ec2430f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "媒体查询中的“与”逻辑",
+        "text_hash": "02d03a9d52a713bd69fdb865950522c59ad90453a3363222a9510c0fbf98bb99",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_5a546386253f1657a4e520d2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了混合媒体特征，你可以以与在上面使用and很相同的方式，用and来混合媒体类型和特征。例如，我们可能会想要测得min-width和orientation，而 body 的文字只会在视口至少为 400 像素宽，且设备横放时变为蓝色。",
+        "text_hash": "c08cbe7d556a00b9f9d45273bad189894acb35bc1a793f7db1bc59e1511da232",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_67a44ae82641400f74a602cf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media screen and (min-width: 400px) and (orientation: landscape) {\n  body {\n    color: blue;\n  }\n}",
+        "text_hash": "8420bbeca21aa88d1d3aab861364763acb67b17e476ff4da8507e81d9de6ee34",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e6ac1d02fe3dd4d86b96a9f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中打开此示例，或者查看源代码。",
+        "text_hash": "da83ebd576f0f621341ce96c0a1ca47b6454905f12e3d27e31712f4048a48738",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_472dcd153af168369f0a738e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "媒体查询中的“或”逻辑",
+        "text_hash": "f75b2446effe3a67f134620b52d3cebc88fbadcd388c0d04eb0c318d504496e8",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_223ce5028a6d789f498b5d86",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你有一组查询，且要其中的任何一个都可以匹配的话，那么你可以使用逗号分开这些查询。在下面的示例中，文本会在视口至少为 400 像素宽的时候**或者**设备处于横放状态的时候变为蓝色。如果其中的任何一项成立，那么查询就匹配上了。",
+        "text_hash": "c4add72d512e655de5060baa7f2f5b4779c027b24d46299a0cf3b6370e90b839",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a1afac99e0ed25e5582c995e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media screen and (min-width: 400px), screen and (orientation: landscape) {\n  body {\n    color: blue;\n  }\n}",
+        "text_hash": "f60b0cadb64e08ba7abe593af002a6a5bb27a71616ccd132352493ce8fa59901",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f1e12e2a836f0d7719226a02",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中打开此示例，或者查看源代码。",
+        "text_hash": "da83ebd576f0f621341ce96c0a1ca47b6454905f12e3d27e31712f4048a48738",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_247f61d1a2c018b9d487a24e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "媒体查询中的“非”逻辑",
+        "text_hash": "b0f7250a88975e8a0e7a54632cd13035588277c94f4bb6928508db25b01efd39",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_7c127e11982e41a9d8dd2539",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以用not操作符让整个媒体查询失效。这就直接反转了整个媒体查询的含义。因而在下面的例子中，文本只会在朝向为竖着的时候变成蓝色。",
+        "text_hash": "329a70f9aa6524bcd61ac5829365ebf2bea55af8eda1701756a12e80aaff1421",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9c77be84a3a899f4c9eb942b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media not all and (orientation: landscape) {\n  body {\n    color: blue;\n  }\n}",
+        "text_hash": "f788b8c551394150f7ce45496f9de98c6fd445498f03659f4aba638654174313",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fec35ff2cb6d32d3af78491f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中打开此示例，或者查看源代码。",
+        "text_hash": "da83ebd576f0f621341ce96c0a1ca47b6454905f12e3d27e31712f4048a48738",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9538a425500808135c39ca2c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "怎么选择断点",
+        "text_hash": "3df5a67fe69788597f673b4df8bf72b0edfb713943fd5abc6439080943288f94",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_19e917b86307e650dbf23f19",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "响应式设计的早期，许多设计者会尝试指向非常特定的屏幕尺寸。人们公布了流行的手机和平板的屏幕尺寸列表，以让设计者创建可以整齐地放在那些视口里面的设计。",
+        "text_hash": "504edb708c40a291385ac5a38618a531305905b78685c265a53ff5068eca3691",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c18f4b9b5222fda1c7b7c811",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在有多得多的设备，以及多种多样的尺寸，让这种事变得不再可行。这也就是说，将所有的设计用在特定的尺寸上以外，一个更好的方法是在内容某种程度上开始变得混乱的时候，改变尺寸的设计。也许线太长了，或者盒子状的外侧栏开始挤在一起而难以阅读。那就是你想要使用媒体查询，将设计变得对剩余可用空间更加友好的时候。这种方式意味着，它无关使用的设备的确切大小，每个范围都被照顾到了。引入媒体查询的点就叫做**断点**。",
+        "text_hash": "6df4e51db0ccfd867fae9d7197c2d91f6a3e037db46d3e5cc3901c8b80dfd809",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e100b8c07785604cb6d77376",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "火狐开发者工具中的响应式设计模式能很好地帮助弄清楚断点应该设置在哪里。你能容易就能让视口变大和变小，然后看下可以在哪里加入媒体查询、调整设计，从而改善内容。",
+        "text_hash": "34e5a48d53b2b077e0e24433812587a5a9d271b703378ee572702536e86363a2",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_aefa89bd29f3efe2664c45b0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A screenshot of a layout in a mobile view in Firefox DevTools.",
+        "text_hash": "8155c75c0f1419e58942a3466bae852a00c714e422fe4eeb697c759705b7baae",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f2ef6a3232ff109f4c76bdb4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "主动学习：移动优先的响应式设计",
+        "text_hash": "0836ba256d3f4c4590a4de74b66afc29dc43fed692bb083faeb299edfc6404ab",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_71c997fde984173254cf9154",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "泛泛地说，你可以采用两种方式实现响应式设计。你可以从桌面或者最宽的视图开始，然后随着视口变得越来越小，加上断点，把物件挪开；你也可以从最小的视图开始，随着视口变得越来越大，增添布局内容。第二种方式被叫做**移动优先**的响应式设计，很多时候是最值得仿效的做法。",
+        "text_hash": "9a6c33563fc84a463b7540c9141be0871dad1c619573f5e7bfeea8bc978a8220",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3259ff7262b733bf13d3e43f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "用在最小的那个设备上的视图很多时候都是一个简单的单列内容，很像正常文本流显示的那样。这意味着，你很可能不需要为小设备做多少布局设计，合适地安排下你的源代码，默认情况下你就可以得到可读的布局。",
+        "text_hash": "3f05d507f0d0dee5a06bcee4db740d326c104748f8f9e0a3be8316d78b83021b",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_614af83607242bdffe1b62f4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下面的教程会领你用一个非常简单的布局熟悉这种方式。在生产站点上，你的媒体查询中可能会有更多的东西需要调整，但是它们的方法是完全一样的。",
+        "text_hash": "9ea55e1a51902efdc913baa0e68247a9948be6bd4245b02160cd4cd09f9cbf2f",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f1aa8e220dcfa9eaf3b4febe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "教程：一个简单的移动优先布局",
+        "text_hash": "53d9629f599ef3b83f14c55a4f632579bebf57e5ca216e0405687f9770f2f2e0",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ffe73897deac35533b4f0c57",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们的起始点是一个 HTML 文档，上面应用了一些 CSS，为布局的各部分加入了背景颜色。",
+        "text_hash": "541ff41f5b8f377f4c032b182a054e896fd82ddf83dabe811cfda3b74d4c07b6",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e6931d9735c6ea4d9710bcbf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n{\n  box-sizing: border-box;\n}",
+        "text_hash": "aef3c27e0d63aac99d3b397c37a0f83e9049fcd094e2a2948c64b4c7c54b763e",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_671130075d2c3ea28c923c1c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "body {\n  width: 90%;\n  margin: 2em auto;\n  font:\n    1em/1.3 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "fffe8f407d76a8341b7d6664ba1dfbd3b1847340aaf1b333ad9697e496d579fa",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ac5d787594ef37a919cf9253",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "a:link,\na:visited {\n  color: #333;\n}",
+        "text_hash": "2fa3349c22259b52ecccf422ee06a986a93472b870da1e16c2e2a0f28a35ed8e",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d05f465751498e8acebcbba9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "nav ul,\naside ul {\n  list-style: none;\n  padding: 0;\n}",
+        "text_hash": "d4d27a38f2b8e60d201edc777b72bfb859153c0bf73fb8d5828cdf2f8e5b5e86",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9ef9db19fd89c2f9dd6ae5a2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "nav a:link,\nnav a:visited {\n  background-color: rgba(207, 232, 220, 0.2);\n  border: 2px solid rgb(79, 185, 227);\n  text-decoration: none;\n  display: block;\n  padding: 10px;\n  color: #333;\n  font-weight: bold;\n}",
+        "text_hash": "271f2c2dde93fa89de133094fa7154b1046c8802ef864f338da27f637b8cc543",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_17c58f1d2116a58e18c857a5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "nav a:hover {\n  background-color: rgba(207, 232, 220, 0.7);\n}",
+        "text_hash": "08e2ec574cfb2e2f41ff816cdbe8ca70589c3f92e15a404333f56b917d18bc86",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ec7636477094f97d98ff13da",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".related {\n  background-color: rgba(79, 185, 227, 0.3);\n  border: 1px solid rgb(79, 185, 227);\n  padding: 10px;\n}",
+        "text_hash": "64ba77134deeb939fae75e3ce9dc6e228cd9007e63927f30e4d9dc3e2aeb9f55",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_43516e9c32e2ace0521fa3cf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".sidebar {\n  background-color: rgba(207, 232, 220, 0.5);\n  padding: 10px;\n}",
+        "text_hash": "cf63bee94ee66beeffe6cdae4b190169c296f255c0b65a5161a4f7e4e84be8ea",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9e1f2b45f0db57d200ec5f22",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "article {\n  margin-bottom: 1em;\n}",
+        "text_hash": "e37b64b61c0d0d35c1043105d657af7a71761f899cf8263cc11591488a8a90ea",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fce1c929817eff7a52ce4cf6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们没有改变过任何布局，但是文件的源代码是以让内容可读的方式排列的。这个开头是重要的，也是能够确保内容在由屏幕阅读器读出来的时候，让其可以理解的一步。",
+        "text_hash": "d5e9897cd8bdcd41259a036a6047191642d5fafbe2a92a6051ee3c24ecce9a03",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cfea8387ec1e80f5f81557f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_62840fa810eb549c85465d69",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "About\n            Contact\n            Meet the team\n            Blog",
+        "text_hash": "2ac6fd62e279c3b2e4a18d96a8b9d68acc29ca6927ce44654b46abf27bd0efa9",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ffb2f20cfb22b80f6a6040fb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Veggies!\n           ...",
+        "text_hash": "d5af68e537b919c7eec6b80e65b616ea51edc4c9272c462bc6a2b07b6b6151ca",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e00328e0f4408e06978d4df7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a8c8d2c575c606648f18c530",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "External vegetable-based links",
+        "text_hash": "7b2f4ef8676de7f8f3bea918dd1d0b14aa9e7336637d875dfa3cc1fae679a009",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_03dd4dbe252fde18c935b84a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5e9699876b5ef577f676beb4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "&copy;2019",
+        "text_hash": "58ad3b1e710b77431feff00d3ba973a4fc072be70a380a67b6284b2df3a6a93b",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5cf50afdbbdc99c7034f2dc6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个简单的布局在移动端上也能表现得很好。如果我们在开发者工具中的响应式设计模式里面查看这个布局的话，我们可以看到，它作为一个直截了当的站点移动版布局来说，表现得相当优秀。",
+        "text_hash": "79b8f6d889a8979bf1236ea551b4dab0d6cd37068c462dca35384d78217a6e74",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0aa2ce9be41c6c91f3cdc872",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器里打开步骤一，或者查看源代码。",
+        "text_hash": "48f9b7bed621fbbe9e2063e493e34a62f88ed33e84e640e5a9e2b99f651b00e9",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dda284b1a0363523cd1968ae",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**如果你想要在我们继续的时候，按步骤来并尝试这个示例，在你的电脑上建立一个step1.html的本地副本。**",
+        "text_hash": "7e0954c9e283f29dc3bcef77865b280156b33c98a97eb0f6967214cd4919beea",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5fd512e2ca0a48dc0c35d779",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "从这里开始，脱拽响应式设计的窗口，让它变得变得更宽，直到你看到一行变得非常长，有足够空间把导航栏放在一个水平行里面。这是我们加入第一个媒体查询的地方。我们将会使用 em，因为这意味着，如果用户已经增加了文本的大小，断点会在行差不多也是这样长，但是视口更宽的时候产生；而文本更小的时候，视口也会更窄。",
+        "text_hash": "1f1682ac780b67d41698785559cba74d6578d1f2315d8f42796e8c27e7f6dee4",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a4b6b9e1e48a8f2efc34ab28",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**将下面的代码加到你的 step1.html 的 CSS 底部。**",
+        "text_hash": "ae8a22ff5eeca8d00e24caa83921f5f9a93d708816f4ceab9218d92087b87754",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b339b608aa63662a641b7696",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media screen and (min-width: 40em) {\n  article {\n    display: grid;\n    grid-template-columns: 3fr 1fr;\n    column-gap: 20px;\n  }",
+        "text_hash": "4c37a940aaebfd7b7fc7dcdefb52ef21cf63091daed7bc0dc50f3d7b108cf0db",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ae3ae844d983af060bc97701",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "nav ul {\n    display: flex;\n  }",
+        "text_hash": "1bb547e2e06f6027b47a35b8327951646e4063ce918faf33ad8e6017ec853479",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7dd58b910c6781e44a737874",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "nav li {\n    flex: 1;\n  }\n}",
+        "text_hash": "bc8ba2892ea14ec8dd97b0a9cefb12ee5977491b1122e7e489c34ffe10cd25f3",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a6c9198f05aebac8a2c9fb4b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个 CSS 让我们的文章里面有了个两列布局，两栏分别是文章的内容和在 aside 元素中相关的信息。我们也已经用弹性盒把导航栏放在了一行里面。",
+        "text_hash": "0e366c81d8ede3462f1a806d5d11e36774836a6ecbc6417b6374f549fdb9e251",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_16a950dc340c99c4084fb332",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中打开步骤二，或者查看源代码。",
+        "text_hash": "b998f713982a56726a0c8750728464827dcc81d0c97110722152a43f1dbd4e23",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6244bd9a4895b59e58bf66c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们继续增加宽度，直到我们觉得这里有了足够多的空间来放置侧栏，再形成一列。在媒体查询中，我们会让 main 元素变成两栏网格。我们之后需要移除文章上的，让两个侧栏和彼此对齐，然后我们将会往页脚的顶部加上一个 。一般来说，为了让设计看起来好看，这些小调整是你将会在每一个断点都需要做的。",
+        "text_hash": "9e5e7214f32deba070b886cd453720226c5131123b3461bb78e9bcecea017df5",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7ae0860d460117a4ed3dd870",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**再往你的 step1.html 的 CSS 的底部加入下面的代码：**",
+        "text_hash": "0eb81bc6200ac23a187c6deaed9c4b2de61760e0a8d7b00eff47da524667c7f7",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a31a08231a394ef95f260d2c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n@media screen and (min-width: 70em) {\n  main {\n    display: grid;\n    grid-template-columns: 3fr 1fr;\n    column-gap: 20px;\n  }",
+        "text_hash": "bc908490dc07d64375b3c977fc6f531f07d528d00e5e5ff0cb7989b78f624b03",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a7a4e8030408ecb9b8cd7dff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "article {\n    margin-bottom: 0;\n  }",
+        "text_hash": "9783d1aa7bdec374d16dfc414e467776551850b4d1809852d4db228661e12f7b",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7c8a124bdbc3acf6be1dda60",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "footer {\n    border-top: 1px solid #ccc;\n    margin-top: 2em;\n  }\n}",
+        "text_hash": "6d548a398d89142376fb17db2ef579c6b1202ef1268bae543122e9a63684cc8d",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b2f5c09d3664c5da7edd8c51",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中打开步骤三，或者查看源代码。",
+        "text_hash": "283138b4f13e1b1b889e406db7c4a78530d721040b4742cc8bf8bb943b0e5203",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_26c7fd563b0b43e08a09fd4b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你在不同的宽度下，看下最后的示例，你会看到设计是如何响应的，在可用的宽度下是如何表现为单栏、双栏或者三栏的。这是一个移动优先的响应式设计的非常简单的示例。",
+        "text_hash": "fcd6004dff79e91de598ea7b59b906bd453e011fbc356c3db25bd34e7bba5c78",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2a0960d764fd7de20c6b7f1c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你真的需要媒体查询吗？",
+        "text_hash": "8934c78d57e026bb45d926f967e5744ffb98bb547a3b9596874fca59dcf86172",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8794684ea16b8f43822ad5b4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒、网格和多栏布局都给了你建立可伸缩的甚至是响应式组件的方式，而不需要媒体查询。这些布局方式能否在不加入媒体查询的时候实现你想要的设计，总是值得考虑的一件事。例如，你可能想要一组卡片，至少为二百像素宽，并在主文章里尽可能多地放下这些二百像素的卡片。这可以用网格布局实现，而完全不使用媒体查询。",
+        "text_hash": "8cb846d38a5c97d5bf5fb0228a06efe307ad70e09474dcbd45dbe278295e9fc0",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2607a1c72650c76bd04c6a61",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这可以由以下代码实现：",
+        "text_hash": "c69ffef96f797b0e14148d8872a7637250dca3fc6a3e85f83e592379f0a4f902",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c9e0023df3c765015d78745d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e26a5a5184d5c406a58aa470",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Card 1\n     ...",
+        "text_hash": "cc38f62b80f212fa8c867285841da9c7821a5a078cab07bd4eb7391c3084c399",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cc9f03e3bbfa91b09eb37066",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Card 2\n     ...",
+        "text_hash": "32c6ae435ec6179c0030d958000f0d56bba9cb271f14eb182958c3686c17220b",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_20579917c2f8b51602e694a5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Card 3\n     ...",
+        "text_hash": "f87a604e8aad89664432ffc8ce5dfac7cf813693afac53514f373dae4f5da338",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_75777d7c6ca197d9d9d46c38",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Card 4\n     ...",
+        "text_hash": "276db535eb44d9b748b09426ab7536e4da4d5dbc030a8e78b683a70483a613d1",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8343ed6383c0d5c1cfdee4b5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Card 5\n     ...",
+        "text_hash": "33c4e710e1ff84301bb25d149a083a7455f1c133e7a4aa53a87b5142043f2923",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e0f91163ed2eafdb86698934",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.grid {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: grid;\n  gap: 20px;\n  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n}",
+        "text_hash": "e8d90d57257f249e84f864a15713568bfb3dc966fdb18b39b4e93b7e8b761510",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f44952d041b33720845596d9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".grid li {\n  border: 1px solid #666;\n  padding: 10px;\n}",
+        "text_hash": "1af4483b1ec34d6a784f5632f8c342ee4a849d56d974d8fe4b4d8c9842b6d0b4",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b938bbfc4701e6989a9737b5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中打开网格布局示例，或者查看源代码。",
+        "text_hash": "8cd1e514a934f64277f984d08fbf37525db83a6309330fa059da6cddb3ccf5ec",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bc1647ecb67587aaac16b2ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在你的浏览器里打开这个示例，让屏幕变宽变窄，看一看列轨数目的变化。这个方法里面的好事是，网格不是靠视口宽度判断的，而是可以容纳组件的宽度。对媒体查询这章节的建议就是，你可能根本不需要它！但是，实践中你会发现，由媒体查询改进的现代布局方式的恰当使用，将会产生最佳效果。",
+        "text_hash": "afda8d2359dab89c4798b9de4f570a21bd256c4a71b75a90bc8391b0504371eb",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d4d8a7130037bda90172594d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "技能测试！",
+        "text_hash": "82b5c8cd03fff6874fe35527b00f721a90fe9c0b9c85fbea52a6788fce64f682",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e1ef2fe92c966b366c97f6c4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你已经到了此文的结尾，但是你能记住最重要的信息吗？你可以在继续之前，找一个测试来验证下你是否已经掌握了这些信息。见技能测试：响应式 Web 设计。",
+        "text_hash": "77025ab8a9918e749f9d17d41a660ad722b5c53c97b288a1d14ef4860f8d669e",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c45eeab11e8232d69d1dfe1c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "小结",
+        "text_hash": "6bf8bdb1f6eefac69dfc0691f9fa2fa123d921db1a75ed8c06cb86814c72d655",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_fe8edae95a8957579d9714e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本节课中，你已经学到了媒体查询的知识，也发现了如何在实践中使用它们，来建立一个移动优先的响应式设计。",
+        "text_hash": "fb84ec58d3f4855ed9017f86d90ac0fff442be63fa401d28f534b115abf3c89f",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_28b37c5db8703c80e285320b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以使用我们已经建立的起始点，试出更多的媒体查询，例如，也许你能使用pointer媒体特征，在你探测到访客有一个模糊指针的时候，改变导航栏的大小。",
+        "text_hash": "997aa27289157b3df5da44851fb25f73990567a2638f2458611a447ff143ec0f",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_19621d0f5962e35b419e7dd7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你还能通过加入不同的组件进行实验，看下加入媒体查询，或者使用类似弹性盒或者网格的布局方式，哪个是让组件可响应的最佳途径。经常是没有什么对错的，你应该实验下，看看哪个对你的设计和内容效果最好。",
+        "text_hash": "59cc12d07cbbdc5555ff3d876e10773f0cae2936cc1ed7c179848d963e5ff4c8",
+        "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_becb2304208caacb2ffa129d",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。媒体查询入门指南，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "媒体查询入门指南，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/media-queries",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "媒体查询入门指南"
+  },
+  "resource_id": "lr_4bee852f032601944d925d5f",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_1edbc6eb78f02a6125751ccb",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "媒体查询入门指南",
+    "text_hash": "7fb577996d9110cd75cfdbfa45e0ad06951b009b3b1f2f2c75fb69c250943753",
+    "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac"
+  },
+  "variant_id": "lrz_cdf7f1fb67fc17fb242eae80",
+  "variant_version_id": "lrzv_1314cde56d150669dbdeb1ac",
+  "visual_dependency": "helpful"
+}

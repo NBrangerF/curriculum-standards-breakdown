@@ -1,0 +1,153 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_7313fd3dbb8448a596190f37",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让障碍物移动",
+        "text_hash": "b59d13090a07f2997ce74082a01d51f414e0351bc5e65b1dc6a04f19c626f171",
+        "variant_version_id": "lrzv_5275293c04214954fc034fec"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d820e74a2ac6aaec1ff552f4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让许多障碍物出现并朝角色移动。",
+        "text_hash": "9350b6d5afe1fe7e2c46916c19a197847d4a76fa19f5c9cb376cfe3fc933377f",
+        "variant_version_id": "lrzv_5275293c04214954fc034fec"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c9200c210badc0726c7e24e2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n用这些积木扩展障碍物的绿旗脚本。\nblocks3\nwhen green flag clicked\nset rotation style [left-right v]\nset size to (25) %\ngo to x: (280) y: (-85)\npoint in direction (-90)\n+hide\n+wait (1) seconds\n+forever\n+  create clone of (myself v)\n+  wait (1) seconds\n+end\n**克隆体**是一个角色的副本。原始障碍物保持隐藏，这样只会显示它的副本。",
+        "text_hash": "8c81434bc6b55eb57fd7d61f0e8bd30de0e45517edf57c29f0d2754a897777ed",
+        "variant_version_id": "lrzv_5275293c04214954fc034fec"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_d8ade4f621a431a8af929875",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n将 forever 循环中的 wait (1) seconds{:class=\"block3control\"} 积木替换为 Operators{:class=\"block3operators\"} 菜单中的这个积木：\nblocks3\nwait (pick random (0.8) to (2.4)) seconds\n第一个克隆体会在一秒后生成。之后，克隆体会按你设置的随机时间间隔创建。",
+        "text_hash": "7ecbdb9f1aab7f1e7da1194d7d8635509ce1f1df0ef582122beaf4be4574e44f",
+        "variant_version_id": "lrzv_5275293c04214954fc034fec"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_792dbb2cd55053acde41c287",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n拖入一个 when I start as a clone{:class=\"block3control\"} 积木，为每个新克隆体做准备。\nBear-walking 角色。{:width=\"100px\" height=\"100px\" style=\"object-fit: contain;\"}\nblocks3\n+when I start as a clone\n+show",
+        "text_hash": "a4c9c2648c619185ef6867ff64e3007fa519dec3ba42abd4ac1508a02ebc13d8",
+        "variant_version_id": "lrzv_5275293c04214954fc034fec"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_f7ba4c69044179bd84586de3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n打开 Variables{:class=\"block3variables\"} 菜单，选择 **Make a Variable**，并创建一个名为 speed{:class=\"block3variables\"} 的变量，适用于所有角色。取消勾选 speed{:class=\"block3variables\"} 旁边的复选框，使它在舞台上隐藏。\nVariables 菜单中的 Make a Variable 按钮。\n在障碍物的绿旗脚本中设置 speed{:class=\"block3variables\"}。负值会让克隆体向左移动。\nblocks3\nwhen green flag clicked\nset rotation style [left-right v]\n+set [speed v] to (-5)\nset size to (25) %\ngo to x: (280) y: (-85)\npoint in direction (-90)\nhide\nwait (1) seconds\nforever\n  create clone of (myself v)\n  wait (pick random (0.8) to (2.4)) seconds\nend",
+        "text_hash": "38939a922d7beacb02acaf6f4b7ba9304c584407c67f7d95cf22658dba0c167b",
+        "variant_version_id": "lrzv_5275293c04214954fc034fec"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_967dc93df6ff4834e4fca820",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n让每个克隆体移动，直到它经过舞台左侧。拖入一个 repeat until{:class=\"block3control\"} 积木，然后添加\nblocks3\nwhen I start as a clone\nshow\n+repeat until\n+  change x by (speed)\n+end\n+delete this clone\ndelete this clone{:class=\"block3control\"} 会在每个副本离开舞台后将其移除，这样克隆体就不会堆积。",
+        "text_hash": "f3f87ff20a0d594f98d10e4f96836b735415180581b8c04a5290926192e926aa",
+        "variant_version_id": "lrzv_5275293c04214954fc034fec"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_403d4c1d0be083e9d4ca0345",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n在循环中添加 next costume{:class=\"block3looks\"}，让障碍物在移动时产生动画效果。\nblocks3\nwhen I start as a clone\nshow\nrepeat until\n+  next costume\n  change x by (speed)\nend\ndelete this clone\n```",
+        "text_hash": "fab1bd8724278d280481f8491517531d0c0c3298cba704862bff385655a3636b",
+        "variant_version_id": "lrzv_5275293c04214954fc034fec"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_cd69103fb3de12d206241a62",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n**测试你的项目。** 障碍物应该会在不同时间出现，并从右向左移动。",
+        "text_hash": "a696904f7534f680a781995de3e8f79ad97164f82160e8607d4a1ba3b632e319",
+        "variant_version_id": "lrzv_5275293c04214954fc034fec"
+      },
+      "type": "quotation"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_5275293c04214954fc034fec"
+  },
+  "estimated_minutes": 45,
+  "fragment_id": "lrf_4a227fa04ac8d1f86c8ea2f6",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": null,
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explore",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "简体中文翻译与结构化整理由 kebiao 完成。dino-jump，Raspberry Pi Foundation，CC BY-SA 4.0",
+    "attribution_text": "dino-jump，Raspberry Pi Foundation，CC BY-SA 4.0",
+    "canonical_url": "https://github.com/raspberrypilearning/dino-jump",
+    "license_id": "CC-BY-SA-4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source_revision": "org-snapshot-1784806353655",
+    "source_title": "Dino Jump"
+  },
+  "resource_id": "lr_31064ad8da1c504955b6d320",
+  "resource_type": "activity",
+  "resource_version_id": "lrv_24d0bbe5f33bfb26f2d96edb",
+  "source_id": "raspberry-pi-learning",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "恐龙跳跃",
+    "text_hash": "f0ff963a0a60f1547bdedf0d15ef1f862507a5ff8f89ca3957f353e574f017fc",
+    "variant_version_id": "lrzv_5275293c04214954fc034fec"
+  },
+  "variant_id": "lrz_95cbbaf491cb24820d51ff18",
+  "variant_version_id": "lrzv_5275293c04214954fc034fec",
+  "visual_dependency": "helpful"
+}

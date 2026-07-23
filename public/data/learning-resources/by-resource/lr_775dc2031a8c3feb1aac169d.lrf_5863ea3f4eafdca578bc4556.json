@@ -1,0 +1,216 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_fbce63794d899bf82a593982",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你想成为一名 Web 开发者，学习一些 HTML、CSS、JavaScript 是有用的。除了机械地使用之外，重要的是学习如何**负责任**地使用这些技术，让所有用户能在 Web 使用你的作品。为了帮你实现这个目标，本模块涉及常见的最佳实践（在 HTML、CSS 和 JavaScript 主题中有所体现），以及大量和严格执行无障碍有关的技巧。接下来会详细介绍无障碍。",
+        "text_hash": "5ddb1b5c5425ffa629805458f7c6fa9740cb7763f1bac62c1af8d407da6362b7",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c1b0a748fb9ddac0eeb408c6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "概述",
+        "text_hash": "9a377ae82211e65af4c270eddd1e59a93a9ed9b76f236b74c4a44121f881bac4",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a01845b83f46780cf89870ac",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当有人将一个网站描述为“无障碍”时，意味着不论用户访问 Web 的方式如何，任何一个用户（甚至是有身体或精神障碍的用户）都能使用网站全部的特性和内容。",
+        "text_hash": "c290bd61801ebf87b4f3ce68b698a9d2af60a925067d63173ad9cd73ebd7d6f8",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4f75379e62c82dda37a32e88",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用键盘、鼠标和触摸屏的用户，以及使用任意其他方式（包括屏幕阅读器和诸如 Alexa 和 Google Home 等的语音助手）访问 Web 的用户都应该能访问网站。\n无论人们的听觉、视觉、身体或认知能力如何，都应该能理解和使用应用程序。\n网站也不应该造成伤害：像动画（motion）这样的 Web 特性会导致偏头痛或癫痫发作。",
+        "text_hash": "c663b7df95d1436c6a724410ab4468a042fba817273ad70fd6d17804e27b8073",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_81e6649438d215be222320d5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**默认情况下，HTML 在使用得当的情况下是无障碍的**。Web 无障碍关乎 Web 内容无论由谁以何种方式访问都能保证是无障碍的。",
+        "text_hash": "0b63448430b64eb8c3e4427485f3864891336752d2a627e5bcfac1a3074d67fe",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eb3f62ba72240b090cdde899",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要检查 Web 页面上的无障碍问题时，火狐无障碍检查器是一个非常实用的工具。下面的视频对它进行了很好的介绍：",
+        "text_hash": "473919aa5e9ffd93090424720ed560480e831df131d56868578d9a19a9409e04",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_89f21d59b9d379300578e619",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提",
+        "text_hash": "bb9f5f19c7f14c1c83bc2f60c8b6b533ef8da215dc1b1ce8125546531c5951db",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_99c18c13ddd6ef3f936f00d5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要充分理解本模块，你至少需要读过 HTML、CSS 和 JavaScript 主题的前两个模块，或者在读相关技术主题时，读过无障碍模块的相关部分（这样或许会更好）。",
+        "text_hash": "71a1cbb24890a85a0e5685a39b8c327959060da466777d850db3ede6a65dbed4",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d1bc4e3c59763cdaf7337f01",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你工作的计算机/掌上电脑/其他设备无法创建文件，可以使用在线编码程序（例如，JSBin 或者 Glitch）实验大多数代码示例。",
+        "text_hash": "14e9f8c88db323d912231fbbc057ac6f341bcc5ba7c435bde27d173ef7785a8f",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_a4ad9263267086dda6692b0c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "指南",
+        "text_hash": "6eadeddb7e7047ab68755c3e205a8443064a8dc6e26ff4e39ad67209132b6319",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_03b49d363a172da29a42ba5b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "什么是无障碍？\n  - : 这个模块的第一篇文章深入介绍无障碍是什么——包括：我们需要考虑哪一群人，为什么要考虑这些人，不同的人使用什么工具与 Web 交互，以及我们如何构建 Web 开发工作流的无障碍部分。\nHTML：无障碍的良好基础\n  - : 只要确保正确的 HTML 元素被用于正确的目的，大量的 Web 内容就是无障碍的。这篇文章详细讲述 HTML 是如何确保最大程度的无障碍。\nCSS 和 JavaScript 无障碍最佳实践\n  - : 当正确使用 CSS 和 JavaScript 时，也能提供无障碍的 Web 体验，但错用的话，会极大地破坏无障碍。这篇文章概括了大量的 CSS 和 JavaScript 最佳实践，这些实践能确保甚至是复杂内容也尽可能是无障碍的。\nWAI-ARIA 基础\n  - : 接着上一篇文章，有时制作复杂的 UI 控件（涉及非语义化的 HTML 和使用 JavaScript 动态的更新内容）很难。WAI-ARIA 是通过添加额外的语义（浏览器和辅助技术能识别和使用这些语义让用户知道正在发生什么）来解决这类问题的技术。这篇文章以基础级别的视角讲解如何使用它来改善无障碍。\n多媒体无障碍\n  - : 会出现无障碍问题的另一类内容就是多媒体——视频、音频和图像内容需要提供合适的文本替代，这样辅助技术和相应的用户就能理解这些内容。这篇文章将介绍如何做到这一点。\n移动端无障碍\n  - : 随着用移动设备访问 Web 变得流行，以及主流平台（例如，iOS 和安卓）拥有完备的无障碍工具，为这些平台上的 Web 内容考虑无障碍是重要的。这篇文章讲解移动设备相关的无障碍注意事项。",
+        "text_hash": "0e37e43807c80c678f5cf53ae42ae212ce3750058c96c035b2504f61b1362ff8",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_40faa338806f376c1a8a9e13",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "评估",
+        "text_hash": "1d091c1fefbadaf4265f4675ccd38cc5cc3afaee7dd4ded1c2f90bc9900101e0",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b2cbb704d45d110f7a924377",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "无障碍诊断\n  - : 在本模块的评估环节，会向你展示带有几个无障碍问题的简单站点，你需要诊断并修复这些问题。",
+        "text_hash": "87206e85810dea26d9bb47ff05c9f7ff88c340ffd8daa4cd77f2264f4b3f0a37",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_12f55f118359cbb06f43ff78",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "参见",
+        "text_hash": "d27f89055b790f219353b4388307a138320ad4c9f05b64b170c43a2969c7e89c",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_bfc01a18a547a7c60bcbd873",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "学习无障碍 Web 设计  **MDN 课程合作伙伴**\n  - : Scrimba 的*学习无障碍 Web 设计*课程通过解决交互式编码挑战和修复真实网站的方式教授如何编写无障碍的 HTML。\n现在开始构建无障碍的 Web 应用\n  - : 来自 Marcy Sutton 的优秀视频教程系列。\nDeque University 资源\n  - : 包含代码示例、屏幕阅读器参考和其他实用的资源。\nWebAIM 资源\n  - : 包含指南、清单、工具和其他资源。\nWeb 无障碍评估工具列表\n  - : 包含一系列 Web 无障碍评估工具。",
+        "text_hash": "aa15c22dbf146b4b6f102034c59d70fae50198786c5bc109a345cc39a56221e2",
+        "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+      },
+      "type": "unordered_list"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_5863ea3f4eafdca578bc4556",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。无障碍，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "无障碍，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/accessibility",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "无障碍"
+  },
+  "resource_id": "lr_775dc2031a8c3feb1aac169d",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_a7bbeed13ad60f640a608b49",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "无障碍",
+    "text_hash": "01c849c3d96d7beaa5ef19e75d11d23a9981e387c189b4728f1bb13ce4574c4f",
+    "variant_version_id": "lrzv_21e25f75f2e868e2531c711c"
+  },
+  "variant_id": "lrz_01ce1d80aec4bb0b7741a427",
+  "variant_version_id": "lrzv_21e25f75f2e868e2531c711c",
+  "visual_dependency": "helpful"
+}

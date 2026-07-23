@@ -1,0 +1,98 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_b047005dc95ce88596421e1c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "添加障碍物",
+        "text_hash": "cc2d0b03ecd8c69fda98174ab2d95cb4b1ee04a5178651b73173374a6a7d37c4",
+        "variant_version_id": "lrzv_e2e93bffed8e4f056824b8b5"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_affe90522d411d311c01ed09",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "创建一个你的角色需要跳过去的障碍物精灵。",
+        "text_hash": "e22b6a29d6672838349149914134ba884c7501cdaa2da2d2c7a76a13ca999845",
+        "variant_version_id": "lrzv_e2e93bffed8e4f056824b8b5"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a9a057a3115a7d6e1c606799",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n选择任意精灵作为障碍物。本示例使用 Bear-walking，它有几个用于行走动画的造型，但你的障碍物可以按你喜欢的样子显示。",
+        "text_hash": "fb741f6527671bd295cc7d696acf98155d09e62071be43e578363067dba9d89e",
+        "variant_version_id": "lrzv_e2e93bffed8e4f056824b8b5"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_17a48d780373732cc981dd44",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!TASK]\n选择障碍物，然后点击 **代码** 选项卡。添加这些积木来设置它的位置、方向和大小。\nBear-walking 精灵。{:width=\"100px\" height=\"100px\" style=\"object-fit: contain;\"}\nblocks3\n+when green flag clicked\n+set rotation style [left-right v]\n+set size to (25) %\n+go to x: (280) y: (-85)\n+point in direction (-90)\n示例位置会把障碍物放在舞台右边缘之外一点。如果你的障碍物没有贴在地面上，请更改 y 位置。",
+        "text_hash": "b4a2b90d44d2d4e92dcdcfe54846f975d09739fd948d06cf311442dd9aef0ba6",
+        "variant_version_id": "lrzv_e2e93bffed8e4f056824b8b5"
+      },
+      "type": "quotation"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_e2e93bffed8e4f056824b8b5"
+  },
+  "estimated_minutes": 45,
+  "fragment_id": "lrf_5ce1e909cbb25082cc4669ac",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": null,
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explore",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "简体中文翻译与结构化整理由 kebiao 完成。dino-jump，Raspberry Pi Foundation，CC BY-SA 4.0",
+    "attribution_text": "dino-jump，Raspberry Pi Foundation，CC BY-SA 4.0",
+    "canonical_url": "https://github.com/raspberrypilearning/dino-jump",
+    "license_id": "CC-BY-SA-4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source_revision": "org-snapshot-1784806353655",
+    "source_title": "Dino Jump"
+  },
+  "resource_id": "lr_31064ad8da1c504955b6d320",
+  "resource_type": "activity",
+  "resource_version_id": "lrv_24d0bbe5f33bfb26f2d96edb",
+  "source_id": "raspberry-pi-learning",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "恐龙跳跃",
+    "text_hash": "f0ff963a0a60f1547bdedf0d15ef1f862507a5ff8f89ca3957f353e574f017fc",
+    "variant_version_id": "lrzv_e2e93bffed8e4f056824b8b5"
+  },
+  "variant_id": "lrz_e52e598325727fb0629b8c8c",
+  "variant_version_id": "lrzv_e2e93bffed8e4f056824b8b5",
+  "visual_dependency": "helpful"
+}

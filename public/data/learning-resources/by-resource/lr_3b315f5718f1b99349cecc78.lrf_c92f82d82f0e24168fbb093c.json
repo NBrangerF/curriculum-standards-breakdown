@@ -1,0 +1,700 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_61d0a5d9b7ec43cb172fee64",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本文作为本模块的开篇阐述了究竟什么是“无障碍” — 主要包括哪些用户群体是我们所需要和为什么需要考虑的，不同用户使用哪些工具与网页交互，以及我们在网站开发流程中如何构建无障碍。",
+        "text_hash": "298c6e04bf053c09705bebcfe136d0afa1bc1d2548491aec6dba018722652bf9",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_108a2101b46c31fef4f1c7e4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：\n       基本的计算机知识，对 HTML 和 CSS 的基本理解。",
+        "text_hash": "d317a44a9b90387874f7d0cf50a23e0f0355d8da0636c10dfef4526056e568d6",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f8704dddebf61cd46c77c3b5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：\n       熟悉无障碍，包括它是什么，以及它对 web 开发人员的影响。",
+        "text_hash": "dae615dffec8b19f101b9f9170012d02d851e7e30a7f1c4736d3407de083ab0f",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2155c60b2c394542768bf656",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "什么是无障碍？",
+        "text_hash": "7411520d07278a35635b13276d3d76add0a1272b326143170b82b401a592a5b7",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ae4d13cf096047afbefbd640",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "无障碍是一种让尽可能多的用户可以使用你的网站的做法。传统上我们认为这只与残疾人士有关，但提升网站的无障碍也可以让其他用户群体受益。比如使用移动设备的人群，那些使用低速网络连接的人群。",
+        "text_hash": "4abc7e9ea0f9b22d0af053203bb2f238b9258ca79ffae773706cdfe031c1c599",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b83537d660663dbe2a93b5db",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你也可以把无障碍看成是同等地对待每一个人，给他们平等的机会，无论他们的能力或所处的环境如何。就像不能让坐轮椅的人可以进入大楼是错误的 (现代公共建筑通常有轮椅坡道或电梯)；不能让视觉有障碍的人士可以浏览我们的网站同样不正确。我们都是不同的，但我们都是人，因此享有同等的人权。",
+        "text_hash": "ed4e36d8e8eeecd4321b13ef920728f7709b4f2c0f68de0194eb90eded97d183",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_757056e30c24b7f3e2731b4c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使网站具备无障碍才是正确的做法。它也是一些国家法律的一部分，它打开了一些重要的市场，否则那些市场的用户无法使用你的服务或者购买你的产品。",
+        "text_hash": "b0493d5ce8ad5f89193efc6c7f6a29e3f47e9b9be3e7760fc3ba38781dfca97a",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ee5bd967bff3775277020b6d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "建立可访问的网站能让每个人都受益：",
+        "text_hash": "1126753bd4dbbf078e66754587a13a793d28b905dd728dba1de7061b0ec522f0",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8d37c0ed115d619737b09fce",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用原语 HTML(译注：仅使用非样式标记而样式用 CSS 定义的 HTML 称为原语 HTML。那些描述内容呈现效果的标记如\\ 标记是样式标记，这些样式标记在 HTML5 中已经废弃），不仅提升了无障碍，也增强了搜索引擎优化，使你的网站更容易被找到。\n关心无障碍表露出良好的道德品质，它提升了你的公众形象。\n其他一些改善无障碍的做法也会让你的网站更容易被其他群体使用，比如手机用户，低速网络环境的用户等等。事实上，每个人都可以从这此改善中受益。\n我们是否也曾提到过到这也是某些地方的法律规定？",
+        "text_hash": "dd27b1b3a4a84491d3a12c8e8250ad4684dd4583dbe83e9555b723f1c1cc4295",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_2f12ab18a7b956207fa2ccc6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们应关注的残疾都有哪些种类？",
+        "text_hash": "44ae3c672d1aae870a7f795c2daf6aae296485aafb4ad1d8dec44fbfb8ce5180",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_812d861f0ccec28b9ea5f96f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "残疾人士和正常人一样是多样化的，他们身患的残疾也多种多样。此处课题的关键是抛开思考你自己的电脑和你自己使用网页的方式，而是要开始了解别人如何使用网页——你不是你的用户。接下来会讲解需要考虑的主要残疾类型，以及他们访问网页内容时用到的一些特殊工具 (被称为辅助技术或 ATs)。",
+        "text_hash": "f6c5867eb5a1e08788c808820318276bc94ef927fe8d459b26e58117e513b483",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a2b9e90e39d146868da35cd1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n世界卫生组织的“残疾和健康”状况说明书指出：“超过 10 亿人，约占世界总人口的 15%，患有某种形式的残疾”，而且“有 1.1 亿至 1.9 亿之间的成年人在身体功能上存在重大困难。”",
+        "text_hash": "87e7dc5035573e126b4b313ec8165b87cdc36c0f40f0ee551565d786ce1c7b75",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_c7603e2c5f1fee7c17900c9f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有视觉障碍的人",
+        "text_hash": "4d6e145c46b4738e6456a6ef028434c6113b6da268d8c2d153688bfaf46b65a4",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_34e9e10464e1c9a040ba66f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有视觉障碍的人包括盲人、视力水平低下者、色盲。许多视觉障碍人士使用屏幕放大镜，要么是物理放大镜或是软件缩放功能。现今大多数浏览器和操作系统都具备缩放功能。某些用户使用屏幕阅读器，这是一种可以大声朗读数字文本的软件。一些屏幕阅读器的示例如下：",
+        "text_hash": "23983cb46428779be23974177570a0eb6c7f027ef3adf78bf467c743ab947d51",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_19c78ff0a8383ca4782c952c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有些是付费产品，比如 JAWS (Windows) 和 Window Eyes (Windows).\n有些是免费产品，比如 NVDA (Windows)， ChromeVox (Chrome, Windows 和 Mac OS X)，和 Orca (Linux).\n有些内置在操作系统中，比如 VoiceOver (Mac OS X and iOS)， Narrator (Microsoft Windows)， ChromeVox (on ChromeOS)，和 TalkBack (Android).",
+        "text_hash": "39a9d401f7038210a88b6c12698c67f3a44c97540e7fef851b132ef88d6dbd47",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_fb2d8ea00ead7773c675f27b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让自己熟悉屏幕阅读器是个好主意；你还应该设置一个屏幕阅读器并充分的使用它（盘它），以了解它是如何工作的。请参阅我们的跨浏览器屏幕阅读器测试向导，以了解更多使用它们的细节。下面的视频还提供了一个简单的例子说明了体验是怎样的。",
+        "text_hash": "37bf5ae87bc17ff878fe53902a2f167890cf18fd5fca1fa45884b86565fd8d3e",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1ea8dea8e28aaf9406062a8d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "据统计，世界卫生组织估计“全球有 2.85 亿人视力受损：3900 万人失明，2.46 亿人视力低下。”(参见视力障碍和失明)。这是一个庞大而重要的用户群却仅因为你的网站没有合理的设计代码而流失——几乎相当于美国的人口总数。",
+        "text_hash": "eef2677504a35c313d4b83bc39afeccf1b71b352bc8f536a58e499f19f71ba6c",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ddb7a21eb5ead7300e88a8a2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有听觉障碍的人",
+        "text_hash": "2e90d498c697228c023b5531ca70565da6669146e4e149f4dc0a9ec6b13001d9",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f61f200bf79cb12f067286a3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "也被称为有听力障碍的人或聋子，这群人要么听力水平较低要么或者完全听不到。这些人使用辅助技术（请参考 听力、语音、说话或语言障碍患者的辅助设备），但是并没有专用于计算机/网页的辅助技术。",
+        "text_hash": "33a76548aca80794b0ce12f1c3cab9f6ccb233dd799861b363b835c3b124f069",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0c4e4bbc859af978711fc53d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是，现在有专门的技术用于将文本转换成音频内容，范围从转换简单的文本文字到转换与视频一起显示的字幕。稍后，有文章将讨论这些技术。",
+        "text_hash": "0e0a57236ed9316d593a9c2c3c2e58e0be9a4d5b4098cf05b0f9af1f12b58743",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5ab219895e8b1c05ff3aaa6b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "听力受损的人也代表着一个重要的用户群体——“全世界有 4.66 亿人患有听力障碍”，世界卫生组织的耳聋和听力受损状况报告如此宣称。",
+        "text_hash": "5f6ec00c7f2072cda67b51b6b5e4b55f56758c4441a2b1c24f5670981842fa2a",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7409bcba006ee4357d5bed5b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "行动障碍的人",
+        "text_hash": "7c0f0968d8308537f5776fad3d3d1087be39cafb43bff59def29142d0b9f8307",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2070c647619decb68134d514",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些人在行动方面存在着残疾，可能是因为纯粹的身体问题（例如肢体丧失或瘫痪），或导致肢体无力或失去控制的神经系统/遗传疾病。有些人可能难以做出使用鼠标所需的精准手部动作，而另一些人则可能受到的影响更为严重，可能会严重瘫痪到需要使用头部指针与计算机进行交互的地步。",
+        "text_hash": "61d1bed0dffe59a71e061d3afc13c87a0a9fbda0ef4defdb00bbfa022a829c83",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4df183889524e3ffce41de3b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这种残疾也可能是由于年老体衰导致，而不是任何特定的创伤或状况造成，也可能是由于硬件限制所致——有些用户可能没有鼠标。",
+        "text_hash": "67cb7a0a8f53d45e284eee6f91aaebcd9eff75c39724706fa3947eb9287fc5aa",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_be80d6d789c69a7cea4e47fc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些残疾通常影响 Web 开发工作的方式是要求通过键盘就可以访问控件——我们将在本模块的后续文章中讨论键盘无障碍，但最好是仅通过使用键盘来尝试访问一些网站，看看你能够做些什么。例如，你可以使用 Tab 键在 Web 表单的不同控件之间移动吗？你可以在我们的“使用键盘原生无障碍性”章节中找到有关键盘控制的更多详细信息。",
+        "text_hash": "ab7cff226fdbef11611b55b9f6ede7ae5b421d86c88cf404a1725b8a549c8b70",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c75c03c9ed73dfffa12a8668",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "据统计，有相当多的人患有行动障碍症。美国疾病控制与防御中心的“残疾与机能（18 岁及以上的非住院成年人）”报道称美国有 15.1% 的成年人都患有身体功能疾病。",
+        "text_hash": "0fa626a9b97f731433f54d7493bab721ec331e098a013e33f4c906c2b23b5965",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3220d8a3e157c150ef07f833",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有认知障碍的人",
+        "text_hash": "4086de8cf5c1b0e442c2da2e1e6f58c59514c94161b78110eaa45d6a2ce79b82",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_203424f87f3e4b6fe8da3fa2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "认知障碍涵盖了一类范围广泛的残疾，从能力最受限的智障人士到随着年龄增长而导致思考和记忆困难的所有人。该范围包括了患有精神疾病的人，例如抑郁症和精神分裂症患者。还包括有学习障碍的人，例如阅读障碍患者和有注意力缺陷的多动症患者。重要的是，尽管认知障碍的临床定义存在很多差异，但与之相关的人们会遇到同一类功能问题。这类问题包括很难理解页面内容，难以记住如何完成任务，以及因不一致的网页布局而产生困惑。",
+        "text_hash": "afd78cb4ba514fe4243383c8e328687fe26593d8d19da067f2a0a020abadc9b8",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ee1018b75e57f16b7cf82f2a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对认识障碍人士来说一个好的无障碍机制包括：",
+        "text_hash": "e9c4db973e2e0aa5ea4dba3894c84b782c8241d537eb9fdc39db2fe150ce3fdf",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_23be52392c5cc32267b3a7e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用多种方式传达内容，比如从文本到语音或是视频；\n更易理解的内容，例如使用更通俗的语言书写的文本；\n将注意力集中在重要内容上；\n尽量减少干扰，例如不必要的内容或广告；\n一致的网页布局和导航；\n相似的元素，比如未访问的下划线链接使用蓝色而访问过的使用紫色；\n将过程划分为更有逻辑的，必要的步骤并附上进度指示器；\n在不影响安全性的情况下尽可能让网站认证更简单；并且\n使表单容易完成，例如带有清晰的错误消息和简单的错误恢复。",
+        "text_hash": "b9622d5bd6ea5a0953afe2029575997bfe734567f63710a0c30895e8a76dd005",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_f314bbbd747792a13267d746",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "注意",
+        "text_hash": "4ffef8f3113a3a11ef5d0e07dfc607183d11988b28ef6dd74e11c65eacf5e70d",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_932364892fb8949dc4c7082e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "具有认知无障碍的设计将导致良好的设计实践。他们将使所有人受益。\n许多有认知障碍的人也可能患有身体残疾。网站必须遵循 W3C 的“网页内容无障碍指南”包括认知无障碍指南。\nW3C 的“认知和学习残疾无障碍专案组”为认知障碍人士制作了 web 无障碍指南。\nWebAIM 有一个认知网页提供了相关的信息和资源。\n美国疾病控制中心估计，截至 2018 年，美国四分之一的公民有残疾，其中认知障碍是年轻人最常见的疾病。\n在美国，“智力障碍”是“智力低下”的新术语。在英国，“智力障碍”通常是指“学习障碍”或“学习困难”。",
+        "text_hash": "25f0c5390676fe2661b13d3df834edf15d2e3c7d7426ed6fdaa9d20c1837d8ce",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_1bd23e68999b505a0d4a59e4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在你的项目中实现无障碍",
+        "text_hash": "621ec71bbd7a10e0aa811929d553bc4bcec35b81c1652f93213d198a7f912fbd",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0960bd3dd45ba53870c35c85",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个流行的关于无障碍的传言认为：无障碍是实施在项目上的昂贵“附加功能”。这个传言确实可能成立，只要遇到以下任一情况：",
+        "text_hash": "a786cef90e0f7cc684086d9fcb3ec92ac98775452bfcb7a53da6762dc737bdc3",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9617d9228db278d34245182f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你正在试图为一个现有存在重大无障碍问题的网站“改造”无障碍。\n你只是在项目后期才开始考虑无障碍和此时才暴露的相关问题。",
+        "text_hash": "60f95b02b2d5ed34c7eb77f6320f31f5cd8349e86772510d1338146944679d51",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_1f05b14c7b8692be53b81055",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "然而如果你能在项目的开始阶段就考虑到无障碍的话，使大多数内容无障碍化的代价就会相当微小。",
+        "text_hash": "cee515cc739cfaa08406a2f2ce93289b19d32f6eff692c1fbdc1b94879359e6d",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_457aaaeb75782b5a63652d46",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在规划项目时，将无障碍测试纳入测试体系，就像对其他任何重要目标受众群体（例如台式机或移动浏览器的目标用户）进行测试一样。尽早和经常进行测试，理想情况下运行自动化测试找出程序化方式可检测到的缺失功能（例如，缺少图像替代文本或不良链接文字——请参阅元素关系与上下文），并对残疾人士的用户群进行一些测试，以查看更复杂的网站功能是否对他们可用。例如：",
+        "text_hash": "4b1d564fff92cdc592551be6f48c147c9ce287d1c79c8df2ff61ac2b29f50335",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a5a4eeb7a5d5164ebd10f37",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我的日期选择器小部件是否可供使用屏幕阅读器的人使用？\n如果内容动态更新，视力受损的人知道吗？\n我的 UI 按钮是否可以使用键盘和触碰界面进行访问？",
+        "text_hash": "8a6e87765b849001e415484ac0ebfdf6911d8587f739beb55d1dcf3caed3baac",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_aa4abce656498e82cf33ff7a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以并且应该在内容中记下潜在的问题区域，这些地方需要进行一些工作才能使其变得可访问，确保对其进行了彻底的测试并考虑解决方案/替代方法。文本内容（如你将在下一篇文章中看到的）相对容易，但是多媒体内容和时髦的 3D 图形又如何呢？你应该查看项目预算，并考虑可以使用哪些解决方案来实现这类内容的无障碍。转录所有多媒体内容是一种选择，当然成本可能很高。",
+        "text_hash": "a6064e9087048179fa7f5f2dfed25c35052b95224c60ddc0ba90cc5682a5d8e0",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e1fd417573fd2f541fb9aabb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "还有，现实一点。“100% 的无障碍”是一个无法实现的理想——你总是会遇到某种边缘情况，导致某个用户发现某些内容难以使用——但你应该尽你所能去做。如果你计划包含一个使用 WebGL 呈现的时髦三维饼图，你可能希望也包含一个数据表，作为数据的可访问的替代表示。或者，你可能只需要包含表而去除 3D 饼图——这样每个人都可以访问该表，编写起来也更快，还能减少运行时的 CPU 耗费，维护也更容易。",
+        "text_hash": "7bd825d62367e6babb279b4261481e0cba2b02ebcdcc66bcf76255b6c8979d8e",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7592ae2e79c1af6d2e730245",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "另一方面，如果你正在一个画廊网站上展示有趣的 3D 艺术，期望每件艺术品都能被视觉障碍人士完美的访问是不合理的，毕竟它是一种完全的视觉媒体。",
+        "text_hash": "6854cb3b1af3fdcec8e606c02e458a6943dc76542d3fb8513ff8991b4a9abece",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_df46256b9d9eb9b9db122636",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了表明你关心并考虑了无障碍，请在你的网站上发布无障碍声明，其中详细说明你对无障碍的政策以及为使该站点可访问而采取的步骤。如果有人确实反映你的网站存在无障碍问题，请与他们展开对话，保持同情心，并采取合理的步骤尝试解决问题。",
+        "text_hash": "89d07e0ddec9c6c0c4cb8ff05804764e7977cfe05e6c3b1fdeb2f2cdc316311e",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_47497a28b535897c7cc092f7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n我们的“处理常见的无障碍问题”一文涵盖了应更详细地测试的无障碍细节。",
+        "text_hash": "db49b77daa23cf4c5091473278002a8d26f6aab81412f846b67a722e45ab2abe",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_7ef80e8c7d829a279381d10e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结：",
+        "text_hash": "eefacd527158ecd0fc0d02f09bde1595a675dd72938535ab11d64e49e0c13849",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7aada09288165e605ce76ec5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "从项目一开始就考虑无障碍，并尽早进行测试。就像任何其他 bug 一样，越晚发现无障碍问题，修复它的代价会更高。\n请记住，许多无障碍的最佳实践对每个人都有好处，而不仅仅局限于残疾人士。例如，原语标记不仅对屏幕阅读器有好处，而且使加载速度和性能也更快，因此对每个人来说都更有益，尤其是那些使用移动设备和/或慢速网络连接环境的人。\n在你的站点上发布无障碍声明，并与遇到问题的人接触。",
+        "text_hash": "92dd890770f86a3b99e2da0facf1923b116718862e3b4895368c3d35c2f5c703",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_5cfe74175b00b4bb3b7ecfff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "无障碍指南和法律",
+        "text_hash": "719fa0a5f0880fa1ee879c3778f5dadeaa4ce284db8ca1ab626347b90018860a",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1814679ad88c36ab8718b9a1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有许多可用于基于无障碍测试的检查列表和指南集，乍一看，这些准则可能会让人望而却步。我们的建议是让自己熟悉你需要注意的基本领域，以及理解与你最相关的指导方针的高层结构。",
+        "text_hash": "0d3223848496339c46a51f9687d154b2c81e532b4c2ae431c77697dd59ba5084",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8b2f9c726d43ee0028f36eb0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，W3C 发布了一个庞大而详细的文档，其中包含了非常精确的、与技术无关的无障碍一致性标准。这些被称为 Web 内容无障碍指南 (WCAG)，它们绝不是短读的。这些标准分为四大类，它们指定如何使实现具有可感知性、可操作性、可理解性和鲁棒性。最好的地方得到一个简单的介绍和开始学习是一目了然。没有必要用心学习 WCAG——注意主要关注的领域，并使用各种技术和工具来突出任何不符合 WCAG 标准的区域 (更多信息见下文)。\n贵国还可能有具体立法，规定为其人口提供服务的网站必须能够访问 - 例如，美国“康复法”第 508 条、德国关于无障碍信息技术的联邦法令、联合王国的“平等法”、意大利的“无障碍法”、澳大利亚的“残疾歧视法”等。",
+        "text_hash": "ee27e42cc85e2f4b35dddb64f352177004b8d30fcb4e1a4eb8c52f1891a58f4c",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_d8a79789122b77c6c89394e3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "因此，虽然 WCAG 是一套指导方针，但你的国家可能会有关于网络无障碍的法律，或者至少是对公众提供的服务的无障碍 (包括网站、电视、物理空间等)。找出你的法律是个好主意。如果你不努力检查你的内容是否可访问，你可能会陷入法律的麻烦，如果有二重性的人抱怨它。",
+        "text_hash": "2e46a45da246130bf10522dc9e63c996df233427b2e64f704a883e706a328e8c",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f5ed9747309f0da7ccdb475e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这听起来很严肃，但正如上文所述，你只需要将无障碍视为 Web 开发实践的主要优先事项。如果有疑问，请咨询合格的律师。我们不会提供比这更多的建议，因为我们不是律师。",
+        "text_hash": "19d6ed769f29e9a0bd665195e37468ade37e3e4004ef9d7660fd5433abc67827",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_26f37303a0b7ebf3338f1f7d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "无障碍 API",
+        "text_hash": "f1bf4a169e663451fb9e7b090b9aa0d05ce3824ec64f50396309440e700ab8e0",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_5b928ef5eb583d7cc0708a2c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Web 浏览器使用特殊的无障碍 API(由底层操作系统提供)，这些 API 公开对辅助技术 (ATS) 有用的信息-ATS 大多倾向于使用原语信息，因此这些信息不包括样式信息或 javascript 之类的内容。此信息是在一个称为无障碍树的信息树中构造的。",
+        "text_hash": "921b6b00768af6c01611ade5d4997da0b2da2669bcc28f993b22c717426fdc7a",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_66b8c335ecd75f30f4154ed5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "不同的操作系统有不同的无障碍 API：",
+        "text_hash": "a65bf1c7d9c1830f1478deabdb568729b4168206a8cd9afcc11eb43c842b9f79",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0360f643f4cff7d11582a37d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Windows: MSAA/IAccessible, UIAExpress, IAccessible2\nMac OS X: NSAccessibility\nLinux: AT-SPI\nAndroid: Accessibility framework\niOS: UIAccessibility",
+        "text_hash": "a2097081c2be2b7db72ae55e9d889240ce9622b8d30fee246eddd01547f2f4c2",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_9293ab964a6bac7ae21cfb71",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果 Web 应用中的 HTML 元素提供的本机语义信息失效，则可以使用 WAI-ARIA specification 的功能来补充该信息，这些功能向辅助功能树添加语义信息以提高无障碍。在 WAI-ARIA basics 文章中了解有关 WAI-ARIA 的更多详细信息。",
+        "text_hash": "702c2b08b5c02baac70436a833d1d35bdce61c1b3afc0dbc725b57f9cad3cbe7",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d0e8cc70c7ca23931f69eddb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "摘要",
+        "text_hash": "21c04b2eeeb431f7722c4c144f95567e3bae94de9c743472072c84745d24367a",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_cf4a7982c8597999e295de1b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本文应该给你提供一个有用的无障碍的高级概述，向你展示为什么它是重要的，并研究如何将它融入你的工作流程。现在，你还应该渴望了解可以使站点可访问的实现细节，我们将在下一节中开始，了解为什么 HTML 是无障碍的良好基础。",
+        "text_hash": "217f404cf497cbd725e26a2edd653831f3c1f0adbb36315170ba2061ffec1139",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_891f7b3ab94dfbb1603a0184",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "参见",
+        "text_hash": "d27f89055b790f219353b4388307a138320ad4c9f05b64b170c43a2969c7e89c",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_117ac4c33b64372a3379991a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "WCAG\n  - Perceivable\n  - Operable\n  - Understandable\n  - Robust",
+        "text_hash": "18e4ab07d22403cd2050c3561c761f81537f79b7102721354448e7226d9c6dc7",
+        "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+      },
+      "type": "unordered_list"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_c92f82d82f0e24168fbb093c",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。什么是无障碍？，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "什么是无障碍？，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/accessibility/what-is-accessibility",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "什么是无障碍？"
+  },
+  "resource_id": "lr_3b315f5718f1b99349cecc78",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_47ae20f1d4d3e453589a33fa",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "什么是无障碍？",
+    "text_hash": "7411520d07278a35635b13276d3d76add0a1272b326143170b82b401a592a5b7",
+    "variant_version_id": "lrzv_1352ee52b8f7114958be1dae"
+  },
+  "variant_id": "lrz_7d0ddaf4d40eb7975c694931",
+  "variant_version_id": "lrzv_1352ee52b8f7114958be1dae",
+  "visual_dependency": "helpful"
+}

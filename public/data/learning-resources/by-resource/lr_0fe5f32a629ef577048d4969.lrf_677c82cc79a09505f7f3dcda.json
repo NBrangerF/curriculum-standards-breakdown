@@ -1,0 +1,1250 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_1732cff801d3810c0571bb88",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "掌握了上一篇文章中的定位的基础知识，我们将着眼于实现一些现实中的例子，来演示你能用定位来做什么。",
+        "text_hash": "4507e02ac8a966d7133668a5dbafd12a88e020c15593818440d83f956cea6f3f",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6ab1f9813f9bc93972df9325",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：",
+        "text_hash": "60df7f5b49d0fd69c1a1ee4bda41ede8b786ae9d162b8a9a73e264bbf703119b",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_49cc0502f84235662e35274f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 基础 (学习 Introduction to HTML ),和 CSS 怎么工作的 (学习 Introduction to CSS .)",
+        "text_hash": "6dd7c2027f89816391c91c5197e486490c299ee4270293bfe1476771726874fe",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b553db9f80cd36bb9cbf8010",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：\n        了解定位的实例",
+        "text_hash": "43e298d55df65839a83fb7daf01d36dc235bd3f0d3721eeee1b56873e298dbac",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e1f42b1a2ce0c55a8052bbdc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "列表消息盒子",
+        "text_hash": "20e7c9cc06e8cfa6483dceadda437039f824c9d04073dba65d62b127e6e85d66",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8eb61ab52d84509e847dcea5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们研究的第一个例子是一个经典的选项卡消息框，你想用一块小区域包括大量信息时，一个非常常用的特征。这包括含有大信息量的应用，比如策略战争游戏，比如从移动版的网页，屏幕狭小、空间有限；比如你可能想要放置许多信息的紧凑消息框，不用就会充满整个 UI。我们简单的例子完成后就会像下面这样：",
+        "text_hash": "7f1216ffbeb1b28ca210286ace336b3bd90f287e98fada3b527398dcc55fdd1a",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e19c7516bd43d3b6edea8ea0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你能看完整的示例，可运行在 info-box.html (source code)。检出它以理解你在本文章里要建立什么。",
+        "text_hash": "996931f96e387c0e95e977ea286254c02e728dba6ff2c4eb8b9f758a48e3ff17",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_2d7671286d0d8325bc16f195",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可能会想：”为什么不仅仅做独立的选项卡为一个独立的网页，然后通过点击不同的标签来在不同的页面跳转来达到这个效果？“这样代码可能会简单一些，是的。但是这样每个独立的”页面“视图将会实际上是一个新加载的网页，跨视图更难保存信息，并把这个特征融入一个更大的 UI 设计。另外，所谓的”单页应用“正在变得非常流行——尤其是移动网页 UI——因为把一切的服务放在一个单独的文件上可以减少 HTTP 请求的数量来浏览所有内容，从而提高性能。",
+        "text_hash": "ae4f5447f748fb87d6c866fead67c0fa6fbd5b1795a6a49eb7941fc15757ed4b",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_171705194fdef276f5562baf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n一些网络开发者甚至更超前，每次只加载一页的信息，并且使用 JavaScript 诸如 XMLHttpRequest特征动态改变信息显示。但是，在你此时的学习中，我们希望尽可能保持简单。接下来会有一些 JavaScript，但是只有一点。",
+        "text_hash": "39fb5a00a43cb811dfce8d0313a853e9ac4e4c4044ea8b06af669b20d75bca38",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_4b5f947b9a954667d2364022",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在开始之前，我们需要你拷贝文件到本地，当作起始的 HTML 文件——info-box-start.html。保存到你的计算机合适的位置，然后在你的编辑器里打开。让我们看看包含在 body 里的 HTML 代码：",
+        "text_hash": "8836b0d9fa24f6fd47e5eb2cc585786e52137de00b42a402be2a6c64ebb0d6d2",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a6447dcf4157c4bbc39ceb95",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_74ab21535254b3a9e3143aad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Tab 1\n      Tab 2\n      Tab 3",
+        "text_hash": "e0462c21306c2c260af0af0be07a6caac52eb57e2a0bf9b6ea81dc7a23fc8ab9",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1c059c6113083b346bd2a234",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "The first tab",
+        "text_hash": "236ff5c097da389a25dd47e78d04e387e1706b684b0a5056d83fa220236b7252",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bcdf9acd62f37b95bb5d8ffd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque\n        turpis nibh, porttitor nec venenatis eu, pulvinar in augue. Vestibulum\n        et orci scelerisque, vulputate tellus quis, lobortis dui. Vivamus varius\n        libero at ipsum mattis efficitur ut nec nisl. Nullam eget tincidunt\n        metus. Donec ultrices, urna maximus consequat aliquet, dui neque\n        eleifend lorem, a auctor libero turpis at sem. Aliquam ut porttitor\n        urna. Nulla facilisi.",
+        "text_hash": "b0a6c5b74c36f24da351a18c8269adb8ed8c2c553cb466bd54ca0abbaa0bc5b1",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_181c3fc4d1cf3589511de4e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "The second tab",
+        "text_hash": "fd96cde3b4abf74ac9ceb5453cf5ef74bb24d90898d6c054da7bd14a82dcef9b",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8fd415fdfe5a6ba74595c154",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This tab hasn't got any Lorem Ipsum in it. But the content isn't very\n        exciting all the same.",
+        "text_hash": "feb3f0fa4b96821929b8d47ec79e3070bda3a748a5c446fc66f2607eee6c9f30",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dd9e1c4275ce49b0dc6aacb8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "The third tab",
+        "text_hash": "2f6524aeea8f37968118b17450338285a48076ba9be34f17ed7744e79e7c144c",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_535da2fcd101ee30808a5d8a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque\n        turpis nibh, porttitor nec venenatis eu, pulvinar in augue. And now an\n        ordered list: how exciting!",
+        "text_hash": "65e10a5926f59a9144c734282245fef4c99e2abc8c3a086d8d7eb836465a9c1b",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fc8de39708368e0897fddfd0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "dui neque eleifend lorem, a auctor libero turpis at sem.\n         Aliquam ut porttitor urna.\n         Nulla facilisi",
+        "text_hash": "afee84dac801681283d211563225d9a39e10f5d91679fb61e5f0635713875485",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_340261492d1e6a7f5b42f0b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这样我们已经得到了一个元素带有类（class）为 info-box。此元素又包含一个  和一个 。无序列表包含三个列表项，列表项有链接在内，实际上将成为用于点击后显示内容面板的选项卡。 div 包含三个 元素，构成对应于每个选项卡的内容面板。每个面板包含一些示例内容。",
+        "text_hash": "eff405395d7b91afff47412ca01d39b23fc80955d53969fb6cc4d06fcb7595dc",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_25cb94a0b7bb87771c482f28",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里的思路是我们将样式化选项卡看起来是一个标准的水平导航菜单，使用绝对定位样式化面板互相坐落其顶上。我们也给你一点 JavaScript 包含到你的页面上，当选项卡被按下时，显示对应的面板，并且样式化选项卡本身。你不需要在这个阶段了解 JavaScript 本身，但是你应该尽快学习一些基本的 JavaScript——你的用户界面越复杂，越需要一些 JavaScript 来实现你渴望的功能。",
+        "text_hash": "4758f20acc887ff940a81bf3e7bebd5774d7aed6a2627e9aff56295939f831e7",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f5c1972d32037539a330a820",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一般设置",
+        "text_hash": "4db250b22711ac8a10fcb51af1a9cd88b91f3c309e9e9e3ef9350fe8994d0e3a",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_556e543bb9dbaa1faa812518",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始前，在开闭标签之间添加下面的代码：",
+        "text_hash": "2965804c11c49e897f240bdaec9f337b9e479bd018e65586b6b28b114900b90f",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ed08c1ce005b5ee69ccaae24",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nhtml {\n  font-family: sans-serif;\n}",
+        "text_hash": "6bf5839bc3d448bdd4eba76bb93bd38fd5cabc9235fb8ff14507a8d295f075e4",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dbb640db635d1378e2584f10",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "{\n  box-sizing: border-box;\n}",
+        "text_hash": "0d52608894238530f118e63cd378486bea9a85a9d43dcc055e042e2a88e90f0e",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_49b627b97d8115fb99892633",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "body {\n  margin: 0;\n}",
+        "text_hash": "ebb5ef4e3ef5477d7d060de7bffab7e06731150549f045f6845a849930728134",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4849fa84488352507b8d1a89",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这只是一些一般设置，在我们页面上设置了无衬线的字体、使用  模型，去掉  默认外边距。",
+        "text_hash": "f861b4ed6b4ad6e00fdaf389e8ca8c1e8691427913ac3af3f0ed2b8584ab04dd",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d0170393c3c9c661f72b0e0c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下一步，在你早先的 CSS 下面加入如下代码：",
+        "text_hash": "5fb1dd4a17a3855dd1e84aebb108a478cfaf6c0a426b9d22005c30a17b86a9e9",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8de395386a618524c8eb12b3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.info-box {\n  width: 450px;\n  height: 400px;\n  margin: 0 auto;\n}",
+        "text_hash": "4db91b5d36d37066001e442985be6e22f3b994090c173d43357322831a5be476",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ab137ae5ca479b7eb8f5ff20",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这对内容设置具体的高度和宽度、在屏幕居中使用老把戏 margin: 0 auto 。在早先的课程中我们建议尽可能不固定内容容器的高度。这个情况下是可以的，因为我们是在选项卡中固定的内容，如果每个标签都有不同的高度，看起来也有些不和谐。",
+        "text_hash": "800c106d39ef5e9f611da4fe92a75543548072ee82ef765ae5fae755928ec910",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_16d2f2b30637c1e56401ab41",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "样式化我们的选项卡",
+        "text_hash": "f888b226367e24165cfb93a55df2622ed0fddf8336666fefd6896c8427c378ef",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_68f83dcba2d234e1c4a0208b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在我们希望样式化选项卡看上去像选项卡——基本，这些是一个水平的导航标签，但不是点击之后加载不同的网页，和我们之前在课程中见到的不同，相反，他们在同一页面上显示不同的面板。首先，在你的 CSS 底部添加下列规则，从无序列表中移除默认的和值：",
+        "text_hash": "ed62de813f3fa45284d9ba4cd8b0542ce9547a01387f2bb64ea89fbdb00a4a46",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2ca32c4cf443a120571cae76",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.info-box ul {\n  padding-left: 0;\n  margin-top: 0;\n}",
+        "text_hash": "a15b855780b9017010b3a9d8e78da67f72a43e2dc26dc860411811b8b7d762ce",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ed3a1ccb013e3dd3bc5b5d72",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n我们正在使用后代选择器，整个例子 .info-box 都位于链的开始——这样页面已经带有其他内容时，我们可以插入这个特征，不害怕与应用于页面其他部分的样式冲突。",
+        "text_hash": "0d9002e9e573cc7ae3c83f4409591f2ec134faa7e096460738b6e7cf56c8cfae",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_eaa3f7f3dd36ed48d0c130cc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来，我们将样式化水平选项卡——列表项都要左浮动确保他们一行合起来，他们的被设置为 none 用以去除项目符号，宽度（）设置为 150px 以便于适应这个 info-box。链接（  ）元素设置为 inline-block，这样他们将在一行显示，仍然保持样式可设置，他们会被样式化合适的选项卡按钮，通过一系列的其他属性。",
+        "text_hash": "0154225ef1dcdc17b565845fb912fbb9406ee5fc9f43c52dd1466efde4ca8b1c",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e44f4f9bf805858b0a40f55e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "添加下列的 CSS：",
+        "text_hash": "fc8880f06b94675b800591f384d0d216b240a55326588837587d2800ca8482e5",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4d45823871ff12bd9365e842",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.info-box li {\n  float: left;\n  list-style-type: none;\n  width: 150px;\n}",
+        "text_hash": "ecbc3ad80cca7c06be70918f16fc31ddc0bb7a5587cbd912513e9bf7bb598970",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_20242f0f7ba52a1ffe5f6d65",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".info-box li a {\n  display: inline-block;\n  text-decoration: none;\n  width: 100%;\n  line-height: 3;\n  background-color: red;\n  color: black;\n  text-align: center;\n}",
+        "text_hash": "d9727acc2df3e1209f37cfa37f0f470101f85e090109e97584ab3f1332e3676e",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9686a0730c92e84c8d2b9165",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最后，对于本节，我们将会在链接状态上设置一些样式。首先，我们要设置标签的 :focus 和 :hover 状态，让他们在获得焦点/鼠标悬浮的时候看起来不同，给用户提供一些可视化反馈。其次，当某个选项卡的类（ class ）出现 active 时，我们为其设置一条相同的样式规则。我们将通过使用 JavaScript 来设置，当一个标签被点击时。把这些 CSS 放置在你的其他样式后面：",
+        "text_hash": "1c6bf441d32f31c53ea3cf5ad178d4314372babcc963813a8dee03c35b4069ac",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a74688c4536bd0cda1891e82",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.info-box li a:focus,\n.info-box li a:hover {\n  background-color: #a60000;\n  color: white;\n}",
+        "text_hash": "09b019ae8651e6a505343fe9ae996e4542ad6bfc99c60ef296d2c9b18e72bec0",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bd8a5acd9cd309839f9f193a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".info-box li a.active {\n  background-color: #a60000;\n  color: white;\n}",
+        "text_hash": "68d9ed6a3f47cf27ff2b909aea177c5685748108f9fcd15909499760c04868bc",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_786a7887c7bf06c96f7008ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "样式化面板",
+        "text_hash": "bd2e08020d056aa9c4fe17147a3dd693030050abcd4218f1b539c846dbd3afb8",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_bae19ec255583c84aab5670b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下一步工作是样式化我们的面板，现在开始吧！",
+        "text_hash": "a15b6d15d5e38918c16debfc772101fd009ed5ef500ff29228f9851bfa3f72cc",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b731342e53b16371b4be0885",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，添加下列的规则去样式化 .panels  容器。我们简单的设置一个固定的高度，确保面板包含在 info-box 里面， relative 设置  为定位上下文，这样你能然后相对自身放置定位子元素，而不是相对元素，最后我们清除（）浮动，设置在上面 CSS 中，这样避免影响布局的剩余部分。",
+        "text_hash": "607cf75c6dc73d07f7524b202aef531f2196b09d4b3f2b2d2d76ed605ec6aa0f",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f30182638725f112daa9ceb5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.info-box .panels {\n  height: 352px;\n  position: relative;\n  clear: both;\n}",
+        "text_hash": "8a93a781afbcfad6057c10dba1ebfccddc59bb5ae53fef83a6a3d2e7e19834e7",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f157dea440cc0cc5af198e76",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在本节的最后，我们将对包含我们面板的单独  元素设置样式。我们添加的第一条规则就是绝对定位面板，让他们都位于容器的左上角——这一部分对整个布局特性是关键的，就像使面板互相位于顶部。规则设置面板为和容器同样的高度，给内容一些内边距，设置字体颜色（），和背景颜色（）。",
+        "text_hash": "ee217e69957362af9960f4f527231e2f88e16944191335ec41cc14e7d8f8917f",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a6620cb81fe864837db3bc36",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们将添加的第二条规则，对带有类（ class ）为（ active-panel ）的面板，设置 为 1，会让他位于其他的面板之上（默认定位元素 z-index 的值是 0，会使默认元素位于下面）。同样的，我们会在合适的时候用 JavaScript 来添加这个类。",
+        "text_hash": "a3785bbd2f9259441eafc9134c5a5c5583b94a9504ff0ee916bb1904c9078b14",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_abe611c47816253a1843c49e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.info-box article {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 352px;\n  padding: 10px;\n  color: white;\n  background-color: #a60000;\n}",
+        "text_hash": "2b0e0095f83c6837b3c26eb21f22fc49e0fd20bcc671dd68ee3ffa2a2418bfe0",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fcc8b112a73fcbc879bf99da",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".info-box .active-panel {\n  z-index: 1;\n}",
+        "text_hash": "c29d2f97396fd2044a76d6950b6f75e9746d036bfca94e4a4bdc9c4814f026f2",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5204eebc2132a3f0ce13055d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "添加我们的 JavaScript",
+        "text_hash": "cb283780b3cc4cf57a36e6d06ace29ddd360f622368161ab3b647ac3cf40e9fe",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2bf1a2f07d3a98d6e0fd8865",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让这些特性工作的最后一步是添加一些 JavaScript。添加下列一块代码，准确的写在你的开始和结束的标签之间（在接下来的 HTML 内容中你将会发现这些）：",
+        "text_hash": "7a80d97749064e0b81f8ef700ecc52ecd8eda0c017e368c926138df0cec485a0",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1d98016daccdd5838bf75013",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nvar tabs = document.querySelectorAll(\".info-box li a\");\nvar panels = document.querySelectorAll(\".info-box article\");",
+        "text_hash": "da8cb086111a985f4dd58a8fcb78f1d1c021eb19b238fe8e3e857cbf7479d329",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_89ef98b519f6298748810605",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "for (i = 0; i   [!NOTE]\n你可以点击蓝字预览完成后的效果，看看哪些部分是你在这篇文章里你要制作的。",
+        "text_hash": "780096f8ee3b3821e172f7bec1379ffbefd5e46f9fc270b4f0df2d85ae82bf6b",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_571930507580b4cacee5916b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在开始的时候，你可以使用第一部分中完成的例子，或者从我们的 Github 仓库中拷贝 info-box.html 到本地。",
+        "text_hash": "a2ba431fc3cd882ca926f15561d8d1ae893dcd8f899e80057a4737f719d1ffa5",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c4ea8fac1f4465a3160573e7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "添加 HTML",
+        "text_hash": "8223d5c16ff8c2761dacc327841a8b70bf451775ed6e2b26b099c10f8a4e0aa9",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_31e2c122d5bca0bf93d8205a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，我们需要一些额外的内容在当前的主内容中。添加下列 在你的  标签之中，放在在已存在的部分之中：",
+        "text_hash": "a4704f3e497d9a46e29ab924638939418d46c68eba775cf56d3b503e50dce2be",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_424c67d840c0c3c54e069865",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_80295a90085e7c3dc5265504",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Fake content",
+        "text_hash": "5f90cb9003f7f596db44203bf46ade475a4a49036d089da2508ba08b8fd7a5bf",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_da015770173898bafff60965",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is fake content. Your main web page contents would probably go here.",
+        "text_hash": "13485bc9a3cb780aeb3d714e2217b91a52e6e2717e5baa3adedf714553f858dd",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7b47a9985834854133acb036",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is fake content. Your main web page contents would probably go here.",
+        "text_hash": "13485bc9a3cb780aeb3d714e2217b91a52e6e2717e5baa3adedf714553f858dd",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_52b8fad4328e54370c1dd95a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is fake content. Your main web page contents would probably go here.",
+        "text_hash": "13485bc9a3cb780aeb3d714e2217b91a52e6e2717e5baa3adedf714553f858dd",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_aa65993fc2fba8f596f14cfe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is fake content. Your main web page contents would probably go here.",
+        "text_hash": "13485bc9a3cb780aeb3d714e2217b91a52e6e2717e5baa3adedf714553f858dd",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_741d8a25e5e9a17945363e28",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is fake content. Your main web page contents would probably go here.",
+        "text_hash": "13485bc9a3cb780aeb3d714e2217b91a52e6e2717e5baa3adedf714553f858dd",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f8b842b9fe83dd42ddcec961",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is fake content. Your main web page contents would probably go here.",
+        "text_hash": "13485bc9a3cb780aeb3d714e2217b91a52e6e2717e5baa3adedf714553f858dd",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_893e54b16337174ba20d0e0f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is fake content. Your main web page contents would probably go here.",
+        "text_hash": "13485bc9a3cb780aeb3d714e2217b91a52e6e2717e5baa3adedf714553f858dd",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_432ab294208f3faa15a77a03",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is fake content. Your main web page contents would probably go here.",
+        "text_hash": "13485bc9a3cb780aeb3d714e2217b91a52e6e2717e5baa3adedf714553f858dd",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_87e17328481ee155c10bd384",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以随意更改假的内容，替换为你想要的真的内容。",
+        "text_hash": "147629696432b886d8f11b4d5a32f78b81f4be22e5734528894c6c4be750dd40",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_fbc45cc56a2dc2f6d2a9b993",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "更改存在的 CSS",
+        "text_hash": "390220201037de0704213ed89c10d7277973399c06f0bd8ccab6c9e4dca78b2c",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_579bda739745a36b42a3f446",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来我们需要对之前的 CSS 进行一些小修改，让消息盒子放置和定位更好。删除 margin: 0 auto（不需要居中显示），添加 fixed 定位；调整 top 属性把它粘在浏览器的视域。",
+        "text_hash": "b9650a0a060b51df5a969e92b864387edc636c1dc41335cf63bddfa5f1148bfe",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f254cef1f57dec50c67d6e9e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "它应该看起来像下面这样：",
+        "text_hash": "0eca95cdd8ca23d40d037b835b94f794fea7c9c690c4f3eb4cd3ffcf8b694052",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_37c7efae7117e7c080c5c793",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.info-box {\n  width: 450px;\n  height: 400px;\n  position: fixed;\n  top: 0;\n}",
+        "text_hash": "ba20d98dfb2d1d9b344ae4e25b617376782380d54f3cf2580105b50d834d805e",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fd116809d3d4b06c8e7be20e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对主内容样式设计",
+        "text_hash": "573a366bdbf14cf5743819f6095e4f9f3e2cc4ad51f013284a262b5475161cc4",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_92c5f323545cfd1b2b984a17",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对于这个例子来说唯一剩下的事情就是给主内容提供一些样式设计。添加下面的规则到你剩下的 CSS 的下面：",
+        "text_hash": "a20b0197475d98e9f134f79514f73e4800ba1000937d2a224972f270b2cff13e",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3aa4f4d4b15b40072d2c459b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.fake-content {\n  background-color: #a60000;\n  color: white;\n  padding: 10px;\n  height: 2000px;\n  margin-left: 470px;\n}",
+        "text_hash": "e11c9e58035d750dca5d987d5d232738b156c7e70647984a9f53786cfc79d9ea",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6524decc4f3771ece998faf9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始我们给这个内容和消息盒子面板一样的背景颜色，颜色，内边距。然后给他一个大的 margin-left 使他移动到右边，为消息盒子在左边腾出位置，以便于各个部分不重叠。",
+        "text_hash": "c1d587d09de3d8f6e565ca7b90c2822237a0179dc715123c75354d4a2d18efe3",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7ba25e24d11d04b6a62d17e5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这标志着第二个例子的结束；我们希望你能感到第三个例子，完全是因为兴趣。",
+        "text_hash": "7fae515bf2ae8c68df980c570bec52e6360eeeba4f3de30cecaa81d3998a86cd",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c0e3f167b159cd3f17f76a26",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个滑动隐藏的面板",
+        "text_hash": "d28dec12e8585885c210d5e248171acbda1d2806fec25ff6b0334e5bc0605b52",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f3493770903403fdc290baec",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最后一个我们在这里介绍的例子是通过按图标使面板滑动出现或者消失——就像前面提到的，这种场景在移动端的布局很流行，因为移动端的屏幕很小，所以你不希望使用大部分界面来显示一个有用的内容而是用消息面板或者菜单代替。",
+        "text_hash": "8d85c2bda944e9f0e36457d02c765a20b65114cc8ffeb94bfeb00912956c548d",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fa60dd60245c28ba73e5ce12",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们完工后的例子长这样：",
+        "text_hash": "a5791770aa773afa32e8596ebedb3b6991da5870feedcc6e6e2b1458e8311952",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_65f1b04e614e7ece3b0e1cf4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以点击蓝字预览完成后的效果，仔细看看哪些部分是你在这篇文章里你要制作的。",
+        "text_hash": "5b243be736807a8be26d4cf31b53a38cc3fb90f32c9dbb8df5c735f3dc18703d",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_aa39d09b0f7330f928ec8641",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在一开始，老规矩在我们的 GitHub 代码仓库拷贝 hideen-info-panel-start.html（源码）。这个例子并没有用先前的例子，所以我们需要一个新的开始文件。让我们来仔细观察一下这个 HTML 文件：",
+        "text_hash": "60cf830c35ff474d9a1b1d85f123816c4540856fb20b1dbc950440f2b00deee5",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a39eb1155d120968f54d04e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n ❔",
+        "text_hash": "8afe5210bf2186822d7e625097e709f7cc58eb3b83f8fa6259d67e956722eac0",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_08ea50c18b0693b9afb4fea9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6de88f462bc86d801f34b1b2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始，我们看到了一个  元素和  元素—— 元素普遍用来联系文字标签和表单，目的是能更好的理解表单（允许屏幕阅读器用户查看表单元素的描述）。这里通过for属性绑定id到了 标签的 checkbox 元素。",
+        "text_hash": "fff44f492d50af0c4f7894aa50636b8eb310586069747a166560e90b4744c245",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cca81e7031033d1f91cc14c8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n我们已经设置了一个特殊的问题标记特性到我们的 HTML 中，来当作我们的信息图标——这代表着这个按钮将可以按下显示或隐藏面板。",
+        "text_hash": "619e9b00b9adf080a96c293c2422a16d7075d9476eb176f7f6d1a89749c54936",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_664e4c5fbacdf5101b40eeaf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在我们将这些元素用于稍微不同的目的——另一个   标签有用的副作用使你能通过点击 checkbox 的 label 标签来选择这个 checkbox，就好像点击了这个 checkbox 自己一样。这就会实现有名的 checkbox hack 技术，可以提供无 JavaScript 的方法来通过按钮来控制一个元素。我们将通过其他两个元素控制  元素。（为了简洁起见，我们已将其内容从上述代码列表中删除）。",
+        "text_hash": "4812d58f890fed6d88fd38493fc08538609be704bac6c1d206e3c5c883a5c3a2",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7e1b2a01e56631e585d1b190",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在下面的部分我们将解释这一切如何运作。",
+        "text_hash": "855f7f96a4d75a3d55f43add49d9736b17d6b7f066730ceefe03f1cc1761772f",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5f849dc16efb3467d66d6b15",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设置表单元素样式",
+        "text_hash": "0fbbe6025185309e0914ce5a38c7e05448362d6010c167b8c75e7696ff2f63a2",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_81177a48fe20ac2dbfe4401f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先让我们处理表单元素 - 在  标签之间添加以下 CSS：",
+        "text_hash": "e7ff0d406cb506db1012f61f420a1a1ac0d593bee15b8f6d2b554fae902cf4eb",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eb95ec9f5509b004d7e117d1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nlabel[for=\"toggle\"] {\n  font-size: 3rem;\n  position: absolute;\n  top: 4px;\n  right: 5px;\n  z-index: 1;\n  cursor: pointer;\n}",
+        "text_hash": "88aa16bae141f9d464f9b0479c7b5a71fc3ce31f0b78ff9f6eaab62662cb93e4",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5fbe750d50a130cb1324be12",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "input[type=\"checkbox\"] {\n  position: absolute;\n  top: -100px;\n}",
+        "text_hash": "79c87365df8dde14ddc41cbf164ce84c71a9f9468ca4f1573f671675fd88b41c",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8792bc63e4490293ea769d02",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一条规则样式化   标签；我们：",
+        "text_hash": "9b0619bc0aa292f577cb681edbe2d5cfd8c2629b36355f0947edbfda2b7e199a",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6c1c222d6e2566af9ba1931f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设置更大的  使图标更大更美观。\n设置  为 absolute，使用  属性和  属性来让他能很合适的位于右上角。\n设置其  为 1——因此当信息面板被赋予样式和显示的时候，不会覆盖我们的图标；相反图标依然会位于最上层能够再次被按下来隐藏信息平板。\n使用  属性来改变鼠标的指针，当鼠标悬浮在图标上面的时候变成一个手形指针（就像你看到的当悬浮在链接上一样），作为一个额外的可视化线索告诉用户这个图标可以做一些有趣的事情。",
+        "text_hash": "8a7d8cd240fcb8e7a7ad329b6190b48b2465e3f55992eadf5bb4d317bbdcb169",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_c597b1b4e8e9bc7be9163c48",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第二条规则是在实际的   元素的 checkbox 上设置 属性为 absolute，并从屏幕上方隐藏掉它，我们并不希望在我们的用户界面里看到它。",
+        "text_hash": "3cc45522e6d8e6d383715128d84abdfbfaff1dc7be2281a35e825df6816ced31",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_885d9ba5aac5d4c424b0c97b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设置面板的样式",
+        "text_hash": "105e5fb4019de3bdb2e6dfb0f36a362e2f95a759dd4c67e98163bf487ff50cad",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_93cf86f3255c5a581b607f71",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在是时候为实际的滑动面板设计风格了。在你的 css 底部添加下列规则：",
+        "text_hash": "fea1e05eec353dca4616c56de0ddbce8e87d65e1be4b9bb3942ab4d48d84b5b0",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e68f98951ad823d516efe01a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\naside {\n  background-color: #a60000;\n  color: white;",
+        "text_hash": "29d3552938df0157d6cc2eca316dc9d3278d5d05cdca48fa3b2124cdd270d2f1",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_835ac442cdac985ed87c900e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "width: 340px;\n  height: 98%;\n  padding: 10px 1%;",
+        "text_hash": "7f68347d4b546aa6535809f2119d5f6606a21b3fea93886045ab8032bf737192",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4064fcb6b02850a379ab6148",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "position: fixed;\n  top: 0;\n  right: -370px;",
+        "text_hash": "b9bba325a194edc865880cc6be8f9fabf2d51e75e653219394445b22104d5d9a",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_db2896f91e97500832c5a8d3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "transition: 0.6s all;\n}",
+        "text_hash": "01c6c7a02b8008c34e7435eb0b6e34ab7be50cbc7588440caefdf1ecdb098116",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_82f5ccf2b89d815af9ec9222",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里有很多项——让我们一点一点讨论：",
+        "text_hash": "346a34d8d728e1878467212df2e8376594862fd304c7d7c530a80db663d153b2",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a691ab5a5deb3c53d8da573d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，我们在信息盒子中设置了一些简单的  和 。\n然后，我们在面板上设置一个固定的  ，让它的  充满整个浏览器窗口的视口。\n我们同样包括一些  来组成我们想要的总的高度和宽度的值（如果我们没有设置 box-sizing: border-box; ，那就很有必要，正如这个例子）\n然后，我们在面板上设置 : fixed;，即使页面的内容在滚动，也总是显示在同一个位置。我们设置  属性，使其粘在视口顶部，设置  属性使其默认情况下位于屏幕的右边。\n最后我们在元素上设置  属性，Transitions 是一个有意思的特性，允许你在状态改变的时候平滑的过渡，而不是粗暴的“开”或“关”。在这个例子中我们尝试在 checkbox 被选中时让面板平滑的滚动。（或者换句话说，当问题标记图标被点击以后——记住，点击   标签也会选择相对应的 checkbox！我们已经告诉你这是一种 hack 了）你也将会学到更多……",
+        "text_hash": "17e7da663aba9552383fe80c853f07e64a6e5e67f5282524264d288ed67d65cc",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_6e508b7440a97e8e1732b514",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设置选择后的状态",
+        "text_hash": "0a61ac1021bfecdf79d253b4a97bb9da948ef788d847d85d1ea282a263c15961",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_35e604b2461bc7f5e35434be",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这是最后要添加的一点 CSS——把这些放到你的 CSS 底部：",
+        "text_hash": "6fa088ca4ec103ece6da794218a53d722a90c0fbe7335652456dafc5c959a9f1",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ba687310fb84371b1d19c128",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\ninput[type=\"checkbox\"]:checked + aside {\n  right: 0px;\n}",
+        "text_hash": "e9a234b275f8c8324e70996aec9c8f5b29ec2b5678621e953d9a382d722983d0",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6d21c0f3fa7709fac909051d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里的选择器是复杂的——我们选择与   元素邻接的   元素，但是仅仅在它被选择时（请注意使用  伪类来实现此目的），在这种情况下，我们将  ` 的  属性设置为 0px，会造成面板再次出现在屏幕上（由于过渡属性会平滑的出现）。再一次点击这个标签会取消选中 checkbox，面板将会跟着再一次消失。",
+        "text_hash": "3b5b5513cdcf321a15bafcff13af543a3137528bee99046b1308b7e4ad3fcb7c",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6715fc96ad3d20ef3201be78",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "所以你有——一个相当巧妙的避免使用 JavaScript 来创建一个切换按钮效果方式。这将在 IE9 及以上版本中起作用（平滑过渡将在 IE10 及更高版本中起作用）。这种效果确实有一些问题——这是有点滥用表单元素（它们不是为了这个目的），并且在无障碍方面效果不是很好——标签在默认情况下不可聚焦，并且表单元素的非语义使用可能会导致屏幕朗读器出现问题。JavaScript 和链接或按钮可能更合适，但这样的实验仍然很有趣。",
+        "text_hash": "d530f33305cf7ebf097dc2953c89762e0a651c34dfcef5f4499c8da101a7602a",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ed55c4b6ffd48af1a60d913e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2dc8589ac535a2c0e60aea85",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这样完成了我们对定位的关注——现在，你应该理解基本机制的工作原理，同样理解了怎样应用这些知识去构建一些有趣的用户界面功能，不要由于你还未完全理解所有的知识而担心——定位是一个相当高级的话题，你可以随时读这篇文章来帮助你的理解。下一个主题我们将转向 Flexbox。",
+        "text_hash": "4256e36e4fec48207c9a98996d6b6e70f05b1da183d4a5be80b54593ef4e78c1",
+        "variant_version_id": "lrzv_736e80594ffac22976508677"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_736e80594ffac22976508677"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_677c82cc79a09505f7f3dcda",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。定位实例练习，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "定位实例练习，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/practical-positioning-examples",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "定位实例练习"
+  },
+  "resource_id": "lr_0fe5f32a629ef577048d4969",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_64b038a63949541ef790dd29",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "定位实例练习",
+    "text_hash": "48a9032f779fc17b3f2fb717024459932b4f595ad16fdc74a633be7edd8e548d",
+    "variant_version_id": "lrzv_736e80594ffac22976508677"
+  },
+  "variant_id": "lrz_548e34a31d09dd622ce30594",
+  "variant_version_id": "lrzv_736e80594ffac22976508677",
+  "visual_dependency": "helpful"
+}

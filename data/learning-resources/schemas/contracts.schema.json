@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kebiao.org/schemas/learning-resources/contracts.schema.json",
+  "title": "kebiao learning-resource producer contracts",
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sourceBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_block_id", "type", "text", "source_hash"],
+      "properties": {
+        "source_block_id": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "minLength": 1 },
+        "text": { "type": "string" },
+        "source_hash": { "$ref": "#/$defs/hash" },
+        "source_locator": { "type": ["string", "null"] },
+        "language": { "type": "string" }
+      }
+    },
+    "localizedTargetBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_block_id", "source_block_ids", "mapping_mode",
+        "target_block_hash", "type", "canonical_plain_text"
+      ],
+      "properties": {
+        "target_block_id": { "type": "string", "minLength": 1 },
+        "source_block_ids": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "mapping_mode": { "enum": ["one_to_one", "split", "merge"] },
+        "target_block_hash": { "$ref": "#/$defs/hash" },
+        "type": { "type": "string", "minLength": 1 },
+        "canonical_plain_text": { "type": "string" }
+      }
+    },
+    "localizedVariant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "variant_id", "variant_version_id", "fragment_id", "source_text_hash",
+        "target_locale", "title_zh", "description_zh", "target_blocks",
+        "target_text_hash", "translation_method", "model_version", "prompt_version",
+        "glossary_version", "translation_memory_version", "opencc_config",
+        "rights_decision_id", "output_license_id", "output_license_url",
+        "adaptation_notice", "attribution_snapshot_hash", "qa_status", "qa_findings"
+      ],
+      "properties": {
+        "variant_id": { "type": "string", "pattern": "^lrz_[a-f0-9]{24}$" },
+        "variant_version_id": { "type": "string", "pattern": "^lrzv_[a-f0-9]{24}$" },
+        "fragment_id": { "type": "string", "pattern": "^lrf_[a-f0-9]{24}$" },
+        "source_text_hash": { "$ref": "#/$defs/hash" },
+        "target_locale": { "const": "zh-Hans-CN" },
+        "title_zh": { "type": "string", "minLength": 1 },
+        "description_zh": { "type": "string" },
+        "target_blocks": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/localizedTargetBlock" } },
+        "target_text_hash": { "$ref": "#/$defs/hash" },
+        "translation_method": { "enum": ["source_zh_hans", "opencc", "llm_translation", "translation_memory"] },
+        "model_version": { "type": "string", "minLength": 1 },
+        "prompt_version": { "type": "string", "minLength": 1 },
+        "glossary_version": { "type": "string", "minLength": 1 },
+        "translation_memory_version": { "type": "string", "minLength": 1 },
+        "opencc_config": { "type": "string", "minLength": 1 },
+        "rights_decision_id": { "type": "string", "minLength": 1 },
+        "output_license_id": { "type": "string", "minLength": 1 },
+        "output_license_url": { "type": "string", "format": "uri" },
+        "adaptation_notice": { "type": "string", "minLength": 1 },
+        "attribution_snapshot_hash": { "$ref": "#/$defs/hash" },
+        "qa_status": { "enum": ["passed", "failed", "quarantined"] },
+        "qa_findings": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_6f517b86f0da9ad8cd631605",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "JavaScript 框架是现代前端 web 开发的重要部分，开发者可以借助这个经过实践检验的工具，构建可扩展、可交互的 web 应用。如今的许多公司将框架作为其开发工具的一部分，多数前端开发职位也因此需要框架使用经验。在本系列文章中，我们旨在为你提供一个舒适的起点，帮助你开始学习框架。",
+        "text_hash": "bf2c02109fdb66723b593e583d32d2c0c2d959451af4a9a947ed57c13175e558",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b9902d23537bf3b200bfa5ce",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "作为一个有抱负的前端开发者，学习框架可能难以下手——可供选择的框架太多，新的框架还层出不穷，它们大多效果类似但一些工作的机制有所差异。同时，使用框架时还应注意一些特定事项。",
+        "text_hash": "21bf1217771723979d5d298bf3fdf8aa4dbe271145feaec08dcb25199cf4165f",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_56fa029b6d2db0466211e48b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本系列文章中，我们旨在以一个轻松的开始，助你学习框架。我们并非意在详尽地教授你关于 React/ReactDOM，或者 Vue，或者其他一些特定框架的所有知识；框架团队自己的文档已经完成了这项工作。相反，我们想退一步，首先回答更基本的问题，如：",
+        "text_hash": "3168e0c6a2ee4ec547679da16ef2fd33ffcc8a2e95e42726b8686d10ba9f4bb7",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_18828e6a357dc19702aca277",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为什么要使用框架？他们能为我解决什么问题？\n选择框架时，我应该考虑什么问题？甚至说，我需要使用框架吗？\n框架有什么特性？它们一般是如何工作的？框架对这些特性的实现有何不同？\n它们与原生 JavaScript 或 HTML 有什么关系？",
+        "text_hash": "aaa176b7a063d6ef15ddf2f623c2b4e1c4b41e18bbf5a469589e617d2ae896f5",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_68afd5b10f94f61f7e8a55b3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "此后，我们将通过一些涵盖 React（一款热门框架）基本知识的教程，为你提供充分的背景知识和熟悉度，以便你能够更深入地学习。我们希望你以务实的态度学习框架，同时不要忘记如无障碍等 web 平台的基本最佳实践。",
+        "text_hash": "dda29c9318757e90901f67c0ecb593ea64037eafa68042d3097306da08899920",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_74e32fc476bb8dce0e764930",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们还提供了一些教程，涵盖了其他框架选项的基础内容，供那些希望选择除 React 之外框架的用户参考。",
+        "text_hash": "204ca7ca753c09d813b664ede53837b34dd4c5d02b14a32b1c13fb838ea838cd",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d80d0cce0b26f1820c3e1e4f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提",
+        "text_hash": "bb9f5f19c7f14c1c83bc2f60c8b6b533ef8da215dc1b1ce8125546531c5951db",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_bb7fe1850aaff46f157f69ea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "学习客户端框架之前，首先你应扎实掌握核心 web 语言的基础知识——HTML、CSS，尤其是 JavaScript。",
+        "text_hash": "ad955ad9ed95c565cae9fc9c062c3998036b65185a9f59e37934d5e8743b27e2",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_012ce7a6aaf973a36f177c9e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你能理解框架底层所采用的基础 web 平台的特性，你的代码将更专业且富有深度，在遇到问题时也能更有信心地进行排查。",
+        "text_hash": "303b5a034e022d3af7e4edd72790a669e2b4d80cd09434b2eb9815492a43b7d2",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7fcb317f560e3508df3bf89d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "入门指导",
+        "text_hash": "b76d8eba18c9e0b716f9d3f83f17fb516754cebb52f50270d574ae30907af1f1",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1fd3acbfab743cb8946be9c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "客户端框架介绍\n  - : 我们的学习从对框架的总览开始：JavaScript 与框架的历史、框架为啥被需要、框架能带来什么、怎样着手选择一个框架开始学习，以及框架之外有何替代方案。\n框架的主要特性\n  - : 每种主流 JavaScript 框架都在更新 DOM、处理浏览器事件和提供良好开发体验上采用了不同的方法，这篇文章将探索“三大框架”的主要特性，解析框架怎样完成高层级工作，以及它们有何区别。",
+        "text_hash": "33dfcafe49bac5bce4a88072eb205c8adc668cfcf75b9754875d36447db2ad15",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_54b9b6179e671c8de251e6aa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "React 教程",
+        "text_hash": "ab35b9fdac6db84140e4d780a8840714ee0cca3abad2316c173a119ee4062f5d",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d753895a702ef010a1cae220",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\nReact 教程最后测试于 2023 年 1 月，基于 React/ReactDOM 18.2.0 和 create-react-app 5.0.1。\n如果需要确认你的代码与我们的版本的区别，你可以在我们的 todo-react 仓库找到示例 React 应用的完整代码。想要查看实时运行的版本，可访问  。",
+        "text_hash": "ffdffc6841ead9c46d183e0e0ca6e20c4a9c584c14a8a27bbedb22711ec2e0e1",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_2bc443bcba4c85e739ebc0f0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始使用 React\n  - : 此章节我们将向 React 打招呼。我们将简要探索其相关背景和使用场景的一些细节，在自己的计算机上设置基本的 React 工具链，并通过创建和运行简单入门的应用，学习 React 在此过程中的工作原理。\n开始我们的 React 待办清单\n  - : 假设我们计划创建一个验证 React 概念的应用（proof-of-concept），用户能够添加、编辑和删除工作任务，能将任务标记为“已完成”还不删除它。此章节将带你完成基本的 App 组件结构和样式，为后续单个组件的定义和交互做好准备。\n组件化 React 应用\n  - : 此刻，我们的应用还是一个整体。在干些别的之前，我们需要将它拆分成易于管理的专门性组件。React 对于组件没有任何硬性规定——这完全取决于你！在此章节，我们将展示一个将应用合理地拆分成组件的方法。\nReact 交互：事件和状态\n  - : 在制定好组件计划之后，现在是时候将我们的应用从一个完全静态的界面，升级为一个真正可以交互和修改内容的应用了。本文将带你实现这一过程，并深入探讨事件和状态的相关内容。\nReact 交互：编辑、过滤和条件渲染\n  - : 接近 React 学习旅程的尾声（至少目前是这样），我们将向代办清单应用的主要功能区添加最后的更改——编辑已有任务，按“全部/已完成/未完成”过滤列表中的任务，同时研究条件渲染。\nReact 中的无障碍\n  - : 在最后的教程章节，我们将重点介绍无障碍，其中的焦点管理既能提高应用的可用性，又能减少纯键盘用户和屏幕阅读器用户的困扰。\nReact 资源\n  - : 在最后一章，我们给你提供了一系列 React 学习资源，助你更进一步的探索。",
+        "text_hash": "8e89ec206de84b52374bdd6d5ced99d8af1b448a4fd9395875677dadc2378faa",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_cc27cf64c73f5c895ee7f7cd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "其他框架选择",
+        "text_hash": "33a62fbc3078e2a934be1c96941d12439d31361f11c93f5353f6c26d6238e498",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_6f7cdfebfd70e61af999d54d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Ember 教程",
+        "text_hash": "3c3bfee90f1620ff89aa48f2b3a3e181ead3d79ab6abbe59cb261a532231fea8",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0989f06c6dd65764dd13d112",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\nEmber 教程最后测试于 2020 年 5 月，基于 Ember/Ember CLI version 3.18.0。\n如果需要确认你的代码与我们的版本的区别，你可以在 ember-todomvc-tutorial 仓库找到示例 Ember 应用的完整代码。想要查看实时运行的版本，可访问  （该示例包含本教程未覆盖到的一些额外的特性）。",
+        "text_hash": "dffc4b8d6f11d191f44dc6d70ca4bc064bfba236cf197027628dd6c0641e3c19",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_4cbf0333c0c4fee2f1663edb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始使用 Ember\n  - : 首先我们将了解 Ember 的原理及用途，在本地安装 Ember 工具链，创建示例应用，进行初始配置，做好开发前的准备。\nEmber 应用结构和组件化\n  - : 在此章节，我们将着手规划 Ember 应用的结构，为其添加 HTML，并将其拆分成易于维护的组件。\nEmber 交互：事件、类和状态\n  - : 现在，我们将向应用添加一些交互功能，使其能够添加和显示新的待办事项。在此过程中，我们将研究如何在 Ember 中使用事件，创建包含了用于控制交互功能的 JavaScript 的组件类，并设置服务来跟踪应用的数据状态。\nEmber 交互：页脚功能和条件渲染\n  - : 本章中我们将完善页脚的功能，更新待办事项计数器以显示未完成事项数，并将样式正确地应用到已完成事项上（即对应复选框被选中的项）。我们还将实装“清除已完成事项”按钮，并学习如何在模板中使用条件渲染。\nEmber 路由\n  - : 在此章节我们将学习 Ember 路由，有时也称为基于 URL 的过滤。我们将使用它来为三个待办应用中的视图——“全部”“进行中”“已完成”，提供各自全局唯一的 URL。\nEmber 资源和疑难解答\n  - : 在最后一章，我们给你提供了一系列 Ember 学习资源，助你更进一步的探索。此外还有一些有用的排障指南和其他事项。",
+        "text_hash": "7c6b44a03d433d6fb8911434e538dc640bebbcb948e3ea630fabc581a994d79f",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_59f696dc0a281f1674bb8b7a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Vue 教程",
+        "text_hash": "8a082e4284561e4c5e50cd788d43ea79757595d7ccd9230b234a8111d53f3e82",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_78a69751103e6c801c622b45",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\nVue 教程最后测试于 2023 年 1 月，基于 Vue 3.2.45。\n如果需要确认你的代码与我们的版本的区别，你可以在我们的 todo-vue 仓库找到示例 Vue 应用的完整代码。想要查看实时运行的版本，可访问  。",
+        "text_hash": "60a2bc9243b6ded22865027e712f08a3a4b596fb7f585399ed558936c56205b9",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_7c0297d0bc7b86a00b521467",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始使用 Vue\n  - : 现在我们要介绍第三个框架——Vue。在此章节我们将简单了解 Vue 的背景，学习如何安装 Vue 并创建新项目，学习项目的整体的架构以及独立的组件，了解如何本地运行项目，并为示例应用的开发做好准备。\n创建第一个 Vue 组件\n  - : 现在我们将深入 Vue，创建自己的组件——我们将从创建用来展示待办事项列表中单个项目的组件开始。在这个过程中，我们将学习在组件中调用其它组件、使用 props 传递数据给其它组件、保存数据状态等重要概念。\nVue 组件的列表渲染\n  - : 组件至此已经完全可用，我们可开始添加多个 ToDoItem 组件到应用中了。在此章节我们将了解如何添加一组待办项数据到 App.vue 组件，并使用 v-for 指令将这组数据循环渲染到 ToDoItem 组件中。\n新增待办表：Vue 事件、方法和双向绑定\n  - : 现在我们的应用已经有了示例数据，和能将每条数据渲染到 ToDoItem 组件的循环。下一步我们要让用户能自己在应用中输入待办事项。为此，本章我们需要设置一个输入文本的  ，提交数据时触发的事件，用于接收数据、添加数据、渲染列表的方法和用于控制数据的双向绑定模型。\n使用 CSS 美化 Vue 组件\n  - : 该装饰装饰我们的应用了！在此章节我们将探索用 CSS 美化 Vue 组件的不同方法。\n使用 Vue 计算属性\n  - : 本章节我们将利用 Vue 的计算属性，添加一个显示“已完成”事项数量的计数器。计算属性与方法相似，但它只在它的依赖内容变更时才会再次计算。\nVue 条件渲染：编辑既有待办项\n  - : 现在来开发一个仍未实现的主要功能吧——编辑既有待办项。为实现该功能，我们将利用 v-if 和 v-else 这两个条件渲染指令，让我们能在查看和编辑视图间切换。此外，我们还将添加删除待办项的功能。\n使用 Vue ref 进行焦点管理\n  - : 对 Vue 的初步学习即将完成，我们最后要看看的功能是焦点管理，即怎么让键盘用户使用起来更方便。我们将利用使用 Vue 的 ref 完成该需求——这个高级功能让你既能直接操作虚拟 DOM 下的 DOM 节点，也可在组件中直接操作其子组件内部的 DOM 结构。\nVue 资源\n  - : 在最后一章，我们给你提供了一系列 Vue 学习资源，助你更进一步的探索。",
+        "text_hash": "5aabff648b4f1b796f3b8e0f04c65dd71972a92458ae0573f5acc44c38ae2e6d",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_9c5ffeda361b58e815f45ed7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我应该选择哪个框架？",
+        "text_hash": "9f63d6b4a8722bc513e3c0fb98d3559ed73e74957746386fe055b8025d10c854",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d5362196adbb25135533a998",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们选取了 React/ReactDOM、Ember 和 Vue 这三个框架进行教学，原因如下：",
+        "text_hash": "01463ea93f195e3158da574f5893b4b7444716a39878a82adcc83f22a6ebc800",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_88df8bdf996b3880a24191f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "它们在今后一段时间内将仍是主流选择。类似于别的工具型软件，选一个仍在活跃开发并且不太可能随时停更、还会为你的求职增加竞争力的框架，显然更加稳妥。\n它们拥有强大的社区和完善的文档。学习复杂的内容时，从外界得到帮助至关重要，尤其对于初学者而言。\n我们无法涵盖*所有*框架。如前文所说，新的框架层出不穷，及时更新这些框架列表的难度过大。\n身为初学者，在巨量的选项中难以做出选择是个真实的痛点，因此把列表做短点儿反而是有益的。",
+        "text_hash": "c93ce3befc30506d22e244da484bba10b43448707dd37dd6466a636c3d169506",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_1b704e0846d39086ed6a4dc1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "另外我们想说，我们选择这些框架，**并非**因为我们主观觉得它们最好或想要无端吹捧，也不是因为我们以任何方式推荐它们。我们只是认为它们十分契合这些标准。",
+        "text_hash": "60ebe23c073d18d8d29413b960b8bfecb55939d7ddcc786529a5c2bdfa44df49",
+        "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_0381aa59238870b2d2578124",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。JavaScript 客户端和函数库，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "JavaScript 客户端和函数库，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/frameworks-libraries",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "JavaScript 客户端和函数库"
+  },
+  "resource_id": "lr_18ef3a42bd1051a4017a5c1e",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_e47876382895b571b6aeeffb",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "JavaScript 客户端和函数库",
+    "text_hash": "6bb8374d16595095763d257d84a872af1e06d09b7106d688b5a03fb2ddd6680d",
+    "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d"
+  },
+  "variant_id": "lrz_74fb703ceeee4857250c7f22",
+  "variant_version_id": "lrzv_d4ed6aed0ac41d192a6c502d",
+  "visual_dependency": "helpful"
+}

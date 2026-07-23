@@ -1,0 +1,348 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_9b3b696556b8024c4f481faf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在本模块的测验环节中，我们将呈现一个含有若干无障碍问题的简单网站，你需要对它进行诊断并修复这些问题。",
+        "text_hash": "fac5709de6f0a07c69fe080ea70d5f6fb4c87b3c410f2965562ef58b5ca439a0",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_70141adb607cd88cdbb1a524",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "开始之前",
+        "text_hash": "35fa2caa4fd0258d4f21299bd0148d4df7f7284ff1da57e45465ebbb4155afc6",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_74522c09d4fb61f21bf6cc76",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在开始本测验之前，你需要在这里获取包含组成这个例子的 ZIP 压缩文件。将它们解压到一个本地的新文件夹中。",
+        "text_hash": "bdd3272dc290c19d962f786d329fa8dc36a0a2e2888593415baf8b59bc428ba3",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_13bfdca3c8021400b1d54d2e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "或者，你可以使用 JSBin 或 Glitch 完成你的测验。你可以将 HTML、CSS 和 JavaScript 代码粘贴到这些在线编辑器之一。如果你使用的在线编辑器没有分开的 CSS/JS 面板，则可将它们放置在适当的  、  元素之下。",
+        "text_hash": "db7e18c10aac0845fd61ca8722865f37a8446ff842a3a40b4c4f327c266a5b33",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_52b99e0ad8cacba0b7634188",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最终完成的网页应该类似于这样：",
+        "text_hash": "9ead0178d6b6ebc85081a1c838867808f877d8dfd82e61380ca0085f78496bca",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_582cc1b7d3d4fb7088d211d1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Screenshot of the finished assessment site with good color contrast. The search input has placeholder text and a submit button that reads go, but no visible label.",
+        "text_hash": "6a3bcbaf201c1994758073f2c676f679db62e372b6cec722a1f44e5c11c73e4d",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f1c10244478050dfd62a8821",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你会看到评估的起始状态的显示有一些差异/问题——这主要是由于标记的不同，这反过来又导致一些样式问题，因为 CSS 没有被正确应用。不要担心——你将在接下来的章节中解决这些问题！",
+        "text_hash": "1be8496f8a07802ee6c5b418f1056ffa4ea543215c0b9411b9b9203bf14b8a2f",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f9dacfdebe14918761ae7137",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果你遇到了困难，可以通过沟通渠道联系我们。",
+        "text_hash": "25f84197cff5ed41ecc85b59ad86442953ae999dd9c6343f701df29775dbd158",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_d845e7e83a5b27e3ebb7d08d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "项目简要",
+        "text_hash": "bd9f42a22d907a0abb07bdafae9392a5fa72c3ce0804bed43a86861b2b7ddc44",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_1f2d1e7d81b5a8f9b6de9f37",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在这个项目中，你会看到一个虚构的自然网站，展示一篇关于熊的“事实”文章。就目前的情况来看，它有一些无障碍的问题。你的任务是探索现有的网站，并尽可能解决这些问题，回答下面的问题。",
+        "text_hash": "48aff43f194a0566a2fea340f54e9b9ff4b0d2007ccfbd636f1c2c47de8eebf1",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_11a696a968882d9e755c7857",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "颜色",
+        "text_hash": "070a8016fcc3dffbefd26e4d0c26cf5b7f46590ae9f1b65f0e2636581d05ffef",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f3d02f7a451a55090bb0b096",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目前的配色方案会导致文字难以阅读。你能不能对当前的颜色对比（文字或背景）做一个测试，报告测试结果，然后通过改变指定的颜色来解决这个问题？",
+        "text_hash": "0276a59c5eb21208b7ae7fbc1c1460ae43953d3313adda3b3b45bb7e222d738c",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a0a4c33e29656fcfa7250363",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 语义",
+        "text_hash": "e82ad9fed2b8d61b7c371dbc6c21ecb7cc38c6e6307134474859cef1c27663fa",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ab19645758c72531342b0585",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "内容还不够无障碍——试试用屏幕阅读器阅读页面，看看会发生什么。\n你能不能更新文章的文字，让屏幕阅读器的使用者更容易浏览？\n网站的导航菜单部分（被包裹在    中）可以通过把它放在一个适当的 HTML 语义元素中而变得更容易访问。它应该被更新为哪一个？请进行更新。",
+        "text_hash": "73271bad9de3d949e2a8147f0e66acd65187e26484b7fee43b61522e321be85a",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_619d7ba467ee99946e432c2b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你需要更新 CSS 规则选择器，将标签的样式改为语义标题的适当等价表示形式。一旦添加了段落元素，就会注意到样式看起来好一些了。",
+        "text_hash": "c297a63cfd38aa0f626361178e320ce242fb4ddc13917598b90ec873c232a166",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_ee91bd6e626157eed148d415",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "图片",
+        "text_hash": "d24c10d37db0feea7bd73498118e280e6b33ca93f53f34d5e1cca1ba3e83730d",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2088d106af6db8832bd1c119",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "图片目前对屏幕阅读器用户不可访问，你能修复它吗？",
+        "text_hash": "aca468ff6ce72c78cab09de4ca94589ca7f9d8fcf1c02d17143429358e5a27b8",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_406ff2a76b64c67f4e7dd569",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "音频播放器",
+        "text_hash": "2bbbca4e87967957740a26b2a99ab2fcc69d08e6073d87ce0fa14ba53dd0c506",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e6beda85d2a23d73a3758207",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "播放器对听障人士（聋人）不可访问，你能为这些用户添加无障碍替代品吗？\n播放器对不支持 HTML 音频的旧式浏览器不可访问，如何让这些浏览器用户也可以访问到音频资源？",
+        "text_hash": "8f639230bf38c6952258194d21f5e18029d1b36916ce1fbe269dd4184550bda7",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_2c3ce234727a1071ccfe3af2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "表单",
+        "text_hash": "62abf78cc507b4fdc132e3bf19067e74e4de48234a688fd453ec7d48b7a50591",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_631a1d9e80c26803f2f57336",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "顶部的搜索表单中的   元素可以做一个标签，但我们不想添加一个可见的文本标签，这有可能会破坏设计，而且视力正常的用户并不真正需要。怎样才能添加一个只有屏幕阅读器才能访问的标签呢？\n评论表单中的两个   元素有可见的文本标签，但它们没有明确地与它们的标签相关联，如何实现这一点？请注意，你也需要更新一些 CSS 规则。",
+        "text_hash": "7bb5019b2701424d39b50e6fd1939be8281d347e689967011782715934e17160",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_7c9fd292e08be33804c8005a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "显示/隐藏评论控制",
+        "text_hash": "ed50c8cbab7d0ee7b83f97dd2d368d5c1cc105ab6f2059bd4fdf7cdb805ab1e3",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_48708a6113d1cdbe87652147",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "显示/隐藏评论控制按钮目前不可由键盘访问。你能让它成为键盘可访问的吗，既可以用 Tab 键聚焦，也可以用回车键激活它？",
+        "text_hash": "80da13baed62c44c8633231a20d158f7760c887451fef2a64537b442bb574fde",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c47504bc2340be4b91c903a9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "表格",
+        "text_hash": "22d9e7c54b88cacdc223175acba5c30086d60437fa47c854f74d9153770e413d",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e48ea5ad943e037a8c4ecac6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "数据表目前还不是很方便——屏幕阅读器用户很难将数据行和列联系在一起，而且该表也没有任何类型的摘要，以使其明确所显示的内容。你能在你的 HTML 中添加一些功能来解决这个问题吗？",
+        "text_hash": "92abb9dde00f484cd0746b5d6b8395f0a49a247b3c8db0320e436a9af7dbff16",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5a56469b959eaaf52de55070",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "其他考虑",
+        "text_hash": "19dad23e532e154ff23aa0dec3d02f567a05b93070b2f4bdbd2c1ec6e5f2ec1e",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_9dcd88da762f6d61e40fb0a9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你能再列举两个能使网站无障碍体验更佳的改进意见吗？",
+        "text_hash": "6679ead163c08a53561a34724f79a94dfa5b275f32eca7268218bd6d9d59093b",
+        "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_ca30c7335ab2cffee3584b51",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。挑战：无障碍疑难解答，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "挑战：无障碍疑难解答，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/accessibility/accessibility-troubleshooting",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "挑战：无障碍疑难解答"
+  },
+  "resource_id": "lr_1163bfbe0593ab511d3fa443",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_95b5e81487c4bf5f55481294",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "挑战：无障碍疑难解答",
+    "text_hash": "7e9fe73235918ac73c244742a44db4bab764b1d123b20ad920d2f429aaa79cd5",
+    "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf"
+  },
+  "variant_id": "lrz_b1938c4bb0d9eaf682ed3a02",
+  "variant_version_id": "lrzv_56dfdd22e1fad820729c5ddf",
+  "visual_dependency": "helpful"
+}

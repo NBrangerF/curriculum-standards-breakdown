@@ -1,0 +1,942 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_4a64722b7e98945fb027f2d5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "是时候将目光转向谷歌的 Angular 框架了，这是一种你可能经常遇到的选项。在这篇文章中我们关注 Angular 能提供什么、安装必备的组件、建立一个示例应用，并关注 Angular 的基本架构。",
+        "text_hash": "d873e139f5c9b6d504c52d0f48104a3954b9be18c8594af8d5c309c3b5e02018",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_49080a15720c051ab6dec0a3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：",
+        "text_hash": "60df7f5b49d0fd69c1a1ee4bda41ede8b786ae9d162b8a9a73e264bbf703119b",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72ace734395194c485c21a1a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "熟悉核心的  HTML 、 CSS  和  JavaScript  语言，以及 终端命令行 的知识。",
+        "text_hash": "ca99d6ad0f8e2da040bd4dee69c8e1fe435e0f7795894251998501c84b9cbb77",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0687b164c3cb323e39697b32",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：",
+        "text_hash": "4d2d25a2888d3e7c13db6b2e275e0179ab434807992666123db412d5f31e27a0",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2e3af3bf12b7411a73b05cd4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要设置本地 Angular 的开发环境，创建一个新手应用，并理解它工作原理的基础知识。",
+        "text_hash": "dbc0910a71a3dcb70ada2a98e992c7a9662e981b9d4683a854c4ff4241fc2264",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a6c0cff094e2b64a252de905",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 是什么？",
+        "text_hash": "47b99dbd00ccd8f42b650b4d03846a634f773b22cffdfd1e6d78998be4a16637",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_476c38992eef8a61650267c4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 是一个开发平台，基于 TypeScript。作为一个平台，Angular 包含了：",
+        "text_hash": "be1e61622ed8b00902ae8829bc1bf20c73bbb3f10daf75306ceb0c47a02c1521",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6c7638318279bfd684ffe9c6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基于组件的框架，可用于构建可扩展的 Web 应用程序\n集成良好的库（library），涵盖各种功能，包括路由、表单管理、客户端——服务器通信等\n开发人员工具，可帮助你开发、构建、测试和更新代码",
+        "text_hash": "d04748dd0db54f36caad937843fe6ac6912c155a677b6b64080d966ef46bed9b",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_848f465012ed5030eccfaed9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当你用 Angular 搭建一个应用，你正在利用一个可以从单开发人员项目扩展到企业级应用程序的平台。Angular 被设计用来使版本迭代尽可能简单。因此，你可以毫不费力地利用最新成果（developments）。最为重要的是，Angular 的生态系统由多达 170 万的开发人员、库（library）作者和内容创作者构成的多元化群体组成。",
+        "text_hash": "9d91342e6447210d7b7e4a3c8c661896dbc46b8c77f2aa9e2bf60d51e69c136b",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1ed9f9793e5b641e93454998",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在你开始探索 Angular 平台之前，你需要了解 Angular 的命令行界面（CLI）。Angular 的命令行界面是最快、最简单、也最值得推荐的开发 Angular 应用的方法。Angular 的命令行界面使许多任务变得简单。以下是一些示例：",
+        "text_hash": "9c216b8a49c8b91593dd792111e8d0a3880832546f0d6ed454c02f28bc244b78",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7520f2640fa24fa4b480ac7a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "ng build",
+        "text_hash": "3222cf6fb9fca3853ec60943676d7a61967f652f0d0a42495d1e694fe9b17e8f",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3507e83bebbddc8fae9e2e47",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "将 Angular 应用程序或库编译到给定的输出目录中。",
+        "text_hash": "71717ae64e5b55f09ac61034d066296486577ff41f81bc2dc4a726f44fb5b556",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_23f3ba3de5c12c5226476bcc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "ng serve",
+        "text_hash": "066bcf23ee5f40388201e466caf2af482b8a52ac423d5a3f2aaeb444afb4afa6",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cb711ddc537a8494865bed86",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "构建你的应用并启动开发服务器，当有文件变化时就重新构建。",
+        "text_hash": "b55084e560e40b454e58f8e493dc6d32a8f1897dc3620ec5e762ba43e3f16484",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1dd3b1ae0f71ded4e7cd99bf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "ng generate",
+        "text_hash": "d90cde73f384ca5f47387e65da876394b2de46f4e9fda9c898f1a84f6d0c512b",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d627e7b320884ce6e854913b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基于某个原理图生成或修改文件。",
+        "text_hash": "2c2acf4fa04d67ce6df6aacc7a5864d04be0b13ec3d06f405515d707e8940c9b",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9ff17f3d1150718269dc8fa5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "ng test",
+        "text_hash": "528aae3e131d32ddc949c656a5cfb7c47759076d44b3c0907ff089134aa0e8c4",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_558d5db32bd42d6aaae53cf3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在给定项目中运行单元测试。",
+        "text_hash": "d1440e1afe899194aa5e1c1242ac87878bc89b42486e94554b06f0c8d1abc526",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_39e70ecc23a45cf89f7c0713",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "ng e2e",
+        "text_hash": "8f020134963fe0ff35f6479a5c50b2bee7a7c304e03fe8161348317d61a18a10",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a1f44978c7ac4d062637b276",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "构建一个 Angular 应用并启动开发服务器，然后运行端到端测试。",
+        "text_hash": "7ad59b5ebe11d782833589af9889ac1e3096b8aa87ba4abe19eba2cd698220bb",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_233bd3b5e5ec6225f8abd251",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你将会发现 Angular 的命令行界面是一个用于构建 Angular 应用程序的宝贵工具。",
+        "text_hash": "6866215db0e7e014b7df6c2c0f5495bfe60beda96487be3062da26073abe13dd",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_43ddf50c5b778374cbc13b9c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你将构建什么？",
+        "text_hash": "e4f93f3643a15520b4c6c13b57e910a6dffaa49bfd7cf8145591ee9f738158c5",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_20c15a03c2c01ee553afd83d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本教程系列将指导你完成构建待办事项列表应用程序的过程。通过这个应用程序，你将学习如何使用 Angular 来管理、编辑、添加、删除和过滤项目。",
+        "text_hash": "f1af2545b1a4562074cdfcad721b8bca1ebc7bdc6fff21eafae6d8069fc8ed97",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a8a769c31dd51d80072afc43",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "必备条件",
+        "text_hash": "b404690f0eac5ef6682ea06118f4f7bad949003f006dcbaf7529133214c365ba",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_c802558af518305f6147d598",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了在你的本地系统中安装 Angular，你需要：",
+        "text_hash": "1c2d0a876d342286795802b1b5a3707200c0ec834acb7a243068a8f2e7caafdf",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_07da8c8221bb0518328ba162",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**Node.js**",
+        "text_hash": "c451d08a90b6258b600a5bb4a9c4aef786a8970ec3fd9ca6bc8b00c247e60b0f",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_70ad569ca5c9890601307a99",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 需要一个 Node.js 的目前活跃的（active）长期支持版本（LTS）或者一个维护的（maintenance）长期支持版本。有关特定版本要求的信息，参见在 package.json 文件中的 engines 值。更多安装 Node.js 的信息，参见 nodejs.org。如果你不确定在系统上运行哪个版本的 Node.js，请在终端窗口中运行 node -v。",
+        "text_hash": "fe5953143ccd77090a563af5fdde0c022c8a72186351f2290dcc5f2f6fe6f663",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8b097af9f2d7c34d95b92926",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**npm 包管理器**",
+        "text_hash": "806e8e8f0fed556a5f4c6e989f333520c5b1c2054c194a1773f368296f6c011c",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_8a8f5dbab1a90c8a25137974",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular、Angular 的命令行界面和 Angular 应用依赖 npm 包以实现许多特性和功能。若要下载安装 npm 包，就需要一个 npm 包管理器。这个教程使用在安装 Node.js 时默认安装的 npm 客户端命令行界面。若要检查是否已安装 npm 客户端，请在终端窗口中运行 npm -v。",
+        "text_hash": "704c76159084cf5a5a9d3a5b8254406cdc433e78c4c120f7d2b9df5bd8bf342d",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_59ad363a1129b2e01d4fb5b0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设置你的应用程序",
+        "text_hash": "7e53c924ca6413f400a8d20c0a9a4b0b7e7c6e7185b43f08f971c0448639f7ec",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_382379ace925b03b3563141e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以使用 Angular 命令行界面来运行用于生成、构建、测试和部署 Angular 应用程序终端的命令。为了安装 Angular 命令行界面，在你的终端运行以下命令：",
+        "text_hash": "8461e8bddb4d4eab420e3024eb92655543b35ac4ff2dd1316a9713ba59ae02bc",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_763e8b4e0b7e99f9e8af76c5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "bash\nnpm install -g @angular/cli",
+        "text_hash": "c37b731f80a7a256668c4ffe8511205e62f78b14f44fdd8cd9d8c3a7d3d5f693",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_df8c88d8b9b6973364e6ce75",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 命令行界面命令均以 ng 开头，其后是你希望命令行界面执行的操作。在桌面目录中，使用以下 ng new 命令创建一个名为 todo 的应用程序：",
+        "text_hash": "17e1053b5b3a305bdcca5180b4b20dd51c23dd1350039d6db9a028b6cd70760b",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5f43171f18fbe41ebb3e3313",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "bash\nng new todo --routing=false --style=css",
+        "text_hash": "65e7d6845b06412a5ac2d5842391cb177cfd0c597a906ed8cc424047aa9dcff5",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c19f377ecba15976efd714cc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "ng new 命令会在桌面上创建一个最小的 Angular 初始应用程序。附加属性 --routing 和 --style 规定了如何处理应用程序中的导航和样式。",
+        "text_hash": "40535185559ca8615bd11b9a254ded8a98e4b68c18c33a11c9f70eeac1ec955f",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_14575fd9380303666695f4b0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本教程稍后将会更详细地介绍这些功能。如果系统提示你强制执行更严格的类型检查，则可以使用 yes 进行响应。",
+        "text_hash": "f0a8c03bee95d1572c42a1bb8b22d68a49475da5d2d88032ff71ee1f43b824a7",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_68ac58c5307512652c5f9166",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用以下 cd 命令导航到新项目：",
+        "text_hash": "23b756957164a551d879842acb3ed5da0c5cb3c04d8991bb2e829c1422547212",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6c0823cecccb9c23019bcd5f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "bash\ncd todo",
+        "text_hash": "f64af966289d4385e7116b01576b8431b9e8caa3ba365465c359b14d54128ef9",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fc3c6a906fb43c590cf9a9fe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要运行 todo 应用程序，请使用 ng serve：",
+        "text_hash": "e52fa3c4cec62425f6dfa926f1ccd426d68f3523c2a055437b9024924ca3393b",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_27d47c25d70b26fa72811aa4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "bash\nng serve",
+        "text_hash": "b0d3bc4a510e9d7a10ddeeb1fac6f87e5833aa7f05d8b020a37e03426fff5c97",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8346425b4d58e25d717e6b8a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当命令行界面提示你有关分析的信息时，请回答 no。",
+        "text_hash": "cce0c2a4c529cb981a3f8def9e2de90cedba930fc1bc22709aefec857ce845c3",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_314734d110e2f602a96c42f5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浏览器中，导航到 http://localhost:4200/ 以查看新的初始应用程序。如果你更改了任何源文件，应用程序都将自动重新加载。",
+        "text_hash": "08494e64758c67561acbfcdca7dcbd795b4b0259ea21e6d182a956b61ca0ba7e",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bf54352fd5ecdffd6d9947f1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当 ng serve 命令正在运行时，你可能希望打开另一个终端选项卡或窗口以运行新命令。如果你在任何时候想要停止运行应用程序，请在终端中按 Ctrl + c。",
+        "text_hash": "d2da89367409da418a5893e62a94414a7d0a37e27bdcfddb408357938b6cb1f7",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e87bbd2dc32a2af9b36b668d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "熟悉你的 Angular 应用程序",
+        "text_hash": "0d9a6d4183b17b0d6489a0ebc0f8fd4ae7ddc96796fec3daa56214b8bf950d1d",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_058181503733934d05862db0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本教程重点介绍的应用程序源文件位于 src/app 中。命令行界面自动生成的关键文件包含：",
+        "text_hash": "a2bb8229da04c44569d25e632d515a0db713a1377b9258cc059afcee8a1c4ffa",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6b2f68093a3c1342cf3590ec",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "app.module.ts：指定应用程序使用的文件。\n   此文件充当应用程序中其他文件的中心枢纽。\napp.component.ts：也称为类，包含着应用程序主页的逻辑。\napp.component.html：包含 AppComponent 的 HTML。此文件的内容也被称为模板。\n   模板将确定视图或你在浏览器中看到的内容。\napp.component.css: 包含 AppComponent 的样式。如果要定义仅适用于特定组件的样式（而不是整个应用程序），则可以使用此文件。",
+        "text_hash": "573faa6031d8c37a88c737ef254437648be2878650a4320965cf19b2fa789bf9",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_c231f699b6c68df7231db1aa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 中的组件由三个主要部分组成：模板、样式和类。例如，app.component.ts、app.component.html 和 app.component.css 共同构成了 AppComponent。此结构将逻辑、视图和样式分开，使应用程序更易于维护和缩放。",
+        "text_hash": "aa535ee2798349e28720fa23262b9c3b5fb8196b4908059a8fabf7ed092583f1",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b36ec5d0fece636eb777e87f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "通过这种方式，你从一开始就使用了最佳实践。",
+        "text_hash": "9dee7f71188a51bdf1a8f9178276558c01c65034498b251a2b99d2d824536d51",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8ec647b2709cbff4bd7f5f90",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 的命令行界面同时也生成一个叫作 app.component.spec.ts 的用于组件测试的文件。但本教程不会进行测试，因此你可以忽略这个文件。",
+        "text_hash": "5f20c38089ebb4a8be296eda60a54a5eefc4dd1e7f86821c6446c5de8baabcac",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8822216df823818fca15f243",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "每当你生成一个组件时，命令行界面都会使用你指定的名称在目录中创建这四个文件。",
+        "text_hash": "84818d55995e5694be1fd668833903746c604d3f34e26d69c9a80d1749589fb7",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ed218c29a98ea1cc5ca7a5b1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 应用程序的结构",
+        "text_hash": "5f74204f53eb921d3a6bfb693b32be83d8f4b3b1251e5442aa13a0ab4d983993",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_3b8ef8b21027b4e74f0c7298",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 用 TypeScript 构建。TypeScript 是 JavaScript 的超集，这意味着任何有效的 JavaScript 都是有效的 TypeScript。TypeScript 提供了比普通 JavaScript 类型推断和更简洁的语法，它为你提供了一个工具，用于创建更易于维护的代码并最大限度地减少错误。",
+        "text_hash": "178cc0b7d4662a8c86cb3b8616d07c1f507b0051bf5308ede8e039c262636b5d",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_58320481a257e9b7a2a9fe2e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "组件是 Angular 应用程序的构建块。组件包括一个 TypeScript 类，该类具有 @Component() 修饰器、HTML 模板和样式。",
+        "text_hash": "70fc980dc5ce1f606d27fd75384cf8c1f74ba448bcd679684d1f16591a5ab4ef",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_afc727cde154dfb56c7aabf2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "类（class）",
+        "text_hash": "1bdd91a6266a8ef6c09353656bf41b405f6a6aa137a37ffb64c2f5547bfaca9a",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_9c5ce5b79176cdeaccebc807",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "类是放置组件所需的任何逻辑的位置。这种代码可以包括函数、事件监听器、属性和对服务的引用等。类位于名称为 feature.component.ts 的文件中，其中 feature 为组件的名称。因此，你可以有命名类似 header.component.ts、signup.component.ts 或 feed.component.ts 的文件。\n你创建一个带有 @Component() 修饰器的组件，该装饰器具有元数据，该元数据告诉 Angular 在哪里可以找到 HTML 和 CSS。典型组件如下：",
+        "text_hash": "1ef88f1e9cca98bb4befb5cd283437ab7fd78d54c4b7e810249d50f76ab320bf",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1680f7c679deb90a2b7044f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nimport { Component } from \"@angular/core\";",
+        "text_hash": "989fbc96ca0703a18346ed8f24867167b04b31744bcbccbf8704a454f615697e",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_09adec26c0cc08bdbc908f06",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "@Component({\n  selector: \"app-item\",\n  // the following metadata specifies the location of the other parts of the component\n  templateUrl: \"./item.component.html\",\n  styleUrls: [\"./item.component.css\"],\n})\nexport class ItemComponent {\n  // your code goes here\n}",
+        "text_hash": "c1a2f62b60b9403f12b1245f33ee6bdde15b3e428dec480c3804570ea6f44aa4",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4288f55e1cc5c6a2333e0003",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "此组件被称为 ItemComponent，其选择器为 app-item。你可以通过将选择器放置在其他模板中来像使用常规 HTML 标记一样使用它。当选择器位于模板中时，浏览器将渲染该组件的模板。",
+        "text_hash": "3705287b415ee1b74d6a99bb9088a4f747e65658ef6784df31f307e4349f68a8",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2086c209c9eeeb88d2c0c52c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本教程将指导你创建两个组件并在一个组件中使用另一个组件。Angular 的组件模型提供了强大的封装和直观的应用程序结构。组件还使应用程序更易于进行单元测试，并且可以提高代码的整体可读性。",
+        "text_hash": "9be06037e43b1b1f78cc3063a54c2c50b323cf83ce5f09608f93132fa1f307ad",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_25937848207b0a58d75f1974",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 模板",
+        "text_hash": "e5008febb99a40efab0d7291127fb2ea3d87317b085e8d7b8974062f97205097",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_3edfe1a4b02b6f77a2060f1c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "每个组件都会有一个 HTML 模板，用于声明该组件的渲染方式。你可以内联或按文件路径定义此模板。",
+        "text_hash": "37dc839b51026c1d2281be15c2c195d50e0acb6f0d6a9c745773ec2e8dc63d2d",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0dbb11e11f14fdd2c73694cc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "若要引用外部 HTML 文件，请使用 templateUrl 属性：",
+        "text_hash": "b7ae6de6b7f9977f17fd9715e5e4f57e3044dc319c5a61e6242f4e6dfbfee05f",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_16f67bc5af02928ffb5e3a9b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\n@Component({\n  selector: \"app-root\",\n  templateUrl: \"./app.component.html\",\n})\nexport class AppComponent {}",
+        "text_hash": "e80e510a72ff87fa7f18e1daa8eb232843d435a55b9e51704f0cae7b061fcc64",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d1a041bec4f6d598ca355890",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要编写内联 HTML，请使用 template 属性并在反引号中编写 HTML：",
+        "text_hash": "b5333630b91c13c2a3d7a3a96177014ef374555f937f94a7a92ce1a9402338bb",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_45aa4fc537599aa3b02c99d7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\n@Component({\n  selector: \"app-root\",\n  template:  Hi! ,\n})\nexport class AppComponent {}",
+        "text_hash": "582cd95ed78f1f0d684fffe328704be98241049e84d06099d7e822e1abaa7a16",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b427e65fea98adb892fdec82",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Angular 使用额外的语法扩展 HTML，允许你从组件中插入动态值。Angular 会在组件的状态更改时自动更新渲染的文档对象模型（DOM）。此功能的一个用途是插入动态文本，如下面的示例所示。",
+        "text_hash": "5516896202be1ca7cb3eb3fbec3579beb07629f53db2adba84d30f847ebc1329",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_281e9393c057dc47da47e306",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n \\",
+        "text_hash": "72d4c14316c8932ef45c549f50aae18bca239d4a6f084bcc63da4b1d93fbed54",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1d62b3f5b37acbabf406b9f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "双大括号指示 Angular 插入其中的内容。title 的值来自组件类：",
+        "text_hash": "c9b70caa583208c7194e28645be2513e4ed61d3ab7213c1e0d2cab656a6d1653",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9bc2882069da18e41e744a8f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nimport { Component } from \"@angular/core\";",
+        "text_hash": "989fbc96ca0703a18346ed8f24867167b04b31744bcbccbf8704a454f615697e",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_be8b0902eebc9cf185a82970",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "@Component({\n  selector: \"app-root\",\n  templateUrl: \"./app.component.html\",\n  styleUrls: [\"./app.component.css\"],\n})\nexport class AppComponent {\n  title = \"To do application\";\n}",
+        "text_hash": "d17782bc22399042289c5d57c040b63aca8fff7f16d395ac9308d8af5bb2d56b",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2d34df6486d55639fe49262e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当应用程序加载组件及其模板时，你将在浏览器将看到以下内容：",
+        "text_hash": "e0d80c54746f9f720b7380a2ef5d33d1d1c543d0f2b719f5dd61840e50e03576",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ef6eab39d79d62ef710f0fb0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n To do application",
+        "text_hash": "a8dcb8b5b96164e0e0aec5df8fe871e6386fc5e029f031c61bec694080284cbf",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_524ac7da7e1c8dbaf646aec8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "样式",
+        "text_hash": "c8ffbdf15754d1d224201729444973175e78c01cd128cc94261af66745d88768",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_2735e2aab16f1be53687a8d2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "组件可以从应用程序的 styles.css 文件中继承全局样式，并使用自己的样式扩充或覆盖它们。你可以直接在 @Component() 修饰器中编写特定于组件的样式，也可以指定 CSS 文件的路径。",
+        "text_hash": "c5e8362ee83de6b7228f6bae9fabfee548b7d9edd112c3dcb95b5fb362ec5e08",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9e47160ea120a1cc64b85dc2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "若要将样式直接包含在组件修饰器中，请使用 styles 属性：",
+        "text_hash": "644003a4b26aff516f49c2f091fa4dc2cd4f85094eea0141762fb891385f886c",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ea8913f1023bd3e58b68ccd1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styles: ['h1 { color: red; }']\n})",
+        "text_hash": "6b568dc527bbde3f18cd9bfcb5474590b6cbefdeb70794fb565a6e61a006e0e2",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1f300ccae1451ba50909fb46",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "通常，组件会使用 styleUrls 属性在单独的文件中使用样式：",
+        "text_hash": "01855a37ae09fa9457a29ee0eb251c9726f40018b0c7a22f0b28052c4a81767d",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3da4dc305887562d1eceb325",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})",
+        "text_hash": "afe97f26fc319c527663d6eceb1524018463da751dec4d918f34e95cba1be81b",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2ceaa0886eb97cd5ee4bcd28",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用特定于组件的样式，你可以组织 CSS，使其易于维护和移植。",
+        "text_hash": "666a5dfe6f053656287dffcd8dc4c5e5c230011e519b248ea7b946860bee4b04",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1d6e3d9d8a3233144eb361a7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0b6c572dffac586ad13621bc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这就是我们给你的第一次关于 Angular 的介绍。此时，你应该已经设置并准备好构建 Angular 应用程序，并对 Angular 的工作原理有基本的了解。在下一篇文章中，我们将加深这些知识，并开始构建待办事项列表应用程序的结构。",
+        "text_hash": "99e93294aa704beb3b10500318e034780aa8ed49ec32e874ae094c59bc55e160",
+        "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_8ab0b92f584bde244e5f884c",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。Angular 入门，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "Angular 入门，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/frameworks-libraries/angular-getting-started",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "Angular 入门"
+  },
+  "resource_id": "lr_a152dedbc8e5ad36eff3a5da",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_e7ca922e9517b0a92d140882",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "Angular 入门",
+    "text_hash": "951e57ab22d9abc371e9a0b125f7a5b351172ccd9df461887390668590082c8f",
+    "variant_version_id": "lrzv_561e943ab43d0a4d7059976d"
+  },
+  "variant_id": "lrz_02f42f7539cdaad13ecb2a8b",
+  "variant_version_id": "lrzv_561e943ab43d0a4d7059976d",
+  "visual_dependency": "helpful"
+}

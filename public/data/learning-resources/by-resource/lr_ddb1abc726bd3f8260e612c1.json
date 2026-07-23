@@ -1,0 +1,1426 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_ff162d05c95647e1c946242c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "属性最初只用于在成块的文本内浮动图像，但是现在它已成为在网页上创建多列布局的最常用工具之一。本文将阐述它的有关知识。",
+        "text_hash": "c9850fd6ebdc703a59f0fbb1cf2968a5ee68ddb2ff7c44dd206ca772dac92b0d",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b31c45fe743afadfe349d251",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要求：",
+        "text_hash": "d214e3cfd69571082575b289ebf07afbf405c93a09a154297174e3b22d199267",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9b4c93c326eab9e5106dd3b4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 基础知识 (学习 入门 HTML )，和 CSS 的工作理念（学习\n         入门 CSS )。",
+        "text_hash": "87106e2106516f8921121a321d449ed0c5ba511cac53e85e99e7aa2f87812f47",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e71282a650946f670be82747",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：",
+        "text_hash": "4d2d25a2888d3e7c13db6b2e275e0179ab434807992666123db412d5f31e27a0",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_01511a631a1d10db9c0cfe04",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "学习如何创建浮动特性，比如首字下沉、浮动图像，和多个列在网页布局。",
+        "text_hash": "8aedf82eac98948ce14336525d58f377ed3e8dec873ca8a32951f8e0d357c29a",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9ce5a22b19c28f987d57d0e5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "浮动的背景知识",
+        "text_hash": "b3875dcfcaf93f6abbddde06c31e4ac6a71b24d87ff14e74c04dc104f85ae38a",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_7701130106be0af90d669b0e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最初，引入  属性是为了能让 Web 开发人员实现简单的布局，包括在一列文本中浮动的图像，文字环绕在它的左边或右边。你可能在报纸版面上看到过。",
+        "text_hash": "c15425617e949b85d965eb3c50f3578f3ddde3436994ca76419dc32b32c3c89b",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7d16b4dbd3f89f9618717fbb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但 Web 开发人员很快意识到，任何东西都可以浮动，而不仅仅是图像，所以浮动的使用范围扩大了。之前的 fancy paragraph example 的课程展示了如何使用浮动创建一个有趣的 drop-cap（首字下沉）效果。",
+        "text_hash": "294992ff7d146fedf6a4cccd0c7b94e27f2ee280289f2ee1f39d96e5a452ed31",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8091b1a3dde2e2f7472d09fd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "浮动曾被用来实现整个网站页面的布局，它使信息列得以横向排列（默认的设定则是按照这些列在源代码中出现的顺序纵向排列）。目前出现了更新更好的页面布局技术，所以使用浮动来进行页面布局应被看作传统的布局方法。",
+        "text_hash": "032d9c748b5b4d50113cb98102d6014843a211d62142e2eef21b8a54b68b4a70",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_435fdbc5d249d6c940f268b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在这一章中，我们仅就浮动这一命令本身的性能展开讲解。",
+        "text_hash": "a43c89fe46afedd28be948977462d57ebf2b37f98db1034efb5007ef7f48fb92",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1f1df615e118a02ef879c523",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "简单的例子",
+        "text_hash": "4959ef5d4758d0e3abd33bd291f68acda097d970a883e147a964c9cbf791cf86",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_93e36705aafd5547b6ec2156",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们来探讨如何使用浮动。我们将从一个非常简单的例子开始，包括在图像周围浮动一个文本块。你可以在电脑上创建新的 index.html 文件，并以 简单的 HTML 模板 填充，在适当的地方插入以下代码。稍后你可以看到示例代码应该能呈现出的效果。",
+        "text_hash": "c6c7bba0497dd49c7b57fecd8ca885b0dcb6860be4771321f7965a380a1d4320",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_897a6ed0585781f2422ace8b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，我们写一些简单的 HTML——添加以下内容到 HTML 的内，删除之前里面的东西：",
+        "text_hash": "ee1e60b58e56ff5a7b178bd4e9a47b8b5a4106a8f1538eecf6d5e50366083571",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_940432c991a84bb9837bb953",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Simple float example",
+        "text_hash": "cecd3501cdb25b725be9c42b7e0e87e4e2e80738557e2f1949bed10514ce9059",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_74623cc58ac16cce7226b252",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Float",
+        "text_hash": "1a693c00c40cc749294b6c88a58f62250fa3fba10d6e406567ce2bae2e572661",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0ef3943c87a34c95554e30e0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus\n  ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus\n  laoreet sit amet.",
+        "text_hash": "886ca08916d164f725272d9c8a3e82c179397994f6663432eb54c3beedf8cb78",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0e6619db801ba6f01ed9f936",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet\n  orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare\n  ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse\n  ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis\n  ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et\n  a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "28475cd5ddea4423439a1618a0237bda89e60a9ecc3d19c6b40952a1ba919fb5",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d0b6b4aa943c203c1fbd6439",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8b2f9007d6a7d9a18cb13553",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在将以下 CSS 应用到你的 HTML 中（使用  元素或  到单独的 .css 文件——由你选择）：",
+        "text_hash": "4c7d3a61b561369187dd5aee817085b58fe1d77acec819b93dd678e2f6d85994",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b130c4fb2d9491d3fb5b21c6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 0 auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "2054e375c05b1dbab0192ee7b0f9c22ee9a116d13339da5b6aae5c0a480e690b",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_60e11f2f9aa13972526a47cb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box {\n  width: 150px;\n  height: 100px;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "c0794c05460d3eebaaa047952f328f9c0fd9d41162b0c62e34c4092c24e7f51e",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_96aa50dfcf840ff17df5b808",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你现在保存并刷新，你会看到和你预期的效果差不多——图片坐落在文本的上方，且保持正常布局流。",
+        "text_hash": "ee1f8489fe662c871020a1262dcbb10b4778beb927424b801f7d025402486982",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e32cdba16b997c00166a1f2e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使盒子浮动起来",
+        "text_hash": "9132f4fd114a3b5cbb635b6b133227d50aa01040a8d6ab48aa8aa62017d889a4",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_eb9128cfe22e7e23e7d61fac",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了使盒子浮动起来，向规则 .box 下添加  和  属性：",
+        "text_hash": "b01401a44abda312ff344c955d1dd6acea84c04016698af470f4c32ebf0eddc4",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_add968ca2ab915deae18d5b7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Simple float example",
+        "text_hash": "aeab51bb16dba96c26e24e0fb7a20ca88981d9f104a2f10904d5d07780e9b687",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_384d4f059313dbe42cf4325e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Float",
+        "text_hash": "1a693c00c40cc749294b6c88a58f62250fa3fba10d6e406567ce2bae2e572661",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bea192038427e6c55c694dfc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus\n  ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus\n  laoreet sit amet.",
+        "text_hash": "886ca08916d164f725272d9c8a3e82c179397994f6663432eb54c3beedf8cb78",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cec0180f97e44959eef9c9cf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet\n  orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare\n  ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse\n  ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis\n  ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et\n  a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "28475cd5ddea4423439a1618a0237bda89e60a9ecc3d19c6b40952a1ba919fb5",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a5ad5119a2e141b8dfaa330a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a50b26f054b33758348ef3f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.box {\n  float: left;\n  margin-right: 15px;\n  width: 150px;\n  height: 100px;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "ac88c8a591e08bd0f669a4edc766d5514ffcb91cbdb60dcad6b45c6118658a96",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3a693339a3f326ccd32e435c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在，如果你保存和刷新，你会看到类似下面的东西：",
+        "text_hash": "beeac48a4d065d700a35cbb4933792c7b45d13544e187dbaaf50f2f471523291",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_adf5c0b9419e2fe2214824da",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们考虑一下浮动是如何工作的——浮动元素 (这个例子中的  元素) 会脱离正常的文档布局流，并吸附到其父容器的左边（这个例子中的  元素）。在正常布局中位于该浮动元素之下的内容，此时会围绕着浮动元素，填满其右侧的空间。",
+        "text_hash": "245f8ad61f421df69ad645fead5f5a5106b6e4e9710caebd8a2842f18d78bfe4",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_056e2f8061b8de935643b933",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "向右浮动的内容是一样的效果，只是反过来了——浮动元素会吸附到右边，而其他内容将从左侧环绕它。尝试将上一个例子中的浮动值改为 right ，再把 margin-right 换成 margin-left ，看看结果是什么。",
+        "text_hash": "751b3ef067438b35880595681ccf76c5fe02969d19462098332253819e7a5b92",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_44b5ae68e9a3b341b7df0f71",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让浮动效果可视化",
+        "text_hash": "407fbaae590128771022017dbad8c68521a70550402879b72284cf8d544f546c",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_45f53fd388ec78559b1ab5ea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们可以在浮动元素上应用 margin，将文字推开，但不能在文字上应用 margin 将浮动元素推走。这是因为浮动的元素脱离了正常文档流，紧随其后的元素排布在它的“后方”。你可以将示例代码进行更改，来观察到这个现象。",
+        "text_hash": "a99436f4ba2ca6f33c1089904af7bdcaea8e8a8838019c42cde1c3b4111294d6",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_695b92ef6a93226d8ab436a7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在紧随浮动盒子的第一段文字上添加 special 类，然后在你的 CSS 文件中添加如下规则，它会赋予跟随其后的段落一个背景色。",
+        "text_hash": "88f2975af0cfb98e01989480a52e48e4836d3779311eccf59c31e6bfeaefd53f",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e3bfd28a038153f7fe73d916",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.special {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  color: #fff;\n}",
+        "text_hash": "2f7b5f9957ef0c2bd3859ee49035aa3c366648af4eb0e988f97bc7e74413814c",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fb8b643205d0e412c83bf27b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了更清晰的看到效果，将浮动的 margin-left 改为 margin 以将周围全部空出来。如此代码效果所示，你可以看到段落的背景色处于浮动盒子之下。",
+        "text_hash": "6a3a5ef325a1466d0e6e3400ff44da317ed5f3448454dab2a33c4fc18a04734a",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a1377c35cbb2827468c8f45f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Simple float example",
+        "text_hash": "aeab51bb16dba96c26e24e0fb7a20ca88981d9f104a2f10904d5d07780e9b687",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_91022d0ce1e8c640a6072c9b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Float",
+        "text_hash": "1a693c00c40cc749294b6c88a58f62250fa3fba10d6e406567ce2bae2e572661",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_de7a6b8721f450cb142f6804",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate.",
+        "text_hash": "1604341412c1b557ac5620cc37518bff61260ff82b508be8b7f602bea045ddf3",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6c4189a580ab0381e8b6a52d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor\n  imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa\n  at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas\n  ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae\n  convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.\n  Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut\n  luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare\n  felis, eget fermentum sapien.",
+        "text_hash": "b3c4ace9d4728cde097f860c3b8e07cc242b332e0297d79f52f84563861a52b6",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_aad0de00703a21f8b9030a76",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_66c58e4ae1edb3d9c9a5d592",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 0 auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "cc7086299fe9d7de1a1200b8f1ffbed5c74654f9324b53a011da856f1605cec7",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4435b6e83cf151b644bcb6d7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box {\n  float: left;\n  margin: 15px;\n  width: 150px;\n  height: 150px;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "d65476161a2c37775a4fb7fb8718b2bb738c0036b4bd9d80916af88e4f383418",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_99b90bb0386ea974909f359a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".special {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  color: #fff;\n}",
+        "text_hash": "e2a598049384daf8cd037388cf230306bee28069167bc4121f8cde962c2e462d",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0961943678b9b6b378d3eac9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标元素的行内盒子已被缩短，故文字会排布在浮动元素周围，但是浮动元素从正常文档流移出，故段落的盒子仍然保持全部宽度。",
+        "text_hash": "0fd6194a5801a092b7c3c458ba648291bef34d65bbf5034039b5327c5b5d35ef",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_da72ea2a10a77c07f4a7b7bd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "清除浮动",
+        "text_hash": "9faa5149d5f3fb11dc606e5f384a3e9e717dca1f9679a8cfac1f6200296c54e5",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_73252ff16fd26b1493f56454",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们看到，一个浮动元素会被移出正常文档流，且其他元素会显示在它的下方。如果我们不想让剩余元素也受到浮动元素的影响，我们需要 _停止_ 它；这是通过添加  属性实现的。",
+        "text_hash": "60a1a8a980e59e3066266c16f183aac470b04626ff871e67786de0e2966b2c06",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7661a496880f738d3b55a1b0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在前例的 HTML 代码中，向浮动元素下方的第二个段落添加 cleared 类，然后向 CSS 文件中添加以下样式：",
+        "text_hash": "1d4f5bdcec906faafb9a175a82b1e9c6e08059fa179a25920ed6d5d3a7c33454",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_14c6ff13a3ec73e1ce269198",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.cleared {\n  clear: left;\n}",
+        "text_hash": "0eecd4f24615f4c0a7313ef8babe02d84d5dd45889ec9e466ab0f0a5e0a67383",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9fd472f38f11f51931536798",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Simple float example",
+        "text_hash": "aeab51bb16dba96c26e24e0fb7a20ca88981d9f104a2f10904d5d07780e9b687",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fd232bff762e6e3a8632e6d8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Float",
+        "text_hash": "1a693c00c40cc749294b6c88a58f62250fa3fba10d6e406567ce2bae2e572661",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_922c80095fc8188c52f40581",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate.",
+        "text_hash": "1604341412c1b557ac5620cc37518bff61260ff82b508be8b7f602bea045ddf3",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1190a6e7a5230442d8e9aeb7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor\n  imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa\n  at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas\n  ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae\n  convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.\n  Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut\n  luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare\n  felis, eget fermentum sapien.",
+        "text_hash": "b3c4ace9d4728cde097f860c3b8e07cc242b332e0297d79f52f84563861a52b6",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3249af75a7ac3d5d189420e8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d6e20bc9cfa1f8f4cbf56617",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 0 auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "cc7086299fe9d7de1a1200b8f1ffbed5c74654f9324b53a011da856f1605cec7",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ab0c6bda2ca98e5bb1a64bd6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box {\n  float: left;\n  margin: 15px;\n  width: 150px;\n  height: 150px;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "d65476161a2c37775a4fb7fb8718b2bb738c0036b4bd9d80916af88e4f383418",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f2423220ea1a40c9e1c49303",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".special {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  color: #fff;\n}",
+        "text_hash": "e2a598049384daf8cd037388cf230306bee28069167bc4121f8cde962c2e462d",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c53557408a6891a3f50dc22a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".cleared {\n  clear: left;\n}",
+        "text_hash": "199dbc688b0c7bd58ffbcb06103cfd0a3b8375608a8d801188e94a830f00ffea",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_51903f8b9dc2d84f7e97b708",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "应该看到，第二个段落已经停止了浮动，不会再跟随浮动元素排布了。clear 属性接受下列值：",
+        "text_hash": "ddeaa7c2598a0e889d1c722985c72b08871652ca0c3c4a6c522832ea6b40be2a",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_de5e6dd15c5dac1e0bb3da8a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "left：停止任何活动的左浮动\nright：停止任何活动的右浮动\nboth：停止任何活动的左右浮动",
+        "text_hash": "22bb4c6dabfd95dc2d44f98248ad65374f43989d579733c14fddb2b06dcd1821",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_12d28cad87905d046712e4c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "清除浮动元素周围的盒子",
+        "text_hash": "4516cf61e00b5caa993e2dffc45a8be41061d65e1d4f0b57c70d9ef50777f5d5",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_67e2c02dbba6834763514a80",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在你知道了如何停止浮动元素其后元素的浮动行为。我们来看个例子，如果存在一个盒子 _同时_ 包含了很高的浮动元素和一个很短的段落，会发生什么。",
+        "text_hash": "52a7a6247f76817a11c3e37aa4032e1d7af212d5cc0cf83935b24060d89b5161",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_92806a7cc4d265028bdaf320",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "问题所在",
+        "text_hash": "9fdef5386d0a6afff8ccb511a8ed2dfa955d5718fb5dd1c325f2d49e4fece4df",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_647fd52d050a825a95abac55",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "改变你的文档结构，使得第一个段落与浮动的盒子共同处于类名为 wrapper 的  元素之下。",
+        "text_hash": "1c33641d72bf3a957bc9cf1e2ea46122a33d00efa0bba0d19bb34b1d542b06c4",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fd292cbffe320c020436f8f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_660ffdddf8772178345aac37",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Float",
+        "text_hash": "1a693c00c40cc749294b6c88a58f62250fa3fba10d6e406567ce2bae2e572661",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eeb20c5e59c2c67802f96374",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n    aliquam dolor, eu lacinia lorem placerat vulputate.",
+        "text_hash": "99045628d3761c0e5302715c428060c392fcca11b70ceabdc72f32a43199a79d",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a60fe8dd827d9b30314c2d8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在你的 CSS 代码中，为 .wrapper 类添加如下规则并重载页面：",
+        "text_hash": "b1f76b78024fd6e31776cc3c135fa378a072627e4b7be8051872be577aa5ffb6",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2390d6b2e7010f8c116c76a2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.wrapper {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  color: #fff;\n}",
+        "text_hash": "4a942d25cf91ad56806dc44828c1d16a50cecc5788ece3e24372f4c3feb756e2",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8bbdb8465bb7381fd0a8402d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "此外，将原先的 .cleared 类移除：",
+        "text_hash": "cc9a1171267b85ca6e28b06ba89d850adaaffc78236f920f231c62b5cd569b3f",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_290440cbb84c4a5bde599c21",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.cleared {\n  clear: left;\n}",
+        "text_hash": "0eecd4f24615f4c0a7313ef8babe02d84d5dd45889ec9e466ab0f0a5e0a67383",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_00f4ba5f17142f5e574831f9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你会看到，就像示例代码一样，如果将背景色属性置于段落上，那么这个背景色将处于浮动元素之下。",
+        "text_hash": "e47974cbad277a1624c3c26cc469546a3c984471353eead917aed5070da9c131",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c975ff8131887c01433671b9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_65c93dfa325ff3a3d4159148",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor\n  imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa\n  at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas\n  ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae\n  convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.\n  Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut\n  luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare\n  felis, eget fermentum sapien.",
+        "text_hash": "b3c4ace9d4728cde097f860c3b8e07cc242b332e0297d79f52f84563861a52b6",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_af90f53b8b3f1f0e61a29926",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_40148409f0e3f9391933d185",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 0 auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "cc7086299fe9d7de1a1200b8f1ffbed5c74654f9324b53a011da856f1605cec7",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_37867e66cf38366d099f0cd6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  color: #fff;\n}",
+        "text_hash": "8ec8d23fc1b87a276f535f55d93e07fbf342f2efe1400284fcc4eacb8d1c327c",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0d4e53200bf8c3000b3397ee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box {\n  float: left;\n  margin: 15px;\n  width: 150px;\n  height: 150px;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "d65476161a2c37775a4fb7fb8718b2bb738c0036b4bd9d80916af88e4f383418",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_05effc971a3bd4c4e14ca215",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "再一次强调，这是因为浮动元素处于正常文档流之外，停止紧随其后元素的浮动并不像之前那样奏效。如果你想让盒子联合包住浮动的项目以及第一段文字，同时让紧随其后的内容从盒子中清除浮动，这就是一个问题。",
+        "text_hash": "4fd86a732745414892666fdda61054827a32be02d87f813bad5fe1c9d71bb74d",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8714c838c3bbf35f20420a34",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有三种方法可以处理这个问题，其中的两种在所有浏览器中均可以奏效（虽然看上去有点“小技巧”），剩下的一种是可以处理问题的较新的解决方案。",
+        "text_hash": "b5ada782726fafc8ed11dfa3862f71ad4b8d5822a27c92c67ebed8ed3a770b9b",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0aa087caae667116decd9e60",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "clearfix 小技巧",
+        "text_hash": "f94200e1d8f84338da66483f2b9c1dcdb91b4d56c977075cc430bcc9d7cdf60e",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_76b291172a14832c2bc0266f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "传统上，这个问题通常由所谓的 \"clearfix 小技巧\" 解决，其过程为：先向包含浮动内容及其本身的盒子后方插入一些生成的内容，并将生成的内容清除浮动。",
+        "text_hash": "22c4c5ca7070df0a6b543f968bf60f0a466b3a34c1f2093fa1171026e2b471c5",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8954e0946af09469d3af6a11",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "向示例中添加以下 CSS 代码：",
+        "text_hash": "861030d7f3b9ad8976d84ff0658232e3b2fbd1d58b4cd320c03992bab23cbfc4",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a6b369f02f9259f90e012bb0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.wrapper::after {\n  content: \"\";\n  clear: both;\n  display: block;\n}",
+        "text_hash": "9d078dd3f390ec9f2afacc39a6addcbb8f65a3355c7022c55890a92872197549",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ba5e1ca25c41b18acc9915ef",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在重载页面，盒子的浮动就应该清除了。这与在浮动盒子后手动添加诸如 div 的 HTML 元素，并设置其样式为 clear:both 是等效的。",
+        "text_hash": "afd030b9586e7e27f9b70f1b7353524c9abb107ffedf4110f4a6e12c685ca8bd",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b9bdd65bf4eeada2e7d158ba",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Simple float example",
+        "text_hash": "aeab51bb16dba96c26e24e0fb7a20ca88981d9f104a2f10904d5d07780e9b687",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4a6050033c7349f4159a7dee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Float",
+        "text_hash": "1a693c00c40cc749294b6c88a58f62250fa3fba10d6e406567ce2bae2e572661",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fc11dc32678980ea50db797d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n    aliquam dolor, eu lacinia lorem placerat vulputate.",
+        "text_hash": "99045628d3761c0e5302715c428060c392fcca11b70ceabdc72f32a43199a79d",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ab943df42f14449914c2e324",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor\n  imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa\n  at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas\n  ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae\n  convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.\n  Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut\n  luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare\n  felis, eget fermentum sapien.",
+        "text_hash": "b3c4ace9d4728cde097f860c3b8e07cc242b332e0297d79f52f84563861a52b6",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c51db84f7ecb4a2407435c7d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e07acb5bd3cee8d755bcd8ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 0 auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "cc7086299fe9d7de1a1200b8f1ffbed5c74654f9324b53a011da856f1605cec7",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ebefc84674bdf190e0dd0c31",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  color: #fff;\n}",
+        "text_hash": "8ec8d23fc1b87a276f535f55d93e07fbf342f2efe1400284fcc4eacb8d1c327c",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e26905c945b7c2cac605eac1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box {\n  float: left;\n  margin: 15px;\n  width: 150px;\n  height: 150px;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "d65476161a2c37775a4fb7fb8718b2bb738c0036b4bd9d80916af88e4f383418",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_26df07c5dc03c31e6c3966b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper::after {\n  content: \"\";\n  clear: both;\n  display: block;\n}",
+        "text_hash": "4773601626bea950869bf853b1ba88450ae7daa4dfe4ce9f07944e0ac0ff40c2",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_28407ba7a189605b22311d94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用 overflow",
+        "text_hash": "6a5d3a64efcb762b5a86ce1bc61544c18cfb80dccd3286902d33d16db134c6cd",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_252460e7a05fafb5c514d530",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个替代的方案是将包裹元素的  属性设置为除 visible 外的其他值。",
+        "text_hash": "998dd9a61b8b63df30607af38770e1445dc7c1b730ff7bbfbcdceceee9ad8fc0",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b25824a1978fa04b87ca481a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "移除上一节添加的 clearfix CSS 代码；在包裹元素上添加 overflow: auto 规则。现在，盒子应该再一次停止浮动。",
+        "text_hash": "120ea4ca00e010722af357a5d97107fb16262a2b7d36b2c385fd3fa5c47107d9",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ab7d54dc5f39ac8dbbf62476",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.wrapper {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  color: #fff;\n  overflow: auto;\n}",
+        "text_hash": "e7fec2c40caac452400abcc402c5a18cefaab7c76d6e84bdf2c9a1d0a8879197",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4a0d5088104ef512e1652da8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Simple float example",
+        "text_hash": "aeab51bb16dba96c26e24e0fb7a20ca88981d9f104a2f10904d5d07780e9b687",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8502c7bf87bd14a86b257360",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Float",
+        "text_hash": "1a693c00c40cc749294b6c88a58f62250fa3fba10d6e406567ce2bae2e572661",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_622d7df6f88533781debf328",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n    aliquam dolor, eu lacinia lorem placerat vulputate.",
+        "text_hash": "99045628d3761c0e5302715c428060c392fcca11b70ceabdc72f32a43199a79d",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_95001f0a5187b5ef599f1a76",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor\n  imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa\n  at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas\n  ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae\n  convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.\n  Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut\n  luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare\n  felis, eget fermentum sapien.",
+        "text_hash": "b3c4ace9d4728cde097f860c3b8e07cc242b332e0297d79f52f84563861a52b6",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2fc164f14942f94f9e599c0f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5e7fc13c565e476d8dc550e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 0 auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "cc7086299fe9d7de1a1200b8f1ffbed5c74654f9324b53a011da856f1605cec7",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b70a47b2fe5c3cea34edfeeb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  color: #fff;\n  overflow: auto;\n}",
+        "text_hash": "29247341aba05d3f40d9c188ee99af53392f8758d46bc091771b206d5480b972",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b6df25b4a4feccf90e8c99ba",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box {\n  float: left;\n  margin: 15px;\n  width: 150px;\n  height: 150px;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "d65476161a2c37775a4fb7fb8718b2bb738c0036b4bd9d80916af88e4f383418",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bc0088f56b7590e12527fa1d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个例子之所以能够生效，是因为创建了所谓的 **块格式化上下文（BFC）**。可以把它看作页面内部包含所需元素的一小块布局区域。如此设置可以让浮动元素包含在 BFC 及其背景之内。大部分情况下这种小技巧都可以奏效，但是可能会出现莫名其妙的滚动条或裁剪阴影，这是使用 overflow 带来的一些副作用。",
+        "text_hash": "cc94e6bb91fd3049577702dbf10be4b23ebad13ecd2b9240f0ffb6e10841d5f8",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c6545706a926b6a31c98c50f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "display: flow-root",
+        "text_hash": "35440b736f4c2e95da967317fd2f68780b17c8b946d92261e00bc22e1058ee9e",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_bd2f4913e6478961b319966e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个较为现代的方案是使用 display 属性的 flow-root 值。它可以无需小技巧来创建块格式化上下文（BFC），在使用上没有副作用。",
+        "text_hash": "ed475cf6f424eff2d5e16d9da5823de413fe5de4061401abbc068b870b630b50",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_140211e4520308db01e31510",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "从 .wrapper 中移除 overflow: auto 规则并添加 display: flow-root。如果你的浏览器支持该属性（支持的浏览器列表），盒子就会停止浮动。",
+        "text_hash": "cf88838134d014f7c3509e8756bb8b2cc6cba33a6981b5b0f997076abd929fdb",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_59957da5145745dc88b3a16a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.wrapper {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  color: #fff;\n  display: flow-root;\n}",
+        "text_hash": "82af72255e4410a120b7b65ebc18cdce36ad1993626bed320ee7ee2b69b1d1ca",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_27a96b5def9f3959bc904e90",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Simple float example",
+        "text_hash": "aeab51bb16dba96c26e24e0fb7a20ca88981d9f104a2f10904d5d07780e9b687",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_35e23b5475cde9ad2029762a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Float",
+        "text_hash": "1a693c00c40cc749294b6c88a58f62250fa3fba10d6e406567ce2bae2e572661",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_36c80d1736bef2d90dc04eff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n    aliquam dolor, eu lacinia lorem placerat vulputate.",
+        "text_hash": "99045628d3761c0e5302715c428060c392fcca11b70ceabdc72f32a43199a79d",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_07bae886a18bfedcfc18808d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor\n  imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa\n  at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas\n  ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae\n  convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.\n  Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut\n  luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare\n  felis, eget fermentum sapien.",
+        "text_hash": "b3c4ace9d4728cde097f860c3b8e07cc242b332e0297d79f52f84563861a52b6",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dd2a73a434c2f9360547a146",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_603e67219073a42ba6fd20e0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 0 auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "cc7086299fe9d7de1a1200b8f1ffbed5c74654f9324b53a011da856f1605cec7",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5a4a8071dd8ed2b5459786cd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  color: #fff;\n  display: flow-root;\n}",
+        "text_hash": "4d5f75b783fbd3b23b44bfc683edde73c1b365e2830bc7ee0c9ba8f690882e26",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ae7b300d5814656036e0d3e5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box {\n  float: left;\n  margin: 15px;\n  width: 150px;\n  height: 150px;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "d65476161a2c37775a4fb7fb8718b2bb738c0036b4bd9d80916af88e4f383418",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_86797bfb22a04eef666a4adf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "技能测试！",
+        "text_hash": "82b5c8cd03fff6874fe35527b00f721a90fe9c0b9c85fbea52a6788fce64f682",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_52a829a8c39b92a69dc4691e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你已经读完了这一篇文章，但是你还记得几成呢？在继续阅读之前你可以在这里找到一些测试来检验一下：技能测试：浮动。",
+        "text_hash": "521ed33cdd167bf180b0a626c25b130354ff52d87dfb20ea93995485a841158c",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_73a6c5054690bfe713a407d9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_95787dd724b5f6e823e4933d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在你应该了解现代网页开发中浮动布局开发的知识了，请参阅 传统的布局方法 以查看它们的用法，没准可以对你老旧的项目有所帮助。",
+        "text_hash": "19858560417d47dc8cc0aa104414f072b54582abcfc3a168629cb1c947541e1c",
+        "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_743bc58545215b1f19c52d33",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。浮动，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "浮动，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/floats",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "浮动"
+  },
+  "resource_id": "lr_ddb1abc726bd3f8260e612c1",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_4878994957e51e03065af720",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "浮动",
+    "text_hash": "f319bfb3372aa61e176b8b8942ed41327d413d204e580894da43608bae7437e2",
+    "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3"
+  },
+  "variant_id": "lrz_642f496351d01879237e64c8",
+  "variant_version_id": "lrzv_cc24dd9abe04b5d881a38ef3",
+  "visual_dependency": "helpful"
+}

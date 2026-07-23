@@ -1,0 +1,1866 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_3f21cae5e87d0d169a195671",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在网页开发的过程中，用正确的 HTML 标签来表达正确的意图，可以提升网页的无障碍。这篇文章将会详细介绍如何最大化地提升网页的无障碍。",
+        "text_hash": "2aa34e39a8cc39e7c30f26938e9b99d68bea017e98bbd271756fdb838309b25e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_308f0b1b8090cba0a22cb98a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：",
+        "text_hash": "60df7f5b49d0fd69c1a1ee4bda41ede8b786ae9d162b8a9a73e264bbf703119b",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d4d333380ec66b73645598d2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有一定的 HTML 基础（可参阅\n         HTML 入门 ），理解 什么是无障碍 。",
+        "text_hash": "4311d60e2fc49cd20d431be06f0974cb329ae05348ea07377fdf26f758f944c5",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_30b5025c54387b993d85285b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：\n       了解无障碍为网页带来的好处和如何在网页中进行实现。",
+        "text_hash": "319d2229c66d3613626b666c89fef0fc5c99d917a2cd664c288c2dc3dbaa9ad0",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_06c966a74061dd6d329a2f6e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 和无障碍",
+        "text_hash": "f768d6eb5ad33abbb5fbd1cef44a596c43a73642a9e1451d1c3b3ea22cf440b5",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_176a4b5fbd4b2770785a985a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在学习 HTML 的过程当中，经常可以看到这样一个主题：HTML 语义化的重要性。意思是指我们应尽可能地用正确的 HTML 标签来表达正确的意图。",
+        "text_hash": "e2dc8fbaaa9c5dcfcd8529b4c10423e7aaf1e6edf41b1ee4078ed558397bd055",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_100252c66f030f18c5d70757",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可能在想，为什么语义化对于一个网页来说如此重要。总的来说，正确的语义化可使 CSS 和 JavaScript 更为便利地操作网页的样式和行为。例如，一个用来操作视频播放的按钮可以写成这样一种形式：",
+        "text_hash": "dc717b023077a7cde408e3d5add0711d0c6defd929862cee1d234e54f92a51b2",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9670233e294862514675667b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Play video",
+        "text_hash": "bd610bfd40b39603b557683a74ff70ef3f12eb5321ebc66a61b1927395cb4dc6",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8ee060f4d12da94b280445f9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来你将看到一种更好的写法，它使用了正确的 HTML 标签，看上去更加合理：",
+        "text_hash": "357e3b88e6394a3ef4162f004f99add6b6adcc12a7805fd00463669f7a7a8726",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dc3a933f6afc22a5feb337b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Play video",
+        "text_hash": "bd610bfd40b39603b557683a74ff70ef3f12eb5321ebc66a61b1927395cb4dc6",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4ceb2523aefbf70098db43e8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "标签不仅提供了按钮的样式（虽然有时会重新编写样式），还提供了键盘的无障碍，如：使用 tab 键更换按钮，使用回车键点击按钮。",
+        "text_hash": "ce71daa07615add242eff7bdea57428f9d967cf31a2a2c0fc98c65eac9354bef",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_362b7d948a686a8882ea118a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你在项目的一开始就使用 HTML 语义化，不仅不会花更多的时间，而且又有以下的无障碍优点：",
+        "text_hash": "6b13a168a61081765bace57161bb2241c4aabb32f68df4715d608ba26dc6f36f",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3a0fba46ffdd7d359d9f0920",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**更便于开发** — 如上所述，你可以使 HTML 更易于理解，并且可以毫不费力的获得一些功能。\n**更适配移动端** — 语义化的 HTML 文件比非语义化的 HTML 文件更加轻便，并且更易于响应式开发。\n**更便于 SEO 优化** — 比起使用非语义化的\\ 标签，搜索引擎更加重视在“标题、链接等”里面的关键字，使用语义化可使网页更容易被用户搜索到。",
+        "text_hash": "4161affd34d4401b6d3245adb0db7a56dec4347efac14e2451735ddff383dace",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_f745e35009f5652eb3a746fe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们来继续学习 HTML 语义化实现细则。",
+        "text_hash": "8585cb09cdf009ac20937aef164399c417a472ac625c0eaee13fb0ff0cac005b",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_879f3c61b95ab9077c599439",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n在本地计算机上设置屏幕阅读器是一个不错的主意，因此你可以对下面显示的示例进行一些测试。更多内容请查阅 Screenreaders guide。",
+        "text_hash": "15d8945e331b8e8e870c2a85f03f283e23fa49d6b924b01df54becde833cdd41",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_61278bcf95ab9d5af110e1c7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "良好的语义",
+        "text_hash": "f2645b88119a5ecf244961faefc77e7fc48b8b906c64205d64eda0d2f14475e3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e9a9b891a49ee8cfc615ea5f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "上面我们讨论了语义化的重要性以及为什么我们要使用正确的 HTML 标签来表达正确的意图。语义化是我们不可忽视的一部分，因为它往往决定了网页的无障碍。",
+        "text_hash": "44bea269c897ac54d8c01761fcf8df01163d0384d31f820f931f30230bfe6430",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_15083fd4d4de923ac8a41015",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在网络上，事实上人们用 HTML 标签做一些非常奇怪的事情。人们滥用一些即将废弃或已经废弃的标签。不管在什么情况下，我们都应该将这些错误的代码改正过来。",
+        "text_hash": "f935b13bcdf6c1d3ff89046fed832c70546e8ba942554b7158a031f05a5a4580",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bb49d3992e718887f14e4dd9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "话虽如此，但是有些情况我们往往不能摆脱错误的标签，例如一个网页是从服务端的框架生成的，或者网页上存在第三方的内容（如广告），这些都是我们所不能控制的。",
+        "text_hash": "91770e1c5843ddab8dbaa770aa6c80d53f63a39fc013f57901f97d410c41cacd",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5341eb47e7b55c83b44cd2f7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们的目标并不是“全有或全无”，实际上，你所做的每一个改进都可以提升网页的无障碍。",
+        "text_hash": "9a0ae9c23aba1ccfc54648c8578aab80997764239a62d986deaaefe376ab7d86",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_93a4e2aa8c063da507e031ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "文本内容",
+        "text_hash": "479bac57975e01cfe586d8a88818040351452f22745371e43a1f2f3ccfad968e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a73e13d75a687ddb9fb64dd1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对于屏幕阅读器用户来讲，最佳辅助功能之一是拥有标题，段落，列表等内容的良好结构。一个好的语义示例可能如下所示：",
+        "text_hash": "a60c1ba3fb2c2509470ddbd9d1cf43048b594ce606fbcf029abb629c73acd1d9",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_04830e5a14cf2a5437e0a55e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n My heading",
+        "text_hash": "7c9e0b86e7a9d7219701205556ea596806a7161749cacbfca242bae2b0156c4a",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1a858b74cc0db0f160917117",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is the first section of my document.",
+        "text_hash": "0f5c069882d78c64530be0b22e5a6e16986f47c6b57a6df4d5f7fb490a93082b",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_77b619cbbf605704de39fd8a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I'll add another paragraph here too.",
+        "text_hash": "d13526337d6cd9f1655261c720c9016032f129320c210cd368f3b8afb78ef755",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_226e2b2e32fc7f6f11306793",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Here is\n   a list for\n   you to read",
+        "text_hash": "dcecc2122d6dbfb6000593aac887b8368fc16a87610b53f046f76d399fed290d",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_121f2b352f49cf320e5e673c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "My subheading",
+        "text_hash": "77adf2f4b25cde9eb4dd82a04d0293334795c0dabe60dae3f190b9a04cd6f577",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ee2fb35a9b24dd00f8e50203",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is the first subsection of my document. I'd love people to be able to\n  find this content!",
+        "text_hash": "8a5c20f9940880a38678d67bf7fd8997d90527b578672bfea09c6c997473c5bf",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f9f7f0b30e76255bb9201314",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "My 2nd subheading",
+        "text_hash": "9b32e490aa503c610c6c358e27291d1e68ad8ec75c179b66dcd32b22d3984957",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6c4d2fde7a3db7ab49d8fa1d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is the second subsection of my content. I think is more interesting than\n  the last one.",
+        "text_hash": "e081bb925d4d999d6c2f1751bd2800344e3e29462a5741e407845abbde8afe6b",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fdd448243e9738df7b47f502",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们已经准备了一个更长的文本版本，供你试用于屏幕阅读器（请查看 good-semantics.html）。如果你尝试在此过程中导航，你将看到这非常容易导航：",
+        "text_hash": "a78abc231795fc3cbfeb99168c66156787908569bc7234af15d030883229875e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8f4c4114ebc2dc18ef3cacc8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "屏幕阅读器会在你浏览内容时读取每个标题，通知你标题是什么，段落是什么等。\n它在每个元素之后停止，让你以任何适合你的速度前进。\n你可以在许多屏幕阅读器中跳到下一个/上一个标题。\n你还可以在许多屏幕阅读器中显示所有标题的列表，使你可以像使用便利的目录一样使用它们以查找特定内容。",
+        "text_hash": "38d9f7d9870c4cad056b7f0b6be6bd207f1a449a530d8311abd873b5d2f38702",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_c3529d20f196bfa540a83f5f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "人们有时会使用表现性 HTML 和换行符来编写标题，段落等，如下所示：",
+        "text_hash": "fa964c5c41c2d105ccf408729ead7287674d0d3c784d58630a178ff0de973b3a",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_63a46bb96b9891a4134ac34a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n My heading\nThis is the first section of my document.",
+        "text_hash": "38e88cc4c60e5256444b00a6a9374c831d4dbf9544d0767857e6f83f43304387",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dc321c414087d364775d0c01",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I'll add another paragraph here too.",
+        "text_hash": "d13526337d6cd9f1655261c720c9016032f129320c210cd368f3b8afb78ef755",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1a798f5d6d5d746bbd8b0702",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Here is",
+        "text_hash": "d501203f6573a772d1fcb691c7b871c7890ae6d5c410250328e06800df7bc02b",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_eadf82d3487cbe05329258b2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "a list for",
+        "text_hash": "3a24e52166803112baca2f608817604f6c5109695eb49cbf6593078978547d68",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_c519dd5e5e8ba45a6b60a038",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "you to read",
+        "text_hash": "26cba159f5f429a4c7e68554ccbec2aa1c4fbdafad60bd3d24e92b20b2d5bf8f",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "ordered_list"
+    },
+    {
+      "target_block_id": "lrtb_8f602f272fa056a575c03b83",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "My subheading",
+        "text_hash": "77adf2f4b25cde9eb4dd82a04d0293334795c0dabe60dae3f190b9a04cd6f577",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_56ad1c862dcb47d46d168770",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is the first subsection of my document. I'd love people to be able to find\nthis content!",
+        "text_hash": "7ec3847774df6a132de35ecdc2f4594b9a157d1a48c2be266b804bc2264faf57",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b60c11ec52b71159a42ca453",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "My 2nd subheading",
+        "text_hash": "9b32e490aa503c610c6c358e27291d1e68ad8ec75c179b66dcd32b22d3984957",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e9a8f7f2a704c3d357e15d26",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is the second subsection of my content. I think is more interesting than\nthe last one.",
+        "text_hash": "a78427fcb7148eb44d15b5685aaf880f5981b44b1629b5ba5e0820861c8515d8",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6f9d77044e42e1e6a213ee12",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你使用屏幕阅读器试用更长内容的版本（请查阅 bad-semantics.html），你不会有一个很好的经验 — 屏幕阅读器没有任何东西可以用作路标，所以你无法检索有用的目录，整个页面被看作一个巨大的块，所以它只是一次读出所有的内容。",
+        "text_hash": "42225e844f1d9718b38806c6e1628a4fff8a0e290f8d481d3ef31d7b54b58428",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d60f4bf0f8eaebff8fa4b629",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "除了无障碍之外，还有其他一些问题 - 使用 CSS 设计内容的风格更难，或者使用 JavaScript 来操作它比较困难，因为没有可用作选择器的元素。",
+        "text_hash": "9ed564809e0ffdf40feeed3201789c40a19b9002a795e4fc42c2c0eaa5992486",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d6f33dec2176731737321635",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用通俗易懂的语言",
+        "text_hash": "6bc234be909528ae5e59fea6d98e7ed66f50612ab2d281d6455d86426a4b1fbf",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0817ee901a32d3be5cba0cf4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你使用的语言也会影响无障碍。一般来说，你应该使用不太复杂的清晰语言，不要使用不必要的行话或俚语。这不仅有利于有认知或其他残疾的人；它有利于那些没有用母语写作的读者，年轻人...事实上是每个人！除此之外，你应该尽量避免使用没有被屏幕阅读器清楚读出的语言和字符。例如：",
+        "text_hash": "c8c914d6aef6bde3af51b16cc1ab37ef9acd17aea530846b605b6dcb6396014d",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e8a6bea252741ddb6c79c079",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果可以避免的话，不要用破折号。写 5 到 7，来替代 5-7。\n展开缩写 — 写 January，来替代 Jan。\n展开首字母缩略词，至少一次或两次。例如写明“超文本标记语言”（Hypertext Markup Language），而不是直接用缩写 HTML。",
+        "text_hash": "9800283845df1cf62b778f371b0d989ba0f8313891b6d4ce04d587c9aa3d5876",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_0469354d7ee6c08d860408e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "页面布局",
+        "text_hash": "76842104afdb98fee06e8e8cf383a38b44389f997ff02d11b3d2f8b5aaac01f7",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b86c1e80eee2de5b947e93cc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在旧时代，人们曾经使用 HTML 表格创建页面布局 - 使用不同的表格单元格来包含页眉，页脚，边栏，主要内容栏等。这不是一个好主意，因为屏幕阅读器可能会读出给人造成困惑的结果，特别是如果布局复杂，并且有许多嵌套表格的话。",
+        "text_hash": "b6fe46d08147ed1d2cdb202cc739828fc8fac8e6897ab35d98c1e70a9b2ab454",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_125fa0b9d3c804c5587d2190",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "试试我们的例子table-layout.html，它看起来像这样：",
+        "text_hash": "a9b68f2229ec95622f6418a5cd96e9ba78d29e0a69b0413adf00b02006277019",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d8058e107b6e762027436cfa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c96f3f4401cc264138631bbc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Header",
+        "text_hash": "ba5caa4285a84d88129280d2c3f6d796b4e2da069981e845bdaa55d9e6cfe7b5",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ddffd0f119d3aec380b39f7f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Home",
+        "text_hash": "3a78695388b38b5cceefaf6796b0137877514593543b91af2752d5a17e3d736c",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_14b9035f96dbc160e5c4fe05",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Our team",
+        "text_hash": "cb7511f9c87d373abfbdfce9feb9721a97d4cd45543bc19c64b0839d74100b8d",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d070e253a597f7a6d48a6eaa",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Projects",
+        "text_hash": "04e2a9728af7584043c5d58ae29e7cd811883e8dab15fc6287675270669a3ada",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_149fff63c032f61fe15d752b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Contact",
+        "text_hash": "2b5c3d26721ae9c350cf3009318b626f0fc8a90b4a2ac0ca8099c05aa849282e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_493e77e500eb445f94e98a9f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Go!",
+        "text_hash": "e95c396138aa2091f23bde1d662f768dfdaf3d95987857ceabafffa639c8cbb8",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_20b510428785ead48fce6d86",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Related",
+        "text_hash": "45ca56d179d4788c55ba9f7653b376d62e7faa738e92259e3d4f6f5c1b554f28",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_11f5136292327c6d5864f464",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "©Copyright 2050 by nobody. All rights reversed.",
+        "text_hash": "9eb28ea939939edf1d8210be85d7813f3f8e3bdbd76e1db9576cc4e65e6ea375",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e4982701741cd909886f3629",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你尝试使用屏幕阅读器浏览此内容，它可能会告诉你需要查看一个表格（尽管某些屏幕阅读器可以猜测表格布局和数据表格之间的区别）。然后，你可能（取决于你使用的屏幕阅读器）必须需要进入到表格对象中，并单独地查看表格的内容，然后再次离开表格，以继续浏览其他内容。",
+        "text_hash": "0b8b203efb3eb1e6b27f6bb5f6cce5c3052ed05e03f56e69c8c67ccf4d9b3731",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4011a1595c05657fc4f686a4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "用表格布局网页是过去旧时代的遗迹 - 在“CSS”在浏览器中并不普遍被支持时，它们是有意义的，但是它们会为屏幕阅读器用户造成混淆，并且由于许多其他原因变得很糟糕（滥用表格，可能因此需要更多的标记，使设计更不灵活）。不要这样做！",
+        "text_hash": "66497a9776814e286848a8c2a110979ac1c649e9cc14560082444c3be84bf840",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_21af0365c4d4efe4ba3f29e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以通过将你之前的体验与 更现代的网站结构示例 进行比较，来验证这些声明，该示例如下所示：",
+        "text_hash": "b0ac5ee0a046651378ef66c5d01568ed5827dc136882ff2edf52ad659299315c",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f3a8d440dd833e012b507ae1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e4c602ca958a72da4262b0d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Header",
+        "text_hash": "ba5caa4285a84d88129280d2c3f6d796b4e2da069981e845bdaa55d9e6cfe7b5",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6cf61981852a2cf21fc08c8f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Article heading",
+        "text_hash": "d9c9dcc3fad5fa1ba51a716cc8e94024fbad91dfdc0051bfc489e799dee11a3a",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_97811b26c8a46019d6c4225a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Related",
+        "text_hash": "45ca56d179d4788c55ba9f7653b376d62e7faa738e92259e3d4f6f5c1b554f28",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fb9dd40e6d311f5d91e0d648",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你使用屏幕阅读器阅读更现代的结构示例，则会看到布局标记不再会妨碍内容的读取。它在代码大小方面也更加精简和小巧，这意味着代码更容易维护，并且用户下载的带宽更少（特别适合慢速连接的用户）。",
+        "text_hash": "1d5589a1fbfc068d91382e43690b7425a58c7c17a52f4199ed7585dd4df9b6fb",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a80ce04aac484d721597140a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "创建布局时的另一个考虑因素是使用 HTML5 语义元素，如上例所示（请参阅此内容部分）——你只能使用嵌套的  元素创建布局，但最好使用适当的分段元素包裹你的主导航（），footer（），重复内容单元（）等。这些为屏幕阅读器（和其他工具）提供额外的语义，为用户提供有关他们正在浏览的内容的额外信息（请参阅屏幕阅读器支持的新的 HTML5 章节元素，了解屏幕阅读器的支持是什么样的原理）。",
+        "text_hash": "a3ea13474772c1b6e553729408ee7e340aad4d08c36daa63f608cd3d6d55a553",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5ec6da42f00c525503d9f893",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n除了你的内容具有良好的语义和有吸引力的布局之外，它的源代码顺序应该是合理的 - 你可以随时将它放在你想要使用 CSS 的位置，但是你应该先从源代码开始，如此这样，屏幕阅读器读取给他们的内容将会非常便于理解。",
+        "text_hash": "93dcf5aa5b17cb2dd347ce864cf222b892be976b971785100a6e80c0c1277dc2",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_299206fc7d4d3afde83f8a22",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "UI 控件",
+        "text_hash": "5e994ef5a9ffe5de10c92cfb2513a359866bcfb0ced7c8e47d7f3a3382cd20d4",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a50c5625d502d0a1ce252b24",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "通过 UI 控件，我们指的是与用户交互的 Web 文档的主要部分 - 通常是按钮，链接和表单控件。在本节中，我们将介绍创建此类控件时要注意的基本无障碍问题。稍后关于 WAI-ARIA 和多媒体的文章将着眼于 UI 无障碍的其他方面。",
+        "text_hash": "402c57e5c9ffcc0848efe6f78adca56ab7d4e2c47bcbb71768edd870c5446aea",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d841c4d2e31e9feb4ae95d43",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "UI 控件无障碍的一个关键方面是，默认情况下，浏览器允许用户通过键盘操作它们。你可以使用我们的 native-keyboard-accessibility.html 示例（请参阅 源代码 ）。尝试此操作 - 在新选项卡中打开此项，然后尝试按 Tab 键; 几次按下后，你应该看到标签焦点开始移动到不同的元素; 在每个浏览器中，获得焦点元素都会有一个“突出显示“的默认样式（它在不同浏览器之间略有不同），以便你可以确定当前哪些元素获得焦点。",
+        "text_hash": "09ec34464de0f5006d9751d10aed03af5f07d98107ed7573e0e8334ecb69195a",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a04ed1674ac2c2cdf6776262",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接着你可以按 Enter / Return 来追踪当前获得焦点的链接，或者按按钮来实现（我们已经使用 JavaScript 使按钮同时显示提示消息），或者开始在文本输入中输入文本（其他表单元素具有不同的控件，例如  元素拥有自己的显示选项，可以使用向上和向下箭头键进行循环）。",
+        "text_hash": "da26abe90db34e3037107ea96385c75dc3f62c92dd2b78a390530f243e286747",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72e4c1ac29d2d4221b0eb955",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n不同的浏览器可能有不同的键盘控制选项。请参阅使用本机键盘辅助功能获取更多详细信息。",
+        "text_hash": "740868c82ff811ddf92314e250c305e75b5a9b6c9ee239eab71766466173a0f7",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_477997cef0ec98143ba55730",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "实际上，你只需使用适当的元素即可免费获得此功能，例如，",
+        "text_hash": "93914ea9b783ae44ef3bb0b73f2b74013c58e42932597865910ddb953f86c391",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e2740ae9d2cc76329b58409e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Links",
+        "text_hash": "19f504e65c2e960b19a003faf6a1ac64cd65ae46763a1602aed97690fc2acd1d",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c49d547146f925d5eeeb08d4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is a link to  Mozilla .",
+        "text_hash": "9d005cf47190e5abdb0f4601f86bb6bc97c717c1d93004a4d5eef0851af9b30e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_15ea47909745e422c548d3d7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Another link, to the\n   Mozilla Developer Network .",
+        "text_hash": "5b6025e899e1b0d76353507dd355b09aee5aa0a8d9476962fab0ae85f47bea97",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_346b73a99d7c53f6d5963938",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Buttons",
+        "text_hash": "d452583a74d0e772db89d8f783831098869148222427750bedecc4a1b50380b5",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_aa23a6100bc89c529e9bce3e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Click me!\n   Click me too!\n   And me!",
+        "text_hash": "af407a8b87eca4f22cf5c0c81ebdad405430bd795fec81bdb93c8f9457bfa29c",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ced767c4ae4c141b0cbcfda4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Form",
+        "text_hash": "2e0e960ab3204127b1dce399c9984c81f52a79f4d85cb0c3afddcfcfe8a2b48c",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e6bf9e8c77bc0ced4b36e407",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Fill in your name:",
+        "text_hash": "1cb7f2308f5b147c7742c3468dba8b77b5c2eae0658fc4a865a2f1f04f4a90d1",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ba77838e957101b6652ed62e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Enter your age:",
+        "text_hash": "44d6e05a1a86963ff84212e949fd24e0f7c702b351604ab1d8c88ba90810469e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_078c8c6cd2c966f4d97da883",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Choose your mood:",
+        "text_hash": "c0f2d6692a49a0f4ee36ccad9b73cde243e9491d15c1c60600144d008cf38fc3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a5ef4021b9cefd1fb467baa4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Happy\n       Sad\n       Angry\n       Worried",
+        "text_hash": "9cf1915b415ae438bc9de5d355764ffd877cd52f2a6a81d912d0278395247c8e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bd510a62cfd11d545360f841",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这意味着适当地使用链接，按钮，表单元素和标签（包括表单控件的  元素）。",
+        "text_hash": "eb0d30f3a801d775d92abe97d43bbd1a92c7a445e781597b83c86b87c2d352fa",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a5043c7ad56908f4055e4df9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "然而，人们有时候会用 HTML 做奇怪的事情。例如，你有时会看到使用  标记的按钮，例如：",
+        "text_hash": "94f3106cf6e3611f68cab427f79a4ab3bb87d0ba5715c86eccadeeca2693b530",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c99c9cc01fcb8f5132c63c9e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Click me!\n Click me too!\n And me!",
+        "text_hash": "5bb5df81fd331acc496d44decd145d2a2c49344b8583372e691724f27b863085",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2a7323dc8f3a24101cb3fbc3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是不建议使用这样的代码 - 你会立即失去本机键盘的无障碍。但如果你使用了 元素，你将可以通过键盘控制。此外你也将不会获得任何的按钮默认拥有的 CSS 样式。",
+        "text_hash": "e13339c780f5910b6835665e49ed9599d2289b82f46b72bd41a51929f6e7079f",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e9f3c6fb22a517b27cb8203e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "重新建立键盘的无障碍",
+        "text_hash": "c106a51db0c9cfc0164923423c83a18bdff4cfb82b0f0406e4cc0e1e82766157",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_3e7c150ed70d5143ef48907c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "重新添加这些优点需要一些工作（你可以在我们的 fake-div-buttons.html 示例中使用示例代码 - 另请参阅 源代码 ）。在这里，我们通过赋予每个   按钮属性tabindex =“0” 来使它能够被聚焦（包括通过选项卡）：",
+        "text_hash": "9a31f9ac87ee9a601f65b5d8e2536007f4ea51c6f43ac19fbfde4009ec25aa0e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c00cd16fa12a07c719f97caf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Click me!",
+        "text_hash": "a7dc958c913270660126336b78806eaa92c23d6a4a940424a1bf56a850e48d7a",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_950b117c4ff6af21410765c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Click me too!",
+        "text_hash": "25c58172e8c6f155ce66b9a42922d8213ae020b9fc4eb133e65b82e05e1656bc",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c4d6fe29fa11e8fe75b6afa0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "And me!",
+        "text_hash": "483ed98743fb6a4cf44c09d02b6cac2ecc3bb853e8ba431b0ad0dc2a4b3738cb",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5a2f78bead55542d37deb577",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基本上，tabindex 属性主要用于允许 tabbable 元素具有自定义 Tab 键顺序（以正数顺序指定），而不是仅按其默认源顺序进行标记。这几乎总是一个糟糕的主意，因为它可能会造成重大混乱。例如，如果布局以与源代码非常不同的视觉顺序显示事物，而且你想让事情更符合逻辑。这里 tabindex 有另外两个选项：",
+        "text_hash": "df1a7bb711dab68bb5eefc60744ddf0e5ebd067bea5f357b7f338596adf71606",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bad90b1861b5b0b6b1234f5b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "tabindex=\"0\" — 如上所述，该值允许 通常不可放置的元素（tabbable elements）变为可放置的。这是 tabindex 最有用的地方。\ntabindex=\"-1\" — 这允许 通常不可放置的元素（tabbable elements）以编程的方式接收焦点，例如，通过 JavaScript，或作为链接的目标。",
+        "text_hash": "35b80bd6bb4accd84a4a662681832a8d2700c28de4f75b99fbfd8fa11db8c040",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_a1d22ca4a987b1f229b6f0b5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "虽然上面的添加允许我们用 tab 选择按钮，但它不允许我们通过 Enter / Return 键来激活它们。要做到这一点，我们必须添加下面的 JS 小绝招（JavaScript trickery）：",
+        "text_hash": "38ed348ac2ec60e4b214596a9c9381c548f2affa462a3caf2e93cc69bae9bd09",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a7ff80d4d7c7ccf8c2409714",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\ndocument.onkeydown = function (e) {\n  if (e.keyCode === 13) {\n    // The Enter/Return key\n    document.activeElement.onclick(e);\n  }\n};",
+        "text_hash": "fad7706530aa2e091cfae9550e0d35ba94ab276387e6de25ff7ef5d5547c6d1e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_af07f6c2cc06136fb7408882",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在这里，我们向文档对象 document 添加一个侦听器，以检测什么时候键盘上按下按钮 我们通过事件对象 event object 的 keyCode 属性，检查用户按下了哪个按钮; 如果它是与 Return / Enter 匹配的关键代码，我们通过按钮的 onclick 函数，即 document.activeElement.onclick() 。activeElement 提供给我们页面当前被 focused 的元素。",
+        "text_hash": "11fd7b2c6f83c5d9c66b04352a7e7f76cecbe58367236695b0609ac71fea0aaf",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a2a3de40bda0104148109c49",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们使用document.activeElement.onclick（）运行存储在按钮的 onclick 处理函数中的函数。 activeElement 为我们提供了当前关注页面的元素。",
+        "text_hash": "c7ad1fd5e70f9e86bd13eb7e80ff06ab92fe0cfe943a42536cc46a50e090727d",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_71ecf7f5ddb6e55996399d8c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你应该记住，只有通过事件处理程序属性（例如 onclick）设置原始事件处理程序，此技巧才会起作用。 addEventListener 将不起作用。",
+        "text_hash": "8dfd4a4415fb2407b195b590dca79d571ef641adc1ddf379f401b050bcb289d8",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_4bcdaff9590d2999ea49b82d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这对于重新构建功能而言是一个额外的麻烦。而且这肯定会带来其他问题。使用正确的元素处理正确的工作是非常重要的。",
+        "text_hash": "6182cc9343f6eea4140fc75a567439f6b99289003b8aad7ccc42c3d59e7df339",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_54fc20776c977f6c34c63db8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有意义的文字标签",
+        "text_hash": "ee8f8c3a5534c5db7a7309b1c339b762d97572a5c45db0b2fca4f48673f7f1f9",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ef1071ec43ccf91a2ec7d835",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "用户界面控件的 文本标签 对所有用户都非常有用，但是对于残疾用户来说，让他们正确使用尤其重要。",
+        "text_hash": "14de0e74e55aa5640a5e19a63979a93c86dac305983af86117372987b615e9dc",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9772728408c5ce99ee032f5a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你应该确保你的按钮和链接文本标签是可以理解和独特的。不要使用“点击这里”（\"Click here\"）此类的标签，因为屏幕阅读器用户有时会列出按钮和表格控件列表。以下屏幕截图显示了我们的控件在 Mac 上由 VoiceOver 列出。",
+        "text_hash": "d01c51a523f7a3d188310c45087379e33cda99d575f96f7fc4cf9d3fd80d8d2a",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_493ec33e84ab6f08560f7dd2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "确保你的标签在上下文中有意义，可以单独阅读，也可以在他们所在的段落的上下文中进行阅读。例如，下面显示了良好链接文本的示例：",
+        "text_hash": "18b393fe5925c090e345b771cbf125026083e5295f73dbff6a643c18bc4178d5",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a0ca09c711bbef690859fc3f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_42c07484fb2b503a2b86d708",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Whales are really awesome creatures.\n   Find out more about whales .",
+        "text_hash": "acd2bbc48575b1f7f3c049fe2dd7a3459ee5c1d79c8b2fb25405a9d9d4570898",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7406bf965199958b4f29d098",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但这是不好的链接文字：",
+        "text_hash": "cb6fa380609facefdc0735ccc58873fcdbe766a31500dd0cf24a319e99eb2d40",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8838e76af60821aa5d4548d9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9f880219fad1f4df78f0e8c6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Whales are really awesome creatures. To find more out about whales,\n   click here .",
+        "text_hash": "c136c5ee4ec47c3267f1a5d2cae75648b930ea17e6e81556fb251586af7d57f7",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a2ceab3ba0360d6b83986e3b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在我们的创建超链接文章中找到更多关于链接实现和最佳实践的信息。你还可以在 good-links.html 和 bad-links.html 中看到一些好的和不好的例子。",
+        "text_hash": "2b48976d5ee11721c014bc73a76429c16d2412e8f47c30292a6ed237eddc01d2",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_e3c640e902911c7c2c28e6e4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "表单标签也很重要，可以让你了解你需要输入每个表单输入的内容。以下似乎是一个足够合理的例子：",
+        "text_hash": "21d7e70cbc3f17914b2ebb298e60444e5426cce45bf47a5faa4731197147f0fd",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dce73b4df8fca8072dff8a0c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html example-bad\nFill in your name:",
+        "text_hash": "4342ce51f73e6cfb614ec109cd9c7adf8959855f3372fb71e1c9302dd20c06f7",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c1c65db00b771442923b43fd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是，这对于残疾用户来说并不是那么有用。在上面的示例中，没有任何内容将标签与表单输入明确关联。因此如果看不到它，请让用户明确该如何填写。如果你使用某些屏幕阅读器访问该屏幕，则只能按照“编辑文本”（“edit text”）的方式给出说明。",
+        "text_hash": "f7a56456bfdbf495e64684619c37af83ce1589dcd613ca49ea16eee98e468aff",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_27fffb28254cafd2a0313175",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "以下是一个更好的例子：",
+        "text_hash": "f0878852ab0cd10b79657fbab2f8c22900bb1f3a1c489ab43dcdd2cd5dcb889d",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d194618a575c73f4d986a7f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html example-good",
+        "text_hash": "8322841784d12832706c0962d934fec0e41a6bb8d6fda69d09da84b2a6fa0dce",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d3869caf2c3917d4bc1785ce",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Fill in your name:",
+        "text_hash": "1cb7f2308f5b147c7742c3468dba8b77b5c2eae0658fc4a865a2f1f04f4a90d1",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_55bdab7c176900c809f162ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "通过这样的代码，标签将清晰地与输入相关联; 描述将更像如下这种形式：“填写你的姓名：编辑文本”。",
+        "text_hash": "c56d8325b16d951b9013ad4457a043885b6309988823a348d9f768c3a9b8586c",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_23d876999987ed076fde9ea1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "作为额外的好处，在大多数将标签与表单输入相关联的浏览器中，你可以单击标签来 选择/激活 表单元素。这给输入一个更大的可选中区域，使其更容易选择。",
+        "text_hash": "cba7ecdc8b47dc91fa544f745569b3d2f027f6fb2b8e4a4322dcec34213576a6",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7f1c6aa982b830d574cb27eb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你可以在 good-form.html 和 bad-form.html 中看到一些好的和不好的表单示例。",
+        "text_hash": "1bc1500cb726dfb23d1f34e5beb0c2511b9e7263f9afbca0c172fe2ab68b4024",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_2a82600050cb3a3f40f1bb51",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "无障碍数据表格",
+        "text_hash": "5767eaba48570eaf712165ad6e5dc38396d48c7a742d861068d69556d7e878ab",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_12f4dea3b823d3c1b82e27e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基本的数据表格可以用非常简单的标记来编写，例如：",
+        "text_hash": "373f657e581323cea86828b9f7e43446eb01904aedba4f9af93b3d5cf352bd3a",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_587b122045590810eae61196",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_da5ff5304e2ad1e8b0e45615",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Name\n     Age\n     Gender",
+        "text_hash": "0cc02cd6e81227a1774d0782483ac7cfa2d68bccd555251088b532972c9fb793",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_49cb04c99f8b2ca80c4f2eca",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Gabriel\n     13\n     Male",
+        "text_hash": "feed51610fede8d8f0633c6aacb6a250e16bf56cce99676c2d96f5e5285aad0f",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_809461e4b6803e779832b39a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Elva\n     8\n     Female",
+        "text_hash": "d375ea83298e894b6e28742409b79a4e1177f82362c7c00f46db9d70b97b9170",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_28ee25fa7aece495d1c86cfd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Freida\n     5\n     Female",
+        "text_hash": "ab9ef3ebce4507684be9c7bbfe4be9b7da8c4712b716823569f8b13567097f1a",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c7100c6eeb1719e4435ce8c0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是这有问题 - 屏幕阅读器用户无法将行或列作为数据分组关联在一起。要做到这一点，你需要知道标题行是什么，以及它们是否在行，列等标题上。这只能在上面的表中以可视化方式完成（参见 bad-table.html ，并自己尝试这个例子）。",
+        "text_hash": "8f2cd29b2bf9149693023dc3d7d12334d66d7638d575f9523d24393f231c6f89",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2cc4150633026e905f67943a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在看看我们的 punk bands table example - 你可以在这里看到一些辅助工具（accessibility aids）：",
+        "text_hash": "57264c2ffc168fd076b696868b296385b8cf2a483a26289c4fd7f008ab8b779e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cf8d04415ec526805e6afa8b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "表头使用  元素定义 - 你还可以使用 scope 属性指定它们是行还是列的标题。这提供给了屏幕阅读器可以理解的完整数据组。\n元素和   summary 属性都执行类似的工作 - 它们充当表格的替代文本，为屏幕阅读器用户提供有用的表格内容快速摘要。   通常是首选，因为它使内容可供视力良好的用户访问，而且他们也可能会发现它很有用。你并不需要两者都使用！。",
+        "text_hash": "a70fd7097a89bc675b68de8e1553865bd32c8b9ea3b21c8f12ef09bc29969316",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_4b39920427e3ac6ea6e5ecca",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n有关可访问数据表的更多详细信息，请参阅我们的 HTML 表格高级功能和无障碍 文章。",
+        "text_hash": "eff809c5d2639fa80407c2f5fb1c064426f3c150f32027b9e8af305817e4758e",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_8cbc4e55c673ed88da4a26ef",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "替代文本",
+        "text_hash": "e9e31d4f87815d5388a1f64f24bb829ef17865d5c4f54f55368e1709d5b0a530",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_55cdd302e49fe8d2c2435ac4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "尽管文本内容本身是可访问的，但对于多媒体内容而言也不一定是这样 - 图像/视频内容不能被视觉障碍人士看到，并且听觉障碍人士不能听到音频内容。稍后我们将在可访问多媒体文章中详细介绍视频和音频内容，但对于本文，我们将探讨低微（humble）的  元素的无障碍。",
+        "text_hash": "fa35b5af2d1a72906c0fa53fe875d2c574f515bf7637082e42c3503ee8c320e8",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7992531f599405a36471d596",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们编写了一个简单的例子， accessible-image.html ，它具有相同图像的四个副本：",
+        "text_hash": "57ebeb1cbb2a6badffa8e92cb7e2d2ed71cfd866eb59b09eb7181904e1b362ee",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_88fdb0a190859e07d9d4e4a5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a2b9863b25346607ba9ec072",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "The Mozilla red Tyrannosaurus Rex: A two legged dinosaur standing upright like\n  a human, with small arms, and a large head with lots of sharp teeth.",
+        "text_hash": "75f1e0d6cd9350c434673e3bf2447003757232eb0a1a28a2a8bdb6308b3affca",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9263dba3ef1e9b506de1dea1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "第一张图片，当用屏幕阅读器查看时，并不真正为用户提供很多帮助 - 例如 VoiceOver 会读出“/dinosaur.png，image” 。它读出文件名以尝试提供一些帮助。在这个例子中，用户至少知道它是某种恐龙，但通常文件可以用机器生成的文件名（例如来自数码相机）上传，这些文件名可能不会提供图像内容的信息。",
+        "text_hash": "966d044c358d946d56e4a093fb97c4d9512ec335d5daba71e6a66f05269d06b4",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7c2c8a11cb81fd893076e214",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n这就是为什么你不应该在图像中包含文本内容 - 屏幕阅读器根本无法访问它。还有其他的缺点 - 你不能选择它并复制/粘贴它。不要这样做！",
+        "text_hash": "b84026db0ed4f21fd14e2b0dd238b38d74fc1561159a3c02e2160d85bfebebec",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_5bec0550c0f9f6c71c1a4e31",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当屏幕阅读器遇到第二张图像时，它会读出完整的 alt 属性 - “红色霸王龙雷克斯：一只像人一样直立的双腿恐龙，手臂小，头部大而锋利。”",
+        "text_hash": "9346692af9ef1366736e096b9e652565c9d0ca11ccc1cfbc1b4febd7256bdb25",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cf738cc6e0e13f01c09f8c18",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这突出了不仅在所谓的替代文本不可用的情况下使用有意义的文件名的重要性，而且还确保尽可能地在替换属性 alt 中提供替代文本。请注意，alt 属性的内容应始终提供图像的直接表示以及它在视觉上传达的内容。任何个人知识或额外描述都不应该包含在这里，因为它对以前没有碰到过这个图像的人没有用处。",
+        "text_hash": "78f69de243b71b892e817088b88b67b91f3d1f1ace85c99a45d66ff7f2126f66",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cd036b767a8d1f27f11335f7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "需要考虑的一件事是，你的图片是否在你的内容中有意义，或者它们纯粹是为了视觉装饰，所以没有意义。如果它们是装饰性的，最好将它们包含在页面中作为 CSS 背景图像。",
+        "text_hash": "be0711f77c0dfbe216dfcdb2e2a40fa2f04e9360d544681c3394581cef97f25b",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5bcb2b06acd35aa83a2c475d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n请阅读 HTML 中的图片 和 响应式图片 以获得更多关于图片实施和最佳做法的信息。",
+        "text_hash": "bcaa873a499872ba62071ecfcda692d462f990d198aa8b4c00f2b0f437791d7f",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_c946333a27b599956ef51be8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你确实想要提供额外的上下文信息，则应该将其放在图像周围的文本中，或放置在“标题” title 属性中，如上所示。在这种情况下，大多数屏幕阅读器会读出替代文本，标题属性和文件名。此外，鼠标滑过时，浏览器会将 title 的内容作为工具提示的形式显示出来。",
+        "text_hash": "4a6702bda7637edb5088ed7fa334695866082e0aa8f4c751a634ba292d6c27a0",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_62719cb3fd204293d0a55b97",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们再来看看第四种方法：",
+        "text_hash": "c7527f51f1061fb1d0f0e315d4d5137b9187951e33cdfe4dae61907c8829ec9f",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b3b9859b516582c35b73d2d5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_68dd8529fe1ac5a7ed13eea3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "The Mozilla red Tyrannosaurus ...",
+        "text_hash": "1ff8ae5cb9e60b246c656cb3244f717b3cd61ed7e21411c9b0741421281ced7d",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fa38f64b8ceb897ba8764815",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在这种情况下，我们不使用“alt”属性——相反，我们已经将图像的描述作为常规文本段落给出，并给出它的“id”，然后使用“aria-labelledby”属性并链接到对应“id”，它使屏幕阅读器将该段落用作该图像的替代文本/标签。如果你想将相同的文本用作多个图像的标签，这是特别有用的——这是使用“alt”不可能实现的。",
+        "text_hash": "7c985d3be724c441a6bc521bdffe75ca362aa758b4a265d9177777040a7fcda6",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_65df72cceff13156060acea7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n“aria-labelledby”是 WAI-ARIA 规范的一部分，它允许开发人员在其标记中添加额外的语义，以提高屏幕阅读器的无障碍。要了解更多关于它是如何工作的，请阅读我们的 WAI-ARIA Basics 文章。",
+        "text_hash": "52e7717419087fffbba8f2d92f5af32b130e3d49c5a028519a414e92378c6924",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_3d3a20d5c0c0d2342ca41512",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "其他文字替代机制",
+        "text_hash": "b9bc5dc77e92f7d7b5a485657a54c4aa4d87ec1aab0fdf062e0a55da680b0a46",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b176468ec268231e13e766b7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "图像还有其他机制可用于提供描述性文字。例如，有一个 longdesc 属性用于指向包含图像的扩展描述的单独 Web 文档，例如：",
+        "text_hash": "b4361e3d59bdc6360bd6becc01b8d837e5c7db32477e0ee5e5ddda982a31b43d",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0dd92b39908acc3ea1ada3a4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5ae8c49282f6a449dd8ac9c5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这听起来像个好主意，尤其是对于像大图表这样的信息图，其中有很多信息可能可以表示为可访问的数据表（请参阅上一部分）。但是，屏幕阅读器不支持longdesc，非屏幕阅读器用户完全无法访问内容。将长描述包含在与图像相同的页面中，或者通过常规链接链接到它可能会更好。",
+        "text_hash": "e88de5ac50c74219fc6ca5fbb9de0cd6fd33fba7e67345df6c1fd8a4eaa27a77",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_112b19408fc7c79a37f54a58",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML5 包含两个新元素 -  和 ，它们应该将某种形象（可以是任何东西，不一定是图像）与数字标题相关联：",
+        "text_hash": "3d19400578f9d0358a9dc75ac9e2924254fc123495335b5ed3b7231dbd38849a",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_56bd61314ff677f184abbe4d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_79af0da8adcfa90e4b610942",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a\n    human, with small arms, and a large head with lots of sharp teeth.",
+        "text_hash": "0c81bd5a5a14ef5acc723225166360a882a63a0fe783573cbf6de0ac53bab1b8",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3ca9f1ddbff81b99c279db31",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "不幸的是，大多数屏幕阅读器似乎并没有将图形标题与他们的图形相关联，但是元素结构对 CSS 样式非常有用，并且它提供了一种方法在源代码中将图像放置在旁边。",
+        "text_hash": "877e089cef1acbb9523bbd7536d486b5300fa865f0e47d265b41f80b32bbbc59",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8ca23d80ee206b40bbbff35c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "空 alt 属性",
+        "text_hash": "debd07b98f9d373142d58debb6f0995fe4061819091589015b5aeb387bd6a814",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_179e938be959c0fbe677a575",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1cff87bee24fa1a54458b3ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Tyrannosaurus Rex: the king of the dinosaurs",
+        "text_hash": "0230b56b82074d6581808a08a4c19189ad84b721c6065c31c78002f1c376fa46",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_72d48ae543f1be7a11c366a0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "可能有时候图像被包含在页面的设计中，但其主要目的是用于视觉装饰。在上面的代码示例中，你会注意到图像的“alt”属性为空 - 这是为了让屏幕阅读器识别图像，但不试图描述图像（阅读器只是说“图像”等类似的语句）。",
+        "text_hash": "8e08fc5a933ae00483aa927e673be458e21bdbab5543db3fc71db75027b82fae",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1130f4a5007b7c8256c2f53a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用空白“alt”而不包含它的原因是因为如果没有提供“alt”，许多屏幕阅读器会公布整个图像 URL。在上面的示例中，图像充当与其关联的标题的视觉装饰。在这种情况下，以及在图像只是装饰并且没有内容值的情况下，你应该在图像上放置一个空白的“alt”。另一种选择是使用 aria role 属性 role =“presentation” - 这也会阻止屏幕阅读器读出替代文本。",
+        "text_hash": "8ea40a81c873920e13db40c865e6d91bc6dc42e45dd4d54c24d96e74b9b28776",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5c1db959a606ec83944903d5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n如果可能的话，你应该使用 CSS 来显示只有装饰的图像。",
+        "text_hash": "9439eb3c97d21941317e156af94592bc7b66c62ecac1fe543f25c41ce1ca87bf",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_043bc4fa85446c4d0d04bf0d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_3b51e549ba36919588ee24eb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你现在应该精通编写大多数场合可访问的 HTML。我们的 WAI-ARIA 基础知识文章也将填补这些知识中的一些空白，但本文已经关注了此基础知识。接下来，我们将探索 CSS 和 JavaScript，以及无障碍如何受其好坏影响。",
+        "text_hash": "27d3780f8ae8f3044193bb186423826e7ca4f4ce788cdaf886175db58f360aea",
+        "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_d708ff14e1c972b29fe58eeb",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。HTML：无障碍的良好基础，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "HTML：无障碍的良好基础，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/accessibility/html",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "HTML：无障碍的良好基础"
+  },
+  "resource_id": "lr_eb28027a3af48e59ace23b78",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_b8a5476985e02bcaa169aaad",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "HTML：无障碍的良好基础",
+    "text_hash": "4054ecfdbbf93cbd41e19c349b39a049b3dc91ce12b6b9b8fe5ff9fa73bcc088",
+    "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb"
+  },
+  "variant_id": "lrz_f227437cfbfc3dd39009a7ef",
+  "variant_version_id": "lrzv_e607af429e7d7f85795ef8fb",
+  "visual_dependency": "helpful"
+}

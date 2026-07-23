@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
   title: 课程智能 API
-  version: 0.4.0
-  summary: 面向教育产品的可信课程标准、教材定位、关系查询与计划对齐能力
+  version: 0.5.0
+  summary: 面向教育产品的可信课程标准、教材定位、开放学习资源、关系查询与计划对齐能力
   description: |
     课程智能 API 当前公开课程标准检索、教材目录与双页码定位、课标教材双向关联、进阶与相邻关系，以及可信智能检索和纯文本教学计划对齐预览。
 
@@ -25,6 +25,8 @@ tags:
     description: 课程标准检索、批量读取、详情查询和标准对比。
   - name: 教材
     description: 教材馆、结构化目录、印刷页映射、配套资源、阅读会话和课标双向关联。
+  - name: 学习资源
+    description: 已转为简体中文、保留许可与出处，并带片段级课标证据的开放学习材料。
   - name: 关系图谱
     description: 已建立的标准进阶分组，以及同领域、同能力的相邻关系。
   - name: 教学规划
@@ -208,6 +210,65 @@ paths:
               schema: { $ref: "#/components/schemas/ApiResponse" }
         "422":
           $ref: "#/components/responses/ValidationError"
+  /api/v1/learning-resources:
+    get:
+      tags: [学习资源]
+      operationId: listLearningResources
+      summary: 检索简体中文学习资源
+      description: 按学科、学段、年级、教学作用、资源类型、来源和关键词筛选通过发布检查的结构化资源。
+      security: []
+      parameters:
+        - { name: subject, in: query, schema: { type: string } }
+        - { name: stage, in: query, schema: { type: string, enum: [primary, junior] } }
+        - { name: grade, in: query, schema: { type: integer, minimum: 1, maximum: 9 } }
+        - { name: role, in: query, schema: { type: string } }
+        - { name: type, in: query, schema: { type: string } }
+        - { name: source, in: query, schema: { type: string } }
+        - { name: q, in: query, schema: { type: string } }
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 200, default: 50 } }
+        - { name: offset, in: query, schema: { type: integer, minimum: 0, default: 0 } }
+      responses:
+        "200":
+          description: 学习资源列表
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "422":
+          $ref: "#/components/responses/ValidationError"
+  /api/v1/learning-resources/{resource_id}:
+    get:
+      tags: [学习资源]
+      operationId: getLearningResource
+      summary: 获取结构化学习资源
+      security: []
+      parameters:
+        - { name: resource_id, in: path, required: true, schema: { type: string, pattern: "^lr_[a-f0-9]{24}$" } }
+        - { name: fragment_id, in: query, required: false, description: 精确定位资源中的正文片段, schema: { type: string, pattern: "^lrf_[a-f0-9]{24}$" } }
+      responses:
+        "200":
+          description: 简体中文正文、来源、许可和版本信息
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/learning-resources/{resource_id}/standards:
+    get:
+      tags: [学习资源, 课程标准]
+      operationId: getLearningResourceStandards
+      summary: 从学习资源反查课程标准
+      security: []
+      parameters:
+        - { name: resource_id, in: path, required: true, schema: { type: string, pattern: "^lr_[a-f0-9]{24}$" } }
+        - { name: fragment_id, in: query, required: false, description: 只返回该正文片段的课标关联, schema: { type: string, pattern: "^lrf_[a-f0-9]{24}$" } }
+      responses:
+        "200":
+          description: 带逐字证据和学习成分的课标关联
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
   /api/v1/textbooks/{edition_id}:
     get:
       tags: [教材]
@@ -406,6 +467,27 @@ paths:
       responses:
         "200":
           description: 课标关联的教材位置
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
+  /api/v1/standards/{code}/learning-resources:
+    get:
+      tags: [学习资源, 课程标准]
+      operationId: getStandardLearningResources
+      summary: 从课程标准查找学习资源
+      description: 只返回通过机器语义裁决、逐字证据检查和版本哈希检查的资源片段。
+      security: []
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+        - { name: component_id, in: query, schema: { type: string } }
+        - { name: role, in: query, schema: { type: string } }
+      responses:
+        "200":
+          description: 课标关联的学习资源与证据
           content:
             application/json:
               schema: { $ref: "#/components/schemas/ApiResponse" }

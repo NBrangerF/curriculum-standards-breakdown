@@ -1,0 +1,634 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_36400accbb15553e96b692a1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本文中，我们推荐使用弹性盒和网格作为你的设计的主要布局方式。但是，你的网站的访客会有人使用旧浏览器，或者是不支持你已经使用的方式。这总是 Web 上存在的情况，因为新的特性被开发出来，不同的浏览器会优先支持不同的特性。本文解释了如何使用现代的 Web 技术，而无需让采用旧技术的用户被拒之门外。",
+        "text_hash": "b3187178867cf8cd38914309db7573d04109cb0b51a834a34b94f85618a53bff",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4facc856e48384351995a342",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "学习前提：",
+        "text_hash": "92f9fa8d90ac99ee6f0e1eae6c76803e80ad87f2380a21145361516bc2e87289",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_06515ee01c94b23d0d7c90bb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 基础（学习 HTML 介绍 ），了解 CSS 工作的原理（学习 CSS 介绍 和 样式化盒子 ）",
+        "text_hash": "bdc785cdf2bd37e0a174a27b18937b8949769056a009eb2c29a36c8a04f55ecb",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ad9abbfe1a81ce4b167fccb0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：",
+        "text_hash": "4d2d25a2888d3e7c13db6b2e275e0179ab434807992666123db412d5f31e27a0",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c51e6bb9b484ad67d5f9ef9e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "理解怎么让你的布局为旧有的、不支持你想要使用的特性的浏览器提供支持。",
+        "text_hash": "c1b95a80f1693a828dcbff6b0f6f66df33555fc922bce53ac79178b9bfa28598",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a2c58e0bebe61f97743b2a81",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对于你的站点来说，浏览器生态是怎样的？",
+        "text_hash": "aa87362f7a6f32650b0f1789ad45ea7f6b04476c41bd41fe939cf9d88ff9121b",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_966323fe1d50757fa729785f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "每个网站论目标用户都是不同的，在决定采用哪种方式之前，你需要查明使用旧浏览器浏览你的站点的用户的数量。如果你有一个已有的网站，你想要润色或者替换它，这是一件直截了当的事情，因为你很可能有了可用的、可以告诉你人们使用的技术的分析。如果你没有分析，或者这是一个全新的网站，那么例如Statcounter之类的站点可以提供以位置分类的数据。",
+        "text_hash": "d2733bda196286554eefc0b46d4084c326a9d8e3ba5a4d2f94e6b5a427921eb6",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e2fb385035f39de3c323a6d9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你应该同样考虑设备的类型和人们使用你的网站的方式。譬如，你可能更想有超出平均数量的移动设备的访问。无障碍和使用辅助性技术的人总应当被考虑，对于一些站点，这问题可能更加重要。以我的经验，开发者经常担心 1% 的使用旧版 IE 的用户的体验，而不去照顾多得多的有无障碍需求的用户。",
+        "text_hash": "38039269b968b07ef88439d6c36269ace4f67f029a8d3c8093eaa421428e3301",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_563ae97e5f4c079d971f1111",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对你想使用的特性的支持如何？",
+        "text_hash": "792a04564295b313d20e312a71b7400a14e7dbf3c0f7ed40ae4d210de6b8ae1a",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_430d0bd95eb955239d91d5cb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一旦你知道了会访问你的网站的浏览器，你就可以在任何你想使用的技术，与该技术受到的支持以及为不能使用该技术的访客提供一个替代方案的难易度之间做权衡。在 MDN 上，我们在尽力让这个流程变得容易——在每个详述 CSS 属性的页面上提供浏览器的兼容性信息。例如，看一下页面。在这个页面底部有一个表格，列出了主流的浏览器，还有它们开始支持这个属性的版本。",
+        "text_hash": "dd69e9e0d3bf297e46ca4d7c9f15987e81e9f663a41e17abd526a73dae0a0709",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d9010a3d5abf71dc3be56497",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "另一个流行的查明一个特性有多受到支持的方式是Can I Use网站。这个网站列出了主流的 Web 平台特性，附有它们的浏览器支持信息。你可以按位置查看使用数据——在你致力于一个用户大多数是世界上的某个区域的网站的时候会有用。你甚至可以链接你的 Google Analytics 账户，得到基于你的用户的信息。",
+        "text_hash": "d42da4078919df21397da6d5c10bffd224d7a3b0b0d47bad0aa19522bedd0ffb",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_978d07dbe657b6280baa1220",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "理解你的用户拥有的技术，以及支持你可能想要使用的东西，这样你就可以很好地作出你的所有决定，知道最多能多好地支持所有用户。",
+        "text_hash": "f88ae9b0f9b7ecb89f87da9193c0f6c3b7a7173a2a9973408850c8a952e1a6bb",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fbabbd0d1f62b5fb748ca2df",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "支持不意味着“看起来一样”",
+        "text_hash": "7ec7e12195f27f8950f50aa216441683daae6a7c186fd1b4e0c220a0c59091b7",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0214c3db1221af323f652d00",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个网站可能不会在所有浏览器上看起来都一样，因为你的一些用户将会是在一部手机上，而另一些用户是在桌面大屏幕上浏览你的网站；类似地，你的一些用户会是使用旧版浏览器的，而另外一些是最新版；你的一些用户可能是在聆听由屏幕阅读器朗读的你的内容，或者已经放大了页面来读到内容。支持所有人意味着提供保守设计版本的你的内容，这样在现代浏览器上，它会看起来很棒，而对于旧浏览器用户而言仍然以最低限度可用。",
+        "text_hash": "3c58a79861c3230d7f652b2d2c4fb344dd567ec1f5ab0b7b9bbffb78cf8070b4",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b395f0882213e3c512332861",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基本级别的支持来源于良好地组织你的内容，从而让你的页面的正常布局流有意义。一个使用非常局限的功能手机的用户可能不怎么会体验到你的 CSS，但是内容会以让阅读容易的方式流过。因而你应该总是从一个良好组织的 HTML 文档开始。_如果你移除掉你的样式表，你的内容还能被理解吗？_",
+        "text_hash": "ca2b0736c2a78b4547f666881c40325822f4651274b285aa5a978878f03390b4",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ef15167d1efc4027f230256b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个选项是，把站点的这种原始视图作为回滚，用在使用很老旧或者受局限的浏览器的用户身上。如果你没有多少来到站点的人是使用这些浏览器的，将时间花在尝试给予他们和使用现代浏览器类似的体验上可能没有商业价值。将时间花在让站点具备更多无障碍的事情上，以服务远远更多的用户，可能会是更好的做法。这样的做法在纯 HTML 页面和花里胡哨之间是有余地的，CSS 事实上让建立这些回滚变得简明。",
+        "text_hash": "c747c5ce850fdb5b075868d57b3b7bd26b19a93597884e6d450c4d3d30f52456",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_449ad689e08c23983ee18cff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 CSS 中构建回滚",
+        "text_hash": "65fe3639a9d248a06af86ceea0aac59cd7c92bd08cd3a99d6aeac6f563877146",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_7554b1db0679830988a28bab",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS 规范包含了在一个物件上同时应用两种布局的时候，解释浏览器如何反应的信息。例如，规范定义如果一个浮动元素同时又是用 CSS 网格布局实现的网格元素（Grid Item）的时候会发生什么。结合浏览器会忽略掉它不会理解的 CSS 的特点组合起来，你就得到了使用我们已经提到的传统技术构建简单布局的方法，在可以理解你的网格布局的现代浏览器中，传统布局方法会被网格布局覆写掉。",
+        "text_hash": "cedd330978a391aadd9f7bede41f50647afe2bd7c5993255046987a4c17f9f53",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5364740709c71253ebafd617",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在下面的示例中，我们已经浮动了三个 ，所以它们显示在了一行中。任何使用不支持CSS 网格布局的浏览器的人将会看到以浮动布局实现的一列盒子。一个成为了网格物件的浮动物件失去了浮动的动作，就是说通过把 wrapper 变成网格容器，浮动物件变成了网格物件。如果浏览器器支持网格布局，它会显示网格视图，否则它会忽略display: grid相关的属性，使用浮动布局。",
+        "text_hash": "d5edfbd2bf50d44b8db85939d15c5e258c0f5984cb4ac2ddd06bc128019bd279",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eaed65c0d9f2a0fbb4f37406",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n{\n  box-sizing: border-box;\n}",
+        "text_hash": "aef3c27e0d63aac99d3b397c37a0f83e9049fcd094e2a2948c64b4c7c54b763e",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9a28d8af9e61fd20930fcbe4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  max-width: 400px;\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n}",
+        "text_hash": "231d81d7a6948d80b67d4f32afbbf6de9fba6d6ee65885943cc2973ee4ee4cf3",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_557cbadce8a053778cf8427d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".item {\n  float: left;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "13110c096b426fcb169bac4b09d732033e36c1577d3590c87763e351de4553ff",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_255cfabb8ba9e04ffa08a91a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ce767a0ad7f401837b35e538",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Item One\n   Item Two\n   Item Three",
+        "text_hash": "2d6220767e8535a5bf22a21b5882188f424f1ece79c57823a91dc45a19d53aef",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fe7b235901c1c8d959c0f204",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n属性也在被清除的物件变为网格物件的时候失效，所以你应该在一个会变成网格布局的布局上，加上被清除的尾部。",
+        "text_hash": "5ce826cdce94c7b48b2f349ce018ed6811e7cd062fbcf005a562abb3a9f36bbe",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_9da62cebe1feae5ca6687952",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "回滚方式",
+        "text_hash": "a6e4fa5fbab779a212da49bff5b109a42e025ad26eb9fef9b7fa14bfc23bda97",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_c79c2aafa48edc182f809816",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有很多布局方式，它们同这个浮动示例使用的方式是类似的。你可以选择能够与你需要建立的布局范式符合得最好的那个。",
+        "text_hash": "0736897ec94051af1c5aa7e5497952f66284c47837709927bd51f28d6e5594b0",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1f8e31fd8403e573e12a08e4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "浮动和**清除**\n  - : 如上所示，如果浮动和清除的物件变成了弹性或网格物件，浮动和清除属性不再影响布局。\ndisplay: inline-block\n  - : 这种方式能被用来建立列布局，如果一个物件被设为display: inline-block，但是之后变成了弹性或者网格物件，inline-block 行为将会被忽略。\ndisplay: table\n  - : 这种在这几节课的介绍中描述的建立 CSS 表格的方式可以被用作回滚。被设为 CSS 表格布局的物件将会在它们变为弹性或者网格物件的时候不再表现出这种行为。重要的是，被建立起来用于修复表格结构的匿名盒子没有被建立起来。\nMultiple-column Layout\n  - : 对于某些布局，你能用multi-col作为回滚。如果你的容器有任何一个column-*属性被定义，之后变成了网格容器，那么多列行为不会实现。\n作为网格的回滚的弹性盒\n  - : 弹性盒由于受到了 IE10 和 IE11 的支持，比网格有着更好的浏览器支持。不过，在这节课的稍后部分，你一定要看下旧浏览器对弹性盒相当参差不齐而且令人困惑的支持的相关信息。如果你把弹性容器做成了网格容器，任何应用到子元素的flex属性都会被忽略。",
+        "text_hash": "ccce7999cdd08d25a449464a43d0a87eb58608b2a52a770d0aaf204ae2b51e16",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_1b621ed8db7ae25cea8e38cf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对于许多在旧浏览器中微调的布局来说，你可能会发现你能用这种方式使用 CSS，给访客亲切的体验。我们加入了一个更简单的基于旧的和受到良好支持技术的布局，然后用新一些的 CSS 建立一个可以由 90% 的用户看到的布局。但是存在这样的情况：回滚代码会需要包含新浏览器也能理解的东西；举例来说就是，我们要往我们的浮动物件中加入百分数宽度，从而让列看起来更像网格，拉伸以充满容器。",
+        "text_hash": "0f16fa745cac0bc773b4f337430a350079c5a7a2add158ac06d8a2a8d8e132be",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_274408fa1ecd2c52fb6fe33b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在浮动布局中，百分数是依照容器计算的——33.333% 是容器宽度的三分之一。但在网格中，这 33.333% 是根据物件所在的网格区域计算的，所以只要网格布局引入进来，物件的大小实际上变成了我们想要的大小的三分之一。",
+        "text_hash": "08c6e366847976fcfcfa6bdfe5ffc586be1ccd8404dc6910c2e3d4d9008ef9f9",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9719de7fb2c35139b43af62f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n{\n  box-sizing: border-box;\n}",
+        "text_hash": "aef3c27e0d63aac99d3b397c37a0f83e9049fcd094e2a2948c64b4c7c54b763e",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d6c49ecbc4a584e051b9cd23",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  max-width: 400px;\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n}",
+        "text_hash": "231d81d7a6948d80b67d4f32afbbf6de9fba6d6ee65885943cc2973ee4ee4cf3",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_198531e504f92cdc9b3ed53c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".item {\n  float: left;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n  width: 33.333%;\n}",
+        "text_hash": "d2450793902207719490bde078ac6ace88dd44ab3e731a385cb540b4fb1a0e5e",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d9e8d7759e3600126c99cc31",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3d9f2780bc58b124b0bef6d0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Item One\n   Item Two\n   Item Three",
+        "text_hash": "2d6220767e8535a5bf22a21b5882188f424f1ece79c57823a91dc45a19d53aef",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_817da2e7f98f43777e62b437",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了处理这种问题，我们需要有能够探测网格是否受到支持的方法，也就是探测它是否会覆写宽度的方法。CSS 在这里为我们提供了一个解决方法。",
+        "text_hash": "0b1ba609d1b5bc20b47806f07b597f6c53e480d252aa933108c62df04cf5048b",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_aae406829647e5e437e44c12",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "特性查询",
+        "text_hash": "3e441d9bdbcb08c6625c0073e35186663839200e4173bcb3cff0bfb37487414c",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_586b6dc085fff61b203b3789",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "特性查询允许你测试一个浏览器是否支持任何特定的一个 CSS 特性。这就是说，你可以写一些面向不支持某项特性的浏览器的 CSS，然后检查以了解浏览器是否支持，如果支持的话就可以加进你的复杂布局了。",
+        "text_hash": "8477431798d85f877e0bc0a4ac95d5f77c23717f78f65a0067bc71bb8d4317a6",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0f1c1d1ac33bf5cae2f965f1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果我们向上面的示例中加入了一条特征查询，要是我们知道网格受到支持的话，我们可以用它把我们的物件宽度设定回auto。",
+        "text_hash": "2744990eaaf2bc385fd2ac0440b47d8c9ba717e958b5e40b5025d5af5d00c3d7",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_aecf59f6393e3f7a94df2345",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n{\n  box-sizing: border-box;\n}",
+        "text_hash": "aef3c27e0d63aac99d3b397c37a0f83e9049fcd094e2a2948c64b4c7c54b763e",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d97f231d1cb530df819359c3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper {\n  background-color: rgb(79, 185, 227);\n  padding: 10px;\n  max-width: 400px;\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n}",
+        "text_hash": "231d81d7a6948d80b67d4f32afbbf6de9fba6d6ee65885943cc2973ee4ee4cf3",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b5bf0128133e77eef2ebe2d8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".item {\n  float: left;\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n  width: 33.333%;\n}",
+        "text_hash": "d2450793902207719490bde078ac6ace88dd44ab3e731a385cb540b4fb1a0e5e",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_60ac30246930c51f19aa7d58",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "@supports (display: grid) {\n  .item {\n    width: auto;\n  }\n}",
+        "text_hash": "4d7e1d1fc2916812854e811a9c3b0426749420127b580323628093c6f6569226",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_308420e57f3189ed623ef049",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b500c91a3b794ca0a3e9955b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Item One\n   Item Two\n   Item Three",
+        "text_hash": "2d6220767e8535a5bf22a21b5882188f424f1ece79c57823a91dc45a19d53aef",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1158f243bebf27fcc1f7d153",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对特性查询的支持，在各现代浏览器中都是很好的。但是你应该注意那些既不支持 CSS 网格，也不支持特征查询的浏览器。这就是说在上面详细介绍的一种方式，对这些浏览器而言，会表现得很好。我们要做的是，先在任何特性查询以外，编写我们的旧 CSS。不支持网格也不支持特性查询的浏览器会使用这部分它们可以理解的布局信息，将其他东西全都忽略掉。支持特性查询和 CSS 网格等的浏览器会运行网格代码和特性查询之内的代码。",
+        "text_hash": "d672c08e15fffc7ccae8e4cd038fc8bcd91460260e2991a7f38ba340765ff1b8",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_13a6cc7cc0396b0451dc21c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对于特性查询的规范，也包含了测试浏览器是否支持某个特性的能力——这只在浏览器支持特性查询的时候有用。未来，一种检测支持的缺失的方式将会实现，同时不支持特性查询的浏览器也将退出历史舞台。但是现在，你要使用这种编写旧 CSS 的方式，然后覆写它，以求最广泛的支持。",
+        "text_hash": "b47d34893fddc7c4712c77e4a11736b8bbadcd5ab5b1f99615e09c4984748701",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a322e15d64ba484c824e64e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "测试旧浏览器",
+        "text_hash": "3d3d836efb74c5d3215d10a78ac945fdbdaa17ee0338016b5792bca6ff72cadb",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_33659d574a465cc48674b7a8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一种方式是使用在线的测试工具，例如 Sauce Labs，在跨浏览器测试模块里有详细说明。",
+        "text_hash": "ccb5ead8533ad049fd5be70b370368e3d84053534c652df29375cc24e6afd66a",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4bf93b054b4a688c9c0d4b25",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0cb1298542008218f9d5c40e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你现在有了自信地使用例如网格和弹性盒技术、建立面向旧浏览器的回滚以及利用任何可能会在未来出现的 新技术所需的知识。",
+        "text_hash": "f3ee5300711eaf8c75d2a1b51fc0a6495f4dff46961e3bcd4ebddbb762840f7b",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c3185bdb0d78f19e4a59ad83",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "参见",
+        "text_hash": "d27f89055b790f219353b4388307a138320ad4c9f05b64b170c43a2969c7e89c",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_730358f6a4708a505f11e396",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "@supports at 规则\nCSS at 规则\n使用特性查询\nCSS 条件规则模块",
+        "text_hash": "6901b869ad16fa22c9c3728570ac0a7a819fbc283ab1c80b272001be12f47894",
+        "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+      },
+      "type": "unordered_list"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_d69300292691f833c40513b6",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。支持旧浏览器，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "支持旧浏览器，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/supporting-older-browsers",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "支持旧浏览器"
+  },
+  "resource_id": "lr_2b64afd06ba62c159dd98279",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_793068456c2353150b6662be",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "支持旧浏览器",
+    "text_hash": "d20c39c96c5ac28dfbc6b936cdce392502cbfae2a520a2b6c89293e6b58bb069",
+    "variant_version_id": "lrzv_32f81c9463b640c9aadd5248"
+  },
+  "variant_id": "lrz_ad5ebe5198b7d8fe8512fe1f",
+  "variant_version_id": "lrzv_32f81c9463b640c9aadd5248",
+  "visual_dependency": "helpful"
+}

@@ -1,0 +1,1756 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_949e805c11f96648454e67f6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS 网格是一个用于 web 的二维布局系统。利用网格，你可以把内容按照行与列的格式进行排版。另外，网格还能非常轻松地实现一些复杂的布局。关于使用网格进行页面排版，这篇文章包含了你需要的一切知识。",
+        "text_hash": "0d217254c5fc9e765998605e6c606376b7af08ccbd53085b0e47e297cc742c4e",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b9ba2565891cec1d6968d4a9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：",
+        "text_hash": "60df7f5b49d0fd69c1a1ee4bda41ede8b786ae9d162b8a9a73e264bbf703119b",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_12b44d7559b83e8e4d65b6d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 基础 (学习\n          HTML 简介 )，以及了解 CSS 如何工作的 (学习\n         CSS 简介 和 盒子样式 。)",
+        "text_hash": "e382215202031180eb0407afb04c687f8cd4cbbcabe00d738f37ed7e65abad92",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9416a3dc6a11be8b1ff56215",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：",
+        "text_hash": "4d2d25a2888d3e7c13db6b2e275e0179ab434807992666123db412d5f31e27a0",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6fe1e7caf9816d679c5680ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要了解网格布局系统背后的基本概念，以及如何在一个网页上实现一个网格布局。",
+        "text_hash": "6ff31e764881ee1f97a75075fcffa4c3cc7c11f638b2acb350ac3812df006b73",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c545cdac9824c7342e977e67",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "什么是网格布局？",
+        "text_hash": "43907265e0f2d13024953f7ad31233da5cd7f06a5961af4e7e814aae04d948b8",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d92ee9fa3f5723f974649538",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "网格是由一系列水平及垂直的线构成的一种布局模式。根据网格，我们能够将设计元素进行排列，帮助我们设计一系列具有固定位置以及宽度的元素的页面，使我们的网站页面更加统一。",
+        "text_hash": "8c46b584cf1d196554f6f53117cfd0c4fa17b4b216701367126b3f4900367639",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_96ea3ed4ff62ac180047fb37",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个网格通常具有许多的**列（column）**与**行（row）**，以及行与行、列与列之间的间隙，这个间隙一般被称为**沟槽（gutter）**。",
+        "text_hash": "a37785dfd5fa5c07b2ae923a269fccd677a23d651a7bb09e03c81a0070740a53",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a8ff4b94eb51f14a5d45f255",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n任何有设计背景的人似乎都感到惊讶，CSS 没有内置的网格系统，而我们似乎使用各种次优方法来创建网格状的设计。正如你将在本文的最后一部分中发现的那样，这将被改变，但是你可能需要知道在未来一段时间内创建网格的现有方法。",
+        "text_hash": "b2fe1feef87f4af73425d05c8abb4fe06fbfe66396b82bf2a4410cd30a5d43a5",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_003e59cb2cb5639bcc6a5863",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 CSS 中创建自己的网格",
+        "text_hash": "40f52791942f53e5f8812d68d41139ddff591b1598544f3c02cb7fada72c11fc",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_9d1039446a886d0a59b84631",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "决定好你的设计所需要的网格后，你可以创建一个 CSS 网格版面并放入各类元素。我们先来看看网格的基础功能，然后尝试做一个简单的网格系统。",
+        "text_hash": "e1080c6c7116e3ef694b946291a7b5d279fbfd6101f82c4c3905835c3966658e",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8bf9dd99afd5d98846e0901a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下面这个视频提供了一个很好的解释：",
+        "text_hash": "308497664af4afd817286c5955e4aeaa31e043566816803b747873a1668c3cff",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_08402731a5ca9709b5a6b145",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "定义一个网格",
+        "text_hash": "cd34d098cf0b2d645638a281c8595b18ded68cad7aab261fa546224681c31f06",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ea7af64cf9fa913fec9d06fc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "和往常一样，你可以下载，然后在文本编辑器中打开并浏览教程的起始文件（你可以在这里查看实时的效果）。你会看到一个带有容器的示例，容器中有一些子项。默认情况下，子项按照正常布局流自顶而下排布。在这篇教程的第一部分，我们会从这开始，通过对这个文件做一些改变，来了解网格是如何工作的。",
+        "text_hash": "6ff9921354f911317a601458580dcd398211bc6c22174035a1758fca75da316b",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_22108f911af102c516f200b4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，我们通过把容器的  属性设置为 grid ,来定义一个网格。与弹性盒子一样，将父容器改为网格布局后，他的直接子项会变为网格项。把下面的 css 规则加到你的文件中。",
+        "text_hash": "d0dea0c7e6a47d07575ea2f511308625364c9c53f855e6677520434c1a843fe5",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c2ea77d9526bc15f257366b9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n}",
+        "text_hash": "e20512828b200c120a9109a7e204ee96a7149565be106a7c21d0fd0e0e6fcd8c",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ab71823fd0f1030fd84f27b3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "与弹性盒子不同的是，在定义网格后，网页并不会马上发生变化。因为 display: grid 的声明只创建了一个只有一列的网格，所以子项还是会像正常布局流那样，自上而下、一个接一个的排布。",
+        "text_hash": "c7747acb8249732e9c888ed6d2612ad9f03c30394521b6615f610739715a192d",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8b0f83f879dd7435e851d462",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了让我们的容器看起来更像一个网格，我们要给刚定义的网格加一些列。那就让我们加三个宽度为200px的列。当然，这里可以用任何长度单位，包括百分比。",
+        "text_hash": "c08eff1d415303edcae6fededf57d6508eeed56c52e9dec1c6260667cf1e8cfd",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b804eb39a98d8110870257d1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n  grid-template-columns: 200px 200px 200px;\n}",
+        "text_hash": "3294a772b001727d5e7a213b0de376502d3a4edbb62113bdcda2598fe0ac64ad",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b022dd91065142ff2c270b24",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在你的 CSS 中加入第二个规则。刷新页面后，你会看到子项们排进了新定义的网格中。",
+        "text_hash": "b0c23657affc0f8b2e1867d0167e2be4e54e30b14bab53a2c205dea9440f6b56",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c0719dcfa6b841060e23cbcf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_af55ee9622c7c3416f6c842d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".container > div {\n  border-radius: 5px;\n  padding: 10px;\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n}",
+        "text_hash": "97e23c90a13d75649f4481826cbdf9c9ef2022398a784f3033a6812ed84bb16c",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_397b4753ecfb73b810a375c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d37df51813ad309139608855",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "One\n   Two\n   Three\n   Four\n   Five\n   Six\n   Seven",
+        "text_hash": "e83409c7fa77e86d15e74b1764876fbd37c941b30872c9436732b65215a3ff57",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_420a0c579668b275dbdb9495",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\n.container {\n  display: grid;\n  grid-template-columns: 200px 200px 200px;\n}",
+        "text_hash": "2a393fcedcbbaf12148b943a040fc5a84c30b6d1c7f509f547dd8ba7442ee6ff",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e86ecdd9099de0d7ed738c25",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用 fr 单位的灵活网格",
+        "text_hash": "c4186368c521f59acf3238158ef3a5d8e803bc0d502e8872ce790a493d0d4602",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_68322ed762bce304e1fbf6be",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "除了长度和百分比，我们也可以用 fr 这个单位来灵活地定义网格的行与列的大小。这个单位代表网格容器中可用空间的一份，可能有点抽象，看看下面的例子吧。",
+        "text_hash": "c62531dec0f16c59bf4ff747a70b8b7990e65cb12bb86100251360e322794b98",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_58e2052023d338669fd749ec",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用下面的规则来修改你的网格轨道，创建 3 个宽度为 1fr 的列：",
+        "text_hash": "1921bee5bde2296f0836ac404319426f8d9f461979292ea8d2a6387d178d5663",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_315d4f15e65fb28cac3d606e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n}",
+        "text_hash": "a07833408f585f24a92d4eb3239e002080d25cd559eee1c22b5da8a82fabcc14",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3b59b9c2da4222048a97ab23",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "将窗口调窄（由于示例中设定了，可能需要很窄），你应该能看到每一列的宽度可以会随着可用空间变小而变小。fr 单位按比例划分了可用空间，如果没有理解，可以试着改一下数值，看看会发生什么，比如下面的代码：",
+        "text_hash": "ccf439361d84b14dbe49b3db4ee5e6efec5b2ed5a81f8cf08df214735c13957b",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dd00978086cdb5e7c23ce2c4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n  grid-template-columns: 2fr 1fr 1fr;\n}",
+        "text_hash": "bb9d9b00d14d9d4f339e3a02274bdecfdb6feb518c9d2ce956f5e5e49a24667e",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_56f018b854f3d47dbe90e325",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这个定义里，第一列被分配了 2fr 可用空间，余下的两列各被分配了 1fr 的可用空间，这会使得第一列的宽度更大。另外，fr可以与一般的长度单位混合使用。比如设置 grid-template-columns: 300px 2fr 1fr，那么第一列宽度是300px，剩下的两列会根据剩余的可用空间按比例分配。",
+        "text_hash": "caeb2d9dc2ff0abac31fd1c713d4a39208768e7c36ffe03695c85ca796eb41fc",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6226b62065c17e19c2120b0a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e8775d945666a4767e7de5d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".container {\n  display: grid;\n  grid-template-columns: 2fr 1fr 1fr;\n}",
+        "text_hash": "bae2e6122e1964c17a55860dd46f7f33744c1b4311e218381bd39951b2c582a7",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1ad42486017dfea38dfc0366",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".container > div {\n  border-radius: 5px;\n  padding: 10px;\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n}",
+        "text_hash": "97e23c90a13d75649f4481826cbdf9c9ef2022398a784f3033a6812ed84bb16c",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_17a9173970f1fc8ad49e8432",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_78553f6564122718fd0cc3b8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "One\n   Two\n   Three\n   Four\n   Five\n   Six\n   Seven",
+        "text_hash": "e83409c7fa77e86d15e74b1764876fbd37c941b30872c9436732b65215a3ff57",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d7d99d5c8a1618c5912d29be",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\nfr单位分配的是*可用*空间而非*所有*空间，所以如果某一格包含的内容变多了，那么整个可用空间就会减少，可用空间是不包括那些已经确定被占用的空间的。",
+        "text_hash": "57943eb36d2bb4eb5f98b5c4a7cf253f83af8009a8b59061218a8865cfe4ef80",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_e185bc5b288de9e93a7aece0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "网格间隙",
+        "text_hash": "48db6944912834d61e99d7090bc9c2a035c7be97d3700cb0ea779e9d64124d55",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0badb9a0ce159f665e3630e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用  属性来定义列间隙；使用  来定义行间隙；使用  可以同时设定两者。",
+        "text_hash": "74b3efa100b12d3f2046c189c9b63e4e00fdcc455b9cb3e4d8666f26c02338e8",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_417df1517320b8a1e1ee9547",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "plain\n.container {\n    display: grid;\n    grid-template-columns: 2fr 1fr 1fr;\n    grid-gap: 20px;\n}",
+        "text_hash": "3fbbbee3449e68d5d472dc27f9f31bb64bcd1b89784e94c1eac1ba58ae12c75d",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5160d98b302bb0dbe5f10f48",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "间隙距离可以用任何长度单位包括百分比来表示，但不能使用fr单位。",
+        "text_hash": "205bdd44df2216f04a2412e21efe42a07cfaaf5e5dff1df5c47aed7417a532d4",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bbcccfc7b129ac0f79dd260c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ea7e9b7e927d809870155384",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".container {\n  display: grid;\n  grid-template-columns: 2fr 1fr 1fr;\n  grid-gap: 20px;\n}",
+        "text_hash": "b5a9bcb08c347e4ddb9feb02d6d5b7b767480e7d31b746e4d811ab5e5e200fd7",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_de0775486697aba26ec035ff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".container > div {\n  border-radius: 5px;\n  padding: 10px;\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n}",
+        "text_hash": "97e23c90a13d75649f4481826cbdf9c9ef2022398a784f3033a6812ed84bb16c",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_91fd78583b3f79f35609c6c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2c2e67560f1f20fb1f1fca0c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "One\n   Two\n   Three\n   Four\n   Five\n   Six\n   Seven",
+        "text_hash": "e83409c7fa77e86d15e74b1764876fbd37c941b30872c9436732b65215a3ff57",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8925099b8117e9713fff3843",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\ngap属性曾经有一个grid-前缀，不过后来的标准进行了修改，目的是让他们能够在不同的布局方法中都能起作用。尽管现在这个前缀不会影响语义，但为了代码的健壮性，你可以把两个属性都写上。",
+        "text_hash": "7158fd2037cc9e9628e9cd6a977a386b0b2c6be0c7e49bf99f7b8acc872291a7",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_6dc7d01bca93046128f6c4b5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n  grid-template-columns: 2fr 1fr 1fr;\n  grid-gap: 20px;\n  gap: 20px;\n}",
+        "text_hash": "1aaf84d6b73bd7e96248c7124866d17040b261a16f414c68afe6d021fb5a2d9b",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0adb1889db4cd45f7a1e2a63",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "重复构建轨道组",
+        "text_hash": "5159d044e70a62199a8c512a9f913014cb307bb6a872232430b12ae4a5d82123",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f6aa65531ecb3bb76d94ea35",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以使用repeat来重复构建具有某些宽度配置的某些列。举个例子，如果要创建多个等宽轨道，可以用下面的方法。",
+        "text_hash": "00b41f4c90ef2577036c32974770a4b682e1d0c23e822162d928746797fb3567",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d511de90558c948bad2f1e90",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  grid-gap: 20px;\n}",
+        "text_hash": "9140639172378c9685b596c0046089047389ffa7d0a5bb0d4cde33cf3b16c1ba",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ad00317cfa26102f1e04db33",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "和之前一样，你仍然得到了 3 个 1fr 的列。第一个传入 repeat 函数的值（3）表明了后续列宽的配置要重复多少次，而第二个值（1fr）表示需要重复的构建配置，这个配置可以具有多个长度设定。例如repeat(2, 2fr 1fr)，如果你仍然不明白，可以实际测试一下效果，这相当于填入了 2fr 1fr 2fr 1fr。",
+        "text_hash": "d46b9e8578dc154a396c4496158c331a96d7feb1b29e6bc93d195f31d55ada97",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1fe9b8ea6a570301efef72f7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "显式网格与隐式网格",
+        "text_hash": "8e1657c019baedd8ee2ee323d1501e32202120e8aa2ddfb7866632a1f91cd3eb",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d69b4a86a240d8d46a76786c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "到目前为止，我们定义过了列，但还没有管过行。但在这之前，我们要来理解一下显式网格和隐式网格。显式网格是我们用 grid-template-columns 或 grid-template-rows 属性创建的。而隐式网格则是当有内容被放到网格外时才会生成的。显式网格与隐式网格的关系与弹性盒子的 main 和 cross 轴的关系有些类似。",
+        "text_hash": "b428d2e3426e94fe6230a308ad098b79361c6bb254a98586422f75a60f4e4bfb",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_26cbfcb644a83c8d86c37d8c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "隐式网格中生成的行/列大小是参数默认是 auto ，大小会根据放入的内容自动调整。当然，你也可以使用和属性手动设定隐式网格轨道的大小。下面的例子将grid-auto-rows设为了100px，然后你可以看到那些隐式网格中的行（因为这个例子里没有设定，因此，所有行都位于隐式网格内）现在都是 100 像素高了。",
+        "text_hash": "a3d8aa5365d16b920564d2d5579d9aa905fdaec84be3dabd117a828202ef7f69",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8a894867731021f86230151e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "译者注：简单来说，隐式网格就是为了放显式网格放不下的元素，浏览器根据已经定义的显式网格自动生成的网格部分。",
+        "text_hash": "eadc598c399529c834ad143559bac4028b6b6e797d3195f128be73ce9cc3dcb6",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fcd9d6bde6eb61e2ea0c085b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_23a8c114995ed942ca7fa637",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".container > div {\n  border-radius: 5px;\n  padding: 10px;\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n}",
+        "text_hash": "97e23c90a13d75649f4481826cbdf9c9ef2022398a784f3033a6812ed84bb16c",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fddf6c29b9aa9f9e705dd5d4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0c40e7634216a8d5faf192f3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "One\n   Two\n   Three\n   Four\n   Five\n   Six\n   Seven",
+        "text_hash": "e83409c7fa77e86d15e74b1764876fbd37c941b30872c9436732b65215a3ff57",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d0bd9a3787f892f7bfcc8629",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  grid-auto-rows: 100px;\n  grid-gap: 20px;\n}",
+        "text_hash": "c291920216635d7da08692668ea94682e3f489ae991c6656c561af9765560a33",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eac524868a999065807a7bee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "minmax() 函数",
+        "text_hash": "a127f5de2139747e5f9e4e7bccc73f9dadd735e84d447219576e29cc74bfeaf0",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ffdc00bc3cdea4d4601efef4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "100 像素高的轨道有时可能会不够用，因为时常会有比 100 像素高的内容加进去。所以，我们可以将其设定为至少 100 像素，并且能够跟随内容来自动拓展尺寸，从而保证能容纳所有内容。显而易见，你很难知道网页上某个元素的尺寸在不同情况下会变成多少，一些额外的内容或者更大的字号就会导致许多能做到像素级精准的设计出现问题。所以，我们有了函数。",
+        "text_hash": "3fe473d21e7e93d1d0c698ead2e322354819a2398c7e3cde436cf10175438ddf",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_836f7bea2eed00bb191690d1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "函数为一个行/列的尺寸设置了取值范围。比如设定为 minmax(100px, auto)，那么尺寸就至少为 100 像素，并且如果内容尺寸大于 100 像素则会根据内容自动调整。在这里试一下把 grid-auto-rows 属性设置为minmax函数。",
+        "text_hash": "590b0343c9a74bdd44e451b4c683e0246218de350d49517721d3d2b74fc5cb44",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_de1caa2d7816defc43460733",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  grid-auto-rows: minmax(100px, auto);\n  grid-gap: 20px;\n}",
+        "text_hash": "9fb4b72e0e198df382ecd0c9356f0494383bc6e33d8a409dc4df1cd9bfe1e1e5",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_980221e410bcafef0c33fcd5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果所有网格内的内容均小于 100 像素，看起来不会有变化。但如果在某一项中放入很长的内容或者图片，你可以看到这个格子所在的哪一行的高度变成能刚好容纳内容的高度了。注意我们修改的是 grid-auto-rows，因此只会作用于隐式网格。当然，这一项属性也可以应用于显式网格，更多内容可以参考  页面。",
+        "text_hash": "76cde51bc0c437cf5c1592fe42850208e8818451e3c6ea53b9de4bedf912a112",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dbacf17eb24093e556bdeb6a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "自动使用多列填充",
+        "text_hash": "677426edea137dec29f7c8b7944494304cdbc75c4340e1b495f1360ac28e5df9",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_678f4387cac878006f845e08",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在来试试把学到的关于网格的一切，包括 repeat 与 minmax 函数，组合起来，来实现一个非常有用的功能。某些情况下，我们需要让网格自动创建很多列来填满整个容器。通过设置grid-template-columns属性，我们可以实现这个效果，不过这一次我们会用到  函数中的一个关键字auto-fill来替代确定的重复次数。而函数的第二个参数，我们使用函数来设定一个行/列的最小值，以及最大值 1fr。",
+        "text_hash": "f7e7ec69772a342f3c8c22389b3fca0e4d4878390a7e646b125d42df72f074db",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_35db0cc6b675ecca1167f9f4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在你的文件中试试看，你也许可以用到以下的代码。",
+        "text_hash": "b8cd44f64c28db8ae350ca62ac0bb7d07ffd967167c5277cb3ab1dcfe74da201",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b7befe6b49276c60d3842445",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cb2a2c19ea6826330865a8a4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".container > div {\n  border-radius: 5px;\n  padding: 10px;\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n}",
+        "text_hash": "97e23c90a13d75649f4481826cbdf9c9ef2022398a784f3033a6812ed84bb16c",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6b2fadc3c5c99f8ce76692e4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4cd7e8719718ce1a4bb6fe82",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "One\n   Two\n   Three\n   Four\n   Five\n   Six\n   Seven",
+        "text_hash": "e83409c7fa77e86d15e74b1764876fbd37c941b30872c9436732b65215a3ff57",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_df792897f6963de3b6868ad7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n  grid-auto-rows: minmax(100px, auto);\n  grid-gap: 20px;\n}",
+        "text_hash": "78366035ae7eecd3915c262011cd3c55ee8c275ceb817f465ea39c140e221c93",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d4f2acac623fde1c79cca6d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你应该能看到形成了一个包含了许多至少 200 像素宽的列的网格，将容器填满。随着容器宽度的改变，网格会自动根据容器宽度进行调整，每一列的宽度总是大于 200 像素，并且容器总会被列填满。（This works because grid is creating as many 200 pixel columns as will fit into the container, then sharing whatever space is leftover between all of the columns — the maximum is 1fr which, as we already know, distributes space evenly between tracks.）",
+        "text_hash": "d53c83ad189101b14cf267dc48919c870e0ec947b24e0a42428511d4b9f9fcf6",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_740e5374d21bbfad08d7408d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基于线的元素放置",
+        "text_hash": "9ef7c66f23ff12c536c642c73ed4c5d272c0706e6c4ac23db78899d72539decd",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a4908eb9e5bf9e35510e74c0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在定义完了网格之后，我们要把元素放入网格中。我们的网格有许多分隔线，第一条线的起始点与文档书写模式相关。在英文中，第一条列分隔线（即网格边缘线）在网格的最左边而第一条行分隔线在网格的最上面。而对于阿拉伯语，第一条列分隔线在网格的最右边，因为阿拉伯文是从右往左书写的。",
+        "text_hash": "74bc5812c28cd07e71c692bcb9d17bf79e5b7905b9e18edcaebb85a9f1e602ad",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2bda5e38798a057e80f8bcd4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们根据这些分隔线来放置元素，通过以下属性来指定从哪条线开始到哪条线结束。",
+        "text_hash": "c406d8cf476e631a930a9bcd089da7431f5caab1ac14c548e21983ca82b62361",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_02b9c50f582bb5054902745d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "-",
+        "text_hash": "3973e022e93220f9212c18d0d0c543ae7c309e46640da93a4a0314de999f5112",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_d923fb96f5889445af8c32dc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些属性的值均为分隔线序号，你也可以用以下缩写形式来同时指定开始与结束的线。",
+        "text_hash": "65ff92a108ac372b41ad7727264f7d9fb72263328ec18755bfa0e221f25f65bf",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_18664fd1d1b6d48cdc999b36",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "-",
+        "text_hash": "3973e022e93220f9212c18d0d0c543ae7c309e46640da93a4a0314de999f5112",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_1487571a99f18cca943868e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "注意开始与结束的线的序号要使用/符号分开。",
+        "text_hash": "8a4aacffd0030900803dec2cbf17ef10b6afba45351c21de344049f62832e6ba",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_46bf70637d82d31a98148939",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下载这个文件（或者查看在线预览）。文件中已经定义了一个网格以及一篇简单的文章位于网格之外。你可以看到元素已经被自动放置到了我们创建的网格中。",
+        "text_hash": "faac2908a770f73e20184c2568178cf4c9b22b7f18ff6341f94a818460b070a0",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_59e705f6cddc78c26aa44ee0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来，尝试用定义网格线的方法将所有元素放置到网格中。将以下规则加入到你的 css 的末尾：",
+        "text_hash": "1a30df1335311707cdc5599743c7cb5ae60b85ab65f02066d0e071cca47c2fbe",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c81fbf0bc7722b40aa8cb516",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nheader {\n  grid-column: 1 / 3;\n  grid-row: 1;\n}",
+        "text_hash": "fc699d92dd12258c6e2ebc647b0f13a79cb5d5d44c35e53ab926f7d4a860eea8",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d8c648c4a73ae8b4d9491626",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "article {\n  grid-column: 2;\n  grid-row: 2;\n}",
+        "text_hash": "676edee29447bd8b6da085f61409e212a0d57ce07053e520514a9e8745ebecfd",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8144fe27383917632b72f202",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "aside {\n  grid-column: 1;\n  grid-row: 2;\n}",
+        "text_hash": "890ba46a298c7ab43dc4a4efcfe269a985eb8df18a1e3b4755c9f724e980b220",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4e7b9da43c186627ce7b6983",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "footer {\n  grid-column: 1 / 3;\n  grid-row: 3;\n}",
+        "text_hash": "67baa00783dced62a812d1a74c528c16fd2d8e0bacba485e5a01606a33712100",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_46f5125ea913840c92eaefe9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5ca2239b9120554709994775",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".container {\n  display: grid;\n  grid-template-columns: 1fr 3fr;\n  grid-gap: 20px;\n}\nheader {\n  grid-column: 1 / 3;\n  grid-row: 1;\n}",
+        "text_hash": "07b0d13e77f4a8956d0d35ffc4eb76bd57eaeb9498e2e6bbbdf94ef8a0e312e6",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6adb1011367b81d1a5b99b74",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "article {\n  grid-column: 2;\n  grid-row: 2;\n}",
+        "text_hash": "676edee29447bd8b6da085f61409e212a0d57ce07053e520514a9e8745ebecfd",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2e893ba684f083a07aa09130",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "aside {\n  grid-column: 1;\n  grid-row: 2;\n}",
+        "text_hash": "890ba46a298c7ab43dc4a4efcfe269a985eb8df18a1e3b4755c9f724e980b220",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_47a3d520cf2e69889e3bf34f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "footer {\n  grid-column: 1 / 3;\n  grid-row: 3;\n}",
+        "text_hash": "67baa00783dced62a812d1a74c528c16fd2d8e0bacba485e5a01606a33712100",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_98327bf234f19517a071dfd7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "header,\nfooter {\n  border-radius: 5px;\n  padding: 10px;\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n}",
+        "text_hash": "3da823a8851f7c9595863d1c8263fddd71c16fa73b7eafbad41ee23f3452b142",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0e9ffceaa14ba0e56ab2ecbf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "aside {\n  border-right: 1px solid #999;\n}",
+        "text_hash": "dde5361ee8b9e6686d4b8a0eeea5f6a3e52d8e3a97dfb3c250e2a59493cf1813",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dd7e96c95dc1d674260da93f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_384189f41c4aac210b235b3e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is my lovely blog",
+        "text_hash": "224506ec4fd45b17876985a742905e17bff20d04ccd7e4d9c3e0d79c11f1cb54",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8fc50815de9301b381e41d01",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "My article",
+        "text_hash": "3b73b4fbe3bcfa5df79c6fe10aa3a2feeb5806ceac2de09a44f187dea61324f2",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8eac9ca45bee1bcd2af652c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor\n      imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus\n      massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra\n      egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada\n      et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac\n      imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis\n      ornare egestas augue ut luctus. Proin blandit quam nec lacus varius\n      commodo et a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "ebe45af5a0de6f97fd1904174a5eef7fedcffa3bc3df71a6640a1bce274b13ca",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e035507122c1611d02f32b4c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n      ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n      est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n      tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies\n      lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra\n      quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis\n      natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "f3c750b4ef45890a0ba0e56c54ea2f6dc4f755356321f7c96d6a5ce3dca14b32",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_83fb806cb9aed74b42e9d69f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Other things",
+        "text_hash": "cdaa76f67b9d2f68a0e8358a9f5ae9cc85bcb1b5f7b85714441c167b06fe336c",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1792943087a2e9dffffb6de4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n      ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n      est.",
+        "text_hash": "6b50e84206d6845d52f4253513c88aa826751300c5d9bebd7dcfe9b06f284616",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_853122fe40e63ac991950062",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Contact me@mysite.com",
+        "text_hash": "f5dda5050ef09096be7627109c289910d615722a5767dbfe260375270ffc9862",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_41bbd244677ba03d2b6777e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n你也可以用 -1 来定位到最后一条列分隔线或是行分隔线，并且可以用负数来指定倒数的某一条分隔线。但是这只能用于显式网格，对于隐式网格-1不一定能定位到最后一条分隔线。",
+        "text_hash": "01f83b694896fa76e8f9f3b8ee65450aab3ac8c1b4ba5c0aaa5d1d68a56de0f0",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_98c181a07384b49cc4facd7b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用 grid-template-areas 属性放置元素",
+        "text_hash": "8dcaf0b3f072d1d5c1d086f8ddee14161b10f35a9cdb0fff7cb9881fe3c87529",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d1da128a931d344c693f6819",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "另一种往网格放元素的方式是用属性，并且你要命名一些元素并在属性中使用这些名字作为一个区域。",
+        "text_hash": "4b3908560585223b104046bc2b21b58d669220c66a339d350657aee4ca397a07",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_295d443833c2eaea70647a4a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "将之前基于线的元素放置代码删除（或者重新下载一份新的文件），然后加入以下 CSS 规则：",
+        "text_hash": "669050f783b7309a6f8215b8d85c1dc6ad5c50551ba8415b15eacbabad1d2c34",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0d5c291bbb0c20cc20dfb7d8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  display: grid;\n  grid-template-areas:\n    \"header header\"\n    \"sidebar content\"\n    \"footer footer\";\n  grid-template-columns: 1fr 3fr;\n  gap: 20px;\n}",
+        "text_hash": "04365fb0d5b6b014cf1e9eaea8e6d719934e312624543b1e78131f736fb3aa44",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_37c88403d40ee31c7023b2ea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "header {\n  grid-area: header;\n}",
+        "text_hash": "db6b2131af7c9d66977977a39c8ddb26037e456035288ce59a6eaaac72940de6",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a506c66858fa5d82066c6236",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "article {\n  grid-area: content;\n}",
+        "text_hash": "096abd72710ac4b803293e63d94512c48f1eacea81099615f48a88bf73040f58",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3c3a3dfa5f780a8586f56164",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "aside {\n  grid-area: sidebar;\n}",
+        "text_hash": "dec98c7e2d5a1bbbce706e216547bb01d88342511c100bab09285a63dae9f44d",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_efece518e7d18ac77a63b051",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "footer {\n  grid-area: footer;\n}",
+        "text_hash": "8a792553dabfac0e988c9925c91c27a3b91f200d0540f3ded3209ef36e6be848",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f8ec3665877248d3fe26b3d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "刷新页面，然后你应该能看到的元素会被放到与之前相同的地方，整个过程不需要我们指定任何分隔线序号。",
+        "text_hash": "a84cc5b1db288afca21a795f093496c0ae40e4c5d154e83687013311aff6f7f2",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dba239e36a63de334a2a2701",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b9525db85f43c030b5ca6c81",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "header,\nfooter {\n  border-radius: 5px;\n  padding: 10px;\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n}",
+        "text_hash": "3da823a8851f7c9595863d1c8263fddd71c16fa73b7eafbad41ee23f3452b142",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a8b40834a330ae61bc9c234b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "aside {\n  border-right: 1px solid #999;\n}",
+        "text_hash": "dde5361ee8b9e6686d4b8a0eeea5f6a3e52d8e3a97dfb3c250e2a59493cf1813",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_98555ceb22f2e0bf8fa4b32e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e8c62800bf44cf1a0703a244",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is my lovely blog",
+        "text_hash": "224506ec4fd45b17876985a742905e17bff20d04ccd7e4d9c3e0d79c11f1cb54",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_13262b80719ec5e7a88938e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "My article",
+        "text_hash": "3b73b4fbe3bcfa5df79c6fe10aa3a2feeb5806ceac2de09a44f187dea61324f2",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bd666563b445bc3bcbc3b5d7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor\n      imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus\n      massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra\n      egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada\n      et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac\n      imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis\n      ornare egestas augue ut luctus. Proin blandit quam nec lacus varius\n      commodo et a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "ebe45af5a0de6f97fd1904174a5eef7fedcffa3bc3df71a6640a1bce274b13ca",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_84343edb5ee3e6bba99e99a6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n      ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n      est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n      tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies\n      lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra\n      quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis\n      natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "f3c750b4ef45890a0ba0e56c54ea2f6dc4f755356321f7c96d6a5ce3dca14b32",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3b1a5609bea313d20d039151",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Other things",
+        "text_hash": "cdaa76f67b9d2f68a0e8358a9f5ae9cc85bcb1b5f7b85714441c167b06fe336c",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a82854a5dc48601541f725f0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n      ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n      est.",
+        "text_hash": "6b50e84206d6845d52f4253513c88aa826751300c5d9bebd7dcfe9b06f284616",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a84688c8bd5d1ba3532d3c8d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Contact me@example.com",
+        "text_hash": "75aa23d458d48eda73caa0f58e6c9d26b86476061b5399c4c9f5040b86ed75dc",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3564e9b2c44dba7bfd11593e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "grid-template-areas属性的使用规则如下：",
+        "text_hash": "f2051b3a9de74e7a56e84a2d17f6fac0b0ca09d0385d19817cee7ef02d871f8e",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_90f4c50b19c5219206be7c1b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你需要填满网格的每个格子\n对于某个横跨多个格子的元素，重复写上那个元素grid-area属性定义的区域名字\n所有名字只能出现在一个连续的区域，不能在不同的位置出现\n一个连续的区域必须是一个矩形\n使用.符号，让一个格子留空",
+        "text_hash": "393f0bac9c920ac586c1b52abd86629a8aa0a0955019a09a98424798e4fc1ca3",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_092c77d1699376a065d86f65",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以在文件中尽情发挥你的想象来测试各种网格排版，比如把页脚放在内容之下，或者把侧边栏一直延伸到最底。这种直观的元素放置方式很棒，你在 CSS 中看到的就是实际会出现的排版效果。",
+        "text_hash": "4399482ebc05e08ab0f4c6ba4ad1516f372382411b9c9cbe29e318cb4a768bb9",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5c30cf5b9e1b2825788c2d34",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个用 CSS 网格实现的网格排版框架",
+        "text_hash": "c6b163473e7bc0a38b44258b58a28f30e5d34584946cdd59fda4e82ceed8853d",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_108f6b119e14956806581fd9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "网格排版框架一般由 12 到 16 列的网格构成，你可以用 CSS 网格系统直接实现而不需要任何第三方的工具，毕竟这是标准定义好了的。",
+        "text_hash": "9c269b450cad22b298d97cdf9f195f2f981d7c6116090952a763a33349d8c1cc",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_835e708713ec76322a259e7d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下载这个初始文件，文件中包含了一个定义了 12 列网格的容器。文件中的一些内容我们曾在前两个示例中使用过，我们暂时可以先用基于线的元素放置模式来将我们的内容放到这个 12 列的网格中。",
+        "text_hash": "4b70142aa8f20f2cb1ff79778d958567e3e6094d5270e2818ad4ad28ae5a9f1b",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_91cb8d0f7f50b064ae096d37",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nheader {\n  grid-column: 1 / 13;\n  grid-row: 1;\n}",
+        "text_hash": "675d6ea47dda6d79ee83d6720485885f90b40c456fb0beb069ebc997a6b2053c",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e0016d22f389d992b8dbe02b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "article {\n  grid-column: 4 / 13;\n  grid-row: 2;\n}",
+        "text_hash": "89244753dbaf7fddc31147682345388f4d9c92cf8f2751ea006c59f1d6cf1fed",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b552a531c5338f90c777609d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "aside {\n  grid-column: 1 / 4;\n  grid-row: 2;\n}",
+        "text_hash": "126db4b77b883d9f62304e0414543f4c9ae41fc0f751910e82189b36c0e15889",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5d4f9e38499e1f824b7fbf15",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "footer {\n  grid-column: 1 / 13;\n  grid-row: 3;\n}",
+        "text_hash": "6de1f1f5f0e2ba22fb50d36f3f67a6178da7efbb7a15187e44a1fdf94509031f",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4a62d05c69ce10780deca3d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_27733b3b51f6300d842fad97",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".container {\n  display: grid;\n  grid-template-columns: repeat(12, minmax(0, 1fr));\n  gap: 20px;\n}",
+        "text_hash": "d254ce14cb103e868c2a20f757570e566f554726b25531d427eafc106a3184b6",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_be509cc3d4c8b0bdafb69415",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "header,\nfooter {\n  border-radius: 5px;\n  padding: 10px;\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n}",
+        "text_hash": "3da823a8851f7c9595863d1c8263fddd71c16fa73b7eafbad41ee23f3452b142",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_73cbf6b058c8ba30ba02bb65",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "aside {\n  border-right: 1px solid #999;\n}",
+        "text_hash": "dde5361ee8b9e6686d4b8a0eeea5f6a3e52d8e3a97dfb3c250e2a59493cf1813",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d107429ea27b25de32dd0650",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7c8e9426c922791f80381dd4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "This is my lovely blog",
+        "text_hash": "224506ec4fd45b17876985a742905e17bff20d04ccd7e4d9c3e0d79c11f1cb54",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_38a25192939b91f9ca8e18a9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "My article",
+        "text_hash": "3b73b4fbe3bcfa5df79c6fe10aa3a2feeb5806ceac2de09a44f187dea61324f2",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a34e983af2d56cfdd7d50177",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor\n      imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus\n      massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra\n      egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada\n      et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac\n      imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis\n      ornare egestas augue ut luctus. Proin blandit quam nec lacus varius\n      commodo et a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "ebe45af5a0de6f97fd1904174a5eef7fedcffa3bc3df71a6640a1bce274b13ca",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5d958366903a68d804777b10",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n      ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n      est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n      tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies\n      lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra\n      quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis\n      natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "f3c750b4ef45890a0ba0e56c54ea2f6dc4f755356321f7c96d6a5ce3dca14b32",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b85a5037f2787aeccb624f22",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Other things",
+        "text_hash": "cdaa76f67b9d2f68a0e8358a9f5ae9cc85bcb1b5f7b85714441c167b06fe336c",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3fbd4d43c611119ef47dcfda",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n      ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n      est.",
+        "text_hash": "6b50e84206d6845d52f4253513c88aa826751300c5d9bebd7dcfe9b06f284616",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ea651c7ec096a1b66bf1d509",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Contact me@example.com",
+        "text_hash": "75aa23d458d48eda73caa0f58e6c9d26b86476061b5399c4c9f5040b86ed75dc",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9f6007dd54d0f492e391b7ce",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以使用Firefox Grid Inspector去查看页面中的网格线，你应该能看到这 12 列的网格是如何工作的。",
+        "text_hash": "b0551594cdc11d995c7d4a147a3357c6e998e85cd7e180672fbfaae4410afb06",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fe4e9dd09a6a1fcf967b8019",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "A 12 column grid overlaid on our design.",
+        "text_hash": "7008cd4ac3f593df6743709b9b10e6246e67c2309755fd363004983dbd7539e1",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f281ca1f43406b3402df419c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "技能测试！",
+        "text_hash": "82b5c8cd03fff6874fe35527b00f721a90fe9c0b9c85fbea52a6788fce64f682",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_dd4552b828b3609b199a572f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你已经读完了这篇教程，那你记住那些最重要的内容了么？在继续之前，你可以通过一些其他测试来验证你是否真正学习到了这些知识，参见技能测试：网格。",
+        "text_hash": "6280e61abddb8b994e77aaf047252ac9881af4961d517e487c1123edb1a6af76",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a4f4000b91aae90bf4e60812",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "小结",
+        "text_hash": "6bf8bdb1f6eefac69dfc0691f9fa2fa123d921db1a75ed8c06cb86814c72d655",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0c6b99b89188ef7cd4ddd001",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们在这篇文章中接触了 CSS 网格版面的主要特性，你现在应该可以在你自己的设计中使用了。想深入了解这些内容，你可以读一读下面关于网格版面的文章，可以下面的推荐阅读里看到。",
+        "text_hash": "49195ffa997883d962ad6e0d09b8111ec4570efdb2c467da04d3b8919cba68a6",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bc5493d9c60cf992c2650b4b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "推荐阅读",
+        "text_hash": "fac4c8cf0d71c883c2a8d0472ec4f4ba07a6463b102f73ff69d94d627107d745",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_4d1986c2f66bcd3ccacf9149",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS 网格指南\nCSS 网格检查器：检查的你的网格版面",
+        "text_hash": "cfb9544fdb6e845c6876cd1a8f695d21585e8a60d062dd53064589bc86f2ddbc",
+        "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+      },
+      "type": "unordered_list"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_7e33614929286f58e396238f",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。网格，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "网格，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/grids",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "网格"
+  },
+  "resource_id": "lr_05ed4440bac13ef6a52028de",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_2bb1c3b3e028d009c4dcb4de",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "网格",
+    "text_hash": "e41ecc67ca28ade2108f332662a6c114273e20eedb963eb3ed064e2c9d0c5b0e",
+    "variant_version_id": "lrzv_6870ef573293ac2c39fdb609"
+  },
+  "variant_id": "lrz_76baeb29f6442e8c8373b6f3",
+  "variant_version_id": "lrzv_6870ef573293ac2c39fdb609",
+  "visual_dependency": "helpful"
+}

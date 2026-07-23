@@ -34,6 +34,18 @@ export interface RequestOptions {
     cursor?: string | null
 }
 
+export interface LearningResourceRequestOptions {
+    subject?: string
+    stage?: 'primary' | 'junior'
+    grade?: number
+    role?: string
+    type?: string
+    source?: string
+    query?: string
+    limit?: number
+    offset?: number
+}
+
 export class CurriculumApiError extends Error {
     constructor(
         message: string,
@@ -151,6 +163,43 @@ export class CurriculumClient {
     getStandardNeighbors(code: string, options: Pick<RequestOptions, 'include'> = {}) {
         const query = queryString({ include: includeParam(options.include) })
         return this.request<JsonObject>(`/api/v1/standards/${encodeURIComponent(code)}/neighbors${query}`)
+    }
+
+    listLearningResources(options: LearningResourceRequestOptions = {}) {
+        const query = queryString({
+            subject: options.subject,
+            stage: options.stage,
+            grade: options.grade,
+            role: options.role,
+            type: options.type,
+            source: options.source,
+            q: options.query,
+            limit: options.limit,
+            offset: options.offset
+        })
+        return this.request<JsonObject[]>(`/api/v1/learning-resources${query}`)
+    }
+
+    getLearningResource(resourceId: string, fragmentId?: string) {
+        const query = queryString({ fragment_id: fragmentId })
+        return this.request<JsonObject>(`/api/v1/learning-resources/${encodeURIComponent(resourceId)}${query}`)
+    }
+
+    getLearningResourceStandards(resourceId: string, fragmentId?: string) {
+        const query = queryString({ fragment_id: fragmentId })
+        return this.request<JsonObject[]>(
+            `/api/v1/learning-resources/${encodeURIComponent(resourceId)}/standards${query}`
+        )
+    }
+
+    getStandardLearningResources(code: string, options: { componentId?: string; role?: string } = {}) {
+        const query = queryString({
+            component_id: options.componentId,
+            role: options.role
+        })
+        return this.request<JsonObject>(
+            `/api/v1/standards/${encodeURIComponent(code)}/learning-resources${query}`
+        )
     }
 
     searchStandards(body: JsonObject) {

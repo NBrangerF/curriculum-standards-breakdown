@@ -1,0 +1,1129 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_af543fb198b61388480dc5c1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "可能导致无障碍（accessibility）问题的另一类内容是多媒体——视频、音频和图像内容需要提供适当的文本替代方式，以便辅助技术及其用户能够理解它们。本文展示了具体内容。",
+        "text_hash": "acef0d83af2236121070f129dbe49b7ac59dfe79b6446ad1e8fc627a21b5ae3d",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c60c63fbb4274faeea9ee862",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "先决条件：",
+        "text_hash": "86496acc5f4452bae88964bc2a6abc05548c85dbe27686b6c9c50f680561d853",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ad24d95661d5a86034337cff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基本的计算机素养，对 HTML，CSS 和 JavaScript 的基本理解， 对无障碍\n        的理解。",
+        "text_hash": "ed06f5a144a5f4119d03ee53357a3a2987c074fd4bf3b8f8b0cb76ef5861f5cb",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_187e666cc8dbbc34e5527dbc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：\n       了解多媒体背后的无障碍问题，以及如何克服这些问题。",
+        "text_hash": "9669ece9963d0b26f9d18ca09fd0beae0f0143f0104ca2aae65b56e22a12f8a6",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6a2e5effdf3fe1752ec0aeea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "多媒体和无障碍",
+        "text_hash": "1f80dbc6c95a898a87bab5c748c8bf5e91e1daf67b7d45161eaef21fe61eb59c",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_9579ca354a89dbe09fd26846",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "到目前为止，在这个模块中，我们已经查看了各种内容以及需要做些什么来确保其无障碍，从简单的文本内容到数据表，图像，本机控件（如表单元素和按钮）以及更复杂的标记结构（具有WAI-ARIA属性）。",
+        "text_hash": "2010b164dc27dfa19a1567a785f0543fc82bb3b3269a8f2ccb1e7760eac6f193",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9beb039a285002e24c4a1a63",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "另一方面，这篇文章着眼于另一个一般的内容类别，可以说它不容易确保对多媒体的无障碍。图像，视频， 元素，Flash 电影等不易被屏幕阅读器理解或被键盘导航，我们需要帮助他们。",
+        "text_hash": "fbac557cedaa2763d324c398d6abc757ebcc601a892c842048f7300467a1bd49",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5717f67869b709a2241a9df4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但不要绝望 - 在这里我们将帮助你浏览可用于使多媒体更容易访问的技术。",
+        "text_hash": "f6292389b033bc76eb0d6ab1e98d8b3551e81364bfb939d09d2f0e46694bd3b4",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b39b8f2d489cb852703d4fd0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "简单图像",
+        "text_hash": "1fb00d80089505ae2194a1fe2480e9752a8885173764e68cfaf256e48833cc38",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b389b75e2a0bdde516609f66",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们已经介绍了 HTML 图像的简单文本替代HTML: A good basis for accessibility –– 你可以参考其中了解详细信息。简而言之，应确保在可能的情况下，视觉内容具有替代文本，供屏幕阅读器拾取和读取给其用户。",
+        "text_hash": "2ff2f020f182bba4e4b6f845d5491517367d5bd27c230c78a9395b8d9516fe38",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1d65cfe1b62eca847e6c78ab",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "示例：",
+        "text_hash": "245443c3f11fe4818ce14794b222a5f322d39757a7a456018d90b238e181c213",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_60c3a62e82851a2d92d12818",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2dfa604cc6160d517abe1e5d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "可访问的音频和视频控件",
+        "text_hash": "e13cb8f3da5505087b6a4a88596d2d2f8eba889117fcf8985203a54fa099c02c",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b857d61e43a0ff4a486cb882",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基于 Web 的音频/视频执行控件不应该成为问题，对吗？让我们来调查一下。",
+        "text_hash": "8096e1654a4c98dae29da50ed543b9dd76c6126ff84e237e7a90b265d142454a",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ef7182864b077ea53584130a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本地 HTML5 控件的问题",
+        "text_hash": "5c13b5f7b759e0f5909bf2fd77b517c226f8d025dafa2743bb170d9c16081605",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a3f741e6c299906c2a1bae9a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML5 视频和音频实例甚至附带一组内置控件，允许你直接在盒子控制媒体。例如 (请参阅本地控件.html 源代码和实时演示):",
+        "text_hash": "9e03dfa4c5e6145bf9aaaaeea7558c4175e223740d96270c6ec662bf213af8ae",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1102d254adccc2406e1ce37a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d0c6718cfbf3f53065013c03",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Your browser doesn't support HTML5 audio. Here is a\n     link to the audio  instead.",
+        "text_hash": "ae855ae84ced645449450a40c80ea1faf724afec8b05af4a7ed1fa8a9d1b7f4b",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2d473cae2a1b670532994f7d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Your browser doesn't support HTML5 video. Here is a\n     link to the video  instead.",
+        "text_hash": "260ecebf1ad42278b26f6737d21f094bfc3e52b503f0945f10e136b4f746a298",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_876ce0d8b14a922fe2020406",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "控件属性提供播放/暂停按钮、搜索栏等 - 你期望从媒体播放器获得的基本控件。它看起来像在 Firefox 和 Chrome:",
+        "text_hash": "b811516bd76adea6d7b7475660d74aa9e1b70d71b13a150762e846ab7a8642ed",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7cb7ff3d2f5794f9e4946c9f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Screenshot of Video Controls in Firefox",
+        "text_hash": "2d2010fa4e5795b71d2e017c2d887a6e3783f5edc78851171dcbe97557284f76",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0a8995018f9cbb37a600c361",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Screenshot of Video Controls in Chrome",
+        "text_hash": "383d56f64f4b8423f584e7337ff0ad3def301531b2f6e125e31cd827972cf970",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0cefaaa35330ceb86d2491a5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是，这些控件存在问题：",
+        "text_hash": "63fbb91a8afdc7e5c42d4c97eb6c85244a9a62d7dd44d65e11bacea4c61e5294",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_067248c115ac290df3286b65",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在除 Opera 以外任何浏览器中，它们不可通过键盘访问。\n不同的浏览器为原生控件提供了不同的样式和功能，且不可赋予它们样式，这意味着它们难以遵从网站样式指南。",
+        "text_hash": "b59a97210b51a53c5e9a6bbd6df93abd0fc5078403f6a6664bf131aca5b5f252",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_ff7debceae0835a8f7d6ce93",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "为了解决这个问题，我们可以创建自己的自定义控件。让我们来看看如何。",
+        "text_hash": "420a0075ff8f8f92956d81ca1895cec9e5888a3e296867807b3ef17985656190",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_26be3408a5302af80cc860d1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "创建自定义音频和视频控件",
+        "text_hash": "dd1f9cbe2f9179ab26846a7d8953b200051b4c51e88afd90e9a5c9e0a5f5c214",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b14e2b1658d6cfdc47122da1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML5 视频和音频共享 API — HTML Media Element — 允许你将自定义功能映射到按钮和其他控件––这两个控件都是你自己定义的。",
+        "text_hash": "5020aa9deffd1917f8902cc1e6394af3fcce1a5dcd26fa27702f5bd8c8a6c6a9",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5c7443c300c69f5be7a4393b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们从上面获取视频示例，并向其添加自定义控件。",
+        "text_hash": "56de63a7cb0d1f30f2e40a7581f26fcc522372907148c2d05b30f7afe4a2486c",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f4ceb67ab54236a9d3fe644a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "基本设置",
+        "text_hash": "f3f905f2853a4dbaaa4857833dd957d812c8cda9899ceb3c69421d383c420194",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d02535d18009ff5491d624e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，获取我们的custom-controls-start.html、custom-controls.css、 rabbit320.mp4 和 rabbit320.webm文件的副本，并将它们保存在硬盘上的新目录中。",
+        "text_hash": "3f2507c797baa077648aecbecfa65d75904f26d087a33a54e880d305e8d8b6e8",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fdcbc90679c6ed98c56fec29",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "创建一个名为 main.js 的新文件并将其保存在同一目录中。",
+        "text_hash": "1e70dd79d18497bea04ae75b266954e8433ed69d7ed13a91d32483e19c837a43",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c2b6eff49a4b8c54bf226dc5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，让我们在 HTML 中查看视频播放器的 HTML:",
+        "text_hash": "6c47a1fb6749cfc976697f33baf97854cbf8088d0d92ff997a07948da0b1dc6f",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_94ae78dcf80f02a29181446b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_877a6966893df2727be3e17c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Your browser doesn't support HTML5 video. Here is a\n       link to the video  instead.",
+        "text_hash": "8185d7a34d99e7d7ce6ba89f3053e29d61961ae786377102392dec76f5e3a2d4",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_24caca879b5bd53d52309bdd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Play\n     Stop\n     Rwd\n     Fwd\n     00:00",
+        "text_hash": "338f09612504c0ca1e78074039f4a1be3c91ea3f5f07bec86a34c29ae0d4c394",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ca125fefcef49661d8944002",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "JavaScript 基本设置",
+        "text_hash": "57ff2f770bc3b6abd72b1bbfa849ca57da295dab070ee6cc146cac00473923c2",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a542f40ee8ec1b9d6140b692",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们在视频下方插入了一些简单的控制按钮。当然，这些控件在默认情况下不会执行任何操作。要添加功能，我们将使用 JavaScript。",
+        "text_hash": "1a7be2dcba103a134db10c1cfb25f9a23cfc97cd69befee285e614ceaa74b565",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_49d465314d073f1ea66ed7f9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们首先需要存储对每个控件的引用––将以下内容添加到 JavaScript 文件的顶部：",
+        "text_hash": "7897e92f1556759b8c2b2a7e3da9c193913b84e385ff498f7c64fc9ee91b884e",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_baa9940bac4f6c86b2ef612c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst playPauseBtn = document.querySelector(\".playpause\");\nconst stopBtn = document.querySelector(\".stop\");\nconst rwdBtn = document.querySelector(\".rwd\");\nconst fwdBtn = document.querySelector(\".fwd\");\nconst timeLabel = document.querySelector(\".time\");",
+        "text_hash": "b5d10eb3fa7b50bb86bb5f9546b60cc5b90f448e5ff4cfab6f0d4936412fd082",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e2e0c451d75baf918de67cc7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来，我们需要获取对视频/音频播放器本身的引用––在前面的代码行下方添加此行代码：",
+        "text_hash": "4e6ec1683a0688f9bdeaf02feca72e5607bd7e08768c527f9262b3cdf7b3bf91",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7b0a6a6bdfe887196f09fb04",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nconst player = document.querySelector(\"video\");",
+        "text_hash": "61f558f06e9da761788b5de9be1985b60e8eb49d5433d392e508ccc02e850406",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_638c31a2fde485ca797cc841",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这包含对对象的引用，该对象具有几个有用的属性和方法，可用于将功能连接到我们的按钮。",
+        "text_hash": "d48652939448986217621852fca078062efa3371b45cee8af4d3865695a11e1e",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d69ecc2955fd711ed27791b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在开始创建按钮功能之前，让我们删除本地控件，以免它们妨碍我们的自定义控件。在 JavaScript 的底部再次添加以下内容：",
+        "text_hash": "dd2f835718a321275e7ab2335538abcb998f2e4ba007cc62f7f4cc99b4bc16e7",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7095f887605806ebf1503d4d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nplayer.removeAttribute(\"controls\");",
+        "text_hash": "1a9ad220b9ffa2e116ecd070ebf4d3cc5464f3894377044bc7fc58c90146f6d2",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a0ec94682232b6056554b6af",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这样做，而不是仅仅不包括控件属性摆在首位有一个优势，如果我们的 JavaScript 失败，用户仍然有一些控件可用。",
+        "text_hash": "5a4999fe43568b0a24b7ba247d6d45f6568913f602a6c62c31452f95cd1b95e0",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5821b6a42bc1e7b775bd3849",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "连接按钮",
+        "text_hash": "d3b71cc875f969cfc728f0c9d5304ce49ca5f2635acd1c3ffec38873691178d2",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d031b6c4843f0e3697377b97",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "首先，让我们设置播放/暂停按钮。我们可以使用一个简单的条件函数在播放和暂停之间切换，如下所示。将其添加到代码底部：",
+        "text_hash": "5557b9db323782f1be819129f35d4f5197a8b11ff5e2b6a6e8b6cabe51930213",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2cbbbe3ccc56433a6c1652a7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nplayPauseBtn.onclick = () => {\n  if (player.paused) {\n    player.play();\n    playPauseBtn.textContent = \"Pause\";\n  } else {\n    player.pause();\n    playPauseBtn.textContent = \"Play\";\n  }\n};",
+        "text_hash": "2e9cb1aafa13c15b5fa3ceebb6191b9d48d1dc408c87c6eee63135a80bc1f068",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8794c5d3b4b29ed7d7f369d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来，将此代码添加到底部，该代码控制停止按钮：",
+        "text_hash": "e2fa2e94047754a87bd0075b7f95ca58b1cd12721da3edacdf43331ce823e121",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d47a2fc2d448518c3d04ab9e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nstopBtn.onclick = () => {\n  player.pause();\n  player.currentTime = 0;\n  playPauseBtn.textContent = \"Play\";\n};",
+        "text_hash": "76a9f5e2de23aebe823fe41a8182087c5a810f36ad57391b1d314b64e06cb7d3",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_773e154bd1cd48dee1ed080f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在  上没有可用的 stop() 函数，因此我们改为pause()它，同时将当前时间设置为 0。",
+        "text_hash": "e12b4e7557433cb02e957135baf4af5c37266efd4eac4b89b46deb3c933aad13",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a7101901e38169832950d79d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "接下来，我们的快退和快进按钮–– 将以下块添加到代码的底部：",
+        "text_hash": "47a8bba71e5ec7f04e274b593e7d58fcde0fb2ae7642e01951e2603ccee5ec7f",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_847205135d7bb93e1f909ff9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nrwdBtn.onclick = () => {\n  player.currentTime -= 3;\n};",
+        "text_hash": "9228b1371be23ea3b71c0522700b44f75073bceb0b92321d30c40fab060a6682",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e60828c5f4c0751e733b8c43",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "fwdBtn.onclick = () => {\n  player.currentTime += 3;\n  if (player.currentTime >= player.duration || player.paused) {\n    player.pause();\n    player.currentTime = 0;\n    playPauseBtn.textContent = \"Play\";\n  }\n};",
+        "text_hash": "562a88802b2ada73824e63520e8449bdd7b540ea887ae4ea7b21a1afdc36c26e",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_abe6efc8c2813756ed2a52e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这些非常简单，每次单击它们时，只需将 3 秒添加到currentTime。在真正的视频播放器中，你可能想要一个更精细的查找栏或类似功能。",
+        "text_hash": "0d04cb253f9f928fd36aff519b26921aa8ee7f6a33cfaa95e48b481b19dda0cb",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a4007f0afede8cdbb1bd386a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "请注意，当按下 Fwd 按钮时，我们还会检查currentTime是否超过总媒体的duration,或者媒体是否未播放。如果任一条件为 true，我们只需停止视频，以避免用户界面出错，如果他们试图在视频未播放时快进，或快进通过视频结束。",
+        "text_hash": "10f857ed85ed6eb341eb48c0949eb623c87e5309fd3996e931226d7fdbadbca3",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1a214585c28483d2c784f5a3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "最后，将以下内容添加到代码末尾，以控制显示的时间：",
+        "text_hash": "4658f7fd683343e6d3d38bff7cb438e9a34eb50ec8e0c9434d82a4ed67f32a4b",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_98e32556d1f6e2c3dc24174e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "js\nplayer.ontimeupdate = () => {\n  const minutes = Math.floor(player.currentTime / 60);\n  const seconds = Math.floor(player.currentTime - minutes * 60);\n  const minuteValue = minutes   Transcript_\"。",
+        "text_hash": "a4ebc98f16e393fffd55f8066147f8c45389e12684644e9b20165d6b5df337c7",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8b584fb15d0db9b36ed326f5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果要创建自己的用户界面来显示音频和相关脚本，你可以随心所欲地执行此操作，但将其包含在可显示/可隐藏面板中可能有意义;请参阅我们的audio-transcript-ui 示例（另请参阅其源码）。",
+        "text_hash": "93d711657d5e7d03a511fd041c7f98946c8021738a52b99d4c3df5eea917b845",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d6fa1d83170b90b101f12fe8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "音频描述",
+        "text_hash": "6ea5362cfdbce7c526b032a7aa9a7fa38aad712bb8bc3eddaf3ad17515f6bb8c",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_786e2ea28ec9098fe3d79944",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在音频附带视频的情况下，你需要提供某种音频说明来描述该额外内容。",
+        "text_hash": "c26d69dee17140066558cd9d4f32c5a69a9d27996636e74f90ede423691a3710",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e7a454c2f68551e73fc8c516",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在许多情况下，这只会采取视频的形式，在这种情况下，你可以使用本文下一节中介绍的技术实现字幕。",
+        "text_hash": "99535a9900859a7da0fcbcbd1b7e123566c27fb1d695d8a547e67d634ea8fc6e",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8981730dc96528911b8ae097",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是，有一些边缘情况。例如，你可能有一个会议的音频录制，该录音引用了附带的资源，如电子表格或图表。在这种情况下，应确保资源与音频和脚本一起提供，并在成绩单中提及它们的位置专门链接到这些资源。这当然会帮助所有用户，而不仅仅是聋人。",
+        "text_hash": "3465a687d1b82ab408736928a2a5e5fcf98c4fd30e894310ebdb8519aafb2d16",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2ad514cb77d96a12f247d639",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n音频脚本通常有助于多个用户组。除了让聋人用户访问音频中包含的信息外，还考虑一个带宽连接较低的用户，他们会发现下载音频不方便。还要考虑在嘈杂的环境中 (如酒吧或酒吧) 中的用户，他们试图访问信息，但无法通过噪音听到信息。",
+        "text_hash": "a34bd28a1e5579df058affbc2a17542acd6a543e7e9cc953b979576f3888c4f3",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_4c637d2abef32afad9d4bed4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "视频文本轨道",
+        "text_hash": "6878797c499e024673f8a5788caf580c85034ef524351f37691c1ed796a2daf3",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_76ebf8620b4333b19db62d1f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要使聋人、盲人甚至其他用户组 (如低带宽用户或不理解视频录制的语言的用户) 可以访问视频，你需要在视频内容中包括文本轨道。",
+        "text_hash": "46aba296fd86733ba2e0639fb54889331034e37ddd37381bff89ee2b8ee55169",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_745cb74df4d7a6069f5c76f1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n文本轨道对于潜在的任何用户也很有用，而不仅仅是那些残障用户。例如，有些用户可能无法听到音频，因为他们处于嘈杂的环境中 (如显示体育游戏时的拥挤的酒吧),或者如果其他人在安静的地方 (如图书馆),则可能不想打扰其他人。",
+        "text_hash": "f3c5771511d06729aa745159117f00eb12f3cc2866f54919db82fdad1a315c5f",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_a977abe9c1da09eacb53c9f3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这不是一个新概念 ––电视服务已经关闭了字幕相当长的时间了：",
+        "text_hash": "b11b43a6f9ced0197112ee8dccafb7e028787dfb62ca1f5c9de5ad0e36e80496",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_477c2225a4460742dd19e35f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Frame from an old-timey cartoon with closed captioning \"Good work, Goldie. Keep it up!\"",
+        "text_hash": "c5a26bbff81b61fcd4d9800eafd7250a5d76af5fb00c2ec5a1c08871e1a22685",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_27e06f7a73ba1adc11f09965",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "许多国家/地区提供以英语为母语的字幕的英语电影，例如，DVD 上通常提供不同的语言字幕",
+        "text_hash": "9ebf10add8f538da39b61282515651e632b73660f5e676384fb6268c6646bfa6",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fd7a948cb2b6239037358abb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "An English film with German subtitles \"Emo, warum erkennst du nicht die Schonheit dieses Ortes?\"",
+        "text_hash": "ecf0852441c0e408c03441045e1762e4d8be9fa1a854aa043d07869f2c51e8a2",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6d5aa4ae19914f3b932d23e1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "不同类型的文本轨道具有不同的目的。你遇到的主要情况是：",
+        "text_hash": "b672a0dae88307b560a77ea88b3365cc26d4198adc8a9439ad75e8b992ccf4cb",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_195b7f26de5a7440e981b955",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "标题 ––对于听不到音轨 (包括所讲的单词，还有环境信息，如说话、以及用来营造喜怒气氛的音乐等) 的聋人用户而言是有利的。\n字幕––为不懂所讲语言的用户提供音频对话框的翻译。\n说明–– 这些描述包括无法观看视频的盲人的描述，例如场景的外观。\n章节标题––旨在帮助用户导航媒体资源的章节标记",
+        "text_hash": "b45f9d28bc5c44558ff0dc14d826fcc5cac8d400569d22f5d7736da947663b2a",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_eeb662ece213f40317615e94",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "实现 HTML5 视频文本轨道",
+        "text_hash": "befd91fe69599137834bf5c7b1b40b83c0ee1d88a89d3bb5761148b59d602e6f",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_59a44139b3ad35bbe9e9d5d4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用 HTML5 视频显示的文本轨道需要用 WebVTT 编写，WebVTT 是一种文本格式，其中包含多个文本字符串以及元数据，例如你希望在视频中显示每个文本字符串的时间，甚至限制样式/定位信息。这些文本字符串称为提示。",
+        "text_hash": "ec994e39112cbb79c4917b01ef156faf33170babb47347ff2dd1920faf52d6cf",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_faf214cc48f1786c3e64b1f6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "典型的 WebVTT 文件如下所示：",
+        "text_hash": "58a896f764bb791bd30bfe9b065dcee6ada06e90a695d32f6c1698a1761fdbc5",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a4c7869e0872641b556713cd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "plain\nWEBVTT",
+        "text_hash": "d2a56e45801b48f9edc0e35b2f29b0c28707c0d376a3f946fa672db044e96e09",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_34b4b754827f05cb4d0b7a74",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "1\n00:00:22.230 --> 00:00:24.606\nThis is the first subtitle.",
+        "text_hash": "703c692477cba384330b6d6d2712f03405a9351eb5f7e8173c773666dbe5a9c3",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_eaf452841b7174db9bf95e85",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "2\n00:00:30.739 --> 00:00:34.074\nThis is the second.",
+        "text_hash": "b32d11185951829204340c1efdd86514a7c9836f872cd1d1df95cfd94caf08d6",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_66f73621d1682f39ba9f3904",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "...",
+        "text_hash": "ab5df625bc76dbd4e163bed2dd888df828f90159bb93556525c31821b6541d46",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d44ab04a7a175e7678f2c9f1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要将此信息与 HTML 媒体播放一起显示，你需要：",
+        "text_hash": "d2fe73f805bfda000cc791e4b306c9522725c73c7d7928db25216eed38e7368f",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bdbf1f707957848db373e33d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "将其保存为 .vtt 文件，放在一个合理的地方。\n使用  元素链接到 .vtt 文件。  应放在   或   内，但在   元素之后。使用 kind 属性指定提示是字幕、标题还是说明。此外，使用 srclang 告诉浏览器编写字幕所用的语言。",
+        "text_hash": "fe8d30983887d7994095972ca588dd6c6c5ddd00972e0eca4cfe575d7e677830",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_425c16d46b40b4946f10e7c8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下面是一个示例：",
+        "text_hash": "48a68e8adc4a6032714892415a0b1f7754f645e2afa609fd79c01d44e4853d25",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5559f3c7676d37c1dc0b05c6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e8fe210681be70108363fd81",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "```",
+        "text_hash": "f1b901847390b0ed7e374e7c1e464ec17b46a427c487a5ad6cbd2906405083d5",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "code"
+    },
+    {
+      "target_block_id": "lrtb_4619d01ac9ce61dc0f20906d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这将产生显示字幕的视频，如下所示：",
+        "text_hash": "35362057958b5aed7e9370bdb429792973e603aeb98b728440241419c66615ab",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a6e472864c9e109ed36c3ec1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Video player with standard controls such as play, stop, volume, and captions on and off. The video playing shows a scene of a man holding a spear-like weapon, and a caption reads \"Esta hoja tiene pasado oscuro.\"",
+        "text_hash": "dbdebe3f91dfdd1474c2a7168d77bece08bbab1a01bf54d78033fba25903cf6e",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_28f14885aa69f24891156469",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有关详细信息，请阅读Adding captions and subtitles to HTML5 video。你可以找到与本文一起使用本文的the example,本文由 Ian Devlin 编写 (请参阅source code)。此示例使用一些 JavaScript 允许用户在不同的字幕之间进行选择。请注意，要打开字幕，你需要按\"CC\"按钮并选择一个选项 - 英语、德语或西班牙语。",
+        "text_hash": "934e2b6782747c66ef9daeb3ab974bb100d641bfd4db02d0374c9e2c3cdae982",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ed58aca30cc9148f6c67e799",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n文本轨道和转录也可以帮助你使用,因为搜索引擎在文本上尤其繁荣。文本轨道甚至允许搜索引擎通过视频直接链接到一个点部分。",
+        "text_hash": "c63011809865fa8e5cbee887cc0eb52561a573a21b65a508b475dc90a7a5d594",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_3e0299568332309ba176a14c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "其他多媒体内容",
+        "text_hash": "1a78306ac650a6ebb6c2bb4254fcf443b0c4356a696fc3edfd9c54b0381dc79f",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e02c1c87426c5fd1c1f104d1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "以上各节未涵盖你可能要放在网页上的所有类型的多媒体内容。你可能还需要处理使用其他可用技术创建的游戏、动画、幻灯片、嵌入式视频和内容，例如：",
+        "text_hash": "82855c79a2bc304924eec45b008586155956d5d4676d772415b321bc7eb997ef",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4a3e6599988eed42f195b6df",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML5 canvas\nFlash\nSilverlight",
+        "text_hash": "9dee99e37c1f722a00ada6b32233f41bc6b74eaf7cd7ce725963456a283f0d28",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_aad918246f09b4a17f173769",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对于此类内容，你需要根据案例处理辅助功能问题。在某些情况下，它不是那么糟糕，例如：",
+        "text_hash": "d0ad8dbd5a41614b42baba1ba518f77867dc163f559ebcde0230a48246ef8bdd",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d0691096c8d166daf9dc725d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "如果你使用 Flash 或 Silverlight 等插件技术嵌入音频内容，你可能只需以与上面在脚本示例部分中所示的相同方式提供音频脚本。\n如果你使用 Flash 或 Silverlight 等插件技术嵌入视频内容，则可以利用这些技术可用的字幕/字幕技术。例如，参考 Flash captions、Using the Flash-Only Player API for Closed Captioning 或 Playing Subtitles with Videos in Silverlight.",
+        "text_hash": "ebfa57aa5993c59da834c4827200871e9ee432d301463860fa10fd58f7ac0de0",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_6e5c72fc85f7fcb5ca3711ac",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "然而，其他多媒体不是那么容易使访问。例如，如果你正在处理沉浸式 3D 游戏或虚拟现实应用，那么为此类体验提供文本替代方案确实非常困难，你可能会认为盲人用户实际上并不在此类应用的目标受众范围内。",
+        "text_hash": "741f9012c0cb0e57926f05a0612e33d9add07c97087d2e0f78974ded33f3ec73",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5eee124341c9688a38cda7e0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "但是，你可以确保此类应用具有足够的颜色对比度和清晰的显示，以便对视力低下/色盲的人来说可以感知，并且还可以使其键盘可访问。请记住，辅助功能就是尽可能多地做，而不是一直追求 100% 的无障碍，这通常是不可能的。",
+        "text_hash": "be694c102576a7725ee178034da802a84d39d7dedffbf46af430c564a35383f0",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_06d6392ad46de26412694a20",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8d98477c18e33157bc82d2f9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本章概述了多媒体内容的无障碍问题，以及一些实用的解决方案。",
+        "text_hash": "a30969389f4a1b9d0a07c54698e1b14e18d9b2d869292a12474743610ae19636",
+        "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_2e57bd5aceb4aa04a0c52b72",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。多媒体无障碍，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "多媒体无障碍，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/accessibility/multimedia",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "多媒体无障碍"
+  },
+  "resource_id": "lr_5bc359ab75b373cabd85d52e",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_80c66951277ab408fed2b968",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "多媒体无障碍",
+    "text_hash": "1a470858c84bd12b9ef293ce9ce633bdb65c5485fac6ec226bf17e97e78124dd",
+    "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66"
+  },
+  "variant_id": "lrz_0b3e7e3952b1353b38753cbb",
+  "variant_version_id": "lrzv_3fe8b1a8a87aaf65175dab66",
+  "visual_dependency": "helpful"
+}

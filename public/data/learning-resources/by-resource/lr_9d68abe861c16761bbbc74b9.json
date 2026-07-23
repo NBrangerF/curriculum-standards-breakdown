@@ -1,0 +1,997 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_fa5e14c6f0483ab95ff5e1f0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "多列布局声明提供了一种多列组织内容的方式，正如你在一些报纸中看到的那样。这篇文章介绍怎么使用这一特性。",
+        "text_hash": "7b29cd047f9d800415d245f77113aaecd2ff147afbccdac39e4a9403a04ef3ce",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4f2b1b6ce9ebd2f7381113b4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：",
+        "text_hash": "60df7f5b49d0fd69c1a1ee4bda41ede8b786ae9d162b8a9a73e264bbf703119b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cecdf24d20302028c2ffca8c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 基础 (study\n         Introduction to HTML ), 和了解 CSS 如何工作的 (study\n         Introduction to CSS .)",
+        "text_hash": "a6bc26ac79b4914dbb215c7c86230da611e3355dd49e2479765e2fd328f3ebbb",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_06ba40811b10ddb84ef41c54",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：",
+        "text_hash": "4d2d25a2888d3e7c13db6b2e275e0179ab434807992666123db412d5f31e27a0",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6494f1d23a891e77731e9cba",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "掌握在 web 页面中创建多列布局的方法？，正如你在一些报纸中看到的那样。",
+        "text_hash": "2a13cc2e0df38316dce19cd40524ca3fe3c13017589f3d9130397cfe35c9b3c8",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7759ab8e870a94cd31964680",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个简单的例子",
+        "text_hash": "d6b26a4bca9cc3f77e620b2d2b085c857674f964038d19dcdf21b36fe21cd3c6",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_cd92f48523d32fb90df1451f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们将学习怎么使用多列布局，通常也简写为 _multicol_。你可以从这里开始 downloading the multicol starting point file 然后在合适的地方加入 CSS。在这一小节的结尾，你可以看到最终代码的效果。",
+        "text_hash": "fbd948b1684f772b1df44e36d80312bd4f02d2a78f8ebd99394d4ecbf5e2933b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_60e8ce09ac00ef28a334ac8f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "三列布局",
+        "text_hash": "6fbfdced341f07b20a9b895a7d9e925f462cc14707846c6319443907552223ad",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8683601cbfa258b107e4bad1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们从一些很简单的 HTML 开始；用带有类 container 的简单包装，里面是标题和一些段落。",
+        "text_hash": "2c194767d95e26bf2c37bcc26fec574f654583c19ebc33433ffe367cb212aa0c",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_281d78d002dad4230f5b4463",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "带有 .container 的  将成为我们 multicol 的容器。通过这两个属性开启 multicol  或者 。 column-count 将创建指定数量的列，所以如果你把下面的 CSS 加到样式表里让后重载入页面，你将得到 3 列：",
+        "text_hash": "6feb797d5f8a46c3c5d52e8acad9b4fb87565b07ff2c17bb6feac5972939f9d9",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_370de74f43fb2666dbbecec2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  column-count: 3;\n}",
+        "text_hash": "db55bd7d399828aa3b86743a2cf86193405ff251791284dd26e041288cbb6a71",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3c057338bfcf78d5daf6656f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "创建的这些列具有弹性的宽度 — 由浏览器计算出每一列分配多少空间。",
+        "text_hash": "3c25086e82ab174db9b84e9bbf014fab4dbf4f4babc125e5f7ac74ad7e89a391",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a12d059ca977881e7dfc3202",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0d0185ce789b761de097e7e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b50e89c85181b8ac5dcc1e93",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Simple multicol example",
+        "text_hash": "df0fc0fd13835bc54db94c647762c94b6b9227b7c251fff82a9d2b8b57b472f5",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d8463a29fe06f778c5d8016f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at\n    ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer\n    ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur\n    vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus.\n    Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus\n    sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus.\n    Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis,\n    eget fermentum sapien.",
+        "text_hash": "76002a3ca579e02cfaa70a5d7fdd89d2e4bb2fb820bcf6240f1cf46a1a0e4508",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_190eda12b5d3fcb6ca480bef",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n    ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n    est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n    tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies\n    lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n    vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n    penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "90c82efe18e665385de0f1ce0f02a008d04542953535258b76840f3f01673b3d",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9617842485441e31c0e65a42",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设置列宽",
+        "text_hash": "e514e86eb8abbf9a53cde6c34cfefbf1adcc2a4e5ca5bb063b0a6233cfc53811",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_75ff83995dc15a0ab486245d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "像下面这样使用 column-width 更改 CSS：",
+        "text_hash": "0940be04f28f6d2d2ae1296c6206f22af6d62987ee98a5f13984b13970f6c604",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_821e18ad28d7085afd2623e6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  column-width: 200px;\n}",
+        "text_hash": "0deb6fe156676346fa4744084ef0ac5c7771d8ea03c432afc60c19c49b7c867f",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_66718d572e38ffa7d4e34a9b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "浏览器将按照你指定的宽度尽可能多的创建列；任何剩余的空间之后会被现有的列平分。这意味着你可能无法期望得到你指定宽度，除非容器的宽度刚好可以被你指定的宽度除尽。",
+        "text_hash": "311caa06f355e20060886191c025aaf259cc6b88b7915f7e4230feebf99200ab",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1ee606da84d25165ed519bab",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8cdb571dc5ca605fd34c8b43",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e116fd3a55a85dc8662974b6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Simple multicol example",
+        "text_hash": "df0fc0fd13835bc54db94c647762c94b6b9227b7c251fff82a9d2b8b57b472f5",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_891435670a5d1fc16bd4b6ac",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at\n    ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer\n    ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur\n    vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus.\n    Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus\n    sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus.\n    Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis,\n    eget fermentum sapien.",
+        "text_hash": "76002a3ca579e02cfaa70a5d7fdd89d2e4bb2fb820bcf6240f1cf46a1a0e4508",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2accc93ed71c88b072de6532",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n    ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n    est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n    tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies\n    lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n    vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n    penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "90c82efe18e665385de0f1ce0f02a008d04542953535258b76840f3f01673b3d",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_960a5a68300462904a6719f6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "给多列增加样式",
+        "text_hash": "fe234a50741adb769c1206b5cd40a358720f612f0ddb2a0d883faffe4c773a3b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_673b2b18142b7fb5102050e9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Multicol 创建的列无法单独的设定样式。不存在让单独某一列比其他列更大的方法，同样无法为某一特定的列设置独特的背景色、文本颜色。你有两个机会改变列的样式：",
+        "text_hash": "ec0de08ddb226e57c55ed73e71c089e651846d527325073d83f5c091c802dd7c",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d3a636ae53b720cc134fe9d8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "使用  改变列间间隙。\n用  在列间加入一条分割线。",
+        "text_hash": "494b03031a7de3ba909589c8739dc2b76db93bfe9fd98f63d14a2eefa0544f61",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_2cc502367b861ea89a026548",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "以上面的代码为例，增加 column-gap 属性可以更改列间间隙。",
+        "text_hash": "913310e9b58a773e9ef7533a4ab4a1b9531b2f778cee5533619ceb017eb00bd6",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cb4e4c70ba22562e140920ba",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以尝试不同的值 — 该属性接受任何长度单位。现在再加入 column-rule。和你之前遇到的  属性类似， column-rule 是  和 的缩写，接受同 border 一样的单位。",
+        "text_hash": "f4e247f34d23ebacd7278b484cda4879640e6554e275a771c44237022b147b98",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f4ddbbc95e8f918eda746619",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  column-count: 3;\n  column-gap: 20px;\n  column-rule: 4px dotted rgb(79, 185, 227);\n}",
+        "text_hash": "32bd6bbebfa621b513d0849f78b21987caea4c2e8e18d43598895e9c201f2cdc",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2dd08798872cb446336824ab",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "尝试设置不同的样式和颜色。",
+        "text_hash": "ac6de5901e615458fcb588fc4542f2f33f9ae0fd201d70f29dbbc94e60a6e9a1",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a603b484077d1974b9b15eb2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1e396b3b9c16f4cd6aac8603",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_04dac170b45feb5e599d6980",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Simple multicol example",
+        "text_hash": "df0fc0fd13835bc54db94c647762c94b6b9227b7c251fff82a9d2b8b57b472f5",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_218fbd8af2b927c18716a973",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at\n    ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer\n    ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur\n    vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus.\n    Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus\n    sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus.\n    Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis,\n    eget fermentum sapien.",
+        "text_hash": "76002a3ca579e02cfaa70a5d7fdd89d2e4bb2fb820bcf6240f1cf46a1a0e4508",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_608b1107cfe8222add0fb457",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n    ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n    est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n    tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies\n    lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n    vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n    penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "90c82efe18e665385de0f1ce0f02a008d04542953535258b76840f3f01673b3d",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_387c873c77822384b1364460",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "值得一提的是这条分割线本身并不占用宽度。它置于用 column-gap 创建的间隙内。如果需要更多空间，你需要增加 column-gap 的值。",
+        "text_hash": "e3c3dc6ec98995cd1f50228308c6b23850bacdbe04f0560fdd0059fd212fdfff",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e66db0af2b5d9d5f378b60df",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "列与内容折断",
+        "text_hash": "b827c18966fd9fe8c8f6aa14bf104c71eae8f97e89e245e9d66a5f3317e1367b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_58feb326e7a057ec1179bda2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "多列布局的内容被拆成碎块。和多页媒体上的内容表现大致一样 — 比如打印网页的时候。当你把内容放入多列布局容器内，内容被拆成碎块放进列中，内容折断（译者注：比如断词断句）使得这一效果可以实现。",
+        "text_hash": "096afb10fe1919e78eb3ab6cf97a5c7a7fb2ac4367014c704be35e291b2e3ed7",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_86ae128d1717adee45782aea",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有时，这种折断内容会降低阅读体验。在下面的举例中，我用 multicol 对一系列盒子布局，每一小块里有小标题和和一些文字。标题和文字可能被折断点拆开，从而降低阅读体验。",
+        "text_hash": "341247fbc3e126ff8fc6a90b016f9ced5eb89811d52fc0a003589c5886d15863",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_237ba358a5e7e9af46752939",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_490eea891856ec8c61e38721",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5f80cdb4e7a15a1714ae183e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f973b49d06518bd8c33e3134",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_335f4382829d54460643396d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ece4b83476b882b60ed6a8ff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ca602d7f908caf25e36c7fc8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8e90e354e04dd6ce32bdc25c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d1201cc8b2ce8cfd65d7c08d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_711d6b9517cb7e7895bf4f15",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0562f1a046e3d8463e77fb61",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_043a1bb4d022ba87045b12db",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_95b64501cba7bdc7c65b20f5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_18971a414d511ef9064acfc5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_24f865a623b4d6378b795abe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ab9bc2eb2e8da6129bf9b60f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_65e191f9e342916e62facb9e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  column-width: 250px;\n  column-gap: 20px;\n}",
+        "text_hash": "fc5b5c3be689b6e8a4b4cb49fafbc09a07e34d2169d242b1bfdec3cf872e5e2b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f8d10c3c319ecbe79fa1db8a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".card {\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n  padding: 10px;\n  margin: 0 0 1em 0;\n}",
+        "text_hash": "41d8ac9c6d9fa0e9e38378191fa43fd64110a27bdca4fd41a10837d23d5b2d27",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d8b74b715cb7f7006c05dd51",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设置 break-inside",
+        "text_hash": "0c8b75fe08ed0d0af26263d05d8b4d832ec056609f24566dbcb523b008f913f7",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_b7db4a0db6b838a761c0da2f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们可以使用 CSS Fragmentation 中声明的属性控制这一特性。这份规范提供了一些属性来控制 multicol 和多页媒体中的内容拆分、折断。比如，在规则 .card 上添加属性，并设值 avoid 。.card 是标题和文本的容器，我们不想拆开这个盒子。",
+        "text_hash": "0d67eb047208e75c7501f307f70f5ca1bf64781884241180ad8bb41e89e306d5",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_01ec50f20f18bec3418e50e7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现阶段，增加旧属性 page-break-inside: avoid 能够获得更好的浏览器支持。",
+        "text_hash": "0ebb18abc8e92e231440c1e24c89e7e598d3c2b70e152ddea16ca46a2322841a",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bbe998283518e85559195f86",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.card {\n  break-inside: avoid;\n  page-break-inside: avoid;\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n  padding: 10px;\n  margin: 0 0 1em 0;\n}",
+        "text_hash": "2eacd451260031de6d43edd6d3931c22a3e3c489827c5b27c1b050ac7067876f",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1ffcad0fac7526144ac062d6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "刷新页面，你的盒子就会呆在一起了。",
+        "text_hash": "f29a8cf71d5735501a49cd297a4ee8cf56edafd0b13ad88ee09ffd3d240e5a14",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_21e654ee15692abed42e632f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 2em auto;\n  font:\n    0.9em/1.2 Arial,\n    Helvetica,\n    sans-serif;\n}",
+        "text_hash": "8d462692de0256a7f6b32392215400e12922bdf4da2a5dc155f9f9636aa40623",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_13cb02574eb7b931da6cf510",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f7f4a8ccb2f5c65a668a6ad6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_370cd25e5e2e5646517dd5f2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_12c65c46d9c39660a969c015",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_78245cbe3c178300d52aef79",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_fb70b60cef24ecff9992c1bd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_2b6973719e476e842f9179f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5a4d12adce3af9d9c7f8a7c0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e021e19c229a927a49d63097",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4b3282155a8fa9d4852a91cf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c488c5c8d5511680e890d7c4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e714839ea5a5b9c160ab1b4a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7c8dbb6fcc92567b6cc8ed58",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7a8b674ea0361fd61594c4ab",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am the heading",
+        "text_hash": "cdcbe8af9e8d11b377f8765113d785f4c2fe106cc6e1969442ca63fca8456777",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_78ddacc2fb9053e9678b0d72",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,\n      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.\n      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.",
+        "text_hash": "280ea2e8726cd70c2e6ddfaf849ac2ef61e5c78b4f590abf046811d729c7396b",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0f7c1e56fd070536ec9b7483",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\n.container {\n  column-width: 250px;\n  column-gap: 20px;\n}",
+        "text_hash": "abbbbb48a40c8403f82422e5969ff870933fd40e95eba9aa66e66157fe9d5655",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e944c580b7cd9475762f3313",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "小结",
+        "text_hash": "6bf8bdb1f6eefac69dfc0691f9fa2fa123d921db1a75ed8c06cb86814c72d655",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d4d6bb500c7ec7fc43772fc2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在你知道多列布局的基本用法了，构建页面时又多了一种布局选择。",
+        "text_hash": "488acd6d8eaad578122b4a9bbb43fabce5e68cee78e7755bcf5e37b9413a8db6",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_67c0bc237cacdbf9e24a1aa7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "参考",
+        "text_hash": "c6f305e9b180323becfef75a8d67be74724d55eb89f474e33ff1a45022e84a38",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_0f9bb4c8ce4873c6d1a81573",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS Fragmentation\nUsing multi-column layouts",
+        "text_hash": "542b44b7db2fbbfc8e7cd99b755ae3ecdd584412603d3e49d843043ccbaa3b5a",
+        "variant_version_id": "lrzv_b49152cecd63174252900813"
+      },
+      "type": "unordered_list"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_b49152cecd63174252900813"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_61171b52771ee1ce0c09baac",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。多列布局，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "多列布局，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/multiple-column-layout",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "多列布局"
+  },
+  "resource_id": "lr_9d68abe861c16761bbbc74b9",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_d00dd1d3c78a1df67670388c",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "多列布局",
+    "text_hash": "518d917624a2a9d21829fbef6587e99e70be3239318b83add31f6bf9d48ef75a",
+    "variant_version_id": "lrzv_b49152cecd63174252900813"
+  },
+  "variant_id": "lrz_9b653dba6fc93186a475a179",
+  "variant_version_id": "lrzv_b49152cecd63174252900813",
+  "visual_dependency": "helpful"
+}

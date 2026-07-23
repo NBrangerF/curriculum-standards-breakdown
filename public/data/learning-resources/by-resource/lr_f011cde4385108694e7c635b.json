@@ -1,0 +1,1976 @@
+{
+  "blocks": [
+    {
+      "target_block_id": "lrtb_7ff6041943d163dd2f6dbadb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本文将回顾我们以前模块中已经介绍过的一些 CSS 布局特性——例如不同的值——并介绍我们将在本模块中使用的一些概念。",
+        "text_hash": "fbd0c5732dc352cbbae4750b80cbe0625e9745c6402c1ad57ff131b840ea0bd1",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c0ccbd96da1f4816172f29cb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "前提：",
+        "text_hash": "60df7f5b49d0fd69c1a1ee4bda41ede8b786ae9d162b8a9a73e264bbf703119b",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5ae4f83f6e409fb805ca77fd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对 HTML 有一些基本的了解 (学习“ HTML 介绍 ”), 并且理解 CSS 的工作原理 (学习“ CSS 介绍 ”).",
+        "text_hash": "9ac1d5e0a9aaead9849a952f4e3be7a2e496af2bf2f46cbd31c0354715d33c57",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6b0028a491c7a6ead99a55a3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "目标：",
+        "text_hash": "4d2d25a2888d3e7c13db6b2e275e0179ab434807992666123db412d5f31e27a0",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_108122f44486289f13315cc7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "对 CSS\n        页面布局技术有一个总体的了解。每种技术都能够在后面的教程中获取到更加详细的信息。",
+        "text_hash": "b149f4242e80f835330abca6a05bee3f3ea2eedadca2a4eb834cd631f51f383c",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ac12c5f23460900540ea53b3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "CSS 页面布局技术允许我们拾取网页中的元素，并且控制它们相对正常布局流、周边元素、父容器或者主视口/窗口的位置。在这个模块中将涉及更多关于页面布局技术的细节：",
+        "text_hash": "8f2732dd65a433b53c1dcb69d1d8d73db6b99c3b09f009ca9aa4ede49194bc81",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_95f73472d223fab240ede3f6",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "正常布局流\n属性\n弹性盒子\n网格\n浮动\n定位\nCSS 表格布局\n多列布局",
+        "text_hash": "f1244db4fd5d8e56274dee55fbc0defcc6e8f1ff215ef4663dded834fa016195",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_d911e46c8eba5ae0c1cc8463",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "每种技术都有它们的用途，各有优缺点，相互辅助。通过理解各个布局方法的设计理念，你能够找到构建你想要的网页需要的布局方案。",
+        "text_hash": "ac0998b32da3bce6046e5db5d6fb699886d93176e86551ee43fcb204334973d5",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6568a63561f1bf0da9bae4bc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "正常布局流",
+        "text_hash": "3270c5eb68c8329c93b533a756262789cd14cd0d015eea183e5a9b6b854d7cc6",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_67de22940efb50b139d5016d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "正常布局流（normal flow）是指在不对页面进行任何布局控制时，浏览器默认的 HTML 布局方式。让我们快速地看一个 HTML 的例子：",
+        "text_hash": "92d54d43db295c750773546fdd575f41509226d7d72b014f2a9e25963c0569f0",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_18e61ebd7b6972b8b9612ebd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n I love my cat.",
+        "text_hash": "f2eab77d82b547f4ff509f186809bbe639b5b6f6acedcbbe090d48d1f8d453b7",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4b75893ed92e9297da565a68",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Buy cat food\n   Exercise\n   Cheer up friend",
+        "text_hash": "27153961f7d5ac42d45d21b582145139cabdf2cf2da5aa79c03b5257110c16ee",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1f3d469f1a554340e0b30e06",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "The end!",
+        "text_hash": "0cc19f90b851742a064b3a19f7183bbfe2bc4312ac6f2630a6c60fdd315fe4b8",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cf4a0a30c52c3543a0e80432",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "默认情况下，浏览器的显示如下：",
+        "text_hash": "93571370a308e73567e4517cb589b7a28d1c643c39d016fbf7204338da192f20",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_71eec49149795e6da7592b23",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "注意，HTML 元素完全按照源码中出现的先后次序显示——第一个段落、无序列表、第二个段落。",
+        "text_hash": "5dd09cab9b2f9cbb0616958c7071aa8775fd5fbfe5edf494322fa9e13a3cec4d",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f8705bffb2a6e84ff41eb9f1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "出现在另一个元素下面的元素被描述为**块**元素，与出现在另一个元素旁边的**内联元素**不同，内联元素就像段落中的单个单词一样。",
+        "text_hash": "f0404e2ab33015a1cbaaef6be09a372cbfe6372094379926d6ed72baefb4a19b",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0423ffaf5a1da3fce221e7b1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n块元素内容的布局方向被描述为**块方向**。块方向在英语等具有水平**书写模式**(writing mode) 的语言中垂直运行。它可以在任何垂直书写模式的语言中水平运行。对应的**内联方向**是内联内容（如句子）的运行方向。",
+        "text_hash": "14cb883c942da46775d45b8e069c52393cef49b8769c69bb527342d9759457b3",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_1f75f68c5cefff7a010d85b3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "当你使用 css 创建一个布局时，你正在离开**正常布局流**，但是对于页面上的多数元素，**正常布局流**将完全可以创建你所需要的布局。从一个结构良好的 Html 文档开始是非常重要，因为你可以按照默认的方式来搭建页面，而不是自造车轮。",
+        "text_hash": "fd15a346a058638962db3beafebfc34a9f24b8a625cc2e4f603a883e6a58517c",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_898b780dc67dc04e8236effc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下列布局技术会覆盖默认的布局行为：",
+        "text_hash": "39414484e8684cc4a502c71512129c9c15ef82fdb244e696402cdcf8d3bd8c6c",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a18f2364248f55d6588ea572",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**** 属性 — 标准的 value，比如block, inline 或者 inline-block 元素在正常布局流中的表现形式 (见 Types of CSS boxes). 接着是全新的布局方式，通过设置display的值，比如 CSS Grid 和 Flexbox.\n**浮动**——应用 **** 值，诸如 left 能够让块级元素互相并排成一行，而不是一个堆叠在另一个上面。\n**** 属性 — 允许你精准设置盒子中的盒子的位置，正常布局流中，默认为 static ，使用其他值会引起元素不同的布局方式，例如将元素固定到浏览器视口的左上角。\n**表格布局**— 表格的布局方式可以用在非表格内容上，可以使用display: table和相关属性在非表元素上使用。\n**多列布局**— 这个 Multi-column layout 属性可以让块按列布局，比如报纸的内容就是一列一列排布的。",
+        "text_hash": "f9cbb34bdf4d1da38127340204a857efd5560882f1b576162a000313577ec3d6",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_4be69397075f9b30366c566e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "display 属性",
+        "text_hash": "86b3c3253366a15ed215e0dc202d6d44449942a9643fa6cb6e4099088eec1d4d",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_e696e23f69cd0d9ed028de09",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在 css 中实现页面布局的主要方法是设定display属性的值。此属性允许我们更改默认的显示方式。正常流中的所有内容都有一个display的值，用作元素的默认行为方式。例如，英文段落显示在一个段落的下面，这是因为它们的样式是display:block。如果在段落中的某个文本周围创建链接，则该链接将与文本的其余部分保持内联，并且不会打断到新行。这是因为元素默认为display:inline。",
+        "text_hash": "fe68574b9545400ea2e2bbd47852fad304993c159e68d8b2626b351352ddc5ca",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1f3215c5447b504156764cf8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以更改此默认显示行为。例如，元素默认为display:block，这意味着在我们的英文文档中，列表项显示为一个在另一个之下。如果我们将显示值更改为inline，它们现在将显示在彼此旁边，就像单词在句子中所做的那样。事实上，你可以更改任何元素的display值，这意味着你可以根据它们的语义选择 html 元素，而不必关心它们的外观。他们的样子是你可以改变的。",
+        "text_hash": "af8938278d15e8644d75b2eaa60476216c9b351b55c4beaf0f02b2fda363e1a6",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_78be2edb79af9a588bfe1d47",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "除了可以通过将一些内容从block转换为inline（反之亦然）来更改默认表示形式之外，还有一些更大的布局方法以display值开始。但是，在使用这些属性时，通常需要调用其他属性。在讨论布局时，对我们来说最重要的两个值是 display: flex 和 display: grid。",
+        "text_hash": "431e741204aed51cb595bdaf7c9ffeb05b9b16bcf270902716b1461c4a0188d9",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_11097ad17bf29cb7f118d7c3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "弹性盒子",
+        "text_hash": "8956758c3f9f7a9a102fc73c2be90744b87098fbf5ab3b3dd4506ec1a568b0fa",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a9236544eaf3de0555ad21d7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Flexbox 是 CSS 弹性盒子布局模块（Flexible Box Layout Module）的缩写，它被专门设计出来用于创建横向或是纵向的一维页面布局。要使用 flexbox，你只需要在想要进行 flex 布局的父元素上应用display: flex ，所有直接子元素都将会按照 flex 进行布局。我们来看一个例子。",
+        "text_hash": "d3980ba06e3da88501d6a3c9b4689413d0255d4de5145cf068ec9b6b57c9afe4",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a918795d798bcf97397055ee",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设置 display:flex",
+        "text_hash": "cb5e665b87cbabbb504125304be0f2c20da3c77b2b8b67f2b87bb53c7900abfd",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f695264a82ab3790ecfa0659",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下面这些 HTML 标记描述了一个 class 为wrapper的容器元素，它的内部有三个 元素。它们在我们的英文文档当中，会默认地作为块元素从上到下进行显示。",
+        "text_hash": "ad2331de34ce6c5cfd08c258d0c8d5a082678460154a2cbd14609bfc08fe994e",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bf140d87811c68dc272cff81",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在，当我们把display: flex添加到它的父元素时，这三个元素就自动按列进行排列。这是由于它们变成了*flex 项 (flex items)*，按照 flex 容器（也就是它们的父元素）的一些 flex 相关的初值进行 flex 布局：它们整整齐齐排成一行，是因为父元素上flex-direction的初值是row。它们全都被拉伸至和最高的元素高度相同，是因为父元素上align-items属性的初值是stretch。这就意味着所有的子元素都会被拉伸到它们的 flex 容器的高度，在这个案例里就是所有 flex 项中最高的一项。所有项目都从容器的开始位置进行排列，排列成一行后，在尾部留下一片空白。",
+        "text_hash": "6a346ecf2f30dd6493baca6eabc62fb4f989c9b789bdacdb1e13241935551059",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4ca3afb5e1a03ae5b425db3b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\n{\n  box-sizing: border-box;\n}",
+        "text_hash": "93627571928f67f39b83b9a635a042bcca296c37b1bbbbc8b4aad880c41de41f",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3d172acedefe3c32b6c51e19",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper > div {\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "367b9cd0f9cde2ec507dbcae9bda5628c44f34db5bc4c91a34c96cfef9b5440e",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5451150e7bf6fdebee9fcc66",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.wrapper {\n  display: flex;\n}",
+        "text_hash": "bd302082deae58b486654f02efa1cddc42d644f66648f4be20040bec3b4835fa",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1c3c20a46e0304e7f6dfb6fc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_05da53411c5d2f5f56335220",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "One\n   Two\n   Three",
+        "text_hash": "541e0897d759133aca20e77358278cf2dadd649d7ccc2874278ded7d6dc72386",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a98269a2f8e1d3457cd7dea1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设置 flex 属性",
+        "text_hash": "1857e40e128d873ec7c687e0366d89a9bd5bb1a9e2b00f8846343eae626d3cf0",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_df2e349e912667cee5c50f97",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "除了上述可以被应用到 flex 容器的属性以外，还有很多属性可以被应用到 flex 项 (flex items) 上面。这些属性可以改变 flex 项在 flex 布局中占用宽/高的方式，允许它们通过伸缩来适应可用空间。",
+        "text_hash": "21cb2f31d2612d4d4ff937ba806ba16ed6319c0a51d1a3554ffcf5c3b4038ebf",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d1bf3d3ba04ebad139d11b9b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "作为一个简单的例子，我们可以在我们的所有子元素上添加 属性，并赋值为1，这会使得所有的子元素都伸展并填充容器，而不是在尾部留下空白，如果有更多空间，那么子元素们就会变得更宽，反之，他们就会变得更窄。除此之外，如果你在 HTML 标记中添加了一个新元素，那么它们也会变得更小，来为新元素创造空间——不管怎样，最终它们会调整自己直到占用相同宽度的空间。",
+        "text_hash": "08dcc92ccfe26ed040b39e8c54e0c3e47c38c7ddc6dec0690ebb2cdcab309cf0",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_468ae8589f98711a14ab4443",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\n{\n  box-sizing: border-box;\n}",
+        "text_hash": "93627571928f67f39b83b9a635a042bcca296c37b1bbbbc8b4aad880c41de41f",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_def810ea1c35439f5d6ec47e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper > div {\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "367b9cd0f9cde2ec507dbcae9bda5628c44f34db5bc4c91a34c96cfef9b5440e",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_31c5b7f53ed7a81a1a1a757d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.wrapper {\n  display: flex;\n}",
+        "text_hash": "bd302082deae58b486654f02efa1cddc42d644f66648f4be20040bec3b4835fa",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_130e44ac3a67685aa59e7450",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper > div {\n  flex: 1;\n}",
+        "text_hash": "08eeccbb6b993e272995e4dda0f4d36034c87870e2bd3a5f85ad49bbbc3ddafa",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4a3356c250181628d0d0bc39",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c424633b78fd35b3d8ef646a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "One\n   Two\n   Three",
+        "text_hash": "541e0897d759133aca20e77358278cf2dadd649d7ccc2874278ded7d6dc72386",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7c62cfe3586242c983f942a4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n为了找到更多关于 Flexbox 的信息，看看我们的 Flexbox 的文章。",
+        "text_hash": "5fbbbf9455b5bdcb35b9761c3fefaf49e2e44519d8e755c137116dd868fa9af9",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_b7dc0ef6bb186c56395a9516",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Grid 布局",
+        "text_hash": "0f5ec5a5129659860047a71cffb075bddb0e3d864e83ca919000b8d2bb0272b2",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_71857cdcbe09a7bae6fdef84",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Flexbox 用于设计横向或纵向的布局，而 Grid 布局则被设计用于同时在两个维度上把元素按行和列排列整齐。",
+        "text_hash": "37e85482f21d9ca420dd658919022b25a416adda53dd59d48bc678e9acee3feb",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ba6e49b04592a5cf4b3ca000",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "设置 display: grid",
+        "text_hash": "de8119704d8a7e9e8fc8d367a48a23393da76fe5a114b8959e9f800e2e9af546",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8cc747747040c1bb4f375f2f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "同 flex 一样，你可以通过指定 display 的值来转到 grid 布局：display: grid。下面的例子使用了与 flex 例子类似的 HTML 标记，描述了一个容器和若干子元素。除了使用display:grid，我们还分别使用  和  两个属性定义了一些行和列的轨道。定义了三个1fr的列，还有两个100px的行之后，无需再在子元素上指定任何规则，它们自动地排列到了我们创建的格子当中。",
+        "text_hash": "b31f8e7f80bf1f43c0c20c7bae145706d47e1cd4ae35a0419cd53bd6ba15416b",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d7f528abbe16a0fc60af9f5c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\n{\n  box-sizing: border-box;\n}",
+        "text_hash": "93627571928f67f39b83b9a635a042bcca296c37b1bbbbc8b4aad880c41de41f",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_39a5c67ac789726fdda737d7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper > div {\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "367b9cd0f9cde2ec507dbcae9bda5628c44f34db5bc4c91a34c96cfef9b5440e",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6f88946444e8c9a858a416bb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.wrapper {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  grid-template-rows: 100px 100px;\n  grid-gap: 10px;\n}",
+        "text_hash": "fd78f5264216058799620ac20e50236b0d9f6acac8ec01aed4fafad770472c81",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7e3ec10b2d376e7a043af4a4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d33618dc00d02d0d554bd4ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "One\n   Two\n   Three\n   Four\n   Five\n   Six",
+        "text_hash": "b96931c73fde838cb77ce648b1a6096d630df7f1c5c6945ef8de5e3ba8ee2cee",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_95af4a1534625f181dcc5604",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在网格内放置元素",
+        "text_hash": "b236c6496c5af9ca57907c383b1ec1de1f6e6061eeb77d19e7acc7f8ef02285b",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_da30903450d1f1021eac8551",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一旦你拥有了一个 grid，你也可以显式地将元素摆放在里面，而不是依赖于浏览器进行自动排列。在下面的第二个例子里，我们定义了一个和上面一样的 grid，但是这一次我们只有三个子元素。我们利用  和  两个属性来指定每一个子元素应该从哪一行/列开始，并在哪一行/列结束。这就能够让子元素在多个行/列上展开。",
+        "text_hash": "3f3a30469a52085966a389dd67603ee5445fce119f6bcc5a6d8a5d3b57298159",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_03f0c6a1daa8ac759f9d16d0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\n{\n  box-sizing: border-box;\n}",
+        "text_hash": "93627571928f67f39b83b9a635a042bcca296c37b1bbbbc8b4aad880c41de41f",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c2d51387e17f4bf6c50a0566",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".wrapper > div {\n  border-radius: 5px;\n  background-color: rgb(207, 232, 220);\n  padding: 1em;\n}",
+        "text_hash": "367b9cd0f9cde2ec507dbcae9bda5628c44f34db5bc4c91a34c96cfef9b5440e",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8fdb426dc69a94dc7d48fd46",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.wrapper {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n  grid-template-rows: 100px 100px;\n  grid-gap: 10px;\n}",
+        "text_hash": "fd78f5264216058799620ac20e50236b0d9f6acac8ec01aed4fafad770472c81",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d42ecb9a8ce9eabb183d5aff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box1 {\n  grid-column: 2 / 4;\n  grid-row: 1;\n}",
+        "text_hash": "e8d40df7cc1fae917afc8c26b09f75183b42837e16e2871b2a782029509e501c",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_dcf7871abe95168497c63550",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box2 {\n  grid-column: 1;\n  grid-row: 1 / 3;\n}",
+        "text_hash": "c7fff5542ba6564896f7ad97840833a2b10bb99b7113582da55ec62b2bc4b5ce",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ec58a5d18867e9d84871e539",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box3 {\n  grid-row: 2;\n  grid-column: 3;\n}",
+        "text_hash": "ad6bdd40c421f55255709d83b7336d8e714b3e3aeb383cb2f73afd7056263528",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_250fb8c5a9ea21ebefd4507d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b8e8221f2d170c1d04fc590e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "One\n   Two\n   Three",
+        "text_hash": "541e0897d759133aca20e77358278cf2dadd649d7ccc2874278ded7d6dc72386",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_66651509eed1f6d9079bb085",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n这两个例子只是展示了 grid 布局的冰山一角，要深入了解 grid 布局，请参阅我们的文章Grid Layout。",
+        "text_hash": "f1e390778fd665dd763c4d03700439a536d3f0c4788706aa577be36165e0a6cb",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_90e96b694d1ce7dc24ae3784",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这篇指南的其余部分介绍了其他的布局方式，它们与你的页面的主要布局结构关系不大，但是却能够帮助你实现特殊的操作。同时，只要你理解了每一个布局任务的初衷，你就能够马上意识到哪一种布局更适合你的组件。",
+        "text_hash": "2482e421ec9d1dc3c229df3532c0542b696050fcf25ec033f5923a79116c920f",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_40a82efaeae7bd7789f8d336",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "浮动",
+        "text_hash": "f319bfb3372aa61e176b8b8942ed41327d413d204e580894da43608bae7437e2",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_a6e2d37212233ae8ad2a3ef9",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "把一个元素“浮动”(float) 起来，会改变该元素本身和在正常布局流（normal flow）中跟随它的其他元素的行为。这一元素会浮动到左侧或右侧，并且从正常布局流 (normal flow) 中移除，这时候其他的周围内容就会在这个被设置浮动 () 的元素周围环绕。",
+        "text_hash": "87bc74a48768cdd1aa35ce2bac417b2bb623079e06d14315572cf28c1b501b94",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cc9f48d054b6e21f9ee1aeed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "属性有四个可能的值：",
+        "text_hash": "275916007acca00cc612b87c42ed1d5b859706d59d73efe7972e386b211008ab",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_352e44842e75c1e04a800f07",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "left — 将元素浮动到左侧。\nright — 将元素浮动到右侧。\nnone — 默认值，不浮动。\ninherit — 继承父元素的浮动属性。",
+        "text_hash": "1d444d2c36f458f7820f604c56c930ae566ea7386bcaeeab34228e1799603cdb",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_037ffb0cc7bb7b098ad0c218",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在下面这个例子当中，我们把一个 元素浮动到左侧，并且给了他一个右侧的，把文字推开。这给了我们文字环绕着这个 元素的效果，在现代网页设计当中，这是你唯一需要学会的事情。",
+        "text_hash": "bce6f954836dbf7a396122236e57ca2745a24b1457aa4eb089563d937b429ca9",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_68774726e418ebf4a01f502a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 90%;\n  max-width: 900px;\n  margin: 0 auto;\n}",
+        "text_hash": "f96f0e4fea93aab006a47e64b82e7a5a2073337e09ffb4ddbe0e2052cbdcd436",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bf1cc00825dc2b282fdffd2e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p {\n  line-height: 2;\n  word-spacing: 0.1rem;\n}",
+        "text_hash": "0cf5398348e9f7ad4e3c2fef10cb28ba49ae3d29e556fe1b04bfbf0280eac143",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_21e85c29f4811aa15e69632b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".box {\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n  padding: 10px;\n  border-radius: 5px;\n}",
+        "text_hash": "669142bb62b579468ad333da2fb0fc81c96cb83d1a34fa43f64946e0d1e56a8d",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c9beac61e6ee37937907a86a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Simple float example",
+        "text_hash": "cecd3501cdb25b725be9c42b7e0e87e4e2e80738557e2f1949bed10514ce9059",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_266f1b2a7755fbfb35e1fc93",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Float",
+        "text_hash": "1a693c00c40cc749294b6c88a58f62250fa3fba10d6e406567ce2bae2e572661",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3be3058da1ad3d29c274a841",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus\n  ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus\n  laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum,\n  tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus\n  neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat\n  volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros\n  pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec\n  lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "5fa54c4ad33e3cc2e98867e33b5a66bc4a422049a1de5e0f071f54ce07fa9ab4",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_20ad41317e659da30cd95509",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.box {\n  float: left;\n  width: 150px;\n  height: 150px;\n  margin-right: 30px;\n}",
+        "text_hash": "296fda30ee038feefed284b6dc28923a4d009c11cbb5da8e6620b507bead87b7",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a9cc437dff24e37ac7fcb725",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\nCSS 浮动的知识会在我们关于 浮动的教程当中被详细地解释。除此之外，如果你想要了解在 Flexbox 和 Grid 布局出现之前我们是如何进行列布局的（仍然有可能碰到这种情形），请阅读我们关于传统布局方式的文章。",
+        "text_hash": "9d54379e8fea39443a7eb9aaee9dddd937146d9cb20e44a75e3d05b8825833b5",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_4d4b79f272ce135547e9f9b1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "定位技术",
+        "text_hash": "7a20560e0c957fa76f1cde83411eeca98875b1d53625a4e285665b53796f7edb",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_aa9fbcd3dad26d905eb89f8b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "定位 (positioning) 能够让我们把一个元素从它原本在正常布局流 (normal flow) 中应该在的位置移动到另一个位置。定位 (positioning) 并不是一种用来给你做主要页面布局的方式，它更像是让你去管理和微调页面中的一个特殊项的位置。",
+        "text_hash": "36ed7b106df1152cf114e515b6b8fcfad7c00a04bfbe8ead93b7c14618973f64",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_11c1f7267078b16d95193f5a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有一些非常有用的技术在特定的布局下依赖于属性。同时，理解定位 (positioning) 也能够帮助你理解正常布局流 (normal flow)，理解把一个元素移出正常布局流 (normal flow) 是怎么一回事。",
+        "text_hash": "95881c6f660be500101c86df48393bdaa8ef30604745f7d3c45b5ebf5cd327da",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_42d0a64511870b5bec16bdd4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "有五种主要的定位类型需要我们了解：",
+        "text_hash": "bfc65cffcf3a99b10a08c9c2c8c5f0a540cb495b5adb2910d396087fddf065fc",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_36f452ab134f23d68c14bf19",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "**静态定位**（Static positioning）是每个元素默认的属性——它表示“将元素放在文档布局流的默认位置——没有什么特殊的地方”。\n**相对定位**（Relative positioning）允许我们相对于元素在正常的文档流中的位置移动它——包括将两个元素叠放在页面上。这对于微调和精准设计（design pinpointing）非常有用。\n**绝对定位**（Absolute positioning）将元素完全从页面的正常布局流（normal layout flow）中移出，类似将它单独放在一个图层中。我们可以将元素相对于页面的   元素边缘固定，或者相对于该元素的*最近被定位祖先元素*（nearest positioned ancestor element）。绝对定位在创建复杂布局效果时非常有用，例如通过标签显示和隐藏的内容面板或者通过按钮控制滑动到屏幕中的信息面板。\n**固定定位**（Fixed positioning）与绝对定位非常类似，但是它是将一个元素相对浏览器视口固定，而不是相对另外一个元素。这在创建类似在整个页面滚动过程中总是处于屏幕的某个位置的导航菜单时非常有用。\n**粘性定位**（Sticky positioning）是一种新的定位方式，它会让元素先保持和 position: static 一样的定位，当它的相对视口位置（offset from the viewport）达到某一个预设值时，它就会像 position: fixed 一样定位。",
+        "text_hash": "31ac14a581443e6c2d1f25f0fd579e98d0b11129bdfc03fa626145a1d1e8c0ed",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "unordered_list"
+    },
+    {
+      "target_block_id": "lrtb_0e49149b963d5b5188d50aa8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "简单定位示例",
+        "text_hash": "c16197da59885a3f2ce91a7b2312d2ab8da601c98bba7d3525a20203c185317e",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_894b7e870686996684efb0ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们将展示一些示例代码来熟悉这些布局技术。这些示例代码都作用在下面这一个相同的 HTML 上：",
+        "text_hash": "34c927e2444668b4b1b76fd4501f30414bc36965416f010f05eb73235eeef0da",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6021c413ab591787ae18df6a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Positioning",
+        "text_hash": "3ab2ccbfd3576e95d730d5fdcd09aa0deecbb57d668ba499effcac3107b45de5",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_82d70ca109ababbbce2cc445",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am a basic block level element.\n I am a basic block level element.\n I am a basic block level element.",
+        "text_hash": "d9b18737c08d74ed676312733bd472cfea15b0b01fb9d8f5043ec1ff287965fc",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_85aeb7a255e3502e5c08d8ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "该 HTML 将使用以下 CSS 默认样式：",
+        "text_hash": "88ab1a0f45a9f8515e2e8a93b807fac2ef01d0fbfb291865745483f16a9e7df9",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b2e0f1a78207675bbcf97678",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nbody {\n  width: 500px;\n  margin: 0 auto;\n}",
+        "text_hash": "acede2712ed262081b8217c91e093636c21386796e87b698b3bd71b3fc5e3109",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_309a0003492a1eae81eff56e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p {\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n  padding: 10px;\n  margin: 10px;\n  border-radius: 5px;\n}",
+        "text_hash": "4f6bcee7dc777c995c156cd47e2d94e1297b3fd108542bc8968b356158461a68",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_71c60993c54540279cc12051",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "渲染效果如下：",
+        "text_hash": "45c014e36b2cea2955c3d6b6e6f6b047012b095e4af50d30dff0c0f93276853f",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e771e522f8f230d2d05587bb",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "相对定位",
+        "text_hash": "0eb6600f5b3087ef4ef05497abffc96289cb1eb3234e5051e50aae57755408f1",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_f24468c11daf1951d8b2c5ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "相对定位 (relative positioning) 让你能够把一个正常布局流 (normal flow) 中的元素从它的默认位置按坐标进行相对移动。比如将一个图标往下调一点，以便放置文字。我们可以通过下面的规则添加相对定位来实现效果：",
+        "text_hash": "8cf29fd81fde29f6bd9bb6e52f3c85c4e64553dc67d59ef41c8a53ace7d0d09e",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3c51b79649ea267e3fd7a480",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.positioned {\n  position: relative;\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "9458ebfaf4e3c638495776d535822180ad4b918d954d3f0bac4a436e98295a7b",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ec3b5bf7747f7dd765b7173e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里我们给中间段落的 一个 relative值——这属性本身不做任何事情，所以我们还添加了和属性。这些可以将受影响的元素向下向右移——这可能看起来和你所期待的相反，但你需要把它看成是左边和顶部的元素被“推开”一定距离，这就导致了它的向下向右移动。",
+        "text_hash": "f8cd4675a8875519487262b77d0b767d32263e2770c728c4dde2a4fbcf4b90c8",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_55b0f56a2e2fd39b08af7b3a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "添加此代码将给出以下结果：",
+        "text_hash": "f0e7d52c8491de68d9c61fcfdb12aa5841a8b6f5a13351c7b447b6dda14bdae3",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7ad2fdab8aeaa11bbf53c8b7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Relative positioning",
+        "text_hash": "00d3240c6dc24facb65d8d30458cf0eee7e2e3a73fe7cc0b32cc69ad648fd83c",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c5e1dec7872f9af892266592",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am a basic block level element.\n This is my relatively positioned element.\n I am a basic block level element.",
+        "text_hash": "f4babd3266a6f1821f8bae5091b5e754d16a5f2a93457c5e210cd98356e47e12",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_47090dfa10f2c4276b0031ff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  margin: 0 auto;\n}",
+        "text_hash": "9097aeedd52123c11538e03bbb1a81d3333311636149eabad5644ed9d791b6e9",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_160418b991d1013121b08fec",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p {\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n  padding: 10px;\n  margin: 10px;\n  border-radius: 5px;\n}",
+        "text_hash": "4f6bcee7dc777c995c156cd47e2d94e1297b3fd108542bc8968b356158461a68",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_649fc764bac5c82296934429",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.positioned {\n  position: relative;\n  background: rgba(255, 84, 104, 0.3);\n  border: 2px solid rgb(255, 84, 104);\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "8b2f4cf43a446ea157101ae7e88ba9827b66e5eae8be478833881192b15b34e2",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9109d8d4db525b606e44c5f4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "绝对定位",
+        "text_hash": "a639dd9be3d2fe1911f17b4bc95a780844fcf5cbaff554e3f0e8b2eab3988dd8",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_8279cfd716ab11700d00d6ad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "绝对定位用于将元素移出正常布局流 (normal flow)，以坐标的形式相对于它的容器定位到 web 页面的任何位置，以创建复杂的布局。有趣的是，它经常被用于与相对定位和浮动的协同工作。",
+        "text_hash": "b67bd884f6c913197d87b91329b95568ae0b817335e9572e0e72ee4418bf93d1",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_31bba2f9c22978eea9e96e3d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "回到我们最初的非定位示例，我们可以添加以下的 CSS 规则来实现绝对定位：",
+        "text_hash": "fa7826dafa93fabac711bfa607ade71ad7808aedc9caf4d2613e73e13f3738ea",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_af5caf6b3d1f9d1b2bebe125",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.positioned {\n  position: absolute;\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "290502a88e7323a110780489a280619510aa7af22b7a1315d274804bf394e5cf",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ec5df5ee664dcbd236efd21d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这里我们给我们的中间段一个的 absolute值，并且和前面一样加上  和 属性。但是，添加此代码将给出以下结果：",
+        "text_hash": "ff4abc66ec20a0f69a1da6d7a2f014c89ffc00e415d185c695989e65c980cd5a",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f9922046b369781b17802e66",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Absolute positioning",
+        "text_hash": "c106351d7eeec941496ad837e1bb57986d4af0a082eb293bd2b64f22e77c7cac",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b8160e4477cd516a779c3e6d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "I am a basic block level element.\n This is my absolutely positioned element.\n I am a basic block level element.",
+        "text_hash": "50b5f3a29f4894108bfbea2527b921807be94b5d041f69405241a19733b43130",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ec274ee8b38868b8a7899091",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  margin: 0 auto;\n}",
+        "text_hash": "9097aeedd52123c11538e03bbb1a81d3333311636149eabad5644ed9d791b6e9",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_b9bc00183e55b0492f7e8bb4",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "p {\n  background-color: rgb(207, 232, 220);\n  border: 2px solid rgb(79, 185, 227);\n  padding: 10px;\n  margin: 10px;\n  border-radius: 5px;\n}",
+        "text_hash": "4f6bcee7dc777c995c156cd47e2d94e1297b3fd108542bc8968b356158461a68",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7b0910ecc727b3a23147f8ed",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.positioned {\n  position: absolute;\n  background: rgba(255, 84, 104, 0.3);\n  border: 2px solid rgb(255, 84, 104);\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "ce02d6acc6e25e5ec673c60b7b1244673553dc75351fdc884f06d255efda5760",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f380935955e9628a3e70c16c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "这和之前截然不同！定位元素现在已经与页面布局的其余部分完全分离，并位于页面的顶部。其他两段现在靠在一起，好像之前那个中间段落不存在一样。和属性对绝对位置元素的影响不同于相对位置元素。在这一案例当中，他们没有指定元素相对于原始位置的移动程度。相反，在这一案例当中，它们指定元素应该从页面边界的顶部和左边的距离 (确切地说，是  元素的距离)。我们也可以修改作为容器的那个元素（在这里是 元素），要了解这方面的知识，参见关于定位 (positioning)的课程",
+        "text_hash": "628d513a204bd167f385abeb0f6e66f31568922200654ef663a4de6dd3c356b6",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3dd72538476d94e7a76babb2",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们现在暂时不讨论固定定位（fixed positioning）——它基本上以相同的方式工作，除了它仍然固定在浏览器窗口的边缘，而不是它定位的父节点的边缘。",
+        "text_hash": "0d7bb747375c65b2bb19722cea217d1a73b74b8c4ecf8e46a47ff904caf07cca",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_86cbea7b5970a76e933018fc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "固定定位",
+        "text_hash": "148f23f61b318e81eb06276d67c9098f48f0dbdca117cfb6163336520c5385a1",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_3117e00a018391a25c356da1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "固定定位 (fixed positioning) 同绝对定位 (absolute positioning) 一样，将元素从文档流 (document flow) 当中移出了。但是，定位的坐标不会应用于\"容器\"边框来计算元素的位置，而是会应用于视口 (viewport) 边框。利用这一特性，我们可以轻松搞出一个固定位置的菜单，而不受底下的页面滚动的影响。",
+        "text_hash": "fb83bd439c32838d937c68b98a361bb2887e8d538b2fa4fa7530d6591144410e",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9831c1585eb4764493aee7b3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在这个例子里面，我们在 HTML 加了三段很长的文本来使得页面可滚动，又加了一个带有position: fixed的盒子。",
+        "text_hash": "5c547970b59300bdf4e42d14cc1e9a2f9ea2e829ecba25a2b4e1ff661a85f7f8",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_4412debafc52b9c996df1277",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html\n Fixed positioning",
+        "text_hash": "9d95f728fcbd732eeb27e433c4ca611fee37f1eb19e91db1b7f1bbfac78d8a4f",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5b22f7236ce025de921e93a1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Fixed",
+        "text_hash": "1246fc93bca00b90d0fcaf2f7b7b41546f08817ce552c25eabc7dca19181c65a",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bd372ca252da38c98eda7c32",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Paragraph 1.\n Paragraph 2.\n Paragraph 3.",
+        "text_hash": "1a07618b3e48cba91bc377f780bb5b37c0a4c10625c033ef330dec30e96a0686",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_0fb0afc5126fd40c54d0f812",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Fixed positioning",
+        "text_hash": "b588890699027a1f92f90bbdc86ae51a531f86c15d910fc7e2994e5704265478",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c48db2c04458c54521c0f516",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Fixed",
+        "text_hash": "1246fc93bca00b90d0fcaf2f7b7b41546f08817ce552c25eabc7dca19181c65a",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_96f9a915f8a3b526272c1326",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus\n  ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus\n  laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum,\n  tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus\n  neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat\n  volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros\n  pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec\n  lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "5fa54c4ad33e3cc2e98867e33b5a66bc4a422049a1de5e0f071f54ce07fa9ab4",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5ef3d1b027cd4756e1c6bd38",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7efed9ea623f298d0962d2f0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus\n  ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus\n  laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum,\n  tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus\n  neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat\n  volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros\n  pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec\n  lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "5fa54c4ad33e3cc2e98867e33b5a66bc4a422049a1de5e0f071f54ce07fa9ab4",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_59c0a893860c5f6e6e8b6426",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  margin: 0 auto;\n}",
+        "text_hash": "9097aeedd52123c11538e03bbb1a81d3333311636149eabad5644ed9d791b6e9",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_084d603d132050e765df438e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".positioned {\n  background: rgba(255, 84, 104, 0.3);\n  border: 2px solid rgb(255, 84, 104);\n  padding: 10px;\n  margin: 10px;\n  border-radius: 5px;\n}",
+        "text_hash": "4d48eaa01e73a48ac28103d2aba8a96ba56f6d01f7f49f6813ec7459cc0bd734",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_240fd30f6017bfea2b89a876",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.positioned {\n  position: fixed;\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "93e245b4e0023ace3e095f7ed6ec44d271c67e90ac6b2a7abe53bdcf77cceee0",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_ed4a55870fea251ef8335e6b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "粘性定位",
+        "text_hash": "a8246dbf44174e43659dda69961c142210b96de06bda49323c122e0093c734aa",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_bfb083e005a2f0ba551db0cd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "粘性定位 (sticky positioning) 是最后一种我们能够使用的定位方式。它将默认的静态定位 (static positioning) 和固定定位 (fixed positioning) 相混合。当一个元素被指定了position: sticky时，它会在正常布局流中滚动，直到它出现在了我们给它设定的相对于容器的位置，这时候它就会停止随滚动移动，就像它被应用了position: fixed一样。",
+        "text_hash": "64ee7568afa4ba617f6e5063c3e7eb88d4a663f51dee7bd201a8f4a08fd52ba1",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_82c9caf3db8c260f6f10a87e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden\n Sticky positioning",
+        "text_hash": "90c668d83096da8611e9feba6486a8458271cd114ee359922c97beb390cd59c0",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_3a2581f5ccc8b62c08fce77d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus\n  ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus\n  laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum,\n  tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus\n  neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat\n  volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros\n  pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec\n  lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "5fa54c4ad33e3cc2e98867e33b5a66bc4a422049a1de5e0f071f54ce07fa9ab4",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c36d236b06de158abc08af51",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Sticky",
+        "text_hash": "8747176853dbc234a9425ebc9dc231c5bf734107b8a475785b9d15ab1190ce15",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_501fa1d9cabfe21422ae556f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n  ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n  est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n  tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus\n  sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n  vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "bbe9b02bc883791ce595ea70d146e88a2f2c0f2bb39867c67ce1dc40ff3624ad",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f03dc67aeea14415ed3cbb86",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam\n  dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus\n  ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus\n  laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum,\n  tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus\n  neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat\n  volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros\n  pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec\n  lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.",
+        "text_hash": "5fa54c4ad33e3cc2e98867e33b5a66bc4a422049a1de5e0f071f54ce07fa9ab4",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_00a36f0d758babd0c82fef35",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  width: 500px;\n  margin: 0 auto;\n}",
+        "text_hash": "9097aeedd52123c11538e03bbb1a81d3333311636149eabad5644ed9d791b6e9",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_baaff414cb0b51d4cdf1d9ff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": ".positioned {\n  background: rgba(255, 84, 104, 0.3);\n  border: 2px solid rgb(255, 84, 104);\n  padding: 10px;\n  margin: 10px;\n  border-radius: 5px;\n}",
+        "text_hash": "4d48eaa01e73a48ac28103d2aba8a96ba56f6d01f7f49f6813ec7459cc0bd734",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_228dfa9323048650235ba32e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.positioned {\n  position: sticky;\n  top: 30px;\n  left: 30px;\n}",
+        "text_hash": "1d4fa283aa86c02d4468eeb8dce80b3a84110c54f479a084e3ed858079e5ac09",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_7d55c6f4e13cb8c001331926",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "[!NOTE]\n想要发现更多关于定位的信息，请参阅我们的Positioning和Practical positioning examples文章。",
+        "text_hash": "0e9aeb2a25962106f0a6e79176bd97305da0d05648401710059a65a5ea203c86",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "quotation"
+    },
+    {
+      "target_block_id": "lrtb_628a31538b169a919d20b677",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "表格布局",
+        "text_hash": "08fb51920417e023e7ca554b9e4509dd1f2c0eee6a02b2e2c8fb1a4e72a75df3",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_ccedccaf1ad20b68b6100c8d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "HTML 表格对于显示表格数据是很好的，但是很多年前——在浏览器中支持基本的 CSS 之前——web 开发人员过去也常常使用表格来完成整个网页布局——将它们的页眉、页脚、不同的列等等放在不同的表行和列中。这在当时是有效的，但它有很多问题——表布局是不灵活的，繁重的标记，难以调试和语义上的错误（比如，屏幕阅读器用户在导航表布局方面有问题）。",
+        "text_hash": "b4ccef78125a4dc21f3260e543db8041918f1f1621c1b4bac515a008ed0419a1",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f8237dcf8a5f89e6c356f980",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "一个标签之所以能够像表格那样展示，是由于 css 默认给标签设置了一组 table 布局属性。当这些属性被应用于排列非元素时，这种用法被称为“使用 CSS 表格”。",
+        "text_hash": "276b405e6866180345f8c5ed01df91042a77787f601ddac8252856e3afb5fb92",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_9daa5a95c1477735b2e95870",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "下面这个例子展示了一个这样的用法。使用 CSS 表格来进行布局，在现在这个时间点应该被认为是一种传统方法，它通常会被用于兼容一些不支持 Flexbox 和 Grid 的浏览器。",
+        "text_hash": "97383a96377dfeffbba0c28da0cdc82916016431f1709c2a791cd673df1d8041",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e302dc9064a94f1d5058fff8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "让我们来看一个例子。首先，创建 HTML 表单的一些简单标记。每个输入元素都有一个标签，我们还在一个段落中包含了一个标题。为了进行布局，每个标签/输入对都封装在中。",
+        "text_hash": "8a3904c244c088b2351e83f6809aea0bcf77cb959bf96f1b7b7e090600431adb",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_407f21f0c1431d13ff5005f8",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5a8a1c5a894e1870a3b25aad",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "First of all, tell us your name and age.",
+        "text_hash": "7b9aa03e398b84dac1c7f5011f8b5875a9b07ef1b263f4355da2f5c9632fe1bb",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_163cdc94b8332f243c0f2cdf",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "First name:",
+        "text_hash": "0e9e2b92814721b6de9a1bfa638dd477358da37631602e09b54a112b395d1643",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f10918428e8bd04d87822699",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Last name:",
+        "text_hash": "49557d25f1b1894d9ba1724829ee008f811a0a486420c28d1d9b8630d005613b",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6d5aa404d20f377b0dd1d1dc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Age:",
+        "text_hash": "f45aa5a5e4e25790c9acb950d8fe542d9a0361175d63bdbeba66c37f1ac355f8",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_51685bbbaf4e4d7361341f2a",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "现在，我们例子中的 CSS。除了使用  属性外，大多数 CSS 都是相当普通的。 , , 和被告知要分别显示表、表行和表单元——基本上，它们会像 HTML 表格标记一样，导致标签和输入在默认情况下排列整齐。我们所要做的就是添加一些大小、边缘等等，让一切看起来都好一点，我们就完成了。",
+        "text_hash": "b4480169ebe4eb68cac1e9cf910981f94f771b4b5dfc977c02c378c05b3bcaad",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8fe33123059d957707586808",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你会注意到标题段落已经给出了 display: table-caption;——这使得它看起来就像一个表格 ——同时出于设计需要，我们通过 caption-side: bottom; 告诉标题应该展示在表格的底部，即使这个  标记在源码中是在   之前。这就能让你有一点灵活的弹性。",
+        "text_hash": "75a6b3c3b64c8457531216fa57d4ec02d5d63031a83e673932475790937b63e4",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c250139ca72c9922594745e0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\nhtml {\n  font-family: sans-serif;\n}",
+        "text_hash": "6bf5839bc3d448bdd4eba76bb93bd38fd5cabc9235fb8ff14507a8d295f075e4",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8c36b3b106c2314396bd722c",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "form {\n  display: table;\n  margin: 0 auto;\n}",
+        "text_hash": "3bb75def49f3f7c17b2ba3a783552bab954e147c4fa33752e8d48d1163f83115",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_cdf06edb6a1a302e74452e39",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "form div {\n  display: table-row;\n}",
+        "text_hash": "1828a6ecf29a2e1b63c2051ef9cf233961747aecc425fccae5b806bd52774543",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_364c21e795664369be571e19",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "form label,\nform input {\n  display: table-cell;\n  margin-bottom: 10px;\n}",
+        "text_hash": "e86c59c56a316aa45d0b55c706062369450e16cd66cc768157eedb479266fdc6",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_825aa73dce5024d4d5abecd0",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "form label {\n  width: 200px;\n  padding-right: 5%;\n  text-align: right;\n}",
+        "text_hash": "78ad78ad43fc4c11b8ca1e5eb0cdd45c19384602bed9bc93d0ae8bb4391c5bf8",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_64fe6ad4149772d54d2331e7",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "form input {\n  width: 300px;\n}",
+        "text_hash": "c81941bb6d2c41cd1e71e0ff7947dda4839b8ee8142bf3135d1686201d5465ad",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_8f83ebfc9c8bcdb1cf23a445",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "form p {\n  display: table-caption;\n  caption-side: bottom;\n  width: 300px;\n  color: #999;\n  font-style: italic;\n}",
+        "text_hash": "ee0b12f6f3b704bc666d8dc056a7ec649c91b75dfd0a394f41c5bcd763ee45a8",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_e2bdde471e82f2ea2ad5f234",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "结果如下：",
+        "text_hash": "da0d9c19cd4a5bb26bcc06c28d40a0c2f2958a178e7af4c95ab3399a39138234",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_83c57a393ebc95f26fb926ba",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "你可以在 css-tables-example.html 看到预览版 (也可以见源码)",
+        "text_hash": "15337ef273abbf8c16c42ce784469064a969b2ba423a413e34e65eb34451434b",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_c72842b8f5dd2cd53ea408d3",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "多列布局",
+        "text_hash": "518d917624a2a9d21829fbef6587e99e70be3239318b83add31f6bf9d48ef75a",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_48fb4309c7a3d8db810d98fe",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "多列布局模组给了我们 一种把内容按列排序的方式，就像文本在报纸上排列那样。由于在 web 内容里让你的用户在一个列上通过上下滚动来阅读两篇相关的文本是一种非常低效的方式，那么把内容排列成多列可能是一种有用的技术。",
+        "text_hash": "cafc1fa9c4f69102b4284d07e02f233c6b0b66a1a2dea9339138590cb8c946b9",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_feb0d2ec13464dc8720fbea5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "要把一个块转变成多列容器 (multicol container)，我们可以使用 属性来告诉浏览器我们需要多少列，也可以使用来告诉浏览器以至少某个宽度的尽可能多的列来填充容器。",
+        "text_hash": "9100e76c3d9e9b4f69c3a182ce735c38efa57f110823a255c6b084513719b676",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_698ee67f273edb23a7bdb767",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "在下面这个例子中，我们从一个 class 为container的 容器元素里边的一块 HTML 开始。",
+        "text_hash": "c52fe119ee6d5d15347efe4c82d06c9da10d8c586456ab6818d4790907e240f6",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_49444eabe1cf1bb05238abdc",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html",
+        "text_hash": "e5e239560bc125a20ff2ac1fea50915bc198dd4f5b5256ec447a8a71e00132b3",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_685527316c026638d7b2a83b",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Multi-column layout",
+        "text_hash": "bbe9190c2136667bee17ac9340e5cb7455640e741e6b9034602901f3ac7909d9",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_a035115d67b9126f2d87565e",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Paragraph 1.\n   Paragraph 2.",
+        "text_hash": "5a2fd7eaecbc7928936e91152f975e1d1cf3cd60ee36f807d0e22de58b9ef019",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_5a9fe822d665bcccfd1bc8bd",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "我们指定了该容器的column-width为 200 像素，这让浏览器创建了尽可能多的 200 像素的列来填充这一容器。接着他们共同使用剩余的空间来伸展自己的宽度。",
+        "text_hash": "efd3958be6ec89f41ebb5bab22096ede9928871c683449e2fec4345b5fd1563b",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_25e56c4afd341d2f94eafd47",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "html hidden",
+        "text_hash": "2be216170d2ca8502ce5d3f5a679ac59b813b62d0d2534bc3b482c333780f0db",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_05ff79c2e03fef6d53753bff",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Multi-column Layout",
+        "text_hash": "054979a5283cdf640f92820399964b2580d54dd6b387c170d083efbcc09b3f84",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_1b15c8ea1f19a11112b2a06f",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus\n    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,\n    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at\n    ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer\n    ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur\n    vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus.\n    Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus\n    sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus.\n    Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis,\n    eget fermentum sapien.",
+        "text_hash": "76002a3ca579e02cfaa70a5d7fdd89d2e4bb2fb820bcf6240f1cf46a1a0e4508",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_bb8a408d5e1c303f99dc9257",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada\n    ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed\n    est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus\n    tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies\n    lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis\n    vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque\n    penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "text_hash": "90c82efe18e665385de0f1ce0f02a008d04542953535258b76840f3f01673b3d",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_f4a2761ff177628b7774f5a1",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css hidden\nbody {\n  max-width: 800px;\n  margin: 0 auto;\n}",
+        "text_hash": "0466ec8191bc08b07e03cf0f7242984404306cac5d208870d44b3cf9d16eb144",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_d20cb188da0f4528eceb8f9d",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "css\n.container {\n  column-width: 200px;\n}",
+        "text_hash": "0deb6fe156676346fa4744084ef0ac5c7771d8ea03c432afc60c19c49b7c867f",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    },
+    {
+      "target_block_id": "lrtb_6da39d5c8ca06346742482f5",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "总结",
+        "text_hash": "04830193b408eeb17c18cfb88440e68061423af6e0c2944c79e4c4cfc6a0f0dc",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "heading"
+    },
+    {
+      "target_block_id": "lrtb_d44942eac21d4c6986e4e668",
+      "text": {
+        "locale": "zh-Hans-CN",
+        "qa_status": "passed",
+        "text": "本文提供了关于你应该了解的所有布局技术的简要概述。阅读更多关于每一项技术的信息！",
+        "text_hash": "a757234fc1cdbf8f10acba73124be85c6e1b4ac688aefe28bdc358cf3ca9cecc",
+        "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+      },
+      "type": "paragraph"
+    }
+  ],
+  "description": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "",
+    "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+  },
+  "estimated_minutes": 20,
+  "fragment_id": "lrf_a051f2afbb7079cc84cd6cc7",
+  "generation_id": "lrg_20260723125753_1958e36c",
+  "mapped_china_grade_scope": [
+    7,
+    8,
+    9
+  ],
+  "mapped_china_stage": "junior",
+  "mapped_subject_slugs": [
+    "information-technology"
+  ],
+  "pedagogical_roles": [
+    "explain",
+    "practice",
+    "extend"
+  ],
+  "provenance": {
+    "adaptation_notice": "原文为简体中文；由 kebiao 完成结构化整理。介绍 CSS 布局，MDN contributors，CC BY-SA 2.5",
+    "attribution_text": "介绍 CSS 布局，MDN contributors，CC BY-SA 2.5",
+    "canonical_url": "https://developer.mozilla.org/zh-CN/docs/learn-web-development/core/css-layout/introduction",
+    "license_id": "CC-BY-SA-2.5",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source_revision": "8273849de2a0f5e50baec7392393bed1ed83d191",
+    "source_title": "介绍 CSS 布局"
+  },
+  "resource_id": "lr_f011cde4385108694e7c635b",
+  "resource_type": "explanation",
+  "resource_version_id": "lrv_2cc77870da09de14d6811613",
+  "source_id": "mdn-zh-cn",
+  "title": {
+    "locale": "zh-Hans-CN",
+    "qa_status": "passed",
+    "text": "介绍 CSS 布局",
+    "text_hash": "22251391e2792aa95d1c26384167ee007da9292ff0e4fc4870a6b8a74ccfa29c",
+    "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e"
+  },
+  "variant_id": "lrz_f916b6e6fa172795f20f23e4",
+  "variant_version_id": "lrzv_91fa1c2803393e0ba9438d8e",
+  "visual_dependency": "helpful"
+}
