@@ -77,7 +77,7 @@ flowchart LR
 
 | 从教材进入课标 | 从课标找到学习资源 |
 | --- | --- |
-| [![教材馆：按学段、学科、年级和册次浏览教材](./docs/assets/readme/textbook-library.png)](https://www.kebiao.org/textbooks) | [![学习资源库：浏览与课程标准对齐的简体中文资源](./docs/assets/readme/learning-resources.png)](https://www.kebiao.org/learning-resources) |
+| [![教材馆：按学段、学科、年级和册次浏览教材](./docs/assets/readme/textbook-library.png)](https://www.kebiao.org/textbooks) | [![学习资源详情：七年级生物圈教师材料、对应课程标准、关联理由、来源与许可](./docs/assets/readme/learning-resources.png)](https://www.kebiao.org/learning-resources) |
 | **教材馆**：对具备相应数据的教材展示章节、印刷页码、课标关系和配套资源；其余明确标注处理状态。 | **学习资源**：汇集简体中文资源，在详情页保留来源、许可与已有的关联证据。 |
 
 ## 可信，首先意味着把边界写清楚
