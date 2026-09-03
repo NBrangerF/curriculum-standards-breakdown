@@ -1,294 +1,202 @@
-# 🧭 课标罗盘 (Curriculum Standards Compass)
+<p align="center">
+  <a href="https://www.kebiao.org/">
+    <img src="./public/kebiao-mark.svg" width="72" alt="kebiao 标志">
+  </a>
+</p>
 
-义务教育课程标准（2022年版）结构化浏览与对比工具
+<h1 align="center">kebiao</h1>
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![React](https://img.shields.io/badge/React-18-61dafb.svg)
-![Vite](https://img.shields.io/badge/Vite-6-646cff.svg)
+<p align="center"><strong>让课程标准更容易找、更容易懂、更容易用于教学。</strong></p>
+<p align="center">中国课程标准的结构化索引与智能引擎</p>
+<p align="center"><sub>A structured, source-aware index and engine for China's 2022 compulsory-education curriculum standards.</sub></p>
 
----
+<p align="center">
+  <a href="https://www.kebiao.org/"><strong>在线使用</strong></a> ·
+  <a href="https://www.kebiao.org/smart-search">用教学语言查课标</a> ·
+  <a href="https://www.kebiao.org/feedback">反馈与共建</a>
+</p>
 
-## 📖 项目简介
+<p align="center">
+  <a href="https://github.com/NBrangerF/curriculum-standards-breakdown/actions/workflows/quality-gates.yml"><img src="https://github.com/NBrangerF/curriculum-standards-breakdown/actions/workflows/quality-gates.yml/badge.svg" alt="Quality gates"></a>
+  <a href="./public/data/data_version.json"><img src="https://img.shields.io/badge/standards-2%2C025-3d5afe" alt="当前收录 2025 条结构化课程标准"></a>
+  <a href="./public/data/manifest.json"><img src="https://img.shields.io/badge/subjects-9-15181e" alt="当前收录 9 个学科"></a>
+  <a href="https://www.kebiao.org/skills"><img src="https://img.shields.io/badge/transferable_skills-7-68717f" alt="7 类可迁移技能"></a>
+</p>
 
-本项目将教育部发布的《义务教育课程标准（2022年版）》进行**结构化拆解**，形成可检索、可筛选、可对比的数据集，并提供现代化的 Web 浏览界面，帮助教师、师范生和课程研究者快速定位学习标准、理解可迁移能力与学科融合。
+<p align="center">
+  <a href="https://www.kebiao.org/">
+    <img src="./docs/assets/readme/home.png" width="100%" alt="kebiao 首页：按学科、学段与领域定位和对比课程标准">
+  </a>
+</p>
 
----
+## 课程标准不该只停留在 PDF 里
 
-## 🧩 核心：课程标准的结构化拆解
+为了找到一句课程标准，不必先在几十甚至几百页 PDF 里做“资料考古”。kebiao 将《义务教育课程方案和课程标准（2022 年版）》整理成可搜索、可筛选、可对比、可收藏的结构化索引，帮助教师快速找到对应标准，并看清来源、教材线索和审核状态。
 
-### 为什么需要拆解？
+备课时，老师真正需要解决的，往往不是“文件在哪里”，而是：
 
-原始课程标准文件是长篇叙述性文本，难以：
-- 按学段/领域快速筛选
-- 跨学科对比同类标准
-- 关联 21 世纪技能/可迁移能力
-- 进行数据分析和可视化
+- 这节课对应哪些课程标准？
+- 同一主题在不同年级如何递进，在不同学科有什么差异？
+- 这条标准落在哪本教材、哪个单元，能用什么学习材料？
+- 一份教学计划覆盖了什么，哪些匹配还需要我确认？
 
-### 拆解方法论
+kebiao 以课程标准为主轴，把分散在文档、教材、资源和教学计划里的线索组织到同一条检索与复核路径中。目标很直接：让老师少花时间找依据，多花时间设计教学活动与评价。
 
-我们将课程标准拆解为 **独立的、原子化的学习目标条目**，每条标准包含以下结构化字段：
+## 你可以用 kebiao 做什么
 
-#### 核心字段
+| 当你需要…… | 可以这样做 |
+| --- | --- |
+| 快速找到相关课标 | 按学科、学段和可迁移技能[筛选课标](https://www.kebiao.org/search)，结果可按领域展开；也可以直接[用教学语言检索](https://www.kebiao.org/smart-search)主题和关键词。 |
+| 比较学科与学段差异 | [并列对比](https://www.kebiao.org/#compare-filter) 1–3 个学科的同一学段，或同一学科跨 1–6 个学段/年级的变化。 |
+| 理解一条标准的前后联系 | 在[标准详情](https://www.kebiao.org/standards/MA-D2-GE-003)中查看能力拆解、课程进阶、相邻标准和关系图谱，并查看前置关系候选及其核验状态。 |
+| 对照教材与课标 | 在[教材馆](https://www.kebiao.org/textbooks)浏览 141 册小学与初中教材索引；对已完成正文回查的目录，可定位到具体 PDF 页。 |
+| 找到可用的学习材料 | [浏览简体中文学习资源](https://www.kebiao.org/learning-resources)，在详情页查看来源、许可与已有的课标关联证据。 |
+| 整理自己的备课线索 | 把标准保存在当前浏览器的[清单](https://www.kebiao.org/collections)中，导入或导出 JSON，并生成适合打印的版本。 |
+| 复核教学计划与课标的关系 | 在[预览工作台](https://www.kebiao.org/alignment-workbench)中完成“解析 → 人工复核 → 候选匹配 → 覆盖分析 → 周计划草案”。 |
 
-| 字段 | 说明 | 示例 |
-|------|------|------|
-| `code` | 唯一标识符 | `SC-D1-AR-001` |
-| `standard` | 标准正文 | "愿意倾听他人想法，并乐于分享..." |
-| `subject` | 学科 | 科学 |
-| `grade_band` | 学段/年级代码 | H1/H2/H3/H4G7/H4G8/H4G9（当前口径：H1=1-2，H2=3-4，H3=5-6，H4G7=7，H4G8=8，H4G9=9） |
-| `domain` | 核心素养维度 | 态度责任 / 科学观念 / 探究实践 / 科学思维 |
-| `subdomain` | 具体领域 | 人类活动与环境 |
+## 从一条课标，看见更多教学线索
 
-#### Code 编码规则
-
+```mermaid
+flowchart LR
+    Q["教师的教学问题"] --> S["结构化课程标准"]
+    S --> P["学段进阶"]
+    S --> K["可迁移技能"]
+    S -. "证据充足时" .-> T["教材单元与页码"]
+    S -. "完成对齐后" .-> R["学习资源"]
+    S --> C["对比 · 收藏 · 打印"]
 ```
-SC-D1-AR-001
-│  │  │   │
-│  │  │   └── 序号 (001-999)
-│  │  └────── 领域缩写 (AR=态度责任, SC=科学观念, PR=探究实践, TH=科学思维)
-│  └───────── 学段 (D1=第一学段, D2=第二学段, D3=第三学段)
-└──────────── 学科 (SC=科学, MA=数学, CH=语文, EN=英语, IT=信息科技...)
-```
 
-#### 教学支持字段
+教材与资源关联可能由机器生成。页面会按数据可用情况展示证据片段、等级、生成方法或许可信息，仍需教师复核；学习资源当前没有人工发布门。
 
-| 字段 | 说明 |
-|------|------|
-| `context` | 标准的上下文说明 |
-| `practice` | 教学活动/实践建议 |
-| `teaching_tip` | 教师策略提示 |
-| `assessment_evidence_type` | 评价证据类型 |
-| `materials_tools` | 所需材料/工具 |
-| `safety_notes` | 安全提示 |
+## 产品实拍
 
-#### 可教学能力图谱
+| 用教学语言查课标 | 拆解一条标准的可教学能力 |
+| --- | --- |
+| [![AI 检索结果：系统解释三四年级科学植物观察查询，并展示带证据的课标候选](./docs/assets/readme/smart-search.png)](https://www.kebiao.org/smart-search) | [![可教学能力图谱：将数学第二学段三角形分类标准拆成可观察的学习成分](./docs/assets/readme/standard-detail.png)](https://www.kebiao.org/standards/MA-D2-GE-003) |
+| **自然语言检索**：先解释系统理解的学段、学科与主题，再返回带命中证据的候选标准。 | **能力图谱**：把标准拆成可教、可观察的学习成分，同时显示候选关系与核验状态。 |
 
-标准正文与既有教学支持字段保持不变；在其上增加可追溯、可审核的教学能力层：
+| 从教材进入课标 | 从课标找到学习资源 |
+| --- | --- |
+| [![教材馆：按学段、学科、年级和册次浏览教材](./docs/assets/readme/textbook-library.png)](https://www.kebiao.org/textbooks) | [![学习资源库：浏览与课程标准对齐的简体中文资源](./docs/assets/readme/learning-resources.png)](https://www.kebiao.org/learning-resources) |
+| **教材馆**：对具备相应数据的教材展示章节、印刷页码、课标关系和配套资源；其余明确标注处理状态。 | **学习资源**：汇集简体中文资源，在详情页保留来源、许可与已有的关联证据。 |
 
-| 字段 | 说明 |
-|------|------|
-| `learning_components` | 从标准原句拆出的可教学、可诊断小能力 |
-| `verified_prerequisites` | 仅收录有证据且经专家批准的前置能力 |
-| `prerequisite_candidates` | 由学习进阶产生、等待专家审核的候选关系 |
-| `hardest_cases` | 标准限定语中最容易被任务或教学漏掉的高难结构 |
-| `common_difficulties` | 学生表现、可能成因、诊断探针与教师动作 |
-| `curriculum_alignments` | 教材册级、单元级与页码级证据分层关联 |
-| `forward_connections` | 后续学习去向候选，不冒充硬前置关系 |
+## 可信，首先意味着把边界写清楚
 
-字段契约、证据等级和质量门见 `docs/data/TEACHABLE_CAPABILITY_GRAPH_CONTRACT.md`。
+- **来源可追溯。** 课程标准数据以教育部发布的[《义务教育课程方案和课程标准（2022 年版）》](https://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html)为基础；数据版本、来源引用、置信度、质量标记和审核状态随记录保存。
+- **原文与整理内容分层。** 课标文本、项目编辑整理的教学提示、规则生成字段和机器候选拥有各自的来源标记，不把建议包装成官方结论。
+- **关系有证据等级。** 前置关系候选及其核验状态、教材范围关联、单元证据和页码证据分别返回，不用一个模糊的“相关”掩盖差异。当前数据中尚无专家核验的前置关系。
+- **AI 只帮助理解和检索。** AI 只把你的描述整理为学科、学段、主题和排除条件；课程标准、编码、来源和命中证据仍来自当前数据版本。模型不可用时，系统仍会按规则完成检索。
+- **教师保留最终判断。** 教学计划对齐结果始终是候选；只有教师明确接受的标准才会进入覆盖分析和周计划草案。
 
-#### 可迁移能力标签
+> [!IMPORTANT]
+> kebiao 是独立的结构化整理与教学研究工具，不是教育主管部门发布的官方产品。用于正式教学、评价或政策判断时，请回到对应课程标准官方文本复核。
 
-每条标准已标注关联的 **可迁移能力 (Transferable Skills)**：
+进一步阅读：[数据可信度修复报告](./docs/DATA_TRUST_REMEDIATION_REPORT.md) · [可教学能力图谱契约](./docs/data/TEACHABLE_CAPABILITY_GRAPH_CONTRACT.md) · [知识图谱审核协议](./docs/data/KNOWLEDGE_GRAPH_REVIEW_PROTOCOL.md) · [教材正文—课标自动关联契约](./docs/data/AUTOMATED_TEXTBOOK_STANDARD_ALIGNMENT.md)
 
-| 字段 | 说明 |
-|------|------|
-| `ts_primary` | 主关联能力 (如 `["TS2"]`) |
-| `ts_secondary` | 次关联能力 |
-| `ts_rationale` | 标签理由 |
+## 当前数据范围
 
-**七大可迁移能力：**
-- **TS1**: 批判性思维与问题分析
-- **TS2**: 创新、创造与实践性解决方案
-- **TS3**: 自主学习与终身发展
-- **TS4**: 协作与共同体行动
-- **TS5**: 沟通与表达
-- **TS6**: 数字素养与数据驱动
-- **TS7**: 全球公民、可持续与伦理责任
+| 维度 | 当前公开数据 |
+| --- | --- |
+| 课程标准 | 2,025 条结构化条目 |
+| 学科 | 艺术、语文、英语、信息科技、劳动、数学、道德与法治、体育、科学 |
+| 学段/年级 | H1（1–2 年级）、H2（3–4 年级）、H3（5–6 年级）、H4G7（7 年级）、H4G8（8 年级）、H4G9（9 年级） |
+| 可迁移技能 | 7 类：批判性思维与问题解决；创造力与创新；学习者能动性与自我导向学习；协作；沟通；数字、信息与媒体素养；全球公民与伦理责任 |
+| 教材索引 | 141 册学生教材：小学 83 册、初中 58 册，覆盖 13 个教材学科分类 |
+| 数据版本 | [`2026.07.18-capability-graph-v1`](./public/data/data_version.json) |
 
----
+这些数字描述的是当前项目数据集，不代表对所有国家课程文件、教材版本或教学资源的完整收录。可复现统计见 [`public/data/manifest.json`](./public/data/manifest.json)、[`public/data/textbooks/manifest.json`](./public/data/textbooks/manifest.json) 和 [`public/data/quality/trust_report.json`](./public/data/quality/trust_report.json)。
 
-## 📊 数据统计
+## 一起把它做成老师真正会用的工具
 
-| 维度 | 数量 |
-|------|------|
-| 学科 | 9 |
-| 总标准数 | 2025 |
-| 可迁移能力 | 7 类 |
-| 学段 | 6 (H1/H2/H3/H4G7/H4G8/H4G9) |
+如果你在备课时遇到一条难找、难懂或明显拆解不准确的标准，请直接告诉我们。真实的课堂问题，比泛泛的“很好用”更能帮助 kebiao 改进。
 
----
+这个项目需要的不只是代码，也需要一线经验。教师、师范生、教研工作者和教育产品开发者都可以参与：
 
-## 🚀 快速开始
+- 指出标准文本、分类、学段或来源标记中的具体问题；
+- 提供真实的备课与教研任务，帮助改进检索和对比方式；
+- 复核候选关系、教学线索、教材定位和学习资源；
+- 建议更贴近课堂的功能、表达与无障碍体验；
+- 修复问题、补充测试或完善文档。
+
+[提交产品反馈](https://www.kebiao.org/feedback) · [报告 GitHub 问题](https://github.com/NBrangerF/curriculum-standards-breakdown/issues/new) · [联系与合作](https://www.kebiao.org/contact)
+
+如果 kebiao 帮你少翻了几页文件，欢迎点一个 Star，或把它分享给身边的老师。
+
+## 给开发者与教育产品团队
+
+同一套公开数据与 API 契约服务 Web、TypeScript client 和可复用 Skill；API 的查询与计划逻辑集中在课程核心包。你可以只使用在线 API，也可以在本地运行完整项目。
+
+### 本地运行
+
+建议使用 Node.js 22 和 npm。完整体验需要同时启动 API 与 Web：
 
 ```bash
-# 安装依赖
-npm install
+git clone https://github.com/NBrangerF/curriculum-standards-breakdown.git
+cd curriculum-standards-breakdown
+npm ci
 
-# 启动开发服务器
-npm run dev
-
-# 构建生产版本
-npm run build
-```
-
-启动后访问: http://localhost:5173
-
-### 课程智能 API
-
-```bash
-# 启动 API 服务
+# 终端 A：API，默认 http://localhost:8787
 npm run api:dev
 
-# 运行 API/Core 测试与数据质量门
-npm run test:api
-
-# 运行类型检查和匹配质量评估
-npm run typecheck
-npm run eval:matching
-
-# 生成待人工复核的数据质量工作队列（写入 generated/，不进入发布数据）
-npm run build:data-review-worklist
-
-# 重建并审计 2025 条标准的可教学能力图谱
-npm run capability-graph:build
-npm run capability-graph:audit
-npm run capability-graph:check
-
-# Meilisearch dry run
-npm run search:index-meilisearch
+# 终端 B：Web，默认 http://localhost:3000
+npm run dev
 ```
 
-API 正式地址: https://www.kebiao.org
-API 本地地址: http://localhost:8787
-中文 API 文档页面: https://www.kebiao.org/api/v1/docs
+浏览器打开 [http://localhost:3000](http://localhost:3000)。没有配置模型密钥时，检索与计划解析会使用确定性回退；教材 PDF 阅读还需要已登记的本地文件或对象存储，教材目录和详情仍可浏览。
 
-当前 API 已覆盖：
+### 第一次 API 调用
 
-- 运维 API: `/api/v1/health`, `/api/v1/openapi.yaml`, `/api/v1/docs`, `/api/v1/metrics`
-- 数据 API: `/api/v1/meta`, `/api/v1/data-version`, `/api/v1/subjects`, `/api/v1/skills`, `/api/v1/standards/search`
-- 关系图谱 API: `/api/v1/standards/{code}/progression`, `/api/v1/standards/{code}/neighbors`, `/api/v1/standards/{code}/capability-graph`, `/api/v1/standards/compare`。`progression` 已贯通 D1–D3 与 G7–G9；H3→G7 为带置信度的同学科同领域推断桥，不作为官方先修关系。能力图谱接口会把已核验关系、机器候选和不同证据等级的教材关联分开返回。
-
-证据链与教学规划相关接口仍在开发中，当前不对外开放。
-
-课程标准 code 已统一为 `{SUBJECT}-{STAGE_OR_GRADE}-{DOMAIN}-{SEQ}` 四段格式；学科前缀与领域 token 在所有学段保持一致。旧 code 仍作为兼容别名可查询，响应会在 `meta.resolved_from` 标明重定向来源。可用 `npm run migrate:code-taxonomy` 重新执行迁移并通过数据契约校验。
-
-中文 OpenAPI 契约见：`docs/api/openapi.yaml`
-API 快速开始见：`docs/API_QUICKSTART.md`
-TypeScript client 见：`packages/curriculum-client`
-Vercel 部署说明见：`docs/DEPLOYMENT_VERCEL.md`
-
-部署后 smoke test：
+公开字段可匿名读取：
 
 ```bash
-API_BASE=https://www.kebiao.org npm run smoke:api
+curl -s -X POST https://www.kebiao.org/api/v1/standards/search \
+  -H 'content-type: application/json' \
+  -d '{"subjects":["science"],"keyword":"植物","limit":3}'
 ```
 
-可选环境变量：
+- [中文 API 文档](https://www.kebiao.org/api/v1/docs)
+- [OpenAPI YAML](https://www.kebiao.org/api/v1/openapi.yaml)
+- [TypeScript client](./packages/curriculum-client)
+- [课程核心包](./packages/curriculum-core)
+- [GitHub / Agent Skill](./skills/github/zhenzheng-keyong-kebiao-skill)
 
-| 变量 | 说明 |
-|------|------|
-| `CURRICULUM_DATA_ROOT` | 指定 API 读取的数据目录；默认优先使用 `public/data`，兼容回退到 `data/internal` |
-| `CURRICULUM_OPENAPI_PATH` | 指定 API 文档 YAML 路径，默认 `../../docs/api/openapi.yaml` |
-| `CURRICULUM_ENABLE_REQUEST_LOGS` | 设为 `true` 时输出不含请求体的结构化请求日志 |
-| `CURRICULUM_ALLOWED_ORIGINS` | CORS 允许来源，生产建议设置为正式域名 |
-| `CURRICULUM_METRICS_REDIS_REST_URL` / `CURRICULUM_METRICS_REDIS_REST_TOKEN` | Redis REST durable metrics；Vercel 生产推荐配置 |
-| `CURRICULUM_METRICS_FILE` | 可选 NDJSON metrics 文件路径，仅适合 Node/file 部署 |
-| `PORT` | API 端口，默认 `8787` |
-| `CURRICULUM_API_KEYS` | 逗号分隔的 key registry；推荐 `key_id:key:developer` |
-| `CURRICULUM_ADMIN_API_KEYS` | 逗号分隔的 admin registry；推荐 `key_id:key` |
-| `KEBIAO_LLM_API_KEY` | 查询理解模型的服务端密钥；只配置在部署平台 Secret 中，绝不写入仓库或前端变量 |
-| `KEBIAO_LLM_BASE_URL` | OpenAI-compatible API 根地址；默认 `https://www.openai-labs.com/v1` |
-| `KEBIAO_LLM_MODEL` | 查询理解模型；默认 `gpt-5-mini` |
-| `KEBIAO_LLM_API_STYLE` | `auto`（默认）、`responses` 或 `chat_completions`；Responses 使用 Structured Outputs，兼容 Chat 路径使用 JSON mode 并由服务端再次校验 |
-| `KEBIAO_LLM_TIMEOUT_MS` | 模型请求超时；默认 3500ms，限制在 500–7000ms |
-| `KEBIAO_LLM_QUERY_TIMEOUT_MS` | AI 查询理解的独立超时预算；默认 8000ms，限制在 2000–12000ms |
-| `KEBIAO_LLM_ENABLED` | 设为 `false` 可强制关闭模型；无密钥时始终使用确定性回退 |
-| `KEBIAO_LLM_PLAN_MAX_CHARS` | AI 计划解析允许的最大纯文本长度；默认 12000，限制在 2000–20000 字符，超限自动使用确定性解析 |
-| `KEBIAO_LLM_PLAN_TIMEOUT_MS` | AI 计划解析单独的超时预算；默认 12000ms，限制在 3000–20000ms，不影响查询理解的短超时 |
+### 代码地图
 
-持久化指标与 API Key 签发/轮换见：`docs/API_OPERATIONS.md`
-
-LLM 负责把智能搜索拆分为核心主题、紧密扩展词、学科包含/排除与学段；当用户没有手动设置筛选时，经过服务端白名单校验的筛选理解会参与确定性检索，用户手动筛选始终优先。筛选符合本身不计入相关性，候选必须在可追溯字段中命中核心主题或紧密扩展词，并标记为直接匹配或延伸关联；结果不足请求数量时不会用低相关记录补足。LLM 不生成课程标准、code、标准内容、来源或匹配理由。模型超时、鉴权失败或返回结构异常时，API 仍使用确定性核心概念解析器返回可信检索结果。发送到所配置模型服务前，服务端会去除可识别的邮箱、手机号、身份证号和带标签的姓名/学校/班级信息；请求正文和原始查询不会写入指标。智能检索使用独立的 AI 每分钟限流。自动去标识化不能替代数据最小化，请勿主动提交学生个人信息或其他敏感内容。
-
----
-
-## 📁 项目结构
-
-```
-├── public/data/              # 结构化数据 (JSON)
-│   ├── data_version.json     # 数据版本与发布契约
-│   ├── manifest.json         # 全站索引
-│   ├── subjects_meta.json    # 学科元数据
-│   ├── skills_meta.json      # 可迁移能力元数据
-│   ├── by_subject/           # 按学科分割的轻量标准
-│   │   ├── science.json      # 科学 (349条)
-│   │   ├── math.json         # 数学
-│   │   ├── chinese.json      # 语文
-│   │   └── ...
-│   └── capability_graph/     # 详情页按 code 加载的完整能力图谱 sidecar
-│       └── by_code/
-│           └── CN-D1-RE-001.json
-├── src/
-│   ├── components/           # UI 组件
-│   │   ├── Header.jsx        # 导航栏
-│   │   ├── Footer.jsx        # 页脚
-│   │   ├── StandardCard.jsx  # 标准卡片
-│   │   ├── HeroBackground.jsx# 统一背景组件
-│   │   └── ...
-│   ├── pages/                # 页面
-│   │   ├── HomePage.jsx      # 首页
-│   │   ├── SubjectPage.jsx   # 学科页
-│   │   ├── SkillDetailPage.jsx # 技能详情
-│   │   └── FeedbackPage.jsx  # 反馈页
-│   └── data/                 # 数据层
-│       ├── dataLoader.js     # 按需加载
-│       ├── schema.js         # 数据规范化
-│       └── query.js          # URL 参数处理
-├── packages/
-│   ├── curriculum-core/      # API/Web/Skill 共享的课程标准核心逻辑
-│   └── curriculum-client/    # 轻量 TypeScript API client
-├── apps/
-│   └── api/                  # 课程智能 API MVP
-└── .env                      # 环境变量 (不提交)
+```text
+src/                         Web 界面、交互与数据加载
+apps/api/                    课程智能 API
+packages/curriculum-core/    查询、匹配、覆盖与排课核心逻辑
+packages/curriculum-client/  TypeScript API client
+public/data/                 面向 Web 与匿名 API 的公开投影
+data/internal/               规范化数据源与发布输入
+skills/                      可复用的课程标准助手 Skill
+docs/                        方法、契约、运维与审核文档
+tests/                       API、数据与端到端测试
 ```
 
----
+结构化方法与工程说明：[当前拆解方法](./docs/CURRICULUM_STANDARD_BREAKDOWN_METHOD_CURRENT.md) · [教材自动关联契约](./docs/data/AUTOMATED_TEXTBOOK_STANDARD_ALIGNMENT.md) · [LLM 语义关联管道](./docs/data/LLM_TEXTBOOK_STANDARD_ALIGNMENT_PIPELINE.md) · [学习资源数据说明](./docs/data/learning-resources.md)
 
-## � 技术栈
+### 质量检查
 
-| 层级 | 技术 | 说明 |
-|------|------|------|
-| 构建 | Vite 6 | 快速 HMR |
-| UI | React 18 | 组件化 |
-| 路由 | React Router 7 | SPA 路由 |
-| 样式 | CSS Variables | 设计系统 |
-| 数据 | fetch + 缓存 | 按需加载 |
+```bash
+npm run typecheck       # Core、client、API 与 Vercel 类型检查
+npm run test:api        # API、Core、client 与数据质量门
+npm run eval:matching   # 教学计划匹配评估
+npm run test:ui         # E2E 与无障碍测试（需 Playwright 浏览器）
+npm run build           # 完整数据审计与生产构建
+```
 
----
+`npm run build` 会重建并审计多类公开数据，可能更新生成文件；请在准备完整发布验证时运行，而不是把它当作轻量检查。
 
-## 🎨 设计系统
+Pull request 与 `main` 分支推送会运行 [Quality gates](https://github.com/NBrangerF/curriculum-standards-breakdown/actions/workflows/quality-gates.yml)；生产部署成功后会运行 [API smoke test](https://github.com/NBrangerF/curriculum-standards-breakdown/actions/workflows/post-deployment-smoke.yml)。
 
-- **学科色**: 每学科独立主题色
-- **学段色**: H1 (蓝) / H2 (青) / H3 (绿松石) / H4 (深绿松石)
-- **Hero 系统**: 统一的深色渐变背景 + 动感形状
-- **玻璃卡片**: 半透明毛玻璃效果
+## 数据来源、版权与使用说明
 
----
-
-## 📝 数据来源
-
-- 原始文件: 义务教育课程标准（2022年版）各学科标准
-- 结构化处理: 人工拆解 + AI 辅助标注
-- 可迁移能力框架: 基于 21 世纪技能研究
+- 课程标准来源于教育部发布的[《义务教育课程方案和课程标准（2022 年版）》](https://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html)，相关文本权利归原权利方所有。
+- 学习资源的来源与许可见各资源详情；教材仅作为索引和受控阅读入口，不代表授予转载或再分发权。第三方前端依赖见[第三方说明](./docs/legal/THIRD_PARTY_NOTICES.md)。
+- 本仓库目前尚未附独立的根级 `LICENSE` 文件。公开可访问不等于自动授予代码或项目原创数据的复用权；如需复用，请先通过[联系页面](https://www.kebiao.org/contact)确认。
+- 本项目提供的是结构化整理、检索与研究辅助，不能替代官方文件、专业课程判断或教师审核。
 
 ---
 
-## 🤝 贡献
-
-欢迎通过 [反馈页面](/feedback) 提交：
-- 内容纠错
-- 功能建议
-- 合作联系
-
----
-
-## � License
-
-MIT
-
----
-
-## ⚠️ 免责声明
-
-本网站为结构化整理与检索工具，仅供教学与研究参考。请以教育部官方发布文本为准。
+<p align="center"><strong>少翻几页文件，把更多时间留给课堂。</strong></p>
