@@ -9,12 +9,35 @@
   <title>kebiao | 中国课程标准的结构化索引与智能引擎</title>
   <link rel="preload" href="/fonts/geist/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/geist/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    // Keep campaign attribution while excluding searches and other URL parameters.
+    window.kebiaoAnalyticsBeforeSend = function(type, payload) {
+      if (typeof payload.url !== "string") return payload;
+      try {
+        var url = new URL(payload.url, window.location.origin);
+        var current = new URL(window.location.href);
+        url.search = "";
+        url.hash = "";
+        if (url.pathname === current.pathname) {
+          ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach(function(key) {
+            var value = current.searchParams.get(key);
+            if (value) url.searchParams.set(key, value.slice(0, 200));
+          });
+        }
+        return Object.assign({}, payload, { url: url.toString() });
+      } catch (_) {
+        return false;
+      }
+    };
+  </script>
   <script
     defer
     src="https://cloud.umami.is/script.js"
     data-website-id="aa120ad0-ee99-4ab5-8e66-0e539bb25c0b"
     data-domains="kebiao.org,www.kebiao.org"
     data-exclude-search="true"
+    data-exclude-hash="true"
+    data-before-send="kebiaoAnalyticsBeforeSend"
     data-do-not-track="true"
     data-performance="true"
   ></script>
