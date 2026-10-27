@@ -897,7 +897,7 @@ function StandardDetailPage() {
                 <div className="container">
                     <div className={styles['nav-grid']}>
                         <div className={styles['nav-group']}>
-                            <p className={styles['nav-group-label']}>上一条标准</p>
+                            <p className={styles['nav-group-label']}>前一阶段相关标准（候选）</p>
                             {prevCodes.length > 0 ? (
                                 <div className={styles['nav-links']}>
                                     {prevCodes.map(c => <StandardPreviewLink key={c} standardCode={c} direction="prev" />)}
@@ -912,7 +912,7 @@ function StandardDetailPage() {
                             </Link>
                         </div>
                         <div className={`${styles['nav-group']} ${styles.right}`}>
-                            <p className={styles['nav-group-label']}>下一条标准</p>
+                            <p className={styles['nav-group-label']}>后一阶段相关标准（候选）</p>
                             {nextCodes.length > 0 ? (
                                 <div className={styles['nav-links']}>
                                     {nextCodes.map(c => <StandardPreviewLink key={c} standardCode={c} direction="next" />)}
