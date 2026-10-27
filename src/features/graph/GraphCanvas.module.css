@@ -2,7 +2,7 @@
     position: relative;
     min-height: 29rem;
     overflow: hidden;
-    border: 1px solid #273044;
+    border: 1px solid #dadfea;
     background: #0d121d;
 }
 
@@ -24,11 +24,11 @@
     display: block;
     width: 4.25rem;
     height: 4.25rem;
-    border: 1px solid #91a2ff;
+    border: 1px solid rgba(222, 228, 238, 0.217);
     border-radius: 50%;
     opacity: 0;
     will-change: transform, opacity;
-    box-shadow: 0 0 0 0.65rem rgba(112, 132, 255, 0.08);
+    box-shadow: 0 0 0 0.65rem rgba(233, 200, 135, 0.08);
 }
 
 .graph-canvas-grid {
@@ -52,7 +52,7 @@
     right: 1rem;
     bottom: 0.85rem;
     padding: 0.42rem 0.58rem;
-    border: 1px solid #2b364b;
+    border: 1px solid #d6dce7;
     background: rgba(9, 13, 22, 0.8);
     color: #7f8ca2;
     font: 0.58rem/1 var(--font-mono);
@@ -66,7 +66,7 @@
     display: grid;
     place-content: center;
     justify-items: center;
-    border: 1px dashed #41506a;
+    border: 1px dashed #c5cddb;
     background: rgba(11, 16, 26, 0.88);
     color: #dfe5ee;
     text-align: center;

@@ -9,8 +9,8 @@
     padding: clamp(2rem, 4vw, 4.5rem) 0 clamp(3rem, 6vw, 6rem);
     border-bottom: 1px solid var(--border-default);
     background:
-        radial-gradient(circle at 82% 15%, rgba(89, 108, 255, 0.12), transparent 28rem),
-        linear-gradient(180deg, #fbfcfe 0%, #f5f7fa 100%);
+        radial-gradient(circle at 82% 15%, rgba(233, 200, 135, 0.168), transparent 28rem),
+        linear-gradient(180deg, #0d0f13 0%, #0f1115 100%);
 }
 
 .skills-hero::after {
@@ -55,8 +55,8 @@
     padding: 0.2rem;
     border: 1px solid var(--border-default);
     border-radius: 0.45rem;
-    background: rgba(255, 255, 255, 0.68);
-    box-shadow: 0 0.5rem 1.5rem rgba(24, 31, 47, 0.04);
+    background: rgba(14, 17, 24, 0.612);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.18);
 }
 
 .skills-view-switch button {
@@ -101,17 +101,17 @@
 .skills-title {
     max-width: 15ch;
     margin: 0.9rem 0 0;
-    color: #10141c;
+    color: #f0f2f6;
     font-size: clamp(3rem, 6.4vw, 6.4rem);
-    line-height: 0.92;
-    letter-spacing: -0.07em;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
     text-wrap: balance;
 }
 
 .skills-subtitle {
     max-width: 41rem;
     margin: 0;
-    color: #5f6878;
+    color: #bdc2cb;
     font-size: clamp(0.88rem, 1.1vw, 1.05rem);
     line-height: 1.9;
 }
@@ -130,7 +130,7 @@
 
 .skills-intro {
     padding: clamp(5rem, 10vw, 10rem) 0;
-    background: #fff;
+    background: #0f0f0f;
 }
 
 .intro-grid {
@@ -154,7 +154,7 @@
     margin: 3rem 0 1.2rem;
     color: var(--text-primary);
     font-size: clamp(1.25rem, 2vw, 2rem);
-    letter-spacing: -0.035em;
+    letter-spacing: 0.01em;
 }
 
 .intro-card p {
@@ -171,11 +171,11 @@
 }
 
 .taxonomy-section {
-    background: #f3f5f8;
+    background: #101215;
 }
 
 .skills-list-section {
-    background: #fff;
+    background: #0f0f0f;
 }
 
 .skills-section-header {
@@ -191,8 +191,8 @@
     margin: 0.8rem 0 0;
     color: var(--text-primary);
     font-size: clamp(2.4rem, 5vw, 5rem);
-    line-height: 0.95;
-    letter-spacing: -0.06em;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
 }
 
 .skills-section-header p {
@@ -224,7 +224,7 @@
     border-right: 1px solid var(--border-default);
     border-bottom: 1px solid var(--border-default);
     border-radius: 0;
-    background: #fff;
+    background: #0f0f0f;
     color: var(--text-primary);
     text-decoration: none;
     transition: background 220ms ease, color 220ms ease;
@@ -263,7 +263,7 @@
 }
 
 .skill-visual-code {
-    color: color-mix(in srgb, var(--skill-color, #5a6dea) 58%, #111827);
+    color: color-mix(in srgb, var(--skill-color, #e9c887) 58%, #eaedf6);
     font: 620 clamp(1.6rem, 3vw, 3rem)/1 var(--font-mono);
 }
 
@@ -274,7 +274,7 @@
     font-size: clamp(1rem, 1.6vw, 1.45rem);
     font-weight: 620;
     line-height: 1.2;
-    letter-spacing: -0.025em;
+    letter-spacing: 0.01em;
     text-align: left;
 }
 
@@ -293,7 +293,7 @@
     position: absolute;
     top: 1.4rem;
     right: 1.4rem;
-    color: #7d8797;
+    color: #abb1bc;
     font-size: 1rem;
 }
 
@@ -309,7 +309,7 @@
 .skills-list > * {
     border: 0;
     border-radius: 0;
-    background: #fff;
+    background: #0f0f0f;
 }
 
 .skills-graph-route-loading {
@@ -324,8 +324,8 @@
 .skills-graph-route-loading span {
     width: 1.5rem;
     height: 1.5rem;
-    border: 2px solid #2c374a;
-    border-top-color: #7f91ff;
+    border: 2px solid #d6dce7;
+    border-top-color: #e9c887;
     border-radius: 50%;
     animation: skills-route-spin 800ms linear infinite;
 }

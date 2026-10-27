@@ -41,7 +41,7 @@ export default function GraphCanvas({ model, controller, layoutMode = 'local', c
                 labelGridCellSize: 130,
                 labelRenderedSizeThreshold: 5,
                 labelColor: { color: '#dce3ef' },
-                labelFont: 'Geist Sans, PingFang SC, sans-serif',
+                labelFont: 'PingFang SC, Microsoft YaHei, sans-serif',
                 labelWeight: '560',
                 renderEdgeLabels: false,
                 nodeReducer(nodeId, data) {

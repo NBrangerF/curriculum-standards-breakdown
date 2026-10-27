@@ -6,7 +6,7 @@
     border: 1px solid rgb(255 255 255 / 12%);
     border-radius: var(--radius-sm);
     background: var(--color-graphite-900, #11151d);
-    box-shadow: 0 0.8rem 2.4rem rgb(7 10 17 / 24%);
+    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.58);
     color: #fff;
     font-size: 0.68rem;
     font-weight: 560;
@@ -26,13 +26,13 @@
 .arrow {
     position: absolute;
     display: block;
-    color: var(--color-graphite-900, #11151d);
+    color: var(--color-graphite-900, #eff1f6);
 }
 
 .arrow svg {
     display: block;
     fill: currentcolor;
-    filter: drop-shadow(0 1px 0 rgb(255 255 255 / 12%));
+    filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.01));
 }
 
 .tooltip[data-placement="bottom"] .arrow svg {

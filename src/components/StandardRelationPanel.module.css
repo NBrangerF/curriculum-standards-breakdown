@@ -24,7 +24,7 @@
 .relation-focus-identity span {
     flex: 0 0 auto;
     padding: 0.32rem 0.48rem;
-    border: 1px solid #53627b;
+    border: 1px solid #bbc4d1;
     color: #b8c5dd;
     font: 600 0.62rem/1 var(--font-mono);
 }
@@ -53,13 +53,13 @@
     margin: 0;
     color: #f5f7fc;
     font-size: clamp(2rem, 4vw, 3.6rem);
-    line-height: 0.98;
-    letter-spacing: -0.055em;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
     text-wrap: balance;
 }
 
 .relation-panel-heading h2:focus-visible {
-    outline: 2px solid #8d9cff;
+    outline: 2px solid rgba(222, 228, 238, 0.221);
     outline-offset: 0.35rem;
 }
 
@@ -78,7 +78,7 @@
     justify-content: space-between;
     min-height: 3.5rem;
     padding: 0.65rem 0.8rem;
-    border: 1px solid #273044;
+    border: 1px solid #dadfea;
     border-bottom: 0;
     background: #111725;
 }
@@ -103,7 +103,7 @@
 .relation-graph-toolbar button {
     min-height: 2rem;
     padding: 0.45rem 0.68rem;
-    border: 1px solid #33405a;
+    border: 1px solid #cdd5e3;
     border-radius: 999px;
     background: transparent;
     color: #95a2b8;
@@ -118,8 +118,8 @@
 }
 
 .relation-graph-toolbar button.is-active {
-    border-color: #7689ff;
-    background: rgba(85, 104, 230, 0.2);
+    border-color: #e9c887;
+    background: rgba(233, 200, 135, 0.28);
     color: #f3f5ff;
 }
 
@@ -132,14 +132,14 @@
     display: grid;
     min-height: 29rem;
     place-items: center;
-    border: 1px solid #273044;
+    border: 1px solid #dadfea;
     color: #8996ab;
     font: 0.66rem/1 var(--font-mono);
 }
 
 .relation-graph-inspector {
     padding: 1.4rem;
-    border: 1px solid #273044;
+    border: 1px solid #dadfea;
     border-left: 0;
     background: #111725;
 }
@@ -181,7 +181,7 @@
 
 .relation-graph-inspector dl {
     margin: 0;
-    border-top: 1px solid #273044;
+    border-top: 1px solid #dadfea;
 }
 
 .relation-graph-inspector dl > div {
@@ -189,7 +189,7 @@
     grid-template-columns: 1fr auto;
     gap: 1rem;
     padding: 0.72rem 0;
-    border-bottom: 1px solid #273044;
+    border-bottom: 1px solid #dadfea;
 }
 
 .relation-graph-inspector dt,
@@ -212,7 +212,7 @@
     grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
     gap: 1.15rem;
     padding: 2rem;
-    border: 1px solid #273044;
+    border: 1px solid #dadfea;
     background:
         linear-gradient(rgba(143, 158, 185, 0.07) 1px, transparent 1px),
         linear-gradient(90deg, rgba(143, 158, 185, 0.07) 1px, transparent 1px),
@@ -238,7 +238,7 @@
     min-height: 5.2rem;
     align-content: center;
     padding: 0.9rem 1rem;
-    border: 1px solid #445068;
+    border: 1px solid #c6ccda;
     border-radius: var(--radius-sm);
     background: #171e2c;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
@@ -258,9 +258,9 @@
 }
 
 .relation-node.is-focus {
-    border-color: #8d9cff;
-    background: #263cc4;
-    box-shadow: 0 0 0 0.25rem rgba(87, 108, 255, 0.15), 0 1.2rem 2.3rem rgba(0, 0, 0, 0.28);
+    border-color: rgba(222, 228, 238, 0.221);
+    background: #e9c887;
+    box-shadow: 0 0 0 0.25rem rgba(233, 200, 135, 0.15), 0 1.2rem 2.3rem rgba(0, 0, 0, 0.6);
 }
 
 .relation-node.is-focus span,
@@ -270,7 +270,7 @@
 
 .relation-equivalent-list {
     margin-top: 1.1rem;
-    border: 1px solid #273044;
+    border: 1px solid #dadfea;
     background: #111725;
 }
 
@@ -322,7 +322,7 @@
     width: 100%;
     min-height: 3rem;
     padding: 0.65rem 0.75rem;
-    border: 1px solid #2c374c;
+    border: 1px solid #d5dbe7;
     background: #0e1420;
     color: #8f9bb0;
     font: 0.62rem/1.35 var(--font-mono);
@@ -332,7 +332,7 @@
 
 [data-kb-component="graph-fallback-list"] :global(.graph-fallback-relations) button:hover,
 [data-kb-component="graph-fallback-list"] :global(.graph-fallback-relations) button:focus-visible {
-    border-color: #697bff;
+    border-color: #e9c887;
     outline: none;
 }
 
@@ -344,7 +344,7 @@
 }
 
 .relation-equivalent-list details {
-    border-top: 1px solid #273044;
+    border-top: 1px solid #dadfea;
 }
 
 .relation-equivalent-list summary {
@@ -365,7 +365,7 @@
     gap: 1rem;
     justify-content: space-between;
     padding: 0.55rem 0;
-    border-top: 1px solid #202a3b;
+    border-top: 1px solid #dfe4ed;
     color: #a7b2c2;
     font-size: 0.68rem;
 }
@@ -385,7 +385,7 @@
 }
 
 .relation-list-heading {
-    border-bottom: 1px solid #273044;
+    border-bottom: 1px solid #dadfea;
 }
 
 .relation-list-heading h3 {
@@ -408,7 +408,7 @@
 }
 
 .relation-equivalent-list li + li {
-    border-top: 1px solid #202a3b;
+    border-top: 1px solid #dfe4ed;
 }
 
 .relation-type,
@@ -458,7 +458,7 @@
 
     .relation-graph-inspector {
         border-top: 0;
-        border-left: 1px solid #273044;
+        border-left: 1px solid #dadfea;
     }
 
     .relation-track::before {

@@ -2,7 +2,7 @@
 .back { display: inline-flex; min-height: 2.75rem; gap: .45rem; align-items: center; color: var(--text-secondary); font-size: .75rem; }
 .page header { margin-top: var(--space-8); padding: var(--space-10); border: 1px solid var(--kb-hairline); border-radius: var(--radius-lg); background: var(--kb-surface); }
 .page header > span { color: var(--kb-accent); font: 650 .66rem var(--font-mono); }
-.page header h1 { max-width: 54rem; margin-top: .7rem; font-size: clamp(2rem,5vw,3.7rem); letter-spacing: -.05em; }
+.page header h1 { max-width: 54rem; margin-top: .7rem; font-size: clamp(2rem,5vw,3.7rem); letter-spacing: 0.01em; }
 .page header p { margin: 1rem 0 1.5rem; color: var(--text-secondary); font: .75rem var(--font-mono); }
 .grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(17rem,23rem); gap: var(--space-10); margin-top: var(--space-10); }
 .grid section,.grid aside { min-width: 0; }

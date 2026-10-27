@@ -7,10 +7,10 @@
     min-width: 0;
     aspect-ratio: 0.72;
     padding: 1rem;
-    border: 1px solid color-mix(in srgb, var(--book-color) 45%, #fff);
+    border: 1px solid color-mix(in srgb, var(--book-color) 45%, rgba(222, 228, 238, 0.12));
     border-radius: var(--radius-lg);
     background:
-        linear-gradient(145deg, color-mix(in srgb, var(--book-color) 92%, #101521), color-mix(in srgb, var(--book-color) 52%, #fff));
+        linear-gradient(145deg, color-mix(in srgb, var(--book-color) 92%, #101521), color-mix(in srgb, var(--book-color) 52%, #0f0f0f));
     color: #fff;
     box-shadow: 0 16px 32px color-mix(in srgb, var(--book-color) 18%, transparent);
     isolation: isolate;
@@ -42,13 +42,13 @@
 .cover strong {
     margin-top: auto;
     font-size: clamp(1.8rem, 5vw, 3.15rem);
-    line-height: .95;
-    letter-spacing: -.06em;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
 }
 
 .grade { margin-top: .75rem; font-size: .95rem; font-weight: 650; }
 .volume { font-size: .78rem; opacity: .86; }
-.mark { margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.3); }
+.mark { margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(222, 228, 238, 0.12); }
 
 @media (max-width: 560px) {
     .hero { width: 10.5rem; }

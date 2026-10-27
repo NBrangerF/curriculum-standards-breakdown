@@ -13,9 +13,9 @@
     min-width: 30rem;
     height: 100dvh;
     overflow: hidden;
-    border-left: 1px solid rgba(255, 255, 255, 0.8);
-    background: #fff;
-    box-shadow: -2rem 0 5rem rgba(20, 29, 54, 0.2);
+    border-left: 1px solid rgba(222, 228, 238, 0.12);
+    background: #0f0f0f;
+    box-shadow: -2rem 0 5rem rgba(0, 0, 0, 0.5);
     outline: none;
 }
 
@@ -34,7 +34,7 @@
     min-height: 5.15rem;
     padding: 1.1rem clamp(1.3rem, 3vw, 2.25rem);
     border-bottom: 1px solid var(--border-default);
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(14, 17, 24, 0.846);
 }
 
 .header > div {
@@ -60,7 +60,7 @@
     height: 2.6rem;
     border: 1px solid var(--border-default);
     border-radius: 50%;
-    background: #fff;
+    background: #0f0f0f;
     color: var(--text-primary);
     cursor: pointer;
     place-items: center;
@@ -68,12 +68,12 @@
 
 .closeButton:hover,
 .closeButton[data-focused] {
-    border-color: rgba(61, 90, 254, 0.48);
+    border-color: rgba(233, 200, 135, 0.48);
     color: var(--color-primary);
 }
 
 .closeButton[data-focus-visible] {
-    outline: 3px solid rgba(61, 90, 254, 0.22);
+    outline: 3px solid rgba(233, 200, 135, 0.22);
     outline-offset: 2px;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .body:focus-visible {
-    outline: 3px solid rgba(61, 90, 254, 0.22);
+    outline: 3px solid rgba(233, 200, 135, 0.22);
     outline-offset: -3px;
 }
 
@@ -102,11 +102,11 @@
 
 .classification span,
 .skillSection span {
-    border: 1px solid rgba(61, 90, 254, 0.18);
+    border: 1px solid rgba(233, 200, 135, 0.18);
     border-radius: 999px;
     padding: 0.34rem 0.58rem;
-    background: rgba(61, 90, 254, 0.055);
-    color: #3549aa;
+    background: rgba(233, 200, 135, 0.077);
+    color: #a2ace2;
     font-size: 0.7rem;
     font-weight: 650;
 }
@@ -116,7 +116,7 @@
     margin: 0;
     font-size: clamp(1.75rem, 2.8vw, 2.35rem);
     line-height: 1.2;
-    letter-spacing: -0.045em;
+    letter-spacing: 0.01em;
 }
 
 .document {
@@ -130,7 +130,7 @@
     margin: 0 0 1rem;
     padding: 0.8rem 0.9rem;
     border-left: 3px solid var(--color-primary);
-    background: rgba(61, 90, 254, 0.05);
+    background: rgba(233, 200, 135, 0.07);
     color: var(--text-secondary);
     font-size: 0.8rem;
 }
@@ -144,16 +144,16 @@
 .loading span {
     width: 0.8rem;
     height: 0.8rem;
-    border: 2px solid rgba(61, 90, 254, 0.18);
+    border: 2px solid rgba(233, 200, 135, 0.18);
     border-top-color: var(--color-primary);
     border-radius: 50%;
     animation: preview-spin 0.8s linear infinite;
 }
 
 .error {
-    border-left-color: #c17c13;
-    background: #fff8e9;
-    color: #6b4a11;
+    border-left-color: #eecd9c;
+    background: #171410;
+    color: #f6e3c4;
 }
 
 .contentSection,
@@ -177,12 +177,12 @@
 .skillSection h3 {
     margin: 0;
     font-size: 0.93rem;
-    letter-spacing: -0.015em;
+    letter-spacing: 0.01em;
 }
 
 .contentSection > p {
     margin: 0.85rem 0 0;
-    color: #30394a;
+    color: #d6dbe5;
     font-size: 0.95rem;
     line-height: 1.78;
 }
@@ -198,20 +198,20 @@
 }
 
 .sourceBadge[data-provenance="official"] {
-    border-color: rgba(25, 132, 83, 0.28);
-    color: #176b46;
+    border-color: rgba(182, 241, 214, 0.28);
+    color: #c4f2de;
 }
 
 .sourceBadge[data-quality-risk] {
-    border-color: rgba(193, 124, 19, 0.3);
-    background: #fff8e9;
-    color: #77500f;
+    border-color: rgba(238, 205, 156, 0.3);
+    background: #171410;
+    color: #f6e1bf;
 }
 
 .sourceLine {
     display: block;
     margin-top: 0.75rem;
-    color: var(--text-tertiary, #798293);
+    color: var(--text-tertiary, #adb3bd);
     font-size: 0.68rem;
     line-height: 1.5;
 }
@@ -221,8 +221,8 @@
     gap: 0.28rem;
     margin-top: 0.85rem;
     padding: 0.8rem 0 0.8rem 0.9rem;
-    border-left: 3px solid #c17c13;
-    color: #6b4a11;
+    border-left: 3px solid #eecd9c;
+    color: #f6e3c4;
 }
 
 .qualityWarning strong {
@@ -248,8 +248,8 @@
     gap: 0.65rem;
     padding: 1rem clamp(1.3rem, 3vw, 2.25rem);
     border-top: 1px solid var(--border-default);
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 -1rem 2.4rem rgba(30, 40, 68, 0.055);
+    background: rgba(14, 17, 24, 0.864);
+    box-shadow: 0 -1rem 2.4rem rgba(0, 0, 0, 0.21);
 }
 
 .saveButton,
@@ -267,7 +267,7 @@
 
 .saveButton {
     border: 1px solid var(--border-default);
-    background: #fff;
+    background: #0f0f0f;
     color: var(--text-primary);
     cursor: pointer;
 }
@@ -280,12 +280,12 @@
 .fullLink {
     border: 1px solid var(--color-primary);
     background: var(--color-primary);
-    color: #fff;
+    color: var(--text-inverse);
 }
 
 .saveButton[data-focus-visible],
 .fullLink:focus-visible {
-    outline: 3px solid rgba(61, 90, 254, 0.22);
+    outline: 3px solid rgba(233, 200, 135, 0.22);
     outline-offset: 2px;
 }
 
@@ -298,7 +298,7 @@
 }
 
 @media (max-width: 620px) {
-    .overlay { background: #fff; backdrop-filter: none; }
+    .overlay { background: #0f0f0f; backdrop-filter: none; }
     .modal { width: 100%; min-width: 0; border-left: 0; box-shadow: none; }
     .header { min-height: 4.6rem; }
     .footer { grid-template-columns: 1fr; }

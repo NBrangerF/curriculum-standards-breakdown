@@ -4,7 +4,7 @@
 .hero { border-bottom: 1px solid var(--kb-hairline); padding: var(--space-6) 0 var(--space-12); background: var(--kb-surface); }
 .heroGrid { display: grid; grid-template-columns: minmax(11rem,15rem) minmax(0,1fr) minmax(13rem,18rem); gap: var(--space-10); align-items: center; }
 .eyebrow,.asideLabel,.sectionHeading span { color: var(--kb-accent); font: 650 .66rem/1 var(--font-mono); letter-spacing: .08em; }
-.heroContent h1 { margin-top: .65rem; font-size: clamp(2rem,5vw,4rem); letter-spacing: -.06em; }
+.heroContent h1 { margin-top: .65rem; font-size: clamp(2rem,5vw,4rem); letter-spacing: 0.01em; }
 .edition { margin-top: .65rem; color: var(--text-secondary); }
 .badges { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: var(--space-5); }
 .summary { max-width: 44rem; margin-top: var(--space-5); color: var(--text-secondary); font-size: .9rem; }

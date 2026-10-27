@@ -14,8 +14,8 @@
 
 .search-header {
     background:
-        linear-gradient(rgba(62, 91, 239, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(62, 91, 239, 0.045) 1px, transparent 1px),
+        linear-gradient(rgba(233, 200, 135, 0.063) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(233, 200, 135, 0.063) 1px, transparent 1px),
         var(--kb-surface);
     background-size: 4.5rem 4.5rem;
     border-bottom: 1px solid var(--kb-hairline);
@@ -164,7 +164,7 @@
 .undo-clear-button {
     border: 1px solid var(--kb-ink);
     background: var(--kb-ink);
-    color: #fff;
+    color: var(--kb-night);
 }
 
 .clear-all-button:focus-visible,
@@ -180,7 +180,7 @@
     gap: var(--space-2);
     padding: var(--space-2) var(--space-4);
     background: var(--color-warning-light);
-    border: 1px solid color-mix(in srgb, var(--color-warning) 34%, white);
+    border: 1px solid color-mix(in srgb, var(--color-warning) 34%, rgba(222, 228, 238, 0.12));
     border-radius: var(--radius-md);
     margin-bottom: var(--space-4);
     font-size: var(--font-size-sm);
@@ -215,7 +215,7 @@
 
 .filter-hint {
     font-size: var(--font-size-sm);
-    color: #586474;
+    color: #bfc6cf;
     margin-bottom: var(--space-3);
 }
 
@@ -256,7 +256,7 @@
 .checkbox-item-lg.active {
     background: var(--color-primary);
     border-color: var(--color-primary);
-    color: white;
+    color: var(--text-inverse);
 }
 
 /* Secondary - Grade Bands */
@@ -289,7 +289,7 @@
 .checkbox-item-md.active {
     background: var(--color-primary);
     border-color: var(--color-primary);
-    color: white;
+    color: var(--text-inverse);
 }
 
 .filter-badge {
@@ -372,7 +372,7 @@
 .checkbox-item-sm.active {
     background: var(--color-gray-700);
     border-color: var(--color-gray-700);
-    color: white;
+    color: var(--kb-night);
 }
 
 .skill-code-badge {
@@ -403,7 +403,7 @@
 
 .validation-hint {
     font-size: var(--font-size-sm);
-    color: #82480c;
+    color: #f5d8bb;
 }
 
 :global(.btn).disabled {

@@ -32,7 +32,7 @@
 .column-title {
     font-size: var(--font-size-lg);
     font-weight: 700;
-    color: color-mix(in srgb, var(--column-color, var(--color-primary)) 72%, #111827);
+    color: color-mix(in srgb, var(--column-color, var(--color-primary)) 72%, #eaedf6);
     margin: 0;
 }
 
@@ -125,7 +125,7 @@
 
 .domain-header.expanded {
     background: color-mix(in srgb, var(--column-color, var(--color-primary)) 72%, #111827);
-    color: white;
+    color: var(--kb-night);
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 

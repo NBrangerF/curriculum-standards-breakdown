@@ -98,7 +98,7 @@ function StyleGuidePage() {
                             <div className={styles.typeBody}>
                                 <span>BODY / GEIST SANS 400</span>
                                 <p>学生通过观察、操作、想象等活动，认识物体的形状与结构，理解图形的位置与运动，发展空间观念。</p>
-                                <code>MA-D2-GE-003 · Geist Mono 550</code>
+                                <code>MA-D2-GE-003 · IBM Plex Mono 500</code>
                             </div>
                         </div>
 
