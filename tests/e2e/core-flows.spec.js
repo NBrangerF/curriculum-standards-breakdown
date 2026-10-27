@@ -44,16 +44,18 @@ const seedCollectionWorkspace = page => page.addInitScript(() => {
     }))
 })
 
-test('home navigation preserves the existing information architecture', async ({ page }) => {
+test('home sky keeps subject and skill entries reachable', async ({ page }) => {
     await page.goto('/')
     await expect(page).toHaveTitle(/kebiao/)
-    await expect(page.getByRole('heading', { level: 1, name: '3 秒定位课程标准' })).toBeVisible()
+    await expect(page.getByRole('heading', { level: 1, name: /kebiao 课标星图/ })).toBeAttached()
 
-    await page.getByRole('button', { name: '按学科浏览' }).click()
-    await expect(page.getByRole('heading', { level: 2, name: '学科入口' })).toBeInViewport()
-    await expect(page.locator('#subjects-section').getByRole('link').first()).toBeFocused()
+    const math = page.locator('#subjects-section + ul').getByRole('link', { name: /数学/ })
+    await expect(math).toContainText('164')
+    await math.click()
+    await expect(page).toHaveURL(/\/subjects\/math$/)
+    await expect(page.getByRole('heading', { level: 1, name: '数学' })).toBeVisible()
 
-    await page.getByRole('link', { name: '可迁移技能' }).first().click()
+    await page.getByRole('banner').getByRole('link', { name: '可迁移技能' }).click()
     await expect(page).toHaveURL(/\/skills$/)
     await expect(page.getByRole('heading', { level: 1, name: '可迁移技能与课程关系' })).toBeVisible()
 })
@@ -75,41 +77,35 @@ test('unknown routes show a not-found page with a way home', async ({ page }) =>
     await expect(page).toHaveURL(/\/$/)
 })
 
-test('home narrative lazy boundary presents a structured placeholder before loading', async ({ page }) => {
-    await page.goto('/')
+test('a shared link opens the home compare window on the requested view', async ({ page }) => {
+    await page.goto('/?mode=B&bands=H2&subjects=math,science#compare')
+    await expect(page.getByRole('tab', { name: '多科 × 一学段' })).toHaveAttribute('aria-selected', 'true')
+    const panel = page.locator('#cmp-panel')
+    await expect(panel.getByRole('button', { name: '3–4 年级' })).toHaveAttribute('aria-pressed', 'true')
+    await expect(panel.getByRole('button', { name: '数学' })).toHaveAttribute('aria-pressed', 'true')
+    await expect(panel.getByRole('button', { name: '科学' })).toHaveAttribute('aria-pressed', 'true')
+    await expect(panel).toContainText('3–4 年级 · 数学 / 科学')
 
-    const placeholder = page.locator('[data-kb-component="home-narrative-placeholder"]')
-    await expect(placeholder).toBeAttached()
-    await expect(placeholder.locator('div > div').last()).toBeAttached()
-
-    await page.locator('[data-kb-component="home-narrative-gate"]').evaluate(element => {
-        element.scrollIntoView({ block: 'center' })
-    })
-    await expect(page.locator('[data-kb-component="home-narrative"]')).toBeVisible({ timeout: 20_000 })
-    await expect(placeholder).toHaveCount(0)
+    await page.getByRole('tab', { name: '一科 × 多学段' }).click()
+    await panel.getByRole('button', { name: '数学' }).click()
+    await expect(panel.getByRole('link', { name: /数学全表/ })).toHaveAttribute('href', '/subjects/math')
 })
 
-test('home subject and skill entries reveal real relationship metadata', async ({ page }) => {
-    await page.goto('/')
-
-    const math = page.getByRole('link', { name: '数学', exact: true })
-    await math.hover()
-    const subjectPreview = page.locator('#subject-preview-math')
-    await expect(subjectPreview).toHaveCSS('opacity', '1')
-    await expect(subjectPreview).toContainText('164 条标准')
-    await expect(subjectPreview).toContainText('4 个领域')
-
-    const skill = page.getByRole('link', { name: '批判性思维与问题解决', exact: true })
-    await skill.hover()
-    const skillPreview = page.locator('#skill-preview-TS1')
-    await expect(skillPreview).toHaveCSS('opacity', '1')
-    await expect(skillPreview).toContainText('连接 9 个学科')
-    await expect(skillPreview).toContainText('项子技能')
+test('the command palette searches every standard and opens a result', async ({ page }) => {
+    await page.goto('/glossary')
+    await page.keyboard.press('ControlOrMeta+k')
+    const palette = page.getByRole('dialog', { name: '搜索课程标准' })
+    await expect(palette).toBeVisible()
+    await palette.getByRole('combobox').fill('MA-D2-AL-005')
+    await expect(palette.getByRole('option').first()).toContainText('MA-D2-AL-005')
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/\/standards\/MA-D2-AL-005$/)
 })
 
 test('constraint feedback uses a dismissable non-blocking toast', async ({ page }) => {
-    await page.goto('/?subjects=math&bands=H1,H2')
-    await page.locator('#compare-filter label').filter({ hasText: '语文' }).click()
+    await page.goto('/search?subjects=math&bands=H1,H2')
+    await page.getByRole('button', { name: '调整对比条件' }).first().click()
+    await page.locator('[data-kb-component="search-filter-panel"] label').filter({ hasText: '语文' }).first().click()
     const toast = page.locator('[data-kb-primitive="toast"]')
     await expect(toast).toHaveAttribute('role', 'status')
     await expect(toast).toContainText('对比多个学科时，学段只能选1个')
@@ -117,21 +113,22 @@ test('constraint feedback uses a dismissable non-blocking toast', async ({ page 
     await expect(toast).toBeHidden()
 })
 
-test('home disclosure preserves focus and exposes its controlled region', async ({ page }) => {
-    await page.goto('/')
-    const disclosure = page.locator('#compare-filter').getByRole('button', { name: /可迁移技能/ })
+test('filter disclosure preserves focus and exposes its controlled region', async ({ page }) => {
+    await page.goto('/search?subjects=math&bands=H2')
+    await page.getByRole('button', { name: '调整对比条件' }).first().click()
+    const disclosure = page.locator('[data-kb-component="search-filter-panel"]').getByRole('button', { name: /可迁移技能/ })
     await expect(disclosure).toHaveAttribute('aria-expanded', 'false')
     await disclosure.focus()
     await page.keyboard.press('Enter')
     await expect(disclosure).toHaveAttribute('aria-expanded', 'true')
-    await expect(page.locator('#home-skill-filter-options')).toHaveAttribute('role', 'region')
+    await expect(page.locator('#search-skill-filter-options')).toHaveAttribute('role', 'region')
     await page.keyboard.press('Enter')
     await expect(disclosure).toBeFocused()
-    await expect(page.locator('#home-skill-filter-options')).toHaveCount(0)
+    await expect(page.locator('#search-skill-filter-options')).toHaveCount(0)
 })
 
 test('production tooltip is available on focus without replacing the accessible name', async ({ page }) => {
-    await page.goto('/subjects/math')
+    await page.goto('/search?subjects=math&bands=H2')
     const copyButton = page.getByRole('button', { name: '复制标准 ID' }).first()
     const tooltip = page.getByRole('tooltip', { name: '复制标准 ID' })
     await expect(tooltip).toBeHidden()
@@ -144,7 +141,7 @@ test('production tooltip is available on focus without replacing the accessible 
 })
 
 test('standard card action menu moves focus and returns it on Escape', async ({ page }) => {
-    await page.goto('/subjects/math')
+    await page.goto('/search?subjects=math&bands=H2')
     const trigger = page.getByRole('button', { name: '更多操作' }).first()
     await trigger.click()
     const menu = page.getByRole('menu').first()
@@ -185,7 +182,7 @@ test('subject list and graph preserve the locked subject in browser history', as
     await expect(page.getByRole('region', { name: '课程标准知识图谱工作台' })).toBeVisible({ timeout: 20_000 })
     await expect(page.locator('#graph-subject-filter')).toHaveText('数学')
 
-    await page.getByRole('button', { name: '列表视图' }).click()
+    await page.getByRole('button', { name: '对照表' }).click()
     await expect(page).not.toHaveURL(/view=graph/)
     await page.goBack()
     await expect(page).toHaveURL(/view=graph/)

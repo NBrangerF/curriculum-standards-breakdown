@@ -191,8 +191,9 @@ test('favorite collection popover has no critical or serious WCAG violations', a
 })
 
 test('constraint toast has no critical or serious WCAG violations', async ({ page }) => {
-    await page.goto('/?subjects=math&bands=H1,H2')
-    await page.locator('#compare-filter label').filter({ hasText: '语文' }).click()
+    await page.goto('/search?subjects=math&bands=H1,H2')
+    await page.getByRole('button', { name: '调整对比条件' }).first().click()
+    await page.locator('[data-kb-component="search-filter-panel"] label').filter({ hasText: '语文' }).first().click()
     await expect(page.locator('[data-kb-primitive="toast"]')).toBeVisible()
     const results = await new AxeBuilder({ page })
         .include('[data-kb-primitive="toast"]')

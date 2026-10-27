@@ -8,17 +8,20 @@
       "id": "home",
       "path": "/?subjects=math&bands=H2",
       "routeKey": "home",
-      "headings": ["3 秒定位课程标准", "对比筛选", "学科入口", "可迁移技能", "如何使用"],
-      "buttons": ["开始筛选课程标准", "按学科浏览", "查看对比结果", "重置"],
+      "headings": ["并排看", "随手捞一条", "从一条开始。"],
+      "buttons": ["检索", "搜索全部 2,025 条 ⌘K"],
+      "links": ["数学", "科学"],
+      "texts": ["从学科进入", "对照窗"],
       "queryParams": ["subjects", "bands"]
     },
     {
       "id": "subject",
       "path": "/subjects/math",
       "routeKey": "subject",
-      "headings": ["数学", "课程标准"],
-      "buttons": ["列表视图", "学段对比", "关系图谱", "展开全部", "收起全部"],
-      "links": ["← 返回首页"]
+      "headings": ["数学", "九年", "别的课"],
+      "buttons": ["对照表", "关系图谱", "全部"],
+      "links": ["课标星图"],
+      "texts": ["从领域进入", "从学段进入", "下一门"]
     },
     {
       "id": "skills",

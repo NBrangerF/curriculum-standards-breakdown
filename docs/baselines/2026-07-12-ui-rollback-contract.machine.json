@@ -5,15 +5,14 @@
   "routes": [
     {
       "routeKey": "home",
-      "mode": "enhancement",
-      "disabledEnhancements": ["homeNarrative"],
+      "mode": "passthrough",
       "absentTexts": ["从课程目录，到可探索的知识坐标"]
     },
     {
       "routeKey": "subject",
       "mode": "enhancement",
       "disabledEnhancements": ["subjectGraph"],
-      "omittedButtons": ["关系图谱"]
+      "omittedButtons": ["对照表", "关系图谱"]
     },
     {
       "routeKey": "skills",
