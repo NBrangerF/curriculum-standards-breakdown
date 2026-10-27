@@ -9,7 +9,8 @@ const ROOT = resolve(import.meta.dirname, '../..')
 const CURRENT_PATH = join(ROOT, 'data/textbooks/library-state/CURRENT.json')
 const STRUCTURE_ROOT = join(ROOT, 'data/textbooks/derived/by-edition')
 const STANDARD_ROOT = join(ROOT, 'public/data/by_subject')
-const TEXTBOOK_INDEX = join(ROOT, 'generated/textbook_evidence/china_textbook_index.json')
+// Tracked copy of generated/textbook_evidence/china_textbook_index.json so deploy builds see the same evidence.
+const TEXTBOOK_INDEX = join(ROOT, 'data/textbooks/catalog/china_textbook_index.json')
 const LEGACY_APPROVED_CATALOG = join(ROOT, 'data/textbooks/catalog/legacy_approved_alignments.json')
 const DEFAULT_OUT = join(ROOT, 'data/textbooks/derived/textbook_standard_alignment_index.json')
 const ALGORITHM_VERSION = 'full-alignment-scope-preserve-v2'
