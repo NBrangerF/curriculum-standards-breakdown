@@ -9,6 +9,17 @@
             "includeFiles": "{public/data/**,data/textbooks/library-state/**,data/textbooks/catalog/**,docs/api/**,node_modules/swagger-ui-dist/swagger-ui.css,node_modules/swagger-ui-dist/swagger-ui-bundle.js}"
         }
     },
+    "headers": [
+        {
+            "source": "/((?!api/).*)",
+            "headers": [
+                { "key": "X-Content-Type-Options", "value": "nosniff" },
+                { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+                { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+                { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+            ]
+        }
+    ],
     "rewrites": [
         {
             "source": "/api/v1/:path*",
