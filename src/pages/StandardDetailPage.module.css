@@ -96,6 +96,19 @@
     line-height: 1.55;
 }
 
+.standard-detail-page .grade-split-notice {
+    grid-column: 1;
+    max-width: 46rem;
+    margin: 0.75rem 0 0;
+    padding: 0.6rem 0.8rem;
+    border-left: 3px solid var(--color-warning);
+    border-radius: 0 6px 6px 0;
+    background: var(--color-warning-light);
+    color: var(--color-warning-dark);
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
 .standard-detail-page .provenance-badge {
     display: inline-flex;
     flex: none;
@@ -926,6 +939,7 @@
     font-family: var(--font-serif, var(--font-sans));
     font-size: clamp(1rem, 1.45vw, 1.2rem);
     line-height: 1.95;
+    white-space: pre-line;
 }
 .standard-detail-page .official-source-card > small {
     display: block;

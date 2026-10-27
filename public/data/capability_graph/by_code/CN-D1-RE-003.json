@@ -5,27 +5,26 @@
     {
       "category": "language_expression",
       "component_ids": [
-        "lc_083e8f2b0b2bf558"
+        "lc_483032fbd605b342"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生阅读后提出至少 1 个与内容相关的问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "diagnostic_probe": "给出一个需要学生阅读后提出与内容相关的问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
       "difficulty_id": "cd_3797004233202aae",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_bd24cf764a621928",
-        "hc_4adeb57653a802a2"
+        "hc_77d193a9369bdf3b"
       ],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读后提出至少 1 个与内容相关的问题”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“阅读后提出至少 1 个与内容相关的问题”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读后提出与内容相关的问题”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“阅读后提出与内容相关的问题”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阅读后提出至少 1 个与内容相关的问题。",
-          "excerpt_hash": "c1b6e328b26b9cc411448839ccc546cf16a87223b40813363e0c779e2d1ef778",
+          "excerpt": "阅读后提出与内容相关的问题。",
+          "excerpt_hash": "e2ec4bd108c8d8e3ec16cf57ad45c064351b82196f746155473ec9ea0d549f10",
           "field": "standard",
           "ref_id": "standard:CN-D1-RE-003:standard",
           "source_type": "curriculum_standard_field"
@@ -38,8 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后阅读后提出至少 1 个与内容相关的问题，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“阅读后提出至少 1 个与内容相关的问题”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“制作“好奇卡”——每读完一本书写下一张问题卡，贴在阅读角，定期一起讨论。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后阅读后提出与内容相关的问题，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“阅读后提出与内容相关的问题”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“制作“好奇卡”——每读完一本书写下一张问题卡，贴在阅读角，定期一起讨论。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -195,99 +194,65 @@
       "review_status": "machine_checked",
       "source_code": "CN-D1-RE-003",
       "target_code": "CN-D2-RE-005",
-      "target_label": "就阅读内容提出至少 1 个探究性问题并与同伴交流。"
+      "target_label": "就阅读内容提出探究性问题并与同伴交流。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_bd24cf764a621928",
+      "case_id": "hc_77d193a9369bdf3b",
       "component_ids": [
-        "lc_083e8f2b0b2bf558"
+        "lc_483032fbd605b342"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "至少"
-      ],
-      "demand_dimension": "multiple_conditions",
-      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阅读后提出至少 1 个与内容相关的问题。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阅读后提出与内容相关的问题。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够阅读后提出至少 1 个与内容相关的问题；优先采集：任务：阅读理解问答（基于文本证据）。"
+        "学生能够阅读后提出与内容相关的问题；优先采集：任务：阅读理解问答（基于文本证据）。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阅读后提出至少 1 个与内容相关的问题。",
-          "excerpt_hash": "c1b6e328b26b9cc411448839ccc546cf16a87223b40813363e0c779e2d1ef778",
+          "excerpt": "阅读后提出与内容相关的问题。",
+          "excerpt_hash": "e2ec4bd108c8d8e3ec16cf57ad45c064351b82196f746155473ec9ea0d549f10",
           "field": "standard",
           "ref_id": "standard:CN-D1-RE-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "同时满足多个条件或范围限定（至少）",
-      "title": "同时满足多个条件或范围限定",
-      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
-    },
-    {
-      "case_id": "hc_4adeb57653a802a2",
-      "component_ids": [
-        "lc_083e8f2b0b2bf558"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "至少"
-      ],
-      "demand_dimension": "quantitative_threshold",
-      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阅读后提出至少 1 个与内容相关的问题。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够阅读后提出至少 1 个与内容相关的问题；优先采集：任务：阅读理解问答（基于文本证据）。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "阅读后提出至少 1 个与内容相关的问题。",
-          "excerpt_hash": "c1b6e328b26b9cc411448839ccc546cf16a87223b40813363e0c779e2d1ef778",
-          "field": "standard",
-          "ref_id": "standard:CN-D1-RE-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "满足数量、时长或频率阈值（至少）",
-      "title": "满足数量、时长或频率阈值",
-      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+      "structure": "阅读后提出与内容相关的问题",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_083e8f2b0b2bf558",
+      "component_id": "lc_483032fbd605b342",
       "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够阅读后提出至少 1 个与内容相关的问题",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阅读后提出至少 1 个与内容相关的问题，并说明关键步骤、特征或依据。",
-      "label": "阅读后提出至少 1 个与内容相关的问题",
+      "description": "学生能够阅读后提出与内容相关的问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阅读后提出与内容相关的问题，并说明关键步骤、特征或依据。",
+      "label": "阅读后提出与内容相关的问题",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够阅读后提出至少 1 个与内容相关的问题；优先采集：任务：阅读理解问答（基于文本证据）。",
+      "observable_evidence": "学生能够阅读后提出与内容相关的问题；优先采集：任务：阅读理解问答（基于文本证据）。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阅读后提出至少 1 个与内容相关的问题",
-          "excerpt_hash": "28e30baf7008225977071c792b06485c8e88f17e3ccd5b8d399f4ae3d418419d",
+          "excerpt": "阅读后提出与内容相关的问题",
+          "excerpt_hash": "9778e39a8ef1d6297f346943031b2b21b029fce3e62099c1a5d94b02cc6193e0",
           "field": "standard",
           "ref_id": "standard:CN-D1-RE-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "阅读后提出至少 1 个与内容相关的问题"
+      "source_statement": "阅读后提出与内容相关的问题"
     }
   ],
   "prerequisite_candidates": [],
@@ -299,7 +264,7 @@
     "total_candidate_count": 0,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "c1b6e328b26b9cc411448839ccc546cf16a87223b40813363e0c779e2d1ef778",
+  "source_standard_hash": "e2ec4bd108c8d8e3ec16cf57ad45c064351b82196f746155473ec9ea0d549f10",
   "standard_code": "CN-D1-RE-003",
   "verified_prerequisites": []
 }

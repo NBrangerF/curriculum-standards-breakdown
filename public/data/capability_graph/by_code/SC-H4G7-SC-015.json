@@ -3,44 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_7fa4632c8d1288a9"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_171e62d62dfa863e",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_047ddd181d241de7"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能描述人的受精、胚胎发育、分娩和哺乳过程；能说出人体生殖系统结构和功能；能说出人体发育过程和各阶段生理特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "35aabfc976d98b7583cf94e8694a9f382924ba558ca9ea83b6cc0466ab14fdda",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-015:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "采用尊重、科学、保护隐私的方式开展青春期和生命教育。",
-          "excerpt_hash": "6d9b95adaec5481bbde8fce0d1bd86bce1fba9c59396612621d46f6b7600f1f5",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G7-SC-015:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“采用尊重、科学、保护隐私的方式开展青春期和生命教育。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
         "lc_f74bbae593f28a66",
@@ -49,10 +11,12 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生描述人的受精、胚胎发育、分娩和哺乳过程的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a9a5fe20dfb5faae",
+      "difficulty_id": "cd_a09d05cc8fb3db07",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_7b28810a69cb9da4"
+      ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述人的受精、胚胎发育、分娩和哺乳过程”中的实际过程进一步核验。",
       "manifestation": "在要求学生“描述人的受精、胚胎发育、分娩和哺乳过程”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
@@ -61,8 +25,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能描述人的受精、胚胎发育、分娩和哺乳过程；能说出人体生殖系统结构和功能；能说出人体发育过程和各阶段生理特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "35aabfc976d98b7583cf94e8694a9f382924ba558ca9ea83b6cc0466ab14fdda",
+          "excerpt": "能描述人的受精、胚胎发育、分娩和哺乳过程；能说出人体生殖系统结构和功能；能说出人体发育过程和各阶段生理特点。",
+          "excerpt_hash": "28163af2a2d965d1b4ae43366233115f7c8892d7ba765b8f1618cb6751e96199",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-015:standard",
           "source_type": "curriculum_standard_field"
@@ -77,44 +41,6 @@
       ],
       "success_signal": "学生能在撤去提示后描述人的受精、胚胎发育、分娩和哺乳过程，并说明关键步骤、特征或依据。",
       "teacher_action": "围绕“描述人的受精、胚胎发育、分娩和哺乳过程”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“采用尊重、科学、保护隐私的方式开展青春期和生命教育。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_7fa4632c8d1288a9"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_95bb3b97dca72176",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_047ddd181d241de7"
-      ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能描述人的受精、胚胎发育、分娩和哺乳过程；能说出人体生殖系统结构和功能；能说出人体发育过程和各阶段生理特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "35aabfc976d98b7583cf94e8694a9f382924ba558ca9ea83b6cc0466ab14fdda",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-015:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "采用尊重、科学、保护隐私的方式开展青春期和生命教育。",
-          "excerpt_hash": "6d9b95adaec5481bbde8fce0d1bd86bce1fba9c59396612621d46f6b7600f1f5",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G7-SC-015:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用观察证据说明基本科学概念”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“采用尊重、科学、保护隐私的方式开展青春期和生命教育。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -172,7 +98,7 @@
       "pdf_page": 77,
       "printed_page": "70",
       "publication_status": "published",
-      "rationale": "教材objective“大多数生物体是由细胞构成的。细胞是生物体结构和功能的基本”与课标 SC-H4G7-SC-015 的可教学小能力“说出人体生殖系统结构和功能”形成页内证据匹配。",
+      "rationale": "教材学习目标“大多数生物体是由细胞构成的。细胞是生物体结构和功能的基本”与课标 SC-H4G7-SC-015 的可教学小能力“说出人体生殖系统结构和功能”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -325,42 +251,43 @@
       "review_status": "machine_checked",
       "source_code": "SC-H4G7-SC-015",
       "target_code": "SC-H4G8-SC-015",
-      "target_label": "能描述人的受精、胚胎发育、分娩和哺乳过程；能树立正确的性道德观并关注青春期保健；能说出人体生殖系统结构和功能；能比较证据并解释概念之间的关系。"
+      "target_label": "能描述人的受精、胚胎发育、分娩和哺乳过程；能树立正确的性道德观并关注青春期保健；能说出人体生殖系统结构和功能。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_047ddd181d241de7",
+      "case_id": "hc_7b28810a69cb9da4",
       "component_ids": [
-        "lc_7fa4632c8d1288a9"
+        "lc_f74bbae593f28a66",
+        "lc_77bd3c124d9c4af7",
+        "lc_2b5868903de9d72a"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生描述人的受精、胚胎发育、分娩和哺乳过程。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用观察证据说明基本科学概念；优先采集：学习单、阶段特征图、保健建议。"
+        "学生能够描述人的受精、胚胎发育、分娩和哺乳过程；优先采集：学习单、阶段特征图、保健建议。",
+        "学生能够说出人体生殖系统结构和功能；优先采集：学习单、阶段特征图、保健建议。",
+        "学生能够说出人体发育过程和各阶段生理特点；优先采集：学习单、阶段特征图、保健建议。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能描述人的受精、胚胎发育、分娩和哺乳过程；能说出人体生殖系统结构和功能；能说出人体发育过程和各阶段生理特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "35aabfc976d98b7583cf94e8694a9f382924ba558ca9ea83b6cc0466ab14fdda",
+          "excerpt": "能描述人的受精、胚胎发育、分娩和哺乳过程；能说出人体生殖系统结构和功能；能说出人体发育过程和各阶段生理特点。",
+          "excerpt_hash": "28163af2a2d965d1b4ae43366233115f7c8892d7ba765b8f1618cb6751e96199",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-015:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（证据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "描述人的受精、胚胎发育、分娩和哺乳过程；说出人体生殖系统结构和功能；说出人体发育过程和各阶段生理特点",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -435,30 +362,6 @@
         }
       ],
       "source_statement": "说出人体发育过程和各阶段生理特点"
-    },
-    {
-      "component_id": "lc_7fa4632c8d1288a9",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用观察证据说明基本科学概念",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用观察证据说明基本科学概念",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：学习单、阶段特征图、保健建议。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用观察证据说明基本科学概念",
-          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-015:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用观察证据说明基本科学概念"
     }
   ],
   "prerequisite_candidates": [
@@ -480,7 +383,7 @@
       "source_code": "SC-D3-SC-022",
       "source_label": "知道动物以其他生物为食，动物维持生命需要消耗这些食物而获得能量。；说出人体生长发育所需的主要营养物质及其消化吸收过程。",
       "target_code": "SC-H4G7-SC-015",
-      "target_label": "能描述人的受精、胚胎发育、分娩和哺乳过程；能说出人体生殖系统结构和功能；能说出人体发育过程和各阶段生理特点；能用观察证据说明基本科学概念。"
+      "target_label": "能描述人的受精、胚胎发育、分娩和哺乳过程；能说出人体生殖系统结构和功能；能说出人体发育过程和各阶段生理特点。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -491,7 +394,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "35aabfc976d98b7583cf94e8694a9f382924ba558ca9ea83b6cc0466ab14fdda",
+  "source_standard_hash": "28163af2a2d965d1b4ae43366233115f7c8892d7ba765b8f1618cb6751e96199",
   "standard_code": "SC-H4G7-SC-015",
   "verified_prerequisites": []
 }

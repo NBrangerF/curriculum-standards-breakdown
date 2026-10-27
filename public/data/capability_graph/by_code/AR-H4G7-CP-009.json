@@ -3,28 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "creation_design",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_c0150c2571f88e05"
+        "lc_7eabacbbe41c746a"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生完成基础表现或创作的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_5001998042e77b9c",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生独立或合作编创稍复杂的节奏、旋律和歌曲的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_225607676a633315",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_e3918c5c990ac9da"
+        "hc_e11d84f88a4f5e7a"
       ],
-      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“完成基础表现或创作”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“完成基础表现或创作”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“独立或合作编创稍复杂的节奏、旋律和歌曲”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能在支架下或合作编创稍复杂的节奏、旋律和歌曲；能为朗诵、歌（乐）曲、舞蹈等配乐或伴奏；能根据音乐特点和变化即兴编创相符的声势、律动或舞蹈动作；能描述艺术要素并完成基础表现或创作。",
-          "excerpt_hash": "247d19b455b62ca5901a962944322f1aa056a0cac023b922ebbbd0ad38d497dc",
+          "excerpt": "能独立或合作编创稍复杂的节奏、旋律和歌曲；能为朗诵、歌（乐）曲、舞蹈等配乐或伴奏；能根据音乐特点和变化即兴编创相符的声势、律动或舞蹈动作。",
+          "excerpt_hash": "d0bc577e90e012f5c7e4b7ff0bd0115b100db66d3d4ef06809d7b0b684faac86",
           "field": "standard",
           "ref_id": "standard:AR-H4G7-CP-009:standard",
           "source_type": "curriculum_standard_field"
@@ -37,44 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后完成基础表现或创作，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“完成基础表现或创作”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“按照动机激发、构思、创作、试演、展示、评价、修改的流程组织。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "language_expression",
-      "component_ids": [
-        "lc_e1dbfaf661fd59de"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生描述艺术要素的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_53f93999f64dbbd0",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述艺术要素”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“描述艺术要素”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能在支架下或合作编创稍复杂的节奏、旋律和歌曲；能为朗诵、歌（乐）曲、舞蹈等配乐或伴奏；能根据音乐特点和变化即兴编创相符的声势、律动或舞蹈动作；能描述艺术要素并完成基础表现或创作。",
-          "excerpt_hash": "247d19b455b62ca5901a962944322f1aa056a0cac023b922ebbbd0ad38d497dc",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G7-CP-009:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "按照动机激发、构思、创作、试演、展示、评价、修改的流程组织。",
-          "excerpt_hash": "7ef32f4d6f2845b3a823cfd7a82f6e09dddb6a1113a023e4f435c8b2a06a33d5",
-          "field": "teaching_tip",
-          "ref_id": "standard:AR-H4G7-CP-009:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后描述艺术要素，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“描述艺术要素”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“按照动机激发、构思、创作、试演、展示、评价、修改的流程组织。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后独立或合作编创稍复杂的节奏、旋律和歌曲，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“独立或合作编创稍复杂的节奏、旋律和歌曲”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“按照动机激发、构思、创作、试演、展示、评价、修改的流程组织。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -83,66 +47,12 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 2,
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 2,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
-    {
-      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
-      "alignment_id": "tca_llm_45d457129f937a04db66",
-      "alignment_type": "practices",
-      "coverage": "partial",
-      "edition_id": "ed_a89e5efa283f5034b420",
-      "evidence_basis": "textbook_page_span",
-      "evidence_gap": null,
-      "evidence_level": "L3_page_evidence",
-      "evidence_refs": [
-        "ctb_a99675852c59",
-        "tes_llm_quote_b6587686b1aec1e4ede1",
-        "textbook-node:tcn_llm_quote_4bb7fef047f13f0d6b03",
-        "textbook-unit:tcu_034d0a4551bc481e"
-      ],
-      "evidence_role": "discipline_textbook",
-      "evidence_spans": [
-        {
-          "evidence_role": "discipline_textbook",
-          "excerpt": "= i i\nQL\nsf 5\n°O@? EFS\n一 、 学 唱 《 桑 塔 , 露 琪 亚 》, 注 意 B 段 两 个 声 部 之 间 的 和 谐 。\n1 模 唱 下 面 的 旋律 , 用 “lo” 或 “lu” 音 练习 合唱 。\nfC... N NS\n23.6 i |7e2 |2 i 6 fasi |\nla la\n一 一 一 一 一 一 一 一 一 一\n8i 7 6 |5494 |7 6 4 fess |\n2 按 乐 谱 的 力度 要 求 , 有 表现 力 地 演唱 《 桑 塔 ' 露 琪 亚 》, 并 随 着 音\n乐 做 律动 。\n二 、 欣 赏 《 伏 尔 加 船 夫 曲 》, 在 乐谱 上 标 出 相应 的 力度 记号 , 依 据 歌曲 (小\nNBER. “Sag 9 0 ”为 歌唱 家 的 演唱 伴唱 , 还 可 以 配合 歌曲 分\n小 组 进行 编 创 表演 。\n外",
-          "excerpt_hash": "da229998f3d4a7db37a0f62573dcb8e4049528abcb60b4c7e4fa53a8149744c5",
-          "pdf_page": 45,
-          "printed_page": null,
-          "span_id": "tes_llm_quote_b6587686b1aec1e4ede1"
-        }
-      ],
-      "learning_component_ids": [
-        "lc_c0150c2571f88e05"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_c0150c2571f88e05",
-          "label": "完成基础表现或创作"
-        }
-      ],
-      "level": "page",
-      "method": "llm_semantic_adjudication",
-      "node_id": "tcn_llm_quote_4bb7fef047f13f0d6b03",
-      "node_title": "为 歌唱 家 的 演唱 伴唱 , 还 可 以 配合 歌曲 分\n小 组 进行 编 创 表演 。",
-      "pdf_page": 45,
-      "printed_page": null,
-      "publication_status": "published",
-      "rationale": "证据明确要求配合歌曲分小组进行编创表演，可证明完成基础表现或创作，主要功能是学生练习实施，因此为 practices。未选择配乐或伴奏组件，因为证据中的“伴唱”是人声伴唱，不能直接证明器乐配乐或伴奏；也未选择稍复杂节奏、旋律和歌曲编创或即兴声势/律动/舞蹈动作，因为证据没有说明这些具体对象和动作。",
-      "relation_type": "practices",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 7,
-      "textbook_subject": "音乐",
-      "textbook_title": "音乐7年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_034d0a4551bc481e",
-      "unit_title": "欧洲风情"
-    },
     {
       "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
       "alignment_id": "tca_llm_26cfb7c0a1d2dc5f1729",
@@ -338,67 +248,67 @@
       "review_status": "machine_checked",
       "source_code": "AR-H4G7-CP-009",
       "target_code": "AR-H4G8-CP-016",
-      "target_label": "能独立或合作编创稍复杂的节奏、旋律和歌曲；能根据音乐特点和变化即兴编创相符的声势、律动或舞蹈动作；能为朗诵、歌（乐）曲、舞蹈等配乐或伴奏；能调…"
+      "target_label": "能独立或合作编创稍复杂的节奏、旋律和歌曲；能根据音乐特点和变化即兴编创相符的声势、律动或舞蹈动作；能为朗诵、歌（乐）曲、舞蹈等配乐或伴奏。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_e3918c5c990ac9da",
+      "case_id": "hc_e11d84f88a4f5e7a",
       "component_ids": [
-        "lc_c0150c2571f88e05"
+        "lc_7eabacbbe41c746a"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
-        "创作"
+        "独立"
       ],
-      "demand_dimension": "creation_constraints",
-      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成基础表现或创作。",
+      "demand_dimension": "independence_precision",
+      "diagnostic_focus": "逐步撤去提示，在同构新任务中检查准确性、规范性与稳定性。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生独立或合作编创稍复杂的节奏、旋律和歌曲。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够完成基础表现或创作；优先采集：编创作品、谱例记录、展示说明。"
+        "学生能够独立或合作编创稍复杂的节奏、旋律和歌曲；优先采集：编创作品、谱例记录、展示说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能在支架下或合作编创稍复杂的节奏、旋律和歌曲；能为朗诵、歌（乐）曲、舞蹈等配乐或伴奏；能根据音乐特点和变化即兴编创相符的声势、律动或舞蹈动作；能描述艺术要素并完成基础表现或创作。",
-          "excerpt_hash": "247d19b455b62ca5901a962944322f1aa056a0cac023b922ebbbd0ad38d497dc",
+          "excerpt": "能独立或合作编创稍复杂的节奏、旋律和歌曲；能为朗诵、歌（乐）曲、舞蹈等配乐或伴奏；能根据音乐特点和变化即兴编创相符的声势、律动或舞蹈动作。",
+          "excerpt_hash": "d0bc577e90e012f5c7e4b7ff0bd0115b100db66d3d4ef06809d7b0b684faac86",
           "field": "standard",
           "ref_id": "standard:AR-H4G7-CP-009:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "在约束下设计、创作或改进（创作）",
-      "title": "在约束下设计、创作或改进",
-      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+      "structure": "独立且规范地完成表现（独立）",
+      "title": "独立且规范地完成表现",
+      "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_d2826601808bf0cc",
+      "component_id": "lc_7eabacbbe41c746a",
       "component_type": "disposition",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够在支架下或合作编创稍复杂的节奏、旋律和歌曲",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在支架下或合作编创稍复杂的节奏、旋律和歌曲，并说明关键步骤、特征或依据。",
-      "label": "在支架下或合作编创稍复杂的节奏、旋律和歌曲",
+      "description": "学生能够独立或合作编创稍复杂的节奏、旋律和歌曲",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生独立或合作编创稍复杂的节奏、旋律和歌曲，并说明关键步骤、特征或依据。",
+      "label": "独立或合作编创稍复杂的节奏、旋律和歌曲",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够在支架下或合作编创稍复杂的节奏、旋律和歌曲；优先采集：编创作品、谱例记录、展示说明。",
+      "observable_evidence": "学生能够独立或合作编创稍复杂的节奏、旋律和歌曲；优先采集：编创作品、谱例记录、展示说明。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "在支架下或合作编创稍复杂的节奏、旋律和歌曲",
-          "excerpt_hash": "e25cdd8b6884f60ffbf4a9d22d7516336207971e19d96b6c3dfa8497353d81b3",
+          "excerpt": "独立或合作编创稍复杂的节奏、旋律和歌曲",
+          "excerpt_hash": "efb2236a7f0148c30fb75c998097814a4c39be84f70c8d0e96f18535cb69ab1e",
           "field": "standard",
           "ref_id": "standard:AR-H4G7-CP-009:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "在支架下或合作编创稍复杂的节奏、旋律和歌曲"
+      "source_statement": "独立或合作编创稍复杂的节奏、旋律和歌曲"
     },
     {
       "component_id": "lc_d504856756099fb3",
@@ -447,54 +357,6 @@
         }
       ],
       "source_statement": "根据音乐特点和变化即兴编创相符的声势、律动或舞蹈动作"
-    },
-    {
-      "component_id": "lc_e1dbfaf661fd59de",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够描述艺术要素",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述艺术要素，并说明关键步骤、特征或依据。",
-      "label": "描述艺术要素",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够描述艺术要素；优先采集：编创作品、谱例记录、展示说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "描述艺术要素",
-          "excerpt_hash": "710935e4df1532334f250c3d052674e266294edd15da0e6096f7bc2137ca8425",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G7-CP-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "描述艺术要素"
-    },
-    {
-      "component_id": "lc_c0150c2571f88e05",
-      "component_type": "procedural",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成基础表现或创作",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础表现或创作，并说明关键步骤、特征或依据。",
-      "label": "完成基础表现或创作",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成基础表现或创作；优先采集：编创作品、谱例记录、展示说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成基础表现或创作",
-          "excerpt_hash": "c6c7aa6f0fcb88782073b2bfe6ef8341b9660a99662a1a2b49152a8e04a101f6",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G7-CP-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成基础表现或创作"
     }
   ],
   "prerequisite_candidates": [
@@ -516,7 +378,7 @@
       "source_code": "AR-D3-CP-018",
       "source_label": "能独立或合作编创并表现有重复与变化的节奏、旋律或歌曲（含锣鼓经等），能用图形谱或乐谱记录作品。",
       "target_code": "AR-H4G7-CP-009",
-      "target_label": "能在支架下或合作编创稍复杂的节奏、旋律和歌曲；能为朗诵、歌（乐）曲、舞蹈等配乐或伴奏；能根据音乐特点和变化即兴编创相符的声势、律动或舞蹈动作；…"
+      "target_label": "能独立或合作编创稍复杂的节奏、旋律和歌曲；能为朗诵、歌（乐）曲、舞蹈等配乐或伴奏；能根据音乐特点和变化即兴编创相符的声势、律动或舞蹈动作。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -527,7 +389,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "247d19b455b62ca5901a962944322f1aa056a0cac023b922ebbbd0ad38d497dc",
+  "source_standard_hash": "d0bc577e90e012f5c7e4b7ff0bd0115b100db66d3d4ef06809d7b0b684faac86",
   "standard_code": "AR-H4G7-CP-009",
   "verified_prerequisites": []
 }

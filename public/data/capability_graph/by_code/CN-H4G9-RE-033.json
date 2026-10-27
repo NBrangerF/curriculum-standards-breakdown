@@ -3,55 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_9990ba597a1f7712",
-        "lc_780a213339edd74f"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用具体事例说明作品情感和思想内涵的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_704cfed3c26fc6e1",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_981072aa2df2a4c5"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用具体事例说明作品情感和思想内涵”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用具体事例说明作品情感和思想内涵”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "b5af48320e6e4caef0e4a407f8c8efff7acc830195bf28ab68a191a5a8f58813",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G9-RE-033:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "同时关注审美体验、思想内涵和创意表达，不只评价情节复述。",
-          "excerpt_hash": "66e7870bb6676af55ab525bbcbb416efdfec6896bc74f4d39764a53fef3ffd1f",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G9-RE-033:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用具体事例说明作品情感和思想内涵，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用具体事例说明作品情感和思想内涵”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“同时关注审美体验、思想内涵和创意表达，不只评价情节复述。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
         "lc_17b91681403283bc"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_430366ad614f0e21",
+      "difficulty_id": "cd_498429a35bfe3aa1",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_5a962df804fe2dc4"
+      ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品”中的实际过程进一步核验。",
       "manifestation": "在要求学生“阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
@@ -60,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "b5af48320e6e4caef0e4a407f8c8efff7acc830195bf28ab68a191a5a8f58813",
+          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵。",
+          "excerpt_hash": "9f54fd07bc75fa02a5face3aa2f9426c6d47700a25f65332aae4f97e28163f72",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-RE-033:standard",
           "source_type": "curriculum_standard_field"
@@ -156,39 +119,38 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_981072aa2df2a4c5",
+      "case_id": "hc_5a962df804fe2dc4",
       "component_ids": [
-        "lc_9990ba597a1f7712",
-        "lc_780a213339edd74f"
+        "lc_17b91681403283bc",
+        "lc_5549daf59851a3b2",
+        "lc_9990ba597a1f7712"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "阐释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用具体事例说明作品情感和思想内涵。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用具体事例说明作品情感和思想内涵；优先采集：文学赏析、审美交流、创作作品。",
-        "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：文学赏析、审美交流、创作作品。"
+        "学生能够阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；优先采集：文学赏析、审美交流、创作作品。",
+        "学生能够学习欣赏和品味作品语言、形象等；优先采集：文学赏析、审美交流、创作作品。",
+        "学生能够用具体事例说明作品情感和思想内涵；优先采集：文学赏析、审美交流、创作作品。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "b5af48320e6e4caef0e4a407f8c8efff7acc830195bf28ab68a191a5a8f58813",
+          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵。",
+          "excerpt_hash": "9f54fd07bc75fa02a5face3aa2f9426c6d47700a25f65332aae4f97e28163f72",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-RE-033:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（证据、阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；学习欣赏和品味作品语言、形象等；用具体事例说明作品情感和思想内涵",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -263,30 +225,6 @@
         }
       ],
       "source_statement": "体会作品情感和思想内涵"
-    },
-    {
-      "component_id": "lc_780a213339edd74f",
-      "component_type": "disposition",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
-      "label": "在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：文学赏析、审美交流、创作作品。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "形成有观点、有证据、有修改意识的阐释或作品",
-          "excerpt_hash": "81dd4494a3c7ea97b381cd70636e7fb21c3ea27f3530facc4bb9d353dcee96ce",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G9-RE-033:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "形成有观点、有证据、有修改意识的阐释或作品"
     }
   ],
   "prerequisite_candidates": [
@@ -305,9 +243,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "CN-H4G8-RE-032",
-      "source_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵；能整合材料…",
+      "source_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵。",
       "target_code": "CN-H4G9-RE-033",
-      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵；能形成有观…"
+      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -318,7 +256,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "b5af48320e6e4caef0e4a407f8c8efff7acc830195bf28ab68a191a5a8f58813",
+  "source_standard_hash": "9f54fd07bc75fa02a5face3aa2f9426c6d47700a25f65332aae4f97e28163f72",
   "standard_code": "CN-H4G9-RE-033",
   "verified_prerequisites": []
 }

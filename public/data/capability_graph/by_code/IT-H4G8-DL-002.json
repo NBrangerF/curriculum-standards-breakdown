@@ -3,28 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "multi_step_procedure",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_eb5af48e46fb5bfb"
+        "lc_5d064336cb150927"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生完成有步骤的数字作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_787096698f59018c",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生根据学习需要有效搜索学习资源的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d380a83da8bd1ed2",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_6dda5ec791c3e36a"
+        "hc_537109fca4665989"
       ],
-      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“完成有步骤的数字作品”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“完成有步骤的数字作品”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“根据学习需要有效搜索学习资源”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "4e415e08b5d44fde9ecf6ec204d7a411f309d3657890ca8a016b1ffe587aef48",
+          "excerpt": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量。",
+          "excerpt_hash": "83dcf5f082b473c700f0db288d7e82641f19eb29bc5f3c3cad7b6a9f6317f9de",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-DL-002:standard",
           "source_type": "curriculum_standard_field"
@@ -37,8 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后完成有步骤的数字作品，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“完成有步骤的数字作品”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“把搜索关键词、资源可信度、引用和管理方式作为学习过程证据。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后根据学习需要有效搜索学习资源，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“根据学习需要有效搜索学习资源”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“把搜索关键词、资源可信度、引用和管理方式作为学习过程证据。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -69,44 +69,12 @@
       "review_status": "machine_checked",
       "source_code": "IT-H4G8-DL-002",
       "target_code": "IT-H4G9-DL-003",
-      "target_label": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量；能设计、测试并评价数字化解决方案。"
+      "target_label": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_6dda5ec791c3e36a",
-      "component_ids": [
-        "lc_eb5af48e46fb5bfb"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "步骤"
-      ],
-      "demand_dimension": "multi_step",
-      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成有步骤的数字作品。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够完成有步骤的数字作品；优先采集：资源清单、检索记录、资源评价表。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "4e415e08b5d44fde9ecf6ec204d7a411f309d3657890ca8a016b1ffe587aef48",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-DL-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "保持多步骤或完整结构（步骤）",
-      "title": "保持多步骤或完整结构",
-      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
-    },
-    {
-      "case_id": "hc_68525dc48f806de6",
+      "case_id": "hc_537109fca4665989",
       "component_ids": [
         "lc_5d064336cb150927"
       ],
@@ -126,8 +94,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "4e415e08b5d44fde9ecf6ec204d7a411f309d3657890ca8a016b1ffe587aef48",
+          "excerpt": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量。",
+          "excerpt_hash": "83dcf5f082b473c700f0db288d7e82641f19eb29bc5f3c3cad7b6a9f6317f9de",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-DL-002:standard",
           "source_type": "curriculum_standard_field"
@@ -186,54 +154,6 @@
         }
       ],
       "source_statement": "探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量"
-    },
-    {
-      "component_id": "lc_ee4b5e9c5cea456e",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够分析系统关系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析系统关系，并说明关键步骤、特征或依据。",
-      "label": "分析系统关系",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析系统关系；优先采集：资源清单、检索记录、资源评价表。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析系统关系",
-          "excerpt_hash": "ebac474de7322e39b3ec0dc7ec33a2102e19e5fe5b414c4ba8c39244053f052c",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-DL-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "分析系统关系"
-    },
-    {
-      "component_id": "lc_eb5af48e46fb5bfb",
-      "component_type": "procedural",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成有步骤的数字作品",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成有步骤的数字作品，并说明关键步骤、特征或依据。",
-      "label": "完成有步骤的数字作品",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成有步骤的数字作品；优先采集：资源清单、检索记录、资源评价表。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成有步骤的数字作品",
-          "excerpt_hash": "dbbbd54f76d7834a2c97c486813f724ab7884056c98d6fe13349aba505702adb",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-DL-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成有步骤的数字作品"
     }
   ],
   "prerequisite_candidates": [
@@ -252,9 +172,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "IT-H4G7-DL-001",
-      "source_label": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量；能说明数字工具或数据过程的基本做法。",
+      "source_label": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量。",
       "target_code": "IT-H4G8-DL-002",
-      "target_label": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量；能分析系统关系并完成有步骤的数字作品。"
+      "target_label": "能根据学习需要有效搜索学习资源，探究信息科技支持学习的新方法和新模式，借助信息科技提高学习质量。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -265,7 +185,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "4e415e08b5d44fde9ecf6ec204d7a411f309d3657890ca8a016b1ffe587aef48",
+  "source_standard_hash": "83dcf5f082b473c700f0db288d7e82641f19eb29bc5f3c3cad7b6a9f6317f9de",
   "standard_code": "IT-H4G8-DL-002",
   "verified_prerequisites": []
 }

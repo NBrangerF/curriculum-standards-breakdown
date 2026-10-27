@@ -3,44 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_f1ccd666131f9946"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d3d726cc6657b070",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_92413a3405e62ea3"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "a03a965b84c94a9efb32c8038743581c0c687e8d516ff6f680e804c8a286c6c9",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-024:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把分类活动和真实观察结合，帮助学生理解分类目的和证据。",
-          "excerpt_hash": "f4c246dd06dc89ba399b4609a54c85d87ebba9fbd19ac466aadd617f6a48b0a4",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G7-SC-024:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把分类活动和真实观察结合，帮助学生理解分类目的和证据。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "comparison",
       "component_ids": [
         "lc_1c88b40af008880e",
@@ -48,11 +10,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生对常见植物进行简单二歧分类的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d28ccabbce879f93",
+      "difficulty_id": "cd_959d9097bdd693b7",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_be13f53e6953068a"
+        "hc_78c2ab3d3bbba833"
       ],
       "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“对常见植物进行简单二歧分类”中的实际过程进一步核验。",
       "manifestation": "在要求学生“对常见植物进行简单二歧分类”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
@@ -62,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "a03a965b84c94a9efb32c8038743581c0c687e8d516ff6f680e804c8a286c6c9",
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点。",
+          "excerpt_hash": "38d06599f8c60b9f89602bfbc4c69a0d80ce5d8a3c1f34507bbe28a47bee5944",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-024:standard",
           "source_type": "curriculum_standard_field"
@@ -86,11 +48,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生描述主要特点、形态和生活习性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_050be84fc268ead1",
+      "difficulty_id": "cd_651105ea2fdce245",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_18f755a9bda08ca3"
+        "hc_c88d9cda9e8d1e2a"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“描述主要特点、形态和生活习性”中的实际过程进一步核验。",
       "manifestation": "在要求学生“描述主要特点、形态和生活习性”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -100,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "a03a965b84c94a9efb32c8038743581c0c687e8d516ff6f680e804c8a286c6c9",
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点。",
+          "excerpt_hash": "38d06599f8c60b9f89602bfbc4c69a0d80ce5d8a3c1f34507bbe28a47bee5944",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-024:standard",
           "source_type": "curriculum_standard_field"
@@ -126,12 +88,12 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生说出生物分类方法和分类等级的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_cbb6e794f41e8e3e",
+      "difficulty_id": "cd_b51fb5e3d698c23c",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_18f755a9bda08ca3",
-        "hc_be13f53e6953068a"
+        "hc_c88d9cda9e8d1e2a",
+        "hc_78c2ab3d3bbba833"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出生物分类方法和分类等级”中的实际过程进一步核验。",
       "manifestation": "在要求学生“说出生物分类方法和分类等级”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -141,8 +103,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "a03a965b84c94a9efb32c8038743581c0c687e8d516ff6f680e804c8a286c6c9",
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点。",
+          "excerpt_hash": "38d06599f8c60b9f89602bfbc4c69a0d80ce5d8a3c1f34507bbe28a47bee5944",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-024:standard",
           "source_type": "curriculum_standard_field"
@@ -161,17 +123,14 @@
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_093d673ba8462bd7",
-        "lc_f1ccd666131f9946"
+        "lc_093d673ba8462bd7"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生观察无脊椎动物和脊椎动物的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_53942ec72ac82873",
+      "difficulty_id": "cd_d2f92f08bd0ff609",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_92413a3405e62ea3"
-      ],
+      "hardest_case_ids": [],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“观察无脊椎动物和脊椎动物”中的实际过程进一步核验。",
       "manifestation": "在要求学生“观察无脊椎动物和脊椎动物”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
@@ -180,8 +139,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "a03a965b84c94a9efb32c8038743581c0c687e8d516ff6f680e804c8a286c6c9",
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点。",
+          "excerpt_hash": "38d06599f8c60b9f89602bfbc4c69a0d80ce5d8a3c1f34507bbe28a47bee5944",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-024:standard",
           "source_type": "curriculum_standard_field"
@@ -253,7 +212,7 @@
       "pdf_page": 145,
       "printed_page": "138",
       "publication_status": "published",
-      "rationale": "教材objective“被子植物的生命周期包括种子的萌发、植株的生长发育、开花、结”与课标 SC-H4G7-SC-024 的可教学小能力“说出藻类、苔藓、蕨类、种子植物的主要特点”形成页内证据匹配。",
+      "rationale": "教材学习目标“被子植物的生命周期包括种子的萌发、植株的生长发育、开花、结”与课标 SC-H4G7-SC-024 的可教学小能力“说出藻类、苔藓、蕨类、种子植物的主要特点”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -308,7 +267,7 @@
       "pdf_page": 145,
       "printed_page": "138",
       "publication_status": "published",
-      "rationale": "教材objective“生物圈中的绿色植物包括藻类、苔藓、蕨类和种子植物四大类群。”与课标 SC-H4G7-SC-024 的可教学小能力“说出藻类、苔藓、蕨类、种子植物的主要特点”形成页内证据匹配。",
+      "rationale": "教材学习目标“生物圈中的绿色植物包括藻类、苔藓、蕨类和种子植物四大类群。”与课标 SC-H4G7-SC-024 的可教学小能力“说出藻类、苔藓、蕨类、种子植物的主要特点”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -466,40 +425,7 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_92413a3405e62ea3",
-      "component_ids": [
-        "lc_f1ccd666131f9946"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够用观察证据说明基本科学概念；优先采集：检索表、分类说明、观察记录。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "a03a965b84c94a9efb32c8038743581c0c687e8d516ff6f680e804c8a286c6c9",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-024:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（证据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_18f755a9bda08ca3",
+      "case_id": "hc_c88d9cda9e8d1e2a",
       "component_ids": [
         "lc_dcbd5d767a614e2a"
       ],
@@ -519,8 +445,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "a03a965b84c94a9efb32c8038743581c0c687e8d516ff6f680e804c8a286c6c9",
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点。",
+          "excerpt_hash": "38d06599f8c60b9f89602bfbc4c69a0d80ce5d8a3c1f34507bbe28a47bee5944",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-024:standard",
           "source_type": "curriculum_standard_field"
@@ -531,7 +457,7 @@
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
     },
     {
-      "case_id": "hc_be13f53e6953068a",
+      "case_id": "hc_78c2ab3d3bbba833",
       "component_ids": [
         "lc_1c88b40af008880e",
         "lc_d2a820002c77733e"
@@ -553,8 +479,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "a03a965b84c94a9efb32c8038743581c0c687e8d516ff6f680e804c8a286c6c9",
+          "excerpt": "能对常见植物进行简单二歧分类，说出生物分类方法和分类等级，使用并编制简单检索表；能观察无脊椎动物和脊椎动物并描述主要特点、形态和生活习性；能说出藻类、苔藓、蕨类、种子植物的主要特点。",
+          "excerpt_hash": "38d06599f8c60b9f89602bfbc4c69a0d80ce5d8a3c1f34507bbe28a47bee5944",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-024:standard",
           "source_type": "curriculum_standard_field"
@@ -709,30 +635,6 @@
         }
       ],
       "source_statement": "说出藻类、苔藓、蕨类、种子植物的主要特点"
-    },
-    {
-      "component_id": "lc_f1ccd666131f9946",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用观察证据说明基本科学概念",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用观察证据说明基本科学概念",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：检索表、分类说明、观察记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用观察证据说明基本科学概念",
-          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-024:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用观察证据说明基本科学概念"
     }
   ],
   "prerequisite_candidates": [
@@ -765,7 +667,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "a03a965b84c94a9efb32c8038743581c0c687e8d516ff6f680e804c8a286c6c9",
+  "source_standard_hash": "38d06599f8c60b9f89602bfbc4c69a0d80ce5d8a3c1f34507bbe28a47bee5944",
   "standard_code": "SC-H4G7-SC-024",
   "verified_prerequisites": []
 }

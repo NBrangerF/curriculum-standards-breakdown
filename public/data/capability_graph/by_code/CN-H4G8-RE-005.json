@@ -3,56 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_099c9457d1cb7a82"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_cd9e769b4a64b9b7",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_03e5557f881c3047"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力；能通过口头或书面方式向他人推荐中华优秀传统文化经典、革命文化和社会主义先进文化作品；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "f5124437f219ce20f9ab64458f4d9ca9b57d0c04b8272540ffb90d882bb3cf8c",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-005:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把阅读态度、阅读方法、读书笔记和评析深度作为过程评价依据。",
-          "excerpt_hash": "aa317d219c324592c7f1dfba6d131a10d42c0962f20e46ee002730b98f624220",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G8-RE-005:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把阅读态度、阅读方法、读书笔记和评析深度作为过程评价依据。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
-        "lc_3dda319732d71478",
-        "lc_099c9457d1cb7a82"
+        "lc_3dda319732d71478"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_c85c306ef7de6857",
+      "difficulty_id": "cd_ee9f4329ea2fbd8a",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_03e5557f881c3047"
+        "hc_783215449ae0f9c2"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力”中的实际过程进一步核验。",
       "manifestation": "在要求学生“阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -62,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力；能通过口头或书面方式向他人推荐中华优秀传统文化经典、革命文化和社会主义先进文化作品；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "f5124437f219ce20f9ab64458f4d9ca9b57d0c04b8272540ffb90d882bb3cf8c",
+          "excerpt": "能阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力；能通过口头或书面方式向他人推荐中华优秀传统文化经典、革命文化和社会主义先进文化作品。",
+          "excerpt_hash": "652f8340f0c41a0a6b4ffb513124e736e1f53cf22a342a1ccf18a32af55de9e9",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-RE-005:standard",
           "source_type": "curriculum_standard_field"
@@ -176,37 +137,34 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_03e5557f881c3047",
+      "case_id": "hc_783215449ae0f9c2",
       "component_ids": [
-        "lc_099c9457d1cb7a82"
+        "lc_3dda319732d71478"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "依据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点、方法或表达选择的依据。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够说明观点、方法或表达选择的依据；优先采集：读书笔记、人物评析、专题交流。"
+        "学生能够阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力；优先采集：读书笔记、人物评析、专题交流。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力；能通过口头或书面方式向他人推荐中华优秀传统文化经典、革命文化和社会主义先进文化作品；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "f5124437f219ce20f9ab64458f4d9ca9b57d0c04b8272540ffb90d882bb3cf8c",
+          "excerpt": "能阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力；能通过口头或书面方式向他人推荐中华优秀传统文化经典、革命文化和社会主义先进文化作品。",
+          "excerpt_hash": "652f8340f0c41a0a6b4ffb513124e736e1f53cf22a342a1ccf18a32af55de9e9",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-RE-005:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（依据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
     }
   ],
   "learning_components": [
@@ -233,54 +191,6 @@
         }
       ],
       "source_statement": "阅读革命文学作品，体会和评析革命领袖、革命英雄的爱国精神和人格魅力"
-    },
-    {
-      "component_id": "lc_b5ab0c2b4280b00a",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合材料",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合材料，并说明关键步骤、特征或依据。",
-      "label": "整合材料",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合材料；优先采集：读书笔记、人物评析、专题交流。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合材料",
-          "excerpt_hash": "c6c8b0ffb05ba398d2a4a4fb4f067efe130af369012aceee836b9c0c870e2710",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-005:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合材料"
-    },
-    {
-      "component_id": "lc_099c9457d1cb7a82",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点、方法或表达选择的依据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点、方法或表达选择的依据，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点、方法或表达选择的依据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点、方法或表达选择的依据；优先采集：读书笔记、人物评析、专题交流。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点、方法或表达选择的依据",
-          "excerpt_hash": "04a7ab3f43a7836e4d3a1304eb39d0a43cdf66ecd30248e80d1cdebbd172b84a",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-005:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点、方法或表达选择的依据"
     }
   ],
   "prerequisite_candidates": [
@@ -312,7 +222,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "f5124437f219ce20f9ab64458f4d9ca9b57d0c04b8272540ffb90d882bb3cf8c",
+  "source_standard_hash": "652f8340f0c41a0a6b4ffb513124e736e1f53cf22a342a1ccf18a32af55de9e9",
   "standard_code": "CN-H4G8-RE-005",
   "verified_prerequisites": []
 }

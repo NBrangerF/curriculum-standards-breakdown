@@ -5,26 +5,26 @@
     {
       "category": "performance_stability",
       "component_ids": [
-        "lc_30ef904e969c3656"
+        "lc_e7a180f81ef90f81"
       ],
       "confidence": 0.54,
-      "diagnostic_probe": "给出一个需要学生背诵指定古诗不少于 20 首，诵读流畅的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "diagnostic_probe": "给出一个需要学生背诵优秀诗文 50 篇（段），诵读流畅的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
       "difficulty_id": "cd_de0300b1a2041593",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_a3912f6b08ccef18"
+        "hc_b1566e1372dd2749"
       ],
       "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
-      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“背诵指定古诗不少于 20 首，诵读流畅”。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“背诵优秀诗文 50 篇（段），诵读流畅”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "背诵指定古诗不少于 20 首，诵读流畅。",
-          "excerpt_hash": "f07476b735ede730d2294022ac00d3fb252a98e79c6b267597c2ea7449449e64",
+          "excerpt": "背诵优秀诗文 50 篇（段），诵读流畅。",
+          "excerpt_hash": "4d1fde984147eeeece05d13aebb0951e9ccf0aac77da1b89ccc81203fbc814b7",
           "field": "standard",
           "ref_id": "standard:CN-D1-RE-005:standard",
           "source_type": "curriculum_standard_field"
@@ -37,8 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后背诵指定古诗不少于 20 首，诵读流畅，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“背诵指定古诗不少于 20 首，诵读流畅”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“制作“古诗墙”，每天抽签背一首并贴上小星星”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后背诵优秀诗文 50 篇（段），诵读流畅，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“背诵优秀诗文 50 篇（段），诵读流畅”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“制作“古诗墙”，每天抽签背一首并贴上小星星”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -199,62 +199,60 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_a3912f6b08ccef18",
+      "case_id": "hc_b1566e1372dd2749",
       "component_ids": [
-        "lc_30ef904e969c3656"
+        "lc_e7a180f81ef90f81"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "不少于"
-      ],
-      "demand_dimension": "quantitative_threshold",
-      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生背诵指定古诗不少于 20 首，诵读流畅。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生背诵优秀诗文 50 篇（段），诵读流畅。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够背诵指定古诗不少于 20 首，诵读流畅；优先采集：任务：阅读理解问答（基于文本证据）。"
+        "学生能够背诵优秀诗文 50 篇（段），诵读流畅；优先采集：任务：阅读理解问答（基于文本证据）。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "背诵指定古诗不少于 20 首，诵读流畅。",
-          "excerpt_hash": "f07476b735ede730d2294022ac00d3fb252a98e79c6b267597c2ea7449449e64",
+          "excerpt": "背诵优秀诗文 50 篇（段），诵读流畅。",
+          "excerpt_hash": "4d1fde984147eeeece05d13aebb0951e9ccf0aac77da1b89ccc81203fbc814b7",
           "field": "standard",
           "ref_id": "standard:CN-D1-RE-005:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "满足数量、时长或频率阈值（不少于）",
-      "title": "满足数量、时长或频率阈值",
-      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+      "structure": "背诵优秀诗文 50 篇（段），诵读流畅",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_30ef904e969c3656",
+      "component_id": "lc_e7a180f81ef90f81",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够背诵指定古诗不少于 20 首，诵读流畅",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生背诵指定古诗不少于 20 首，诵读流畅，并说明关键步骤、特征或依据。",
-      "label": "背诵指定古诗不少于 20 首，诵读流畅",
+      "description": "学生能够背诵优秀诗文 50 篇（段），诵读流畅",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生背诵优秀诗文 50 篇（段），诵读流畅，并说明关键步骤、特征或依据。",
+      "label": "背诵优秀诗文 50 篇（段），诵读流畅",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够背诵指定古诗不少于 20 首，诵读流畅；优先采集：任务：阅读理解问答（基于文本证据）。",
+      "observable_evidence": "学生能够背诵优秀诗文 50 篇（段），诵读流畅；优先采集：任务：阅读理解问答（基于文本证据）。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "背诵指定古诗不少于 20 首，诵读流畅",
-          "excerpt_hash": "e535d63383d0213afe9a2c53934ac031807eb00cb74e740886fdeda130620237",
+          "excerpt": "背诵优秀诗文 50 篇（段），诵读流畅",
+          "excerpt_hash": "3f9a756aa8e215c447ab16a614197c77c72b1f7af7d06e0448998fb34d9e2981",
           "field": "standard",
           "ref_id": "standard:CN-D1-RE-005:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "背诵指定古诗不少于 20 首，诵读流畅"
+      "source_statement": "背诵优秀诗文 50 篇（段），诵读流畅"
     }
   ],
   "prerequisite_candidates": [],
@@ -266,7 +264,7 @@
     "total_candidate_count": 0,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "f07476b735ede730d2294022ac00d3fb252a98e79c6b267597c2ea7449449e64",
+  "source_standard_hash": "4d1fde984147eeeece05d13aebb0951e9ccf0aac77da1b89ccc81203fbc814b7",
   "standard_code": "CN-D1-RE-005",
   "verified_prerequisites": []
 }

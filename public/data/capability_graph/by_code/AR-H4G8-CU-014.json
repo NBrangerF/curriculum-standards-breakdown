@@ -3,44 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_c9f23d155691a033"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明作品意图或效果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_c2274b3b6367ed2f",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_7813cdfff25b5bd4"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明作品意图或效果”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明作品意图或效果”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品；分析社会生活中的音乐现象和音乐文化；能初步运用信息技术选择和运用音乐；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "a6875f561b67e9c986a5ef004ef56891b7e581958fdbcc86cf7d2e8ce23cd1dd",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-CU-014:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用学业质量描述反向检查音乐任务是否覆盖审美感知、艺术表现、创意实践和文化理解。",
-          "excerpt_hash": "9a8390701d313b451970d8516609857d954aa9930adf237e2bdf97b33c14c259",
-          "field": "teaching_tip",
-          "ref_id": "standard:AR-H4G8-CU-014:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明作品意图或效果，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明作品意图或效果”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用学业质量描述反向检查音乐任务是否覆盖审美感知、艺术表现、创意实践和文化理解。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_38c1b5a483a44596",
@@ -49,11 +11,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_0fab9c2cab0fbca2",
+      "difficulty_id": "cd_4931f8f2b58ae6c7",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_4c452319e231756b"
+        "hc_159dd881064ec6af"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品”中的实际过程进一步核验。",
       "manifestation": "在要求学生“运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -63,8 +25,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品；分析社会生活中的音乐现象和音乐文化；能初步运用信息技术选择和运用音乐；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "a6875f561b67e9c986a5ef004ef56891b7e581958fdbcc86cf7d2e8ce23cd1dd",
+          "excerpt": "运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品；分析社会生活中的音乐现象和音乐文化；能初步运用信息技术选择和运用音乐。",
+          "excerpt_hash": "cd0f7fdd567645822295b6692454620a56cdbfdc71b25ae5a83290195b816471",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-CU-014:standard",
           "source_type": "curriculum_standard_field"
@@ -239,39 +201,7 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_7813cdfff25b5bd4",
-      "component_ids": [
-        "lc_c9f23d155691a033"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明作品意图或效果。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明作品意图或效果；优先采集：音乐学习档案、综合展示、项目反思。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品；分析社会生活中的音乐现象和音乐文化；能初步运用信息技术选择和运用音乐；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "a6875f561b67e9c986a5ef004ef56891b7e581958fdbcc86cf7d2e8ce23cd1dd",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-CU-014:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_4c452319e231756b",
+      "case_id": "hc_159dd881064ec6af",
       "component_ids": [
         "lc_ae7436071e2439e5"
       ],
@@ -291,8 +221,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品；分析社会生活中的音乐现象和音乐文化；能初步运用信息技术选择和运用音乐；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "a6875f561b67e9c986a5ef004ef56891b7e581958fdbcc86cf7d2e8ce23cd1dd",
+          "excerpt": "运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品；分析社会生活中的音乐现象和音乐文化；能初步运用信息技术选择和运用音乐。",
+          "excerpt_hash": "cd0f7fdd567645822295b6692454620a56cdbfdc71b25ae5a83290195b816471",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-CU-014:standard",
           "source_type": "curriculum_standard_field"
@@ -375,54 +305,6 @@
         }
       ],
       "source_statement": "初步运用信息技术选择和运用音乐"
-    },
-    {
-      "component_id": "lc_e84ebb5e228b21f9",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够调整表现方法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整表现方法，并说明关键步骤、特征或依据。",
-      "label": "调整表现方法",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够调整表现方法；优先采集：音乐学习档案、综合展示、项目反思。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "调整表现方法",
-          "excerpt_hash": "624139c8c27447716076606d4fffc25d29bbd39623044fea23b9317d3438bb50",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-CU-014:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "调整表现方法"
-    },
-    {
-      "component_id": "lc_c9f23d155691a033",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明作品意图或效果",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明作品意图或效果，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明作品意图或效果",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明作品意图或效果；优先采集：音乐学习档案、综合展示、项目反思。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明作品意图或效果",
-          "excerpt_hash": "9848376f6e433abf944ce2802b9a7699e3ab8073534008b9730e477835bb86eb",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-CU-014:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明作品意图或效果"
     }
   ],
   "prerequisite_candidates": [
@@ -443,7 +325,7 @@
       "source_code": "AR-H4G7-CU-009",
       "source_label": "能较准确感知、判断和描述音乐表现要素、体裁、形式与风格；运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品；分析社会生活中的音乐现象和音乐…",
       "target_code": "AR-H4G8-CU-014",
-      "target_label": "运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品；分析社会生活中的音乐现象和音乐文化；能初步运用信息技术选择和运用音乐；能调整表现方法并…"
+      "target_label": "运用演唱、演奏、识谱、即兴表演和编创等知识技能表现作品；分析社会生活中的音乐现象和音乐文化；能初步运用信息技术选择和运用音乐。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -454,7 +336,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "a6875f561b67e9c986a5ef004ef56891b7e581958fdbcc86cf7d2e8ce23cd1dd",
+  "source_standard_hash": "cd0f7fdd567645822295b6692454620a56cdbfdc71b25ae5a83290195b816471",
   "standard_code": "AR-H4G8-CU-014",
   "verified_prerequisites": []
 }

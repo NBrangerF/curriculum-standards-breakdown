@@ -35,6 +35,10 @@ const CURRENT_PATH = join(ROOT, 'data/textbooks/library-state/CURRENT.json')
 const STRUCTURE_ROOT = join(ROOT, 'data/textbooks/derived/by-edition')
 const ALIGNMENT_INDEX_PATH = join(ROOT, 'data/textbooks/derived/textbook_standard_alignment_index.json')
 const CAPABILITY_ROOT = join(ROOT, 'public/data/capability_graph/by_code')
+const NODE_KIND_LABELS = {
+  page: '页面', page_excerpt: '页面片段', unit: '单元', chapter: '章节', section: '小节',
+  lesson: '课文', objective: '学习目标', exercise: '练习', activity: '活动'
+}
 const STANDARD_ROOT = join(ROOT, 'public/data/by_subject')
 const DEFAULT_LIBRARY_ROOT = process.env.TEXTBOOK_LIBRARY_ROOT || '/Volumes/X9 Pro/kebiao-library'
 const PILOT_EDITION = 'ed_9d4028e2ab482520d0aa'
@@ -1488,8 +1492,8 @@ export function alignContentNodes(asset, structure, contentNodes, evidenceSpans,
         algorithm_version: ALIGNER_VERSION,
         provenance: 'machine_generated',
         rationale: contextual
-          ? `教材${node.kind}“${excerpt(node.title)}”为课标 ${ranked.standardCode} 的可教学小能力“${componentRows.map(row => row.label).join('、')}”提供学科情境关联。`
-          : `教材${node.kind}“${excerpt(node.title)}”与课标 ${ranked.standardCode} 的可教学小能力“${componentRows.map(row => row.label).join('、')}”形成页内证据匹配。`,
+          ? `教材${NODE_KIND_LABELS[node.kind] || "内容"}“${excerpt(node.title)}”为课标 ${ranked.standardCode} 的可教学小能力“${componentRows.map(row => row.label).join('、')}”提供学科情境关联。`
+          : `教材${NODE_KIND_LABELS[node.kind] || "内容"}“${excerpt(node.title)}”与课标 ${ranked.standardCode} 的可教学小能力“${componentRows.map(row => row.label).join('、')}”形成页内证据匹配。`,
         review_status: 'machine_checked',
         publication_status: 'published',
         evidence_id: asset.evidence_id,

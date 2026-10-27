@@ -3,26 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "language_expression",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_18e50c34438352b9"
+        "lc_b549b453806a4c94"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生完成简短交流的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a6a84d94b2a3af8b",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生善于通过多种渠道获取资料的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_5e11448b19cb0295",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“完成简短交流”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“完成简短交流”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "hardest_case_ids": [
+        "hc_d45fad4a4f501e5e"
+      ],
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“善于通过多种渠道获取资料”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "244a0bc326cf1e69bffabf1215a6c2d002303c9acc012e4d3d5a105c4e2204f7",
+          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题。",
+          "excerpt_hash": "95d97e0efbfe40b45e2f03ad363854ace4957215d79340301dd307fe1bc7e039",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-CA-019:standard",
           "source_type": "curriculum_standard_field"
@@ -35,8 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后完成简短交流，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“完成简短交流”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把资料来源、归纳分析、合作讨论和成果质量纳入过程评价。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后善于通过多种渠道获取资料，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“善于通过多种渠道获取资料”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“把资料来源、归纳分析、合作讨论和成果质量纳入过程评价。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -130,7 +132,7 @@
       "review_status": "machine_checked",
       "source_code": "EN-H4G7-CA-019",
       "target_code": "EN-H4G8-CA-020",
-      "target_label": "能从不同角度分析问题；能合作完成学习任务；尝试归纳学习素材中的语言和文化现象；能整合语篇信息并说明观点或文化差异。"
+      "target_label": "能从不同角度分析问题；能合作完成学习任务；尝试归纳学习素材中的语言和文化现象。"
     }
   ],
   "hardest_cases": [
@@ -158,8 +160,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "244a0bc326cf1e69bffabf1215a6c2d002303c9acc012e4d3d5a105c4e2204f7",
+          "excerpt": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题。",
+          "excerpt_hash": "95d97e0efbfe40b45e2f03ad363854ace4957215d79340301dd307fe1bc7e039",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-CA-019:standard",
           "source_type": "curriculum_standard_field"
@@ -242,54 +244,6 @@
         }
       ],
       "source_statement": "从不同角度分析问题"
-    },
-    {
-      "component_id": "lc_01754c775df7b54c",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够获取关键信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
-      "label": "获取关键信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够获取关键信息；优先采集：资料来源记录、小组讨论记录、合作成果展示。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "获取关键信息",
-          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-CA-019:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "获取关键信息"
-    },
-    {
-      "component_id": "lc_18e50c34438352b9",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成简短交流",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
-      "label": "完成简短交流",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成简短交流；优先采集：资料来源记录、小组讨论记录、合作成果展示。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成简短交流",
-          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-CA-019:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成简短交流"
     }
   ],
   "prerequisite_candidates": [
@@ -311,7 +265,7 @@
       "source_code": "EN-D2-CA-010",
       "source_label": "愿意通过阅读等方式了解不同的语言和文化现象，尝试从不同角度分析 问题。",
       "target_code": "EN-H4G7-CA-019",
-      "target_label": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题；能获取关键信息并完成简短交流。"
+      "target_label": "能善于通过多种渠道获取资料；尝试归纳学习素材中的语言和文化现象；能从不同角度分析问题。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -322,7 +276,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "244a0bc326cf1e69bffabf1215a6c2d002303c9acc012e4d3d5a105c4e2204f7",
+  "source_standard_hash": "95d97e0efbfe40b45e2f03ad363854ace4957215d79340301dd307fe1bc7e039",
   "standard_code": "EN-H4G7-CA-019",
   "verified_prerequisites": []
 }

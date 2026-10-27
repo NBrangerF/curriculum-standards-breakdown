@@ -3,44 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_3c2fa4480ff9908f"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明作品意图或效果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_81604dd14d5b5772",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_c272dae0553f61be"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明作品意图或效果”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明作品意图或效果”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能熟练掌握课堂乐器演奏技巧；运用适当技巧表现乐曲情感；表现音乐风格和特点；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "c6943ee13d4ebe55b0644f172b5657608c484edc69691b9ab421a6768f9311e6",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AE-019:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把合奏能力、视奏能力和风格表达作为共同评价维度。",
-          "excerpt_hash": "a9203934ad08b0eda22f69ea3de93520f8cf188678ab6db642e2ba5c00f3c4ad",
-          "field": "teaching_tip",
-          "ref_id": "standard:AR-H4G8-AE-019:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明作品意图或效果，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明作品意图或效果”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把合奏能力、视奏能力和风格表达作为共同评价维度。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_a75f1ae0bcb5ecd5",
@@ -48,11 +10,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生熟练运用课堂乐器演奏技巧完成任务的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_e65f742f2693c2ff",
+      "difficulty_id": "cd_7192a47822459ad5",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_b09a1ae952982739"
+        "hc_19fbac6786587e38"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“熟练运用课堂乐器演奏技巧完成任务”中的实际过程进一步核验。",
       "manifestation": "在要求学生“熟练运用课堂乐器演奏技巧完成任务”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -62,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能熟练掌握课堂乐器演奏技巧；运用适当技巧表现乐曲情感；表现音乐风格和特点；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "c6943ee13d4ebe55b0644f172b5657608c484edc69691b9ab421a6768f9311e6",
+          "excerpt": "能熟练掌握课堂乐器演奏技巧；运用适当技巧表现乐曲情感；表现音乐风格和特点。",
+          "excerpt_hash": "a8ee2259b07a118ca0cdc17a10d8f6d97e3778fe68936205ac52e86047a263e8",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-AE-019:standard",
           "source_type": "curriculum_standard_field"
@@ -233,44 +195,12 @@
       "review_status": "machine_checked",
       "source_code": "AR-H4G8-AE-019",
       "target_code": "AR-H4G9-AE-020",
-      "target_label": "能熟练掌握课堂乐器演奏技巧；表现音乐风格和特点；运用适当技巧表现乐曲情感；能评价作品效果并完善展演、创作或文化阐释。"
+      "target_label": "能熟练掌握课堂乐器演奏技巧；表现音乐风格和特点；运用适当技巧表现乐曲情感。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_c272dae0553f61be",
-      "component_ids": [
-        "lc_3c2fa4480ff9908f"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明作品意图或效果。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明作品意图或效果；优先采集：合奏展示、演奏说明、同伴反馈。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能熟练掌握课堂乐器演奏技巧；运用适当技巧表现乐曲情感；表现音乐风格和特点；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "c6943ee13d4ebe55b0644f172b5657608c484edc69691b9ab421a6768f9311e6",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AE-019:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_b09a1ae952982739",
+      "case_id": "hc_19fbac6786587e38",
       "component_ids": [
         "lc_a75f1ae0bcb5ecd5"
       ],
@@ -290,8 +220,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能熟练掌握课堂乐器演奏技巧；运用适当技巧表现乐曲情感；表现音乐风格和特点；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "c6943ee13d4ebe55b0644f172b5657608c484edc69691b9ab421a6768f9311e6",
+          "excerpt": "能熟练掌握课堂乐器演奏技巧；运用适当技巧表现乐曲情感；表现音乐风格和特点。",
+          "excerpt_hash": "a8ee2259b07a118ca0cdc17a10d8f6d97e3778fe68936205ac52e86047a263e8",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-AE-019:standard",
           "source_type": "curriculum_standard_field"
@@ -374,54 +304,6 @@
         }
       ],
       "source_statement": "表现音乐风格和特点"
-    },
-    {
-      "component_id": "lc_2b26b64f61d7efc3",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够调整表现方法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整表现方法，并说明关键步骤、特征或依据。",
-      "label": "调整表现方法",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够调整表现方法；优先采集：合奏展示、演奏说明、同伴反馈。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "调整表现方法",
-          "excerpt_hash": "624139c8c27447716076606d4fffc25d29bbd39623044fea23b9317d3438bb50",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AE-019:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "调整表现方法"
-    },
-    {
-      "component_id": "lc_3c2fa4480ff9908f",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明作品意图或效果",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明作品意图或效果，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明作品意图或效果",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明作品意图或效果；优先采集：合奏展示、演奏说明、同伴反馈。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明作品意图或效果",
-          "excerpt_hash": "9848376f6e433abf944ce2802b9a7699e3ab8073534008b9730e477835bb86eb",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AE-019:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明作品意图或效果"
     }
   ],
   "prerequisite_candidates": [
@@ -440,9 +322,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "AR-H4G7-AE-012",
-      "source_label": "能熟练掌握课堂乐器演奏技巧；能视奏简单合奏谱并在合奏中相互配合；能在演奏中融入个性化理解和创意；能描述艺术要素并完成基础表现或创作。",
+      "source_label": "能熟练掌握课堂乐器演奏技巧；能视奏简单合奏谱并在合奏中相互配合；能在演奏中融入个性化理解和创意。",
       "target_code": "AR-H4G8-AE-019",
-      "target_label": "能熟练掌握课堂乐器演奏技巧；运用适当技巧表现乐曲情感；表现音乐风格和特点；能调整表现方法并说明作品意图或效果。"
+      "target_label": "能熟练掌握课堂乐器演奏技巧；运用适当技巧表现乐曲情感；表现音乐风格和特点。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -453,7 +335,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "c6943ee13d4ebe55b0644f172b5657608c484edc69691b9ab421a6768f9311e6",
+  "source_standard_hash": "a8ee2259b07a118ca0cdc17a10d8f6d97e3778fe68936205ac52e86047a263e8",
   "standard_code": "AR-H4G8-AE-019",
   "verified_prerequisites": []
 }

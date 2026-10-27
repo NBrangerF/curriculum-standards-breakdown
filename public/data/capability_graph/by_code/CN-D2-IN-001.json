@@ -12,7 +12,9 @@
       "difficulty_id": "cd_59cc9a88e330dd85",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_0c3852ecf15e46a4"
+      ],
       "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
       "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“搜集”。",
       "method": "difficulty_pattern_rules_v2",
@@ -21,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "在主题探究中搜集并整理信息，提出至少 1 个自拟问题。",
-          "excerpt_hash": "945e492250cc0f3c56e694f9a75a744565d0b59f7c18b27d0e39bd92c05f9828",
+          "excerpt": "在主题探究中搜集并整理信息，提出自拟问题。",
+          "excerpt_hash": "bdbae6aa244e0ca067c08ee9fc900189fc19a1af182666d46d6a8c8a81735044",
           "field": "standard",
           "ref_id": "standard:CN-D2-IN-001:standard",
           "source_type": "curriculum_standard_field"
@@ -214,68 +216,38 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_6abd462cb6abef9a",
+      "case_id": "hc_0c3852ecf15e46a4",
       "component_ids": [
-        "lc_5524427ed4c7db7e"
+        "lc_3e05f7b6d6a092a6",
+        "lc_1107cda2fa50ed0d",
+        "lc_f0ed5dac1a8ca863"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "至少"
-      ],
-      "demand_dimension": "multiple_conditions",
-      "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出至少 1 个自拟问题。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生搜集。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生在主题探究中，能够提出至少 1 个自拟问题；优先采集：项目作品：资料卡/引用清单。"
+        "学生在主题探究中，能够搜集；优先采集：项目作品：资料卡/引用清单。",
+        "学生在主题探究中，能够整理信息；优先采集：项目作品：资料卡/引用清单。",
+        "学生在主题探究中，能够提出自拟问题；优先采集：项目作品：资料卡/引用清单。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "在主题探究中搜集并整理信息，提出至少 1 个自拟问题。",
-          "excerpt_hash": "945e492250cc0f3c56e694f9a75a744565d0b59f7c18b27d0e39bd92c05f9828",
+          "excerpt": "在主题探究中搜集并整理信息，提出自拟问题。",
+          "excerpt_hash": "bdbae6aa244e0ca067c08ee9fc900189fc19a1af182666d46d6a8c8a81735044",
           "field": "standard",
           "ref_id": "standard:CN-D2-IN-001:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "同时满足多个条件或范围限定（至少）",
-      "title": "同时满足多个条件或范围限定",
-      "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
-    },
-    {
-      "case_id": "hc_db3c865cce4bd23a",
-      "component_ids": [
-        "lc_5524427ed4c7db7e"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "至少"
-      ],
-      "demand_dimension": "quantitative_threshold",
-      "diagnostic_focus": "保留数量、时长或频率记录，对照标准阈值判断是否真正达成，而不是只判断“做过”。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生提出至少 1 个自拟问题。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生在主题探究中，能够提出至少 1 个自拟问题；优先采集：项目作品：资料卡/引用清单。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "在主题探究中搜集并整理信息，提出至少 1 个自拟问题。",
-          "excerpt_hash": "945e492250cc0f3c56e694f9a75a744565d0b59f7c18b27d0e39bd92c05f9828",
-          "field": "standard",
-          "ref_id": "standard:CN-D2-IN-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "满足数量、时长或频率阈值（至少）",
-      "title": "满足数量、时长或频率阈值",
-      "why_hard": "学生可能展示了目标行为，却没有达到标准明确规定的数量、时长、频率或范围。"
+      "structure": "搜集；整理信息；提出自拟问题",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -294,8 +266,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "在主题探究中搜集并整理信息，提出至少 1 个自拟问题。",
-          "excerpt_hash": "945e492250cc0f3c56e694f9a75a744565d0b59f7c18b27d0e39bd92c05f9828",
+          "excerpt": "在主题探究中搜集并整理信息，提出自拟问题。",
+          "excerpt_hash": "bdbae6aa244e0ca067c08ee9fc900189fc19a1af182666d46d6a8c8a81735044",
           "field": "standard",
           "ref_id": "standard:CN-D2-IN-001:standard",
           "source_type": "curriculum_standard_field"
@@ -318,8 +290,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "在主题探究中搜集并整理信息，提出至少 1 个自拟问题。",
-          "excerpt_hash": "945e492250cc0f3c56e694f9a75a744565d0b59f7c18b27d0e39bd92c05f9828",
+          "excerpt": "在主题探究中搜集并整理信息，提出自拟问题。",
+          "excerpt_hash": "bdbae6aa244e0ca067c08ee9fc900189fc19a1af182666d46d6a8c8a81735044",
           "field": "standard",
           "ref_id": "standard:CN-D2-IN-001:standard",
           "source_type": "curriculum_standard_field"
@@ -328,28 +300,28 @@
       "source_statement": "整理信息"
     },
     {
-      "component_id": "lc_5524427ed4c7db7e",
+      "component_id": "lc_f0ed5dac1a8ca863",
       "component_type": "conceptual",
       "condition": "在主题探究中",
       "confidence": 0.72,
-      "description": "学生在主题探究中，能够提出至少 1 个自拟问题",
-      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在主题探究中”的诊断任务，要求学生提出至少 1 个自拟问题，并说明关键步骤、特征或依据。",
-      "label": "提出至少 1 个自拟问题",
+      "description": "学生在主题探究中，能够提出自拟问题",
+      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在主题探究中”的诊断任务，要求学生提出自拟问题，并说明关键步骤、特征或依据。",
+      "label": "提出自拟问题",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生在主题探究中，能够提出至少 1 个自拟问题；优先采集：项目作品：资料卡/引用清单。",
+      "observable_evidence": "学生在主题探究中，能够提出自拟问题；优先采集：项目作品：资料卡/引用清单。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "在主题探究中搜集并整理信息，提出至少 1 个自拟问题。",
-          "excerpt_hash": "945e492250cc0f3c56e694f9a75a744565d0b59f7c18b27d0e39bd92c05f9828",
+          "excerpt": "在主题探究中搜集并整理信息，提出自拟问题。",
+          "excerpt_hash": "bdbae6aa244e0ca067c08ee9fc900189fc19a1af182666d46d6a8c8a81735044",
           "field": "standard",
           "ref_id": "standard:CN-D2-IN-001:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "提出至少 1 个自拟问题"
+      "source_statement": "提出自拟问题"
     }
   ],
   "prerequisite_candidates": [
@@ -370,7 +342,7 @@
       "source_code": "CN-D1-IN-001",
       "source_label": "在跨学科主题学习中，能用文字或图画呈现信息（如小报/思维导图），并向同伴解释关键发现。",
       "target_code": "CN-D2-IN-001",
-      "target_label": "在主题探究中搜集并整理信息，提出至少 1 个自拟问题。"
+      "target_label": "在主题探究中搜集并整理信息，提出自拟问题。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -381,7 +353,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "945e492250cc0f3c56e694f9a75a744565d0b59f7c18b27d0e39bd92c05f9828",
+  "source_standard_hash": "bdbae6aa244e0ca067c08ee9fc900189fc19a1af182666d46d6a8c8a81735044",
   "standard_code": "CN-D2-IN-001",
   "verified_prerequisites": []
 }

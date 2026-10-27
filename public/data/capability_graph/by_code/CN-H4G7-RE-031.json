@@ -3,57 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_c4ddf9de1c2258eb"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_ef96184756a6a938",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_15df1f668e809464"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "41687cdd17f3de958b29a725a857e75eeb514d806e1bfdc424230e3b636d4ce7",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-031:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "同时关注审美体验、思想内涵和创意表达，不只评价情节复述。",
-          "excerpt_hash": "66e7870bb6676af55ab525bbcbb416efdfec6896bc74f4d39764a53fef3ffd1f",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-RE-031:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“同时关注审美体验、思想内涵和创意表达，不只评价情节复述。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
         "lc_61aefaf14d471c2e",
-        "lc_f6dfbcd27a4c369b",
-        "lc_c4ddf9de1c2258eb"
+        "lc_f6dfbcd27a4c369b"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_72e25591d7ffcf1f",
+      "difficulty_id": "cd_243fbd6e2a34d1c2",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_15df1f668e809464"
+        "hc_e0b2afc296be0289"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品”中的实际过程进一步核验。",
       "manifestation": "在要求学生“阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -63,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "41687cdd17f3de958b29a725a857e75eeb514d806e1bfdc424230e3b636d4ce7",
+          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等。",
+          "excerpt_hash": "a44c25d5f2379e96290bf477579473033b1f800ac594e6972351a357db3cf480",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-031:standard",
           "source_type": "curriculum_standard_field"
@@ -79,44 +40,6 @@
       ],
       "success_signal": "学生能在撤去提示后阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品，并说明关键步骤、特征或依据。",
       "teacher_action": "围绕“阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“同时关注审美体验、思想内涵和创意表达，不只评价情节复述。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_c4ddf9de1c2258eb"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_ab5a81d53bbc4918",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_15df1f668e809464"
-      ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "41687cdd17f3de958b29a725a857e75eeb514d806e1bfdc424230e3b636d4ce7",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-031:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "同时关注审美体验、思想内涵和创意表达，不只评价情节复述。",
-          "excerpt_hash": "66e7870bb6676af55ab525bbcbb416efdfec6896bc74f4d39764a53fef3ffd1f",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-RE-031:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“同时关注审美体验、思想内涵和创意表达，不只评价情节复述。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -210,41 +133,43 @@
       "review_status": "machine_checked",
       "source_code": "CN-H4G7-RE-031",
       "target_code": "CN-H4G8-RE-032",
-      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵；能整合材料…"
+      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能学习欣赏和品味作品语言、形象等；能体会作品情感和思想内涵。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_15df1f668e809464",
+      "case_id": "hc_e0b2afc296be0289",
       "component_ids": [
-        "lc_c4ddf9de1c2258eb"
+        "lc_61aefaf14d471c2e",
+        "lc_f6dfbcd27a4c369b",
+        "lc_3f281f8ca8e99495"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用简短记录或口头表达说明基本理解。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用简短记录或口头表达说明基本理解；优先采集：文学赏析、审美交流、创作作品。"
+        "学生能够阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；优先采集：文学赏析、审美交流、创作作品。",
+        "学生能够交流审美感受；优先采集：文学赏析、审美交流、创作作品。",
+        "学生能够学习欣赏和品味作品语言、形象等；优先采集：文学赏析、审美交流、创作作品。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "41687cdd17f3de958b29a725a857e75eeb514d806e1bfdc424230e3b636d4ce7",
+          "excerpt": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等。",
+          "excerpt_hash": "a44c25d5f2379e96290bf477579473033b1f800ac594e6972351a357db3cf480",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-031:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；交流审美感受；学习欣赏和品味作品语言、形象等",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -319,30 +244,6 @@
         }
       ],
       "source_statement": "学习欣赏和品味作品语言、形象等"
-    },
-    {
-      "component_id": "lc_c4ddf9de1c2258eb",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用简短记录或口头表达说明基本理解",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用简短记录或口头表达说明基本理解，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用简短记录或口头表达说明基本理解",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用简短记录或口头表达说明基本理解；优先采集：文学赏析、审美交流、创作作品。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用简短记录或口头表达说明基本理解",
-          "excerpt_hash": "6b1f3237458514ec859ef1012df6724bfef67003f78886ed140316055791b644",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-031:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用简短记录或口头表达说明基本理解"
     }
   ],
   "prerequisite_candidates": [
@@ -364,7 +265,7 @@
       "source_code": "CN-D3-RE-001",
       "source_label": "独立阅读散文、小说、诗歌等文学作品，获取主要内容。",
       "target_code": "CN-H4G7-RE-031",
-      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等；能用简短记录或口头表…"
+      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等。"
     },
     {
       "confidence": "medium",
@@ -384,7 +285,7 @@
       "source_code": "CN-D3-RE-002",
       "source_label": "通过朗读或复述呈现对作品内容的理解。",
       "target_code": "CN-H4G7-RE-031",
-      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等；能用简短记录或口头表…"
+      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等。"
     },
     {
       "confidence": "medium",
@@ -404,7 +305,7 @@
       "source_code": "CN-D3-RE-003",
       "source_label": "能用文字、结构图等方式梳理作品的行文思路。",
       "target_code": "CN-H4G7-RE-031",
-      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等；能用简短记录或口头表…"
+      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等。"
     },
     {
       "confidence": "medium",
@@ -424,7 +325,7 @@
       "source_code": "CN-D3-RE-004",
       "source_label": "品味作品中重要语句和富有表现力的语言，用圈点、批注等方式记录阅读感受。",
       "target_code": "CN-H4G7-RE-031",
-      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等；能用简短记录或口头表…"
+      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等。"
     },
     {
       "confidence": "low",
@@ -444,7 +345,7 @@
       "source_code": "CN-D3-RE-007",
       "source_label": "发现不同类型文本的结构方式和语言特点，感受内容与形式差异。",
       "target_code": "CN-H4G7-RE-031",
-      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等；能用简短记录或口头表…"
+      "target_label": "能阅读表现人与社会、人与他人的古今优秀诗歌、散文、小说、戏剧等文学作品；能交流审美感受；能学习欣赏和品味作品语言、形象等。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -455,7 +356,7 @@
     "total_candidate_count": 5,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "41687cdd17f3de958b29a725a857e75eeb514d806e1bfdc424230e3b636d4ce7",
+  "source_standard_hash": "a44c25d5f2379e96290bf477579473033b1f800ac594e6972351a357db3cf480",
   "standard_code": "CN-H4G7-RE-031",
   "verified_prerequisites": []
 }

@@ -3,58 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_ecc1892579b09e01"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_5830fc338623f949",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_dc5a4c35e14ea8a4"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "50405a59fe86c3314e44b3afa9bff0d6426c2227d2738d8b477cdfbec55b76f9",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-CM-007:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "分别评价内容具体性、要点准确性、观点依据和讨论回应能力。",
-          "excerpt_hash": "cc89e78e54257b5b6508bc4742dacc1a88bd9f0b1fba1b763201875c8e2c3cbc",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-CM-007:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“分别评价内容具体性、要点准确性、观点依据和讨论回应能力。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
-        "lc_c0b7f963e2bfb33a",
-        "lc_ecc1892579b09e01"
+        "lc_c0b7f963e2bfb33a"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生复述转述能完整准确、突出要点的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_2f365c953a421a59",
+      "difficulty_id": "cd_47fa3c20d7f9daff",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_dc5a4c35e14ea8a4",
-        "hc_400ba19a718b84e4",
-        "hc_c6e1f212873f4c31"
+        "hc_568c11a7c501b084",
+        "hc_ec977358e851e78d"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“复述转述能完整准确、突出要点”中的实际过程进一步核验。",
       "manifestation": "在要求学生“复述转述能完整准确、突出要点”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -64,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "50405a59fe86c3314e44b3afa9bff0d6426c2227d2738d8b477cdfbec55b76f9",
+          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点。",
+          "excerpt_hash": "f852deb251a3873d8e3ac3a65d63e9a26d059d68ddc7f0779da251c2e5228f1e",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-CM-007:standard",
           "source_type": "curriculum_standard_field"
@@ -80,44 +40,6 @@
       ],
       "success_signal": "学生能在撤去提示后复述转述能完整准确、突出要点，并说明关键步骤、特征或依据。",
       "teacher_action": "围绕“复述转述能完整准确、突出要点”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“分别评价内容具体性、要点准确性、观点依据和讨论回应能力。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_ecc1892579b09e01"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_4db23b144b5c8d0d",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_dc5a4c35e14ea8a4"
-      ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "50405a59fe86c3314e44b3afa9bff0d6426c2227d2738d8b477cdfbec55b76f9",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-CM-007:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "分别评价内容具体性、要点准确性、观点依据和讨论回应能力。",
-          "excerpt_hash": "cc89e78e54257b5b6508bc4742dacc1a88bd9f0b1fba1b763201875c8e2c3cbc",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-CM-007:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“分别评价内容具体性、要点准确性、观点依据和讨论回应能力。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -211,44 +133,12 @@
       "review_status": "machine_checked",
       "source_code": "CN-H4G7-CM-007",
       "target_code": "CN-H4G8-CM-008",
-      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动；能整合材料并说明观…"
+      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_dc5a4c35e14ea8a4",
-      "component_ids": [
-        "lc_ecc1892579b09e01"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用简短记录或口头表达说明基本理解。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够用简短记录或口头表达说明基本理解；优先采集：演讲稿、复述记录、讨论发言记录、评价量表。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "50405a59fe86c3314e44b3afa9bff0d6426c2227d2738d8b477cdfbec55b76f9",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-CM-007:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_400ba19a718b84e4",
+      "case_id": "hc_568c11a7c501b084",
       "component_ids": [
         "lc_c0b7f963e2bfb33a"
       ],
@@ -268,8 +158,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "50405a59fe86c3314e44b3afa9bff0d6426c2227d2738d8b477cdfbec55b76f9",
+          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点。",
+          "excerpt_hash": "f852deb251a3873d8e3ac3a65d63e9a26d059d68ddc7f0779da251c2e5228f1e",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-CM-007:standard",
           "source_type": "curriculum_standard_field"
@@ -280,7 +170,7 @@
       "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
     },
     {
-      "case_id": "hc_c6e1f212873f4c31",
+      "case_id": "hc_ec977358e851e78d",
       "component_ids": [
         "lc_c0b7f963e2bfb33a"
       ],
@@ -301,8 +191,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "50405a59fe86c3314e44b3afa9bff0d6426c2227d2738d8b477cdfbec55b76f9",
+          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点。",
+          "excerpt_hash": "f852deb251a3873d8e3ac3a65d63e9a26d059d68ddc7f0779da251c2e5228f1e",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-CM-007:standard",
           "source_type": "curriculum_standard_field"
@@ -385,30 +275,6 @@
         }
       ],
       "source_statement": "复述转述能完整准确、突出要点"
-    },
-    {
-      "component_id": "lc_ecc1892579b09e01",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用简短记录或口头表达说明基本理解",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用简短记录或口头表达说明基本理解，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用简短记录或口头表达说明基本理解",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用简短记录或口头表达说明基本理解；优先采集：演讲稿、复述记录、讨论发言记录、评价量表。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用简短记录或口头表达说明基本理解",
-          "excerpt_hash": "6b1f3237458514ec859ef1012df6724bfef67003f78886ed140316055791b644",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-CM-007:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用简短记录或口头表达说明基本理解"
     }
   ],
   "prerequisite_candidates": [
@@ -430,7 +296,7 @@
       "source_code": "CN-D3-CM-002",
       "source_label": "根据对象和场合作简短发言，语言得体。",
       "target_code": "CN-H4G7-CM-007",
-      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点；能用简短记录或口头表达说明基…"
+      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点。"
     },
     {
       "confidence": "medium",
@@ -450,7 +316,7 @@
       "source_code": "CN-D3-CM-003",
       "source_label": "概括说明性文字的主要内容或非连续性文本的关键信息，初步判断其合理性。",
       "target_code": "CN-H4G7-CM-007",
-      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点；能用简短记录或口头表达说明基…"
+      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -461,7 +327,7 @@
     "total_candidate_count": 2,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "50405a59fe86c3314e44b3afa9bff0d6426c2227d2738d8b477cdfbec55b76f9",
+  "source_standard_hash": "f852deb251a3873d8e3ac3a65d63e9a26d059d68ddc7f0779da251c2e5228f1e",
   "standard_code": "CN-H4G7-CM-007",
   "verified_prerequisites": []
 }

@@ -3,28 +3,29 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "transfer",
       "component_ids": [
-        "lc_a2071c15b4b23fa9"
+        "lc_cca58bb7952923a8"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_8c8b439f00350637",
+      "diagnostic_probe": "给出一个需要学生综合运用学科核心概念和跨学科概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9aafbce36e85e782",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_01763ab4d2b85acc"
+        "hc_d7b536e239d72810",
+        "hc_95216bb41bbaa917"
       ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“综合运用学科核心概念和跨学科概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“综合运用学科核心概念和跨学科概念”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；尝试运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "2d1a504eca29247f583114d945fb8ffe25892b0ff3eab3dc83ffaf6e24f26442",
+          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；综合运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点。",
+          "excerpt_hash": "6f35e5513eaff7e10b660e1cea4155c3f8a84d6e2c1f0099ab3e8b4992177945",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-040:standard",
           "source_type": "curriculum_standard_field"
@@ -37,44 +38,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把创造性观点、工具材料使用、跨学科知识和迭代证据作为评价重点。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "transfer",
-      "component_ids": [
-        "lc_831210ca2d3018c1"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生运用学科核心概念和跨学科概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_846dae2fe6e3b8a8",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用学科核心概念和跨学科概念”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“运用学科核心概念和跨学科概念”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；尝试运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "2d1a504eca29247f583114d945fb8ffe25892b0ff3eab3dc83ffaf6e24f26442",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-040:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把创造性观点、工具材料使用、跨学科知识和迭代证据作为评价重点。",
-          "excerpt_hash": "3c408b76bef4d213e533bef434ad7156b78f944f05d2b24fe9a8b250d2cb0fcc",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G7-SC-040:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后运用学科核心概念和跨学科概念，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“运用学科核心概念和跨学科概念”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把创造性观点、工具材料使用、跨学科知识和迭代证据作为评价重点。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后综合运用学科核心概念和跨学科概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“综合运用学科核心概念和跨学科概念”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把创造性观点、工具材料使用、跨学科知识和迭代证据作为评价重点。”。随后撤去支架，用同构任务复测。"
     },
     {
       "category": "representation",
@@ -83,11 +48,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生通过开发、使用和修改模型描述、测试和预测抽象现象或系统的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d761ba3761210e61",
+      "difficulty_id": "cd_4384ad10219edf5b",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_4384ad10219edf5b"
+        "hc_d761ba3761210e61"
       ],
       "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“通过开发、使用和修改模型描述、测试和预测抽象现象或系统”中的实际过程进一步核验。",
       "manifestation": "在要求学生“通过开发、使用和修改模型描述、测试和预测抽象现象或系统”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
@@ -97,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；尝试运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "2d1a504eca29247f583114d945fb8ffe25892b0ff3eab3dc83ffaf6e24f26442",
+          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；综合运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点。",
+          "excerpt_hash": "6f35e5513eaff7e10b660e1cea4155c3f8a84d6e2c1f0099ab3e8b4992177945",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-040:standard",
           "source_type": "curriculum_standard_field"
@@ -121,11 +86,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生通过开发、使用和修改模型描述、测试和预测抽象现象或系统的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_b67cda4d99c108d8",
+      "difficulty_id": "cd_efd54306b2be474b",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_4384ad10219edf5b"
+        "hc_d761ba3761210e61"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“通过开发、使用和修改模型描述、测试和预测抽象现象或系统”中的实际过程进一步核验。",
       "manifestation": "在要求学生“通过开发、使用和修改模型描述、测试和预测抽象现象或系统”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -135,8 +100,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；尝试运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "2d1a504eca29247f583114d945fb8ffe25892b0ff3eab3dc83ffaf6e24f26442",
+          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；综合运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点。",
+          "excerpt_hash": "6f35e5513eaff7e10b660e1cea4155c3f8a84d6e2c1f0099ab3e8b4992177945",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-040:standard",
           "source_type": "curriculum_standard_field"
@@ -155,29 +120,29 @@
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_831210ca2d3018c1",
-        "lc_bb56e1ff28441c84",
-        "lc_a2071c15b4b23fa9"
+        "lc_cca58bb7952923a8",
+        "lc_bb56e1ff28441c84"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生运用学科核心概念和跨学科概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_81b2c6c52c757382",
+      "diagnostic_probe": "给出一个需要学生综合运用学科核心概念和跨学科概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2eec30abf17e79de",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_01763ab4d2b85acc",
-        "hc_9adf2476e901530e"
+        "hc_d7b536e239d72810",
+        "hc_95216bb41bbaa917",
+        "hc_a47c89a21e43e03b"
       ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“运用学科核心概念和跨学科概念”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“运用学科核心概念和跨学科概念”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“综合运用学科核心概念和跨学科概念”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“综合运用学科核心概念和跨学科概念”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；尝试运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "2d1a504eca29247f583114d945fb8ffe25892b0ff3eab3dc83ffaf6e24f26442",
+          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；综合运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点。",
+          "excerpt_hash": "6f35e5513eaff7e10b660e1cea4155c3f8a84d6e2c1f0099ab3e8b4992177945",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-040:standard",
           "source_type": "curriculum_standard_field"
@@ -190,8 +155,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后运用学科核心概念和跨学科概念，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“运用学科核心概念和跨学科概念”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把创造性观点、工具材料使用、跨学科知识和迭代证据作为评价重点。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后综合运用学科核心概念和跨学科概念，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“综合运用学科核心概念和跨学科概念”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把创造性观点、工具材料使用、跨学科知识和迭代证据作为评价重点。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -347,45 +312,74 @@
       "review_status": "machine_checked",
       "source_code": "SC-H4G7-SC-040",
       "target_code": "SC-H4G8-SC-040",
-      "target_label": "能根据创意设计要求应用创造性思维方法；能整合学科核心概念和跨学科概念；能优化模型设计和制作；能比较证据并解释概念之间的关系。"
+      "target_label": "能根据创意设计要求应用创造性思维方法；能整合学科核心概念和跨学科概念；能优化模型设计和制作。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_01763ab4d2b85acc",
+      "case_id": "hc_d7b536e239d72810",
       "component_ids": [
-        "lc_a2071c15b4b23fa9"
+        "lc_cca58bb7952923a8"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
-        "证据",
-        "说明"
+        "综合"
       ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合运用学科核心概念和跨学科概念。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用观察证据说明基本科学概念；优先采集：项目方案、实物模型、测试数据、迭代说明。"
+        "学生能够综合运用学科核心概念和跨学科概念；优先采集：项目方案、实物模型、测试数据、迭代说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；尝试运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "2d1a504eca29247f583114d945fb8ffe25892b0ff3eab3dc83ffaf6e24f26442",
+          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；综合运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点。",
+          "excerpt_hash": "6f35e5513eaff7e10b660e1cea4155c3f8a84d6e2c1f0099ab3e8b4992177945",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-040:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（证据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "在真实或变化情境中迁移（综合）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
     },
     {
-      "case_id": "hc_4384ad10219edf5b",
+      "case_id": "hc_95216bb41bbaa917",
+      "component_ids": [
+        "lc_cca58bb7952923a8"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合运用学科核心概念和跨学科概念。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够综合运用学科核心概念和跨学科概念；优先采集：项目方案、实物模型、测试数据、迭代说明。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；综合运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点。",
+          "excerpt_hash": "6f35e5513eaff7e10b660e1cea4155c3f8a84d6e2c1f0099ab3e8b4992177945",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G7-SC-040:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "通过开发、使用和修改模型描述、测试和预测抽象现象或系统；综合运用学科核心概念和跨学科概念；基于科学概念和方法从多角度提出新颖合理观点",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_d761ba3761210e61",
       "component_ids": [
         "lc_32e788a3ff17c6b2"
       ],
@@ -405,8 +399,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；尝试运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "2d1a504eca29247f583114d945fb8ffe25892b0ff3eab3dc83ffaf6e24f26442",
+          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；综合运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点。",
+          "excerpt_hash": "6f35e5513eaff7e10b660e1cea4155c3f8a84d6e2c1f0099ab3e8b4992177945",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-040:standard",
           "source_type": "curriculum_standard_field"
@@ -417,7 +411,7 @@
       "why_hard": "学生需要理解不同表征表达的是同一关系，而不是机械模仿某一种形式。"
     },
     {
-      "case_id": "hc_9adf2476e901530e",
+      "case_id": "hc_a47c89a21e43e03b",
       "component_ids": [
         "lc_bb56e1ff28441c84"
       ],
@@ -437,8 +431,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；尝试运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "2d1a504eca29247f583114d945fb8ffe25892b0ff3eab3dc83ffaf6e24f26442",
+          "excerpt": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；综合运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点。",
+          "excerpt_hash": "6f35e5513eaff7e10b660e1cea4155c3f8a84d6e2c1f0099ab3e8b4992177945",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-040:standard",
           "source_type": "curriculum_standard_field"
@@ -475,28 +469,28 @@
       "source_statement": "通过开发、使用和修改模型描述、测试和预测抽象现象或系统"
     },
     {
-      "component_id": "lc_831210ca2d3018c1",
+      "component_id": "lc_cca58bb7952923a8",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够运用学科核心概念和跨学科概念",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生运用学科核心概念和跨学科概念，并说明关键步骤、特征或依据。",
-      "label": "运用学科核心概念和跨学科概念",
+      "description": "学生能够综合运用学科核心概念和跨学科概念",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生综合运用学科核心概念和跨学科概念，并说明关键步骤、特征或依据。",
+      "label": "综合运用学科核心概念和跨学科概念",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够运用学科核心概念和跨学科概念；优先采集：项目方案、实物模型、测试数据、迭代说明。",
+      "observable_evidence": "学生能够综合运用学科核心概念和跨学科概念；优先采集：项目方案、实物模型、测试数据、迭代说明。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "运用学科核心概念和跨学科概念",
-          "excerpt_hash": "5021164a4f47be1ae53e0847fa0520e9cc30133f135d1cf7458d6de4d812043e",
+          "excerpt": "综合运用学科核心概念和跨学科概念",
+          "excerpt_hash": "8837ac1fc3d62daa6c7d984256cadf7d5f0956e127bf8e77f8032546bea2f4d0",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-040:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "运用学科核心概念和跨学科概念"
+      "source_statement": "综合运用学科核心概念和跨学科概念"
     },
     {
       "component_id": "lc_bb56e1ff28441c84",
@@ -521,30 +515,6 @@
         }
       ],
       "source_statement": "基于科学概念和方法从多角度提出新颖合理观点"
-    },
-    {
-      "component_id": "lc_a2071c15b4b23fa9",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用观察证据说明基本科学概念",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用观察证据说明基本科学概念",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：项目方案、实物模型、测试数据、迭代说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用观察证据说明基本科学概念",
-          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-040:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用观察证据说明基本科学概念"
     }
   ],
   "prerequisite_candidates": [
@@ -566,7 +536,7 @@
       "source_code": "SC-D3-SC-009",
       "source_label": "知道技术包括方法、程序和产品等。",
       "target_code": "SC-H4G7-SC-040",
-      "target_label": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；尝试运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点；能用…"
+      "target_label": "能通过开发、使用和修改模型描述、测试和预测抽象现象或系统；综合运用学科核心概念和跨学科概念；能基于科学概念和方法从多角度提出新颖合理观点。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -577,7 +547,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "2d1a504eca29247f583114d945fb8ffe25892b0ff3eab3dc83ffaf6e24f26442",
+  "source_standard_hash": "6f35e5513eaff7e10b660e1cea4155c3f8a84d6e2c1f0099ab3e8b4992177945",
   "standard_code": "SC-H4G7-SC-040",
   "verified_prerequisites": []
 }

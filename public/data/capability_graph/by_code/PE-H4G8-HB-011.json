@@ -23,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能分析练习或比赛表现并调整方法。",
-          "excerpt_hash": "5d2b613d47c5f088a4128c5a9a96a87e3e7456402bc68ffffb86f5afe9e91c00",
+          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法。",
+          "excerpt_hash": "65d34b5c360698967cba765e86267bea692eb01b812f8bb5b639f2cf30d65df3",
           "field": "standard",
           "ref_id": "standard:PE-H4G8-HB-011:standard",
           "source_type": "curriculum_standard_field"
@@ -101,7 +101,7 @@
       "review_status": "machine_checked",
       "source_code": "PE-H4G8-HB-011",
       "target_code": "PE-H4G9-HB-012",
-      "target_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能运用体育运动中体温、脉搏等自我测评和监控方法；能制定改进方案并评价运动…"
+      "target_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法。"
     }
   ],
   "hardest_cases": [
@@ -109,8 +109,7 @@
       "case_id": "hc_2abb0ee5f37af226",
       "component_ids": [
         "lc_90d4a95234ecc3a4",
-        "lc_513bbf001f9917b7",
-        "lc_b04da0ae71afbd98"
+        "lc_513bbf001f9917b7"
       ],
       "confidence": 0.58,
       "covered_modifiers": [],
@@ -122,20 +121,19 @@
       "publication_status": "candidate",
       "required_student_evidence": [
         "学生能够用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；优先采集：运动监测记录、情绪调适反思、健康日志。",
-        "学生能够正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务；优先采集：运动监测记录、情绪调适反思、健康日志。",
-        "学生能够分析练习或比赛表现；优先采集：运动监测记录、情绪调适反思、健康日志。"
+        "学生能够正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务；优先采集：运动监测记录、情绪调适反思、健康日志。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能分析练习或比赛表现并调整方法。",
-          "excerpt_hash": "5d2b613d47c5f088a4128c5a9a96a87e3e7456402bc68ffffb86f5afe9e91c00",
+          "excerpt": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法。",
+          "excerpt_hash": "65d34b5c360698967cba765e86267bea692eb01b812f8bb5b639f2cf30d65df3",
           "field": "standard",
           "ref_id": "standard:PE-H4G8-HB-011:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务；分析练习或比赛表现",
+      "structure": "用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务",
       "title": "整合多个小能力完成完整表现",
       "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
@@ -188,54 +186,6 @@
         }
       ],
       "source_statement": "掌握体育运动中体温、脉搏等自我测评和监控方法"
-    },
-    {
-      "component_id": "lc_b04da0ae71afbd98",
-      "component_type": "procedural",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够分析练习或比赛表现",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析练习或比赛表现，并说明关键步骤、特征或依据。",
-      "label": "分析练习或比赛表现",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析练习或比赛表现；优先采集：运动监测记录、情绪调适反思、健康日志。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析练习或比赛表现",
-          "excerpt_hash": "12addceee495f899bb968b590b0795c198fd498deec40d201b11b66f42983e0a",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-HB-011:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "分析练习或比赛表现"
-    },
-    {
-      "component_id": "lc_534d119654433f81",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够调整方法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整方法，并说明关键步骤、特征或依据。",
-      "label": "调整方法",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够调整方法；优先采集：运动监测记录、情绪调适反思、健康日志。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "调整方法",
-          "excerpt_hash": "81d82b6f3664e9545d1c6b025456d98521f9a5e88f20d39b04297a69a5b1507f",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-HB-011:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "调整方法"
     }
   ],
   "prerequisite_candidates": [
@@ -254,9 +204,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "PE-H4G7-HB-010",
-      "source_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能完成基础练习并记录身体…",
+      "source_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法。",
       "target_code": "PE-H4G8-HB-011",
-      "target_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法；能分析练习或比赛表现并调…"
+      "target_label": "理解体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用；能掌握体育运动中体温、脉搏等自我测评和监控方法。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -267,7 +217,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "5d2b613d47c5f088a4128c5a9a96a87e3e7456402bc68ffffb86f5afe9e91c00",
+  "source_standard_hash": "65d34b5c360698967cba765e86267bea692eb01b812f8bb5b639f2cf30d65df3",
   "standard_code": "PE-H4G8-HB-011",
   "verified_prerequisites": []
 }

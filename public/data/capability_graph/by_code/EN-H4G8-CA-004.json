@@ -3,45 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_f05d75096779fc62",
-        "lc_7fd0af32dbbaad53"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用自己的话解释多模态语篇的主要内容的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_697113d0f31a88c8",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_7b64e70a6e8cdb44"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释多模态语篇的主要内容”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用自己的话解释多模态语篇的主要内容”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能通过图书、影视作品等材料获取与中外文化有关的基本信息并比较文化异同；能理解多模态语篇的主要内容并获取关键信息；能在理解和比较基础上作出自己的判断；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "60e4519b2c8ad5ed661e01cb8722e6607ed339db5eb2f84fe6073ce154f7fa45",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-004:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "帮助学生同时使用文字、图像、声音和文化背景信息进行理解。",
-          "excerpt_hash": "e669adc80ea82456a3aaeef5c007237586b01cf8d88d28cc8fcb37451ad5731f",
-          "field": "teaching_tip",
-          "ref_id": "standard:EN-H4G8-CA-004:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用自己的话解释多模态语篇的主要内容，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用自己的话解释多模态语篇的主要内容”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“帮助学生同时使用文字、图像、声音和文化背景信息进行理解。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "comparison",
       "component_ids": [
         "lc_0ac7c69d39083690",
@@ -49,11 +10,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生比较文化异同的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_bfcbe2766d5ce553",
+      "difficulty_id": "cd_710d9d193ef4124f",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_0fe68a2fe34d976b"
+        "hc_03afeb69461860e5"
       ],
       "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较文化异同”中的实际过程进一步核验。",
       "manifestation": "在要求学生“比较文化异同”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
@@ -63,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过图书、影视作品等材料获取与中外文化有关的基本信息并比较文化异同；能理解多模态语篇的主要内容并获取关键信息；能在理解和比较基础上作出自己的判断；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "60e4519b2c8ad5ed661e01cb8722e6607ed339db5eb2f84fe6073ce154f7fa45",
+          "excerpt": "能通过图书、影视作品等材料获取与中外文化有关的基本信息并比较文化异同；能理解多模态语篇的主要内容并获取关键信息；能在理解和比较基础上作出自己的判断。",
+          "excerpt_hash": "3be3d5f6d754c5407c522c73c2a1114460ec7ef029237672688f8c195e43fde1",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-CA-004:standard",
           "source_type": "curriculum_standard_field"
@@ -87,11 +48,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生在理解和比较基础上作出自己的判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_0b27da7d5af07926",
+      "difficulty_id": "cd_82c2b9bdb81fc320",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_0fe68a2fe34d976b"
+        "hc_03afeb69461860e5"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“在理解和比较基础上作出自己的判断”中的实际过程进一步核验。",
       "manifestation": "在要求学生“在理解和比较基础上作出自己的判断”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -101,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过图书、影视作品等材料获取与中外文化有关的基本信息并比较文化异同；能理解多模态语篇的主要内容并获取关键信息；能在理解和比较基础上作出自己的判断；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "60e4519b2c8ad5ed661e01cb8722e6607ed339db5eb2f84fe6073ce154f7fa45",
+          "excerpt": "能通过图书、影视作品等材料获取与中外文化有关的基本信息并比较文化异同；能理解多模态语篇的主要内容并获取关键信息；能在理解和比较基础上作出自己的判断。",
+          "excerpt_hash": "3be3d5f6d754c5407c522c73c2a1114460ec7ef029237672688f8c195e43fde1",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-CA-004:standard",
           "source_type": "curriculum_standard_field"
@@ -215,41 +176,7 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_7b64e70a6e8cdb44",
-      "component_ids": [
-        "lc_f05d75096779fc62",
-        "lc_7fd0af32dbbaad53"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释多模态语篇的主要内容。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够用自己的话解释多模态语篇的主要内容；优先采集：多模态信息表、文化比较说明。",
-        "学生能够说明观点或文化差异；优先采集：多模态信息表、文化比较说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能通过图书、影视作品等材料获取与中外文化有关的基本信息并比较文化异同；能理解多模态语篇的主要内容并获取关键信息；能在理解和比较基础上作出自己的判断；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "60e4519b2c8ad5ed661e01cb8722e6607ed339db5eb2f84fe6073ce154f7fa45",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_0fe68a2fe34d976b",
+      "case_id": "hc_03afeb69461860e5",
       "component_ids": [
         "lc_0ac7c69d39083690",
         "lc_867938bf9163c487"
@@ -273,8 +200,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过图书、影视作品等材料获取与中外文化有关的基本信息并比较文化异同；能理解多模态语篇的主要内容并获取关键信息；能在理解和比较基础上作出自己的判断；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "60e4519b2c8ad5ed661e01cb8722e6607ed339db5eb2f84fe6073ce154f7fa45",
+          "excerpt": "能通过图书、影视作品等材料获取与中外文化有关的基本信息并比较文化异同；能理解多模态语篇的主要内容并获取关键信息；能在理解和比较基础上作出自己的判断。",
+          "excerpt_hash": "3be3d5f6d754c5407c522c73c2a1114460ec7ef029237672688f8c195e43fde1",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-CA-004:standard",
           "source_type": "curriculum_standard_field"
@@ -405,54 +332,6 @@
         }
       ],
       "source_statement": "在理解和比较基础上作出自己的判断"
-    },
-    {
-      "component_id": "lc_3e68a12fe8ae3d69",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合语篇信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合语篇信息，并说明关键步骤、特征或依据。",
-      "label": "整合语篇信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合语篇信息；优先采集：多模态信息表、文化比较说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合语篇信息",
-          "excerpt_hash": "8fc7fa6e6eeaf7e69dbafe1c0139000f909d2a7e8aba5e8aae0003274289a04b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合语篇信息"
-    },
-    {
-      "component_id": "lc_7fd0af32dbbaad53",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点或文化差异",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点或文化差异，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点或文化差异",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点或文化差异；优先采集：多模态信息表、文化比较说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点或文化差异",
-          "excerpt_hash": "eddc2a80e635a5a126c12dfa34e72610db5e58b8d29295eaa8d1d361aecdddff",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点或文化差异"
     }
   ],
   "prerequisite_candidates": [
@@ -484,7 +363,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "60e4519b2c8ad5ed661e01cb8722e6607ed339db5eb2f84fe6073ce154f7fa45",
+  "source_standard_hash": "3be3d5f6d754c5407c522c73c2a1114460ec7ef029237672688f8c195e43fde1",
   "standard_code": "EN-H4G8-CA-004",
   "verified_prerequisites": []
 }

@@ -3,44 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "comparison",
-      "component_ids": [
-        "lc_96b2f033de4672c1"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生判断比赛或表演的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_0c0ec76a12418e05",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_0318c7de45d27d7a"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断比赛或表演”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“判断比赛或表演”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能熟练运用安全防护动作；分析分析并判断比赛或表演；能分析练习或比赛表现并调整方法。",
-          "excerpt_hash": "108b679c64dc79770d326f72252534d8054bf67841f293dd42da9dc76418677f",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-SD-026:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "兼顾传统文化理解、动作技术、安全防护和公平竞争。",
-          "excerpt_hash": "f4229e488f723ea2a2a7492e7f9ea0d25f89edd7f629c9e7cef0a3bdc8082ae0",
-          "field": "teaching_tip",
-          "ref_id": "standard:PE-H4G8-SD-026:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后判断比赛或表演，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“判断比赛或表演”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“兼顾传统文化理解、动作技术、安全防护和公平竞争。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_bda7e7c465ec22e5",
@@ -48,12 +10,12 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生灵活运用知识与技能进行半实战、实战对抗练习和比赛的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_509b8054e58d0a8b",
+      "difficulty_id": "cd_4f27fdc8ccec9804",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_251ae1f40ec93787",
-        "hc_0df2de68e3fc71c5"
+        "hc_7e6f5d1263cd2e38",
+        "hc_37e595f3d8288e87"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“灵活运用知识与技能进行半实战、实战对抗练习和比赛”中的实际过程进一步核验。",
       "manifestation": "在要求学生“灵活运用知识与技能进行半实战、实战对抗练习和比赛”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -63,8 +25,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能熟练运用安全防护动作；分析分析并判断比赛或表演；能分析练习或比赛表现并调整方法。",
-          "excerpt_hash": "108b679c64dc79770d326f72252534d8054bf67841f293dd42da9dc76418677f",
+          "excerpt": "能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能熟练运用安全防护动作；分析评价比赛或表演。",
+          "excerpt_hash": "078498660394c26007aae484cb9843bd4f23331979c0e706a5a02dbe34232016",
           "field": "standard",
           "ref_id": "standard:PE-H4G8-SD-026:standard",
           "source_type": "curriculum_standard_field"
@@ -141,44 +103,12 @@
       "review_status": "machine_checked",
       "source_code": "PE-H4G8-SD-026",
       "target_code": "PE-H4G9-SD-027",
-      "target_label": "分析评价比赛或表演；能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能运用所学中华传统体育类运动项目的完整动作技术；能制定改进方案并评价运…"
+      "target_label": "分析评价比赛或表演；能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能掌握所学中华传统体育类运动项目的完整动作技术。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_0318c7de45d27d7a",
-      "component_ids": [
-        "lc_96b2f033de4672c1"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断比赛或表演。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够判断比赛或表演；优先采集：技术展示、实战表现、文化说明、评价记录。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能熟练运用安全防护动作；分析分析并判断比赛或表演；能分析练习或比赛表现并调整方法。",
-          "excerpt_hash": "108b679c64dc79770d326f72252534d8054bf67841f293dd42da9dc76418677f",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-SD-026:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
-    },
-    {
-      "case_id": "hc_251ae1f40ec93787",
+      "case_id": "hc_7e6f5d1263cd2e38",
       "component_ids": [
         "lc_94e0d9a3dbbddebb"
       ],
@@ -199,8 +129,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能熟练运用安全防护动作；分析分析并判断比赛或表演；能分析练习或比赛表现并调整方法。",
-          "excerpt_hash": "108b679c64dc79770d326f72252534d8054bf67841f293dd42da9dc76418677f",
+          "excerpt": "能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能熟练运用安全防护动作；分析评价比赛或表演。",
+          "excerpt_hash": "078498660394c26007aae484cb9843bd4f23331979c0e706a5a02dbe34232016",
           "field": "standard",
           "ref_id": "standard:PE-H4G8-SD-026:standard",
           "source_type": "curriculum_standard_field"
@@ -211,7 +141,7 @@
       "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
     },
     {
-      "case_id": "hc_0df2de68e3fc71c5",
+      "case_id": "hc_37e595f3d8288e87",
       "component_ids": [
         "lc_bda7e7c465ec22e5"
       ],
@@ -231,8 +161,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能熟练运用安全防护动作；分析分析并判断比赛或表演；能分析练习或比赛表现并调整方法。",
-          "excerpt_hash": "108b679c64dc79770d326f72252534d8054bf67841f293dd42da9dc76418677f",
+          "excerpt": "能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能熟练运用安全防护动作；分析评价比赛或表演。",
+          "excerpt_hash": "078498660394c26007aae484cb9843bd4f23331979c0e706a5a02dbe34232016",
           "field": "standard",
           "ref_id": "standard:PE-H4G8-SD-026:standard",
           "source_type": "curriculum_standard_field"
@@ -293,100 +223,28 @@
       "source_statement": "熟练运用安全防护动作"
     },
     {
-      "component_id": "lc_99eddc151f10b41f",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够分析分析",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析分析，并说明关键步骤、特征或依据。",
-      "label": "分析分析",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析分析；优先采集：技术展示、实战表现、文化说明、评价记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析分析",
-          "excerpt_hash": "8ddb13f38fcab650bd3d55fa431cd3055f81d7c73f9c6f7a0c325f5895c09116",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-SD-026:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "分析分析"
-    },
-    {
-      "component_id": "lc_96b2f033de4672c1",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够判断比赛或表演",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断比赛或表演，并说明关键步骤、特征或依据。",
-      "label": "判断比赛或表演",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够判断比赛或表演；优先采集：技术展示、实战表现、文化说明、评价记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "判断比赛或表演",
-          "excerpt_hash": "2670e85754fa3dda7063ea0b46ec7bdbf5ed5d1874e61233719228a501e0373c",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-SD-026:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "判断比赛或表演"
-    },
-    {
-      "component_id": "lc_d3591faf3e0626ef",
-      "component_type": "procedural",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够分析练习或比赛表现",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析练习或比赛表现，并说明关键步骤、特征或依据。",
-      "label": "分析练习或比赛表现",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析练习或比赛表现；优先采集：技术展示、实战表现、文化说明、评价记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析练习或比赛表现",
-          "excerpt_hash": "12addceee495f899bb968b590b0795c198fd498deec40d201b11b66f42983e0a",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-SD-026:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "分析练习或比赛表现"
-    },
-    {
-      "component_id": "lc_828d9f1515293ae2",
+      "component_id": "lc_86ac2a88b086c8df",
       "component_type": "metacognitive",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够调整方法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整方法，并说明关键步骤、特征或依据。",
-      "label": "调整方法",
+      "description": "学生能够分析评价比赛或表演",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析评价比赛或表演，并说明关键步骤、特征或依据。",
+      "label": "分析评价比赛或表演",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够调整方法；优先采集：技术展示、实战表现、文化说明、评价记录。",
+      "observable_evidence": "学生能够分析评价比赛或表演；优先采集：技术展示、实战表现、文化说明、评价记录。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "调整方法",
-          "excerpt_hash": "81d82b6f3664e9545d1c6b025456d98521f9a5e88f20d39b04297a69a5b1507f",
+          "excerpt": "分析评价比赛或表演",
+          "excerpt_hash": "50cfcff222d317abbe6a6936bc5eca53d085e936b927ec0c2e1857de85fb40ea",
           "field": "standard",
           "ref_id": "standard:PE-H4G8-SD-026:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "调整方法"
+      "source_statement": "分析评价比赛或表演"
     }
   ],
   "prerequisite_candidates": [
@@ -405,9 +263,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "PE-H4G7-SD-025",
-      "source_label": "能掌握所学中华传统体育类运动项目的完整动作技术；能熟练运用安全防护动作；能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能完成基础练习并记…",
+      "source_label": "能掌握所学中华传统体育类运动项目的完整动作技术；能熟练运用安全防护动作；能灵活运用知识与技能进行半实战、实战对抗练习和比赛。",
       "target_code": "PE-H4G8-SD-026",
-      "target_label": "能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能熟练运用安全防护动作；分析分析并判断比赛或表演；能分析练习或比赛表现并调整方法。"
+      "target_label": "能灵活运用知识与技能进行半实战、实战对抗练习和比赛；能熟练运用安全防护动作；分析评价比赛或表演。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -418,7 +276,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "108b679c64dc79770d326f72252534d8054bf67841f293dd42da9dc76418677f",
+  "source_standard_hash": "078498660394c26007aae484cb9843bd4f23331979c0e706a5a02dbe34232016",
   "standard_code": "PE-H4G8-SD-026",
   "verified_prerequisites": []
 }

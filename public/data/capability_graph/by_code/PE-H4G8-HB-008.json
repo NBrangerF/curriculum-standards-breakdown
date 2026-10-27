@@ -3,54 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "comparison",
-      "component_ids": [
-        "lc_04c300d481674521"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生判断和管理体重的方法以及预防脊柱侧弯的方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_1911190a161e3a24",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_615b97390d506997"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断和管理体重的方法以及预防脊柱侧弯的方法”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“判断和管理体重的方法以及预防脊柱侧弯的方法”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能分析视力不良对职业发展的影响；掌握科学分析并判断和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因；能分析练习或比赛表现并调整方法。",
-          "excerpt_hash": "742b2cf4f48b1bcb9f046c67353055cef1f37c45804304d8e675260fb3b43e86",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-HB-008:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "强调健康评价应保护学生隐私和尊严，避免体貌羞辱。",
-          "excerpt_hash": "82d57fdb4f9ecf31cd94eada5c5bb2b6dc01ddaeae3e58da602363806cb3d1f6",
-          "field": "teaching_tip",
-          "ref_id": "standard:PE-H4G8-HB-008:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后判断和管理体重的方法以及预防脊柱侧弯的方法，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“判断和管理体重的方法以及预防脊柱侧弯的方法”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“强调健康评价应保护学生隐私和尊严，避免体貌羞辱。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_a25b481685aeb2b2"
+        "lc_bb11efd6a235c8ca"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生用自己的话解释肥胖的概念、危害和致因的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_cfd1270a4aabff1d",
+      "difficulty_id": "cd_2b821acaf257c016",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_5e489ff23835ca79"
+      ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释肥胖的概念、危害和致因”中的实际过程进一步核验。",
       "manifestation": "在要求学生“用自己的话解释肥胖的概念、危害和致因”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
@@ -59,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能分析视力不良对职业发展的影响；掌握科学分析并判断和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因；能分析练习或比赛表现并调整方法。",
-          "excerpt_hash": "742b2cf4f48b1bcb9f046c67353055cef1f37c45804304d8e675260fb3b43e86",
+          "excerpt": "能分析视力不良对职业发展的影响；掌握科学评价和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因。",
+          "excerpt_hash": "f3a6b02580dd6c76b59f3e6cd221b8dc5204a4b2bb565c27b53e0355957f5d12",
           "field": "standard",
           "ref_id": "standard:PE-H4G8-HB-008:standard",
           "source_type": "curriculum_standard_field"
@@ -137,41 +101,43 @@
       "review_status": "machine_checked",
       "source_code": "PE-H4G8-HB-008",
       "target_code": "PE-H4G9-HB-009",
-      "target_label": "运用科学评价和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因；能分析视力不良对职业发展的影响；能制定改进方案并评价运动、健…"
+      "target_label": "掌握科学评价和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因；能分析视力不良对职业发展的影响。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_615b97390d506997",
+      "case_id": "hc_5e489ff23835ca79",
       "component_ids": [
-        "lc_04c300d481674521"
+        "lc_758bc23a83c16f6e",
+        "lc_34004f8e3103953e",
+        "lc_bb11efd6a235c8ca"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断和管理体重的方法以及预防脊柱侧弯的方法。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生分析视力不良对职业发展的影响。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够判断和管理体重的方法以及预防脊柱侧弯的方法；优先采集：健康行动方案、自我监测记录、反思说明。"
+        "学生能够分析视力不良对职业发展的影响；优先采集：健康行动方案、自我监测记录、反思说明。",
+        "学生能够正确运用科学评价和管理体重的方法以及预防脊柱侧弯的方法完成任务；优先采集：健康行动方案、自我监测记录、反思说明。",
+        "学生能够用自己的话解释肥胖的概念、危害和致因；优先采集：健康行动方案、自我监测记录、反思说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能分析视力不良对职业发展的影响；掌握科学分析并判断和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因；能分析练习或比赛表现并调整方法。",
-          "excerpt_hash": "742b2cf4f48b1bcb9f046c67353055cef1f37c45804304d8e675260fb3b43e86",
+          "excerpt": "能分析视力不良对职业发展的影响；掌握科学评价和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因。",
+          "excerpt_hash": "f3a6b02580dd6c76b59f3e6cd221b8dc5204a4b2bb565c27b53e0355957f5d12",
           "field": "standard",
           "ref_id": "standard:PE-H4G8-HB-008:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "按一致维度比较或辨析（判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+      "structure": "分析视力不良对职业发展的影响；正确运用科学评价和管理体重的方法以及预防脊柱侧弯的方法完成任务；用自己的话解释肥胖的概念、危害和致因",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -200,55 +166,31 @@
       "source_statement": "分析视力不良对职业发展的影响"
     },
     {
-      "component_id": "lc_01b54a5fc8e3421c",
-      "component_type": "procedural",
+      "component_id": "lc_34004f8e3103953e",
+      "component_type": "metacognitive",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够正确运用科学分析完成任务",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确运用科学分析完成任务，并说明关键步骤、特征或依据。",
-      "label": "正确运用科学分析完成任务",
+      "description": "学生能够正确运用科学评价和管理体重的方法以及预防脊柱侧弯的方法完成任务",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生正确运用科学评价和管理体重的方法以及预防脊柱侧弯的方法完成任务，并说明关键步骤、特征或依据。",
+      "label": "正确运用科学评价和管理体重的方法以及预防脊柱侧弯的方法完成任务",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够正确运用科学分析完成任务；优先采集：健康行动方案、自我监测记录、反思说明。",
+      "observable_evidence": "学生能够正确运用科学评价和管理体重的方法以及预防脊柱侧弯的方法完成任务；优先采集：健康行动方案、自我监测记录、反思说明。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "掌握科学分析",
-          "excerpt_hash": "70c9deb35586c8801f4be7f9cdae58cdb940481953285d57ef1a5fe1dbd5f6a8",
+          "excerpt": "掌握科学评价和管理体重的方法以及预防脊柱侧弯的方法",
+          "excerpt_hash": "eba2e9473a13802032c7bb5a9c0e90f5b967326014ee1f1e3dae995937193884",
           "field": "standard",
           "ref_id": "standard:PE-H4G8-HB-008:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "掌握科学分析"
+      "source_statement": "掌握科学评价和管理体重的方法以及预防脊柱侧弯的方法"
     },
     {
-      "component_id": "lc_04c300d481674521",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够判断和管理体重的方法以及预防脊柱侧弯的方法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断和管理体重的方法以及预防脊柱侧弯的方法，并说明关键步骤、特征或依据。",
-      "label": "判断和管理体重的方法以及预防脊柱侧弯的方法",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够判断和管理体重的方法以及预防脊柱侧弯的方法；优先采集：健康行动方案、自我监测记录、反思说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "判断和管理体重的方法以及预防脊柱侧弯的方法",
-          "excerpt_hash": "103173014eba06085ea0a713f8c66e8fe4509688f012aa9fe5fb5c1010687729",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-HB-008:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "判断和管理体重的方法以及预防脊柱侧弯的方法"
-    },
-    {
-      "component_id": "lc_a25b481685aeb2b2",
+      "component_id": "lc_bb11efd6a235c8ca",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
@@ -270,54 +212,6 @@
         }
       ],
       "source_statement": "理解肥胖的概念、危害和致因"
-    },
-    {
-      "component_id": "lc_67064f9c58e035f6",
-      "component_type": "procedural",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够分析练习或比赛表现",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析练习或比赛表现，并说明关键步骤、特征或依据。",
-      "label": "分析练习或比赛表现",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析练习或比赛表现；优先采集：健康行动方案、自我监测记录、反思说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析练习或比赛表现",
-          "excerpt_hash": "12addceee495f899bb968b590b0795c198fd498deec40d201b11b66f42983e0a",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-HB-008:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "分析练习或比赛表现"
-    },
-    {
-      "component_id": "lc_e1a4ee5c76ead9c2",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够调整方法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整方法，并说明关键步骤、特征或依据。",
-      "label": "调整方法",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够调整方法；优先采集：健康行动方案、自我监测记录、反思说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "调整方法",
-          "excerpt_hash": "81d82b6f3664e9545d1c6b025456d98521f9a5e88f20d39b04297a69a5b1507f",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G8-HB-008:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "调整方法"
     }
   ],
   "prerequisite_candidates": [
@@ -336,9 +230,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "PE-H4G7-HB-007",
-      "source_label": "掌握科学初步判断和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因；能分析视力不良对职业发展的影响；能完成基础练习并记录身体…",
+      "source_label": "掌握科学评价和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因；能分析视力不良对职业发展的影响。",
       "target_code": "PE-H4G8-HB-008",
-      "target_label": "能分析视力不良对职业发展的影响；掌握科学分析并判断和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因；能分析练习或比赛表现并…"
+      "target_label": "能分析视力不良对职业发展的影响；掌握科学评价和管理体重的方法以及预防脊柱侧弯的方法；能理解肥胖的概念、危害和致因。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -349,7 +243,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "742b2cf4f48b1bcb9f046c67353055cef1f37c45804304d8e675260fb3b43e86",
+  "source_standard_hash": "f3a6b02580dd6c76b59f3e6cd221b8dc5204a4b2bb565c27b53e0355957f5d12",
   "standard_code": "PE-H4G8-HB-008",
   "verified_prerequisites": []
 }

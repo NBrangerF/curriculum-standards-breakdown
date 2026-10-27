@@ -3,58 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_38ef07145fefa625"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_932a1dfdcab75a29",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_3b31c0d73a6907e7"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能围绕作品语言、形象、主题等话题展开研讨；能根据阅读进度完成读书笔记；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "0bb2d491155beb922f3602b77a54ff1687f64f8c71f37d1190791f3936563d1e",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-008:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "指导学生综合运用浏览、略读、精读等方法，关注整本书整体与局部关系。",
-          "excerpt_hash": "f0ada37b2264789d502cc56dba3368edebd694ab4be08ed9678999d10806ddaf",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G8-RE-008:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“指导学生综合运用浏览、略读、精读等方法，关注整本书整体与局部关系。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
         "lc_4dc6f4d4a885e85b",
-        "lc_b39337b9c2f702e7",
-        "lc_38ef07145fefa625"
+        "lc_b39337b9c2f702e7"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_b77eb7031ee442a9",
+      "difficulty_id": "cd_a1265e36d28c479a",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_3b31c0d73a6907e7",
-        "hc_d7a09b635b656871"
+        "hc_8cb835b41d403e9f"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著”中的实际过程进一步核验。",
       "manifestation": "在要求学生“独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -64,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能围绕作品语言、形象、主题等话题展开研讨；能根据阅读进度完成读书笔记；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "0bb2d491155beb922f3602b77a54ff1687f64f8c71f37d1190791f3936563d1e",
+          "excerpt": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能围绕作品语言、形象、主题等话题展开研讨；能根据阅读进度完成读书笔记。",
+          "excerpt_hash": "075d5de6e662c9780a72329369d291156a6012f2e95de445cb9a66e810aed664",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-RE-008:standard",
           "source_type": "curriculum_standard_field"
@@ -173,45 +133,12 @@
       "review_status": "machine_checked",
       "source_code": "CN-H4G8-RE-008",
       "target_code": "CN-H4G9-RE-009",
-      "target_label": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能根据阅读进度完成读书笔记；能围绕作品语言、形象、主题等话题展开研讨；能形成有观点、有…"
+      "target_label": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能根据阅读进度完成读书笔记；能围绕作品语言、形象、主题等话题展开研讨。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_3b31c0d73a6907e7",
-      "component_ids": [
-        "lc_38ef07145fefa625"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "依据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点、方法或表达选择的依据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明观点、方法或表达选择的依据；优先采集：阅读进度表、读书笔记、研讨记录。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能围绕作品语言、形象、主题等话题展开研讨；能根据阅读进度完成读书笔记；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "0bb2d491155beb922f3602b77a54ff1687f64f8c71f37d1190791f3936563d1e",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-008:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（依据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_d7a09b635b656871",
+      "case_id": "hc_8cb835b41d403e9f",
       "component_ids": [
         "lc_4dc6f4d4a885e85b"
       ],
@@ -231,8 +158,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能围绕作品语言、形象、主题等话题展开研讨；能根据阅读进度完成读书笔记；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "0bb2d491155beb922f3602b77a54ff1687f64f8c71f37d1190791f3936563d1e",
+          "excerpt": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能围绕作品语言、形象、主题等话题展开研讨；能根据阅读进度完成读书笔记。",
+          "excerpt_hash": "075d5de6e662c9780a72329369d291156a6012f2e95de445cb9a66e810aed664",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-RE-008:standard",
           "source_type": "curriculum_standard_field"
@@ -291,54 +218,6 @@
         }
       ],
       "source_statement": "根据阅读进度完成读书笔记"
-    },
-    {
-      "component_id": "lc_28a502f364d75f05",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合材料",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合材料，并说明关键步骤、特征或依据。",
-      "label": "整合材料",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合材料；优先采集：阅读进度表、读书笔记、研讨记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合材料",
-          "excerpt_hash": "c6c8b0ffb05ba398d2a4a4fb4f067efe130af369012aceee836b9c0c870e2710",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-008:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合材料"
-    },
-    {
-      "component_id": "lc_38ef07145fefa625",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点、方法或表达选择的依据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点、方法或表达选择的依据，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点、方法或表达选择的依据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点、方法或表达选择的依据；优先采集：阅读进度表、读书笔记、研讨记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点、方法或表达选择的依据",
-          "excerpt_hash": "04a7ab3f43a7836e4d3a1304eb39d0a43cdf66ecd30248e80d1cdebbd172b84a",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-008:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点、方法或表达选择的依据"
     }
   ],
   "prerequisite_candidates": [
@@ -357,9 +236,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "CN-H4G7-RE-007",
-      "source_label": "能在支架下阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能根据阅读进度完成读书笔记；能围绕作品语言、形象、主题等话题展开研讨；能用简短记录…",
+      "source_label": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能根据阅读进度完成读书笔记；能围绕作品语言、形象、主题等话题展开研讨。",
       "target_code": "CN-H4G8-RE-008",
-      "target_label": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能围绕作品语言、形象、主题等话题展开研讨；能根据阅读进度完成读书笔记；能整合材料并说明…"
+      "target_label": "能独立阅读古今中外诗歌集、中长篇小说、散文集等文学名著；能围绕作品语言、形象、主题等话题展开研讨；能根据阅读进度完成读书笔记。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -370,7 +249,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "0bb2d491155beb922f3602b77a54ff1687f64f8c71f37d1190791f3936563d1e",
+  "source_standard_hash": "075d5de6e662c9780a72329369d291156a6012f2e95de445cb9a66e810aed664",
   "standard_code": "CN-H4G8-RE-008",
   "verified_prerequisites": []
 }

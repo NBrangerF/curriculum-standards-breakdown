@@ -13,7 +13,7 @@
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_5a2fd55f5a170e63"
+        "hc_a364b8a9d4e1ba16"
       ],
       "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
       "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀”。",
@@ -23,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀；能结合家庭、学校或社会案例分析问题。",
-          "excerpt_hash": "b6c04d6249995f4792920d5b6ab61ff4bd66abb93e3763d27ffd0845e3dff6aa",
+          "excerpt": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀。",
+          "excerpt_hash": "339137f765f9feb82518dda76383aaa360f229479d788215729389a9a4ce012c",
           "field": "standard",
           "ref_id": "standard:ML-H4G8-TCR-014:standard",
           "source_type": "curriculum_standard_field"
@@ -194,41 +194,39 @@
       "review_status": "machine_checked",
       "source_code": "ML-H4G8-TCR-014",
       "target_code": "ML-H4G9-TCR-015",
-      "target_label": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀；能依据规则、价值和证据作出判断并提出行动建议。"
+      "target_label": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_5a2fd55f5a170e63",
+      "case_id": "hc_a364b8a9d4e1ba16",
       "component_ids": [
-        "lc_61cd14fcb72706fd",
-        "lc_1c3c81de29573b30"
+        "lc_61cd14fcb72706fd"
       ],
       "confidence": 0.58,
       "covered_modifiers": [],
-      "demand_dimension": "integration",
-      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
       "example_task_stub": "设计一个不提供完整范例的任务，要求学生感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀；优先采集：家国情怀阐释、主题展示、使命感表达。",
-        "学生能够结合家庭、学校或社会案例分析问题；优先采集：家国情怀阐释、主题展示、使命感表达。"
+        "学生能够感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀；优先采集：家国情怀阐释、主题展示、使命感表达。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀；能结合家庭、学校或社会案例分析问题。",
-          "excerpt_hash": "b6c04d6249995f4792920d5b6ab61ff4bd66abb93e3763d27ffd0845e3dff6aa",
+          "excerpt": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀。",
+          "excerpt_hash": "339137f765f9feb82518dda76383aaa360f229479d788215729389a9a4ce012c",
           "field": "standard",
           "ref_id": "standard:ML-H4G8-TCR-014:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀；结合家庭、学校或社会案例分析问题",
-      "title": "整合多个小能力完成完整表现",
-      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+      "structure": "感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
     }
   ],
   "learning_components": [
@@ -255,30 +253,6 @@
         }
       ],
       "source_statement": "感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀"
-    },
-    {
-      "component_id": "lc_1c3c81de29573b30",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够结合家庭、学校或社会案例分析问题",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合家庭、学校或社会案例分析问题，并说明关键步骤、特征或依据。",
-      "label": "结合家庭、学校或社会案例分析问题",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够结合家庭、学校或社会案例分析问题；优先采集：家国情怀阐释、主题展示、使命感表达。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "结合家庭、学校或社会案例分析问题",
-          "excerpt_hash": "9f011217b5939392cbd181d22775f8f11d41c522438ab487610a73e9e02bbda8",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G8-TCR-014:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "结合家庭、学校或社会案例分析问题"
     }
   ],
   "prerequisite_candidates": [
@@ -297,9 +271,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "ML-H4G7-TCR-013",
-      "source_label": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀；能联系个人和校园生活说明基本判断。",
+      "source_label": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀。",
       "target_code": "ML-H4G8-TCR-014",
-      "target_label": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀；能结合家庭、学校或社会案例分析问题。"
+      "target_label": "能感悟天下兴亡、匹夫有责的担当意识，厚植爱国主义情怀。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -310,7 +284,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "b6c04d6249995f4792920d5b6ab61ff4bd66abb93e3763d27ffd0845e3dff6aa",
+  "source_standard_hash": "339137f765f9feb82518dda76383aaa360f229479d788215729389a9a4ce012c",
   "standard_code": "ML-H4G8-TCR-014",
   "verified_prerequisites": []
 }

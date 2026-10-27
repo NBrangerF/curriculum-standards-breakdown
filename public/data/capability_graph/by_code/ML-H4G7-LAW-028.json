@@ -3,137 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_adb97192ac4b3672",
-        "lc_0704206bba36ca37"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用自己的话解释权力是由人民授予的，行使权力必须受法律约束的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_11af8e7e6548e80f",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_ed86e940c2e2fd36",
-        "hc_133b08622e8f6aaa",
-        "hc_009dddde8f3fb175"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释权力是由人民授予的，行使权力必须受法律约束”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用自己的话解释权力是由人民授予的，行使权力必须受法律约束”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "72c448273f0c432622d94110e66d113d8be0f130c53f36b22a6da54364a0cb72",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-028:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用具体国家机关职权帮助学生理解权力来源、权力运行和法律约束。",
-          "excerpt_hash": "105f69cdfd56ce0033c62d459b23db194947059f3d5daf270e1e9da7473a3c09",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G7-LAW-028:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用自己的话解释权力是由人民授予的，行使权力必须受法律约束，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用自己的话解释权力是由人民授予的，行使权力必须受法律约束”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用具体国家机关职权帮助学生理解权力来源、权力运行和法律约束。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "comparison",
-      "component_ids": [
-        "lc_0704206bba36ca37"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_4252247653ed8ba8",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_ed86e940c2e2fd36",
-        "hc_133b08622e8f6aaa",
-        "hc_009dddde8f3fb175"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "72c448273f0c432622d94110e66d113d8be0f130c53f36b22a6da54364a0cb72",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-028:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用具体国家机关职权帮助学生理解权力来源、权力运行和法律约束。",
-          "excerpt_hash": "105f69cdfd56ce0033c62d459b23db194947059f3d5daf270e1e9da7473a3c09",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G7-LAW-028:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用具体国家机关职权帮助学生理解权力来源、权力运行和法律约束。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "transfer",
-      "component_ids": [
-        "lc_0704206bba36ca37"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_6445d58598414d19",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_ed86e940c2e2fd36",
-        "hc_133b08622e8f6aaa",
-        "hc_009dddde8f3fb175"
-      ],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "72c448273f0c432622d94110e66d113d8be0f130c53f36b22a6da54364a0cb72",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-028:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用具体国家机关职权帮助学生理解权力来源、权力运行和法律约束。",
-          "excerpt_hash": "105f69cdfd56ce0033c62d459b23db194947059f3d5daf270e1e9da7473a3c09",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G7-LAW-028:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用具体国家机关职权帮助学生理解权力来源、权力运行和法律约束。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
         "lc_036603b3b82218ae"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出主要国家机关的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_ba9dec63d130eb95",
+      "difficulty_id": "cd_c3fbe40891aaa8cf",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_118be78d78ce295c"
+      ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出主要国家机关的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出主要国家机关的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
@@ -142,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "72c448273f0c432622d94110e66d113d8be0f130c53f36b22a6da54364a0cb72",
+          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束。",
+          "excerpt_hash": "1f9ab5f1297b9bd51520453ab48deb7be1d668f78c8f9768429da417d3e95346",
           "field": "standard",
           "ref_id": "standard:ML-H4G7-LAW-028:standard",
           "source_type": "curriculum_standard_field"
@@ -313,107 +194,41 @@
       "review_status": "machine_checked",
       "source_code": "ML-H4G7-LAW-028",
       "target_code": "ML-H4G8-LAW-029",
-      "target_label": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能结合家庭、学校或社会案例分析问题。"
+      "target_label": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_ed86e940c2e2fd36",
+      "case_id": "hc_118be78d78ce295c",
       "component_ids": [
-        "lc_adb97192ac4b3672",
-        "lc_0704206bba36ca37"
+        "lc_036603b3b82218ae",
+        "lc_adb97192ac4b3672"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释权力是由人民授予的，行使权力必须受法律约束。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出主要国家机关的关键特征。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用自己的话解释权力是由人民授予的，行使权力必须受法律约束；优先采集：国家机关职权图、案例分析、权力约束说明。",
-        "学生能够联系个人和校园生活说明基本判断；优先采集：国家机关职权图、案例分析、权力约束说明。"
+        "学生能够识别并说出主要国家机关的关键特征；优先采集：国家机关职权图、案例分析、权力约束说明。",
+        "学生能够用自己的话解释权力是由人民授予的，行使权力必须受法律约束；优先采集：国家机关职权图、案例分析、权力约束说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "72c448273f0c432622d94110e66d113d8be0f130c53f36b22a6da54364a0cb72",
+          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束。",
+          "excerpt_hash": "1f9ab5f1297b9bd51520453ab48deb7be1d668f78c8f9768429da417d3e95346",
           "field": "standard",
           "ref_id": "standard:ML-H4G7-LAW-028:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_133b08622e8f6aaa",
-      "component_ids": [
-        "lc_0704206bba36ca37"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "生活"
-      ],
-      "demand_dimension": "transfer",
-      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够联系个人和校园生活说明基本判断；优先采集：国家机关职权图、案例分析、权力约束说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "72c448273f0c432622d94110e66d113d8be0f130c53f36b22a6da54364a0cb72",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-028:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "在真实或变化情境中迁移（生活）",
-      "title": "在真实或变化情境中迁移",
-      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
-    },
-    {
-      "case_id": "hc_009dddde8f3fb175",
-      "component_ids": [
-        "lc_0704206bba36ca37"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够联系个人和校园生活说明基本判断；优先采集：国家机关职权图、案例分析、权力约束说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "72c448273f0c432622d94110e66d113d8be0f130c53f36b22a6da54364a0cb72",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-028:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+      "structure": "识别并说出主要国家机关的关键特征；用自己的话解释权力是由人民授予的，行使权力必须受法律约束",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -464,30 +279,6 @@
         }
       ],
       "source_statement": "理解权力是由人民授予的，行使权力必须受法律约束"
-    },
-    {
-      "component_id": "lc_0704206bba36ca37",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够联系个人和校园生活说明基本判断",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生联系个人和校园生活说明基本判断，并保留可回查的口头、书面或操作过程证据。",
-      "label": "联系个人和校园生活说明基本判断",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够联系个人和校园生活说明基本判断；优先采集：国家机关职权图、案例分析、权力约束说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "联系个人和校园生活说明基本判断",
-          "excerpt_hash": "441fc06d76bf837efd9f91aece3ac5307096174e73b5685a6475c696570b0b6b",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-028:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "联系个人和校园生活说明基本判断"
     }
   ],
   "prerequisite_candidates": [
@@ -509,7 +300,7 @@
       "source_code": "ML-D3-LAW-007",
       "source_label": "能区分不良行为、严重不良行为与违法犯罪的边界，能说明其后果与法律责任，能制定自我约束与同伴互助的预防策略。",
       "target_code": "ML-H4G7-LAW-028",
-      "target_label": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束；能联系个人和校园生活说明基本判断。"
+      "target_label": "认识主要国家机关，理解权力是由人民授予的，行使权力必须受法律约束。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -520,7 +311,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "72c448273f0c432622d94110e66d113d8be0f130c53f36b22a6da54364a0cb72",
+  "source_standard_hash": "1f9ab5f1297b9bd51520453ab48deb7be1d668f78c8f9768429da417d3e95346",
   "standard_code": "ML-H4G7-LAW-028",
   "verified_prerequisites": []
 }

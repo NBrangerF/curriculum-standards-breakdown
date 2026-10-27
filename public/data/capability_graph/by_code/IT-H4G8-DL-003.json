@@ -3,28 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "multi_step_procedure",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_58dae00e066bfb05"
+        "lc_5932058395da7d7d"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生完成有步骤的数字作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_df4d287bdbb40208",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生通过实验平台读取、发送、接收、汇集和使用数据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_83f6a9f336f5568e",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_55d3e6f58ebfe0cf"
+        "hc_60ab8b0c9035a721"
       ],
-      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“完成有步骤的数字作品”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“完成有步骤的数字作品”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“通过实验平台读取、发送、接收、汇集和使用数据”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过实验平台读取、发送、接收、汇集和使用数据；能自觉遵守物联网实验操作规程；会使用实验设备搭建物联系统原型；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "8bb89fa06aefdbcc14b69e6286d0f6397951c3fd5fdc1bec6410d556db05081c",
+          "excerpt": "能通过实验平台读取、发送、接收、汇集和使用数据；能自觉遵守物联网实验操作规程；会使用实验设备搭建物联系统原型。",
+          "excerpt_hash": "fb90be4e12862bfa4b678402161697764ae6b8bc90d2396ac0c4889f0972eee2",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-DL-003:standard",
           "source_type": "curriculum_standard_field"
@@ -37,8 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后完成有步骤的数字作品，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“完成有步骤的数字作品”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“强调实验安全、操作规程和物联协议特点，鼓励学生记录每一步数据流。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后通过实验平台读取、发送、接收、汇集和使用数据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“通过实验平台读取、发送、接收、汇集和使用数据”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“强调实验安全、操作规程和物联协议特点，鼓励学生记录每一步数据流。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -69,41 +69,43 @@
       "review_status": "machine_checked",
       "source_code": "IT-H4G8-DL-003",
       "target_code": "IT-H4G9-DL-002",
-      "target_label": "能通过实验平台读取、发送、接收、汇集和使用数据；能自觉遵守物联网实验操作规程；会使用实验设备搭建物联系统原型；能设计、测试并评价数字化解决方案。"
+      "target_label": "能通过实验平台读取、发送、接收、汇集和使用数据；能自觉遵守物联网实验操作规程；会使用实验设备搭建物联系统原型。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_55d3e6f58ebfe0cf",
+      "case_id": "hc_60ab8b0c9035a721",
       "component_ids": [
-        "lc_58dae00e066bfb05"
+        "lc_5932058395da7d7d",
+        "lc_7296926ba2682c1e",
+        "lc_14bb438e8f74b6fc"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "步骤"
-      ],
-      "demand_dimension": "multi_step",
-      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成有步骤的数字作品。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过实验平台读取、发送、接收、汇集和使用数据。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够完成有步骤的数字作品；优先采集：系统原型、实验记录、数据流说明。"
+        "学生能够通过实验平台读取、发送、接收、汇集和使用数据；优先采集：系统原型、实验记录、数据流说明。",
+        "学生能够自觉遵守物联网实验操作规程；优先采集：系统原型、实验记录、数据流说明。",
+        "学生能够使用实验设备搭建物联系统原型；优先采集：系统原型、实验记录、数据流说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过实验平台读取、发送、接收、汇集和使用数据；能自觉遵守物联网实验操作规程；会使用实验设备搭建物联系统原型；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "8bb89fa06aefdbcc14b69e6286d0f6397951c3fd5fdc1bec6410d556db05081c",
+          "excerpt": "能通过实验平台读取、发送、接收、汇集和使用数据；能自觉遵守物联网实验操作规程；会使用实验设备搭建物联系统原型。",
+          "excerpt_hash": "fb90be4e12862bfa4b678402161697764ae6b8bc90d2396ac0c4889f0972eee2",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-DL-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "保持多步骤或完整结构（步骤）",
-      "title": "保持多步骤或完整结构",
-      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+      "structure": "通过实验平台读取、发送、接收、汇集和使用数据；自觉遵守物联网实验操作规程；使用实验设备搭建物联系统原型",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -178,54 +180,6 @@
         }
       ],
       "source_statement": "使用实验设备搭建物联系统原型"
-    },
-    {
-      "component_id": "lc_38b45bbf38567551",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够分析系统关系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析系统关系，并说明关键步骤、特征或依据。",
-      "label": "分析系统关系",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析系统关系；优先采集：系统原型、实验记录、数据流说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析系统关系",
-          "excerpt_hash": "ebac474de7322e39b3ec0dc7ec33a2102e19e5fe5b414c4ba8c39244053f052c",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-DL-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "分析系统关系"
-    },
-    {
-      "component_id": "lc_58dae00e066bfb05",
-      "component_type": "procedural",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成有步骤的数字作品",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成有步骤的数字作品，并说明关键步骤、特征或依据。",
-      "label": "完成有步骤的数字作品",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成有步骤的数字作品；优先采集：系统原型、实验记录、数据流说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成有步骤的数字作品",
-          "excerpt_hash": "dbbbd54f76d7834a2c97c486813f724ab7884056c98d6fe13349aba505702adb",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-DL-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成有步骤的数字作品"
     }
   ],
   "prerequisite_candidates": [
@@ -244,9 +198,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "IT-H4G7-DL-003",
-      "source_label": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型；能说明数字工具或数据过程的基本做…",
+      "source_label": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型。",
       "target_code": "IT-H4G8-DL-003",
-      "target_label": "能通过实验平台读取、发送、接收、汇集和使用数据；能自觉遵守物联网实验操作规程；会使用实验设备搭建物联系统原型；能分析系统关系并完成有步骤的数字…"
+      "target_label": "能通过实验平台读取、发送、接收、汇集和使用数据；能自觉遵守物联网实验操作规程；会使用实验设备搭建物联系统原型。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -257,7 +211,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "8bb89fa06aefdbcc14b69e6286d0f6397951c3fd5fdc1bec6410d556db05081c",
+  "source_standard_hash": "fb90be4e12862bfa4b678402161697764ae6b8bc90d2396ac0c4889f0972eee2",
   "standard_code": "IT-H4G8-DL-003",
   "verified_prerequisites": []
 }

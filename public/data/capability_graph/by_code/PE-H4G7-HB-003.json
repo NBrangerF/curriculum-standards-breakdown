@@ -23,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能描述溺水自救、止血；表现出积极应对挫折的能力；能以及减轻压力、缓解焦虑、预防抑郁等方法；能完成基础练习并记录身体反应。",
-          "excerpt_hash": "8bc502acf299cb054abf84f873d18353ba35a7f9c5765d3b4eadd78f882fcde8",
+          "excerpt": "能描述溺水自救、止血；表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法。",
+          "excerpt_hash": "fe68604b098d4aba7925b133182b27e1585c719797a4b51629e574bf5eac6553",
           "field": "standard",
           "ref_id": "standard:PE-H4G7-HB-003:standard",
           "source_type": "curriculum_standard_field"
@@ -101,7 +101,7 @@
       "review_status": "machine_checked",
       "source_code": "PE-H4G7-HB-003",
       "target_code": "PE-H4G8-HB-003",
-      "target_label": "能在实践中运用；能以及减轻压力、缓解焦虑、预防抑郁等方法；能描述溺水自救、止血；能分析练习或比赛表现并调整方法。"
+      "target_label": "能在实践中运用，以及减轻压力、缓解焦虑、预防抑郁等方法；能描述溺水自救、止血。"
     }
   ],
   "hardest_cases": [
@@ -109,8 +109,7 @@
       "case_id": "hc_60efd4c0315b85ba",
       "component_ids": [
         "lc_2b0705cee1275fc3",
-        "lc_16f636d7ff3b0ccf",
-        "lc_75fb482601a55fef"
+        "lc_85b3a6973f725567"
       ],
       "confidence": 0.58,
       "covered_modifiers": [],
@@ -122,20 +121,19 @@
       "publication_status": "candidate",
       "required_student_evidence": [
         "学生能够描述溺水自救、止血；优先采集：自救互救演示、心理调适记录、情境任务表现。",
-        "学生能够表现出积极应对挫折的能力；优先采集：自救互救演示、心理调适记录、情境任务表现。",
-        "学生能够完成基础练习；优先采集：自救互救演示、心理调适记录、情境任务表现。"
+        "学生能够表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法；优先采集：自救互救演示、心理调适记录、情境任务表现。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能描述溺水自救、止血；表现出积极应对挫折的能力；能以及减轻压力、缓解焦虑、预防抑郁等方法；能完成基础练习并记录身体反应。",
-          "excerpt_hash": "8bc502acf299cb054abf84f873d18353ba35a7f9c5765d3b4eadd78f882fcde8",
+          "excerpt": "能描述溺水自救、止血；表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法。",
+          "excerpt_hash": "fe68604b098d4aba7925b133182b27e1585c719797a4b51629e574bf5eac6553",
           "field": "standard",
           "ref_id": "standard:PE-H4G7-HB-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "描述溺水自救、止血；表现出积极应对挫折的能力；完成基础练习",
+      "structure": "描述溺水自救、止血；表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法",
       "title": "整合多个小能力完成完整表现",
       "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
@@ -166,76 +164,28 @@
       "source_statement": "描述溺水自救、止血"
     },
     {
-      "component_id": "lc_16f636d7ff3b0ccf",
+      "component_id": "lc_85b3a6973f725567",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够表现出积极应对挫折的能力",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表现出积极应对挫折的能力，并说明关键步骤、特征或依据。",
-      "label": "表现出积极应对挫折的能力",
+      "description": "学生能够表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法，并说明关键步骤、特征或依据。",
+      "label": "表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够表现出积极应对挫折的能力；优先采集：自救互救演示、心理调适记录、情境任务表现。",
+      "observable_evidence": "学生能够表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法；优先采集：自救互救演示、心理调适记录、情境任务表现。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "表现出积极应对挫折的能力",
-          "excerpt_hash": "10e18409bd84473d18f42b4021d178c6afbdca4481c9453e14ba0c08e235973c",
+          "excerpt": "表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法",
+          "excerpt_hash": "fc9cc578bf6c88c85dfd57014ba7891a12366958771aebbb8a464b2f57888f3e",
           "field": "standard",
           "ref_id": "standard:PE-H4G7-HB-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "表现出积极应对挫折的能力"
-    },
-    {
-      "component_id": "lc_75fb482601a55fef",
-      "component_type": "procedural",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成基础练习",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成基础练习，并说明关键步骤、特征或依据。",
-      "label": "完成基础练习",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成基础练习；优先采集：自救互救演示、心理调适记录、情境任务表现。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成基础练习",
-          "excerpt_hash": "9867465e87f5d1e30b1f61c5a8850c7514e1c5cd08433ab651b29809f18566e0",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G7-HB-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成基础练习"
-    },
-    {
-      "component_id": "lc_89b4380e3bee7fa6",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够记录身体反应",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生记录身体反应，并说明关键步骤、特征或依据。",
-      "label": "记录身体反应",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够记录身体反应；优先采集：自救互救演示、心理调适记录、情境任务表现。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "记录身体反应",
-          "excerpt_hash": "e674d0e2ce340d3d8b89f23519838231e4d98d4349ecdf159eca0464f7045226",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G7-HB-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "记录身体反应"
+      "source_statement": "表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法"
     }
   ],
   "prerequisite_candidates": [
@@ -257,7 +207,7 @@
       "source_code": "PE-D3-HB-011",
       "source_label": "能描述青春期生理与心理变化，尊重自己与他人身体界限，遇到困惑能选择恰当方式表达并寻求帮助。",
       "target_code": "PE-H4G7-HB-003",
-      "target_label": "能描述溺水自救、止血；表现出积极应对挫折的能力；能以及减轻压力、缓解焦虑、预防抑郁等方法；能完成基础练习并记录身体反应。"
+      "target_label": "能描述溺水自救、止血；表现出积极应对挫折的能力，以及减轻压力、缓解焦虑、预防抑郁等方法。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -268,7 +218,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "8bc502acf299cb054abf84f873d18353ba35a7f9c5765d3b4eadd78f882fcde8",
+  "source_standard_hash": "fe68604b098d4aba7925b133182b27e1585c719797a4b51629e574bf5eac6553",
   "standard_code": "PE-H4G7-HB-003",
   "verified_prerequisites": []
 }

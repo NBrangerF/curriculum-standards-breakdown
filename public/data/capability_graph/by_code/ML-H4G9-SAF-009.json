@@ -3,96 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_0c798d5c4906ba82"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生依据规则、价值和证据作出判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_1b23c314d35d409a",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_b34355dc40eac582",
-        "hc_64ed4f5d83a30906"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“依据规则、价值和证据作出判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“依据规则、价值和证据作出判断”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能依据规则、价值和证据作出判断并提出行动建议。",
-          "excerpt_hash": "53af33bc4a5d482b40a4e234d78e58957c9498e83bd28f63c93db37cd9089bc8",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G9-SAF-009:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "将抗挫折教育与心理健康支持连接起来，提示专业帮助和同伴支持的边界。",
-          "excerpt_hash": "95ffa31ffcb8c0b9083d94b95742776cb88b871f8f0f3cf49ffb30bcee188a57",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G9-SAF-009:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后依据规则、价值和证据作出判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“依据规则、价值和证据作出判断”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“将抗挫折教育与心理健康支持连接起来，提示专业帮助和同伴支持的边界。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "comparison",
-      "component_ids": [
-        "lc_0c798d5c4906ba82"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生依据规则、价值和证据作出判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_3036010e0a65d809",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_b34355dc40eac582",
-        "hc_64ed4f5d83a30906"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“依据规则、价值和证据作出判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“依据规则、价值和证据作出判断”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能依据规则、价值和证据作出判断并提出行动建议。",
-          "excerpt_hash": "53af33bc4a5d482b40a4e234d78e58957c9498e83bd28f63c93db37cd9089bc8",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G9-SAF-009:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "将抗挫折教育与心理健康支持连接起来，提示专业帮助和同伴支持的边界。",
-          "excerpt_hash": "95ffa31ffcb8c0b9083d94b95742776cb88b871f8f0f3cf49ffb30bcee188a57",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G9-SAF-009:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后依据规则、价值和证据作出判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“依据规则、价值和证据作出判断”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“将抗挫折教育与心理健康支持连接起来，提示专业帮助和同伴支持的边界。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_b503b1eb2ff00177"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生正确看待生活中的挫折，具备迎接挑战的能力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_c2f6c75132eff8ac",
+      "difficulty_id": "cd_218dbfd06bb0bfe3",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_c59dbd0ac21f035e",
-        "hc_45973800d0c9e452"
+        "hc_0d7838e809aec0d8",
+        "hc_eda426731896ded5"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“正确看待生活中的挫折，具备迎接挑战的能力”中的实际过程进一步核验。",
       "manifestation": "在要求学生“正确看待生活中的挫折，具备迎接挑战的能力”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -102,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能依据规则、价值和证据作出判断并提出行动建议。",
-          "excerpt_hash": "53af33bc4a5d482b40a4e234d78e58957c9498e83bd28f63c93db37cd9089bc8",
+          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力。",
+          "excerpt_hash": "4bb3dc6fb4598942b6e822ee4d0196299adad49621eca4cab7fd8c9d980d651b",
           "field": "standard",
           "ref_id": "standard:ML-H4G9-SAF-009:standard",
           "source_type": "curriculum_standard_field"
@@ -126,11 +48,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生准确识别并说出顺境和逆境的关系，学会情绪调控的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_8d5f4dbd5dc5507e",
+      "difficulty_id": "cd_5a7a629a16363cd8",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_45973800d0c9e452"
+        "hc_eda426731896ded5"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“准确识别并说出顺境和逆境的关系，学会情绪调控的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“准确识别并说出顺境和逆境的关系，学会情绪调控的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -140,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能依据规则、价值和证据作出判断并提出行动建议。",
-          "excerpt_hash": "53af33bc4a5d482b40a4e234d78e58957c9498e83bd28f63c93db37cd9089bc8",
+          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力。",
+          "excerpt_hash": "4bb3dc6fb4598942b6e822ee4d0196299adad49621eca4cab7fd8c9d980d651b",
           "field": "standard",
           "ref_id": "standard:ML-H4G9-SAF-009:standard",
           "source_type": "curriculum_standard_field"
@@ -298,40 +220,7 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_b34355dc40eac582",
-      "component_ids": [
-        "lc_0c798d5c4906ba82"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "依据",
-        "证据"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据规则、价值和证据作出判断。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够依据规则、价值和证据作出判断；优先采集：情绪调控策略卡、案例分析、成长反思。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能依据规则、价值和证据作出判断并提出行动建议。",
-          "excerpt_hash": "53af33bc4a5d482b40a4e234d78e58957c9498e83bd28f63c93db37cd9089bc8",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G9-SAF-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（依据、证据）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_c59dbd0ac21f035e",
+      "case_id": "hc_0d7838e809aec0d8",
       "component_ids": [
         "lc_b503b1eb2ff00177"
       ],
@@ -351,8 +240,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能依据规则、价值和证据作出判断并提出行动建议。",
-          "excerpt_hash": "53af33bc4a5d482b40a4e234d78e58957c9498e83bd28f63c93db37cd9089bc8",
+          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力。",
+          "excerpt_hash": "4bb3dc6fb4598942b6e822ee4d0196299adad49621eca4cab7fd8c9d980d651b",
           "field": "standard",
           "ref_id": "standard:ML-H4G9-SAF-009:standard",
           "source_type": "curriculum_standard_field"
@@ -363,39 +252,7 @@
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
     },
     {
-      "case_id": "hc_64ed4f5d83a30906",
-      "component_ids": [
-        "lc_0c798d5c4906ba82"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生依据规则、价值和证据作出判断。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够依据规则、价值和证据作出判断；优先采集：情绪调控策略卡、案例分析、成长反思。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能依据规则、价值和证据作出判断并提出行动建议。",
-          "excerpt_hash": "53af33bc4a5d482b40a4e234d78e58957c9498e83bd28f63c93db37cd9089bc8",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G9-SAF-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
-    },
-    {
-      "case_id": "hc_45973800d0c9e452",
+      "case_id": "hc_eda426731896ded5",
       "component_ids": [
         "lc_b373b6f2d62d712f",
         "lc_b503b1eb2ff00177"
@@ -417,8 +274,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能依据规则、价值和证据作出判断并提出行动建议。",
-          "excerpt_hash": "53af33bc4a5d482b40a4e234d78e58957c9498e83bd28f63c93db37cd9089bc8",
+          "excerpt": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力。",
+          "excerpt_hash": "4bb3dc6fb4598942b6e822ee4d0196299adad49621eca4cab7fd8c9d980d651b",
           "field": "standard",
           "ref_id": "standard:ML-H4G9-SAF-009:standard",
           "source_type": "curriculum_standard_field"
@@ -477,54 +334,6 @@
         }
       ],
       "source_statement": "正确看待生活中的挫折，具备迎接挑战的能力"
-    },
-    {
-      "component_id": "lc_0c798d5c4906ba82",
-      "component_type": "disposition",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够依据规则、价值和证据作出判断",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生依据规则、价值和证据作出判断，并保留可回查的口头、书面或操作过程证据。",
-      "label": "依据规则、价值和证据作出判断",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够依据规则、价值和证据作出判断；优先采集：情绪调控策略卡、案例分析、成长反思。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "依据规则、价值和证据作出判断",
-          "excerpt_hash": "97047fdbb602740de9420342cbd1981fdb36eeef8c89096e110e39fd1be01180",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G9-SAF-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "依据规则、价值和证据作出判断"
-    },
-    {
-      "component_id": "lc_5602865d559d9c0e",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够提出行动建议",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生提出行动建议，并说明关键步骤、特征或依据。",
-      "label": "提出行动建议",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够提出行动建议；优先采集：情绪调控策略卡、案例分析、成长反思。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "提出行动建议",
-          "excerpt_hash": "251e34fb656f5a2dc8f0f00552b4d86ebc8271a9aed7c9fe6ce10e170b4906bb",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G9-SAF-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "提出行动建议"
     }
   ],
   "prerequisite_candidates": [
@@ -543,9 +352,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "ML-H4G8-SAF-008",
-      "source_label": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能结合家庭、学校或社会案例分析问题。",
+      "source_label": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力。",
       "target_code": "ML-H4G9-SAF-009",
-      "target_label": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力；能依据规则、价值和证据作出判断并提出行动建议。"
+      "target_label": "正确认识顺境和逆境的关系，学会情绪调控，能够正确看待生活中的挫折，具备迎接挑战的能力。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -556,7 +365,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "53af33bc4a5d482b40a4e234d78e58957c9498e83bd28f63c93db37cd9089bc8",
+  "source_standard_hash": "4bb3dc6fb4598942b6e822ee4d0196299adad49621eca4cab7fd8c9d980d651b",
   "standard_code": "ML-H4G9-SAF-009",
   "verified_prerequisites": []
 }

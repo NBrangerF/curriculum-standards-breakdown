@@ -3,100 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_55542f84f48b2e74"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_eee52b4860e8b665",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_a1de2a3d05f82e14",
-        "hc_8deb9ae349f75793",
-        "hc_d3deaf4eac4aa50c"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "f4e58d6a708b5242f515fb5e3a6f81242eb2594375f4a59ed5fcaaaf2bba9f40",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-031:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "强调维护自身权利与尊重他人权利并重。",
-          "excerpt_hash": "caa77615f52035a4aa0a24fa50e613f396aa5e885cec93c1db77bb43be690459",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G7-LAW-031:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“强调维护自身权利与尊重他人权利并重。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "comparison",
-      "component_ids": [
-        "lc_55542f84f48b2e74"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_995458b26380240f",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_a1de2a3d05f82e14",
-        "hc_8deb9ae349f75793",
-        "hc_d3deaf4eac4aa50c"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "f4e58d6a708b5242f515fb5e3a6f81242eb2594375f4a59ed5fcaaaf2bba9f40",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-031:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "强调维护自身权利与尊重他人权利并重。",
-          "excerpt_hash": "caa77615f52035a4aa0a24fa50e613f396aa5e885cec93c1db77bb43be690459",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G7-LAW-031:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“强调维护自身权利与尊重他人权利并重。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
-        "lc_2b6afce7c8d47964",
-        "lc_55542f84f48b2e74"
+        "lc_2b6afce7c8d47964"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出在现实生活中维护自身民事权利和尊重他人民事权利的方式的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_ce36daa2639a1cdb",
+      "difficulty_id": "cd_2a107598dda2b900",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_a1de2a3d05f82e14",
-        "hc_8deb9ae349f75793",
-        "hc_d3deaf4eac4aa50c"
+        "hc_0107da5b96ada947"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“识别并说出在现实生活中维护自身民事权利和尊重他人民事权利的方式的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出在现实生活中维护自身民事权利和尊重他人民事权利的方式的关键特征”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -106,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "f4e58d6a708b5242f515fb5e3a6f81242eb2594375f4a59ed5fcaaaf2bba9f40",
+          "excerpt": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式。",
+          "excerpt_hash": "51de3d3b7413fb878427c53eb10a78c9f31e5356c47881f5af9204590dcb5162",
           "field": "standard",
           "ref_id": "standard:ML-H4G7-LAW-031:standard",
           "source_type": "curriculum_standard_field"
@@ -131,11 +48,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出民法典对保护人身权、财产权的意义的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_03332184d80ecc35",
+      "difficulty_id": "cd_0cd397c41d78e722",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_8deb9ae349f75793"
+        "hc_0107da5b96ada947"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出民法典对保护人身权、财产权的意义的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出民法典对保护人身权、财产权的意义的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -145,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "f4e58d6a708b5242f515fb5e3a6f81242eb2594375f4a59ed5fcaaaf2bba9f40",
+          "excerpt": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式。",
+          "excerpt_hash": "51de3d3b7413fb878427c53eb10a78c9f31e5356c47881f5af9204590dcb5162",
           "field": "standard",
           "ref_id": "standard:ML-H4G7-LAW-031:standard",
           "source_type": "curriculum_standard_field"
@@ -316,47 +233,14 @@
       "review_status": "machine_checked",
       "source_code": "ML-H4G7-LAW-031",
       "target_code": "ML-H4G8-LAW-032",
-      "target_label": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式；能结合家庭、学校或社会案例分析问题。"
+      "target_label": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_a1de2a3d05f82e14",
+      "case_id": "hc_0107da5b96ada947",
       "component_ids": [
-        "lc_55542f84f48b2e74"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够联系个人和校园生活说明基本判断；优先采集：民事案例分析、权利保护建议、课堂问答。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "f4e58d6a708b5242f515fb5e3a6f81242eb2594375f4a59ed5fcaaaf2bba9f40",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-031:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_8deb9ae349f75793",
-      "component_ids": [
-        "lc_2b6afce7c8d47964",
-        "lc_55542f84f48b2e74"
+        "lc_2b6afce7c8d47964"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
@@ -369,14 +253,13 @@
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够识别并说出在现实生活中维护自身民事权利和尊重他人民事权利的方式的关键特征；优先采集：民事案例分析、权利保护建议、课堂问答。",
-        "学生能够联系个人和校园生活说明基本判断；优先采集：民事案例分析、权利保护建议、课堂问答。"
+        "学生能够识别并说出在现实生活中维护自身民事权利和尊重他人民事权利的方式的关键特征；优先采集：民事案例分析、权利保护建议、课堂问答。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "f4e58d6a708b5242f515fb5e3a6f81242eb2594375f4a59ed5fcaaaf2bba9f40",
+          "excerpt": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式。",
+          "excerpt_hash": "51de3d3b7413fb878427c53eb10a78c9f31e5356c47881f5af9204590dcb5162",
           "field": "standard",
           "ref_id": "standard:ML-H4G7-LAW-031:standard",
           "source_type": "curriculum_standard_field"
@@ -385,38 +268,6 @@
       "structure": "在真实或变化情境中迁移（生活）",
       "title": "在真实或变化情境中迁移",
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
-    },
-    {
-      "case_id": "hc_d3deaf4eac4aa50c",
-      "component_ids": [
-        "lc_55542f84f48b2e74"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够联系个人和校园生活说明基本判断；优先采集：民事案例分析、权利保护建议、课堂问答。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "f4e58d6a708b5242f515fb5e3a6f81242eb2594375f4a59ed5fcaaaf2bba9f40",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-031:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
     }
   ],
   "learning_components": [
@@ -467,30 +318,6 @@
         }
       ],
       "source_statement": "了解在现实生活中维护自身民事权利和尊重他人民事权利的方式"
-    },
-    {
-      "component_id": "lc_55542f84f48b2e74",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够联系个人和校园生活说明基本判断",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生联系个人和校园生活说明基本判断，并保留可回查的口头、书面或操作过程证据。",
-      "label": "联系个人和校园生活说明基本判断",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够联系个人和校园生活说明基本判断；优先采集：民事案例分析、权利保护建议、课堂问答。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "联系个人和校园生活说明基本判断",
-          "excerpt_hash": "441fc06d76bf837efd9f91aece3ac5307096174e73b5685a6475c696570b0b6b",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-031:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "联系个人和校园生活说明基本判断"
     }
   ],
   "prerequisite_candidates": [
@@ -512,7 +339,7 @@
       "source_code": "ML-D3-LAW-003",
       "source_label": "能解释“公民”的基本含义，能举例说明常见权利与义务，并能在学校与生活中体现人人平等、尊重他人权利与履行自身义务。",
       "target_code": "ML-H4G7-LAW-031",
-      "target_label": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式；能联系个人和校园生活说明基本判断。"
+      "target_label": "认识民法典对保护人身权、财产权的意义，了解在现实生活中维护自身民事权利和尊重他人民事权利的方式。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -523,7 +350,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "f4e58d6a708b5242f515fb5e3a6f81242eb2594375f4a59ed5fcaaaf2bba9f40",
+  "source_standard_hash": "51de3d3b7413fb878427c53eb10a78c9f31e5356c47881f5af9204590dcb5162",
   "standard_code": "ML-H4G7-LAW-031",
   "verified_prerequisites": []
 }

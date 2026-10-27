@@ -3,93 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "transfer",
-      "component_ids": [
-        "lc_fb15f1de2db177b4"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生评价数字化解决方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d00b5233e247a360",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_0e38a1fb2e267dc1"
-      ],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“评价数字化解决方案”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“评价数字化解决方案”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能设计、测试并评价数字化解决方案。",
-          "excerpt_hash": "a87fc8c63300a5dfb3dd42bcb56b265e618eac25720ea294c352ba060e7c2cd4",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G9-DL-005:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "将学业质量要求转化为可展示的任务链，兼顾信息意识和计算思维。",
-          "excerpt_hash": "0be0758127eb82ba728e0023edc6f6ec4006c9035bab23c3a0a2ea8cbafa21bc",
-          "field": "teaching_tip",
-          "ref_id": "standard:IT-H4G9-DL-005:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后评价数字化解决方案，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“评价数字化解决方案”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“将学业质量要求转化为可展示的任务链，兼顾信息意识和计算思维。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "creation_design",
-      "component_ids": [
-        "lc_eab75d4f17fa980a",
-        "lc_fb15f1de2db177b4"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生设计、测试的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_5b6ede3e0cd19d88",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_0e38a1fb2e267dc1"
-      ],
-      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计、测试”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“设计、测试”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能设计、测试并评价数字化解决方案。",
-          "excerpt_hash": "a87fc8c63300a5dfb3dd42bcb56b265e618eac25720ea294c352ba060e7c2cd4",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G9-DL-005:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "将学业质量要求转化为可展示的任务链，兼顾信息意识和计算思维。",
-          "excerpt_hash": "0be0758127eb82ba728e0023edc6f6ec4006c9035bab23c3a0a2ea8cbafa21bc",
-          "field": "teaching_tip",
-          "ref_id": "standard:IT-H4G9-DL-005:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后设计、测试，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“设计、测试”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“将学业质量要求转化为可展示的任务链，兼顾信息意识和计算思维。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
         "lc_4c01d5575e4a1d4a"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_15f66f757ec9fcf8",
+      "difficulty_id": "cd_6427c324c64a3490",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_9462b02fe440af2c"
+      ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作”中的实际过程进一步核验。",
       "manifestation": "在要求学生“通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
@@ -98,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能设计、测试并评价数字化解决方案。",
-          "excerpt_hash": "a87fc8c63300a5dfb3dd42bcb56b265e618eac25720ea294c352ba060e7c2cd4",
+          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。",
+          "excerpt_hash": "abfca8f430cd0523052f27669f69ff240a361abeceb39bbbb044bca96b89388c",
           "field": "standard",
           "ref_id": "standard:IT-H4G9-DL-005:standard",
           "source_type": "curriculum_standard_field"
@@ -118,26 +43,26 @@
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_eab75d4f17fa980a"
+        "lc_b2cf8eecbed97728"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生设计、测试的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d6b6f5936d86e09a",
+      "diagnostic_probe": "给出一个需要学生贡献有价值的数据和资源的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_85009c95e9135f61",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_0e38a1fb2e267dc1"
+        "hc_9462b02fe440af2c"
       ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“设计、测试”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“设计、测试”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“贡献有价值的数据和资源”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“贡献有价值的数据和资源”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能设计、测试并评价数字化解决方案。",
-          "excerpt_hash": "a87fc8c63300a5dfb3dd42bcb56b265e618eac25720ea294c352ba060e7c2cd4",
+          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。",
+          "excerpt_hash": "abfca8f430cd0523052f27669f69ff240a361abeceb39bbbb044bca96b89388c",
           "field": "standard",
           "ref_id": "standard:IT-H4G9-DL-005:standard",
           "source_type": "curriculum_standard_field"
@@ -150,8 +75,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后设计、测试，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“设计、测试”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“将学业质量要求转化为可展示的任务链，兼顾信息意识和计算思维。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后贡献有价值的数据和资源，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“贡献有价值的数据和资源”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“将学业质量要求转化为可展示的任务链，兼顾信息意识和计算思维。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -169,39 +94,38 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_0e38a1fb2e267dc1",
+      "case_id": "hc_9462b02fe440af2c",
       "component_ids": [
-        "lc_eab75d4f17fa980a",
-        "lc_fb15f1de2db177b4"
+        "lc_3aad6264a0f37242",
+        "lc_b2cf8eecbed97728",
+        "lc_4c01d5575e4a1d4a"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "设计",
-        "方案"
-      ],
-      "demand_dimension": "creation_constraints",
-      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生设计、测试。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释网络数据编码、传输和呈现原理。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够设计、测试；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。",
-        "学生能够评价数字化解决方案；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。"
+        "学生能够用自己的话解释网络数据编码、传输和呈现原理；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。",
+        "学生能够贡献有价值的数据和资源；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。",
+        "学生能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能设计、测试并评价数字化解决方案。",
-          "excerpt_hash": "a87fc8c63300a5dfb3dd42bcb56b265e618eac25720ea294c352ba060e7c2cd4",
+          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。",
+          "excerpt_hash": "abfca8f430cd0523052f27669f69ff240a361abeceb39bbbb044bca96b89388c",
           "field": "standard",
           "ref_id": "standard:IT-H4G9-DL-005:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "在约束下设计、创作或改进（设计、方案）",
-      "title": "在约束下设计、创作或改进",
-      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+      "structure": "用自己的话解释网络数据编码、传输和呈现原理；贡献有价值的数据和资源；通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -276,54 +200,6 @@
         }
       ],
       "source_statement": "通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作"
-    },
-    {
-      "component_id": "lc_eab75d4f17fa980a",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够设计、测试",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计、测试，并说明关键步骤、特征或依据。",
-      "label": "设计、测试",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够设计、测试；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "设计、测试",
-          "excerpt_hash": "f34282be97ea5b848e2f067f5e47b2decd09f4cc25efac7d5f22df8430dcc747",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G9-DL-005:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "设计、测试"
-    },
-    {
-      "component_id": "lc_fb15f1de2db177b4",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价数字化解决方案",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价数字化解决方案，并说明关键步骤、特征或依据。",
-      "label": "评价数字化解决方案",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价数字化解决方案；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价数字化解决方案",
-          "excerpt_hash": "3afa3da53a717451ad84e66bce8f0eaff2303dc576fceb8d0d1592cbd9ce2132",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G9-DL-005:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价数字化解决方案"
     }
   ],
   "prerequisite_candidates": [
@@ -342,9 +218,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "IT-H4G8-DL-006",
-      "source_label": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能分析系统关系并完成…",
+      "source_label": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。",
       "target_code": "IT-H4G9-DL-005",
-      "target_label": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能设计、测试并评价数…"
+      "target_label": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -355,7 +231,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "a87fc8c63300a5dfb3dd42bcb56b265e618eac25720ea294c352ba060e7c2cd4",
+  "source_standard_hash": "abfca8f430cd0523052f27669f69ff240a361abeceb39bbbb044bca96b89388c",
   "standard_code": "IT-H4G9-DL-005",
   "verified_prerequisites": []
 }

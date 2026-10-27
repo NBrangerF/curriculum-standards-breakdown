@@ -3,64 +3,29 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_72f5a85b5919c41b"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生建模、论证的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_b645d87ad20e10a4",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_bc6bd18573288d32"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“建模、论证”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“建模、论证”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能学会氧气和二氧化碳的实验室制法；分析净化水的常用方法和水对生命体及经济发展的影响；认识氧气、二氧化碳和水的主要性质；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "3f8dc8f57eed892107f557656f2135ecc16d73bf7405c049558444f04a6ab096",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-031:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把实验制取、物质性质、资源环境议题和循环观念联系起来。",
-          "excerpt_hash": "01071674eec675be303163e1df89eb1ac79499c5bef80e55c4f74da013a48256",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G9-SC-031:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后建模、论证，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“建模、论证”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把实验制取、物质性质、资源环境议题和循环观念联系起来。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
+        "lc_06a640f22e0cc32a",
         "lc_ce1f17be7b3fc280"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生识别并说出氧气、二氧化碳和水的主要性质的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_f1409c108edec01c",
+      "diagnostic_probe": "给出一个需要学生识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_edaee34cb0d7c852",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出氧气、二氧化碳和水的主要性质的关键特征”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“识别并说出氧气、二氧化碳和水的主要性质的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "hardest_case_ids": [
+        "hc_38a0efd7187957be"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能学会氧气和二氧化碳的实验室制法；分析净化水的常用方法和水对生命体及经济发展的影响；认识氧气、二氧化碳和水的主要性质；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "3f8dc8f57eed892107f557656f2135ecc16d73bf7405c049558444f04a6ab096",
+          "excerpt": "能学会氧气和二氧化碳的实验室制法；了解净化水的常用方法和水对生命体及经济发展的影响；认识氧气、二氧化碳和水的主要性质。",
+          "excerpt_hash": "dc2db67f37b0666174b57078ffbe5966386c7f3f5f0560c1251bdf7a0bf8671e",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-031:standard",
           "source_type": "curriculum_standard_field"
@@ -73,8 +38,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后识别并说出氧气、二氧化碳和水的主要性质的关键特征，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“识别并说出氧气、二氧化碳和水的主要性质的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把实验制取、物质性质、资源环境议题和循环观念联系起来。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把实验制取、物质性质、资源环境议题和循环观念联系起来。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -137,7 +102,7 @@
       "pdf_page": 14,
       "printed_page": "9",
       "publication_status": "published",
-      "rationale": "教材exercise“实验 1-2 分别取一集气瓶氧气和一集气瓶二氧化碳气体,仔细观察它们的颜色和状态,闻一闻气味。取一根小木条在空气中点燃,分别慢慢地放”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材练习“实验 1-2 分别取一集气瓶氧气和一集气瓶二氧化碳气体,仔细观察它们的颜色和状态,闻一闻气味。取一根小木条在空气中点燃,分别慢慢地放”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -197,7 +162,7 @@
       "pdf_page": 14,
       "printed_page": "9",
       "publication_status": "published",
-      "rationale": "教材exercise“讨论 图1-5 闻气体时的正确操作结合自己的生活经验和知识,尽可能多地描述氧气和二氧化碳的性质,试着判断哪些属于物理性”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材练习“讨论 图1-5 闻气体时的正确操作结合自己的生活经验和知识,尽可能多地描述氧气和二氧化碳的性质,试着判断哪些属于物理性”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -257,7 +222,7 @@
       "pdf_page": 19,
       "printed_page": "14",
       "publication_status": "published",
-      "rationale": "教材exercise“实验中我们将主要观察呼吸前后氧气、二氧化碳、水蒸气含量的变化。”与课标 SC-H4G9-SC-031 的可教学小能力“识别并说出氧气、二氧化碳和水的主要性质的关键特征、学会氧气和二氧化碳的实验室制法”形成页内证据匹配。",
+      "rationale": "教材练习“实验中我们将主要观察呼吸前后氧气、二氧化碳、水蒸气含量的变化。”与课标 SC-H4G9-SC-031 的可教学小能力“识别并说出氧气、二氧化碳和水的主要性质的关键特征、学会氧气和二氧化碳的实验室制法”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -312,7 +277,7 @@
       "pdf_page": 50,
       "printed_page": "45",
       "publication_status": "published",
-      "rationale": "教材exercise“实验活动1 氧气的实验室制取与性质【实验目的】1. 学习实验室制取氧气的方法。”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法”形成页内证据匹配。",
+      "rationale": "教材练习“实验活动1 氧气的实验室制取与性质【实验目的】1. 学习实验室制取氧气的方法。”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -367,7 +332,7 @@
       "pdf_page": 50,
       "printed_page": "45",
       "publication_status": "published",
-      "rationale": "教材exercise“实验活动1学生实验一氧气的实验室制取与性质氧气的制取和性质 4545”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法”形成页内证据匹配。",
+      "rationale": "教材练习“实验活动1学生实验一氧气的实验室制取与性质氧气的制取和性质 4545”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -427,7 +392,7 @@
       "pdf_page": 110,
       "printed_page": "105",
       "publication_status": "published",
-      "rationale": "教材exercise“实验活动2 二氧化碳的实验室制取与性质课题1 金刚石、石墨和C60 105明代邵弥《贻鹤寄书图》(局部)”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材练习“实验活动2 二氧化碳的实验室制取与性质课题1 金刚石、石墨和C60 105明代邵弥《贻鹤寄书图》(局部)”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -487,7 +452,7 @@
       "pdf_page": 130,
       "printed_page": "125",
       "publication_status": "published",
-      "rationale": "教材exercise“实验活动2 二氧化碳的实验室制取与性质课题1 金刚石、石墨和C60 125125”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材练习“实验活动2 二氧化碳的实验室制取与性质课题1 金刚石、石墨和C60 125125”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -547,7 +512,7 @@
       "pdf_page": 123,
       "printed_page": "118",
       "publication_status": "published",
-      "rationale": "教材exercise“实验 6-5 取四朵用石蕊 溶液染成紫色的干燥的纸花。第一朵纸花喷上稀醋酸,第二朵纸花喷上水,第三朵纸花直接放入盛满二氧化碳的集气瓶中,第四朵纸花喷上水后,再放入盛满二氧化碳的集气瓶中,观察四朵纸花的颜色”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材练习“实验 6-5 取四朵用石蕊 溶液染成紫色的干燥的纸花。第一朵纸花喷上稀醋酸,第二朵纸花喷上水,第三朵纸花直接放入盛满二氧化碳的集气瓶中,第四朵纸花喷上水后,再放入盛满二氧化碳的集气瓶中,观察四朵纸花的颜色”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -607,7 +572,7 @@
       "pdf_page": 122,
       "printed_page": "117",
       "publication_status": "published",
-      "rationale": "教材exercise“实验 6-3 如图6-14所示,将二氧化碳气体慢慢倒入烧杯中,观察现象并分析。”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材练习“实验 6-3 如图6-14所示,将二氧化碳气体慢慢倒入烧杯中,观察现象并分析。”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -667,7 +632,7 @@
       "pdf_page": 122,
       "printed_page": "117",
       "publication_status": "published",
-      "rationale": "教材exercise“实验 6-4 如图6-15所示,向一个收集满二氧化碳气体的质地较软的塑料瓶中加入约1/3体积ප̃”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材练习“实验 6-4 如图6-15所示,向一个收集满二氧化碳气体的质地较软的塑料瓶中加入约1/3体积ප̃”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -727,7 +692,7 @@
       "pdf_page": 128,
       "printed_page": "123",
       "publication_status": "published",
-      "rationale": "教材exercise“实验操作 现象 结论(1)二氧化碳的密度比空气的大(2)二氧化碳能溶于水”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材练习“实验操作 现象 结论(1)二氧化碳的密度比空气的大(2)二氧化碳能溶于水”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -787,7 +752,7 @@
       "pdf_page": 130,
       "printed_page": "125",
       "publication_status": "published",
-      "rationale": "教材exercise“实验活动2 二氧化碳的实验室制取与性质【实验目的】”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材练习“实验活动2 二氧化碳的实验室制取与性质【实验目的】”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -847,7 +812,7 @@
       "pdf_page": 130,
       "printed_page": "125",
       "publication_status": "published",
-      "rationale": "教材lesson“2二氧化碳的性质”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材课文“2二氧化碳的性质”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -907,7 +872,7 @@
       "pdf_page": 122,
       "printed_page": "117",
       "publication_status": "published",
-      "rationale": "教材lesson“1二氧化碳的性质”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材课文“1二氧化碳的性质”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -967,7 +932,7 @@
       "pdf_page": 124,
       "printed_page": "119",
       "publication_status": "published",
-      "rationale": "教材lesson“2二氧化碳对生活和环境的影响”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材课文“2二氧化碳对生活和环境的影响”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -1027,7 +992,7 @@
       "pdf_page": 130,
       "printed_page": "125",
       "publication_status": "published",
-      "rationale": "教材lesson“1制取二氧化碳”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
+      "rationale": "教材课文“1制取二氧化碳”与课标 SC-H4G9-SC-031 的可教学小能力“学会氧气和二氧化碳的实验室制法、识别并说出氧气、二氧化碳和水的主要性质的关键特征”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -1136,36 +1101,38 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_bc6bd18573288d32",
+      "case_id": "hc_38a0efd7187957be",
       "component_ids": [
-        "lc_72f5a85b5919c41b"
+        "lc_1652af01ca8b94cb",
+        "lc_06a640f22e0cc32a",
+        "lc_ce1f17be7b3fc280"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "论证"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、论证。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生学会氧气和二氧化碳的实验室制法。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够建模、论证；优先采集：实验记录、净水方案、资源议题报告。"
+        "学生能够学会氧气和二氧化碳的实验室制法；优先采集：实验记录、净水方案、资源议题报告。",
+        "学生能够识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征；优先采集：实验记录、净水方案、资源议题报告。",
+        "学生能够识别并说出氧气、二氧化碳和水的主要性质的关键特征；优先采集：实验记录、净水方案、资源议题报告。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能学会氧气和二氧化碳的实验室制法；分析净化水的常用方法和水对生命体及经济发展的影响；认识氧气、二氧化碳和水的主要性质；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "3f8dc8f57eed892107f557656f2135ecc16d73bf7405c049558444f04a6ab096",
+          "excerpt": "能学会氧气和二氧化碳的实验室制法；了解净化水的常用方法和水对生命体及经济发展的影响；认识氧气、二氧化碳和水的主要性质。",
+          "excerpt_hash": "dc2db67f37b0666174b57078ffbe5966386c7f3f5f0560c1251bdf7a0bf8671e",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-031:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（论证）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "学会氧气和二氧化碳的实验室制法；识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征；识别并说出氧气、二氧化碳和水的主要性质的关键特征",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -1194,28 +1161,28 @@
       "source_statement": "学会氧气和二氧化碳的实验室制法"
     },
     {
-      "component_id": "lc_a37fde2a9d7fd88f",
-      "component_type": "conceptual",
+      "component_id": "lc_06a640f22e0cc32a",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够分析净化水的常用方法和水对生命体及经济发展的影响",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析净化水的常用方法和水对生命体及经济发展的影响，并说明关键步骤、特征或依据。",
-      "label": "分析净化水的常用方法和水对生命体及经济发展的影响",
+      "description": "学生能够识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析净化水的常用方法和水对生命体及经济发展的影响；优先采集：实验记录、净水方案、资源议题报告。",
+      "observable_evidence": "学生能够识别并说出净化水的常用方法和水对生命体及经济发展的影响的关键特征；优先采集：实验记录、净水方案、资源议题报告。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析净化水的常用方法和水对生命体及经济发展的影响",
-          "excerpt_hash": "c6c9fd6abd942f8f6f55e2032faacc61e7e842ab568984f68c9cdb87f889b024",
+          "excerpt": "了解净化水的常用方法和水对生命体及经济发展的影响",
+          "excerpt_hash": "3b70c4297aaf3c396b0e79a5a42eb6b181c5b5a1d48468c354ea26d710b3dc53",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-031:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "分析净化水的常用方法和水对生命体及经济发展的影响"
+      "source_statement": "了解净化水的常用方法和水对生命体及经济发展的影响"
     },
     {
       "component_id": "lc_ce1f17be7b3fc280",
@@ -1240,54 +1207,6 @@
         }
       ],
       "source_statement": "认识氧气、二氧化碳和水的主要性质"
-    },
-    {
-      "component_id": "lc_72f5a85b5919c41b",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够建模、论证",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
-      "label": "建模、论证",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够建模、论证；优先采集：实验记录、净水方案、资源议题报告。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "建模、论证",
-          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-031:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "建模、论证"
-    },
-    {
-      "component_id": "lc_7f30ca234c69f652",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价探究结论或社会影响",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
-      "label": "评价探究结论或社会影响",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：实验记录、净水方案、资源议题报告。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价探究结论或社会影响",
-          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-031:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价探究结论或社会影响"
     }
   ],
   "prerequisite_candidates": [
@@ -1306,9 +1225,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "SC-H4G8-SC-031",
-      "source_label": "能学会氧气和二氧化碳的实验室制法；了解净化水的常用方法和水对生命体及经济发展的影响；认识氧气、二氧化碳和水的主要性质；能比较证据并解释概念之间…",
+      "source_label": "能学会氧气和二氧化碳的实验室制法；了解净化水的常用方法和水对生命体及经济发展的影响；认识氧气、二氧化碳和水的主要性质。",
       "target_code": "SC-H4G9-SC-031",
-      "target_label": "能学会氧气和二氧化碳的实验室制法；分析净化水的常用方法和水对生命体及经济发展的影响；认识氧气、二氧化碳和水的主要性质；能建模、论证并评价探究结…"
+      "target_label": "能学会氧气和二氧化碳的实验室制法；了解净化水的常用方法和水对生命体及经济发展的影响；认识氧气、二氧化碳和水的主要性质。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -1319,7 +1238,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "3f8dc8f57eed892107f557656f2135ecc16d73bf7405c049558444f04a6ab096",
+  "source_standard_hash": "dc2db67f37b0666174b57078ffbe5966386c7f3f5f0560c1251bdf7a0bf8671e",
   "standard_code": "SC-H4G9-SC-031",
   "verified_prerequisites": []
 }

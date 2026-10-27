@@ -3,98 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_a955c4c92720b5bf",
-        "lc_8b9ef70debd60301"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a94755f8a118750a",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_a9146ec70fb463d4",
-        "hc_2b6f303fa0fa03e6"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“比较证据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“比较证据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解彗星与流星雨、小行星与陨石之间的关系；能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道太阳形成、演化和衰老过程及其在银河系中的位置；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "35ec8fb26c917123c087a17a777aa1768a9d544992871856904ce460a4d0908a",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-045:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用尺度模型和动态演化观点帮助学生建立宇宙空间观念。",
-          "excerpt_hash": "af4fbf3256510be6247b5a2a33779a592eea721f7ba702d0aa55fe962dcf4eba",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G8-SC-045:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“比较证据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用尺度模型和动态演化观点帮助学生建立宇宙空间观念。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "comparison",
-      "component_ids": [
-        "lc_a955c4c92720b5bf"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_0258f6584708ce54",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_a9146ec70fb463d4",
-        "hc_2b6f303fa0fa03e6"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较证据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“比较证据”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解彗星与流星雨、小行星与陨石之间的关系；能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道太阳形成、演化和衰老过程及其在银河系中的位置；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "35ec8fb26c917123c087a17a777aa1768a9d544992871856904ce460a4d0908a",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-045:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用尺度模型和动态演化观点帮助学生建立宇宙空间观念。",
-          "excerpt_hash": "af4fbf3256510be6247b5a2a33779a592eea721f7ba702d0aa55fe962dcf4eba",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G8-SC-045:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“比较证据”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用尺度模型和动态演化观点帮助学生建立宇宙空间观念。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
         "lc_2d190b990fe249a2",
-        "lc_c3ab8bf348d1f145",
-        "lc_8b9ef70debd60301"
+        "lc_c3ab8bf348d1f145"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_00567825ecd727d6",
+      "difficulty_id": "cd_9500225f973c4ccc",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_a9146ec70fb463d4"
+        "hc_704905caafd8a599"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -104,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解彗星与流星雨、小行星与陨石之间的关系；能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道太阳形成、演化和衰老过程及其在银河系中的位置；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "35ec8fb26c917123c087a17a777aa1768a9d544992871856904ce460a4d0908a",
+          "excerpt": "了解彗星与流星雨、小行星与陨石之间的关系；能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道太阳形成、演化和衰老过程及其在银河系中的位置。",
+          "excerpt_hash": "33ff50246beac516eed389bb22d039f42207d2538563ff86ae385c43d01e4e09",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-SC-045:standard",
           "source_type": "curriculum_standard_field"
@@ -337,76 +257,43 @@
       "review_status": "machine_checked",
       "source_code": "SC-H4G8-SC-045",
       "target_code": "SC-H4G9-SC-045",
-      "target_label": "阐释银河系是宇宙中的普通星系并认识宇宙起源和演化历史；分析彗星与流星雨、小行星与陨石之间的关系；阐释太阳形成、演化和衰老过程及其在银河系中的位…"
+      "target_label": "知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；了解彗星与流星雨、小行星与陨石之间的关系；知道太阳形成、演化和衰老过程及其在银河系中的位…"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_a9146ec70fb463d4",
+      "case_id": "hc_704905caafd8a599",
       "component_ids": [
-        "lc_a955c4c92720b5bf",
-        "lc_8b9ef70debd60301"
+        "lc_2d190b990fe249a2",
+        "lc_6d23d8fefc8bf9a9",
+        "lc_c3ab8bf348d1f145"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "解释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够比较证据；优先采集：天体系统模型、尺度说明、资料整理。",
-        "学生能够解释概念之间的关系；优先采集：天体系统模型、尺度说明、资料整理。"
+        "学生能够识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征；优先采集：天体系统模型、尺度说明、资料整理。",
+        "学生能够准确说出银河系是宇宙中的普通星系；优先采集：天体系统模型、尺度说明、资料整理。",
+        "学生能够识别并说出宇宙起源和演化历史的关键特征；优先采集：天体系统模型、尺度说明、资料整理。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解彗星与流星雨、小行星与陨石之间的关系；能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道太阳形成、演化和衰老过程及其在银河系中的位置；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "35ec8fb26c917123c087a17a777aa1768a9d544992871856904ce460a4d0908a",
+          "excerpt": "了解彗星与流星雨、小行星与陨石之间的关系；能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道太阳形成、演化和衰老过程及其在银河系中的位置。",
+          "excerpt_hash": "33ff50246beac516eed389bb22d039f42207d2538563ff86ae385c43d01e4e09",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-SC-045:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（证据、解释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_2b6f303fa0fa03e6",
-      "component_ids": [
-        "lc_a955c4c92720b5bf"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "比较"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够比较证据；优先采集：天体系统模型、尺度说明、资料整理。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解彗星与流星雨、小行星与陨石之间的关系；能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道太阳形成、演化和衰老过程及其在银河系中的位置；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "35ec8fb26c917123c087a17a777aa1768a9d544992871856904ce460a4d0908a",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-045:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（比较）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+      "structure": "识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征；准确说出银河系是宇宙中的普通星系；识别并说出宇宙起源和演化历史的关键特征",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -505,54 +392,6 @@
         }
       ],
       "source_statement": "知道太阳形成、演化和衰老过程及其在银河系中的位置"
-    },
-    {
-      "component_id": "lc_a955c4c92720b5bf",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够比较证据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
-      "label": "比较证据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够比较证据；优先采集：天体系统模型、尺度说明、资料整理。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "比较证据",
-          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-045:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "比较证据"
-    },
-    {
-      "component_id": "lc_8b9ef70debd60301",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够解释概念之间的关系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
-      "label": "解释概念之间的关系",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够解释概念之间的关系；优先采集：天体系统模型、尺度说明、资料整理。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "解释概念之间的关系",
-          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-045:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "解释概念之间的关系"
     }
   ],
   "prerequisite_candidates": [
@@ -571,7 +410,7 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "SC-H4G7-SC-045",
-      "source_label": "能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道光年和天文单位及其科学意义；了解彗星与流星雨、小行星与陨石之间的关系；能用观察证…",
+      "source_label": "能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道光年和天文单位及其科学意义；了解彗星与流星雨、小行星与陨石之间的关系。",
       "target_code": "SC-H4G8-SC-045",
       "target_label": "了解彗星与流星雨、小行星与陨石之间的关系；能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道太阳形成、演化和衰老过程及其在银河系中…"
     }
@@ -584,7 +423,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "35ec8fb26c917123c087a17a777aa1768a9d544992871856904ce460a4d0908a",
+  "source_standard_hash": "33ff50246beac516eed389bb22d039f42207d2538563ff86ae385c43d01e4e09",
   "standard_code": "SC-H4G8-SC-045",
   "verified_prerequisites": []
 }

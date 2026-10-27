@@ -3,55 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_5e957b0104bd8e1d"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_05376b2cc8ea01ae",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_c23b439a1e73a947"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；运用多种方式交流阅读感受；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "7b9c62ad23391f38a512105c6c18d939800ae5d8399a3ed48f86e0adfcf34444",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-009:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "引导学生以作品语言、人物形象和历史背景支撑阅读感受。",
-          "excerpt_hash": "373d1b333f3e8d5a0f14f8998f8c43d659518427898118fdbba4df506906ad9c",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G8-RE-009:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生以作品语言、人物形象和历史背景支撑阅读感受。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_4eff2077a60d5793"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生运用多种方式交流阅读感受的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_73aa6245d175882f",
+      "difficulty_id": "cd_3d3a007d05376efb",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_438c661b7812b01b"
+        "hc_7a7ba45d2ee2d001"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用多种方式交流阅读感受”中的实际过程进一步核验。",
       "manifestation": "在要求学生“运用多种方式交流阅读感受”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -61,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；运用多种方式交流阅读感受；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "7b9c62ad23391f38a512105c6c18d939800ae5d8399a3ed48f86e0adfcf34444",
+          "excerpt": "能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；运用多种方式交流阅读感受；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神。",
+          "excerpt_hash": "5ac959ee88f338b683b716086fe02a352bf6f12a35c3352213b850bfe805e25d",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-RE-009:standard",
           "source_type": "curriculum_standard_field"
@@ -82,17 +44,15 @@
       "category": "language_expression",
       "component_ids": [
         "lc_b363aefb1c1e04af",
-        "lc_4eff2077a60d5793",
-        "lc_5e957b0104bd8e1d"
+        "lc_4eff2077a60d5793"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_678612d68f7c1eff",
+      "difficulty_id": "cd_b5ce53a2c1921525",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_c23b439a1e73a947",
-        "hc_438c661b7812b01b"
+        "hc_7a7ba45d2ee2d001"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品”中的实际过程进一步核验。",
       "manifestation": "在要求学生“阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -102,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；运用多种方式交流阅读感受；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "7b9c62ad23391f38a512105c6c18d939800ae5d8399a3ed48f86e0adfcf34444",
+          "excerpt": "能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；运用多种方式交流阅读感受；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神。",
+          "excerpt_hash": "5ac959ee88f338b683b716086fe02a352bf6f12a35c3352213b850bfe805e25d",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-RE-009:standard",
           "source_type": "curriculum_standard_field"
@@ -175,7 +135,7 @@
       "pdf_page": 17,
       "printed_page": "10",
       "publication_status": "published",
-      "rationale": "教材objective“延安是中国革命的圣地。毛泽东等老一辈无产阶级革命家曾经在这里”与课标 CN-H4G8-RE-009 的可教学小能力“阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品”形成页内证据匹配。",
+      "rationale": "教材学习目标“延安是中国革命的圣地。毛泽东等老一辈无产阶级革命家曾经在这里”与课标 CN-H4G8-RE-009 的可教学小能力“阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -271,40 +231,7 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_c23b439a1e73a947",
-      "component_ids": [
-        "lc_5e957b0104bd8e1d"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "依据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点、方法或表达选择的依据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明观点、方法或表达选择的依据；优先采集：阅读批注、人物精神分析、交流展示。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；运用多种方式交流阅读感受；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "7b9c62ad23391f38a512105c6c18d939800ae5d8399a3ed48f86e0adfcf34444",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（依据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_438c661b7812b01b",
+      "case_id": "hc_7a7ba45d2ee2d001",
       "component_ids": [
         "lc_4eff2077a60d5793"
       ],
@@ -324,8 +251,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；运用多种方式交流阅读感受；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "7b9c62ad23391f38a512105c6c18d939800ae5d8399a3ed48f86e0adfcf34444",
+          "excerpt": "能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；运用多种方式交流阅读感受；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神。",
+          "excerpt_hash": "5ac959ee88f338b683b716086fe02a352bf6f12a35c3352213b850bfe805e25d",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-RE-009:standard",
           "source_type": "curriculum_standard_field"
@@ -408,54 +335,6 @@
         }
       ],
       "source_statement": "感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神"
-    },
-    {
-      "component_id": "lc_f1a00e49ad62d5d2",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合材料",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合材料，并说明关键步骤、特征或依据。",
-      "label": "整合材料",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合材料；优先采集：阅读批注、人物精神分析、交流展示。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合材料",
-          "excerpt_hash": "c6c8b0ffb05ba398d2a4a4fb4f067efe130af369012aceee836b9c0c870e2710",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合材料"
-    },
-    {
-      "component_id": "lc_5e957b0104bd8e1d",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点、方法或表达选择的依据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点、方法或表达选择的依据，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点、方法或表达选择的依据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点、方法或表达选择的依据；优先采集：阅读批注、人物精神分析、交流展示。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点、方法或表达选择的依据",
-          "excerpt_hash": "04a7ab3f43a7836e4d3a1304eb39d0a43cdf66ecd30248e80d1cdebbd172b84a",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-RE-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点、方法或表达选择的依据"
     }
   ],
   "prerequisite_candidates": [
@@ -487,7 +366,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "7b9c62ad23391f38a512105c6c18d939800ae5d8399a3ed48f86e0adfcf34444",
+  "source_standard_hash": "5ac959ee88f338b683b716086fe02a352bf6f12a35c3352213b850bfe805e25d",
   "standard_code": "CN-H4G8-RE-009",
   "verified_prerequisites": []
 }

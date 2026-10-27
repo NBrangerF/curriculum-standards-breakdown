@@ -3,57 +3,16 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "transfer",
-      "component_ids": [
-        "lc_26937eabbd8ea4f3"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生面向真实需求改进方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_736842a4e7f6f53b",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_39be571fdababb09",
-        "hc_68a84b2469f1c639"
-      ],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“面向真实需求改进方案”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“面向真实需求改进方案”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养；能以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神；能面向真实需求改进方案并评价劳动价值。",
-          "excerpt_hash": "5360c2d18148b007778b9fda3d80c33b3637a9b41602c554077e9fbadf35ba6a",
-          "field": "standard",
-          "ref_id": "standard:LA-H4G9-DL-002:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "评价时综合使用作品、过程记录、团队反馈、个人反思和教师观察。",
-          "excerpt_hash": "7d41047260da54ad1dcb4332280b8809a6acb713ad445afcd34c860253591219",
-          "field": "teaching_tip",
-          "ref_id": "standard:LA-H4G9-DL-002:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后面向真实需求改进方案，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“面向真实需求改进方案”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“评价时综合使用作品、过程记录、团队反馈、个人反思和教师观察。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "creation_design",
       "component_ids": [
-        "lc_f29d704eb55564c9",
-        "lc_26937eabbd8ea4f3"
+        "lc_f29d704eb55564c9"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生设计能力和团队合作能力的发展的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_f85fd2abc4a289ca",
+      "difficulty_id": "cd_bb0f5b1ef4cfeeb3",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_39be571fdababb09",
         "hc_68a84b2469f1c639"
       ],
       "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计能力和团队合作能力的发展”中的实际过程进一步核验。",
@@ -64,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养；能以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神；能面向真实需求改进方案并评价劳动价值。",
-          "excerpt_hash": "5360c2d18148b007778b9fda3d80c33b3637a9b41602c554077e9fbadf35ba6a",
+          "excerpt": "能在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养，以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神。",
+          "excerpt_hash": "a192b5b0fb5da79755572c4e237396dfe9b94aea386368694e444d430facbc80",
           "field": "standard",
           "ref_id": "standard:LA-H4G9-DL-002:standard",
           "source_type": "curriculum_standard_field"
@@ -99,12 +58,10 @@
     {
       "case_id": "hc_39be571fdababb09",
       "component_ids": [
-        "lc_2dea7b0d1773fb1e",
-        "lc_26937eabbd8ea4f3"
+        "lc_2dea7b0d1773fb1e"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
-        "真实",
         "综合"
       ],
       "demand_dimension": "transfer",
@@ -114,34 +71,30 @@
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养；优先采集：阶段成果展示、团队合作记录、综合评价表、个人反思。",
-        "学生能够面向真实需求改进方案；优先采集：阶段成果展示、团队合作记录、综合评价表、个人反思。"
+        "学生能够在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养；优先采集：阶段成果展示、团队合作记录、综合评价表、个人反思。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养；能以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神；能面向真实需求改进方案并评价劳动价值。",
-          "excerpt_hash": "5360c2d18148b007778b9fda3d80c33b3637a9b41602c554077e9fbadf35ba6a",
+          "excerpt": "能在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养，以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神。",
+          "excerpt_hash": "a192b5b0fb5da79755572c4e237396dfe9b94aea386368694e444d430facbc80",
           "field": "standard",
           "ref_id": "standard:LA-H4G9-DL-002:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "在真实或变化情境中迁移（真实、综合）",
+      "structure": "在真实或变化情境中迁移（综合）",
       "title": "在真实或变化情境中迁移",
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
     },
     {
       "case_id": "hc_68a84b2469f1c639",
       "component_ids": [
-        "lc_f29d704eb55564c9",
-        "lc_26937eabbd8ea4f3"
+        "lc_f29d704eb55564c9"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
-        "设计",
-        "方案",
-        "改进"
+        "设计"
       ],
       "demand_dimension": "creation_constraints",
       "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
@@ -150,20 +103,19 @@
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够设计能力和团队合作能力的发展；优先采集：阶段成果展示、团队合作记录、综合评价表、个人反思。",
-        "学生能够面向真实需求改进方案；优先采集：阶段成果展示、团队合作记录、综合评价表、个人反思。"
+        "学生能够设计能力和团队合作能力的发展；优先采集：阶段成果展示、团队合作记录、综合评价表、个人反思。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养；能以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神；能面向真实需求改进方案并评价劳动价值。",
-          "excerpt_hash": "5360c2d18148b007778b9fda3d80c33b3637a9b41602c554077e9fbadf35ba6a",
+          "excerpt": "能在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养，以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神。",
+          "excerpt_hash": "a192b5b0fb5da79755572c4e237396dfe9b94aea386368694e444d430facbc80",
           "field": "standard",
           "ref_id": "standard:LA-H4G9-DL-002:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "在约束下设计、创作或改进（设计、方案、改进）",
+      "structure": "在约束下设计、创作或改进（设计）",
       "title": "在约束下设计、创作或改进",
       "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
     }
@@ -240,54 +192,6 @@
         }
       ],
       "source_statement": "在劳动中不断追求品质、精益求精，树立勤俭、奋斗、创新、奉献的劳动精神"
-    },
-    {
-      "component_id": "lc_26937eabbd8ea4f3",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够面向真实需求改进方案",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生面向真实需求改进方案，并说明关键步骤、特征或依据。",
-      "label": "面向真实需求改进方案",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够面向真实需求改进方案；优先采集：阶段成果展示、团队合作记录、综合评价表、个人反思。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "面向真实需求改进方案",
-          "excerpt_hash": "16a16a28f81440334c02c8547f394be7dc8e38f0e4c701940a1291b9a3187129",
-          "field": "standard",
-          "ref_id": "standard:LA-H4G9-DL-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "面向真实需求改进方案"
-    },
-    {
-      "component_id": "lc_0bf01a0919adb297",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价劳动价值",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价劳动价值，并说明关键步骤、特征或依据。",
-      "label": "评价劳动价值",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价劳动价值；优先采集：阶段成果展示、团队合作记录、综合评价表、个人反思。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价劳动价值",
-          "excerpt_hash": "9d856ffd403b1580ec1309e162cd692ff677f3278fb67e5ed8ba61d489d6c565",
-          "field": "standard",
-          "ref_id": "standard:LA-H4G9-DL-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价劳动价值"
     }
   ],
   "prerequisite_candidates": [
@@ -306,9 +210,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "LA-H4G8-DL-003",
-      "source_label": "能在阶段综合分析并判断中重点呈现劳动能力提升、劳动品质形成、劳动精神培养；能以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精…",
+      "source_label": "能在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养，以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精，树立勤…",
       "target_code": "LA-H4G9-DL-002",
-      "target_label": "能在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养；能以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精，树立…"
+      "target_label": "能在阶段综合评价中重点呈现劳动能力提升、劳动品质形成、劳动精神培养，以及设计能力和团队合作能力的发展；能在劳动中不断追求品质、精益求精，树立勤…"
     }
   ],
   "prerequisite_review_coverage": {
@@ -319,7 +223,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "5360c2d18148b007778b9fda3d80c33b3637a9b41602c554077e9fbadf35ba6a",
+  "source_standard_hash": "a192b5b0fb5da79755572c4e237396dfe9b94aea386368694e444d430facbc80",
   "standard_code": "LA-H4G9-DL-002",
   "verified_prerequisites": []
 }

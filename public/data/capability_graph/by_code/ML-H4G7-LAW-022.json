@@ -3,30 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_e2b098236937082e"
+        "lc_ce17585853306948"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d693b156d0b8afe7",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生识别并说出民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_56f692df2540b48d",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_94a33cc289a09007",
-        "hc_47a93041940426c1",
-        "hc_77b6df051b059a0d"
+        "hc_8f7721c5532afd01"
       ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“识别并说出民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义的关键特征”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "0ef774dececf653e7e90f88231ff5fe4c575fb5c2ad1c8dd8b10c15c519600c3",
+          "excerpt": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义。",
+          "excerpt_hash": "a0a28f93c91ff224567727dcae943f55eaa7e1d0a0ce7e70dd82b6f053cb828f",
           "field": "standard",
           "ref_id": "standard:ML-H4G7-LAW-022:standard",
           "source_type": "curriculum_standard_field"
@@ -39,88 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把制度理解与日常行动结合，避免抽象化、口号化。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "comparison",
-      "component_ids": [
-        "lc_e2b098236937082e"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_43dc203c28a46866",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_94a33cc289a09007",
-        "hc_47a93041940426c1",
-        "hc_77b6df051b059a0d"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "0ef774dececf653e7e90f88231ff5fe4c575fb5c2ad1c8dd8b10c15c519600c3",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-022:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把制度理解与日常行动结合，避免抽象化、口号化。",
-          "excerpt_hash": "074a13d2bea6c7563c89b456536b7e13eafdcf58d12665b6d5967afbda912ef2",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G7-LAW-022:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“把制度理解与日常行动结合，避免抽象化、口号化。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "transfer",
-      "component_ids": [
-        "lc_e2b098236937082e"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_b03e1bd57ffac1d0",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_94a33cc289a09007",
-        "hc_47a93041940426c1",
-        "hc_77b6df051b059a0d"
-      ],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "0ef774dececf653e7e90f88231ff5fe4c575fb5c2ad1c8dd8b10c15c519600c3",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-022:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把制度理解与日常行动结合，避免抽象化、口号化。",
-          "excerpt_hash": "074a13d2bea6c7563c89b456536b7e13eafdcf58d12665b6d5967afbda912ef2",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G7-LAW-022:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把制度理解与日常行动结合，避免抽象化、口号化。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后识别并说出民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义的关键特征”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“把制度理解与日常行动结合，避免抽象化、口号化。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -276,105 +194,39 @@
       "review_status": "machine_checked",
       "source_code": "ML-H4G7-LAW-022",
       "target_code": "ML-H4G8-LAW-023",
-      "target_label": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义；能结合家庭、学校或社会案例分析问题。"
+      "target_label": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_94a33cc289a09007",
+      "case_id": "hc_8f7721c5532afd01",
       "component_ids": [
-        "lc_e2b098236937082e"
+        "lc_ce17585853306948"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义的关键特征。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够联系个人和校园生活说明基本判断；优先采集：民族团结行动建议、制度意义说明、小组讨论记录。"
+        "学生能够识别并说出民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义的关键特征；优先采集：民族团结行动建议、制度意义说明、小组讨论记录。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "0ef774dececf653e7e90f88231ff5fe4c575fb5c2ad1c8dd8b10c15c519600c3",
+          "excerpt": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义。",
+          "excerpt_hash": "a0a28f93c91ff224567727dcae943f55eaa7e1d0a0ce7e70dd82b6f053cb828f",
           "field": "standard",
           "ref_id": "standard:ML-H4G7-LAW-022:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_47a93041940426c1",
-      "component_ids": [
-        "lc_e2b098236937082e"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "生活"
-      ],
-      "demand_dimension": "transfer",
-      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够联系个人和校园生活说明基本判断；优先采集：民族团结行动建议、制度意义说明、小组讨论记录。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "0ef774dececf653e7e90f88231ff5fe4c575fb5c2ad1c8dd8b10c15c519600c3",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-022:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "在真实或变化情境中迁移（生活）",
-      "title": "在真实或变化情境中迁移",
-      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
-    },
-    {
-      "case_id": "hc_77b6df051b059a0d",
-      "component_ids": [
-        "lc_e2b098236937082e"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够联系个人和校园生活说明基本判断；优先采集：民族团结行动建议、制度意义说明、小组讨论记录。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "0ef774dececf653e7e90f88231ff5fe4c575fb5c2ad1c8dd8b10c15c519600c3",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-022:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+      "structure": "识别并说出民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义的关键特征",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
     }
   ],
   "learning_components": [
@@ -401,30 +253,6 @@
         }
       ],
       "source_statement": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义"
-    },
-    {
-      "component_id": "lc_e2b098236937082e",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够联系个人和校园生活说明基本判断",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生联系个人和校园生活说明基本判断，并保留可回查的口头、书面或操作过程证据。",
-      "label": "联系个人和校园生活说明基本判断",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够联系个人和校园生活说明基本判断；优先采集：民族团结行动建议、制度意义说明、小组讨论记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "联系个人和校园生活说明基本判断",
-          "excerpt_hash": "441fc06d76bf837efd9f91aece3ac5307096174e73b5685a6475c696570b0b6b",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-022:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "联系个人和校园生活说明基本判断"
     }
   ],
   "prerequisite_candidates": [
@@ -446,7 +274,7 @@
       "source_code": "ML-D3-LAW-004",
       "source_label": "能说明民主、平等、公正等价值在集体生活中的意义，能在班级事务中表达意见、尊重程序并承担责任，能对不公平现象提出建设性建议。",
       "target_code": "ML-H4G7-LAW-022",
-      "target_label": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义；能联系个人和校园生活说明基本判断。"
+      "target_label": "了解民族区域自治制度对维护和发展平等团结互助和谐的社会主义民族关系的意义。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -457,7 +285,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "0ef774dececf653e7e90f88231ff5fe4c575fb5c2ad1c8dd8b10c15c519600c3",
+  "source_standard_hash": "a0a28f93c91ff224567727dcae943f55eaa7e1d0a0ce7e70dd82b6f053cb828f",
   "standard_code": "ML-H4G7-LAW-022",
   "verified_prerequisites": []
 }

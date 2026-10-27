@@ -3,28 +3,29 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "multi_step_procedure",
+      "category": "transfer",
       "component_ids": [
-        "lc_5c604a4c75354ecd"
+        "lc_50eb1666f4853c82"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生完成有步骤的数字作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_db53c21c68744238",
+      "diagnostic_probe": "给出一个需要学生综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_bc34b25f185bf422",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_2fde3fefa1763972"
+        "hc_7c90de07f8d5554a",
+        "hc_7773693b1576f557"
       ],
-      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“完成有步骤的数字作品”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“完成有步骤的数字作品”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能整合互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务；能熟悉网络平台中的技术工具和软件系统功能；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "795a6fc5fcd2465d44b2fd767ff1558bea67bc38d9edd9cede1c45db9fa6f632",
+          "excerpt": "能综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务；能熟悉网络平台中的技术工具和软件系统功能。",
+          "excerpt_hash": "626909fb62593b00ace80340b945f427c17250feddc6596e2f67b4609139d154",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-CS-003:standard",
           "source_type": "curriculum_standard_field"
@@ -37,8 +38,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后完成有步骤的数字作品，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“完成有步骤的数字作品”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“强调项目管理、展示交流、学科协同和开放设计，给学生留出充分实践时间。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“强调项目管理、展示交流、学科协同和开放设计，给学生留出充分实践时间。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -69,67 +70,97 @@
       "review_status": "machine_checked",
       "source_code": "IT-H4G8-CS-003",
       "target_code": "IT-H4G9-CS-002",
-      "target_label": "能运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务…"
+      "target_label": "能综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目…"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_2fde3fefa1763972",
+      "case_id": "hc_7c90de07f8d5554a",
       "component_ids": [
-        "lc_5c604a4c75354ecd"
+        "lc_50eb1666f4853c82"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
-        "步骤"
+        "综合"
       ],
-      "demand_dimension": "multi_step",
-      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成有步骤的数字作品。",
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够完成有步骤的数字作品；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。"
+        "学生能够综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能整合互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务；能熟悉网络平台中的技术工具和软件系统功能；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "795a6fc5fcd2465d44b2fd767ff1558bea67bc38d9edd9cede1c45db9fa6f632",
+          "excerpt": "能综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务；能熟悉网络平台中的技术工具和软件系统功能。",
+          "excerpt_hash": "626909fb62593b00ace80340b945f427c17250feddc6596e2f67b4609139d154",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-CS-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "保持多步骤或完整结构（步骤）",
+      "structure": "在真实或变化情境中迁移（综合）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
+    },
+    {
+      "case_id": "hc_7773693b1576f557",
+      "component_ids": [
+        "lc_50eb1666f4853c82"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务；能熟悉网络平台中的技术工具和软件系统功能。",
+          "excerpt_hash": "626909fb62593b00ace80340b945f427c17250feddc6596e2f67b4609139d154",
+          "field": "standard",
+          "ref_id": "standard:IT-H4G8-CS-003:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务；熟悉网络平台中的技术工具和软件系统功能",
       "title": "保持多步骤或完整结构",
       "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_7620c92af951ecfc",
+      "component_id": "lc_50eb1666f4853c82",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够整合互联网、物联网、人工智能等信息科技知识开展跨学科主题学习",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合互联网、物联网、人工智能等信息科技知识开展跨学科主题学习，并说明关键步骤、特征或依据。",
-      "label": "整合互联网、物联网、人工智能等信息科技知识开展跨学科主题学习",
+      "description": "学生能够综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习，并说明关键步骤、特征或依据。",
+      "label": "综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。",
+      "observable_evidence": "学生能够综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "整合互联网、物联网、人工智能等信息科技知识开展跨学科主题学习",
-          "excerpt_hash": "83d093d6a61a6778c96645a278fd5cea0d9f1f385aeae40499bfd8880887e55a",
+          "excerpt": "综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习",
+          "excerpt_hash": "dbf5e4e058efb2b3478b0fe7ff29b1a512a19213f5055d8ab9fbf1ff832948b8",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-CS-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "整合互联网、物联网、人工智能等信息科技知识开展跨学科主题学习"
+      "source_statement": "综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习"
     },
     {
       "component_id": "lc_6b4cc3a2a8bb0012",
@@ -178,54 +209,6 @@
         }
       ],
       "source_statement": "熟悉网络平台中的技术工具和软件系统功能"
-    },
-    {
-      "component_id": "lc_45ae010fb653c88a",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够分析系统关系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析系统关系，并说明关键步骤、特征或依据。",
-      "label": "分析系统关系",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析系统关系；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析系统关系",
-          "excerpt_hash": "ebac474de7322e39b3ec0dc7ec33a2102e19e5fe5b414c4ba8c39244053f052c",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-CS-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "分析系统关系"
-    },
-    {
-      "component_id": "lc_5c604a4c75354ecd",
-      "component_type": "procedural",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成有步骤的数字作品",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成有步骤的数字作品，并说明关键步骤、特征或依据。",
-      "label": "完成有步骤的数字作品",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成有步骤的数字作品；优先采集：项目方案、数字作品或原型、展示材料、项目复盘。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成有步骤的数字作品",
-          "excerpt_hash": "dbbbd54f76d7834a2c97c486813f724ab7884056c98d6fe13349aba505702adb",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-CS-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成有步骤的数字作品"
     }
   ],
   "prerequisite_candidates": [
@@ -244,9 +227,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "IT-H4G7-CS-003",
-      "source_label": "能尝试运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目…",
+      "source_label": "能综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目…",
       "target_code": "IT-H4G8-CS-003",
-      "target_label": "能整合互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目任务…"
+      "target_label": "能综合运用互联网、物联网、人工智能等信息科技知识开展跨学科主题学习；完成介绍学校、无人机互联、在线数字气象站、人工智能预测或未来智能场景等项目…"
     }
   ],
   "prerequisite_review_coverage": {
@@ -257,7 +240,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "795a6fc5fcd2465d44b2fd767ff1558bea67bc38d9edd9cede1c45db9fa6f632",
+  "source_standard_hash": "626909fb62593b00ace80340b945f427c17250feddc6596e2f67b4609139d154",
   "standard_code": "IT-H4G8-CS-003",
   "verified_prerequisites": []
 }

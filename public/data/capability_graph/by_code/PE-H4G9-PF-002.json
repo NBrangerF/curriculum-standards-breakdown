@@ -5,8 +5,7 @@
     {
       "category": "creation_design",
       "component_ids": [
-        "lc_e949358fd832dc3b",
-        "lc_3aab5e6f8923253e"
+        "lc_e949358fd832dc3b"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生设计包含目标、内容、方法和评价的体能锻炼计划的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
@@ -24,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "设计包含目标、内容、方法和评价的体能锻炼计划；能独立组织与开展体能练习；能达到相应年级《国家学生体质健康标准（2014年修订）》合格水平；能制定改进方案并评价运动、健康或品德表现。",
-          "excerpt_hash": "1e29b9c6327f410187482a57ce06f4ac21813af876157c95f00121518a50a1c0",
+          "excerpt": "设计包含目标、内容、方法和评价的体能锻炼计划；能独立组织与开展体能练习；能达到相应年级《国家学生体质健康标准（2014年修订）》合格水平。",
+          "excerpt_hash": "98ad9ee0d124fa26f2229cfbd550379886a2eb5b658d9d9771987dd79663b244",
           "field": "standard",
           "ref_id": "standard:PE-H4G9-PF-002:standard",
           "source_type": "curriculum_standard_field"
@@ -91,14 +90,11 @@
     {
       "case_id": "hc_845de8c77fe36473",
       "component_ids": [
-        "lc_e949358fd832dc3b",
-        "lc_3aab5e6f8923253e"
+        "lc_e949358fd832dc3b"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
-        "设计",
-        "方案",
-        "改进"
+        "设计"
       ],
       "demand_dimension": "creation_constraints",
       "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
@@ -107,20 +103,19 @@
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够设计包含目标、内容、方法和评价的体能锻炼计划；优先采集：体能计划、复测数据、调整说明。",
-        "学生能够制定改进方案；优先采集：体能计划、复测数据、调整说明。"
+        "学生能够设计包含目标、内容、方法和评价的体能锻炼计划；优先采集：体能计划、复测数据、调整说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "设计包含目标、内容、方法和评价的体能锻炼计划；能独立组织与开展体能练习；能达到相应年级《国家学生体质健康标准（2014年修订）》合格水平；能制定改进方案并评价运动、健康或品德表现。",
-          "excerpt_hash": "1e29b9c6327f410187482a57ce06f4ac21813af876157c95f00121518a50a1c0",
+          "excerpt": "设计包含目标、内容、方法和评价的体能锻炼计划；能独立组织与开展体能练习；能达到相应年级《国家学生体质健康标准（2014年修订）》合格水平。",
+          "excerpt_hash": "98ad9ee0d124fa26f2229cfbd550379886a2eb5b658d9d9771987dd79663b244",
           "field": "standard",
           "ref_id": "standard:PE-H4G9-PF-002:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "在约束下设计、创作或改进（设计、方案、改进）",
+      "structure": "在约束下设计、创作或改进（设计）",
       "title": "在约束下设计、创作或改进",
       "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
     },
@@ -145,8 +140,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "设计包含目标、内容、方法和评价的体能锻炼计划；能独立组织与开展体能练习；能达到相应年级《国家学生体质健康标准（2014年修订）》合格水平；能制定改进方案并评价运动、健康或品德表现。",
-          "excerpt_hash": "1e29b9c6327f410187482a57ce06f4ac21813af876157c95f00121518a50a1c0",
+          "excerpt": "设计包含目标、内容、方法和评价的体能锻炼计划；能独立组织与开展体能练习；能达到相应年级《国家学生体质健康标准（2014年修订）》合格水平。",
+          "excerpt_hash": "98ad9ee0d124fa26f2229cfbd550379886a2eb5b658d9d9771987dd79663b244",
           "field": "standard",
           "ref_id": "standard:PE-H4G9-PF-002:standard",
           "source_type": "curriculum_standard_field"
@@ -229,54 +224,6 @@
         }
       ],
       "source_statement": "达到相应年级《国家学生体质健康标准（2014年修订）》合格水平"
-    },
-    {
-      "component_id": "lc_3aab5e6f8923253e",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够制定改进方案",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生制定改进方案，并说明关键步骤、特征或依据。",
-      "label": "制定改进方案",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够制定改进方案；优先采集：体能计划、复测数据、调整说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "制定改进方案",
-          "excerpt_hash": "305f96671497f03b1e47f1e3cfb9fc5877c88a1fe99ec5cb2dcdb2368ad8dfbc",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G9-PF-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "制定改进方案"
-    },
-    {
-      "component_id": "lc_c69b5f5095ab420e",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价运动、健康或品德表现",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价运动、健康或品德表现，并说明关键步骤、特征或依据。",
-      "label": "评价运动、健康或品德表现",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价运动、健康或品德表现；优先采集：体能计划、复测数据、调整说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价运动、健康或品德表现",
-          "excerpt_hash": "29f95b45527b0f3ecc669bf688bf6ef2e3993738f71ad43d628beda84cd7baab",
-          "field": "standard",
-          "ref_id": "standard:PE-H4G9-PF-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价运动、健康或品德表现"
     }
   ],
   "prerequisite_candidates": [
@@ -295,9 +242,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "PE-H4G8-PF-003",
-      "source_label": "设计包含目标、内容、方法和分析并判断的体能锻炼计划；能独立组织与开展体能练习；能描述体能发展的超负荷原则和个性化原则；能分析练习或比赛表现并调…",
+      "source_label": "设计包含目标、内容、方法和评价的体能锻炼计划；能独立组织与开展体能练习；能描述体能发展的超负荷原则和个性化原则。",
       "target_code": "PE-H4G9-PF-002",
-      "target_label": "设计包含目标、内容、方法和评价的体能锻炼计划；能独立组织与开展体能练习；能达到相应年级《国家学生体质健康标准（2014年修订）》合格水平；能制…"
+      "target_label": "设计包含目标、内容、方法和评价的体能锻炼计划；能独立组织与开展体能练习；能达到相应年级《国家学生体质健康标准（2014年修订）》合格水平。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -308,7 +255,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "1e29b9c6327f410187482a57ce06f4ac21813af876157c95f00121518a50a1c0",
+  "source_standard_hash": "98ad9ee0d124fa26f2229cfbd550379886a2eb5b658d9d9771987dd79663b244",
   "standard_code": "PE-H4G9-PF-002",
   "verified_prerequisites": []
 }

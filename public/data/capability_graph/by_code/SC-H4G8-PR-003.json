@@ -3,86 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_9d81f27266b12302",
-        "lc_2691d5b267e7a389"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_ef0df6d3f2dc4575",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_b7895228848774d8",
-        "hc_c0db1f4d1485ae16"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“比较证据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“比较证据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、分析并判断反思；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "4bb100bf26ad780909317201185d0303a701d872662f9da99c90cfda6ed88de6",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-003:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "评价探究实践时同时关注计划、工具使用、过程记录和反思改进。",
-          "excerpt_hash": "2114a9b14c33a3efdf812ee0c4aa7ee726a311ad1ac9c2cba5b18a23acd2dc1a",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G8-PR-003:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“比较证据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“评价探究实践时同时关注计划、工具使用、过程记录和反思改进。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "comparison",
-      "component_ids": [
-        "lc_627a994d9d577e14",
-        "lc_9d81f27266b12302"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生判断反思的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_b01869a46b02540a",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_b7895228848774d8",
-        "hc_c0db1f4d1485ae16"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断反思”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“判断反思”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、分析并判断反思；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "4bb100bf26ad780909317201185d0303a701d872662f9da99c90cfda6ed88de6",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-003:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "评价探究实践时同时关注计划、工具使用、过程记录和反思改进。",
-          "excerpt_hash": "2114a9b14c33a3efdf812ee0c4aa7ee726a311ad1ac9c2cba5b18a23acd2dc1a",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G8-PR-003:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后判断反思，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“判断反思”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“评价探究实践时同时关注计划、工具使用、过程记录和反思改进。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "creation_design",
       "component_ids": [
         "lc_7d3fa8c68de381ad",
@@ -90,11 +10,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生设计控制变量实验方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_dc0b66be210d1652",
+      "difficulty_id": "cd_647c2af0d81f6538",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_961f3fac85a421e9"
+        "hc_e07cd786a1f314a3"
       ],
       "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计控制变量实验方案”中的实际过程进一步核验。",
       "manifestation": "在要求学生“设计控制变量实验方案”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
@@ -104,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、分析并判断反思；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "4bb100bf26ad780909317201185d0303a701d872662f9da99c90cfda6ed88de6",
+          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、评价反思。",
+          "excerpt_hash": "64a8edfc66518be8a40c3734a778ccbfffbd3715a17b8c47d0b1fc213045d948",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-PR-003:standard",
           "source_type": "curriculum_standard_field"
@@ -124,24 +44,24 @@
     {
       "category": "language_expression",
       "component_ids": [
-        "lc_74a122dcccfb9fcd"
+        "lc_726ab5920ba0c191"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生完成学过的探究任务并对探究活动及过程进行表达交流、分析的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_21869c63a55d84ab",
+      "diagnostic_probe": "给出一个需要学生完成学过的探究任务并对探究活动及过程进行表达交流、评价反思的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e7c3486d994978f8",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“完成学过的探究任务并对探究活动及过程进行表达交流、分析”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“完成学过的探究任务并对探究活动及过程进行表达交流、分析”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“完成学过的探究任务并对探究活动及过程进行表达交流、评价反思”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“完成学过的探究任务并对探究活动及过程进行表达交流、评价反思”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、分析并判断反思；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "4bb100bf26ad780909317201185d0303a701d872662f9da99c90cfda6ed88de6",
+          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、评价反思。",
+          "excerpt_hash": "64a8edfc66518be8a40c3734a778ccbfffbd3715a17b8c47d0b1fc213045d948",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-PR-003:standard",
           "source_type": "curriculum_standard_field"
@@ -154,46 +74,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后完成学过的探究任务并对探究活动及过程进行表达交流、分析，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“完成学过的探究任务并对探究活动及过程进行表达交流、分析”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“评价探究实践时同时关注计划、工具使用、过程记录和反思改进。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_2691d5b267e7a389"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生解释概念之间的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_17363e24102495e9",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_b7895228848774d8"
-      ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“解释概念之间的关系”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“解释概念之间的关系”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、分析并判断反思；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "4bb100bf26ad780909317201185d0303a701d872662f9da99c90cfda6ed88de6",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-003:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "评价探究实践时同时关注计划、工具使用、过程记录和反思改进。",
-          "excerpt_hash": "2114a9b14c33a3efdf812ee0c4aa7ee726a311ad1ac9c2cba5b18a23acd2dc1a",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G8-PR-003:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后解释概念之间的关系，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“解释概念之间的关系”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“评价探究实践时同时关注计划、工具使用、过程记录和反思改进。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后完成学过的探究任务并对探究活动及过程进行表达交流、评价反思，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“完成学过的探究任务并对探究活动及过程进行表达交流、评价反思”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“评价探究实践时同时关注计划、工具使用、过程记录和反思改进。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -411,82 +293,12 @@
       "review_status": "machine_checked",
       "source_code": "SC-H4G8-PR-003",
       "target_code": "SC-H4G9-PR-002",
-      "target_label": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思；能制订学习目标和计划，安排学习进程并反思学习过程和结果；设计控制变量实验方案；能建…"
+      "target_label": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思；能制订学习目标和计划，安排学习进程并反思学习过程和结果；设计控制变量实验方案。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_b7895228848774d8",
-      "component_ids": [
-        "lc_9d81f27266b12302",
-        "lc_2691d5b267e7a389"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "解释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够比较证据；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
-        "学生能够解释概念之间的关系；优先采集：实验方案、工具使用记录、交流展示、反思评价。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、分析并判断反思；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "4bb100bf26ad780909317201185d0303a701d872662f9da99c90cfda6ed88de6",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（证据、解释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_c0db1f4d1485ae16",
-      "component_ids": [
-        "lc_627a994d9d577e14",
-        "lc_9d81f27266b12302"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "比较",
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断反思。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够判断反思；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
-        "学生能够比较证据；优先采集：实验方案、工具使用记录、交流展示、反思评价。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、分析并判断反思；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "4bb100bf26ad780909317201185d0303a701d872662f9da99c90cfda6ed88de6",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（比较、判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
-    },
-    {
-      "case_id": "hc_961f3fac85a421e9",
+      "case_id": "hc_e07cd786a1f314a3",
       "component_ids": [
         "lc_7d3fa8c68de381ad",
         "lc_7775f01acfe808bb"
@@ -509,8 +321,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、分析并判断反思；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "4bb100bf26ad780909317201185d0303a701d872662f9da99c90cfda6ed88de6",
+          "excerpt": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流、评价反思。",
+          "excerpt_hash": "64a8edfc66518be8a40c3734a778ccbfffbd3715a17b8c47d0b1fc213045d948",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-PR-003:standard",
           "source_type": "curriculum_standard_field"
@@ -595,100 +407,28 @@
       "source_statement": "完成与所学知识相关的技术与工程任务设计和实施"
     },
     {
-      "component_id": "lc_74a122dcccfb9fcd",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成学过的探究任务并对探究活动及过程进行表达交流、分析",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成学过的探究任务并对探究活动及过程进行表达交流、分析，并说明关键步骤、特征或依据。",
-      "label": "完成学过的探究任务并对探究活动及过程进行表达交流、分析",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成学过的探究任务并对探究活动及过程进行表达交流、分析；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成学过的探究任务并对探究活动及过程进行表达交流、分析",
-          "excerpt_hash": "4d01a1c6df146f0a88133893b75f598554855527bb6f864503b759c1a94bca75",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成学过的探究任务并对探究活动及过程进行表达交流、分析"
-    },
-    {
-      "component_id": "lc_627a994d9d577e14",
+      "component_id": "lc_726ab5920ba0c191",
       "component_type": "metacognitive",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够判断反思",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断反思，并说明关键步骤、特征或依据。",
-      "label": "判断反思",
+      "description": "学生能够完成学过的探究任务并对探究活动及过程进行表达交流、评价反思",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成学过的探究任务并对探究活动及过程进行表达交流、评价反思，并说明关键步骤、特征或依据。",
+      "label": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够判断反思；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
+      "observable_evidence": "学生能够完成学过的探究任务并对探究活动及过程进行表达交流、评价反思；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "判断反思",
-          "excerpt_hash": "2bdaaa50a510ea4a3f74a351aa24dad090ed774dde9fc16758ba2e2231b3adaa",
+          "excerpt": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思",
+          "excerpt_hash": "6209407ddd783f337a096c4ca2b87b5090c82598daab5d9e48c8449a95833306",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-PR-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "判断反思"
-    },
-    {
-      "component_id": "lc_9d81f27266b12302",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够比较证据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
-      "label": "比较证据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够比较证据；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "比较证据",
-          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "比较证据"
-    },
-    {
-      "component_id": "lc_2691d5b267e7a389",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够解释概念之间的关系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
-      "label": "解释概念之间的关系",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够解释概念之间的关系；优先采集：实验方案、工具使用记录、交流展示、反思评价。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "解释概念之间的关系",
-          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "解释概念之间的关系"
+      "source_statement": "完成学过的探究任务并对探究活动及过程进行表达交流、评价反思"
     }
   ],
   "prerequisite_candidates": [
@@ -707,7 +447,7 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "SC-H4G7-PR-003",
-      "source_label": "理解探究过程和方法；能识别探究问题和研究变量；设计控制变量实验方案；能用观察证据说明基本科学概念。",
+      "source_label": "理解探究过程和方法；能识别探究问题和研究变量；设计控制变量实验方案。",
       "target_code": "SC-H4G8-PR-003",
       "target_label": "设计控制变量实验方案；能使用常见工具和科学仪器，完成与所学知识相关的技术与工程任务设计和实施；完成学过的探究任务并对探究活动及过程进行表达交流…"
     }
@@ -720,7 +460,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "4bb100bf26ad780909317201185d0303a701d872662f9da99c90cfda6ed88de6",
+  "source_standard_hash": "64a8edfc66518be8a40c3734a778ccbfffbd3715a17b8c47d0b1fc213045d948",
   "standard_code": "SC-H4G8-PR-003",
   "verified_prerequisites": []
 }

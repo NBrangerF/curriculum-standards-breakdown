@@ -3,56 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_5b0bcc8e479f7f30",
-        "lc_d626044488a7a672"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用自己的话解释音乐表达的情感内涵的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_9d97b8099ff6d0c4",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_309dbe3e797a3172"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释音乐表达的情感内涵”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用自己的话解释音乐表达的情感内涵”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "ef673a728e2fe5ac23e134a2bcb36d736130b46f2888e51b665a9dfa09d9a024",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AA-004:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "引导学生先听辨要素，再把要素变化与情绪、情感和生活情境建立联系。",
-          "excerpt_hash": "18877fd761686bc6b0371b298be331fa68de5898493711e7f7d0adc42c841deb",
-          "field": "teaching_tip",
-          "ref_id": "standard:AR-H4G8-AA-004:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用自己的话解释音乐表达的情感内涵，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用自己的话解释音乐表达的情感内涵”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生先听辨要素，再把要素变化与情绪、情感和生活情境建立联系。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_ea1f2d6b106d3407"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生根据情感表达或交流需要在生活中选用合适的音乐的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_0332f1119c5ddb2f",
+      "difficulty_id": "cd_45977002f2a9eb86",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_3972287415ec0f7a"
+        "hc_16752070ef8d6ab6"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“根据情感表达或交流需要在生活中选用合适的音乐”中的实际过程进一步核验。",
       "manifestation": "在要求学生“根据情感表达或交流需要在生活中选用合适的音乐”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -62,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "ef673a728e2fe5ac23e134a2bcb36d736130b46f2888e51b665a9dfa09d9a024",
+          "excerpt": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵。",
+          "excerpt_hash": "292a8b7133a8e783f1e230bb4240227a2abe72059ab46102d36a4336613c1cb1",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-AA-004:standard",
           "source_type": "curriculum_standard_field"
@@ -87,12 +48,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生根据情感表达或交流需要在生活中选用合适的音乐的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_f4decb184501f898",
+      "difficulty_id": "cd_19b2c08692d12f55",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_309dbe3e797a3172",
-        "hc_3972287415ec0f7a"
+        "hc_16752070ef8d6ab6"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“根据情感表达或交流需要在生活中选用合适的音乐”中的实际过程进一步核验。",
       "manifestation": "在要求学生“根据情感表达或交流需要在生活中选用合适的音乐”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -102,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "ef673a728e2fe5ac23e134a2bcb36d736130b46f2888e51b665a9dfa09d9a024",
+          "excerpt": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵。",
+          "excerpt_hash": "292a8b7133a8e783f1e230bb4240227a2abe72059ab46102d36a4336613c1cb1",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-AA-004:standard",
           "source_type": "curriculum_standard_field"
@@ -122,24 +82,24 @@
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_38c6cc8eaa027305"
+        "lc_5b0bcc8e479f7f30"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生调整表现方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_76a4e4887207e71d",
+      "diagnostic_probe": "给出一个需要学生用自己的话解释音乐表达的情感内涵的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c1af46d3ac2730df",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“调整表现方法”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“调整表现方法”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释音乐表达的情感内涵”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释音乐表达的情感内涵”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "ef673a728e2fe5ac23e134a2bcb36d736130b46f2888e51b665a9dfa09d9a024",
+          "excerpt": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵。",
+          "excerpt_hash": "292a8b7133a8e783f1e230bb4240227a2abe72059ab46102d36a4336613c1cb1",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-AA-004:standard",
           "source_type": "curriculum_standard_field"
@@ -152,8 +112,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后调整表现方法，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“调整表现方法”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生先听辨要素，再把要素变化与情绪、情感和生活情境建立联系。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后用自己的话解释音乐表达的情感内涵，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释音乐表达的情感内涵”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生先听辨要素，再把要素变化与情绪、情感和生活情境建立联系。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -309,46 +269,12 @@
       "review_status": "machine_checked",
       "source_code": "AR-H4G8-AA-004",
       "target_code": "AR-H4G9-AA-006",
-      "target_label": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵；能评价作品效果并完善…"
+      "target_label": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_309dbe3e797a3172",
-      "component_ids": [
-        "lc_5b0bcc8e479f7f30",
-        "lc_d626044488a7a672"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释音乐表达的情感内涵。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够用自己的话解释音乐表达的情感内涵；优先采集：听赏记录、要素分析图、音乐选择说明。",
-        "学生能够说明作品意图或效果；优先采集：听赏记录、要素分析图、音乐选择说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "ef673a728e2fe5ac23e134a2bcb36d736130b46f2888e51b665a9dfa09d9a024",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AA-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_3972287415ec0f7a",
+      "case_id": "hc_16752070ef8d6ab6",
       "component_ids": [
         "lc_ea1f2d6b106d3407"
       ],
@@ -368,8 +294,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "ef673a728e2fe5ac23e134a2bcb36d736130b46f2888e51b665a9dfa09d9a024",
+          "excerpt": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵。",
+          "excerpt_hash": "292a8b7133a8e783f1e230bb4240227a2abe72059ab46102d36a4336613c1cb1",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-AA-004:standard",
           "source_type": "curriculum_standard_field"
@@ -452,54 +378,6 @@
         }
       ],
       "source_statement": "理解音乐表达的情感内涵"
-    },
-    {
-      "component_id": "lc_38c6cc8eaa027305",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够调整表现方法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整表现方法，并说明关键步骤、特征或依据。",
-      "label": "调整表现方法",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够调整表现方法；优先采集：听赏记录、要素分析图、音乐选择说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "调整表现方法",
-          "excerpt_hash": "624139c8c27447716076606d4fffc25d29bbd39623044fea23b9317d3438bb50",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AA-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "调整表现方法"
-    },
-    {
-      "component_id": "lc_d626044488a7a672",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明作品意图或效果",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明作品意图或效果，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明作品意图或效果",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明作品意图或效果；优先采集：听赏记录、要素分析图、音乐选择说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明作品意图或效果",
-          "excerpt_hash": "9848376f6e433abf944ce2802b9a7699e3ab8073534008b9730e477835bb86eb",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AA-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明作品意图或效果"
     }
   ],
   "prerequisite_candidates": [
@@ -518,9 +396,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "AR-H4G7-AA-001",
-      "source_label": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；理解音乐表达的情感内涵；能根据情感表达或交流需要在生活中选用合适的音乐；能描述艺术要素并完成…",
+      "source_label": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；理解音乐表达的情感内涵；能根据情感表达或交流需要在生活中选用合适的音乐。",
       "target_code": "AR-H4G8-AA-004",
-      "target_label": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵；能调整表现方法并说明…"
+      "target_label": "能结合对音乐节奏、节拍、旋律及其他表现要素的分析；能根据情感表达或交流需要在生活中选用合适的音乐；理解音乐表达的情感内涵。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -531,7 +409,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "ef673a728e2fe5ac23e134a2bcb36d736130b46f2888e51b665a9dfa09d9a024",
+  "source_standard_hash": "292a8b7133a8e783f1e230bb4240227a2abe72059ab46102d36a4336613c1cb1",
   "standard_code": "AR-H4G8-AA-004",
   "verified_prerequisites": []
 }

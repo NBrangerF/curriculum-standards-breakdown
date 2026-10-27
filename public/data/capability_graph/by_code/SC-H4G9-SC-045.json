@@ -3,56 +3,19 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_c5c622553e41fae8",
-        "lc_b5728a957c69be40",
-        "lc_aafef463c946372b"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生阐释银河系是宇宙中的普通星系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_02b39d2395fee0b5",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_fbc4fc6e6faa40cf"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“阐释银河系是宇宙中的普通星系”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“阐释银河系是宇宙中的普通星系”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "阐释银河系是宇宙中的普通星系并认识宇宙起源和演化历史；分析彗星与流星雨、小行星与陨石之间的关系；阐释太阳形成、演化和衰老过程及其在银河系中的位置；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "3c365e7ec9ab353303143e9e2671e7f44f42f73de9133d2166b0be1a7b3719a8",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-045:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用尺度模型和动态演化观点帮助学生建立宇宙空间观念。",
-          "excerpt_hash": "af4fbf3256510be6247b5a2a33779a592eea721f7ba702d0aa55fe962dcf4eba",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G9-SC-045:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后阐释银河系是宇宙中的普通星系，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“阐释银河系是宇宙中的普通星系”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用尺度模型和动态演化观点帮助学生建立宇宙空间观念。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_2b2e9d2999699998"
+        "lc_2b2e9d2999699998",
+        "lc_0d5a78625f104042"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出宇宙起源和演化历史的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_8debbad5bfe99a0f",
+      "difficulty_id": "cd_4acda1ca7f6a9eb4",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_114439291d04b763"
+      ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出宇宙起源和演化历史的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出宇宙起源和演化历史的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
@@ -61,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释银河系是宇宙中的普通星系并认识宇宙起源和演化历史；分析彗星与流星雨、小行星与陨石之间的关系；阐释太阳形成、演化和衰老过程及其在银河系中的位置；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "3c365e7ec9ab353303143e9e2671e7f44f42f73de9133d2166b0be1a7b3719a8",
+          "excerpt": "知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；了解彗星与流星雨、小行星与陨石之间的关系；知道太阳形成、演化和衰老过程及其在银河系中的位置。",
+          "excerpt_hash": "cdb5a1c274e064ce24c7abac6938681fd26b7492484e24f6d8c01829ae19dd64",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-045:standard",
           "source_type": "curriculum_standard_field"
@@ -188,67 +151,64 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_fbc4fc6e6faa40cf",
+      "case_id": "hc_114439291d04b763",
       "component_ids": [
-        "lc_c5c622553e41fae8",
-        "lc_b5728a957c69be40",
-        "lc_aafef463c946372b"
+        "lc_0022f5fe5767e3f4",
+        "lc_2b2e9d2999699998",
+        "lc_0d5a78625f104042"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "论证",
-        "阐释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释银河系是宇宙中的普通星系。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出银河系是宇宙中的普通星系。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够阐释银河系是宇宙中的普通星系；优先采集：天体系统模型、尺度说明、资料整理。",
-        "学生能够阐释太阳形成、演化和衰老过程及其在银河系中的位置；优先采集：天体系统模型、尺度说明、资料整理。",
-        "学生能够建模、论证；优先采集：天体系统模型、尺度说明、资料整理。"
+        "学生能够准确说出银河系是宇宙中的普通星系；优先采集：天体系统模型、尺度说明、资料整理。",
+        "学生能够识别并说出宇宙起源和演化历史的关键特征；优先采集：天体系统模型、尺度说明、资料整理。",
+        "学生能够识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征；优先采集：天体系统模型、尺度说明、资料整理。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释银河系是宇宙中的普通星系并认识宇宙起源和演化历史；分析彗星与流星雨、小行星与陨石之间的关系；阐释太阳形成、演化和衰老过程及其在银河系中的位置；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "3c365e7ec9ab353303143e9e2671e7f44f42f73de9133d2166b0be1a7b3719a8",
+          "excerpt": "知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；了解彗星与流星雨、小行星与陨石之间的关系；知道太阳形成、演化和衰老过程及其在银河系中的位置。",
+          "excerpt_hash": "cdb5a1c274e064ce24c7abac6938681fd26b7492484e24f6d8c01829ae19dd64",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-045:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（论证、阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "准确说出银河系是宇宙中的普通星系；识别并说出宇宙起源和演化历史的关键特征；识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_c5c622553e41fae8",
-      "component_type": "conceptual",
+      "component_id": "lc_0022f5fe5767e3f4",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够阐释银河系是宇宙中的普通星系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释银河系是宇宙中的普通星系，并保留可回查的口头、书面或操作过程证据。",
-      "label": "阐释银河系是宇宙中的普通星系",
+      "description": "学生能够准确说出银河系是宇宙中的普通星系",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出银河系是宇宙中的普通星系，并说明关键步骤、特征或依据。",
+      "label": "准确说出银河系是宇宙中的普通星系",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够阐释银河系是宇宙中的普通星系；优先采集：天体系统模型、尺度说明、资料整理。",
+      "observable_evidence": "学生能够准确说出银河系是宇宙中的普通星系；优先采集：天体系统模型、尺度说明、资料整理。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释银河系是宇宙中的普通星系",
-          "excerpt_hash": "b2c56d953490757ddbddff7871f3c1397ad110b4faa5df27e60d4e7074a48897",
+          "excerpt": "知道银河系是宇宙中的普通星系",
+          "excerpt_hash": "4cb7a7c2759d9ac066db8ed7a918c776519b56563e333a5dca7e57ad05a6fc66",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-045:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "阐释银河系是宇宙中的普通星系"
+      "source_statement": "知道银河系是宇宙中的普通星系"
     },
     {
       "component_id": "lc_2b2e9d2999699998",
@@ -275,100 +235,52 @@
       "source_statement": "认识宇宙起源和演化历史"
     },
     {
-      "component_id": "lc_c867d4af3ed2032b",
-      "component_type": "conceptual",
+      "component_id": "lc_0d5a78625f104042",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够分析彗星与流星雨、小行星与陨石之间的关系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析彗星与流星雨、小行星与陨石之间的关系，并说明关键步骤、特征或依据。",
-      "label": "分析彗星与流星雨、小行星与陨石之间的关系",
+      "description": "学生能够识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析彗星与流星雨、小行星与陨石之间的关系；优先采集：天体系统模型、尺度说明、资料整理。",
+      "observable_evidence": "学生能够识别并说出彗星与流星雨、小行星与陨石之间的关系的关键特征；优先采集：天体系统模型、尺度说明、资料整理。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析彗星与流星雨、小行星与陨石之间的关系",
-          "excerpt_hash": "512f6ef3db1b69c1e64eabe365b8a029a78b34c7ad543024573770dff9cbe7fb",
+          "excerpt": "了解彗星与流星雨、小行星与陨石之间的关系",
+          "excerpt_hash": "e3e1a989bbc60ea883444fb5afa57bb6dce466437ce8ea699f8df6455ec335cb",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-045:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "分析彗星与流星雨、小行星与陨石之间的关系"
+      "source_statement": "了解彗星与流星雨、小行星与陨石之间的关系"
     },
     {
-      "component_id": "lc_b5728a957c69be40",
-      "component_type": "conceptual",
+      "component_id": "lc_eb9678c37fa27395",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够阐释太阳形成、演化和衰老过程及其在银河系中的位置",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释太阳形成、演化和衰老过程及其在银河系中的位置，并保留可回查的口头、书面或操作过程证据。",
-      "label": "阐释太阳形成、演化和衰老过程及其在银河系中的位置",
+      "description": "学生能够准确说出太阳形成、演化和衰老过程及其在银河系中的位置",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出太阳形成、演化和衰老过程及其在银河系中的位置，并说明关键步骤、特征或依据。",
+      "label": "准确说出太阳形成、演化和衰老过程及其在银河系中的位置",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够阐释太阳形成、演化和衰老过程及其在银河系中的位置；优先采集：天体系统模型、尺度说明、资料整理。",
+      "observable_evidence": "学生能够准确说出太阳形成、演化和衰老过程及其在银河系中的位置；优先采集：天体系统模型、尺度说明、资料整理。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释太阳形成、演化和衰老过程及其在银河系中的位置",
-          "excerpt_hash": "7de3ca4417e04717f6e138611f7b7d04a49f1e9fd9307012e448db864c6a0418",
+          "excerpt": "知道太阳形成、演化和衰老过程及其在银河系中的位置",
+          "excerpt_hash": "12e0dd1ef0b0edd79e9ef763cea5413c96e8ba9c01bfedd822306f28ff96d848",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-045:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "阐释太阳形成、演化和衰老过程及其在银河系中的位置"
-    },
-    {
-      "component_id": "lc_aafef463c946372b",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够建模、论证",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
-      "label": "建模、论证",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够建模、论证；优先采集：天体系统模型、尺度说明、资料整理。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "建模、论证",
-          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-045:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "建模、论证"
-    },
-    {
-      "component_id": "lc_455f57fa9da2cb00",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价探究结论或社会影响",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
-      "label": "评价探究结论或社会影响",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：天体系统模型、尺度说明、资料整理。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价探究结论或社会影响",
-          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-045:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价探究结论或社会影响"
+      "source_statement": "知道太阳形成、演化和衰老过程及其在银河系中的位置"
     }
   ],
   "prerequisite_candidates": [
@@ -389,7 +301,7 @@
       "source_code": "SC-H4G8-SC-045",
       "source_label": "了解彗星与流星雨、小行星与陨石之间的关系；能知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；能知道太阳形成、演化和衰老过程及其在银河系中…",
       "target_code": "SC-H4G9-SC-045",
-      "target_label": "阐释银河系是宇宙中的普通星系并认识宇宙起源和演化历史；分析彗星与流星雨、小行星与陨石之间的关系；阐释太阳形成、演化和衰老过程及其在银河系中的位…"
+      "target_label": "知道银河系是宇宙中的普通星系并认识宇宙起源和演化历史；了解彗星与流星雨、小行星与陨石之间的关系；知道太阳形成、演化和衰老过程及其在银河系中的位…"
     }
   ],
   "prerequisite_review_coverage": {
@@ -400,7 +312,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "3c365e7ec9ab353303143e9e2671e7f44f42f73de9133d2166b0be1a7b3719a8",
+  "source_standard_hash": "cdb5a1c274e064ce24c7abac6938681fd26b7492484e24f6d8c01829ae19dd64",
   "standard_code": "SC-H4G9-SC-045",
   "verified_prerequisites": []
 }

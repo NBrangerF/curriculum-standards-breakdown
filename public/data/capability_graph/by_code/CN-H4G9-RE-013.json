@@ -3,54 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_34d1093fcecf46e3"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_926df22f329b7dc2",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_31c3dbc2b5255b67"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "bdf1590e75e508bd3db29601a20421797bdd8b25666b3eaee8ac080e64544510",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G9-RE-013:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "突出问题意识、探究过程和解决方法之间的逻辑关系。",
-          "excerpt_hash": "be682c20568b381ede7797c6eb3e93463fd6b1f9c3c35923764cebba5395350c",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G9-RE-013:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“突出问题意识、探究过程和解决方法之间的逻辑关系。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_9d40a230ba162cbe"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_66cc7ac12eb9bbd2",
+      "difficulty_id": "cd_51361ed143e81fe3",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_83dfd857072481bd"
+      ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作”中的实际过程进一步核验。",
       "manifestation": "在要求学生“围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
       "method": "difficulty_pattern_rules_v2",
@@ -59,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "bdf1590e75e508bd3db29601a20421797bdd8b25666b3eaee8ac080e64544510",
+          "excerpt": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历。",
+          "excerpt_hash": "2c43dd8c23bdcc4bf4ae21a684152a53c6a840c525aea0a0d76f930ebe990551",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-RE-013:standard",
           "source_type": "curriculum_standard_field"
@@ -83,10 +47,12 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_5d06b8396f01bf4a",
+      "difficulty_id": "cd_0d73fbed8fced0aa",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_83dfd857072481bd"
+      ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作”中的实际过程进一步核验。",
       "manifestation": "在要求学生“围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
@@ -95,8 +61,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "bdf1590e75e508bd3db29601a20421797bdd8b25666b3eaee8ac080e64544510",
+          "excerpt": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历。",
+          "excerpt_hash": "2c43dd8c23bdcc4bf4ae21a684152a53c6a840c525aea0a0d76f930ebe990551",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-RE-013:standard",
           "source_type": "curriculum_standard_field"
@@ -168,7 +134,7 @@
       "pdf_page": 50,
       "printed_page": "43",
       "publication_status": "published",
-      "rationale": "教材exercise“联系自己的生活经验读课文。结合课文的具体内容,说说你对“三间小屋”内涵的理解,并且想一想,作为一个忙碌的现代人,我们该如何建构自己的精神空间?同学们之间讨论。”与课标 CN-H4G9-RE-013 的可教学小能力“联系自己的科学学习经历”形成页内证据匹配。",
+      "rationale": "教材练习“联系自己的生活经验读课文。结合课文的具体内容,说说你对“三间小屋”内涵的理解,并且想一想,作为一个忙碌的现代人,我们该如何建构自己的精神空间?同学们之间讨论。”与课标 CN-H4G9-RE-013 的可教学小能力“联系自己的科学学习经历”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -246,37 +212,38 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_31c3dbc2b5255b67",
+      "case_id": "hc_83dfd857072481bd",
       "component_ids": [
-        "lc_34d1093fcecf46e3"
+        "lc_9d40a230ba162cbe",
+        "lc_9b92f4885f8be875",
+        "lc_5cffb0971483ce18"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "阐释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：探究过程图、专题演讲、说明性写作。"
+        "学生能够围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；优先采集：探究过程图、专题演讲、说明性写作。",
+        "学生能够学习关于科学探究方面的文本；优先采集：探究过程图、专题演讲、说明性写作。",
+        "学生能够联系自己的科学学习经历；优先采集：探究过程图、专题演讲、说明性写作。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "bdf1590e75e508bd3db29601a20421797bdd8b25666b3eaee8ac080e64544510",
+          "excerpt": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历。",
+          "excerpt_hash": "2c43dd8c23bdcc4bf4ae21a684152a53c6a840c525aea0a0d76f930ebe990551",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-RE-013:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（证据、阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；学习关于科学探究方面的文本；联系自己的科学学习经历",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -351,30 +318,6 @@
         }
       ],
       "source_statement": "联系自己的科学学习经历"
-    },
-    {
-      "component_id": "lc_34d1093fcecf46e3",
-      "component_type": "disposition",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
-      "label": "在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：探究过程图、专题演讲、说明性写作。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "形成有观点、有证据、有修改意识的阐释或作品",
-          "excerpt_hash": "81dd4494a3c7ea97b381cd70636e7fb21c3ea27f3530facc4bb9d353dcee96ce",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G9-RE-013:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "形成有观点、有证据、有修改意识的阐释或作品"
     }
   ],
   "prerequisite_candidates": [
@@ -393,9 +336,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "CN-H4G8-RE-013",
-      "source_label": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历；能整合材料并说明观点、…",
+      "source_label": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历。",
       "target_code": "CN-H4G9-RE-013",
-      "target_label": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历；能形成有观点、有证据、…"
+      "target_label": "能围绕问题提出、探究过程、解决方法等进行专题式研讨、演讲和写作；能学习关于科学探究方面的文本；能联系自己的科学学习经历。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -406,7 +349,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "bdf1590e75e508bd3db29601a20421797bdd8b25666b3eaee8ac080e64544510",
+  "source_standard_hash": "2c43dd8c23bdcc4bf4ae21a684152a53c6a840c525aea0a0d76f930ebe990551",
   "standard_code": "CN-H4G9-RE-013",
   "verified_prerequisites": []
 }

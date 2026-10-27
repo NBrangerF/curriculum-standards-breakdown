@@ -3,53 +3,13 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_7906c16e0e8dbd73",
-        "lc_81a3fe7ce916fc06"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生阐释自然规律可以通过多种方法被发现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_be3a2bce03e9ade5",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_f9c1924d691892c0",
-        "hc_c203bb9a4f60d3da"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“阐释自然规律可以通过多种方法被发现”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“阐释自然规律可以通过多种方法被发现”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "阐释自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "618df1c46910cffac62a7551dc8e3a5b2fdf7174ec8be989fcb9455653c76196",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-029:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "引导学生把科学规律、发现方法和问题解决联系起来。",
-          "excerpt_hash": "666ab2c00908d3cb87454a38360debb76c3b136fd8bd8ec3c5b39d289fd33367",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G9-SC-029:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后阐释自然规律可以通过多种方法被发现，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“阐释自然规律可以通过多种方法被发现”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生把科学规律、发现方法和问题解决联系起来。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_a5118d4acce8a6ad"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生利用所学知识解决科学问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_e2538dad3c203420",
+      "difficulty_id": "cd_15c51607c4f784c1",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [],
@@ -61,8 +21,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "618df1c46910cffac62a7551dc8e3a5b2fdf7174ec8be989fcb9455653c76196",
+          "excerpt": "知道自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题。",
+          "excerpt_hash": "5796cb67aea4574cd1e4b15c15a7ab4cbb69878ac9c7521bab6333332bf7c1ba",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-029:standard",
           "source_type": "curriculum_standard_field"
@@ -81,27 +41,26 @@
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_7906c16e0e8dbd73"
+        "lc_ae8285bd0b414ca5"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生阐释自然规律可以通过多种方法被发现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_15dc22dbc789b860",
+      "diagnostic_probe": "给出一个需要学生准确说出自然规律可以通过多种方法被发现的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_37fb813a4f2c32af",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_f9c1924d691892c0",
-        "hc_c203bb9a4f60d3da"
+        "hc_fa3df21d81e56cdd"
       ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“阐释自然规律可以通过多种方法被发现”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“阐释自然规律可以通过多种方法被发现”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“准确说出自然规律可以通过多种方法被发现”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出自然规律可以通过多种方法被发现”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "618df1c46910cffac62a7551dc8e3a5b2fdf7174ec8be989fcb9455653c76196",
+          "excerpt": "知道自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题。",
+          "excerpt_hash": "5796cb67aea4574cd1e4b15c15a7ab4cbb69878ac9c7521bab6333332bf7c1ba",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-029:standard",
           "source_type": "curriculum_standard_field"
@@ -114,8 +73,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后阐释自然规律可以通过多种方法被发现，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“阐释自然规律可以通过多种方法被发现”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生把科学规律、发现方法和问题解决联系起来。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后准确说出自然规律可以通过多种方法被发现，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出自然规律可以通过多种方法被发现”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生把科学规律、发现方法和问题解决联系起来。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -227,44 +186,9 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_f9c1924d691892c0",
+      "case_id": "hc_fa3df21d81e56cdd",
       "component_ids": [
-        "lc_7906c16e0e8dbd73",
-        "lc_81a3fe7ce916fc06"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "论证",
-        "阐释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释自然规律可以通过多种方法被发现。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够阐释自然规律可以通过多种方法被发现；优先采集：现象解释、预测说明、方法梳理。",
-        "学生能够建模、论证；优先采集：现象解释、预测说明、方法梳理。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "阐释自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "618df1c46910cffac62a7551dc8e3a5b2fdf7174ec8be989fcb9455653c76196",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-029:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（论证、阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_c203bb9a4f60d3da",
-      "component_ids": [
-        "lc_7906c16e0e8dbd73"
+        "lc_ae8285bd0b414ca5"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
@@ -272,18 +196,18 @@
       ],
       "demand_dimension": "multiple_conditions",
       "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释自然规律可以通过多种方法被发现。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出自然规律可以通过多种方法被发现。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够阐释自然规律可以通过多种方法被发现；优先采集：现象解释、预测说明、方法梳理。"
+        "学生能够准确说出自然规律可以通过多种方法被发现；优先采集：现象解释、预测说明、方法梳理。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "618df1c46910cffac62a7551dc8e3a5b2fdf7174ec8be989fcb9455653c76196",
+          "excerpt": "知道自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题。",
+          "excerpt_hash": "5796cb67aea4574cd1e4b15c15a7ab4cbb69878ac9c7521bab6333332bf7c1ba",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-029:standard",
           "source_type": "curriculum_standard_field"
@@ -296,28 +220,28 @@
   ],
   "learning_components": [
     {
-      "component_id": "lc_7906c16e0e8dbd73",
-      "component_type": "conceptual",
+      "component_id": "lc_ae8285bd0b414ca5",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够阐释自然规律可以通过多种方法被发现",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释自然规律可以通过多种方法被发现，并保留可回查的口头、书面或操作过程证据。",
-      "label": "阐释自然规律可以通过多种方法被发现",
+      "description": "学生能够准确说出自然规律可以通过多种方法被发现",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出自然规律可以通过多种方法被发现，并说明关键步骤、特征或依据。",
+      "label": "准确说出自然规律可以通过多种方法被发现",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够阐释自然规律可以通过多种方法被发现；优先采集：现象解释、预测说明、方法梳理。",
+      "observable_evidence": "学生能够准确说出自然规律可以通过多种方法被发现；优先采集：现象解释、预测说明、方法梳理。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释自然规律可以通过多种方法被发现",
-          "excerpt_hash": "cde5e6651c49b3a4d2e4a1da4af542ba80269cb2a549f46def6d15b01f7f8512",
+          "excerpt": "知道自然规律可以通过多种方法被发现",
+          "excerpt_hash": "6da4fa161b752dc4f1a091b1b72cc92c3bb8f233efcf90aa0e32a621b09dad12",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-029:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "阐释自然规律可以通过多种方法被发现"
+      "source_statement": "知道自然规律可以通过多种方法被发现"
     },
     {
       "component_id": "lc_c3ecf185b15b23d8",
@@ -366,54 +290,6 @@
         }
       ],
       "source_statement": "利用所学知识解决科学问题"
-    },
-    {
-      "component_id": "lc_81a3fe7ce916fc06",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够建模、论证",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
-      "label": "建模、论证",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够建模、论证；优先采集：现象解释、预测说明、方法梳理。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "建模、论证",
-          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-029:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "建模、论证"
-    },
-    {
-      "component_id": "lc_cfdd25939e85a132",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价探究结论或社会影响",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
-      "label": "评价探究结论或社会影响",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：现象解释、预测说明、方法梳理。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价探究结论或社会影响",
-          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-029:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价探究结论或社会影响"
     }
   ],
   "prerequisite_candidates": [
@@ -432,9 +308,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "SC-H4G8-SC-029",
-      "source_label": "知道自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题；能比较证据并解释概念之间的关系。",
+      "source_label": "知道自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题。",
       "target_code": "SC-H4G9-SC-029",
-      "target_label": "阐释自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题；能建模、论证并评价探究结论或社会影响。"
+      "target_label": "知道自然规律可以通过多种方法被发现，能用于预测自然现象，并能利用所学知识解决科学问题。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -445,7 +321,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "618df1c46910cffac62a7551dc8e3a5b2fdf7174ec8be989fcb9455653c76196",
+  "source_standard_hash": "5796cb67aea4574cd1e4b15c15a7ab4cbb69878ac9c7521bab6333332bf7c1ba",
   "standard_code": "SC-H4G9-SC-029",
   "verified_prerequisites": []
 }

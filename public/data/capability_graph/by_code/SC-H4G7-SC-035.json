@@ -3,57 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_13519c158251196f"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a2e2304d508cd796",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_01ea7ee5860fb203"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能知道已知绝大多数物质由分子、原子、离子等微观粒子构成；认识微观粒子的基本特征和原子结构；了解核外电子对化学反应的作用；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "ef3617d971dac879ae792c55c8f35fad11007c658ac5e0ae4b47a2950e1a9665",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-035:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用模型帮助学生从宏观现象过渡到微观解释，避免把模型当作实物照片。",
-          "excerpt_hash": "2d84e4f21a47cc75dccbdf41590633a500afafb6f04422d3cba6981bbf1bc3c4",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G7-SC-035:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用模型帮助学生从宏观现象过渡到微观解释，避免把模型当作实物照片。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
         "lc_d733ab3d384999b5",
-        "lc_25268f1cfdc1b011",
-        "lc_13519c158251196f"
+        "lc_25268f1cfdc1b011"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出微观粒子的基本特征和原子结构的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_2819ac68b161a482",
+      "difficulty_id": "cd_ec9a3a557ee4e9da",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_01ea7ee5860fb203"
+        "hc_8aac1ba9b910e55e"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出微观粒子的基本特征和原子结构的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出微观粒子的基本特征和原子结构的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -63,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能知道已知绝大多数物质由分子、原子、离子等微观粒子构成；认识微观粒子的基本特征和原子结构；了解核外电子对化学反应的作用；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "ef3617d971dac879ae792c55c8f35fad11007c658ac5e0ae4b47a2950e1a9665",
+          "excerpt": "能知道已知绝大多数物质由分子、原子、离子等微观粒子构成；认识微观粒子的基本特征和原子结构；了解核外电子对化学反应的作用。",
+          "excerpt_hash": "3991447704af2e0f5b3f896986a172a23b3d6bc4a1180a5494fce5ec100f1799",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-035:standard",
           "source_type": "curriculum_standard_field"
@@ -239,37 +200,38 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_01ea7ee5860fb203",
+      "case_id": "hc_8aac1ba9b910e55e",
       "component_ids": [
-        "lc_13519c158251196f"
+        "lc_263868b776df5de8",
+        "lc_d733ab3d384999b5",
+        "lc_25268f1cfdc1b011"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出已知绝大多数物质由分子、原子、离子等微观粒子构成。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用观察证据说明基本科学概念；优先采集：粒子模型图、计算过程、现象解释。"
+        "学生能够准确说出已知绝大多数物质由分子、原子、离子等微观粒子构成；优先采集：粒子模型图、计算过程、现象解释。",
+        "学生能够识别并说出微观粒子的基本特征和原子结构的关键特征；优先采集：粒子模型图、计算过程、现象解释。",
+        "学生能够识别并说出核外电子对化学反应的作用的关键特征；优先采集：粒子模型图、计算过程、现象解释。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能知道已知绝大多数物质由分子、原子、离子等微观粒子构成；认识微观粒子的基本特征和原子结构；了解核外电子对化学反应的作用；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "ef3617d971dac879ae792c55c8f35fad11007c658ac5e0ae4b47a2950e1a9665",
+          "excerpt": "能知道已知绝大多数物质由分子、原子、离子等微观粒子构成；认识微观粒子的基本特征和原子结构；了解核外电子对化学反应的作用。",
+          "excerpt_hash": "3991447704af2e0f5b3f896986a172a23b3d6bc4a1180a5494fce5ec100f1799",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-035:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（证据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "准确说出已知绝大多数物质由分子、原子、离子等微观粒子构成；识别并说出微观粒子的基本特征和原子结构的关键特征；识别并说出核外电子对化学反应的作用的关键特征",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -344,30 +306,6 @@
         }
       ],
       "source_statement": "了解核外电子对化学反应的作用"
-    },
-    {
-      "component_id": "lc_13519c158251196f",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用观察证据说明基本科学概念",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用观察证据说明基本科学概念",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：粒子模型图、计算过程、现象解释。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用观察证据说明基本科学概念",
-          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-035:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用观察证据说明基本科学概念"
     }
   ],
   "prerequisite_candidates": [
@@ -389,7 +327,7 @@
       "source_code": "SC-D3-SC-010",
       "source_label": "知道有些物体发生了变化，如纸燃烧、铁生锈等，构成物体的物质也发生了改变。",
       "target_code": "SC-H4G7-SC-035",
-      "target_label": "能知道已知绝大多数物质由分子、原子、离子等微观粒子构成；认识微观粒子的基本特征和原子结构；了解核外电子对化学反应的作用；能用观察证据说明基本科…"
+      "target_label": "能知道已知绝大多数物质由分子、原子、离子等微观粒子构成；认识微观粒子的基本特征和原子结构；了解核外电子对化学反应的作用。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -400,7 +338,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "ef3617d971dac879ae792c55c8f35fad11007c658ac5e0ae4b47a2950e1a9665",
+  "source_standard_hash": "3991447704af2e0f5b3f896986a172a23b3d6bc4a1180a5494fce5ec100f1799",
   "standard_code": "SC-H4G7-SC-035",
   "verified_prerequisites": []
 }

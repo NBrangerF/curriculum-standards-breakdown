@@ -5,8 +5,7 @@
     {
       "category": "argument_evidence",
       "component_ids": [
-        "lc_2db237152f0f7a44",
-        "lc_ccbf596ebfed2142"
+        "lc_2db237152f0f7a44"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出代数推理的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
@@ -14,8 +13,7 @@
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_8246c397eab27409",
-        "hc_73ea69474bbdaaf9"
+        "hc_8246c397eab27409"
       ],
       "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“识别并说出代数推理的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出代数推理的关键特征”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
@@ -25,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。",
-          "excerpt_hash": "db463fc604039b839aa59ba4e757b9011af4adbb5bfbb6ca1b7402d0ae0d7a17",
+          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理。",
+          "excerpt_hash": "adaf3c210660ceac11c28fc6e1423e5b5245f7c16538e62cbde7a15513fea039",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-AL-010:standard",
           "source_type": "curriculum_standard_field"
@@ -43,57 +41,18 @@
       "teacher_action": "围绕“识别并说出代数推理的关键特征”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“通过符号运算和几何背景帮助学生理解代数结论的一般性。”。随后撤去支架，用同构任务复测。"
     },
     {
-      "category": "multi_step_procedure",
-      "component_ids": [
-        "lc_ccbf596ebfed2142"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a04de591f7f5978d",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_8246c397eab27409",
-        "hc_73ea69474bbdaaf9"
-      ],
-      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明解题步骤和基本依据”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。",
-          "excerpt_hash": "db463fc604039b839aa59ba4e757b9011af4adbb5bfbb6ca1b7402d0ae0d7a17",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-AL-010:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "通过符号运算和几何背景帮助学生理解代数结论的一般性。",
-          "excerpt_hash": "1018d3377b076b3c84908af0e06892c4ca401d4d0149e7e8264015bcf5647f37",
-          "field": "teaching_tip",
-          "ref_id": "standard:MA-H4G7-AL-010:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明解题步骤和基本依据”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“通过符号运算和几何背景帮助学生理解代数结论的一般性。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_d1dcef38896cd2be"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生借助现实情境理解代数式和用字母表示数的意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_97d4b054365293b1",
+      "difficulty_id": "cd_5a20952bfab48724",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
         "hc_9d20c88633a6913a",
-        "hc_6c7b7269cfc92b66"
+        "hc_5f26b87e5853a187"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“借助现实情境理解代数式和用字母表示数的意义”中的实际过程进一步核验。",
       "manifestation": "在要求学生“借助现实情境理解代数式和用字母表示数的意义”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -103,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。",
-          "excerpt_hash": "db463fc604039b839aa59ba4e757b9011af4adbb5bfbb6ca1b7402d0ae0d7a17",
+          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理。",
+          "excerpt_hash": "adaf3c210660ceac11c28fc6e1423e5b5245f7c16538e62cbde7a15513fea039",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-AL-010:standard",
           "source_type": "curriculum_standard_field"
@@ -128,12 +87,12 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生借助现实情境理解代数式和用字母表示数的意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_6c7b7269cfc92b66",
+      "difficulty_id": "cd_5f26b87e5853a187",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
         "hc_9d20c88633a6913a",
-        "hc_6c7b7269cfc92b66"
+        "hc_5f26b87e5853a187"
       ],
       "likely_cause": "把表征当作固定格式记忆，没有理解每个元素所代表的量、关系或特征。 需要结合学生在“借助现实情境理解代数式和用字母表示数的意义”中的实际过程进一步核验。",
       "manifestation": "在要求学生“借助现实情境理解代数式和用字母表示数的意义”时，能照着画或填一种表征，但不能解释图、符号、语言或实物之间的对应关系。",
@@ -143,8 +102,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。",
-          "excerpt_hash": "db463fc604039b839aa59ba4e757b9011af4adbb5bfbb6ca1b7402d0ae0d7a17",
+          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理。",
+          "excerpt_hash": "adaf3c210660ceac11c28fc6e1423e5b5245f7c16538e62cbde7a15513fea039",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-AL-010:standard",
           "source_type": "curriculum_standard_field"
@@ -168,13 +127,13 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生借助现实情境理解代数式和用字母表示数的意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_6ae00d1b3595c2d0",
+      "difficulty_id": "cd_3bfc956877fea83c",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
         "hc_8246c397eab27409",
         "hc_9d20c88633a6913a",
-        "hc_6c7b7269cfc92b66"
+        "hc_5f26b87e5853a187"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“借助现实情境理解代数式和用字母表示数的意义”中的实际过程进一步核验。",
       "manifestation": "在要求学生“借助现实情境理解代数式和用字母表示数的意义”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -184,8 +143,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。",
-          "excerpt_hash": "db463fc604039b839aa59ba4e757b9011af4adbb5bfbb6ca1b7402d0ae0d7a17",
+          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理。",
+          "excerpt_hash": "adaf3c210660ceac11c28fc6e1423e5b5245f7c16538e62cbde7a15513fea039",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-AL-010:standard",
           "source_type": "curriculum_standard_field"
@@ -293,20 +252,17 @@
       "review_status": "machine_checked",
       "source_code": "MA-H4G7-AL-010",
       "target_code": "MA-H4G8-AL-011",
-      "target_label": "能分析简单数量关系并用代数式表示；能借助现实情境理解代数式和用字母表示数的意义；理解整式、乘法公式、因式分解、分式及最简分式；能比较方法并解释…"
+      "target_label": "能分析简单数量关系并用代数式表示；能借助现实情境理解代数式和用字母表示数的意义；理解整式、乘法公式、因式分解、分式及最简分式。"
     }
   ],
   "hardest_cases": [
     {
       "case_id": "hc_8246c397eab27409",
       "component_ids": [
-        "lc_2db237152f0f7a44",
-        "lc_ccbf596ebfed2142"
+        "lc_2db237152f0f7a44"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
-        "依据",
-        "说明",
         "推理"
       ],
       "demand_dimension": "argument_evidence",
@@ -316,20 +272,19 @@
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够识别并说出代数推理的关键特征；优先采集：代数式建构、整式或分式运算、推理说明。",
-        "学生能够说明解题步骤和基本依据；优先采集：代数式建构、整式或分式运算、推理说明。"
+        "学生能够识别并说出代数推理的关键特征；优先采集：代数式建构、整式或分式运算、推理说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。",
-          "excerpt_hash": "db463fc604039b839aa59ba4e757b9011af4adbb5bfbb6ca1b7402d0ae0d7a17",
+          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理。",
+          "excerpt_hash": "adaf3c210660ceac11c28fc6e1423e5b5245f7c16538e62cbde7a15513fea039",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-AL-010:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（依据、说明、推理）",
+      "structure": "用证据或依据完成解释（推理）",
       "title": "用证据或依据完成解释",
       "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
     },
@@ -354,8 +309,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。",
-          "excerpt_hash": "db463fc604039b839aa59ba4e757b9011af4adbb5bfbb6ca1b7402d0ae0d7a17",
+          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理。",
+          "excerpt_hash": "adaf3c210660ceac11c28fc6e1423e5b5245f7c16538e62cbde7a15513fea039",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-AL-010:standard",
           "source_type": "curriculum_standard_field"
@@ -366,39 +321,7 @@
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
     },
     {
-      "case_id": "hc_73ea69474bbdaaf9",
-      "component_ids": [
-        "lc_ccbf596ebfed2142"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "步骤"
-      ],
-      "demand_dimension": "multi_step",
-      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明解题步骤和基本依据；优先采集：代数式建构、整式或分式运算、推理说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。",
-          "excerpt_hash": "db463fc604039b839aa59ba4e757b9011af4adbb5bfbb6ca1b7402d0ae0d7a17",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-AL-010:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "保持多步骤或完整结构（步骤）",
-      "title": "保持多步骤或完整结构",
-      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
-    },
-    {
-      "case_id": "hc_6c7b7269cfc92b66",
+      "case_id": "hc_5f26b87e5853a187",
       "component_ids": [
         "lc_d1dcef38896cd2be",
         "lc_7cdc18c0e879c526"
@@ -420,8 +343,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。",
-          "excerpt_hash": "db463fc604039b839aa59ba4e757b9011af4adbb5bfbb6ca1b7402d0ae0d7a17",
+          "excerpt": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理。",
+          "excerpt_hash": "adaf3c210660ceac11c28fc6e1423e5b5245f7c16538e62cbde7a15513fea039",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-AL-010:standard",
           "source_type": "curriculum_standard_field"
@@ -504,30 +427,6 @@
         }
       ],
       "source_statement": "了解代数推理"
-    },
-    {
-      "component_id": "lc_ccbf596ebfed2142",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明解题步骤和基本依据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明解题步骤和基本依据，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明解题步骤和基本依据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明解题步骤和基本依据；优先采集：代数式建构、整式或分式运算、推理说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明解题步骤和基本依据",
-          "excerpt_hash": "d00757cae74b1459bbcf36ec8c31849ae0007a290e5019ba4e746f5676a42251",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-AL-010:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明解题步骤和基本依据"
     }
   ],
   "prerequisite_candidates": [
@@ -549,7 +448,7 @@
       "source_code": "MA-D3-AL-003",
       "source_label": "能进行简单的小数、分数四则运算和混合运算，并说明运算过程。能在较复杂的真实情境中，选择恰当的运算方法解决问题，形成运算能力和推理意识。",
       "target_code": "MA-H4G7-AL-010",
-      "target_label": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。"
+      "target_label": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理。"
     },
     {
       "confidence": "medium",
@@ -569,7 +468,7 @@
       "source_code": "MA-D3-AL-006",
       "source_label": "能在具体情境中，用字母或含有字母的式子表示数量之间的关系、性质和规律，感悟用字母表示的一般性。",
       "target_code": "MA-H4G7-AL-010",
-      "target_label": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理；能说明解题步骤和基本依据。"
+      "target_label": "能借助现实情境理解代数式和用字母表示数的意义；能分析简单数量关系并用代数式表示；了解代数推理。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -580,7 +479,7 @@
     "total_candidate_count": 2,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "db463fc604039b839aa59ba4e757b9011af4adbb5bfbb6ca1b7402d0ae0d7a17",
+  "source_standard_hash": "adaf3c210660ceac11c28fc6e1423e5b5245f7c16538e62cbde7a15513fea039",
   "standard_code": "MA-H4G7-AL-010",
   "verified_prerequisites": []
 }

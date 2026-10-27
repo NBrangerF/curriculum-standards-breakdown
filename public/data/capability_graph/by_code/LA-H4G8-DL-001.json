@@ -3,53 +3,14 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "comparison",
-      "component_ids": [
-        "lc_c0a495c8cfa9a54a",
-        "lc_adc8cd7689001941"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生判断、展示分析的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_246898250d24b03b",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_d8d636e2207ad3c3"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断、展示分析”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“判断、展示分析”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能通过劳动测试、评语分析并判断、展示分析并判断和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务性劳动；理解劳动创造美好生活的道理；能规划协作流程并反思劳动质量。",
-          "excerpt_hash": "7b66240bf6e35c2b272fca500a41ca32cda92ea083356615ee26a2adf132543e",
-          "field": "standard",
-          "ref_id": "standard:LA-H4G8-DL-001:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "引导学生持续积累证据，区分过程证据、成果证据和反思证据。",
-          "excerpt_hash": "6982e15bbbeb72fccf1519666dfc2c23675c9c81c218649a9c2fe89d5b8a9b73",
-          "field": "teaching_tip",
-          "ref_id": "standard:LA-H4G8-DL-001:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后判断、展示分析，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“判断、展示分析”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“引导学生持续积累证据，区分过程证据、成果证据和反思证据。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
-        "lc_1c32a297c93e7137",
-        "lc_78c8dde7f4782755"
+        "lc_0a3fd2f6910bf8a6",
+        "lc_71c43756df629f62"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生通过持续参与日常生活劳动、生产劳动和服务性劳动的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a6628334068e8130",
+      "difficulty_id": "cd_d1b65a7cd0f988e3",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
@@ -63,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过劳动测试、评语分析并判断、展示分析并判断和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务性劳动；理解劳动创造美好生活的道理；能规划协作流程并反思劳动质量。",
-          "excerpt_hash": "7b66240bf6e35c2b272fca500a41ca32cda92ea083356615ee26a2adf132543e",
+          "excerpt": "能通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务性劳动；理解劳动创造美好生活的道理。",
+          "excerpt_hash": "5081f803304358f72ca0a23075fb1ea614be07bce3bdca67fc0dc16927955683",
           "field": "standard",
           "ref_id": "standard:LA-H4G8-DL-001:standard",
           "source_type": "curriculum_standard_field"
@@ -83,26 +44,24 @@
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_adc8cd7689001941"
+        "lc_84ee15ce86c0b4f0"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生判断和劳动档案袋等方式记录的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_e9098ca77a0f6475",
+      "diagnostic_probe": "给出一个需要学生呈现劳动过程、劳动成果和劳动感受的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_e680686deb52bcd3",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_d8d636e2207ad3c3"
-      ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“判断和劳动档案袋等方式记录”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“判断和劳动档案袋等方式记录”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "hardest_case_ids": [],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“呈现劳动过程、劳动成果和劳动感受”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“呈现劳动过程、劳动成果和劳动感受”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过劳动测试、评语分析并判断、展示分析并判断和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务性劳动；理解劳动创造美好生活的道理；能规划协作流程并反思劳动质量。",
-          "excerpt_hash": "7b66240bf6e35c2b272fca500a41ca32cda92ea083356615ee26a2adf132543e",
+          "excerpt": "能通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务性劳动；理解劳动创造美好生活的道理。",
+          "excerpt_hash": "5081f803304358f72ca0a23075fb1ea614be07bce3bdca67fc0dc16927955683",
           "field": "standard",
           "ref_id": "standard:LA-H4G8-DL-001:standard",
           "source_type": "curriculum_standard_field"
@@ -115,8 +74,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后判断和劳动档案袋等方式记录，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“判断和劳动档案袋等方式记录”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生持续积累证据，区分过程证据、成果证据和反思证据。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后呈现劳动过程、劳动成果和劳动感受，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“呈现劳动过程、劳动成果和劳动感受”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生持续积累证据，区分过程证据、成果证据和反思证据。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -154,8 +113,8 @@
     {
       "case_id": "hc_7fc0274072f6d267",
       "component_ids": [
-        "lc_1c32a297c93e7137",
-        "lc_78c8dde7f4782755"
+        "lc_0a3fd2f6910bf8a6",
+        "lc_71c43756df629f62"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
@@ -174,8 +133,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过劳动测试、评语分析并判断、展示分析并判断和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务性劳动；理解劳动创造美好生活的道理；能规划协作流程并反思劳动质量。",
-          "excerpt_hash": "7b66240bf6e35c2b272fca500a41ca32cda92ea083356615ee26a2adf132543e",
+          "excerpt": "能通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务性劳动；理解劳动创造美好生活的道理。",
+          "excerpt_hash": "5081f803304358f72ca0a23075fb1ea614be07bce3bdca67fc0dc16927955683",
           "field": "standard",
           "ref_id": "standard:LA-H4G8-DL-001:standard",
           "source_type": "curriculum_standard_field"
@@ -184,117 +143,35 @@
       "structure": "在真实或变化情境中迁移（生活）",
       "title": "在真实或变化情境中迁移",
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
-    },
-    {
-      "case_id": "hc_d8d636e2207ad3c3",
-      "component_ids": [
-        "lc_c0a495c8cfa9a54a",
-        "lc_adc8cd7689001941"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断、展示分析。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够判断、展示分析；优先采集：劳动测试、评语评价、展示评价、劳动档案袋。",
-        "学生能够判断和劳动档案袋等方式记录；优先采集：劳动测试、评语评价、展示评价、劳动档案袋。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能通过劳动测试、评语分析并判断、展示分析并判断和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务性劳动；理解劳动创造美好生活的道理；能规划协作流程并反思劳动质量。",
-          "excerpt_hash": "7b66240bf6e35c2b272fca500a41ca32cda92ea083356615ee26a2adf132543e",
-          "field": "standard",
-          "ref_id": "standard:LA-H4G8-DL-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_76bb2246872d9f35",
-      "component_type": "conceptual",
+      "component_id": "lc_85351878b812f05a",
+      "component_type": "metacognitive",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够通过劳动测试、评语分析",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过劳动测试、评语分析，并说明关键步骤、特征或依据。",
-      "label": "通过劳动测试、评语分析",
+      "description": "学生能够通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录，并说明关键步骤、特征或依据。",
+      "label": "通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够通过劳动测试、评语分析；优先采集：劳动测试、评语评价、展示评价、劳动档案袋。",
+      "observable_evidence": "学生能够通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录；优先采集：劳动测试、评语评价、展示评价、劳动档案袋。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "通过劳动测试、评语分析",
-          "excerpt_hash": "971df43fa56a86ddfda17ff43478627e35463a080ed27ae3701815e633f74077",
+          "excerpt": "通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录",
+          "excerpt_hash": "627852bb8d7fcaa8c08f8600dbc38a465dd1a757a8ff34a747c0cd6159520113",
           "field": "standard",
           "ref_id": "standard:LA-H4G8-DL-001:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "通过劳动测试、评语分析"
+      "source_statement": "通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录"
     },
     {
-      "component_id": "lc_c0a495c8cfa9a54a",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够判断、展示分析",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断、展示分析，并说明关键步骤、特征或依据。",
-      "label": "判断、展示分析",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够判断、展示分析；优先采集：劳动测试、评语评价、展示评价、劳动档案袋。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "判断、展示分析",
-          "excerpt_hash": "d76f4c8aee4c7b2460353f32708c224ef05c4b98d05216ee8cecc3932fb37236",
-          "field": "standard",
-          "ref_id": "standard:LA-H4G8-DL-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "判断、展示分析"
-    },
-    {
-      "component_id": "lc_adc8cd7689001941",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够判断和劳动档案袋等方式记录",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断和劳动档案袋等方式记录，并说明关键步骤、特征或依据。",
-      "label": "判断和劳动档案袋等方式记录",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够判断和劳动档案袋等方式记录；优先采集：劳动测试、评语评价、展示评价、劳动档案袋。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "判断和劳动档案袋等方式记录",
-          "excerpt_hash": "d72a02584c4d374159da706ec5e71808e277916f2666631b3329e651e3555767",
-          "field": "standard",
-          "ref_id": "standard:LA-H4G8-DL-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "判断和劳动档案袋等方式记录"
-    },
-    {
-      "component_id": "lc_a844340a212a4956",
+      "component_id": "lc_84ee15ce86c0b4f0",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
@@ -318,7 +195,7 @@
       "source_statement": "呈现劳动过程、劳动成果和劳动感受"
     },
     {
-      "component_id": "lc_1c32a297c93e7137",
+      "component_id": "lc_0a3fd2f6910bf8a6",
       "component_type": "disposition",
       "condition": "",
       "confidence": 0.72,
@@ -342,7 +219,7 @@
       "source_statement": "通过持续参与日常生活劳动、生产劳动和服务性劳动"
     },
     {
-      "component_id": "lc_78c8dde7f4782755",
+      "component_id": "lc_71c43756df629f62",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
@@ -364,54 +241,6 @@
         }
       ],
       "source_statement": "理解劳动创造美好生活的道理"
-    },
-    {
-      "component_id": "lc_fb64896a35249881",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够规划协作流程",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生规划协作流程，并说明关键步骤、特征或依据。",
-      "label": "规划协作流程",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够规划协作流程；优先采集：劳动测试、评语评价、展示评价、劳动档案袋。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "规划协作流程",
-          "excerpt_hash": "4a84ad92a900406a3d30c00b32a9c485273924f5ccc4aa2724f26c9011663634",
-          "field": "standard",
-          "ref_id": "standard:LA-H4G8-DL-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "规划协作流程"
-    },
-    {
-      "component_id": "lc_d93ba0633b6f880c",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够反思劳动质量",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生反思劳动质量，并说明关键步骤、特征或依据。",
-      "label": "反思劳动质量",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够反思劳动质量；优先采集：劳动测试、评语评价、展示评价、劳动档案袋。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "反思劳动质量",
-          "excerpt_hash": "7183a8fbee03b379e048527278d4ed6578fdbd0c6cd3aa63470c31916e9cbe23",
-          "field": "standard",
-          "ref_id": "standard:LA-H4G8-DL-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "反思劳动质量"
     }
   ],
   "prerequisite_candidates": [
@@ -430,9 +259,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "LA-H4G7-DL-002",
-      "source_label": "能通过劳动测试、评语初步判断、展示初步判断和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务…",
+      "source_label": "能通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务性劳动；…",
       "target_code": "LA-H4G8-DL-001",
-      "target_label": "能通过劳动测试、评语分析并判断、展示分析并判断和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和…"
+      "target_label": "能通过劳动测试、评语评价、展示评价和劳动档案袋等方式记录并呈现劳动过程、劳动成果和劳动感受；能通过持续参与日常生活劳动、生产劳动和服务性劳动；…"
     }
   ],
   "prerequisite_review_coverage": {
@@ -443,7 +272,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "7b66240bf6e35c2b272fca500a41ca32cda92ea083356615ee26a2adf132543e",
+  "source_standard_hash": "5081f803304358f72ca0a23075fb1ea614be07bce3bdca67fc0dc16927955683",
   "standard_code": "LA-H4G8-DL-001",
   "verified_prerequisites": []
 }

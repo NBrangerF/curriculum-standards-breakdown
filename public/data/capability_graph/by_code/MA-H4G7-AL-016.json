@@ -3,95 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_a382c9415044c5c6"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_fbbaa9fc1ff53848",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_902bf7685fd70d30",
-        "hc_b47cdf516a25316d"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明解题步骤和基本依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质；能说明解题步骤和基本依据。",
-          "excerpt_hash": "2eec90d4513a9462db53f557c28df4644c5fc68b9c865b82fdd270918bc73563",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-AL-016:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "强调不等关系、数轴表示和实际问题约束条件之间的联系。",
-          "excerpt_hash": "7af13df7b878207c4fedd188371fb806482e933beab6b416a4fb4b0fd3f65fb8",
-          "field": "teaching_tip",
-          "ref_id": "standard:MA-H4G7-AL-016:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明解题步骤和基本依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“强调不等关系、数轴表示和实际问题约束条件之间的联系。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "multi_step_procedure",
-      "component_ids": [
-        "lc_a382c9415044c5c6"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_707ee662aca91f91",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_902bf7685fd70d30",
-        "hc_b47cdf516a25316d"
-      ],
-      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明解题步骤和基本依据”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质；能说明解题步骤和基本依据。",
-          "excerpt_hash": "2eec90d4513a9462db53f557c28df4644c5fc68b9c865b82fdd270918bc73563",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-AL-016:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "强调不等关系、数轴表示和实际问题约束条件之间的联系。",
-          "excerpt_hash": "7af13df7b878207c4fedd188371fb806482e933beab6b416a4fb4b0fd3f65fb8",
-          "field": "teaching_tip",
-          "ref_id": "standard:MA-H4G7-AL-016:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明解题步骤和基本依据”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“强调不等关系、数轴表示和实际问题约束条件之间的联系。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_39300f0848233a56"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生根据数量关系列不等式解决简单实际问题的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_b86877ad5786d2f4",
+      "difficulty_id": "cd_0a33d043d4cbc3e9",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_d51e7943f428e519"
+        "hc_1929b7040ef6d445"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“根据数量关系列不等式解决简单实际问题”中的实际过程进一步核验。",
       "manifestation": "在要求学生“根据数量关系列不等式解决简单实际问题”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -101,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质；能说明解题步骤和基本依据。",
-          "excerpt_hash": "2eec90d4513a9462db53f557c28df4644c5fc68b9c865b82fdd270918bc73563",
+          "excerpt": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质。",
+          "excerpt_hash": "3fbdd4bcf93998e07aa3e52c071f348b201a15743a73ddd1fc6dce7af3b3d692",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-AL-016:standard",
           "source_type": "curriculum_standard_field"
@@ -210,45 +132,12 @@
       "review_status": "machine_checked",
       "source_code": "MA-H4G7-AL-016",
       "target_code": "MA-H4G8-AL-017",
-      "target_label": "能根据数量关系列不等式解决简单实际问题；会用数轴确定两个一元一次不等式组成的不等式组解集；能解数字系数的一元一次不等式并在数轴上表示解集；能比…"
+      "target_label": "能根据数量关系列不等式解决简单实际问题；会用数轴确定两个一元一次不等式组成的不等式组解集；能解数字系数的一元一次不等式并在数轴上表示解集。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_902bf7685fd70d30",
-      "component_ids": [
-        "lc_a382c9415044c5c6"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "依据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明解题步骤和基本依据；优先采集：不等式建模、数轴表示、实际问题解答。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质；能说明解题步骤和基本依据。",
-          "excerpt_hash": "2eec90d4513a9462db53f557c28df4644c5fc68b9c865b82fdd270918bc73563",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-AL-016:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（依据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_d51e7943f428e519",
+      "case_id": "hc_1929b7040ef6d445",
       "component_ids": [
         "lc_39300f0848233a56"
       ],
@@ -268,8 +157,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质；能说明解题步骤和基本依据。",
-          "excerpt_hash": "2eec90d4513a9462db53f557c28df4644c5fc68b9c865b82fdd270918bc73563",
+          "excerpt": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质。",
+          "excerpt_hash": "3fbdd4bcf93998e07aa3e52c071f348b201a15743a73ddd1fc6dce7af3b3d692",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-AL-016:standard",
           "source_type": "curriculum_standard_field"
@@ -278,38 +167,6 @@
       "structure": "在真实或变化情境中迁移（实际）",
       "title": "在真实或变化情境中迁移",
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
-    },
-    {
-      "case_id": "hc_b47cdf516a25316d",
-      "component_ids": [
-        "lc_a382c9415044c5c6"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "步骤"
-      ],
-      "demand_dimension": "multi_step",
-      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明解题步骤和基本依据；优先采集：不等式建模、数轴表示、实际问题解答。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质；能说明解题步骤和基本依据。",
-          "excerpt_hash": "2eec90d4513a9462db53f557c28df4644c5fc68b9c865b82fdd270918bc73563",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-AL-016:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "保持多步骤或完整结构（步骤）",
-      "title": "保持多步骤或完整结构",
-      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
     }
   ],
   "learning_components": [
@@ -384,30 +241,6 @@
         }
       ],
       "source_statement": "探索不等式基本性质"
-    },
-    {
-      "component_id": "lc_a382c9415044c5c6",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明解题步骤和基本依据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明解题步骤和基本依据，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明解题步骤和基本依据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明解题步骤和基本依据；优先采集：不等式建模、数轴表示、实际问题解答。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明解题步骤和基本依据",
-          "excerpt_hash": "d00757cae74b1459bbcf36ec8c31849ae0007a290e5019ba4e746f5676a42251",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-AL-016:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明解题步骤和基本依据"
     }
   ],
   "prerequisite_candidates": [
@@ -429,7 +262,7 @@
       "source_code": "MA-D3-AL-004",
       "source_label": "能在具体问题中感受等式的基本性质。",
       "target_code": "MA-H4G7-AL-016",
-      "target_label": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质；能说明解题步骤和基本依据。"
+      "target_label": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质。"
     },
     {
       "confidence": "medium",
@@ -449,7 +282,7 @@
       "source_code": "MA-D3-AL-005",
       "source_label": "能在解决实际问题的过程中，选择合适的方法进行估算，并能描述估算的过程。",
       "target_code": "MA-H4G7-AL-016",
-      "target_label": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质；能说明解题步骤和基本依据。"
+      "target_label": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质。"
     },
     {
       "confidence": "medium",
@@ -469,7 +302,7 @@
       "source_code": "MA-D3-AL-008",
       "source_label": "能运用常见的数量关系解决实际问题，能合理解释结果的实际意义，逐步形成模型意识和几何直观，提高解决问题的能力。",
       "target_code": "MA-H4G7-AL-016",
-      "target_label": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质；能说明解题步骤和基本依据。"
+      "target_label": "能根据数量关系列不等式解决简单实际问题；能结合具体问题了解不等式意义；能探索不等式基本性质。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -480,7 +313,7 @@
     "total_candidate_count": 3,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "2eec90d4513a9462db53f557c28df4644c5fc68b9c865b82fdd270918bc73563",
+  "source_standard_hash": "3fbdd4bcf93998e07aa3e52c071f348b201a15743a73ddd1fc6dce7af3b3d692",
   "standard_code": "MA-H4G7-AL-016",
   "verified_prerequisites": []
 }

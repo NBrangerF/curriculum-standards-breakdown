@@ -3,44 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_ac7b04cddb8bb26e"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点或文化差异的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_34f475db02864f9b",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_b05354140b36d014"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点或文化差异”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点或文化差异”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能讲述具有代表性的中外杰出人物故事，表达基本清楚；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "e51cc618b1df722e1b05d4121d7dff3a29b61ac9b8d94e4c1772b4dad2e022f4",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-014:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "鼓励学生用正确句式和时态组织信息，并兼顾文化内容的准确性。",
-          "excerpt_hash": "73af6100249ba79af60ff5a7333e9b82bff9cd2729c8660e87b73ba8159e1715",
-          "field": "teaching_tip",
-          "ref_id": "standard:EN-H4G8-CA-014:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明观点或文化差异，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点或文化差异”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“鼓励学生用正确句式和时态组织信息，并兼顾文化内容的准确性。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
         "lc_e25963983344e02f",
@@ -48,11 +10,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生通过口语或书面语篇描述、介绍人和事物的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_ce326299a59cfd6e",
+      "difficulty_id": "cd_e3fd80c049320881",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_fba3138de2df26be"
+        "hc_89f0d6c0c7637bd5"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“通过口语或书面语篇描述、介绍人和事物”中的实际过程进一步核验。",
       "manifestation": "在要求学生“通过口语或书面语篇描述、介绍人和事物”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -62,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能讲述具有代表性的中外杰出人物故事，表达基本清楚；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "e51cc618b1df722e1b05d4121d7dff3a29b61ac9b8d94e4c1772b4dad2e022f4",
+          "excerpt": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能讲述具有代表性的中外杰出人物故事，表达基本清楚。",
+          "excerpt_hash": "0ca1aa0b8120f9321c650f2fcbd8b3e87f430b11a7f0fc593fed0ec2b901a1e5",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-CA-014:standard",
           "source_type": "curriculum_standard_field"
@@ -176,39 +138,7 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_b05354140b36d014",
-      "component_ids": [
-        "lc_ac7b04cddb8bb26e"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点或文化差异。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明观点或文化差异；优先采集：主题介绍短文、口头讲述、文化说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能讲述具有代表性的中外杰出人物故事，表达基本清楚；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "e51cc618b1df722e1b05d4121d7dff3a29b61ac9b8d94e4c1772b4dad2e022f4",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-014:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_fba3138de2df26be",
+      "case_id": "hc_89f0d6c0c7637bd5",
       "component_ids": [
         "lc_022df2c39eb51d93",
         "lc_651587c22546050b"
@@ -231,8 +161,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能讲述具有代表性的中外杰出人物故事，表达基本清楚；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "e51cc618b1df722e1b05d4121d7dff3a29b61ac9b8d94e4c1772b4dad2e022f4",
+          "excerpt": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能讲述具有代表性的中外杰出人物故事，表达基本清楚。",
+          "excerpt_hash": "0ca1aa0b8120f9321c650f2fcbd8b3e87f430b11a7f0fc593fed0ec2b901a1e5",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-CA-014:standard",
           "source_type": "curriculum_standard_field"
@@ -339,54 +269,6 @@
         }
       ],
       "source_statement": "表达基本清楚"
-    },
-    {
-      "component_id": "lc_e4773a9fffa5776e",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合语篇信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合语篇信息，并说明关键步骤、特征或依据。",
-      "label": "整合语篇信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合语篇信息；优先采集：主题介绍短文、口头讲述、文化说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合语篇信息",
-          "excerpt_hash": "8fc7fa6e6eeaf7e69dbafe1c0139000f909d2a7e8aba5e8aae0003274289a04b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-014:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合语篇信息"
-    },
-    {
-      "component_id": "lc_ac7b04cddb8bb26e",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点或文化差异",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点或文化差异，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点或文化差异",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点或文化差异；优先采集：主题介绍短文、口头讲述、文化说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点或文化差异",
-          "excerpt_hash": "eddc2a80e635a5a126c12dfa34e72610db5e58b8d29295eaa8d1d361aecdddff",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-014:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点或文化差异"
     }
   ],
   "prerequisite_candidates": [
@@ -405,7 +287,7 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "EN-H4G7-CA-013",
-      "source_label": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能表意清晰、话语基本通顺；能获取…",
+      "source_label": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能表意清晰、话语基本通顺。",
       "target_code": "EN-H4G8-CA-014",
       "target_label": "能用所学英语通过口语或书面语篇简单介绍中外主要文化现象，语义基本连贯；能通过口语或书面语篇描述、介绍人和事物；能讲述具有代表性的中外杰出人物故…"
     }
@@ -418,7 +300,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "e51cc618b1df722e1b05d4121d7dff3a29b61ac9b8d94e4c1772b4dad2e022f4",
+  "source_standard_hash": "0ca1aa0b8120f9321c650f2fcbd8b3e87f430b11a7f0fc593fed0ec2b901a1e5",
   "standard_code": "EN-H4G8-CA-014",
   "verified_prerequisites": []
 }

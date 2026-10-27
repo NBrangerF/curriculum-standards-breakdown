@@ -3,44 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_c8d938996cbee610"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_b5d4a4fef22c05fd",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_ca60e6d07cbac174"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "f0d93b5c4b3d6b4c2efe2b55cd4f624e047077d970aa62495f008c130e2b38fe",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-AR-003:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把灾害成因、防护行动和生命安全教育放在真实情境中学习。",
-          "excerpt_hash": "c35853f4c32aa34f314b5cee91e43f12ae2bb6b57471c8ed47182d618b0efa92",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G7-AR-003:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把灾害成因、防护行动和生命安全教育放在真实情境中学习。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_4ad2739eecf136f9",
@@ -48,11 +10,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生正确运用防灾减灾措施和应急救灾基本常识完成任务的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_24fe4968426a4d35",
+      "difficulty_id": "cd_0b9c52f050e3bca8",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_4f937676f2eb6983"
+        "hc_b5afca46e45ffc52"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“正确运用防灾减灾措施和应急救灾基本常识完成任务”中的实际过程进一步核验。",
       "manifestation": "在要求学生“正确运用防灾减灾措施和应急救灾基本常识完成任务”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -62,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "f0d93b5c4b3d6b4c2efe2b55cd4f624e047077d970aa62495f008c130e2b38fe",
+          "excerpt": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议。",
+          "excerpt_hash": "f041ca42ba4d87d799caf6dd4cbf3b6eca4f004f32a960de47f25c642c5d6663",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-AR-003:standard",
           "source_type": "curriculum_standard_field"
@@ -82,17 +44,15 @@
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_09d03eca7690cbef",
-        "lc_c8d938996cbee610"
+        "lc_09d03eca7690cbef"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生通过资料分析认识自然灾害对生产生活的影响的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d62e8fe020d42ab0",
+      "difficulty_id": "cd_e936ef7eebd8e01a",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_ca60e6d07cbac174",
-        "hc_4f937676f2eb6983"
+        "hc_b5afca46e45ffc52"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过资料分析认识自然灾害对生产生活的影响”中的实际过程进一步核验。",
       "manifestation": "在要求学生“通过资料分析认识自然灾害对生产生活的影响”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -102,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "f0d93b5c4b3d6b4c2efe2b55cd4f624e047077d970aa62495f008c130e2b38fe",
+          "excerpt": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议。",
+          "excerpt_hash": "f041ca42ba4d87d799caf6dd4cbf3b6eca4f004f32a960de47f25c642c5d6663",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-AR-003:standard",
           "source_type": "curriculum_standard_field"
@@ -273,45 +233,12 @@
       "review_status": "machine_checked",
       "source_code": "SC-H4G7-AR-003",
       "target_code": "SC-H4G8-AR-003",
-      "target_label": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；掌握防灾减灾措施和应急救灾基本常识；能比…"
+      "target_label": "能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能结合实例说明自然灾害发生的原因和危害；掌握防灾减灾措施和应急救灾基本常识。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_ca60e6d07cbac174",
-      "component_ids": [
-        "lc_c8d938996cbee610"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够用观察证据说明基本科学概念；优先采集：灾害案例分析、应急方案、避险流程图。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "f0d93b5c4b3d6b4c2efe2b55cd4f624e047077d970aa62495f008c130e2b38fe",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-AR-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（证据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_4f937676f2eb6983",
+      "case_id": "hc_b5afca46e45ffc52",
       "component_ids": [
         "lc_09d03eca7690cbef"
       ],
@@ -331,8 +258,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "f0d93b5c4b3d6b4c2efe2b55cd4f624e047077d970aa62495f008c130e2b38fe",
+          "excerpt": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议。",
+          "excerpt_hash": "f041ca42ba4d87d799caf6dd4cbf3b6eca4f004f32a960de47f25c642c5d6663",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-AR-003:standard",
           "source_type": "curriculum_standard_field"
@@ -439,30 +366,6 @@
         }
       ],
       "source_statement": "提出自我保护建议"
-    },
-    {
-      "component_id": "lc_c8d938996cbee610",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用观察证据说明基本科学概念",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用观察证据说明基本科学概念",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：灾害案例分析、应急方案、避险流程图。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用观察证据说明基本科学概念",
-          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-AR-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用观察证据说明基本科学概念"
     }
   ],
   "prerequisite_candidates": [
@@ -484,7 +387,7 @@
       "source_code": "SC-D3-AR-001",
       "source_label": "结合实例，知道台风、洪涝、干旱、沙尘暴、泥石流等灾害及其影响，树立自我保护和防灾减灾的意识。",
       "target_code": "SC-H4G7-AR-003",
-      "target_label": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议；能用观察证据说…"
+      "target_label": "掌握防灾减灾措施和应急救灾基本常识；能知道我国是自然灾害多发国家；能通过资料分析认识自然灾害对生产生活的影响并提出自我保护建议。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -495,7 +398,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "f0d93b5c4b3d6b4c2efe2b55cd4f624e047077d970aa62495f008c130e2b38fe",
+  "source_standard_hash": "f041ca42ba4d87d799caf6dd4cbf3b6eca4f004f32a960de47f25c642c5d6663",
   "standard_code": "SC-H4G7-AR-003",
   "verified_prerequisites": []
 }

@@ -15,6 +15,19 @@ const SOURCE_DOCUMENTS = {
     science: '义务教育科学课程标准（2022年版）'
 }
 
+// Official PDFs published by the Ministry of Education (2022-04); page numbers refer to these files.
+const SOURCE_PDF_URLS = {
+    arts: 'https://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582364678888.pdf',
+    chinese: 'https://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582344386456.pdf',
+    english: 'https://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582349487953.pdf',
+    it: 'https://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582361024968.pdf',
+    labor: 'https://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582367012450.pdf',
+    math: 'https://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220510531636118932.pdf',
+    morality_law: 'https://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582343475848.pdf',
+    pe: 'https://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582362336303.pdf',
+    science: 'https://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582355009892.pdf'
+}
+
 const CONTENT_FIELDS = [
     'standard',
     'context',
@@ -76,8 +89,9 @@ function detectQualityFlags(field, value) {
 
 function inferProvenance(record, field, value) {
     if (field === 'standard') {
+        // Standard text is kebiao's restatement unless it is identical to the matched official wording.
         if (record.source_standard_original && normalizeText(record.source_standard_original) === normalizeText(value)) return 'official'
-        return record.source_standard_original ? 'editorial' : 'extracted'
+        return 'editorial'
     }
     if (field === 'context' || field === 'teaching_tip') {
         return /^[“「『]/u.test(String(value || '').trim()) ? 'extracted' : 'editorial'
@@ -96,6 +110,8 @@ function fieldMetadata(record, field) {
     const value = record[field]
     const provenance = inferProvenance(record, field, value)
     const qualityFlags = detectQualityFlags(field, value)
+    const page = inferSourcePage(record)
+    const pdfUrl = SOURCE_PDF_URLS[record.subject_slug]
     const confidenceBase = { official: 1, extracted: 0.82, editorial: 0.68, rule_generated: 0.58, ai_generated: 0.45 }[provenance]
     const confidence = Math.max(0.1, Number((confidenceBase - qualityFlags.length * 0.18).toFixed(2)))
     const reviewStatus = qualityFlags.length ? 'unreviewed' : 'machine_checked'
@@ -103,7 +119,8 @@ function fieldMetadata(record, field) {
         provenance,
         source_ref: {
             document: SOURCE_DOCUMENTS[record.subject_slug] || '义务教育课程标准（2022年版）',
-            page: inferSourcePage(record),
+            page,
+            ...(field === 'standard' && page && pdfUrl ? { url: `${pdfUrl}#page=${page}` } : {}),
             section: record.source_section_type || FIELD_SECTION[field],
             excerpt_hash: sha256(value)
         },

@@ -3,54 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_9df99e31a5d68807"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明作品意图或效果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_b171ee39f1f52cae",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_83c27e902ed0d166"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明作品意图或效果”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明作品意图或效果”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "4b5feaf9b36704f80dbb6e562be8ef0f447de260aeeb5f60ad7f727de325e11a",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AE-006:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "以全员参与的合奏为主，关注进入、停止、声部配合和音色控制。",
-          "excerpt_hash": "46f13fd09ee40cc67785d92549ed9394730f1b89a8ab8d70e64b1275287b88c3",
-          "field": "teaching_tip",
-          "ref_id": "standard:AR-H4G8-AE-006:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明作品意图或效果，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明作品意图或效果”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“以全员参与的合奏为主，关注进入、停止、声部配合和音色控制。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_a290bacce50b3808"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生运用一定演奏技巧提高表现力的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_3b8362e07bec722d",
+      "difficulty_id": "cd_ed57211a53e7044f",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_fadf877fd062102c"
+      ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用一定演奏技巧提高表现力”中的实际过程进一步核验。",
       "manifestation": "在要求学生“运用一定演奏技巧提高表现力”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
       "method": "difficulty_pattern_rules_v2",
@@ -59,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "4b5feaf9b36704f80dbb6e562be8ef0f447de260aeeb5f60ad7f727de325e11a",
+          "excerpt": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力。",
+          "excerpt_hash": "190709dd55564c72c7e303c1e87a114de82cae736d59791f93d0bdade95e9cd1",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-AE-006:standard",
           "source_type": "curriculum_standard_field"
@@ -230,41 +194,43 @@
       "review_status": "machine_checked",
       "source_code": "AR-H4G8-AE-006",
       "target_code": "AR-H4G9-AE-009",
-      "target_label": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力；能评价作品效果并完善展演、创作…"
+      "target_label": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_83c27e902ed0d166",
+      "case_id": "hc_fadf877fd062102c",
       "component_ids": [
-        "lc_9df99e31a5d68807"
+        "lc_bece4f8d8e5c0ff9",
+        "lc_655fb4be8fa1f6e0",
+        "lc_a290bacce50b3808"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明作品意图或效果。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生表现节拍、节奏、旋律、乐句和乐段特点。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够说明作品意图或效果；优先采集：演奏展示、合奏观察、表现处理说明。"
+        "学生在演奏中，能够表现节拍、节奏、旋律、乐句和乐段特点；优先采集：演奏展示、合奏观察、表现处理说明。",
+        "学生能够较好地与他人合作演奏多声部音乐；优先采集：演奏展示、合奏观察、表现处理说明。",
+        "学生能够运用一定演奏技巧提高表现力；优先采集：演奏展示、合奏观察、表现处理说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "4b5feaf9b36704f80dbb6e562be8ef0f447de260aeeb5f60ad7f727de325e11a",
+          "excerpt": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力。",
+          "excerpt_hash": "190709dd55564c72c7e303c1e87a114de82cae736d59791f93d0bdade95e9cd1",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-AE-006:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "表现节拍、节奏、旋律、乐句和乐段特点；较好地与他人合作演奏多声部音乐；运用一定演奏技巧提高表现力",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -283,8 +249,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "4b5feaf9b36704f80dbb6e562be8ef0f447de260aeeb5f60ad7f727de325e11a",
+          "excerpt": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力。",
+          "excerpt_hash": "190709dd55564c72c7e303c1e87a114de82cae736d59791f93d0bdade95e9cd1",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-AE-006:standard",
           "source_type": "curriculum_standard_field"
@@ -339,54 +305,6 @@
         }
       ],
       "source_statement": "运用一定演奏技巧提高表现力"
-    },
-    {
-      "component_id": "lc_83f634628a82b174",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够调整表现方法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整表现方法，并说明关键步骤、特征或依据。",
-      "label": "调整表现方法",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够调整表现方法；优先采集：演奏展示、合奏观察、表现处理说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "调整表现方法",
-          "excerpt_hash": "624139c8c27447716076606d4fffc25d29bbd39623044fea23b9317d3438bb50",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AE-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "调整表现方法"
-    },
-    {
-      "component_id": "lc_9df99e31a5d68807",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明作品意图或效果",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明作品意图或效果，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明作品意图或效果",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明作品意图或效果；优先采集：演奏展示、合奏观察、表现处理说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明作品意图或效果",
-          "excerpt_hash": "9848376f6e433abf944ce2802b9a7699e3ab8073534008b9730e477835bb86eb",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-AE-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明作品意图或效果"
     }
   ],
   "prerequisite_candidates": [
@@ -405,9 +323,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "AR-H4G7-AE-007",
-      "source_label": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力；能描述艺术要素并完成基础表现或…",
+      "source_label": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力。",
       "target_code": "AR-H4G8-AE-006",
-      "target_label": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力；能调整表现方法并说明作品意图或…"
+      "target_label": "能在演奏中表现节拍、节奏、旋律、乐句和乐段特点；能较好地与他人合作演奏多声部音乐；能运用一定演奏技巧提高表现力。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -418,7 +336,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "4b5feaf9b36704f80dbb6e562be8ef0f447de260aeeb5f60ad7f727de325e11a",
+  "source_standard_hash": "190709dd55564c72c7e303c1e87a114de82cae736d59791f93d0bdade95e9cd1",
   "standard_code": "AR-H4G8-AE-006",
   "verified_prerequisites": []
 }

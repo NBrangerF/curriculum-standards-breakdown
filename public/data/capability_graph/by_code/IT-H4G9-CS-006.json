@@ -3,28 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_9edecd58d12b6760"
+        "lc_5bdf8db53558205f"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生阐释网络中信息编码、传输和呈现的原理的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_52876727db43068b",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生准确说出网络中信息编码、传输和呈现的原理的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8a57e89adcc103ad",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_6a1a83e77c2fe797"
+        "hc_6173887ca5c0d9be"
       ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“阐释网络中信息编码、传输和呈现的原理”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“阐释网络中信息编码、传输和呈现的原理”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“准确说出网络中信息编码、传输和呈现的原理”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能设计、测试并评价数字化解决方案。",
-          "excerpt_hash": "bd88a35fd45367e3464eb41066f6b68db8626f53f78db58a77a39b96463a1437",
+          "excerpt": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据。",
+          "excerpt_hash": "50af25a4ac848ce862446116ee9368663ecfc68b6bb9a3cf7a1db0829180f992",
           "field": "standard",
           "ref_id": "standard:IT-H4G9-CS-006:standard",
           "source_type": "curriculum_standard_field"
@@ -37,85 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后阐释网络中信息编码、传输和呈现的原理，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“阐释网络中信息编码、传输和呈现的原理”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用可观察的数据流和项目成果帮助学生理解抽象的网络传输机制。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "transfer",
-      "component_ids": [
-        "lc_3e42bb6cf24369de"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生评价数字化解决方案的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_efdbcc48b0faeddd",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_055dced5cd8ee300"
-      ],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“评价数字化解决方案”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“评价数字化解决方案”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "阐释网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能设计、测试并评价数字化解决方案。",
-          "excerpt_hash": "bd88a35fd45367e3464eb41066f6b68db8626f53f78db58a77a39b96463a1437",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G9-CS-006:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用可观察的数据流和项目成果帮助学生理解抽象的网络传输机制。",
-          "excerpt_hash": "a5d01d48e2c851cb9d5f9dc74a507d9cf27bce27774e41fc2f13b1fcacd8b578",
-          "field": "teaching_tip",
-          "ref_id": "standard:IT-H4G9-CS-006:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后评价数字化解决方案，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“评价数字化解决方案”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用可观察的数据流和项目成果帮助学生理解抽象的网络传输机制。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "creation_design",
-      "component_ids": [
-        "lc_5f3daf206d5fdf1c",
-        "lc_3e42bb6cf24369de"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生设计、测试的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_aee5255897e44f2c",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_055dced5cd8ee300"
-      ],
-      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“设计、测试”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“设计、测试”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "阐释网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能设计、测试并评价数字化解决方案。",
-          "excerpt_hash": "bd88a35fd45367e3464eb41066f6b68db8626f53f78db58a77a39b96463a1437",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G9-CS-006:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用可观察的数据流和项目成果帮助学生理解抽象的网络传输机制。",
-          "excerpt_hash": "a5d01d48e2c851cb9d5f9dc74a507d9cf27bce27774e41fc2f13b1fcacd8b578",
-          "field": "teaching_tip",
-          "ref_id": "standard:IT-H4G9-CS-006:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后设计、测试，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“设计、测试”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“用可观察的数据流和项目成果帮助学生理解抽象的网络传输机制。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后准确说出网络中信息编码、传输和呈现的原理，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出网络中信息编码、传输和呈现的原理”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用可观察的数据流和项目成果帮助学生理解抽象的网络传输机制。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -133,97 +56,62 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_6a1a83e77c2fe797",
+      "case_id": "hc_6173887ca5c0d9be",
       "component_ids": [
-        "lc_9edecd58d12b6760"
+        "lc_5bdf8db53558205f",
+        "lc_63fff2afccca6307"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "阐释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释网络中信息编码、传输和呈现的原理。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出网络中信息编码、传输和呈现的原理。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够阐释网络中信息编码、传输和呈现的原理；优先采集：数据采集表、可视化成果、过程说明。"
+        "学生能够准确说出网络中信息编码、传输和呈现的原理；优先采集：数据采集表、可视化成果、过程说明。",
+        "学生能够通过软件与硬件结合的项目活动采集、分析和呈现数据；优先采集：数据采集表、可视化成果、过程说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能设计、测试并评价数字化解决方案。",
-          "excerpt_hash": "bd88a35fd45367e3464eb41066f6b68db8626f53f78db58a77a39b96463a1437",
+          "excerpt": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据。",
+          "excerpt_hash": "50af25a4ac848ce862446116ee9368663ecfc68b6bb9a3cf7a1db0829180f992",
           "field": "standard",
           "ref_id": "standard:IT-H4G9-CS-006:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_055dced5cd8ee300",
-      "component_ids": [
-        "lc_5f3daf206d5fdf1c",
-        "lc_3e42bb6cf24369de"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "设计",
-        "方案"
-      ],
-      "demand_dimension": "creation_constraints",
-      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生设计、测试。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够设计、测试；优先采集：数据采集表、可视化成果、过程说明。",
-        "学生能够评价数字化解决方案；优先采集：数据采集表、可视化成果、过程说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "阐释网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能设计、测试并评价数字化解决方案。",
-          "excerpt_hash": "bd88a35fd45367e3464eb41066f6b68db8626f53f78db58a77a39b96463a1437",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G9-CS-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "在约束下设计、创作或改进（设计、方案）",
-      "title": "在约束下设计、创作或改进",
-      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
+      "structure": "准确说出网络中信息编码、传输和呈现的原理；通过软件与硬件结合的项目活动采集、分析和呈现数据",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_9edecd58d12b6760",
-      "component_type": "conceptual",
+      "component_id": "lc_5bdf8db53558205f",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够阐释网络中信息编码、传输和呈现的原理",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释网络中信息编码、传输和呈现的原理，并保留可回查的口头、书面或操作过程证据。",
-      "label": "阐释网络中信息编码、传输和呈现的原理",
+      "description": "学生能够准确说出网络中信息编码、传输和呈现的原理",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出网络中信息编码、传输和呈现的原理，并说明关键步骤、特征或依据。",
+      "label": "准确说出网络中信息编码、传输和呈现的原理",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够阐释网络中信息编码、传输和呈现的原理；优先采集：数据采集表、可视化成果、过程说明。",
+      "observable_evidence": "学生能够准确说出网络中信息编码、传输和呈现的原理；优先采集：数据采集表、可视化成果、过程说明。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释网络中信息编码、传输和呈现的原理",
-          "excerpt_hash": "08ff35c66eed4cd0c94e5b524ff8011e2125c7ac278ba39021489d3007540c3f",
+          "excerpt": "知道网络中信息编码、传输和呈现的原理",
+          "excerpt_hash": "514e210108d67c92debdb2b6156103dc138900bb672682189df36bb5325e6379",
           "field": "standard",
           "ref_id": "standard:IT-H4G9-CS-006:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "阐释网络中信息编码、传输和呈现的原理"
+      "source_statement": "知道网络中信息编码、传输和呈现的原理"
     },
     {
       "component_id": "lc_63fff2afccca6307",
@@ -248,54 +136,6 @@
         }
       ],
       "source_statement": "通过软件与硬件结合的项目活动采集、分析和呈现数据"
-    },
-    {
-      "component_id": "lc_5f3daf206d5fdf1c",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够设计、测试",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生设计、测试，并说明关键步骤、特征或依据。",
-      "label": "设计、测试",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够设计、测试；优先采集：数据采集表、可视化成果、过程说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "设计、测试",
-          "excerpt_hash": "f34282be97ea5b848e2f067f5e47b2decd09f4cc25efac7d5f22df8430dcc747",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G9-CS-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "设计、测试"
-    },
-    {
-      "component_id": "lc_3e42bb6cf24369de",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价数字化解决方案",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价数字化解决方案，并说明关键步骤、特征或依据。",
-      "label": "评价数字化解决方案",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价数字化解决方案；优先采集：数据采集表、可视化成果、过程说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价数字化解决方案",
-          "excerpt_hash": "3afa3da53a717451ad84e66bce8f0eaff2303dc576fceb8d0d1592cbd9ce2132",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G9-CS-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价数字化解决方案"
     }
   ],
   "prerequisite_candidates": [
@@ -314,9 +154,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "IT-H4G8-CS-005",
-      "source_label": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能分析系统关系并完成有步骤的数字作品。",
+      "source_label": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据。",
       "target_code": "IT-H4G9-CS-006",
-      "target_label": "阐释网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据；能设计、测试并评价数字化解决方案。"
+      "target_label": "知道网络中信息编码、传输和呈现的原理，能通过软件与硬件结合的项目活动采集、分析和呈现数据。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -327,7 +167,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "bd88a35fd45367e3464eb41066f6b68db8626f53f78db58a77a39b96463a1437",
+  "source_standard_hash": "50af25a4ac848ce862446116ee9368663ecfc68b6bb9a3cf7a1db0829180f992",
   "standard_code": "IT-H4G9-CS-006",
   "verified_prerequisites": []
 }

@@ -3,55 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_887bed9ed9222f14"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_de898abc8b950cf0",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_ecd378477628206c"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-033:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "强调常见化合物学习中的安全操作和性质证据。",
-          "excerpt_hash": "e50b61ea6f8c33fc13f9455655e855c5b0a7f2f9ebbdea9cef32c9224adf808d",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G7-SC-033:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“强调常见化合物学习中的安全操作和性质证据。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_ef8929eb4044be5d"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_60c6508022da5ad1",
+      "difficulty_id": "cd_037860839a9779ab",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_fd80c88680b6ee54"
+        "hc_d5758ab9f402cd2d"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -61,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
+          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响。",
+          "excerpt_hash": "5309cdae40b9626df21357cbd84ef35edfd3ff72cae842e229745eac9c385f66",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-033:standard",
           "source_type": "curriculum_standard_field"
@@ -81,17 +43,15 @@
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_ef8929eb4044be5d",
-        "lc_887bed9ed9222f14"
+        "lc_ef8929eb4044be5d"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_00a6344e9e1ec051",
+      "difficulty_id": "cd_21dd795c905d7e66",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_ecd378477628206c",
-        "hc_fd80c88680b6ee54"
+        "hc_d5758ab9f402cd2d"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -101,8 +61,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
+          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响。",
+          "excerpt_hash": "5309cdae40b9626df21357cbd84ef35edfd3ff72cae842e229745eac9c385f66",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-033:standard",
           "source_type": "curriculum_standard_field"
@@ -277,40 +237,7 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_ecd378477628206c",
-      "component_ids": [
-        "lc_887bed9ed9222f14"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够用观察证据说明基本科学概念；优先采集：酸碱检测记录、用途与风险说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-033:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（证据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_fd80c88680b6ee54",
+      "case_id": "hc_d5758ab9f402cd2d",
       "component_ids": [
         "lc_ef8929eb4044be5d"
       ],
@@ -330,8 +257,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
+          "excerpt": "能初步学会用酸碱指示剂和pH试纸检验溶液酸碱性；认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响。",
+          "excerpt_hash": "5309cdae40b9626df21357cbd84ef35edfd3ff72cae842e229745eac9c385f66",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-033:standard",
           "source_type": "curriculum_standard_field"
@@ -390,30 +317,6 @@
         }
       ],
       "source_statement": "认识酸、碱、常见盐和重要有机物的主要性质、用途、使用注意事项及其对生命活动、经济生活和环境的影响"
-    },
-    {
-      "component_id": "lc_887bed9ed9222f14",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用观察证据说明基本科学概念",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用观察证据说明基本科学概念",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：酸碱检测记录、用途与风险说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用观察证据说明基本科学概念",
-          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-033:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用观察证据说明基本科学概念"
     }
   ],
   "prerequisite_candidates": [
@@ -446,7 +349,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "90f542587e998e1b9e9f70a805ea00564c90510db91eff988531af50d5d02708",
+  "source_standard_hash": "5309cdae40b9626df21357cbd84ef35edfd3ff72cae842e229745eac9c385f66",
   "standard_code": "SC-H4G7-SC-033",
   "verified_prerequisites": []
 }

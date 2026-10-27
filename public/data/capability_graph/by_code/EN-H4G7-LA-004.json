@@ -3,66 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "language_expression",
-      "component_ids": [
-        "lc_e2fbebe39d88301d"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生完成简短交流的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_99f4413c1ac5c735",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_0279025d0ca52cd7"
-      ],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“完成简短交流”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“完成简短交流”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "5170bf75447d0dd2fa346aabbf181578df307fbae2ccdfdba52f0655f88422ef",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-LA-004:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "引导学生同时关注文字、图像、声音、表格等资源如何共同表达意义。",
-          "excerpt_hash": "c87a849daa8d2f4ff571198c57005037c27e58ebeb02985525445d340350cfaa",
-          "field": "teaching_tip",
-          "ref_id": "standard:EN-H4G7-LA-004:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后完成简短交流，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“完成简短交流”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“引导学生同时关注文字、图像、声音、表格等资源如何共同表达意义。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_4c403950b5e453ab"
+        "lc_90c5272b5e29e6e1"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_6b3f65b9bd9cdc6b",
+      "diagnostic_probe": "给出一个需要学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c5e5e0720d7ffc77",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_0279025d0ca52cd7"
+        "hc_1e91598fe20310ab"
       ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "5170bf75447d0dd2fa346aabbf181578df307fbae2ccdfdba52f0655f88422ef",
+          "excerpt": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。",
+          "excerpt_hash": "6c133a79b642107b95414eed127f8e45f9a315f6c6f7ab10f8b2d4ce2ba12d9c",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-LA-004:standard",
           "source_type": "curriculum_standard_field"
@@ -75,77 +37,22 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生同时关注文字、图像、声音、表格等资源如何共同表达意义。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生同时关注文字、图像、声音、表格等资源如何共同表达意义。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
     "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
+    "highest_evidence_level": "L1_scope",
     "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 1,
+    "specific_count": 0,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_d6d8a420d858155d",
-      "alignment_type": "supports",
-      "confidence": 0.86,
-      "coverage": "partial",
-      "edition_id": "ed_600fc96aca5a7c702986",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_c81ef75b15c2",
-        "tes_d54885996ab9b8da",
-        "textbook-node:tcn_baead39d394bb756",
-        "textbook-unit:tcu_a0f36fbc4ed02233"
-      ],
-      "evidence_role": "direct_textbook",
-      "evidence_spans": [
-        {
-          "evidence_role": "direct_textbook",
-          "excerpt": "6. 关于英文书信和电子邮件",
-          "excerpt_hash": "39d99822977735bdf4e3da30fd10bc007b152fe42ad7ac9856f77e8803b6841c",
-          "pdf_page": 88,
-          "printed_page": "65",
-          "span_id": "tes_d54885996ab9b8da"
-        }
-      ],
-      "learning_component_ids": [
-        "lc_4c403950b5e453ab"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_4c403950b5e453ab",
-          "label": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息"
-        }
-      ],
-      "level": "unit",
-      "method": "component_evidence_hybrid",
-      "node_id": "tcn_baead39d394bb756",
-      "node_title": "6关于英文书信和电子邮件",
-      "pdf_page": 88,
-      "printed_page": "65",
-      "publication_status": "published",
-      "rationale": "教材lesson“6关于英文书信和电子邮件”与课标 EN-H4G7-LA-004 的可教学小能力“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息”形成页内证据匹配。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 7,
-      "textbook_subject": "英语",
-      "textbook_title": "英语7年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_a0f36fbc4ed02233",
-      "unit_title": "UNIT 9"
-    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_788ff467cc7b7c25",
@@ -225,117 +132,65 @@
       "review_status": "machine_checked",
       "source_code": "EN-H4G7-LA-004",
       "target_code": "EN-H4G8-LA-005",
-      "target_label": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语…"
+      "target_label": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_0279025d0ca52cd7",
+      "case_id": "hc_1e91598fe20310ab",
       "component_ids": [
-        "lc_4c403950b5e453ab",
-        "lc_aafe9b73517602b1",
-        "lc_e2fbebe39d88301d"
+        "lc_90c5272b5e29e6e1"
       ],
       "confidence": 0.58,
       "covered_modifiers": [],
-      "demand_dimension": "integration",
-      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息。",
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；优先采集：多模态信息提取表、主题表达、展示说明。",
-        "学生能够获取关键信息；优先采集：多模态信息提取表、主题表达、展示说明。",
-        "学生能够完成简短交流；优先采集：多模态信息提取表、主题表达、展示说明。"
+        "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇；优先采集：多模态信息提取表、主题表达、展示说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "5170bf75447d0dd2fa346aabbf181578df307fbae2ccdfdba52f0655f88422ef",
+          "excerpt": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。",
+          "excerpt_hash": "6c133a79b642107b95414eed127f8e45f9a315f6c6f7ab10f8b2d4ce2ba12d9c",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-LA-004:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；获取关键信息；完成简短交流",
-      "title": "整合多个小能力完成完整表现",
-      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+      "structure": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_4c403950b5e453ab",
+      "component_id": "lc_90c5272b5e29e6e1",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，并说明关键步骤、特征或依据。",
-      "label": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息",
+      "description": "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇，并说明关键步骤、特征或依据。",
+      "label": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；优先采集：多模态信息提取表、主题表达、展示说明。",
+      "observable_evidence": "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇；优先采集：多模态信息提取表、主题表达、展示说明。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息",
-          "excerpt_hash": "b18f093e32db42560698ebc2121806105ce328ec12addcf7af4df4c5185d0f08",
+          "excerpt": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇",
+          "excerpt_hash": "41aba1186d1df24b0e9a4bd8842db338bc0c0901de2ca66c9f9c2eb11f9b0c38",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-LA-004:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息"
-    },
-    {
-      "component_id": "lc_aafe9b73517602b1",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够获取关键信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
-      "label": "获取关键信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够获取关键信息；优先采集：多模态信息提取表、主题表达、展示说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "获取关键信息",
-          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-LA-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "获取关键信息"
-    },
-    {
-      "component_id": "lc_e2fbebe39d88301d",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成简短交流",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
-      "label": "完成简短交流",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成简短交流；优先采集：多模态信息提取表、主题表达、展示说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成简短交流",
-          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-LA-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成简短交流"
+      "source_statement": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇"
     }
   ],
   "prerequisite_candidates": [
@@ -357,7 +212,7 @@
       "source_code": "EN-D2-LA-007",
       "source_label": "能读懂语言简单、主题相关的简短语篇，获取具体信息．理解主要内容。",
       "target_code": "EN-H4G7-LA-004",
-      "target_label": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语…"
+      "target_label": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -368,7 +223,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "5170bf75447d0dd2fa346aabbf181578df307fbae2ccdfdba52f0655f88422ef",
+  "source_standard_hash": "6c133a79b642107b95414eed127f8e45f9a315f6c6f7ab10f8b2d4ce2ba12d9c",
   "standard_code": "EN-H4G7-LA-004",
   "verified_prerequisites": []
 }

@@ -3,56 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_5a1531f1f041280a"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生建模、推理并检验结论的合理性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_120fe792d61ac422",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_0900ff947153755d",
-        "hc_ab7c3b81da7a977e"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“建模、推理并检验结论的合理性”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“建模、推理并检验结论的合理性”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能通过具体实例认识平面图形绕旋转中心的旋转；分析中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形；能建模、推理并检验结论的合理性。",
-          "excerpt_hash": "e842826d5a89537b53578ddaa9e327d88e53f3321029d80030c437825aadfb68",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G9-GE-027:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "强调旋转中距离和角度的不变量，联系现实图案欣赏。",
-          "excerpt_hash": "1f76dfce303619a64fd69b90bde55f9ee98a6fecba394001ad490dd73f0233f9",
-          "field": "teaching_tip",
-          "ref_id": "standard:MA-H4G9-GE-027:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后建模、推理并检验结论的合理性，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“建模、推理并检验结论的合理性”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“强调旋转中距离和角度的不变量，联系现实图案欣赏。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_9ce0ba74045b9d29"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d3978d6ab28e1b5b",
+      "difficulty_id": "cd_4f864138a0daf15e",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_5b6a54fdbf88d287"
+        "hc_1c2482b42d78667c"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -62,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过具体实例认识平面图形绕旋转中心的旋转；分析中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形；能建模、推理并检验结论的合理性。",
-          "excerpt_hash": "e842826d5a89537b53578ddaa9e327d88e53f3321029d80030c437825aadfb68",
+          "excerpt": "能通过具体实例认识平面图形绕旋转中心的旋转；了解中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形。",
+          "excerpt_hash": "df65c2a4e963e87c42d02c652b522b5a999bc5c84cba1e9450557c50aef61360",
           "field": "standard",
           "ref_id": "standard:MA-H4G9-GE-027:standard",
           "source_type": "curriculum_standard_field"
@@ -83,16 +44,16 @@
       "category": "concept_discrimination",
       "component_ids": [
         "lc_085c4978d572b0b9",
-        "lc_298d74fa4cde0807",
+        "lc_7307d65a92284546",
         "lc_9ce0ba74045b9d29"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生通过具体实例认识平面图形绕旋转中心的旋转的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_66fcee8cb3afec90",
+      "difficulty_id": "cd_995965c1d1f374a8",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_5b6a54fdbf88d287"
+        "hc_1c2482b42d78667c"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过具体实例认识平面图形绕旋转中心的旋转”中的实际过程进一步核验。",
       "manifestation": "在要求学生“通过具体实例认识平面图形绕旋转中心的旋转”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -102,8 +63,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过具体实例认识平面图形绕旋转中心的旋转；分析中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形；能建模、推理并检验结论的合理性。",
-          "excerpt_hash": "e842826d5a89537b53578ddaa9e327d88e53f3321029d80030c437825aadfb68",
+          "excerpt": "能通过具体实例认识平面图形绕旋转中心的旋转；了解中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形。",
+          "excerpt_hash": "df65c2a4e963e87c42d02c652b522b5a999bc5c84cba1e9450557c50aef61360",
           "field": "standard",
           "ref_id": "standard:MA-H4G9-GE-027:standard",
           "source_type": "curriculum_standard_field"
@@ -175,7 +136,7 @@
       "pdf_page": 68,
       "printed_page": "61",
       "publication_status": "published",
-      "rationale": "教材exercise“选择不同的旋转中心、不同的旋转角旋转同一个图案 (图23.16),会出现不同的效果.图23.17的两个旋转中,旋转中心不变,旋转角改 图23.16”与课标 MA-H4G9-GE-027 的可教学小能力“通过具体实例认识平面图形绕旋转中心的旋转”形成页内证据匹配。",
+      "rationale": "教材练习“选择不同的旋转中心、不同的旋转角旋转同一个图案 (图23.16),会出现不同的效果.图23.17的两个旋转中,旋转中心不变,旋转角改 图23.16”与课标 MA-H4G9-GE-027 的可教学小能力“通过具体实例认识平面图形绕旋转中心的旋转”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -215,13 +176,13 @@
         }
       ],
       "learning_component_ids": [
-        "lc_298d74fa4cde0807",
+        "lc_7307d65a92284546",
         "lc_9ce0ba74045b9d29"
       ],
       "learning_components": [
         {
-          "component_id": "lc_298d74fa4cde0807",
-          "label": "分析中心对称和中心对称图形概念及基本性质"
+          "component_id": "lc_7307d65a92284546",
+          "label": "识别并说出中心对称和中心对称图形概念及基本性质的关键特征"
         },
         {
           "component_id": "lc_9ce0ba74045b9d29",
@@ -235,7 +196,7 @@
       "pdf_page": 73,
       "printed_page": "66",
       "publication_status": "published",
-      "rationale": "教材section“23.2.2 中心对称图形”与课标 MA-H4G9-GE-027 的可教学小能力“分析中心对称和中心对称图形概念及基本性质、识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”形成页内证据匹配。",
+      "rationale": "教材小节“23.2.2 中心对称图形”与课标 MA-H4G9-GE-027 的可教学小能力“识别并说出中心对称和中心对称图形概念及基本性质的关键特征、识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -275,13 +236,13 @@
         }
       ],
       "learning_component_ids": [
-        "lc_298d74fa4cde0807",
+        "lc_7307d65a92284546",
         "lc_9ce0ba74045b9d29"
       ],
       "learning_components": [
         {
-          "component_id": "lc_298d74fa4cde0807",
-          "label": "分析中心对称和中心对称图形概念及基本性质"
+          "component_id": "lc_7307d65a92284546",
+          "label": "识别并说出中心对称和中心对称图形概念及基本性质的关键特征"
         },
         {
           "component_id": "lc_9ce0ba74045b9d29",
@@ -295,7 +256,7 @@
       "pdf_page": 71,
       "printed_page": "64",
       "publication_status": "published",
-      "rationale": "教材section“23.2.1 中心对称”与课标 MA-H4G9-GE-027 的可教学小能力“分析中心对称和中心对称图形概念及基本性质、识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”形成页内证据匹配。",
+      "rationale": "教材小节“23.2.1 中心对称”与课标 MA-H4G9-GE-027 的可教学小能力“识别并说出中心对称和中心对称图形概念及基本性质的关键特征、识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -335,13 +296,13 @@
         }
       ],
       "learning_component_ids": [
-        "lc_298d74fa4cde0807",
+        "lc_7307d65a92284546",
         "lc_9ce0ba74045b9d29"
       ],
       "learning_components": [
         {
-          "component_id": "lc_298d74fa4cde0807",
-          "label": "分析中心对称和中心对称图形概念及基本性质"
+          "component_id": "lc_7307d65a92284546",
+          "label": "识别并说出中心对称和中心对称图形概念及基本性质的关键特征"
         },
         {
           "component_id": "lc_9ce0ba74045b9d29",
@@ -355,7 +316,7 @@
       "pdf_page": 71,
       "printed_page": "64",
       "publication_status": "published",
-      "rationale": "教材section“23.2 中心对称”与课标 MA-H4G9-GE-027 的可教学小能力“分析中心对称和中心对称图形概念及基本性质、识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”形成页内证据匹配。",
+      "rationale": "教材小节“23.2 中心对称”与课标 MA-H4G9-GE-027 的可教学小能力“识别并说出中心对称和中心对称图形概念及基本性质的关键特征、识别并说出和欣赏自然界和现实生活中的中心对称图形的关键特征”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -433,39 +394,7 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_0900ff947153755d",
-      "component_ids": [
-        "lc_5a1531f1f041280a"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "推理"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、推理并检验结论的合理性。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够建模、推理并检验结论的合理性；优先采集：旋转作图、性质分析、现实图案说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能通过具体实例认识平面图形绕旋转中心的旋转；分析中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形；能建模、推理并检验结论的合理性。",
-          "excerpt_hash": "e842826d5a89537b53578ddaa9e327d88e53f3321029d80030c437825aadfb68",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G9-GE-027:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（推理）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_5b6a54fdbf88d287",
+      "case_id": "hc_1c2482b42d78667c",
       "component_ids": [
         "lc_9ce0ba74045b9d29"
       ],
@@ -485,8 +414,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过具体实例认识平面图形绕旋转中心的旋转；分析中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形；能建模、推理并检验结论的合理性。",
-          "excerpt_hash": "e842826d5a89537b53578ddaa9e327d88e53f3321029d80030c437825aadfb68",
+          "excerpt": "能通过具体实例认识平面图形绕旋转中心的旋转；了解中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形。",
+          "excerpt_hash": "df65c2a4e963e87c42d02c652b522b5a999bc5c84cba1e9450557c50aef61360",
           "field": "standard",
           "ref_id": "standard:MA-H4G9-GE-027:standard",
           "source_type": "curriculum_standard_field"
@@ -495,38 +424,6 @@
       "structure": "在真实或变化情境中迁移（生活）",
       "title": "在真实或变化情境中迁移",
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
-    },
-    {
-      "case_id": "hc_ab7c3b81da7a977e",
-      "component_ids": [
-        "lc_5a1531f1f041280a"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "合理"
-      ],
-      "demand_dimension": "quality_criteria",
-      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生建模、推理并检验结论的合理性。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够建模、推理并检验结论的合理性；优先采集：旋转作图、性质分析、现实图案说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能通过具体实例认识平面图形绕旋转中心的旋转；分析中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形；能建模、推理并检验结论的合理性。",
-          "excerpt_hash": "e842826d5a89537b53578ddaa9e327d88e53f3321029d80030c437825aadfb68",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G9-GE-027:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "达到标准中的质量准则（合理）",
-      "title": "达到标准中的质量准则",
-      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
     }
   ],
   "learning_components": [
@@ -555,28 +452,28 @@
       "source_statement": "通过具体实例认识平面图形绕旋转中心的旋转"
     },
     {
-      "component_id": "lc_298d74fa4cde0807",
-      "component_type": "conceptual",
+      "component_id": "lc_7307d65a92284546",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够分析中心对称和中心对称图形概念及基本性质",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析中心对称和中心对称图形概念及基本性质，并说明关键步骤、特征或依据。",
-      "label": "分析中心对称和中心对称图形概念及基本性质",
+      "description": "学生能够识别并说出中心对称和中心对称图形概念及基本性质的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出中心对称和中心对称图形概念及基本性质的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出中心对称和中心对称图形概念及基本性质的关键特征",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析中心对称和中心对称图形概念及基本性质；优先采集：旋转作图、性质分析、现实图案说明。",
+      "observable_evidence": "学生能够识别并说出中心对称和中心对称图形概念及基本性质的关键特征；优先采集：旋转作图、性质分析、现实图案说明。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析中心对称和中心对称图形概念及基本性质",
-          "excerpt_hash": "a0167eebce2ab50d53521587900466f0bf75aeb3276b8331a8e74dc7889b1daf",
+          "excerpt": "了解中心对称和中心对称图形概念及基本性质",
+          "excerpt_hash": "081fe9cd7dc2dd19d6ed14bf5c43bbdfb0bcdb0494b78218c9e3008a70b4ea81",
           "field": "standard",
           "ref_id": "standard:MA-H4G9-GE-027:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "分析中心对称和中心对称图形概念及基本性质"
+      "source_statement": "了解中心对称和中心对称图形概念及基本性质"
     },
     {
       "component_id": "lc_9ce0ba74045b9d29",
@@ -601,30 +498,6 @@
         }
       ],
       "source_statement": "认识和欣赏自然界和现实生活中的中心对称图形"
-    },
-    {
-      "component_id": "lc_5a1531f1f041280a",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够建模、推理并检验结论的合理性",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、推理并检验结论的合理性，并说明关键步骤、特征或依据。",
-      "label": "建模、推理并检验结论的合理性",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够建模、推理并检验结论的合理性；优先采集：旋转作图、性质分析、现实图案说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "建模、推理并检验结论的合理性",
-          "excerpt_hash": "b52727f75af831b3e75e1ca5dabdf7c86123edea8c71f6f98dcbf5b28a377c73",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G9-GE-027:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "建模、推理并检验结论的合理性"
     }
   ],
   "prerequisite_candidates": [
@@ -643,9 +516,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "MA-H4G8-GE-026",
-      "source_label": "能通过具体实例认识平面图形绕旋转中心的旋转；了解中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形；能比较方法并…",
+      "source_label": "能通过具体实例认识平面图形绕旋转中心的旋转；了解中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形。",
       "target_code": "MA-H4G9-GE-027",
-      "target_label": "能通过具体实例认识平面图形绕旋转中心的旋转；分析中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形；能建模、推理…"
+      "target_label": "能通过具体实例认识平面图形绕旋转中心的旋转；了解中心对称和中心对称图形概念及基本性质；认识和欣赏自然界和现实生活中的中心对称图形。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -656,7 +529,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "e842826d5a89537b53578ddaa9e327d88e53f3321029d80030c437825aadfb68",
+  "source_standard_hash": "df65c2a4e963e87c42d02c652b522b5a999bc5c84cba1e9450557c50aef61360",
   "standard_code": "MA-H4G9-GE-027",
   "verified_prerequisites": []
 }

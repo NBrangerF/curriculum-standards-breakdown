@@ -5,8 +5,7 @@
     {
       "category": "language_expression",
       "component_ids": [
-        "lc_90ff9391110fc38e",
-        "lc_f2a90a7d77d4ac69"
+        "lc_90ff9391110fc38e"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生在沟通与交流中借助手势、表情等体态语表达意义的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
@@ -24,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能在沟通与交流中借助手势、表情等体态语表达意义；能注意和尊重中外文化习俗的差异；能遇到困难时主动提问、请求澄清或寻求帮助；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "2214990b333aa13b3cd0da875ab7bf7f5b77db25b01e520c3467b984c8ab3f37",
+          "excerpt": "能在沟通与交流中借助手势、表情等体态语表达意义；能注意和尊重中外文化习俗的差异；能遇到困难时主动提问、请求澄清或寻求帮助。",
+          "excerpt_hash": "8968a31e525c2a269044e4829216e4241d0a83535901e7b6bf16ec1fc8042d33",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-CA-006:standard",
           "source_type": "curriculum_standard_field"
@@ -133,7 +132,7 @@
       "review_status": "machine_checked",
       "source_code": "EN-H4G7-CA-006",
       "target_code": "EN-H4G8-CA-006",
-      "target_label": "能在沟通与交流中借助手势、表情等体态语表达意义；能遇到困难时主动提问、请求澄清或寻求帮助；能注意和尊重中外文化习俗的差异；能整合语篇信息并说明…"
+      "target_label": "能在沟通与交流中借助手势、表情等体态语表达意义；能遇到困难时主动提问、请求澄清或寻求帮助；能注意和尊重中外文化习俗的差异。"
     }
   ],
   "hardest_cases": [
@@ -160,8 +159,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能在沟通与交流中借助手势、表情等体态语表达意义；能注意和尊重中外文化习俗的差异；能遇到困难时主动提问、请求澄清或寻求帮助；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "2214990b333aa13b3cd0da875ab7bf7f5b77db25b01e520c3467b984c8ab3f37",
+          "excerpt": "能在沟通与交流中借助手势、表情等体态语表达意义；能注意和尊重中外文化习俗的差异；能遇到困难时主动提问、请求澄清或寻求帮助。",
+          "excerpt_hash": "8968a31e525c2a269044e4829216e4241d0a83535901e7b6bf16ec1fc8042d33",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-CA-006:standard",
           "source_type": "curriculum_standard_field"
@@ -244,54 +243,6 @@
         }
       ],
       "source_statement": "遇到困难时主动提问、请求澄清或寻求帮助"
-    },
-    {
-      "component_id": "lc_5aece8a3e213819e",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够获取关键信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
-      "label": "获取关键信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够获取关键信息；优先采集：情境对话表现、交际策略清单、同伴反馈。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "获取关键信息",
-          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-CA-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "获取关键信息"
-    },
-    {
-      "component_id": "lc_f2a90a7d77d4ac69",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成简短交流",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
-      "label": "完成简短交流",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成简短交流；优先采集：情境对话表现、交际策略清单、同伴反馈。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成简短交流",
-          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-CA-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成简短交流"
     }
   ],
   "prerequisite_candidates": [
@@ -313,7 +264,7 @@
       "source_code": "EN-D2-CA-009",
       "source_label": "能注意到跨文化沟通与交流中彼此的文化差异。",
       "target_code": "EN-H4G7-CA-006",
-      "target_label": "能在沟通与交流中借助手势、表情等体态语表达意义；能注意和尊重中外文化习俗的差异；能遇到困难时主动提问、请求澄清或寻求帮助；能获取关键信息并完成…"
+      "target_label": "能在沟通与交流中借助手势、表情等体态语表达意义；能注意和尊重中外文化习俗的差异；能遇到困难时主动提问、请求澄清或寻求帮助。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -324,7 +275,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "2214990b333aa13b3cd0da875ab7bf7f5b77db25b01e520c3467b984c8ab3f37",
+  "source_standard_hash": "8968a31e525c2a269044e4829216e4241d0a83535901e7b6bf16ec1fc8042d33",
   "standard_code": "EN-H4G7-CA-006",
   "verified_prerequisites": []
 }

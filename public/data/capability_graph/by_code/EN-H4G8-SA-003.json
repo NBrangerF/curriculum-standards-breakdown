@@ -3,28 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_6bf7190be77c5981"
+        "lc_d7c362dc6d58f154"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点或文化差异的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_93f81804fa98e581",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生搜索线上线下资源、工具书和同伴合作丰富英语学习的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_fa009e5223190e80",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_b46385c43359336b"
+        "hc_d1f3b2a8395c5eae"
       ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点或文化差异”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点或文化差异”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“搜索线上线下资源、工具书和同伴合作丰富英语学习”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期分析并判断学习收获、进步与不足；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "36c95d2c42b12a57b4a6df09b519f7a79dd306b96c405c2bdda5cc3a26ce483c",
+          "excerpt": "能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足。",
+          "excerpt_hash": "618233c818b0dbf0912e2826cca22a61b4b717e1be7fa3430d6ebb266780a576",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-SA-003:standard",
           "source_type": "curriculum_standard_field"
@@ -37,46 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后说明观点或文化差异，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点或文化差异”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用学习日志和档案袋帮助学生监控、反思和调整学习过程。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "comparison",
-      "component_ids": [
-        "lc_e603fbda00f32d42"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生判断学习收获、进步与不足的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_53701a59c6cfce8f",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_9da234c6c62bc878"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断学习收获、进步与不足”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“判断学习收获、进步与不足”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期分析并判断学习收获、进步与不足；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "36c95d2c42b12a57b4a6df09b519f7a79dd306b96c405c2bdda5cc3a26ce483c",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-SA-003:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用学习日志和档案袋帮助学生监控、反思和调整学习过程。",
-          "excerpt_hash": "000b081d4ab8d2ff253c5788a3c1fef04549e66a85615ba43f63acd6d7952a83",
-          "field": "teaching_tip",
-          "ref_id": "standard:EN-H4G8-SA-003:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后判断学习收获、进步与不足，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“判断学习收获、进步与不足”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用学习日志和档案袋帮助学生监控、反思和调整学习过程。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后搜索线上线下资源、工具书和同伴合作丰富英语学习，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“搜索线上线下资源、工具书和同伴合作丰富英语学习”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用学习日志和档案袋帮助学生监控、反思和调整学习过程。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -170,73 +132,43 @@
       "review_status": "machine_checked",
       "source_code": "EN-H4G8-SA-003",
       "target_code": "EN-H4G9-SA-002",
-      "target_label": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足；能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；…"
+      "target_label": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足；能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_b46385c43359336b",
+      "case_id": "hc_d1f3b2a8395c5eae",
       "component_ids": [
-        "lc_6bf7190be77c5981"
+        "lc_d7c362dc6d58f154",
+        "lc_73f396b979d34388",
+        "lc_1abc3d30e5b19794"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点或文化差异。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生搜索线上线下资源、工具书和同伴合作丰富英语学习。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够说明观点或文化差异；优先采集：学习计划、学习日志、资源使用记录。"
+        "学生能够搜索线上线下资源、工具书和同伴合作丰富英语学习；优先采集：学习计划、学习日志、资源使用记录。",
+        "学生能够利用线上线下资源、工具书和同伴合作丰富英语学习；优先采集：学习计划、学习日志、资源使用记录。",
+        "学生能够制订明确的英语学习目标和计划并进行监控、反思和调整；优先采集：学习计划、学习日志、资源使用记录。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期分析并判断学习收获、进步与不足；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "36c95d2c42b12a57b4a6df09b519f7a79dd306b96c405c2bdda5cc3a26ce483c",
+          "excerpt": "能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足。",
+          "excerpt_hash": "618233c818b0dbf0912e2826cca22a61b4b717e1be7fa3430d6ebb266780a576",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-SA-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_9da234c6c62bc878",
-      "component_ids": [
-        "lc_e603fbda00f32d42"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断学习收获、进步与不足。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够判断学习收获、进步与不足；优先采集：学习计划、学习日志、资源使用记录。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期分析并判断学习收获、进步与不足；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "36c95d2c42b12a57b4a6df09b519f7a79dd306b96c405c2bdda5cc3a26ce483c",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-SA-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+      "structure": "搜索线上线下资源、工具书和同伴合作丰富英语学习；利用线上线下资源、工具书和同伴合作丰富英语学习；制订明确的英语学习目标和计划并进行监控、反思和调整",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -313,100 +245,28 @@
       "source_statement": "制订明确的英语学习目标和计划并进行监控、反思和调整"
     },
     {
-      "component_id": "lc_40e089821d7434fd",
-      "component_type": "conceptual",
+      "component_id": "lc_e45a5939c04ace5c",
+      "component_type": "metacognitive",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够定期分析学习收获、进步与不足",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生定期分析学习收获、进步与不足，并说明关键步骤、特征或依据。",
-      "label": "定期分析学习收获、进步与不足",
+      "description": "学生能够定期评价学习收获、进步与不足",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生定期评价学习收获、进步与不足，并说明关键步骤、特征或依据。",
+      "label": "定期评价学习收获、进步与不足",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够定期分析学习收获、进步与不足；优先采集：学习计划、学习日志、资源使用记录。",
+      "observable_evidence": "学生能够定期评价学习收获、进步与不足；优先采集：学习计划、学习日志、资源使用记录。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "定期分析并判断学习收获、进步与不足",
-          "excerpt_hash": "64c0760924714b3ce47e896c2676d3c7ab6a8e751f0ffca9802ba30a00139a97",
+          "excerpt": "定期评价学习收获、进步与不足",
+          "excerpt_hash": "58c045b442c83510ce058d1cd176dfe1cebf180be825e4c2f98cf1df7919b568",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-SA-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "定期分析学习收获、进步与不足"
-    },
-    {
-      "component_id": "lc_e603fbda00f32d42",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够判断学习收获、进步与不足",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断学习收获、进步与不足，并说明关键步骤、特征或依据。",
-      "label": "判断学习收获、进步与不足",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够判断学习收获、进步与不足；优先采集：学习计划、学习日志、资源使用记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "判断学习收获、进步与不足",
-          "excerpt_hash": "3c40c07da85b92e590ed8a807f129f1d838a2a21305c0f6e2238c5872b7882eb",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-SA-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "判断学习收获、进步与不足"
-    },
-    {
-      "component_id": "lc_2417e52e89298a93",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合语篇信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合语篇信息，并说明关键步骤、特征或依据。",
-      "label": "整合语篇信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合语篇信息；优先采集：学习计划、学习日志、资源使用记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合语篇信息",
-          "excerpt_hash": "8fc7fa6e6eeaf7e69dbafe1c0139000f909d2a7e8aba5e8aae0003274289a04b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-SA-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合语篇信息"
-    },
-    {
-      "component_id": "lc_6bf7190be77c5981",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点或文化差异",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点或文化差异，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点或文化差异",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点或文化差异；优先采集：学习计划、学习日志、资源使用记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点或文化差异",
-          "excerpt_hash": "eddc2a80e635a5a126c12dfa34e72610db5e58b8d29295eaa8d1d361aecdddff",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-SA-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点或文化差异"
+      "source_statement": "定期评价学习收获、进步与不足"
     }
   ],
   "prerequisite_candidates": [
@@ -425,9 +285,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "EN-H4G7-SA-003",
-      "source_label": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期初步判断学习收获、进步与不足；能探索适合自己的学习方法；能获取关键信息并完成简短交…",
+      "source_label": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足；能探索适合自己的学习方法。",
       "target_code": "EN-H4G8-SA-003",
-      "target_label": "能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期分析并判断学习收获、进步与…"
+      "target_label": "能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -438,7 +298,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "36c95d2c42b12a57b4a6df09b519f7a79dd306b96c405c2bdda5cc3a26ce483c",
+  "source_standard_hash": "618233c818b0dbf0912e2826cca22a61b4b717e1be7fa3430d6ebb266780a576",
   "standard_code": "EN-H4G8-SA-003",
   "verified_prerequisites": []
 }

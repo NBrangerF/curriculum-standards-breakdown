@@ -3,56 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_5078eea4f5e6a724"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_f5304da548d7796f",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_5c90ddb3989c782e"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能借助注释和工具书理解基本内容；能诵读古代诗词；能阅读浅易文言文；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "5a7d51cd058e414e388b96db858d181fdb246173833e3b114173085076e6b9d2",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-016:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "结合附录推荐篇目安排积累，兼顾理解、诵读、背诵和表达运用。",
-          "excerpt_hash": "ff18fd769aa255d573275f143f36fb7de89eeb15d5e82d4270fbd2b7e4cddb9c",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-RE-016:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“结合附录推荐篇目安排积累，兼顾理解、诵读、背诵和表达运用。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
-        "lc_16ed7675790c2866",
-        "lc_5078eea4f5e6a724"
+        "lc_16ed7675790c2866"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生阅读浅易文言文的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_eca6b2b243ad7e74",
+      "difficulty_id": "cd_39443ea86d3e2f5e",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_5c90ddb3989c782e"
+        "hc_35a8bbc8aa63b741"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阅读浅易文言文”中的实际过程进一步核验。",
       "manifestation": "在要求学生“阅读浅易文言文”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -62,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能借助注释和工具书理解基本内容；能诵读古代诗词；能阅读浅易文言文；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "5a7d51cd058e414e388b96db858d181fdb246173833e3b114173085076e6b9d2",
+          "excerpt": "能借助注释和工具书理解基本内容；能诵读古代诗词；能阅读浅易文言文。",
+          "excerpt_hash": "47e22d36a2b4e26b004ff2d1b8b4d4bfaeff20ef01e92c22af2b48fda2f0c76d",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-016:standard",
           "source_type": "curriculum_standard_field"
@@ -82,16 +43,15 @@
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_73664ae6cff83c46",
-        "lc_5078eea4f5e6a724"
+        "lc_73664ae6cff83c46"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生借助注释和工具书理解基本内容的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_6bcf9e9ad88917fb",
+      "difficulty_id": "cd_0cd02d5a7a398fdd",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_5c90ddb3989c782e"
+        "hc_35a8bbc8aa63b741"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“借助注释和工具书理解基本内容”中的实际过程进一步核验。",
       "manifestation": "在要求学生“借助注释和工具书理解基本内容”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -101,8 +61,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能借助注释和工具书理解基本内容；能诵读古代诗词；能阅读浅易文言文；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "5a7d51cd058e414e388b96db858d181fdb246173833e3b114173085076e6b9d2",
+          "excerpt": "能借助注释和工具书理解基本内容；能诵读古代诗词；能阅读浅易文言文。",
+          "excerpt_hash": "47e22d36a2b4e26b004ff2d1b8b4d4bfaeff20ef01e92c22af2b48fda2f0c76d",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-016:standard",
           "source_type": "curriculum_standard_field"
@@ -174,7 +134,7 @@
       "pdf_page": 21,
       "printed_page": "14",
       "publication_status": "published",
-      "rationale": "教材objective“中国是诗的国度,中华文明史册上优秀的诗歌灿若繁星。诵读古代优”与课标 CN-H4G7-RE-016 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
+      "rationale": "教材学习目标“中国是诗的国度,中华文明史册上优秀的诗歌灿若繁星。诵读古代优”与课标 CN-H4G7-RE-016 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -229,7 +189,7 @@
       "pdf_page": 36,
       "printed_page": "29",
       "publication_status": "published",
-      "rationale": "教材objective“借助注释,把握课文大意。画出你不懂的语句,与同学交流,尝试解”与课标 CN-H4G7-RE-016 的可教学小能力“借助注释和工具书理解基本内容”形成页内证据匹配。",
+      "rationale": "教材学习目标“借助注释,把握课文大意。画出你不懂的语句,与同学交流,尝试解”与课标 CN-H4G7-RE-016 的可教学小能力“借助注释和工具书理解基本内容”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -284,7 +244,7 @@
       "pdf_page": 93,
       "printed_page": "86",
       "publication_status": "published",
-      "rationale": "教材lesson“86课外古诗词诵读”与课标 CN-H4G7-RE-016 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
+      "rationale": "教材课文“86课外古诗词诵读”与课标 CN-H4G7-RE-016 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -339,7 +299,7 @@
       "pdf_page": 71,
       "printed_page": "64",
       "publication_status": "published",
-      "rationale": "教材lesson“64课外古诗词诵读”与课标 CN-H4G7-RE-016 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
+      "rationale": "教材课文“64课外古诗词诵读”与课标 CN-H4G7-RE-016 的可教学小能力“诵读古代诗词”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -430,41 +390,43 @@
       "review_status": "machine_checked",
       "source_code": "CN-H4G7-RE-016",
       "target_code": "CN-H4G8-RE-017",
-      "target_label": "能注重积累、感悟和运用；能诵读古代诗词；能阅读浅易文言文；能整合材料并说明观点、方法或表达选择的依据。"
+      "target_label": "能注重积累、感悟和运用；能诵读古代诗词；能阅读浅易文言文。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_5c90ddb3989c782e",
+      "case_id": "hc_35a8bbc8aa63b741",
       "component_ids": [
-        "lc_5078eea4f5e6a724"
+        "lc_73664ae6cff83c46",
+        "lc_7278cc42d43f9116",
+        "lc_16ed7675790c2866"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用简短记录或口头表达说明基本理解。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生借助注释和工具书理解基本内容。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用简短记录或口头表达说明基本理解；优先采集：背诵记录、古诗文批注、赏析交流。"
+        "学生能够借助注释和工具书理解基本内容；优先采集：背诵记录、古诗文批注、赏析交流。",
+        "学生能够诵读古代诗词；优先采集：背诵记录、古诗文批注、赏析交流。",
+        "学生能够阅读浅易文言文；优先采集：背诵记录、古诗文批注、赏析交流。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能借助注释和工具书理解基本内容；能诵读古代诗词；能阅读浅易文言文；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "5a7d51cd058e414e388b96db858d181fdb246173833e3b114173085076e6b9d2",
+          "excerpt": "能借助注释和工具书理解基本内容；能诵读古代诗词；能阅读浅易文言文。",
+          "excerpt_hash": "47e22d36a2b4e26b004ff2d1b8b4d4bfaeff20ef01e92c22af2b48fda2f0c76d",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-016:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "借助注释和工具书理解基本内容；诵读古代诗词；阅读浅易文言文",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -539,30 +501,6 @@
         }
       ],
       "source_statement": "阅读浅易文言文"
-    },
-    {
-      "component_id": "lc_5078eea4f5e6a724",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用简短记录或口头表达说明基本理解",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用简短记录或口头表达说明基本理解，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用简短记录或口头表达说明基本理解",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用简短记录或口头表达说明基本理解；优先采集：背诵记录、古诗文批注、赏析交流。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用简短记录或口头表达说明基本理解",
-          "excerpt_hash": "6b1f3237458514ec859ef1012df6724bfef67003f78886ed140316055791b644",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-016:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用简短记录或口头表达说明基本理解"
     }
   ],
   "prerequisite_candidates": [
@@ -584,7 +522,7 @@
       "source_code": "CN-D3-RE-005",
       "source_label": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验。",
       "target_code": "CN-H4G7-RE-016",
-      "target_label": "能借助注释和工具书理解基本内容；能诵读古代诗词；能阅读浅易文言文；能用简短记录或口头表达说明基本理解。"
+      "target_label": "能借助注释和工具书理解基本内容；能诵读古代诗词；能阅读浅易文言文。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -595,7 +533,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "5a7d51cd058e414e388b96db858d181fdb246173833e3b114173085076e6b9d2",
+  "source_standard_hash": "47e22d36a2b4e26b004ff2d1b8b4d4bfaeff20ef01e92c22af2b48fda2f0c76d",
   "standard_code": "CN-H4G7-RE-016",
   "verified_prerequisites": []
 }

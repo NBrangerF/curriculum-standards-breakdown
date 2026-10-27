@@ -3,94 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_b5837db4cc09d466"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_c16be759a27d98d1",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_a023987dc575f685"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "40c55862476a95a30682d56b1ff6e29b8cdc94964ff28895781b2d45cf8f0f5c",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-LI-002:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把工具书使用放在真实阅读、写作和资料查找情境中，避免孤立训练检字方法。",
-          "excerpt_hash": "9bc36ae7aa4a75f7b7bd4634d5fd905bb41171b9c4548a21de2fae2f67d3e7fe",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G8-LI-002:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把工具书使用放在真实阅读、写作和资料查找情境中，避免孤立训练检字方法。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "language_expression",
-      "component_ids": [
-        "lc_b5837db4cc09d466"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_51226e8ef87e9e3e",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_a023987dc575f685"
-      ],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "40c55862476a95a30682d56b1ff6e29b8cdc94964ff28895781b2d45cf8f0f5c",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-LI-002:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把工具书使用放在真实阅读、写作和资料查找情境中，避免孤立训练检字方法。",
-          "excerpt_hash": "9bc36ae7aa4a75f7b7bd4634d5fd905bb41171b9c4548a21de2fae2f67d3e7fe",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G8-LI-002:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把工具书使用放在真实阅读、写作和资料查找情境中，避免孤立训练检字方法。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
         "lc_65d3dc2dd076fcbf"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生用多种检字方法，累计认识常用汉字3500个左右的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_2246e80e54887aa2",
+      "difficulty_id": "cd_ef9489f11b6ace54",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_2a71c990e75a70d2",
-        "hc_14b4edbbb7ba54ac"
+        "hc_e83455782e1cfffb",
+        "hc_b1a9ad15c2078ef2"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用多种检字方法，累计认识常用汉字3500个左右”中的实际过程进一步核验。",
       "manifestation": "在要求学生“用多种检字方法，累计认识常用汉字3500个左右”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -100,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "40c55862476a95a30682d56b1ff6e29b8cdc94964ff28895781b2d45cf8f0f5c",
+          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右。",
+          "excerpt_hash": "c1aee74350245988d1fe73526b98913758adb93db6dc5daaa42f67579b7af5d9",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-LI-002:standard",
           "source_type": "curriculum_standard_field"
@@ -209,45 +133,12 @@
       "review_status": "machine_checked",
       "source_code": "CN-H4G8-LI-002",
       "target_code": "CN-H4G9-LI-003",
-      "target_label": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右；能形成有观点、有证据、有修改意识的阐释或作品。"
+      "target_label": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_a023987dc575f685",
-      "component_ids": [
-        "lc_b5837db4cc09d466"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "依据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点、方法或表达选择的依据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明观点、方法或表达选择的依据；优先采集：字词查检记录、阅读批注、工具书使用说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "40c55862476a95a30682d56b1ff6e29b8cdc94964ff28895781b2d45cf8f0f5c",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-LI-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（依据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_25549ab3d1f56a40",
+      "case_id": "hc_b3656b83e3004cb0",
       "component_ids": [
         "lc_995d90c867b259b3"
       ],
@@ -268,8 +159,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "40c55862476a95a30682d56b1ff6e29b8cdc94964ff28895781b2d45cf8f0f5c",
+          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右。",
+          "excerpt_hash": "c1aee74350245988d1fe73526b98913758adb93db6dc5daaa42f67579b7af5d9",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-LI-002:standard",
           "source_type": "curriculum_standard_field"
@@ -280,7 +171,7 @@
       "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
     },
     {
-      "case_id": "hc_2a71c990e75a70d2",
+      "case_id": "hc_e83455782e1cfffb",
       "component_ids": [
         "lc_65d3dc2dd076fcbf"
       ],
@@ -300,8 +191,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "40c55862476a95a30682d56b1ff6e29b8cdc94964ff28895781b2d45cf8f0f5c",
+          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右。",
+          "excerpt_hash": "c1aee74350245988d1fe73526b98913758adb93db6dc5daaa42f67579b7af5d9",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-LI-002:standard",
           "source_type": "curriculum_standard_field"
@@ -312,7 +203,7 @@
       "why_hard": "学生可能完成主要动作，却漏掉数量、范围、对象或质量限定。"
     },
     {
-      "case_id": "hc_14b4edbbb7ba54ac",
+      "case_id": "hc_b1a9ad15c2078ef2",
       "component_ids": [
         "lc_65d3dc2dd076fcbf"
       ],
@@ -332,8 +223,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "40c55862476a95a30682d56b1ff6e29b8cdc94964ff28895781b2d45cf8f0f5c",
+          "excerpt": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右。",
+          "excerpt_hash": "c1aee74350245988d1fe73526b98913758adb93db6dc5daaa42f67579b7af5d9",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-LI-002:standard",
           "source_type": "curriculum_standard_field"
@@ -392,54 +283,6 @@
         }
       ],
       "source_statement": "用多种检字方法，累计认识常用汉字3500个左右"
-    },
-    {
-      "component_id": "lc_665cb3b8460e8196",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合材料",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合材料，并说明关键步骤、特征或依据。",
-      "label": "整合材料",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合材料；优先采集：字词查检记录、阅读批注、工具书使用说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合材料",
-          "excerpt_hash": "c6c8b0ffb05ba398d2a4a4fb4f067efe130af369012aceee836b9c0c870e2710",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-LI-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合材料"
-    },
-    {
-      "component_id": "lc_b5837db4cc09d466",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点、方法或表达选择的依据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点、方法或表达选择的依据，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点、方法或表达选择的依据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点、方法或表达选择的依据；优先采集：字词查检记录、阅读批注、工具书使用说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点、方法或表达选择的依据",
-          "excerpt_hash": "04a7ab3f43a7836e4d3a1304eb39d0a43cdf66ecd30248e80d1cdebbd172b84a",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-LI-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点、方法或表达选择的依据"
     }
   ],
   "prerequisite_candidates": [
@@ -458,9 +301,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "CN-H4G7-LI-001",
-      "source_label": "能熟练使用字典、词典在支架下识字，会用多种检字方法，累计认识常用汉字3500个左右；能用简短记录或口头表达说明基本理解。",
+      "source_label": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右。",
       "target_code": "CN-H4G8-LI-002",
-      "target_label": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右；能整合材料并说明观点、方法或表达选择的依据。"
+      "target_label": "能熟练使用字典、词典独立识字，会用多种检字方法，累计认识常用汉字3500个左右。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -471,7 +314,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "40c55862476a95a30682d56b1ff6e29b8cdc94964ff28895781b2d45cf8f0f5c",
+  "source_standard_hash": "c1aee74350245988d1fe73526b98913758adb93db6dc5daaa42f67579b7af5d9",
   "standard_code": "CN-H4G8-LI-002",
   "verified_prerequisites": []
 }

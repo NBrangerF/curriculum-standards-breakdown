@@ -3,96 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_1cdcaae4925586a9",
-        "lc_b1584b135c7dc4fa"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_863c692d466571df",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_91efd5095b9f5fd0",
-        "hc_9d67cf4294ce2c09"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“比较证据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“比较证据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解金属的主要物理性质、化学性质及用途；了解合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；能知道金属活动性顺序、金属锈蚀条件和防锈方法；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "cf4696ac4141ea66cbcaeec60604f37c40bf9e6813ed45eabe21d198ef7f15d7",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-032:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "通过材料样品、实验事实和社会议题理解金属材料的性质、用途与环境影响。",
-          "excerpt_hash": "758944212a29952cc6f2c2b2c93207013019af23b5be6c6f0ae2c753c12220fd",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G8-SC-032:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“比较证据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“通过材料样品、实验事实和社会议题理解金属材料的性质、用途与环境影响。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "comparison",
-      "component_ids": [
-        "lc_1cdcaae4925586a9"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生比较证据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_e292212e0335d187",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_91efd5095b9f5fd0",
-        "hc_9d67cf4294ce2c09"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“比较证据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“比较证据”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解金属的主要物理性质、化学性质及用途；了解合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；能知道金属活动性顺序、金属锈蚀条件和防锈方法；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "cf4696ac4141ea66cbcaeec60604f37c40bf9e6813ed45eabe21d198ef7f15d7",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-032:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "通过材料样品、实验事实和社会议题理解金属材料的性质、用途与环境影响。",
-          "excerpt_hash": "758944212a29952cc6f2c2b2c93207013019af23b5be6c6f0ae2c753c12220fd",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G8-SC-032:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后比较证据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“比较证据”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“通过材料样品、实验事实和社会议题理解金属材料的性质、用途与环境影响。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "multi_step_procedure",
       "component_ids": [
         "lc_b796ddcc95c25595"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生准确说出金属活动性顺序、金属锈蚀条件和防锈方法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_cfab363d239c1e05",
+      "difficulty_id": "cd_05866d92c2fad1f9",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_fe499115fdb1c32b"
+        "hc_bab8f29def28993c"
       ],
       "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“准确说出金属活动性顺序、金属锈蚀条件和防锈方法”中的实际过程进一步核验。",
       "manifestation": "在要求学生“准确说出金属活动性顺序、金属锈蚀条件和防锈方法”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
@@ -102,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解金属的主要物理性质、化学性质及用途；了解合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；能知道金属活动性顺序、金属锈蚀条件和防锈方法；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "cf4696ac4141ea66cbcaeec60604f37c40bf9e6813ed45eabe21d198ef7f15d7",
+          "excerpt": "了解金属的主要物理性质、化学性质及用途；了解合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；能知道金属活动性顺序、金属锈蚀条件和防锈方法。",
+          "excerpt_hash": "04f726fa2d1215642cca58972a76e5125e34da7a64bae32fe4854bcbc5c21a31",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-SC-032:standard",
           "source_type": "curriculum_standard_field"
@@ -118,46 +39,6 @@
       ],
       "success_signal": "学生能在撤去提示后准确说出金属活动性顺序、金属锈蚀条件和防锈方法，并说明关键步骤、特征或依据。",
       "teacher_action": "围绕“准确说出金属活动性顺序、金属锈蚀条件和防锈方法”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“通过材料样品、实验事实和社会议题理解金属材料的性质、用途与环境影响。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_bcaa448b6f33dc94",
-        "lc_7696a286024cb291",
-        "lc_b1584b135c7dc4fa"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生识别并说出金属的主要物理性质、化学性质及用途的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_33c4f0628a2d6bdb",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_91efd5095b9f5fd0"
-      ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出金属的主要物理性质、化学性质及用途的关键特征”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“识别并说出金属的主要物理性质、化学性质及用途的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解金属的主要物理性质、化学性质及用途；了解合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；能知道金属活动性顺序、金属锈蚀条件和防锈方法；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "cf4696ac4141ea66cbcaeec60604f37c40bf9e6813ed45eabe21d198ef7f15d7",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-032:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "通过材料样品、实验事实和社会议题理解金属材料的性质、用途与环境影响。",
-          "excerpt_hash": "758944212a29952cc6f2c2b2c93207013019af23b5be6c6f0ae2c753c12220fd",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G8-SC-032:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后识别并说出金属的主要物理性质、化学性质及用途的关键特征，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“识别并说出金属的主要物理性质、化学性质及用途的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“通过材料样品、实验事实和社会议题理解金属材料的性质、用途与环境影响。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -375,47 +256,12 @@
       "review_status": "machine_checked",
       "source_code": "SC-H4G8-SC-032",
       "target_code": "SC-H4G9-SC-032",
-      "target_label": "分析合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；阐释金属活动性顺序、金属锈蚀条件和防锈方法；分析金属的主要物理性质、…"
+      "target_label": "了解合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；知道金属活动性顺序、金属锈蚀条件和防锈方法；了解金属的主要物理性质、…"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_91efd5095b9f5fd0",
-      "component_ids": [
-        "lc_1cdcaae4925586a9",
-        "lc_b1584b135c7dc4fa"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "解释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够比较证据；优先采集：调查报告、实验记录、材料应用分析。",
-        "学生能够解释概念之间的关系；优先采集：调查报告、实验记录、材料应用分析。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解金属的主要物理性质、化学性质及用途；了解合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；能知道金属活动性顺序、金属锈蚀条件和防锈方法；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "cf4696ac4141ea66cbcaeec60604f37c40bf9e6813ed45eabe21d198ef7f15d7",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-032:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（证据、解释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_fe499115fdb1c32b",
+      "case_id": "hc_bab8f29def28993c",
       "component_ids": [
         "lc_b796ddcc95c25595"
       ],
@@ -435,8 +281,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解金属的主要物理性质、化学性质及用途；了解合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；能知道金属活动性顺序、金属锈蚀条件和防锈方法；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "cf4696ac4141ea66cbcaeec60604f37c40bf9e6813ed45eabe21d198ef7f15d7",
+          "excerpt": "了解金属的主要物理性质、化学性质及用途；了解合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；能知道金属活动性顺序、金属锈蚀条件和防锈方法。",
+          "excerpt_hash": "04f726fa2d1215642cca58972a76e5125e34da7a64bae32fe4854bcbc5c21a31",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-SC-032:standard",
           "source_type": "curriculum_standard_field"
@@ -445,38 +291,6 @@
       "structure": "保持多步骤或完整结构（顺序）",
       "title": "保持多步骤或完整结构",
       "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
-    },
-    {
-      "case_id": "hc_9d67cf4294ce2c09",
-      "component_ids": [
-        "lc_1cdcaae4925586a9"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "比较"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生比较证据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够比较证据；优先采集：调查报告、实验记录、材料应用分析。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解金属的主要物理性质、化学性质及用途；了解合金改善金属材料性能、新型金属材料发展、金属冶炼技术对社会进步的作用；能知道金属活动性顺序、金属锈蚀条件和防锈方法；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "cf4696ac4141ea66cbcaeec60604f37c40bf9e6813ed45eabe21d198ef7f15d7",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-032:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（比较）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
     }
   ],
   "learning_components": [
@@ -551,54 +365,6 @@
         }
       ],
       "source_statement": "知道金属活动性顺序、金属锈蚀条件和防锈方法"
-    },
-    {
-      "component_id": "lc_1cdcaae4925586a9",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够比较证据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
-      "label": "比较证据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够比较证据；优先采集：调查报告、实验记录、材料应用分析。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "比较证据",
-          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-032:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "比较证据"
-    },
-    {
-      "component_id": "lc_b1584b135c7dc4fa",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够解释概念之间的关系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
-      "label": "解释概念之间的关系",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够解释概念之间的关系；优先采集：调查报告、实验记录、材料应用分析。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "解释概念之间的关系",
-          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-SC-032:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "解释概念之间的关系"
     }
   ],
   "prerequisite_candidates": [
@@ -630,7 +396,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "cf4696ac4141ea66cbcaeec60604f37c40bf9e6813ed45eabe21d198ef7f15d7",
+  "source_standard_hash": "04f726fa2d1215642cca58972a76e5125e34da7a64bae32fe4854bcbc5c21a31",
   "standard_code": "SC-H4G8-SC-032",
   "verified_prerequisites": []
 }

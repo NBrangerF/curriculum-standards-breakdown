@@ -5,111 +5,27 @@
     {
       "category": "argument_evidence",
       "component_ids": [
-        "lc_131a18873fdfcdb8",
-        "lc_63ec65eeccdf9abf",
-        "lc_0c786b4dee078b5c",
-        "lc_766031c19cd6a065"
+        "lc_2168daacb350def8"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用自己的话解释真实工程问题需要明确目标、标准、约束和分析的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "diagnostic_probe": "给出一个需要学生用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
       "difficulty_id": "cd_ef4a038b23b1a47d",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_8da6ad51c50a795e",
-        "hc_3e9096595307700b",
-        "hc_eb37d006e5262e9d"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释真实工程问题需要明确目标、标准、约束和分析”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用自己的话解释真实工程问题需要明确目标、标准、约束和分析”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和分析并判断依据；能定义简单的实际工程问题；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "f655291f40a2e5cb37e16a1b5baba5f8b855b7e3382a11454a5b16d55b7a4a03",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-001:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把问题定义和验收标准前置，避免学生直接进入制作。",
-          "excerpt_hash": "c1bb137dba33243894a6d31b26ff3cd94bf38e896490b8f73f602c0ed6a13515",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G8-PR-001:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用自己的话解释真实工程问题需要明确目标、标准、约束和分析，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用自己的话解释真实工程问题需要明确目标、标准、约束和分析”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把问题定义和验收标准前置，避免学生直接进入制作。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "comparison",
-      "component_ids": [
-        "lc_63ec65eeccdf9abf",
-        "lc_0c786b4dee078b5c"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生判断依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_bc595f6ef0e167c5",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_8da6ad51c50a795e",
-        "hc_eb37d006e5262e9d"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“判断依据”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和分析并判断依据；能定义简单的实际工程问题；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "f655291f40a2e5cb37e16a1b5baba5f8b855b7e3382a11454a5b16d55b7a4a03",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-001:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把问题定义和验收标准前置，避免学生直接进入制作。",
-          "excerpt_hash": "c1bb137dba33243894a6d31b26ff3cd94bf38e896490b8f73f602c0ed6a13515",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G8-PR-001:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后判断依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“判断依据”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“把问题定义和验收标准前置，避免学生直接进入制作。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "transfer",
-      "component_ids": [
-        "lc_131a18873fdfcdb8",
-        "lc_2d37afdbbc9cbc23"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用自己的话解释真实工程问题需要明确目标、标准、约束和分析的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_80eb66fabbad11f9",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
         "hc_8da6ad51c50a795e",
         "hc_3e9096595307700b"
       ],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“用自己的话解释真实工程问题需要明确目标、标准、约束和分析”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用自己的话解释真实工程问题需要明确目标、标准、约束和分析”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和分析并判断依据；能定义简单的实际工程问题；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "f655291f40a2e5cb37e16a1b5baba5f8b855b7e3382a11454a5b16d55b7a4a03",
+          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和评价依据；能定义简单的实际工程问题。",
+          "excerpt_hash": "ab2aaf1dc749617dd8b0ce5fe348232c48ea2971aa19272f2e795f657a9d3000",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-PR-001:standard",
           "source_type": "curriculum_standard_field"
@@ -122,32 +38,73 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后用自己的话解释真实工程问题需要明确目标、标准、约束和分析，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用自己的话解释真实工程问题需要明确目标、标准、约束和分析”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把问题定义和验收标准前置，避免学生直接进入制作。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把问题定义和验收标准前置，避免学生直接进入制作。”。随后撤去支架，用同构任务复测。"
+    },
+    {
+      "category": "transfer",
+      "component_ids": [
+        "lc_2168daacb350def8",
+        "lc_655d0cc470b10878"
+      ],
+      "confidence": 0.66,
+      "diagnostic_probe": "给出一个需要学生用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9b6d36c07fb66464",
+      "evidence_status": "rule_inferred_not_frequency_validated",
+      "frequency_claim": "not_available",
+      "hardest_case_ids": [
+        "hc_8da6ad51c50a795e",
+        "hc_3e9096595307700b"
+      ],
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "method": "difficulty_pattern_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和评价依据；能定义简单的实际工程问题。",
+          "excerpt_hash": "ab2aaf1dc749617dd8b0ce5fe348232c48ea2971aa19272f2e795f657a9d3000",
+          "field": "standard",
+          "ref_id": "standard:SC-H4G8-PR-001:standard",
+          "source_type": "curriculum_standard_field"
+        },
+        {
+          "excerpt": "把问题定义和验收标准前置，避免学生直接进入制作。",
+          "excerpt_hash": "c1bb137dba33243894a6d31b26ff3cd94bf38e896490b8f73f602c0ed6a13515",
+          "field": "teaching_tip",
+          "ref_id": "standard:SC-H4G8-PR-001:teaching_tip",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "success_signal": "学生能在撤去提示后用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“把问题定义和验收标准前置，避免学生直接进入制作。”。随后撤去支架，用同构任务复测。"
     },
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_766031c19cd6a065"
+        "lc_2168daacb350def8"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生解释概念之间的关系的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_dee7a8d5fbfb6246",
+      "diagnostic_probe": "给出一个需要学生用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_8c6f94d8ebf166bf",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_8da6ad51c50a795e"
+        "hc_8da6ad51c50a795e",
+        "hc_3e9096595307700b"
       ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“解释概念之间的关系”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“解释概念之间的关系”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和分析并判断依据；能定义简单的实际工程问题；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "f655291f40a2e5cb37e16a1b5baba5f8b855b7e3382a11454a5b16d55b7a4a03",
+          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和评价依据；能定义简单的实际工程问题。",
+          "excerpt_hash": "ab2aaf1dc749617dd8b0ce5fe348232c48ea2971aa19272f2e795f657a9d3000",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-PR-001:standard",
           "source_type": "curriculum_standard_field"
@@ -160,8 +117,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后解释概念之间的关系，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“解释概念之间的关系”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把问题定义和验收标准前置，避免学生直接进入制作。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把问题定义和验收标准前置，避免学生直接进入制作。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -379,55 +336,47 @@
       "review_status": "machine_checked",
       "source_code": "SC-H4G8-PR-001",
       "target_code": "SC-H4G9-PR-001",
-      "target_label": "理解真实工程问题需要明确目标、标准、约束和评价依据；分析材料、时间、成本等限制条件并提出验收标准；能定义简单的实际工程问题；能建模、论证并评价…"
+      "target_label": "理解真实工程问题需要明确目标、标准、约束和评价依据；分析材料、时间、成本等限制条件并提出验收标准；能定义简单的实际工程问题。"
     }
   ],
   "hardest_cases": [
     {
       "case_id": "hc_8da6ad51c50a795e",
       "component_ids": [
-        "lc_131a18873fdfcdb8",
-        "lc_63ec65eeccdf9abf",
-        "lc_0c786b4dee078b5c",
-        "lc_766031c19cd6a065"
+        "lc_2168daacb350def8"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
-        "依据",
-        "证据",
-        "解释"
+        "依据"
       ],
       "demand_dimension": "argument_evidence",
       "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释真实工程问题需要明确目标、标准、约束和分析。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用自己的话解释真实工程问题需要明确目标、标准、约束和分析；优先采集：工程问题定义、限制条件清单、验收标准。",
-        "学生能够判断依据；优先采集：工程问题定义、限制条件清单、验收标准。",
-        "学生能够比较证据；优先采集：工程问题定义、限制条件清单、验收标准。",
-        "学生能够解释概念之间的关系；优先采集：工程问题定义、限制条件清单、验收标准。"
+        "学生能够用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据；优先采集：工程问题定义、限制条件清单、验收标准。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和分析并判断依据；能定义简单的实际工程问题；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "f655291f40a2e5cb37e16a1b5baba5f8b855b7e3382a11454a5b16d55b7a4a03",
+          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和评价依据；能定义简单的实际工程问题。",
+          "excerpt_hash": "ab2aaf1dc749617dd8b0ce5fe348232c48ea2971aa19272f2e795f657a9d3000",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-PR-001:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（依据、证据、解释）",
+      "structure": "用证据或依据完成解释（依据）",
       "title": "用证据或依据完成解释",
       "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
     },
     {
       "case_id": "hc_3e9096595307700b",
       "component_ids": [
-        "lc_131a18873fdfcdb8",
-        "lc_2d37afdbbc9cbc23"
+        "lc_2168daacb350def8",
+        "lc_655d0cc470b10878"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
@@ -436,19 +385,19 @@
       ],
       "demand_dimension": "transfer",
       "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释真实工程问题需要明确目标、标准、约束和分析。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用自己的话解释真实工程问题需要明确目标、标准、约束和分析；优先采集：工程问题定义、限制条件清单、验收标准。",
+        "学生能够用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据；优先采集：工程问题定义、限制条件清单、验收标准。",
         "学生能够定义简单的实际工程问题；优先采集：工程问题定义、限制条件清单、验收标准。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和分析并判断依据；能定义简单的实际工程问题；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "f655291f40a2e5cb37e16a1b5baba5f8b855b7e3382a11454a5b16d55b7a4a03",
+          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和评价依据；能定义简单的实际工程问题。",
+          "excerpt_hash": "ab2aaf1dc749617dd8b0ce5fe348232c48ea2971aa19272f2e795f657a9d3000",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-PR-001:standard",
           "source_type": "curriculum_standard_field"
@@ -457,41 +406,6 @@
       "structure": "在真实或变化情境中迁移（真实、实际）",
       "title": "在真实或变化情境中迁移",
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
-    },
-    {
-      "case_id": "hc_eb37d006e5262e9d",
-      "component_ids": [
-        "lc_63ec65eeccdf9abf",
-        "lc_0c786b4dee078b5c"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "比较",
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生判断依据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够判断依据；优先采集：工程问题定义、限制条件清单、验收标准。",
-        "学生能够比较证据；优先采集：工程问题定义、限制条件清单、验收标准。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和分析并判断依据；能定义简单的实际工程问题；能比较证据并解释概念之间的关系。",
-          "excerpt_hash": "f655291f40a2e5cb37e16a1b5baba5f8b855b7e3382a11454a5b16d55b7a4a03",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（比较、判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
     }
   ],
   "learning_components": [
@@ -544,55 +458,31 @@
       "source_statement": "提出验收标准"
     },
     {
-      "component_id": "lc_131a18873fdfcdb8",
-      "component_type": "conceptual",
+      "component_id": "lc_2168daacb350def8",
+      "component_type": "metacognitive",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够用自己的话解释真实工程问题需要明确目标、标准、约束和分析",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释真实工程问题需要明确目标、标准、约束和分析，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用自己的话解释真实工程问题需要明确目标、标准、约束和分析",
+      "description": "学生能够用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据，并保留可回查的口头、书面或操作过程证据。",
+      "label": "用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用自己的话解释真实工程问题需要明确目标、标准、约束和分析；优先采集：工程问题定义、限制条件清单、验收标准。",
+      "observable_evidence": "学生能够用自己的话解释真实工程问题需要明确目标、标准、约束和评价依据；优先采集：工程问题定义、限制条件清单、验收标准。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解真实工程问题需要明确目标、标准、约束和分析",
-          "excerpt_hash": "dce69b712b2bfb0a4b437156fbf7264ffab1ba6ed5cde702d3971f5194c1e218",
+          "excerpt": "理解真实工程问题需要明确目标、标准、约束和评价依据",
+          "excerpt_hash": "4ccaaf8a286a335e6badacc23c086afad92540c89bc31579d9583690fc6bbfb0",
           "field": "standard",
           "ref_id": "standard:SC-H4G8-PR-001:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "理解真实工程问题需要明确目标、标准、约束和分析"
+      "source_statement": "理解真实工程问题需要明确目标、标准、约束和评价依据"
     },
     {
-      "component_id": "lc_63ec65eeccdf9abf",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够判断依据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生判断依据，并保留可回查的口头、书面或操作过程证据。",
-      "label": "判断依据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够判断依据；优先采集：工程问题定义、限制条件清单、验收标准。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "判断依据",
-          "excerpt_hash": "d2b42c7903f43193e0e3879a7b53fb20709059ac032978661a07f982fe5f3a84",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "判断依据"
-    },
-    {
-      "component_id": "lc_2d37afdbbc9cbc23",
+      "component_id": "lc_655d0cc470b10878",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
@@ -614,54 +504,6 @@
         }
       ],
       "source_statement": "定义简单的实际工程问题"
-    },
-    {
-      "component_id": "lc_0c786b4dee078b5c",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够比较证据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生比较证据，并说明关键步骤、特征或依据。",
-      "label": "比较证据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够比较证据；优先采集：工程问题定义、限制条件清单、验收标准。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "比较证据",
-          "excerpt_hash": "991569e1419bfb53d107f820e29cc506985fb42dec521ee976a4309299317eac",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "比较证据"
-    },
-    {
-      "component_id": "lc_766031c19cd6a065",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够解释概念之间的关系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生解释概念之间的关系，并保留可回查的口头、书面或操作过程证据。",
-      "label": "解释概念之间的关系",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够解释概念之间的关系；优先采集：工程问题定义、限制条件清单、验收标准。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "解释概念之间的关系",
-          "excerpt_hash": "7176bf29ca46d45d574a0ab078112ade02e1c191616f7761e6189d6092a666dd",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G8-PR-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "解释概念之间的关系"
     }
   ],
   "prerequisite_candidates": [
@@ -680,9 +522,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "SC-H4G7-PR-002",
-      "source_label": "理解真实工程问题需要明确目标、标准、约束和初步判断依据；能定义简单的实际工程问题；分析材料、时间、成本等限制条件并提出验收标准；能用观察证据说…",
+      "source_label": "理解真实工程问题需要明确目标、标准、约束和评价依据；能定义简单的实际工程问题；分析材料、时间、成本等限制条件并提出验收标准。",
       "target_code": "SC-H4G8-PR-001",
-      "target_label": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和分析并判断依据；能定义简单的实际工程问题；能比较证据并…"
+      "target_label": "分析材料、时间、成本等限制条件并提出验收标准；理解真实工程问题需要明确目标、标准、约束和评价依据；能定义简单的实际工程问题。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -693,7 +535,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "f655291f40a2e5cb37e16a1b5baba5f8b855b7e3382a11454a5b16d55b7a4a03",
+  "source_standard_hash": "ab2aaf1dc749617dd8b0ce5fe348232c48ea2971aa19272f2e795f657a9d3000",
   "standard_code": "SC-H4G8-PR-001",
   "verified_prerequisites": []
 }

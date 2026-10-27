@@ -3,28 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_1ed49a70ab861d00"
+        "lc_b5adf73f5651708c"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_066ec29159b5fe4c",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生讨论问题时积极发表有中心、有根据、有条理的看法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_82b358f6e3fc1581",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_1280aa7d4dfbc00f"
+        "hc_82b8e5a2d9a64cde"
       ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“讨论问题时积极发表有中心、有根据、有条理的看法”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "d1c57e748b80314c61d00befbbaec5b3c5d368714a7c0dce7a14a7eb7759d4b0",
+          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动。",
+          "excerpt_hash": "4bf8636e177cf4faf9552d00e32442c732d5fff40ed030fbda86d04a7f633b97",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-CM-008:standard",
           "source_type": "curriculum_standard_field"
@@ -37,46 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“分别评价内容具体性、要点准确性、观点依据和讨论回应能力。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "language_expression",
-      "component_ids": [
-        "lc_1ed49a70ab861d00"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点、方法或表达选择的依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_2aba9b6716b2e8c3",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_1280aa7d4dfbc00f"
-      ],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说明观点、方法或表达选择的依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点、方法或表达选择的依据”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "d1c57e748b80314c61d00befbbaec5b3c5d368714a7c0dce7a14a7eb7759d4b0",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-CM-008:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "分别评价内容具体性、要点准确性、观点依据和讨论回应能力。",
-          "excerpt_hash": "cc89e78e54257b5b6508bc4742dacc1a88bd9f0b1fba1b763201875c8e2c3cbc",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G8-CM-008:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明观点、方法或表达选择的依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点、方法或表达选择的依据”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“分别评价内容具体性、要点准确性、观点依据和讨论回应能力。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后讨论问题时积极发表有中心、有根据、有条理的看法，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“讨论问题时积极发表有中心、有根据、有条理的看法”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“分别评价内容具体性、要点准确性、观点依据和讨论回应能力。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -170,42 +132,43 @@
       "review_status": "machine_checked",
       "source_code": "CN-H4G8-CM-008",
       "target_code": "CN-H4G9-CM-009",
-      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动；能形成有观点、有证…"
+      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_1280aa7d4dfbc00f",
+      "case_id": "hc_82b8e5a2d9a64cde",
       "component_ids": [
-        "lc_1ed49a70ab861d00"
+        "lc_b5adf73f5651708c",
+        "lc_4f35fff708dcb104",
+        "lc_0816ae44572a11c8"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "依据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点、方法或表达选择的依据。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生讨论问题时积极发表有中心、有根据、有条理的看法。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够说明观点、方法或表达选择的依据；优先采集：演讲稿、复述记录、讨论发言记录、评价量表。"
+        "学生能够讨论问题时积极发表有中心、有根据、有条理的看法；优先采集：演讲稿、复述记录、讨论发言记录、评价量表。",
+        "学生能够就适当话题作即席讲话和有准备的主题演讲；优先采集：演讲稿、复述记录、讨论发言记录、评价量表。",
+        "学生能够讲述见闻能内容具体、语言生动；优先采集：演讲稿、复述记录、讨论发言记录、评价量表。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动；能整合材料并说明观点、方法或表达选择的依据。",
-          "excerpt_hash": "d1c57e748b80314c61d00befbbaec5b3c5d368714a7c0dce7a14a7eb7759d4b0",
+          "excerpt": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动。",
+          "excerpt_hash": "4bf8636e177cf4faf9552d00e32442c732d5fff40ed030fbda86d04a7f633b97",
           "field": "standard",
           "ref_id": "standard:CN-H4G8-CM-008:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（依据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "讨论问题时积极发表有中心、有根据、有条理的看法；就适当话题作即席讲话和有准备的主题演讲；讲述见闻能内容具体、语言生动",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -280,54 +243,6 @@
         }
       ],
       "source_statement": "讲述见闻能内容具体、语言生动"
-    },
-    {
-      "component_id": "lc_16e037adbb3ad6d7",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合材料",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合材料，并说明关键步骤、特征或依据。",
-      "label": "整合材料",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合材料；优先采集：演讲稿、复述记录、讨论发言记录、评价量表。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合材料",
-          "excerpt_hash": "c6c8b0ffb05ba398d2a4a4fb4f067efe130af369012aceee836b9c0c870e2710",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-CM-008:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合材料"
-    },
-    {
-      "component_id": "lc_1ed49a70ab861d00",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点、方法或表达选择的依据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点、方法或表达选择的依据，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点、方法或表达选择的依据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点、方法或表达选择的依据；优先采集：演讲稿、复述记录、讨论发言记录、评价量表。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点、方法或表达选择的依据",
-          "excerpt_hash": "04a7ab3f43a7836e4d3a1304eb39d0a43cdf66ecd30248e80d1cdebbd172b84a",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G8-CM-008:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点、方法或表达选择的依据"
     }
   ],
   "prerequisite_candidates": [
@@ -346,9 +261,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "CN-H4G7-CM-007",
-      "source_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点；能用简短记录或口头表达说明基…",
+      "source_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能讲述见闻能内容具体、语言生动；能复述转述能完整准确、突出要点。",
       "target_code": "CN-H4G8-CM-008",
-      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动；能整合材料并说明观…"
+      "target_label": "能讨论问题时积极发表有中心、有根据、有条理的看法；能就适当话题作即席讲话和有准备的主题演讲；能讲述见闻能内容具体、语言生动。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -359,7 +274,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "d1c57e748b80314c61d00befbbaec5b3c5d368714a7c0dce7a14a7eb7759d4b0",
+  "source_standard_hash": "4bf8636e177cf4faf9552d00e32442c732d5fff40ed030fbda86d04a7f633b97",
   "standard_code": "CN-H4G8-CM-008",
   "verified_prerequisites": []
 }

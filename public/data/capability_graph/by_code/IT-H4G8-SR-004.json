@@ -3,66 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "multi_step_procedure",
-      "component_ids": [
-        "lc_31a2159ff4b3e12f"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生完成有步骤的数字作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_45ab5c4b6c5cf895",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_bc29c49edcc127a9"
-      ],
-      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“完成有步骤的数字作品”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“完成有步骤的数字作品”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "37af3e54236756959dc5539b24bf03d843a35dbac69a3d4828762ae603646510",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-SR-004:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用真实账户安全、文件备份和隐私保护任务落实安全意识。",
-          "excerpt_hash": "2e6897bcad65569ed841d31c33a5bf743643137b559ef992b7705f9200e62ce3",
-          "field": "teaching_tip",
-          "ref_id": "standard:IT-H4G8-SR-004:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后完成有步骤的数字作品，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“完成有步骤的数字作品”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“用真实账户安全、文件备份和隐私保护任务落实安全意识。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
-        "lc_632a8b0a248eaed9"
+        "lc_eed2129afcbf2fa2"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生使用身份验证、加密和备份等措施进行安全防护的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_631fcbe26f8493d0",
+      "diagnostic_probe": "给出一个需要学生主动学习互联网知识，增强数据安全意识的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_2f98796d8f5f1714",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_5b41276be6912259"
+        "hc_9fe60e021f148652"
       ],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“使用身份验证、加密和备份等措施进行安全防护”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“使用身份验证、加密和备份等措施进行安全防护”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“主动学习互联网知识，增强数据安全意识”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“主动学习互联网知识，增强数据安全意识”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "37af3e54236756959dc5539b24bf03d843a35dbac69a3d4828762ae603646510",
+          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护。",
+          "excerpt_hash": "efc9b69cf3aadc8ed6b4326d8b03575809ffaa799ccb613ebc1910078aa94b3c",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-SR-004:standard",
           "source_type": "curriculum_standard_field"
@@ -75,8 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后使用身份验证、加密和备份等措施进行安全防护，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“使用身份验证、加密和备份等措施进行安全防护”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用真实账户安全、文件备份和隐私保护任务落实安全意识。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后主动学习互联网知识，增强数据安全意识，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“主动学习互联网知识，增强数据安全意识”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用真实账户安全、文件备份和隐私保护任务落实安全意识。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -107,44 +69,12 @@
       "review_status": "machine_checked",
       "source_code": "IT-H4G8-SR-004",
       "target_code": "IT-H4G9-SR-004",
-      "target_label": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能设计、测试并评价数字化解决方案。"
+      "target_label": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_bc29c49edcc127a9",
-      "component_ids": [
-        "lc_31a2159ff4b3e12f"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "步骤"
-      ],
-      "demand_dimension": "multi_step",
-      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成有步骤的数字作品。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够完成有步骤的数字作品；优先采集：安全防护清单、操作记录、风险说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "37af3e54236756959dc5539b24bf03d843a35dbac69a3d4828762ae603646510",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-SR-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "保持多步骤或完整结构（步骤）",
-      "title": "保持多步骤或完整结构",
-      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
-    },
-    {
-      "case_id": "hc_5b41276be6912259",
+      "case_id": "hc_9fe60e021f148652",
       "component_ids": [
         "lc_eed2129afcbf2fa2",
         "lc_632a8b0a248eaed9"
@@ -166,8 +96,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "37af3e54236756959dc5539b24bf03d843a35dbac69a3d4828762ae603646510",
+          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护。",
+          "excerpt_hash": "efc9b69cf3aadc8ed6b4326d8b03575809ffaa799ccb613ebc1910078aa94b3c",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-SR-004:standard",
           "source_type": "curriculum_standard_field"
@@ -218,62 +148,14 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "37af3e54236756959dc5539b24bf03d843a35dbac69a3d4828762ae603646510",
+          "excerpt": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护。",
+          "excerpt_hash": "efc9b69cf3aadc8ed6b4326d8b03575809ffaa799ccb613ebc1910078aa94b3c",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-SR-004:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
       "source_statement": "使用身份验证、加密和备份等措施进行安全防护"
-    },
-    {
-      "component_id": "lc_c50b72b70422c2fb",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够分析系统关系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析系统关系，并说明关键步骤、特征或依据。",
-      "label": "分析系统关系",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析系统关系；优先采集：安全防护清单、操作记录、风险说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析系统关系",
-          "excerpt_hash": "ebac474de7322e39b3ec0dc7ec33a2102e19e5fe5b414c4ba8c39244053f052c",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-SR-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "分析系统关系"
-    },
-    {
-      "component_id": "lc_31a2159ff4b3e12f",
-      "component_type": "procedural",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成有步骤的数字作品",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成有步骤的数字作品，并说明关键步骤、特征或依据。",
-      "label": "完成有步骤的数字作品",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成有步骤的数字作品；优先采集：安全防护清单、操作记录、风险说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成有步骤的数字作品",
-          "excerpt_hash": "dbbbd54f76d7834a2c97c486813f724ab7884056c98d6fe13349aba505702adb",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-SR-004:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成有步骤的数字作品"
     }
   ],
   "prerequisite_candidates": [
@@ -292,9 +174,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "IT-H4G7-SR-005",
-      "source_label": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能说明数字工具或数据过程的基本做法。",
+      "source_label": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护。",
       "target_code": "IT-H4G8-SR-004",
-      "target_label": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护；能分析系统关系并完成有步骤的数字作品。"
+      "target_label": "主动学习互联网知识，增强数据安全意识，能在互联网应用中使用身份验证、加密和备份等措施进行安全防护。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -305,7 +187,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "37af3e54236756959dc5539b24bf03d843a35dbac69a3d4828762ae603646510",
+  "source_standard_hash": "efc9b69cf3aadc8ed6b4326d8b03575809ffaa799ccb613ebc1910078aa94b3c",
   "standard_code": "IT-H4G8-SR-004",
   "verified_prerequisites": []
 }

@@ -3,57 +3,16 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "transfer",
-      "component_ids": [
-        "lc_d26ec994433cd6e7"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生归纳语法规则的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_1b617cbcf6b44d99",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_3586d475957367a0"
-      ],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“归纳语法规则”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“归纳语法规则”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容；能在真实交际中形成连贯表达并反思策略。",
-          "excerpt_hash": "ac6252b0fdacdc690ce365abb259e4d6c792b7ea30fd8fd3fb2d73cccdff7cdf",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G9-LA-005:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "指导学生把信息提取、推断、语法归纳和语篇结构梳理放在同一个主题语篇任务中完成。",
-          "excerpt_hash": "b7696a9b4e38d41456edf9aac06baf1ad4c81d08eecac370b6a63be4095073c3",
-          "field": "teaching_tip",
-          "ref_id": "standard:EN-H4G9-LA-005:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后归纳语法规则，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“归纳语法规则”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“指导学生把信息提取、推断、语法归纳和语篇结构梳理放在同一个主题语篇任务中完成。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
-        "lc_f2b997725c181154",
-        "lc_5e290d1b429541ef"
+        "lc_f2b997725c181154"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生整体理解并简要概括主要内容的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_44bb5a77ec095d6f",
+      "difficulty_id": "cd_3f1451863fbd3d17",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_89710f4a4603425b"
-      ],
+      "hardest_case_ids": [],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“整体理解并简要概括主要内容”中的实际过程进一步核验。",
       "manifestation": "在要求学生“整体理解并简要概括主要内容”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
@@ -62,8 +21,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容；能在真实交际中形成连贯表达并反思策略。",
-          "excerpt_hash": "ac6252b0fdacdc690ce365abb259e4d6c792b7ea30fd8fd3fb2d73cccdff7cdf",
+          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容。",
+          "excerpt_hash": "5ba1a0fe17ee6e0b1c9420fbad8a14e837e054a63896041e750dcdcee4e4131a",
           "field": "standard",
           "ref_id": "standard:EN-H4G9-LA-005:standard",
           "source_type": "curriculum_standard_field"
@@ -87,11 +46,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生梳理常见书面语篇的基本结构特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_c3bbfde339b964c1",
+      "difficulty_id": "cd_9b1a52f0be67dd8b",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_3586d475957367a0"
+        "hc_b8805ffbb15cbae0"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“梳理常见书面语篇的基本结构特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“梳理常见书面语篇的基本结构特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -101,8 +60,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容；能在真实交际中形成连贯表达并反思策略。",
-          "excerpt_hash": "ac6252b0fdacdc690ce365abb259e4d6c792b7ea30fd8fd3fb2d73cccdff7cdf",
+          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容。",
+          "excerpt_hash": "5ba1a0fe17ee6e0b1c9420fbad8a14e837e054a63896041e750dcdcee4e4131a",
           "field": "standard",
           "ref_id": "standard:EN-H4G9-LA-005:standard",
           "source_type": "curriculum_standard_field"
@@ -197,18 +156,16 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_3586d475957367a0",
+      "case_id": "hc_b8805ffbb15cbae0",
       "component_ids": [
         "lc_d26ec994433cd6e7",
         "lc_ba0fc9e894fef8d4",
         "lc_699fa3f888d8cfd1"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "真实"
-      ],
-      "demand_dimension": "transfer",
-      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
       "example_task_stub": "设计一个不提供完整范例的任务，要求学生归纳语法规则。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
@@ -221,48 +178,16 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容；能在真实交际中形成连贯表达并反思策略。",
-          "excerpt_hash": "ac6252b0fdacdc690ce365abb259e4d6c792b7ea30fd8fd3fb2d73cccdff7cdf",
+          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容。",
+          "excerpt_hash": "5ba1a0fe17ee6e0b1c9420fbad8a14e837e054a63896041e750dcdcee4e4131a",
           "field": "standard",
           "ref_id": "standard:EN-H4G9-LA-005:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "在真实或变化情境中迁移（真实）",
-      "title": "在真实或变化情境中迁移",
-      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
-    },
-    {
-      "case_id": "hc_89710f4a4603425b",
-      "component_ids": [
-        "lc_5e290d1b429541ef"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "连贯"
-      ],
-      "demand_dimension": "quality_criteria",
-      "diagnostic_focus": "把质量限定转为可观察的成功准则，用一个达标样例和一个近似未达标样例校准判断。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出连贯表达并说明选择理由。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：要点笔记、语篇结构图、推断说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容；能在真实交际中形成连贯表达并反思策略。",
-          "excerpt_hash": "ac6252b0fdacdc690ce365abb259e4d6c792b7ea30fd8fd3fb2d73cccdff7cdf",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G9-LA-005:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "达到标准中的质量准则（连贯）",
-      "title": "达到标准中的质量准则",
-      "why_hard": "完成动作并不等于达到质量要求；学生需要同时监控清晰度、连贯性、稳定性或适切性等成功准则。"
+      "structure": "归纳语法规则；梳理常见书面语篇的基本结构特征；在听、读、看的过程中围绕语篇内容记录重点信息",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -361,54 +286,6 @@
         }
       ],
       "source_statement": "整体理解并简要概括主要内容"
-    },
-    {
-      "component_id": "lc_5e290d1b429541ef",
-      "component_type": "language",
-      "condition": "在真实交际中",
-      "confidence": 0.72,
-      "description": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由",
-      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生在任务中表现出连贯表达并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
-      "label": "在任务中表现出连贯表达并说明选择理由",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生在真实交际中，能够在任务中表现出连贯表达并说明选择理由；优先采集：要点笔记、语篇结构图、推断说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容；能在真实交际中形成连贯表达并反思策略。",
-          "excerpt_hash": "ac6252b0fdacdc690ce365abb259e4d6c792b7ea30fd8fd3fb2d73cccdff7cdf",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G9-LA-005:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "形成连贯表达"
-    },
-    {
-      "component_id": "lc_693f825568dc5fbb",
-      "component_type": "metacognitive",
-      "condition": "在真实交际中",
-      "confidence": 0.72,
-      "description": "学生在真实交际中，能够反思策略",
-      "diagnostic_prompt": "请设计一个不提供完整范例且符合“在真实交际中”的诊断任务，要求学生反思策略，并说明关键步骤、特征或依据。",
-      "label": "反思策略",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生在真实交际中，能够反思策略；优先采集：要点笔记、语篇结构图、推断说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容；能在真实交际中形成连贯表达并反思策略。",
-          "excerpt_hash": "ac6252b0fdacdc690ce365abb259e4d6c792b7ea30fd8fd3fb2d73cccdff7cdf",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G9-LA-005:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "反思策略"
     }
   ],
   "prerequisite_candidates": [
@@ -427,9 +304,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "EN-H4G8-LA-006",
-      "source_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能根据关键词对人物、地点、事件等进行推断；能整…",
+      "source_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能根据关键词对人物、地点、事件等进行推断。",
       "target_code": "EN-H4G9-LA-005",
-      "target_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容；能在真实交际中形…"
+      "target_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能整体理解并简要概括主要内容。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -440,7 +317,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "ac6252b0fdacdc690ce365abb259e4d6c792b7ea30fd8fd3fb2d73cccdff7cdf",
+  "source_standard_hash": "5ba1a0fe17ee6e0b1c9420fbad8a14e837e054a63896041e750dcdcee4e4131a",
   "standard_code": "EN-H4G9-LA-005",
   "verified_prerequisites": []
 }

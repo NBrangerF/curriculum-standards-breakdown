@@ -3,66 +3,29 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_864447aaca5d4cab"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点或文化差异的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_017a219d51b5e39b",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_3832edb67f1390ee"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点或文化差异”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点或文化差异”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "6ccc14c0add78708faa8e4aec41e022ed05d9df12f9c70bdfd38b25cee51205e",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-LA-011:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "结合主题语境、构词法、词典和词表指导学生自主扩展词汇。",
-          "excerpt_hash": "2fce40e7b279d16a5ac8e0f688bbbbecb3a6200fc63c1af734167a18764755aa",
-          "field": "teaching_tip",
-          "ref_id": "standard:EN-H4G8-LA-011:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明观点或文化差异，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点或文化差异”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“结合主题语境、构词法、词典和词表指导学生自主扩展词汇。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
-        "lc_e77658e2688502b0"
+        "lc_6f266c7342f22954"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生通过识别词根、词缀理解生词的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_5c93362fee338408",
+      "diagnostic_probe": "给出一个需要学生使用约1600个单词进行交流与表达的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_cc538c316963178e",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_4a0eaee9b8c2d5ce"
+        "hc_ddaabf06cea8558f",
+        "hc_378f4b1a5eb9a393"
       ],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“通过识别词根、词缀理解生词”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“通过识别词根、词缀理解生词”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
+      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“使用约1600个单词进行交流与表达”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“使用约1600个单词进行交流与表达”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "6ccc14c0add78708faa8e4aec41e022ed05d9df12f9c70bdfd38b25cee51205e",
+          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词。",
+          "excerpt_hash": "f19e108157b0219c603312783eb0813e3c97a35f75002a9da88f59c43bf43a8e",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-LA-011:standard",
           "source_type": "curriculum_standard_field"
@@ -75,8 +38,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后通过识别词根、词缀理解生词，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“通过识别词根、词缀理解生词”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“结合主题语境、构词法、词典和词表指导学生自主扩展词汇。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后使用约1600个单词进行交流与表达，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“使用约1600个单词进行交流与表达”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“结合主题语境、构词法、词典和词表指导学生自主扩展词汇。”。随后撤去支架，用同构任务复测。"
     },
     {
       "category": "language_expression",
@@ -85,12 +48,12 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生使用约1600个单词进行交流与表达的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_55fc252308ef85c9",
+      "difficulty_id": "cd_6eb851c41fbb7b24",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_4a0eaee9b8c2d5ce",
-        "hc_13f4f2469578e6a7"
+        "hc_ddaabf06cea8558f",
+        "hc_378f4b1a5eb9a393"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“使用约1600个单词进行交流与表达”中的实际过程进一步核验。",
       "manifestation": "在要求学生“使用约1600个单词进行交流与表达”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -100,8 +63,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "6ccc14c0add78708faa8e4aec41e022ed05d9df12f9c70bdfd38b25cee51205e",
+          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词。",
+          "excerpt_hash": "f19e108157b0219c603312783eb0813e3c97a35f75002a9da88f59c43bf43a8e",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-LA-011:standard",
           "source_type": "curriculum_standard_field"
@@ -124,11 +87,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生通过识别词根、词缀理解生词的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_947021bf449d5184",
+      "difficulty_id": "cd_e9c4e0ab1c806060",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_4a0eaee9b8c2d5ce"
+        "hc_ddaabf06cea8558f"
       ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过识别词根、词缀理解生词”中的实际过程进一步核验。",
       "manifestation": "在要求学生“通过识别词根、词缀理解生词”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
@@ -138,8 +101,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "6ccc14c0add78708faa8e4aec41e022ed05d9df12f9c70bdfd38b25cee51205e",
+          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词。",
+          "excerpt_hash": "f19e108157b0219c603312783eb0813e3c97a35f75002a9da88f59c43bf43a8e",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-LA-011:standard",
           "source_type": "curriculum_standard_field"
@@ -306,43 +269,10 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_3832edb67f1390ee",
-      "component_ids": [
-        "lc_864447aaca5d4cab"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点或文化差异。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明观点或文化差异；优先采集：词汇语义网、生词推断记录、主题表达作品。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "6ccc14c0add78708faa8e4aec41e022ed05d9df12f9c70bdfd38b25cee51205e",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-LA-011:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_4a0eaee9b8c2d5ce",
+      "case_id": "hc_ddaabf06cea8558f",
       "component_ids": [
         "lc_6f266c7342f22954",
-        "lc_e77658e2688502b0",
-        "lc_7d2dbbca2590ea8c"
+        "lc_e77658e2688502b0"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
@@ -356,14 +286,13 @@
       "publication_status": "candidate",
       "required_student_evidence": [
         "学生围绕相关主题学习，能够使用约1600个单词进行交流与表达；优先采集：词汇语义网、生词推断记录、主题表达作品。",
-        "学生能够通过识别词根、词缀理解生词；优先采集：词汇语义网、生词推断记录、主题表达作品。",
-        "学生能够整合语篇信息；优先采集：词汇语义网、生词推断记录、主题表达作品。"
+        "学生能够通过识别词根、词缀理解生词；优先采集：词汇语义网、生词推断记录、主题表达作品。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "6ccc14c0add78708faa8e4aec41e022ed05d9df12f9c70bdfd38b25cee51205e",
+          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词。",
+          "excerpt_hash": "f19e108157b0219c603312783eb0813e3c97a35f75002a9da88f59c43bf43a8e",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-LA-011:standard",
           "source_type": "curriculum_standard_field"
@@ -374,7 +303,7 @@
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
     },
     {
-      "case_id": "hc_13f4f2469578e6a7",
+      "case_id": "hc_378f4b1a5eb9a393",
       "component_ids": [
         "lc_6f266c7342f22954"
       ],
@@ -395,8 +324,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "6ccc14c0add78708faa8e4aec41e022ed05d9df12f9c70bdfd38b25cee51205e",
+          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词。",
+          "excerpt_hash": "f19e108157b0219c603312783eb0813e3c97a35f75002a9da88f59c43bf43a8e",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-LA-011:standard",
           "source_type": "curriculum_standard_field"
@@ -423,8 +352,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "6ccc14c0add78708faa8e4aec41e022ed05d9df12f9c70bdfd38b25cee51205e",
+          "excerpt": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能通过识别词根、词缀理解生词。",
+          "excerpt_hash": "f19e108157b0219c603312783eb0813e3c97a35f75002a9da88f59c43bf43a8e",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-LA-011:standard",
           "source_type": "curriculum_standard_field"
@@ -455,54 +384,6 @@
         }
       ],
       "source_statement": "通过识别词根、词缀理解生词"
-    },
-    {
-      "component_id": "lc_7d2dbbca2590ea8c",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合语篇信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合语篇信息，并说明关键步骤、特征或依据。",
-      "label": "整合语篇信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合语篇信息；优先采集：词汇语义网、生词推断记录、主题表达作品。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合语篇信息",
-          "excerpt_hash": "8fc7fa6e6eeaf7e69dbafe1c0139000f909d2a7e8aba5e8aae0003274289a04b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-LA-011:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合语篇信息"
-    },
-    {
-      "component_id": "lc_864447aaca5d4cab",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点或文化差异",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点或文化差异，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点或文化差异",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点或文化差异；优先采集：词汇语义网、生词推断记录、主题表达作品。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点或文化差异",
-          "excerpt_hash": "eddc2a80e635a5a126c12dfa34e72610db5e58b8d29295eaa8d1d361aecdddff",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-LA-011:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点或文化差异"
     }
   ],
   "prerequisite_candidates": [
@@ -521,7 +402,7 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "EN-H4G7-LA-010",
-      "source_label": "能通过识别词根、词缀理解生词；能围绕相关主题学习并使用约1600个单词进行交流与表达；能辨识前缀、后缀及其意义；能获取关键信息并完成简短交流。",
+      "source_label": "能通过识别词根、词缀理解生词；能围绕相关主题学习并使用约1600个单词进行交流与表达；能辨识前缀、后缀及其意义。",
       "target_code": "EN-H4G8-LA-011",
       "target_label": "能根据实际情况接触相关主题范围内100-300个单词和一定数量的习惯用语或固定搭配；能围绕相关主题学习并使用约1600个单词进行交流与表达；能…"
     }
@@ -534,7 +415,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "6ccc14c0add78708faa8e4aec41e022ed05d9df12f9c70bdfd38b25cee51205e",
+  "source_standard_hash": "f19e108157b0219c603312783eb0813e3c97a35f75002a9da88f59c43bf43a8e",
   "standard_code": "EN-H4G8-LA-011",
   "verified_prerequisites": []
 }

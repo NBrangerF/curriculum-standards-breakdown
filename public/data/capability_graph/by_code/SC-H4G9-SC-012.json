@@ -3,68 +3,29 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_6ec898fdef19e46a",
-        "lc_37fbc6b69a0fb500",
-        "lc_c8d022151caf10d0"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生阐释化学方程式的意义和书写规则的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_78bf0d7ff586d9cb",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_ea92eccf819655da"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“阐释化学方程式的意义和书写规则”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“阐释化学方程式的意义和书写规则”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "阐释化学方程式的意义和书写规则；能根据化学方程式进行简单计算；阐释常见化合反应、分解反应、置换反应和复分解反应的特点；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "8db7587c5de2952c94349599c9cd08684a76b7aeaaa5e5df8d92e8436359ff1f",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-012:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用实验事实和微观解释共同支撑质量守恒理解。",
-          "excerpt_hash": "37f64cd06dc73c51e986d9c12a530c28d9e36a2685ddf3c5bdc11c75b5397173",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G9-SC-012:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后阐释化学方程式的意义和书写规则，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“阐释化学方程式的意义和书写规则”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用实验事实和微观解释共同支撑质量守恒理解。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
-        "lc_6ec898fdef19e46a"
+        "lc_0d85d06f51876ff8",
+        "lc_e4d25564c9352d7e"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生阐释化学方程式的意义和书写规则的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_35209a3c266904dd",
+      "diagnostic_probe": "给出一个需要学生准确说出化学方程式的意义和书写规则的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_786839c36c503128",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_ea92eccf819655da"
+        "hc_294c6f98a66a1d78"
       ],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“阐释化学方程式的意义和书写规则”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“阐释化学方程式的意义和书写规则”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“准确说出化学方程式的意义和书写规则”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“准确说出化学方程式的意义和书写规则”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释化学方程式的意义和书写规则；能根据化学方程式进行简单计算；阐释常见化合反应、分解反应、置换反应和复分解反应的特点；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "8db7587c5de2952c94349599c9cd08684a76b7aeaaa5e5df8d92e8436359ff1f",
+          "excerpt": "知道化学方程式的意义和书写规则；能根据化学方程式进行简单计算；知道常见化合反应、分解反应、置换反应和复分解反应的特点。",
+          "excerpt_hash": "610e13d8409fe87149243c391cb8ec8fa0d260a9a5c030d74c06d5fa34734f0e",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-012:standard",
           "source_type": "curriculum_standard_field"
@@ -77,8 +38,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后阐释化学方程式的意义和书写规则，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“阐释化学方程式的意义和书写规则”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用实验事实和微观解释共同支撑质量守恒理解。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后准确说出化学方程式的意义和书写规则，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“准确说出化学方程式的意义和书写规则”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用实验事实和微观解释共同支撑质量守恒理解。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -122,7 +83,7 @@
       ],
       "learning_component_ids": [
         "lc_69f5b7cd1e72069b",
-        "lc_6ec898fdef19e46a"
+        "lc_0d85d06f51876ff8"
       ],
       "learning_components": [
         {
@@ -130,8 +91,8 @@
           "label": "根据化学方程式进行简单计算"
         },
         {
-          "component_id": "lc_6ec898fdef19e46a",
-          "label": "阐释化学方程式的意义和书写规则"
+          "component_id": "lc_0d85d06f51876ff8",
+          "label": "准确说出化学方程式的意义和书写规则"
         }
       ],
       "level": "page",
@@ -141,7 +102,7 @@
       "pdf_page": 129,
       "printed_page": "124",
       "publication_status": "published",
-      "rationale": "教材exercise“写出图中所示反应的化学方程式: 8C H2CO31 ;2 ;”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、阐释化学方程式的意义和书写规则”形成页内证据匹配。",
+      "rationale": "教材练习“写出图中所示反应的化学方程式: 8C H2CO31 ;2 ;”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、准确说出化学方程式的意义和书写规则”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -182,7 +143,7 @@
       ],
       "learning_component_ids": [
         "lc_69f5b7cd1e72069b",
-        "lc_6ec898fdef19e46a"
+        "lc_0d85d06f51876ff8"
       ],
       "learning_components": [
         {
@@ -190,8 +151,8 @@
           "label": "根据化学方程式进行简单计算"
         },
         {
-          "component_id": "lc_6ec898fdef19e46a",
-          "label": "阐释化学方程式的意义和书写规则"
+          "component_id": "lc_0d85d06f51876ff8",
+          "label": "准确说出化学方程式的意义和书写规则"
         }
       ],
       "level": "page",
@@ -201,7 +162,7 @@
       "pdf_page": 106,
       "printed_page": "101",
       "publication_status": "published",
-      "rationale": "教材exercise“写出铁在氧气中燃烧生成四氧化三铁的化学方程式(注意配平)。”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、阐释化学方程式的意义和书写规则”形成页内证据匹配。",
+      "rationale": "教材练习“写出铁在氧气中燃烧生成四氧化三铁的化学方程式(注意配平)。”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、准确说出化学方程式的意义和书写规则”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -279,7 +240,7 @@
       ],
       "learning_component_ids": [
         "lc_69f5b7cd1e72069b",
-        "lc_6ec898fdef19e46a"
+        "lc_0d85d06f51876ff8"
       ],
       "learning_components": [
         {
@@ -287,8 +248,8 @@
           "label": "根据化学方程式进行简单计算"
         },
         {
-          "component_id": "lc_6ec898fdef19e46a",
-          "label": "阐释化学方程式的意义和书写规则"
+          "component_id": "lc_0d85d06f51876ff8",
+          "label": "准确说出化学方程式的意义和书写规则"
         }
       ],
       "level": "unit",
@@ -298,7 +259,7 @@
       "pdf_page": 106,
       "printed_page": "101",
       "publication_status": "published",
-      "rationale": "教材lesson“2配平下列化学方程式”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、阐释化学方程式的意义和书写规则”形成页内证据匹配。",
+      "rationale": "教材课文“2配平下列化学方程式”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、准确说出化学方程式的意义和书写规则”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -339,7 +300,7 @@
       ],
       "learning_component_ids": [
         "lc_69f5b7cd1e72069b",
-        "lc_6ec898fdef19e46a"
+        "lc_0d85d06f51876ff8"
       ],
       "learning_components": [
         {
@@ -347,8 +308,8 @@
           "label": "根据化学方程式进行简单计算"
         },
         {
-          "component_id": "lc_6ec898fdef19e46a",
-          "label": "阐释化学方程式的意义和书写规则"
+          "component_id": "lc_0d85d06f51876ff8",
+          "label": "准确说出化学方程式的意义和书写规则"
         }
       ],
       "level": "unit",
@@ -358,7 +319,7 @@
       "pdf_page": 97,
       "printed_page": "92",
       "publication_status": "published",
-      "rationale": "教材lesson“92第五单元化学方程式”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、阐释化学方程式的意义和书写规则”形成页内证据匹配。",
+      "rationale": "教材课文“92第五单元化学方程式”与课标 SC-H4G9-SC-012 的可教学小能力“根据化学方程式进行简单计算、准确说出化学方程式的意义和书写规则”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -467,67 +428,64 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_ea92eccf819655da",
+      "case_id": "hc_294c6f98a66a1d78",
       "component_ids": [
-        "lc_6ec898fdef19e46a",
-        "lc_37fbc6b69a0fb500",
-        "lc_c8d022151caf10d0"
+        "lc_0d85d06f51876ff8",
+        "lc_69f5b7cd1e72069b",
+        "lc_e4d25564c9352d7e"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "论证",
-        "阐释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释化学方程式的意义和书写规则。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出化学方程式的意义和书写规则。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够阐释化学方程式的意义和书写规则；优先采集：质量守恒实验记录、化学方程式、计算过程。",
-        "学生能够阐释常见化合反应、分解反应、置换反应和复分解反应的特点；优先采集：质量守恒实验记录、化学方程式、计算过程。",
-        "学生能够建模、论证；优先采集：质量守恒实验记录、化学方程式、计算过程。"
+        "学生能够准确说出化学方程式的意义和书写规则；优先采集：质量守恒实验记录、化学方程式、计算过程。",
+        "学生能够根据化学方程式进行简单计算；优先采集：质量守恒实验记录、化学方程式、计算过程。",
+        "学生能够准确说出常见化合反应、分解反应、置换反应和复分解反应的特点；优先采集：质量守恒实验记录、化学方程式、计算过程。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释化学方程式的意义和书写规则；能根据化学方程式进行简单计算；阐释常见化合反应、分解反应、置换反应和复分解反应的特点；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "8db7587c5de2952c94349599c9cd08684a76b7aeaaa5e5df8d92e8436359ff1f",
+          "excerpt": "知道化学方程式的意义和书写规则；能根据化学方程式进行简单计算；知道常见化合反应、分解反应、置换反应和复分解反应的特点。",
+          "excerpt_hash": "610e13d8409fe87149243c391cb8ec8fa0d260a9a5c030d74c06d5fa34734f0e",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-012:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（论证、阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "准确说出化学方程式的意义和书写规则；根据化学方程式进行简单计算；准确说出常见化合反应、分解反应、置换反应和复分解反应的特点",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_6ec898fdef19e46a",
+      "component_id": "lc_0d85d06f51876ff8",
       "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够阐释化学方程式的意义和书写规则",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释化学方程式的意义和书写规则，并保留可回查的口头、书面或操作过程证据。",
-      "label": "阐释化学方程式的意义和书写规则",
+      "description": "学生能够准确说出化学方程式的意义和书写规则",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出化学方程式的意义和书写规则，并说明关键步骤、特征或依据。",
+      "label": "准确说出化学方程式的意义和书写规则",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够阐释化学方程式的意义和书写规则；优先采集：质量守恒实验记录、化学方程式、计算过程。",
+      "observable_evidence": "学生能够准确说出化学方程式的意义和书写规则；优先采集：质量守恒实验记录、化学方程式、计算过程。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释化学方程式的意义和书写规则",
-          "excerpt_hash": "8f0bff20b14e0e8453d3d7fa4a1a787a8ba2355c80995653afbbcfbc2aa610c4",
+          "excerpt": "知道化学方程式的意义和书写规则",
+          "excerpt_hash": "58538554239c39fb8e81722f252ce2194a45b4091483f9497341e0d7253f58af",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-012:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "阐释化学方程式的意义和书写规则"
+      "source_statement": "知道化学方程式的意义和书写规则"
     },
     {
       "component_id": "lc_69f5b7cd1e72069b",
@@ -554,76 +512,28 @@
       "source_statement": "根据化学方程式进行简单计算"
     },
     {
-      "component_id": "lc_37fbc6b69a0fb500",
-      "component_type": "conceptual",
+      "component_id": "lc_e4d25564c9352d7e",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够阐释常见化合反应、分解反应、置换反应和复分解反应的特点",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释常见化合反应、分解反应、置换反应和复分解反应的特点，并保留可回查的口头、书面或操作过程证据。",
-      "label": "阐释常见化合反应、分解反应、置换反应和复分解反应的特点",
+      "description": "学生能够准确说出常见化合反应、分解反应、置换反应和复分解反应的特点",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出常见化合反应、分解反应、置换反应和复分解反应的特点，并说明关键步骤、特征或依据。",
+      "label": "准确说出常见化合反应、分解反应、置换反应和复分解反应的特点",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够阐释常见化合反应、分解反应、置换反应和复分解反应的特点；优先采集：质量守恒实验记录、化学方程式、计算过程。",
+      "observable_evidence": "学生能够准确说出常见化合反应、分解反应、置换反应和复分解反应的特点；优先采集：质量守恒实验记录、化学方程式、计算过程。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释常见化合反应、分解反应、置换反应和复分解反应的特点",
-          "excerpt_hash": "f5bd2886ebb59de45b346bf3f144df6154a2f737985b2177f9604c368955515c",
+          "excerpt": "知道常见化合反应、分解反应、置换反应和复分解反应的特点",
+          "excerpt_hash": "f615e18e279c350d219b3a451a49687375822268cf7bed1b54b636368d55d305",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-012:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "阐释常见化合反应、分解反应、置换反应和复分解反应的特点"
-    },
-    {
-      "component_id": "lc_c8d022151caf10d0",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够建模、论证",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
-      "label": "建模、论证",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够建模、论证；优先采集：质量守恒实验记录、化学方程式、计算过程。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "建模、论证",
-          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-012:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "建模、论证"
-    },
-    {
-      "component_id": "lc_6c5106d30f6c2985",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价探究结论或社会影响",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
-      "label": "评价探究结论或社会影响",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：质量守恒实验记录、化学方程式、计算过程。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价探究结论或社会影响",
-          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-012:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价探究结论或社会影响"
+      "source_statement": "知道常见化合反应、分解反应、置换反应和复分解反应的特点"
     }
   ],
   "prerequisite_candidates": [
@@ -642,9 +552,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "SC-H4G8-SC-011",
-      "source_label": "能知道化学方程式的意义和书写规则；认识质量守恒定律并能解释常见现象；能根据化学方程式进行简单计算；能比较证据并解释概念之间的关系。",
+      "source_label": "能知道化学方程式的意义和书写规则；认识质量守恒定律并能解释常见现象；能根据化学方程式进行简单计算。",
       "target_code": "SC-H4G9-SC-012",
-      "target_label": "阐释化学方程式的意义和书写规则；能根据化学方程式进行简单计算；阐释常见化合反应、分解反应、置换反应和复分解反应的特点；能建模、论证并评价探究结…"
+      "target_label": "知道化学方程式的意义和书写规则；能根据化学方程式进行简单计算；知道常见化合反应、分解反应、置换反应和复分解反应的特点。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -655,7 +565,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "8db7587c5de2952c94349599c9cd08684a76b7aeaaa5e5df8d92e8436359ff1f",
+  "source_standard_hash": "610e13d8409fe87149243c391cb8ec8fa0d260a9a5c030d74c06d5fa34734f0e",
   "standard_code": "SC-H4G9-SC-012",
   "verified_prerequisites": []
 }

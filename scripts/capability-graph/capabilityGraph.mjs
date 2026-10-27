@@ -8,7 +8,7 @@ export const SOURCE_BOUND_ATOMIC_DECOMPOSITION_METHOD = 'source_bound_atomic_dec
 
 const SOURCE_BOUND_ATOMIC_COMPONENT_DECOMPOSITIONS = new Map([
     ['AR-H4G7-AA-006', {
-        source_standard: '能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用；能辨别常见音乐结构及主调、复调音乐；能描述艺术要素并完成基础表现或创作。',
+        source_standard: '能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用；能辨别常见音乐结构及主调、复调音乐。',
         components: [
             {
                 atomic_key: 'choral_voice_timbre_discrimination',
@@ -41,16 +41,6 @@ const SOURCE_BOUND_ATOMIC_COMPONENT_DECOMPOSITIONS = new Map([
                 legacy_index: 3,
                 label: '辨别常见音乐结构及主调、复调音乐',
                 source_clause: '辨别常见音乐结构及主调、复调音乐'
-            },
-            {
-                legacy_index: 4,
-                label: '描述艺术要素',
-                source_clause: '描述艺术要素'
-            },
-            {
-                legacy_index: 5,
-                label: '完成基础表现或创作',
-                source_clause: '完成基础表现或创作'
             }
         ]
     }]
@@ -746,8 +736,16 @@ export function reconcileAlignmentLearningComponents(match, currentComponents) {
     }
 }
 
+// An alignment whose every learning component was superseded no longer evidences anything on this standard.
+function supportedPublishedAlignments(record, indexes, learningComponents) {
+    return (indexes.publishedByStandard.get(record.code) || []).filter(match => {
+        const references = reconcileAlignmentLearningComponents(match, learningComponents)
+        return references.learning_component_ids.length || !references.component_migration_required
+    })
+}
+
 function curriculumAlignments(record, indexes, learningComponents) {
-    const published = indexes.publishedByStandard.get(record.code) || []
+    const published = supportedPublishedAlignments(record, indexes, learningComponents)
     const scopes = indexes.scopesByStandard.get(record.code) || []
     const unitRows = published.map(match => {
         const detail = indexes.details.get(match.edition_id) || {}
@@ -830,9 +828,9 @@ function curriculumAlignments(record, indexes, learningComponents) {
     })
 }
 
-function alignmentSummary(record, indexes) {
+function alignmentSummary(record, indexes, learningComponents) {
     const disposition = indexes.dispositionByStandard.get(record.code) || {}
-    const published = indexes.publishedByStandard.get(record.code) || []
+    const published = supportedPublishedAlignments(record, indexes, learningComponents)
     const candidates = indexes.candidatesByStandard.get(record.code) || []
     const scopes = indexes.scopesByStandard.get(record.code) || []
     const locatable = published.filter(item => Number.isInteger(item.pdf_page))
@@ -1095,7 +1093,7 @@ export function buildCapabilityGraph(rootInput) {
             hardest_cases: hardestCases,
             common_difficulties: buildDifficulties(record, learningComponents, hardestCases),
             curriculum_alignments: curriculumAlignments(record, alignmentIndexes, learningComponents),
-            curriculum_alignment_summary: alignmentSummary(record, alignmentIndexes),
+            curriculum_alignment_summary: alignmentSummary(record, alignmentIndexes, learningComponents),
             forward_connections: forwardConnections(record, recordIndexes, bridgeForwardIndex)
         })
     }

@@ -294,6 +294,7 @@ function HomePage() {
                                         </label>
                                     ))}
                                 </div>
+                                <p className={styles['filter-hint']}>七至九年级：课标原文是 7–9 年级的共同要求，年级划分为 kebiao 推断。</p>
                             </div>
 
                             {/* Skills - Collapsible accordion */}

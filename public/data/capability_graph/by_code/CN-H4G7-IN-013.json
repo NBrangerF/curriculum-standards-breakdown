@@ -3,29 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "concept_discrimination",
       "component_ids": [
-        "lc_7624fc59f2fceec4",
-        "lc_dc19e79def582250"
+        "lc_7624fc59f2fceec4"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_82922ace0cd4835a",
+      "difficulty_id": "cd_3b3a712df7822704",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_feafe74d15d7e993"
+        "hc_36e461a13d4e66ac"
       ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；能体认英雄模范忠于祖国和人民的优秀品质；能培育民族气节和爱国主义情怀；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "321dc4200c7cdfc13141c0dc0eae59627d9f9e79e4ef8b69239a6595d6f3fbde",
+          "excerpt": "理解中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；能体认英雄模范忠于祖国和人民的优秀品质；能培育民族气节和爱国主义情怀。",
+          "excerpt_hash": "6c3c7ba1668e87a958dc3311e9732b0c19c56eb9df1d482946846d3ddc55d92b",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-IN-013:standard",
           "source_type": "curriculum_standard_field"
@@ -39,83 +38,7 @@
         }
       ],
       "success_signal": "学生能在撤去提示后用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“把文化体认和爱国情怀融入具体语言实践，不以抽象表态替代阅读和表达证据。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "language_expression",
-      "component_ids": [
-        "lc_dc19e79def582250"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_56c563017deacb00",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_feafe74d15d7e993"
-      ],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "理解中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；能体认英雄模范忠于祖国和人民的优秀品质；能培育民族气节和爱国主义情怀；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "321dc4200c7cdfc13141c0dc0eae59627d9f9e79e4ef8b69239a6595d6f3fbde",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-IN-013:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把文化体认和爱国情怀融入具体语言实践，不以抽象表态替代阅读和表达证据。",
-          "excerpt_hash": "c1ec17c81010a5b33c2fb9951563772f5f2708330eeebc2fa95a8e3be50d4e13",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-IN-013:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“把文化体认和爱国情怀融入具体语言实践，不以抽象表态替代阅读和表达证据。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_dc19e79def582250"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d55167831bc4b3fb",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_feafe74d15d7e993"
-      ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "理解中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；能体认英雄模范忠于祖国和人民的优秀品质；能培育民族气节和爱国主义情怀；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "321dc4200c7cdfc13141c0dc0eae59627d9f9e79e4ef8b69239a6595d6f3fbde",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-IN-013:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "把文化体认和爱国情怀融入具体语言实践，不以抽象表态替代阅读和表达证据。",
-          "excerpt_hash": "c1ec17c81010a5b33c2fb9951563772f5f2708330eeebc2fa95a8e3be50d4e13",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-IN-013:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把文化体认和爱国情怀融入具体语言实践，不以抽象表态替代阅读和表达证据。”。随后撤去支架，用同构任务复测。"
+      "teacher_action": "围绕“用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“把文化体认和爱国情怀融入具体语言实践，不以抽象表态替代阅读和表达证据。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -209,43 +132,43 @@
       "review_status": "machine_checked",
       "source_code": "CN-H4G7-IN-013",
       "target_code": "CN-H4G8-IN-014",
-      "target_label": "能体认英雄模范忠于祖国和人民的优秀品质；理解中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；能表达作为中华民族一员的归属感和自豪感…"
+      "target_label": "能体认英雄模范忠于祖国和人民的优秀品质；理解中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；能表达作为中华民族一员的归属感和自豪感。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_feafe74d15d7e993",
+      "case_id": "hc_36e461a13d4e66ac",
       "component_ids": [
         "lc_7624fc59f2fceec4",
-        "lc_dc19e79def582250"
+        "lc_8927d1cffd065cb6",
+        "lc_b9f3c04ce5f00a7d"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
       "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
         "学生能够用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；优先采集：主题阅读成果、文化阐释、展示交流。",
-        "学生能够用简短记录或口头表达说明基本理解；优先采集：主题阅读成果、文化阐释、展示交流。"
+        "学生能够体认英雄模范忠于祖国和人民的优秀品质；优先采集：主题阅读成果、文化阐释、展示交流。",
+        "学生能够培育民族气节和爱国主义情怀；优先采集：主题阅读成果、文化阐释、展示交流。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；能体认英雄模范忠于祖国和人民的优秀品质；能培育民族气节和爱国主义情怀；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "321dc4200c7cdfc13141c0dc0eae59627d9f9e79e4ef8b69239a6595d6f3fbde",
+          "excerpt": "理解中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；能体认英雄模范忠于祖国和人民的优秀品质；能培育民族气节和爱国主义情怀。",
+          "excerpt_hash": "6c3c7ba1668e87a958dc3311e9732b0c19c56eb9df1d482946846d3ddc55d92b",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-IN-013:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "用自己的话解释中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；体认英雄模范忠于祖国和人民的优秀品质；培育民族气节和爱国主义情怀",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -320,30 +243,6 @@
         }
       ],
       "source_statement": "培育民族气节和爱国主义情怀"
-    },
-    {
-      "component_id": "lc_dc19e79def582250",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用简短记录或口头表达说明基本理解",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用简短记录或口头表达说明基本理解，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用简短记录或口头表达说明基本理解",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用简短记录或口头表达说明基本理解；优先采集：主题阅读成果、文化阐释、展示交流。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用简短记录或口头表达说明基本理解",
-          "excerpt_hash": "6b1f3237458514ec859ef1012df6724bfef67003f78886ed140316055791b644",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-IN-013:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用简短记录或口头表达说明基本理解"
     }
   ],
   "prerequisite_candidates": [
@@ -365,7 +264,7 @@
       "source_code": "CN-D3-IN-004",
       "source_label": "撰写校园或社会活动的计划、实施方案或活动总结，条理清晰。",
       "target_code": "CN-H4G7-IN-013",
-      "target_label": "理解中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；能体认英雄模范忠于祖国和人民的优秀品质；能培育民族气节和爱国主义情怀；能用简短…"
+      "target_label": "理解中华优秀传统文化蕴含的核心思想理念、中华人文精神和传统美德；能体认英雄模范忠于祖国和人民的优秀品质；能培育民族气节和爱国主义情怀。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -376,7 +275,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "321dc4200c7cdfc13141c0dc0eae59627d9f9e79e4ef8b69239a6595d6f3fbde",
+  "source_standard_hash": "6c3c7ba1668e87a958dc3311e9732b0c19c56eb9df1d482946846d3ddc55d92b",
   "standard_code": "CN-H4G7-IN-013",
   "verified_prerequisites": []
 }

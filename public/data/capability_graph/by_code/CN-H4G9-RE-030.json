@@ -3,44 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_55b3c2f48de14dab"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_96f64057ef02a04b",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_f23114b719786796"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能通过多种媒介关注国内外政治、经济、社会、科技、文化等新鲜事；能学习跨媒介阅读与交流；能阅读新闻报道、时事评论等作品；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "145831c1462e17e175961f1ecdc8652bcedc5bbf7f4304d9b74aed8ccf340ce7",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G9-RE-030:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "指导学生根据交流目的、对象和信息可信度选择媒介。",
-          "excerpt_hash": "35c32ab7cce20256dd1db718f1566ee64b6cd92bf85ff6f5a76147b7d1372541",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G9-RE-030:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“指导学生根据交流目的、对象和信息可信度选择媒介。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
         "lc_29874b715ed1246c",
@@ -48,7 +10,7 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生学习跨媒介阅读与交流的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d274debbc7f0b9e9",
+      "difficulty_id": "cd_f93239adfe4a19e3",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [],
@@ -60,8 +22,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过多种媒介关注国内外政治、经济、社会、科技、文化等新鲜事；能学习跨媒介阅读与交流；能阅读新闻报道、时事评论等作品；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "145831c1462e17e175961f1ecdc8652bcedc5bbf7f4304d9b74aed8ccf340ce7",
+          "excerpt": "能通过多种媒介关注国内外政治、经济、社会、科技、文化等新鲜事；能学习跨媒介阅读与交流；能阅读新闻报道、时事评论等作品。",
+          "excerpt_hash": "b7ff03b5c7e5f824e5252c75dc481672a1813fe3974c956e10732f4b2dbe8f4c",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-RE-030:standard",
           "source_type": "curriculum_standard_field"
@@ -156,40 +118,7 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_f23114b719786796",
-      "component_ids": [
-        "lc_55b3c2f48de14dab"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "阐释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：媒介比较报告、讨论记录、交流作品。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能通过多种媒介关注国内外政治、经济、社会、科技、文化等新鲜事；能学习跨媒介阅读与交流；能阅读新闻报道、时事评论等作品；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "145831c1462e17e175961f1ecdc8652bcedc5bbf7f4304d9b74aed8ccf340ce7",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G9-RE-030:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（证据、阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_73bf8ccec46f40af",
+      "case_id": "hc_59549559d58314e5",
       "component_ids": [
         "lc_1b5b00de5968a351"
       ],
@@ -209,8 +138,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能通过多种媒介关注国内外政治、经济、社会、科技、文化等新鲜事；能学习跨媒介阅读与交流；能阅读新闻报道、时事评论等作品；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "145831c1462e17e175961f1ecdc8652bcedc5bbf7f4304d9b74aed8ccf340ce7",
+          "excerpt": "能通过多种媒介关注国内外政治、经济、社会、科技、文化等新鲜事；能学习跨媒介阅读与交流；能阅读新闻报道、时事评论等作品。",
+          "excerpt_hash": "b7ff03b5c7e5f824e5252c75dc481672a1813fe3974c956e10732f4b2dbe8f4c",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-RE-030:standard",
           "source_type": "curriculum_standard_field"
@@ -293,30 +222,6 @@
         }
       ],
       "source_statement": "阅读新闻报道、时事评论等作品"
-    },
-    {
-      "component_id": "lc_55b3c2f48de14dab",
-      "component_type": "disposition",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
-      "label": "在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：媒介比较报告、讨论记录、交流作品。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "形成有观点、有证据、有修改意识的阐释或作品",
-          "excerpt_hash": "81dd4494a3c7ea97b381cd70636e7fb21c3ea27f3530facc4bb9d353dcee96ce",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G9-RE-030:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "形成有观点、有证据、有修改意识的阐释或作品"
     }
   ],
   "prerequisite_candidates": [
@@ -335,9 +240,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "CN-H4G8-RE-029",
-      "source_label": "比较不同媒介表达效果；能根据目的与对象选择合适媒介交流沟通；能通过多种媒介关注国内外政治、经济、社会、科技、文化等新鲜事；能整合材料并说明观点…",
+      "source_label": "比较不同媒介表达效果；能根据目的与对象选择合适媒介交流沟通；能通过多种媒介关注国内外政治、经济、社会、科技、文化等新鲜事。",
       "target_code": "CN-H4G9-RE-030",
-      "target_label": "能通过多种媒介关注国内外政治、经济、社会、科技、文化等新鲜事；能学习跨媒介阅读与交流；能阅读新闻报道、时事评论等作品；能形成有观点、有证据、有…"
+      "target_label": "能通过多种媒介关注国内外政治、经济、社会、科技、文化等新鲜事；能学习跨媒介阅读与交流；能阅读新闻报道、时事评论等作品。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -348,7 +253,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "145831c1462e17e175961f1ecdc8652bcedc5bbf7f4304d9b74aed8ccf340ce7",
+  "source_standard_hash": "b7ff03b5c7e5f824e5252c75dc481672a1813fe3974c956e10732f4b2dbe8f4c",
   "standard_code": "CN-H4G9-RE-030",
   "verified_prerequisites": []
 }

@@ -3,56 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_1c8afb3525087cea",
-        "lc_a6e85a02cc36e685"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生在任务中表现出情感体验并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_e86fb4dc91013346",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_08d6876bbd68e669"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“在任务中表现出情感体验并说明选择理由”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“在任务中表现出情感体验并说明选择理由”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "6adc09537c392ff2d885090b805fe9958fcdbe6d4fccc8a89f0f164c22e93265",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-006:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "鼓励学生从语言、形象、情感和主题多个角度表达个性化体验。",
-          "excerpt_hash": "86fc3110fd210e3e61953df2ab3501f2dda713ea6ba858fa6b03d3aff8f97694",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-RE-006:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后在任务中表现出情感体验并说明选择理由，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“在任务中表现出情感体验并说明选择理由”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“鼓励学生从语言、形象、情感和主题多个角度表达个性化体验。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_f9a3d23b9caeda39"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生说出对感人情境和形象的体验的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_2d88596d9c93af69",
+      "difficulty_id": "cd_d2923ca2b1cc4fe6",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_cec893b46abcab40"
+        "hc_be08c6aaed73db13"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“说出对感人情境和形象的体验”中的实际过程进一步核验。",
       "manifestation": "在要求学生“说出对感人情境和形象的体验”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -62,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "6adc09537c392ff2d885090b805fe9958fcdbe6d4fccc8a89f0f164c22e93265",
+          "excerpt": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言。",
+          "excerpt_hash": "d89ff5b0ca44902816cdc7d8d14389faf538de6ec13c126a7a1638560b83991b",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-006:standard",
           "source_type": "curriculum_standard_field"
@@ -82,17 +43,15 @@
     {
       "category": "language_expression",
       "component_ids": [
-        "lc_f9a3d23b9caeda39",
-        "lc_a6e85a02cc36e685"
+        "lc_f9a3d23b9caeda39"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生说出对感人情境和形象的体验的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_8e646b984bab6320",
+      "difficulty_id": "cd_955559290847e151",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_08d6876bbd68e669",
-        "hc_cec893b46abcab40"
+        "hc_be08c6aaed73db13"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出对感人情境和形象的体验”中的实际过程进一步核验。",
       "manifestation": "在要求学生“说出对感人情境和形象的体验”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -102,8 +61,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "6adc09537c392ff2d885090b805fe9958fcdbe6d4fccc8a89f0f164c22e93265",
+          "excerpt": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言。",
+          "excerpt_hash": "d89ff5b0ca44902816cdc7d8d14389faf538de6ec13c126a7a1638560b83991b",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-006:standard",
           "source_type": "curriculum_standard_field"
@@ -118,44 +77,6 @@
       ],
       "success_signal": "学生能在撤去提示后说出对感人情境和形象的体验，并说明关键步骤、特征或依据。",
       "teacher_action": "围绕“说出对感人情境和形象的体验”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“鼓励学生从语言、形象、情感和主题多个角度表达个性化体验。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_a6e85a02cc36e685"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a6a7dc497ec65225",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_08d6876bbd68e669"
-      ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "6adc09537c392ff2d885090b805fe9958fcdbe6d4fccc8a89f0f164c22e93265",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-006:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "鼓励学生从语言、形象、情感和主题多个角度表达个性化体验。",
-          "excerpt_hash": "86fc3110fd210e3e61953df2ab3501f2dda713ea6ba858fa6b03d3aff8f97694",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-RE-006:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“鼓励学生从语言、形象、情感和主题多个角度表达个性化体验。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -249,46 +170,12 @@
       "review_status": "machine_checked",
       "source_code": "CN-H4G7-RE-006",
       "target_code": "CN-H4G8-RE-006",
-      "target_label": "能欣赏文学作品并形成情感体验；能从中获得对自然、社会、人生的有益启示；能品味富于表现力的语言；能整合材料并说明观点、方法或表达选择的依据。"
+      "target_label": "能欣赏文学作品并形成情感体验；能从中获得对自然、社会、人生的有益启示；能品味富于表现力的语言。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_08d6876bbd68e669",
-      "component_ids": [
-        "lc_1c8afb3525087cea",
-        "lc_a6e85a02cc36e685"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出情感体验并说明选择理由。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够在任务中表现出情感体验并说明选择理由；优先采集：阅读批注、文学赏析短文、交流发言。",
-        "学生能够用简短记录或口头表达说明基本理解；优先采集：阅读批注、文学赏析短文、交流发言。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "6adc09537c392ff2d885090b805fe9958fcdbe6d4fccc8a89f0f164c22e93265",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_cec893b46abcab40",
+      "case_id": "hc_be08c6aaed73db13",
       "component_ids": [
         "lc_f9a3d23b9caeda39"
       ],
@@ -308,8 +195,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "6adc09537c392ff2d885090b805fe9958fcdbe6d4fccc8a89f0f164c22e93265",
+          "excerpt": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言。",
+          "excerpt_hash": "d89ff5b0ca44902816cdc7d8d14389faf538de6ec13c126a7a1638560b83991b",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-006:standard",
           "source_type": "curriculum_standard_field"
@@ -416,30 +303,6 @@
         }
       ],
       "source_statement": "品味富于表现力的语言"
-    },
-    {
-      "component_id": "lc_a6e85a02cc36e685",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用简短记录或口头表达说明基本理解",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用简短记录或口头表达说明基本理解，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用简短记录或口头表达说明基本理解",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用简短记录或口头表达说明基本理解；优先采集：阅读批注、文学赏析短文、交流发言。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用简短记录或口头表达说明基本理解",
-          "excerpt_hash": "6b1f3237458514ec859ef1012df6724bfef67003f78886ed140316055791b644",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用简短记录或口头表达说明基本理解"
     }
   ],
   "prerequisite_candidates": [
@@ -461,7 +324,7 @@
       "source_code": "CN-D3-RE-005",
       "source_label": "诵读、改写、表演等方式表达对感人情境和形象的理解与审美体验。",
       "target_code": "CN-H4G7-RE-006",
-      "target_label": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言；能用简短记录或口头表达说明基本理解。"
+      "target_label": "能欣赏文学作品并形成情感体验；能说出对感人情境和形象的体验；能品味富于表现力的语言。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -472,7 +335,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "6adc09537c392ff2d885090b805fe9958fcdbe6d4fccc8a89f0f164c22e93265",
+  "source_standard_hash": "d89ff5b0ca44902816cdc7d8d14389faf538de6ec13c126a7a1638560b83991b",
   "standard_code": "CN-H4G7-RE-006",
   "verified_prerequisites": []
 }

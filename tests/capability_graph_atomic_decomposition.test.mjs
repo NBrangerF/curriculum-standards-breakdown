@@ -8,7 +8,7 @@ import {
 } from '../scripts/capability-graph/capabilityGraph.mjs'
 
 const STANDARD_CODE = 'AR-H4G7-AA-006'
-const STANDARD_TEXT = '能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用；能辨别常见音乐结构及主调、复调音乐；能描述艺术要素并完成基础表现或创作。'
+const STANDARD_TEXT = '能听辨合唱声部和乐队主奏或伴奏乐器音色；能描述其特点和表现作用；能辨别常见音乐结构及主调、复调音乐。'
 
 function record(standard = STANDARD_TEXT) {
     return {
@@ -29,9 +29,7 @@ test('AR-H4G7-AA-006 uses source-bound atomic timbre components with stable IDs'
         ['lc_bd5ec23ac168116b', '听辨乐队伴奏乐器音色'],
         ['lc_b5b9d364d9e05ce6', '描述所听辨音色的特点'],
         ['lc_c5186ef12fe84d72', '描述所听辨音色的表现作用'],
-        ['lc_ef3900efde99cc34', '辨别常见音乐结构及主调、复调音乐'],
-        ['lc_7d743ad862f5f3f2', '描述艺术要素'],
-        ['lc_05977e8e783e831c', '完成基础表现或创作']
+        ['lc_ef3900efde99cc34', '辨别常见音乐结构及主调、复调音乐']
     ])
     assert.ok(first.slice(0, 5).every(component => component.method === 'source_bound_atomic_decomposition_v1'))
     assert.ok(first.every(component => STANDARD_TEXT.includes(component.source_refs[0].excerpt)))
@@ -62,17 +60,17 @@ test('source-bound decomposition fails closed when authoritative standard text c
 test('superseded alignment component IDs are filtered without guessing a one-to-many migration', () => {
     const current = buildLearningComponents(record())
     const reconciled = reconcileAlignmentLearningComponents({
-        learning_component_ids: ['lc_fc3d3aa20e471aa3', 'lc_17eee6bd658349fc', 'lc_7d743ad862f5f3f2'],
+        learning_component_ids: ['lc_fc3d3aa20e471aa3', 'lc_17eee6bd658349fc', 'lc_ef3900efde99cc34'],
         learning_components: [
             { component_id: 'lc_fc3d3aa20e471aa3', label: '听辨合唱声部和乐队主奏或伴奏乐器音色' },
             { component_id: 'lc_17eee6bd658349fc', label: '描述其特点和表现作用' },
-            { component_id: 'lc_7d743ad862f5f3f2', label: '描述艺术要素' }
+            { component_id: 'lc_ef3900efde99cc34', label: '辨别常见音乐结构及主调、复调音乐' }
         ]
     }, current)
 
-    assert.deepEqual(reconciled.learning_component_ids, ['lc_7d743ad862f5f3f2'])
+    assert.deepEqual(reconciled.learning_component_ids, ['lc_ef3900efde99cc34'])
     assert.deepEqual(reconciled.learning_components, [
-        { component_id: 'lc_7d743ad862f5f3f2', label: '描述艺术要素' }
+        { component_id: 'lc_ef3900efde99cc34', label: '辨别常见音乐结构及主调、复调音乐' }
     ])
     assert.equal(reconciled.component_migration_required, true)
     assert.equal(reconciled.component_migration_policy, 'fail_closed_no_one_to_many_guess')

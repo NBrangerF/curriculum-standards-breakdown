@@ -3,56 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_3051998381a5f4cd"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_96f8bc7e6461fe1c",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_86eee3f850f3d47f",
-        "hc_44d428500b166263"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明解题步骤和基本依据”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。",
-          "excerpt_hash": "43415ca344740707398d11ff4a19f39eed2b7585ed68582311cf56b30675cccb",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-GE-034:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用实物、模型和信息技术支持空间想象与视图转换。",
-          "excerpt_hash": "5857ef7d784f7c1bf3f720f5bfdbd9399ff2720377f4285dd9bee57cfd893277",
-          "field": "teaching_tip",
-          "ref_id": "standard:MA-H4G7-GE-034:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明解题步骤和基本依据”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用实物、模型和信息技术支持空间想象与视图转换。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "comparison",
       "component_ids": [
         "lc_d998f15e3ed2e99f"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生判断简单物体视图并根据视图描述简单几何体的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_89fce7dc59b3acfa",
+      "difficulty_id": "cd_b2e65e7d107956d0",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_542d86f1b2b18561"
+        "hc_29b499f11edb80f6"
       ],
       "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“判断简单物体视图并根据视图描述简单几何体”中的实际过程进一步核验。",
       "manifestation": "在要求学生“判断简单物体视图并根据视图描述简单几何体”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
@@ -62,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。",
-          "excerpt_hash": "43415ca344740707398d11ff4a19f39eed2b7585ed68582311cf56b30675cccb",
+          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图。",
+          "excerpt_hash": "c9e87beac70584e6ba5bbb0a87bbce103da132e3a953e6beff0c23ec6e0fe88e",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-GE-034:standard",
           "source_type": "curriculum_standard_field"
@@ -80,56 +41,17 @@
       "teacher_action": "围绕“判断简单物体视图并根据视图描述简单几何体”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用实物、模型和信息技术支持空间想象与视图转换。”。随后撤去支架，用同构任务复测。"
     },
     {
-      "category": "multi_step_procedure",
-      "component_ids": [
-        "lc_3051998381a5f4cd"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明解题步骤和基本依据的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_cf32d6876342f68d",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_86eee3f850f3d47f",
-        "hc_44d428500b166263"
-      ],
-      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“说明解题步骤和基本依据”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明解题步骤和基本依据”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。",
-          "excerpt_hash": "43415ca344740707398d11ff4a19f39eed2b7585ed68582311cf56b30675cccb",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-GE-034:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用实物、模型和信息技术支持空间想象与视图转换。",
-          "excerpt_hash": "5857ef7d784f7c1bf3f720f5bfdbd9399ff2720377f4285dd9bee57cfd893277",
-          "field": "teaching_tip",
-          "ref_id": "standard:MA-H4G7-GE-034:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明解题步骤和基本依据，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明解题步骤和基本依据”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“用实物、模型和信息技术支持空间想象与视图转换。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_c9fd6d22ff9bca47"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出视图与展开图在现实生活中的应用的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_6b50b37324a54e5c",
+      "difficulty_id": "cd_f0676a6602fbcdd9",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_e03e7ef4486bc97d"
+        "hc_71883b976c4921c8"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“识别并说出视图与展开图在现实生活中的应用的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出视图与展开图在现实生活中的应用的关键特征”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -139,8 +61,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。",
-          "excerpt_hash": "43415ca344740707398d11ff4a19f39eed2b7585ed68582311cf56b30675cccb",
+          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图。",
+          "excerpt_hash": "c9e87beac70584e6ba5bbb0a87bbce103da132e3a953e6beff0c23ec6e0fe88e",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-GE-034:standard",
           "source_type": "curriculum_standard_field"
@@ -165,12 +87,12 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生判断简单物体视图并根据视图描述简单几何体的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_4c1d04ab98643616",
+      "difficulty_id": "cd_f7f7c6adb4ab8eef",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_e03e7ef4486bc97d",
-        "hc_542d86f1b2b18561"
+        "hc_71883b976c4921c8",
+        "hc_29b499f11edb80f6"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“判断简单物体视图并根据视图描述简单几何体”中的实际过程进一步核验。",
       "manifestation": "在要求学生“判断简单物体视图并根据视图描述简单几何体”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -180,8 +102,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。",
-          "excerpt_hash": "43415ca344740707398d11ff4a19f39eed2b7585ed68582311cf56b30675cccb",
+          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图。",
+          "excerpt_hash": "c9e87beac70584e6ba5bbb0a87bbce103da132e3a953e6beff0c23ec6e0fe88e",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-GE-034:standard",
           "source_type": "curriculum_standard_field"
@@ -289,45 +211,12 @@
       "review_status": "machine_checked",
       "source_code": "MA-H4G7-GE-034",
       "target_code": "MA-H4G8-GE-035",
-      "target_label": "了解视图与展开图在现实生活中的应用；能判断简单物体视图并根据视图描述简单几何体；能根据展开图想象和制作模型；能比较方法并解释数量、图形或数据关…"
+      "target_label": "了解视图与展开图在现实生活中的应用；能判断简单物体视图并根据视图描述简单几何体；能根据展开图想象和制作模型。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_86eee3f850f3d47f",
-      "component_ids": [
-        "lc_3051998381a5f4cd"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "依据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明解题步骤和基本依据；优先采集：三视图、模型制作、展开图说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。",
-          "excerpt_hash": "43415ca344740707398d11ff4a19f39eed2b7585ed68582311cf56b30675cccb",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-GE-034:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（依据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_e03e7ef4486bc97d",
+      "case_id": "hc_71883b976c4921c8",
       "component_ids": [
         "lc_c9fd6d22ff9bca47"
       ],
@@ -347,8 +236,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。",
-          "excerpt_hash": "43415ca344740707398d11ff4a19f39eed2b7585ed68582311cf56b30675cccb",
+          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图。",
+          "excerpt_hash": "c9e87beac70584e6ba5bbb0a87bbce103da132e3a953e6beff0c23ec6e0fe88e",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-GE-034:standard",
           "source_type": "curriculum_standard_field"
@@ -359,39 +248,7 @@
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
     },
     {
-      "case_id": "hc_44d428500b166263",
-      "component_ids": [
-        "lc_3051998381a5f4cd"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "步骤"
-      ],
-      "demand_dimension": "multi_step",
-      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明解题步骤和基本依据。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明解题步骤和基本依据；优先采集：三视图、模型制作、展开图说明。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。",
-          "excerpt_hash": "43415ca344740707398d11ff4a19f39eed2b7585ed68582311cf56b30675cccb",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-GE-034:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "保持多步骤或完整结构（步骤）",
-      "title": "保持多步骤或完整结构",
-      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
-    },
-    {
-      "case_id": "hc_542d86f1b2b18561",
+      "case_id": "hc_29b499f11edb80f6",
       "component_ids": [
         "lc_d998f15e3ed2e99f"
       ],
@@ -411,8 +268,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。",
-          "excerpt_hash": "43415ca344740707398d11ff4a19f39eed2b7585ed68582311cf56b30675cccb",
+          "excerpt": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图。",
+          "excerpt_hash": "c9e87beac70584e6ba5bbb0a87bbce103da132e3a953e6beff0c23ec6e0fe88e",
           "field": "standard",
           "ref_id": "standard:MA-H4G7-GE-034:standard",
           "source_type": "curriculum_standard_field"
@@ -495,30 +352,6 @@
         }
       ],
       "source_statement": "了解直棱柱、圆锥的侧面展开图"
-    },
-    {
-      "component_id": "lc_3051998381a5f4cd",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明解题步骤和基本依据",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明解题步骤和基本依据，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明解题步骤和基本依据",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明解题步骤和基本依据；优先采集：三视图、模型制作、展开图说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明解题步骤和基本依据",
-          "excerpt_hash": "d00757cae74b1459bbcf36ec8c31849ae0007a290e5019ba4e746f5676a42251",
-          "field": "standard",
-          "ref_id": "standard:MA-H4G7-GE-034:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明解题步骤和基本依据"
     }
   ],
   "prerequisite_candidates": [
@@ -540,7 +373,7 @@
       "source_code": "MA-D3-GE-005",
       "source_label": "对于简单物体，能辨认不同方向（前面、侧面、上面）的形状图。",
       "target_code": "MA-H4G7-GE-034",
-      "target_label": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。"
+      "target_label": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图。"
     },
     {
       "confidence": "low",
@@ -560,7 +393,7 @@
       "source_code": "MA-D3-GE-011",
       "source_label": "能从平移、旋转和轴对称的角度欣赏生活中的图案，能借助方格纸设计简单图案，感受数学美，形成空间观念。",
       "target_code": "MA-H4G7-GE-034",
-      "target_label": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图；能说明解题步骤和基本依据。"
+      "target_label": "能判断简单物体视图并根据视图描述简单几何体；了解视图与展开图在现实生活中的应用；了解直棱柱、圆锥的侧面展开图。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -571,7 +404,7 @@
     "total_candidate_count": 2,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "43415ca344740707398d11ff4a19f39eed2b7585ed68582311cf56b30675cccb",
+  "source_standard_hash": "c9e87beac70584e6ba5bbb0a87bbce103da132e3a953e6beff0c23ec6e0fe88e",
   "standard_code": "MA-H4G7-GE-034",
   "verified_prerequisites": []
 }

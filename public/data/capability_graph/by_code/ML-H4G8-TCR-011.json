@@ -13,7 +13,7 @@
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_314d12e272ede908"
+        "hc_192222fb3d4023aa"
       ],
       "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
       "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“识别并说出中华优秀传统文化修齐治平的理想追求，锤炼高尚人格的关键特征”。",
@@ -23,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解中华优秀传统文化修齐治平的理想追求，锤炼高尚人格；能结合家庭、学校或社会案例分析问题。",
-          "excerpt_hash": "7d7fc6be03d076d406784755422a79354f2d6f3720277d502ee6e24dea2cd1a9",
+          "excerpt": "了解中华优秀传统文化修齐治平的理想追求，锤炼高尚人格。",
+          "excerpt_hash": "88752521357e6301823684d3d7d36f35916d0749359eecb02771e5b831a1b221",
           "field": "standard",
           "ref_id": "standard:ML-H4G8-TCR-011:standard",
           "source_type": "curriculum_standard_field"
@@ -194,41 +194,39 @@
       "review_status": "machine_checked",
       "source_code": "ML-H4G8-TCR-011",
       "target_code": "ML-H4G9-TCR-012",
-      "target_label": "分析中华优秀传统文化修齐治平的理想追求，锤炼高尚人格；能依据规则、价值和证据作出判断并提出行动建议。"
+      "target_label": "了解中华优秀传统文化修齐治平的理想追求，锤炼高尚人格。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_314d12e272ede908",
+      "case_id": "hc_192222fb3d4023aa",
       "component_ids": [
-        "lc_9ef1e8f13d38e41f",
-        "lc_a28ee35ee45457f4"
+        "lc_9ef1e8f13d38e41f"
       ],
       "confidence": 0.58,
       "covered_modifiers": [],
-      "demand_dimension": "integration",
-      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
       "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出中华优秀传统文化修齐治平的理想追求，锤炼高尚人格的关键特征。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够识别并说出中华优秀传统文化修齐治平的理想追求，锤炼高尚人格的关键特征；优先采集：议题短文、人格修养目标、讨论记录。",
-        "学生能够结合家庭、学校或社会案例分析问题；优先采集：议题短文、人格修养目标、讨论记录。"
+        "学生能够识别并说出中华优秀传统文化修齐治平的理想追求，锤炼高尚人格的关键特征；优先采集：议题短文、人格修养目标、讨论记录。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解中华优秀传统文化修齐治平的理想追求，锤炼高尚人格；能结合家庭、学校或社会案例分析问题。",
-          "excerpt_hash": "7d7fc6be03d076d406784755422a79354f2d6f3720277d502ee6e24dea2cd1a9",
+          "excerpt": "了解中华优秀传统文化修齐治平的理想追求，锤炼高尚人格。",
+          "excerpt_hash": "88752521357e6301823684d3d7d36f35916d0749359eecb02771e5b831a1b221",
           "field": "standard",
           "ref_id": "standard:ML-H4G8-TCR-011:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "识别并说出中华优秀传统文化修齐治平的理想追求，锤炼高尚人格的关键特征；结合家庭、学校或社会案例分析问题",
-      "title": "整合多个小能力完成完整表现",
-      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
+      "structure": "识别并说出中华优秀传统文化修齐治平的理想追求，锤炼高尚人格的关键特征",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
     }
   ],
   "learning_components": [
@@ -255,30 +253,6 @@
         }
       ],
       "source_statement": "了解中华优秀传统文化修齐治平的理想追求，锤炼高尚人格"
-    },
-    {
-      "component_id": "lc_a28ee35ee45457f4",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够结合家庭、学校或社会案例分析问题",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生结合家庭、学校或社会案例分析问题，并说明关键步骤、特征或依据。",
-      "label": "结合家庭、学校或社会案例分析问题",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够结合家庭、学校或社会案例分析问题；优先采集：议题短文、人格修养目标、讨论记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "结合家庭、学校或社会案例分析问题",
-          "excerpt_hash": "9f011217b5939392cbd181d22775f8f11d41c522438ab487610a73e9e02bbda8",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G8-TCR-011:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "结合家庭、学校或社会案例分析问题"
     }
   ],
   "prerequisite_candidates": [
@@ -297,9 +271,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "ML-H4G7-TCR-010",
-      "source_label": "了解中华优秀传统文化修齐治平的理想追求，锤炼高尚人格；能联系个人和校园生活说明基本判断。",
+      "source_label": "了解中华优秀传统文化修齐治平的理想追求，锤炼高尚人格。",
       "target_code": "ML-H4G8-TCR-011",
-      "target_label": "了解中华优秀传统文化修齐治平的理想追求，锤炼高尚人格；能结合家庭、学校或社会案例分析问题。"
+      "target_label": "了解中华优秀传统文化修齐治平的理想追求，锤炼高尚人格。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -310,7 +284,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "7d7fc6be03d076d406784755422a79354f2d6f3720277d502ee6e24dea2cd1a9",
+  "source_standard_hash": "88752521357e6301823684d3d7d36f35916d0749359eecb02771e5b831a1b221",
   "standard_code": "ML-H4G8-TCR-011",
   "verified_prerequisites": []
 }

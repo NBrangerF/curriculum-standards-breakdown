@@ -3,54 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_e945696fd1b7558c"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_46c6425000ec672c",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_d2249a750d66bfd8"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "ac20d7d6939713bde958f97263c068a3cc6b3a5b86064bc9c42a9099576ac773",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-LI-010:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "以具体语言实例引导学生发现规律，避免围绕概念机械训练。",
-          "excerpt_hash": "8168b09f5d184b84818f299998f47fcc74c6f48ddf108fc9208ec6568ed75073",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-LI-010:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“以具体语言实例引导学生发现规律，避免围绕概念机械训练。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_753331ab7e34b807"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生初步探究语言文字运用规律的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_3660e48e055f4130",
+      "difficulty_id": "cd_3456574f19eaf37b",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_2e5486e0a983708d"
+      ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“初步探究语言文字运用规律”中的实际过程进一步核验。",
       "manifestation": "在要求学生“初步探究语言文字运用规律”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
       "method": "difficulty_pattern_rules_v2",
@@ -59,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "ac20d7d6939713bde958f97263c068a3cc6b3a5b86064bc9c42a9099576ac773",
+          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象。",
+          "excerpt_hash": "74c51e76848a819948f7b6e60b81850101209a9b3a39107326d3256631bd3fac",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-LI-010:standard",
           "source_type": "curriculum_standard_field"
@@ -79,16 +43,15 @@
     {
       "category": "language_expression",
       "component_ids": [
-        "lc_cd818ba5a9ebcd3d",
-        "lc_e945696fd1b7558c"
+        "lc_cd818ba5a9ebcd3d"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生欣赏优秀作品的语言表达技巧的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_b6848eba6c831cf8",
+      "difficulty_id": "cd_ce727dfa9b3e711f",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_d2249a750d66bfd8"
+        "hc_2e5486e0a983708d"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“欣赏优秀作品的语言表达技巧”中的实际过程进一步核验。",
       "manifestation": "在要求学生“欣赏优秀作品的语言表达技巧”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -98,8 +61,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "ac20d7d6939713bde958f97263c068a3cc6b3a5b86064bc9c42a9099576ac773",
+          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象。",
+          "excerpt_hash": "74c51e76848a819948f7b6e60b81850101209a9b3a39107326d3256631bd3fac",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-LI-010:standard",
           "source_type": "curriculum_standard_field"
@@ -114,44 +77,6 @@
       ],
       "success_signal": "学生能在撤去提示后欣赏优秀作品的语言表达技巧，并说明关键步骤、特征或依据。",
       "teacher_action": "围绕“欣赏优秀作品的语言表达技巧”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“以具体语言实例引导学生发现规律，避免围绕概念机械训练。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_e945696fd1b7558c"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_4c310fa752326c5f",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_d2249a750d66bfd8"
-      ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "ac20d7d6939713bde958f97263c068a3cc6b3a5b86064bc9c42a9099576ac773",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-LI-010:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "以具体语言实例引导学生发现规律，避免围绕概念机械训练。",
-          "excerpt_hash": "8168b09f5d184b84818f299998f47fcc74c6f48ddf108fc9208ec6568ed75073",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-LI-010:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“以具体语言实例引导学生发现规律，避免围绕概念机械训练。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -245,41 +170,43 @@
       "review_status": "machine_checked",
       "source_code": "CN-H4G7-LI-010",
       "target_code": "CN-H4G8-LI-011",
-      "target_label": "能初步探究语言文字运用规律；能整理典型的语法、修辞应用实例；能欣赏优秀作品的语言表达技巧；能整合材料并说明观点、方法或表达选择的依据。"
+      "target_label": "能初步探究语言文字运用规律；能整理典型的语法、修辞应用实例；能欣赏优秀作品的语言表达技巧。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_d2249a750d66bfd8",
+      "case_id": "hc_2e5486e0a983708d",
       "component_ids": [
-        "lc_e945696fd1b7558c"
+        "lc_753331ab7e34b807",
+        "lc_cd818ba5a9ebcd3d",
+        "lc_04da23cc5e58fe74"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用简短记录或口头表达说明基本理解。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生初步探究语言文字运用规律。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用简短记录或口头表达说明基本理解；优先采集：语言实例集、规律说明、表达应用记录。"
+        "学生能够初步探究语言文字运用规律；优先采集：语言实例集、规律说明、表达应用记录。",
+        "学生能够欣赏优秀作品的语言表达技巧；优先采集：语言实例集、规律说明、表达应用记录。",
+        "学生能够梳理学过的语言现象；优先采集：语言实例集、规律说明、表达应用记录。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "ac20d7d6939713bde958f97263c068a3cc6b3a5b86064bc9c42a9099576ac773",
+          "excerpt": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象。",
+          "excerpt_hash": "74c51e76848a819948f7b6e60b81850101209a9b3a39107326d3256631bd3fac",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-LI-010:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "初步探究语言文字运用规律；欣赏优秀作品的语言表达技巧；梳理学过的语言现象",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -354,30 +281,6 @@
         }
       ],
       "source_statement": "梳理学过的语言现象"
-    },
-    {
-      "component_id": "lc_e945696fd1b7558c",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用简短记录或口头表达说明基本理解",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用简短记录或口头表达说明基本理解，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用简短记录或口头表达说明基本理解",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用简短记录或口头表达说明基本理解；优先采集：语言实例集、规律说明、表达应用记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用简短记录或口头表达说明基本理解",
-          "excerpt_hash": "6b1f3237458514ec859ef1012df6724bfef67003f78886ed140316055791b644",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-LI-010:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用简短记录或口头表达说明基本理解"
     }
   ],
   "prerequisite_candidates": [
@@ -399,7 +302,7 @@
       "source_code": "CN-D3-LI-006",
       "source_label": "在学习中发现富有表现力的词句或段落并记录整理，尝试在表达交流中运用。",
       "target_code": "CN-H4G7-LI-010",
-      "target_label": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象；能用简短记录或口头表达说明基本理解。"
+      "target_label": "能初步探究语言文字运用规律；能欣赏优秀作品的语言表达技巧；能梳理学过的语言现象。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -410,7 +313,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "ac20d7d6939713bde958f97263c068a3cc6b3a5b86064bc9c42a9099576ac773",
+  "source_standard_hash": "74c51e76848a819948f7b6e60b81850101209a9b3a39107326d3256631bd3fac",
   "standard_code": "CN-H4G7-LI-010",
   "verified_prerequisites": []
 }

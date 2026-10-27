@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { basename, dirname, join, resolve } from 'node:path'
+import { basename, dirname, join, relative, resolve } from 'node:path'
 import { mkdirSync } from 'node:fs'
 
 const ROOT = resolve(import.meta.dirname, '../..')
@@ -205,7 +205,7 @@ function main() {
   if (standardGaps.length) warnings.push(`${standardGaps.length} standard(s) have no textbook subject in the current library`)
   const result = {
     valid: errors.length === 0,
-    index: args.index,
+    index: relative(ROOT, args.index),
     summary: {
       textbooks: textbooks.length,
       textbook_dispositions: textbookDispositions.length,

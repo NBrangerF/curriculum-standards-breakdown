@@ -3,55 +3,17 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_1e8980750cf70512"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_4b85ef2809940761",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_b50fb935ce78d28a"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "运用多种方式交流阅读感受；能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "1f97c50a411f761fdfcd727e70c14284cf24d5250b1b9d7794243ad5a2c8c6c8",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-009:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "引导学生以作品语言、人物形象和历史背景支撑阅读感受。",
-          "excerpt_hash": "373d1b333f3e8d5a0f14f8998f8c43d659518427898118fdbba4df506906ad9c",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-RE-009:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生以作品语言、人物形象和历史背景支撑阅读感受。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_3388f357ece4202b"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生运用多种方式交流阅读感受的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_cb83f3ab7c2494d5",
+      "difficulty_id": "cd_114ff3067b5d8b32",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_6ea34c03bddc366f"
+        "hc_dea60fffa880ccea"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“运用多种方式交流阅读感受”中的实际过程进一步核验。",
       "manifestation": "在要求学生“运用多种方式交流阅读感受”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -61,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "运用多种方式交流阅读感受；能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "1f97c50a411f761fdfcd727e70c14284cf24d5250b1b9d7794243ad5a2c8c6c8",
+          "excerpt": "运用多种方式交流阅读感受；能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神。",
+          "excerpt_hash": "64c6f777118310fea82c5edc4455427131a68adb428c46f5d10693198bc4612a",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-009:standard",
           "source_type": "curriculum_standard_field"
@@ -82,17 +44,15 @@
       "category": "language_expression",
       "component_ids": [
         "lc_3388f357ece4202b",
-        "lc_e64821c0a99db7e3",
-        "lc_1e8980750cf70512"
+        "lc_e64821c0a99db7e3"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生运用多种方式交流阅读感受的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_ca7074361b993300",
+      "difficulty_id": "cd_1abdf564d8036391",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_b50fb935ce78d28a",
-        "hc_6ea34c03bddc366f"
+        "hc_dea60fffa880ccea"
       ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“运用多种方式交流阅读感受”中的实际过程进一步核验。",
       "manifestation": "在要求学生“运用多种方式交流阅读感受”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
@@ -102,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "运用多种方式交流阅读感受；能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "1f97c50a411f761fdfcd727e70c14284cf24d5250b1b9d7794243ad5a2c8c6c8",
+          "excerpt": "运用多种方式交流阅读感受；能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神。",
+          "excerpt_hash": "64c6f777118310fea82c5edc4455427131a68adb428c46f5d10693198bc4612a",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-009:standard",
           "source_type": "curriculum_standard_field"
@@ -118,44 +78,6 @@
       ],
       "success_signal": "学生能在撤去提示后运用多种方式交流阅读感受，并说明关键步骤、特征或依据。",
       "teacher_action": "围绕“运用多种方式交流阅读感受”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“引导学生以作品语言、人物形象和历史背景支撑阅读感受。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_1e8980750cf70512"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用简短记录或口头表达说明基本理解的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_62d6a723ace27592",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_b50fb935ce78d28a"
-      ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“用简短记录或口头表达说明基本理解”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用简短记录或口头表达说明基本理解”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "运用多种方式交流阅读感受；能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "1f97c50a411f761fdfcd727e70c14284cf24d5250b1b9d7794243ad5a2c8c6c8",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-009:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "引导学生以作品语言、人物形象和历史背景支撑阅读感受。",
-          "excerpt_hash": "373d1b333f3e8d5a0f14f8998f8c43d659518427898118fdbba4df506906ad9c",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G7-RE-009:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用简短记录或口头表达说明基本理解，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用简短记录或口头表达说明基本理解”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生以作品语言、人物形象和历史背景支撑阅读感受。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -254,39 +176,7 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_b50fb935ce78d28a",
-      "component_ids": [
-        "lc_1e8980750cf70512"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用简短记录或口头表达说明基本理解。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够用简短记录或口头表达说明基本理解；优先采集：阅读批注、人物精神分析、交流展示。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "运用多种方式交流阅读感受；能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "1f97c50a411f761fdfcd727e70c14284cf24d5250b1b9d7794243ad5a2c8c6c8",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_6ea34c03bddc366f",
+      "case_id": "hc_dea60fffa880ccea",
       "component_ids": [
         "lc_3388f357ece4202b"
       ],
@@ -306,8 +196,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "运用多种方式交流阅读感受；能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神；能用简短记录或口头表达说明基本理解。",
-          "excerpt_hash": "1f97c50a411f761fdfcd727e70c14284cf24d5250b1b9d7794243ad5a2c8c6c8",
+          "excerpt": "运用多种方式交流阅读感受；能阅读反映中国革命各个时期重大事件、伟大成就、代表性人物及其感人事迹的优秀文学作品；能感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神。",
+          "excerpt_hash": "64c6f777118310fea82c5edc4455427131a68adb428c46f5d10693198bc4612a",
           "field": "standard",
           "ref_id": "standard:CN-H4G7-RE-009:standard",
           "source_type": "curriculum_standard_field"
@@ -390,30 +280,6 @@
         }
       ],
       "source_statement": "感悟革命领袖、革命英雄、模范人物的理想信念和奋斗精神"
-    },
-    {
-      "component_id": "lc_1e8980750cf70512",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用简短记录或口头表达说明基本理解",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用简短记录或口头表达说明基本理解，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用简短记录或口头表达说明基本理解",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用简短记录或口头表达说明基本理解；优先采集：阅读批注、人物精神分析、交流展示。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用简短记录或口头表达说明基本理解",
-          "excerpt_hash": "6b1f3237458514ec859ef1012df6724bfef67003f78886ed140316055791b644",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G7-RE-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用简短记录或口头表达说明基本理解"
     }
   ],
   "prerequisite_candidates": [
@@ -446,7 +312,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "1f97c50a411f761fdfcd727e70c14284cf24d5250b1b9d7794243ad5a2c8c6c8",
+  "source_standard_hash": "64c6f777118310fea82c5edc4455427131a68adb428c46f5d10693198bc4612a",
   "standard_code": "CN-H4G7-RE-009",
   "verified_prerequisites": []
 }

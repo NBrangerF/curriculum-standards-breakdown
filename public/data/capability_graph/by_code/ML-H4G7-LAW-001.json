@@ -3,137 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_6da32e4f0dde34f8",
-        "lc_4e3d8a10d42680bf"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_2fffc2f217b60930",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_2aad5021f6d64338",
-        "hc_d9150c379089debf",
-        "hc_41f8b64da5907577"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "ac6dd4ea2dc704b255234efb7709e06df79607beed0970d3faaece2a6352156f",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-001:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用可理解的法治实践案例解释核心内容，保持政治方向和价值导向清晰。",
-          "excerpt_hash": "9a3bc01561f590d9ce3e3f3c9a5e485d3081dcb13e7fe0c2b30442cdfbba9962",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G7-LAW-001:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用可理解的法治实践案例解释核心内容，保持政治方向和价值导向清晰。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "comparison",
-      "component_ids": [
-        "lc_4e3d8a10d42680bf"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_f001c5a0bfff8b82",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_2aad5021f6d64338",
-        "hc_d9150c379089debf",
-        "hc_41f8b64da5907577"
-      ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "ac6dd4ea2dc704b255234efb7709e06df79607beed0970d3faaece2a6352156f",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-001:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用可理解的法治实践案例解释核心内容，保持政治方向和价值导向清晰。",
-          "excerpt_hash": "9a3bc01561f590d9ce3e3f3c9a5e485d3081dcb13e7fe0c2b30442cdfbba9962",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G7-LAW-001:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用可理解的法治实践案例解释核心内容，保持政治方向和价值导向清晰。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "transfer",
-      "component_ids": [
-        "lc_4e3d8a10d42680bf"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生联系个人和校园生活说明基本判断的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_4a7cb85f4d1a6b74",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_2aad5021f6d64338",
-        "hc_d9150c379089debf",
-        "hc_41f8b64da5907577"
-      ],
-      "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“联系个人和校园生活说明基本判断”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“联系个人和校园生活说明基本判断”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "ac6dd4ea2dc704b255234efb7709e06df79607beed0970d3faaece2a6352156f",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-001:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用可理解的法治实践案例解释核心内容，保持政治方向和价值导向清晰。",
-          "excerpt_hash": "9a3bc01561f590d9ce3e3f3c9a5e485d3081dcb13e7fe0c2b30442cdfbba9962",
-          "field": "teaching_tip",
-          "ref_id": "standard:ML-H4G7-LAW-001:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后联系个人和校园生活说明基本判断，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“联系个人和校园生活说明基本判断”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“用可理解的法治实践案例解释核心内容，保持政治方向和价值导向清晰。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
         "lc_fdc116335744b7d1"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生识别并说出习近平法治思想的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_106edecbdb8f9815",
+      "difficulty_id": "cd_7eb816162c514f07",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_fa9efbddf3b476cc"
+      ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出习近平法治思想的关键特征”中的实际过程进一步核验。",
       "manifestation": "在要求学生“识别并说出习近平法治思想的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
@@ -142,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "ac6dd4ea2dc704b255234efb7709e06df79607beed0970d3faaece2a6352156f",
+          "excerpt": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心。",
+          "excerpt_hash": "a32b9de1fad8c37c7ee62a4379ac03f767523ba060727e9c16f434b62a718212",
           "field": "standard",
           "ref_id": "standard:ML-H4G7-LAW-001:standard",
           "source_type": "curriculum_standard_field"
@@ -313,107 +194,41 @@
       "review_status": "machine_checked",
       "source_code": "ML-H4G7-LAW-001",
       "target_code": "ML-H4G8-LAW-002",
-      "target_label": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；能结合家庭、学校或社会案例分析问题。"
+      "target_label": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_2aad5021f6d64338",
+      "case_id": "hc_fa9efbddf3b476cc",
       "component_ids": [
-        "lc_6da32e4f0dde34f8",
-        "lc_4e3d8a10d42680bf"
+        "lc_fdc116335744b7d1",
+        "lc_6da32e4f0dde34f8"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出习近平法治思想的关键特征。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；优先采集：法治案例说明、观点阐释、课堂问答。",
-        "学生能够联系个人和校园生活说明基本判断；优先采集：法治案例说明、观点阐释、课堂问答。"
+        "学生能够识别并说出习近平法治思想的关键特征；优先采集：法治案例说明、观点阐释、课堂问答。",
+        "学生能够用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；优先采集：法治案例说明、观点阐释、课堂问答。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "ac6dd4ea2dc704b255234efb7709e06df79607beed0970d3faaece2a6352156f",
+          "excerpt": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心。",
+          "excerpt_hash": "a32b9de1fad8c37c7ee62a4379ac03f767523ba060727e9c16f434b62a718212",
           "field": "standard",
           "ref_id": "standard:ML-H4G7-LAW-001:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_d9150c379089debf",
-      "component_ids": [
-        "lc_4e3d8a10d42680bf"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "生活"
-      ],
-      "demand_dimension": "transfer",
-      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够联系个人和校园生活说明基本判断；优先采集：法治案例说明、观点阐释、课堂问答。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "ac6dd4ea2dc704b255234efb7709e06df79607beed0970d3faaece2a6352156f",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "在真实或变化情境中迁移（生活）",
-      "title": "在真实或变化情境中迁移",
-      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
-    },
-    {
-      "case_id": "hc_41f8b64da5907577",
-      "component_ids": [
-        "lc_4e3d8a10d42680bf"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生联系个人和校园生活说明基本判断。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够联系个人和校园生活说明基本判断；优先采集：法治案例说明、观点阐释、课堂问答。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；能联系个人和校园生活说明基本判断。",
-          "excerpt_hash": "ac6dd4ea2dc704b255234efb7709e06df79607beed0970d3faaece2a6352156f",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "按一致维度比较或辨析（判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+      "structure": "识别并说出习近平法治思想的关键特征；用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -464,30 +279,6 @@
         }
       ],
       "source_statement": "理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心"
-    },
-    {
-      "component_id": "lc_4e3d8a10d42680bf",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够联系个人和校园生活说明基本判断",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生联系个人和校园生活说明基本判断，并保留可回查的口头、书面或操作过程证据。",
-      "label": "联系个人和校园生活说明基本判断",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够联系个人和校园生活说明基本判断；优先采集：法治案例说明、观点阐释、课堂问答。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "联系个人和校园生活说明基本判断",
-          "excerpt_hash": "441fc06d76bf837efd9f91aece3ac5307096174e73b5685a6475c696570b0b6b",
-          "field": "standard",
-          "ref_id": "standard:ML-H4G7-LAW-001:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "联系个人和校园生活说明基本判断"
     }
   ],
   "prerequisite_candidates": [
@@ -509,7 +300,7 @@
       "source_code": "ML-D3-LAW-003",
       "source_label": "能解释“公民”的基本含义，能举例说明常见权利与义务，并能在学校与生活中体现人人平等、尊重他人权利与履行自身义务。",
       "target_code": "ML-H4G7-LAW-001",
-      "target_label": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心；能联系个人和校园生活说明基本判断。"
+      "target_label": "了解习近平法治思想，理解坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -520,7 +311,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "ac6dd4ea2dc704b255234efb7709e06df79607beed0970d3faaece2a6352156f",
+  "source_standard_hash": "a32b9de1fad8c37c7ee62a4379ac03f767523ba060727e9c16f434b62a718212",
   "standard_code": "ML-H4G7-LAW-001",
   "verified_prerequisites": []
 }

@@ -3,68 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_5b9b3fd1a5fc88a5",
-        "lc_bf63d24a4949fb3b",
-        "lc_221ac857405e57f0"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a6c6053135b73ad2",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_28d0880cc49274b3"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "25e2fe628b505548a37b79364c219b991440ac9904697b14cff6fc2306c9c3ae",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-008:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "通过文本细节和学生经验连接价值理解，避免空泛说教。",
-          "excerpt_hash": "3ecaf8d43e05b221175c37404d2c903b01d52d677dacc4bb36a060dbfdd2b55c",
-          "field": "teaching_tip",
-          "ref_id": "standard:EN-H4G8-CA-008:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“通过文本细节和学生经验连接价值理解，避免空泛说教。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_5b9b3fd1a5fc88a5"
+        "lc_4633649cb9c135b0"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_2ce364aeb3244658",
+      "diagnostic_probe": "给出一个需要学生领会简短语篇蕴含的人文精神、科学精神和劳动价值的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_c9be3865ac9c10fe",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_28d0880cc49274b3"
+        "hc_c62eafa3e82e3073"
       ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“领会简短语篇蕴含的人文精神、科学精神和劳动价值”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“领会简短语篇蕴含的人文精神、科学精神和劳动价值”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "25e2fe628b505548a37b79364c219b991440ac9904697b14cff6fc2306c9c3ae",
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵。",
+          "excerpt_hash": "06ba52ea74acbc3530c9fd5736499e0b08f0dac1da317a9dce1997282d87694d",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-CA-008:standard",
           "source_type": "curriculum_standard_field"
@@ -77,8 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“通过文本细节和学生经验连接价值理解，避免空泛说教。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后领会简短语篇蕴含的人文精神、科学精神和劳动价值，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“领会简短语篇蕴含的人文精神、科学精神和劳动价值”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“通过文本细节和学生经验连接价值理解，避免空泛说教。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -172,45 +132,43 @@
       "review_status": "machine_checked",
       "source_code": "EN-H4G8-CA-008",
       "target_code": "EN-H4G9-CA-009",
-      "target_label": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；…"
+      "target_label": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_28d0880cc49274b3",
+      "case_id": "hc_c62eafa3e82e3073",
       "component_ids": [
+        "lc_4633649cb9c135b0",
         "lc_5b9b3fd1a5fc88a5",
-        "lc_bf63d24a4949fb3b",
-        "lc_221ac857405e57f0"
+        "lc_bf63d24a4949fb3b"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生领会简短语篇蕴含的人文精神、科学精神和劳动价值。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
+        "学生能够领会简短语篇蕴含的人文精神、科学精神和劳动价值；优先采集：语篇赏析卡、价值说明、交流发言。",
         "学生能够在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由；优先采集：语篇赏析卡、价值说明、交流发言。",
-        "学生能够用自己的话解释与感悟中外优秀文化的内涵；优先采集：语篇赏析卡、价值说明、交流发言。",
-        "学生能够说明观点或文化差异；优先采集：语篇赏析卡、价值说明、交流发言。"
+        "学生能够用自己的话解释与感悟中外优秀文化的内涵；优先采集：语篇赏析卡、价值说明、交流发言。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "25e2fe628b505548a37b79364c219b991440ac9904697b14cff6fc2306c9c3ae",
+          "excerpt": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵。",
+          "excerpt_hash": "06ba52ea74acbc3530c9fd5736499e0b08f0dac1da317a9dce1997282d87694d",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-CA-008:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "领会简短语篇蕴含的人文精神、科学精神和劳动价值；在任务中表现出国家认同感、文化自信、健康审美情趣和积极向上的情感态度并说明选择理由；用自己的话解释与感悟中外优秀文化的内涵",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -285,54 +243,6 @@
         }
       ],
       "source_statement": "理解与感悟中外优秀文化的内涵"
-    },
-    {
-      "component_id": "lc_4382277581edaba2",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合语篇信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合语篇信息，并说明关键步骤、特征或依据。",
-      "label": "整合语篇信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合语篇信息；优先采集：语篇赏析卡、价值说明、交流发言。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合语篇信息",
-          "excerpt_hash": "8fc7fa6e6eeaf7e69dbafe1c0139000f909d2a7e8aba5e8aae0003274289a04b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-008:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合语篇信息"
-    },
-    {
-      "component_id": "lc_221ac857405e57f0",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点或文化差异",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点或文化差异，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点或文化差异",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点或文化差异；优先采集：语篇赏析卡、价值说明、交流发言。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点或文化差异",
-          "excerpt_hash": "eddc2a80e635a5a126c12dfa34e72610db5e58b8d29295eaa8d1d361aecdddff",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-CA-008:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点或文化差异"
     }
   ],
   "prerequisite_candidates": [
@@ -351,9 +261,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "EN-H4G7-CA-007",
-      "source_label": "能理解与感悟中外优秀文化的内涵；能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；…",
+      "source_label": "能理解与感悟中外优秀文化的内涵；能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度。",
       "target_code": "EN-H4G8-CA-008",
-      "target_label": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵；…"
+      "target_label": "能领会简短语篇蕴含的人文精神、科学精神和劳动价值；形成国家认同感、文化自信、健康审美情趣和积极向上的情感态度；能理解与感悟中外优秀文化的内涵。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -364,7 +274,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "25e2fe628b505548a37b79364c219b991440ac9904697b14cff6fc2306c9c3ae",
+  "source_standard_hash": "06ba52ea74acbc3530c9fd5736499e0b08f0dac1da317a9dce1997282d87694d",
   "standard_code": "EN-H4G8-CA-008",
   "verified_prerequisites": []
 }

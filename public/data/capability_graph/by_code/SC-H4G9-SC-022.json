@@ -3,55 +3,19 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_393dadbb4dc2a608",
-        "lc_2865bf8830b2a601"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_7be2d82a689b703c",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_10b31c3148d8ad4a"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析人体通过调节机制维持稳态的过程；能说出人体神经系统组成和神经调节基本方式；阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "1f4a2d0091a7dbd08ff779e0646b8defe23074a56a8385d7f71f3645550993fe",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-022:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用生活经历和科学史资料帮助学生理解稳态调节的整体性。",
-          "excerpt_hash": "e7aaa5bc69f8814cfd6d6191a19d56cc97dc7b2539635d7ae0f520e214c91cf8",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G9-SC-022:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用生活经历和科学史资料帮助学生理解稳态调节的整体性。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
-        "lc_de5b5d6cd80865ac"
+        "lc_de5b5d6cd80865ac",
+        "lc_c0ff004d2bdfee33"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生说出人体神经系统组成和神经调节基本方式的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_6b8990700deba120",
+      "difficulty_id": "cd_66e04e13eae81e0f",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_8cbc9f67f9f6a42a"
+      ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“说出人体神经系统组成和神经调节基本方式”中的实际过程进一步核验。",
       "manifestation": "在要求学生“说出人体神经系统组成和神经调节基本方式”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
@@ -60,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析人体通过调节机制维持稳态的过程；能说出人体神经系统组成和神经调节基本方式；阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "1f4a2d0091a7dbd08ff779e0646b8defe23074a56a8385d7f71f3645550993fe",
+          "excerpt": "分析人体通过调节机制维持稳态的过程；能说出人体神经系统组成和神经调节基本方式；知道疫苗作用、疫苗接种、计划免疫和人工免疫实例。",
+          "excerpt_hash": "b2a14bc990f4cb958fba1800ba3dec5f456bc3a6376a4541100860f33c67db83",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-022:standard",
           "source_type": "curriculum_standard_field"
@@ -187,39 +151,38 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_10b31c3148d8ad4a",
+      "case_id": "hc_8cbc9f67f9f6a42a",
       "component_ids": [
-        "lc_393dadbb4dc2a608",
-        "lc_2865bf8830b2a601"
+        "lc_04939461caf0212f",
+        "lc_de5b5d6cd80865ac",
+        "lc_c0ff004d2bdfee33"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "论证",
-        "阐释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生分析人体通过调节机制维持稳态的过程。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例；优先采集：调节过程图、案例分析、调查报告。",
-        "学生能够建模、论证；优先采集：调节过程图、案例分析、调查报告。"
+        "学生能够分析人体通过调节机制维持稳态的过程；优先采集：调节过程图、案例分析、调查报告。",
+        "学生能够说出人体神经系统组成和神经调节基本方式；优先采集：调节过程图、案例分析、调查报告。",
+        "学生能够准确说出疫苗作用、疫苗接种、计划免疫和人工免疫实例；优先采集：调节过程图、案例分析、调查报告。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析人体通过调节机制维持稳态的过程；能说出人体神经系统组成和神经调节基本方式；阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "1f4a2d0091a7dbd08ff779e0646b8defe23074a56a8385d7f71f3645550993fe",
+          "excerpt": "分析人体通过调节机制维持稳态的过程；能说出人体神经系统组成和神经调节基本方式；知道疫苗作用、疫苗接种、计划免疫和人工免疫实例。",
+          "excerpt_hash": "b2a14bc990f4cb958fba1800ba3dec5f456bc3a6376a4541100860f33c67db83",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-022:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（论证、阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "分析人体通过调节机制维持稳态的过程；说出人体神经系统组成和神经调节基本方式；准确说出疫苗作用、疫苗接种、计划免疫和人工免疫实例",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -272,76 +235,28 @@
       "source_statement": "说出人体神经系统组成和神经调节基本方式"
     },
     {
-      "component_id": "lc_393dadbb4dc2a608",
-      "component_type": "conceptual",
+      "component_id": "lc_c0ff004d2bdfee33",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例，并保留可回查的口头、书面或操作过程证据。",
-      "label": "阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例",
+      "description": "学生能够准确说出疫苗作用、疫苗接种、计划免疫和人工免疫实例",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出疫苗作用、疫苗接种、计划免疫和人工免疫实例，并说明关键步骤、特征或依据。",
+      "label": "准确说出疫苗作用、疫苗接种、计划免疫和人工免疫实例",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例；优先采集：调节过程图、案例分析、调查报告。",
+      "observable_evidence": "学生能够准确说出疫苗作用、疫苗接种、计划免疫和人工免疫实例；优先采集：调节过程图、案例分析、调查报告。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例",
-          "excerpt_hash": "66ed62b62b6ed7569b54be17952ee4054e9c95130798852cb38b41520f90f1ef",
+          "excerpt": "知道疫苗作用、疫苗接种、计划免疫和人工免疫实例",
+          "excerpt_hash": "529fea9394091b706c65498c1cf469128ec81422e50f63ce2110953d4e279e06",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-022:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例"
-    },
-    {
-      "component_id": "lc_2865bf8830b2a601",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够建模、论证",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
-      "label": "建模、论证",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够建模、论证；优先采集：调节过程图、案例分析、调查报告。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "建模、论证",
-          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-022:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "建模、论证"
-    },
-    {
-      "component_id": "lc_51dcea7f2b5ee5bb",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价探究结论或社会影响",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
-      "label": "评价探究结论或社会影响",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：调节过程图、案例分析、调查报告。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价探究结论或社会影响",
-          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-022:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价探究结论或社会影响"
+      "source_statement": "知道疫苗作用、疫苗接种、计划免疫和人工免疫实例"
     }
   ],
   "prerequisite_candidates": [
@@ -360,9 +275,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "SC-H4G8-SC-022",
-      "source_label": "分析人体通过调节机制维持稳态的过程；能说出人体神经系统组成和神经调节基本方式；能列举主要内分泌腺及其功能和激素调节作用；能比较证据并解释概念之…",
+      "source_label": "分析人体通过调节机制维持稳态的过程；能说出人体神经系统组成和神经调节基本方式；能列举主要内分泌腺及其功能和激素调节作用。",
       "target_code": "SC-H4G9-SC-022",
-      "target_label": "分析人体通过调节机制维持稳态的过程；能说出人体神经系统组成和神经调节基本方式；阐释疫苗作用、疫苗接种、计划免疫和人工免疫实例；能建模、论证并评…"
+      "target_label": "分析人体通过调节机制维持稳态的过程；能说出人体神经系统组成和神经调节基本方式；知道疫苗作用、疫苗接种、计划免疫和人工免疫实例。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -373,7 +288,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "1f4a2d0091a7dbd08ff779e0646b8defe23074a56a8385d7f71f3645550993fe",
+  "source_standard_hash": "b2a14bc990f4cb958fba1800ba3dec5f456bc3a6376a4541100860f33c67db83",
   "standard_code": "SC-H4G9-SC-022",
   "verified_prerequisites": []
 }

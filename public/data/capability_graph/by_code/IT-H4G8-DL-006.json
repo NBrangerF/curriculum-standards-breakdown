@@ -3,54 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "multi_step_procedure",
-      "component_ids": [
-        "lc_749a0523c96f2f46"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生完成有步骤的数字作品的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_672baecd0830541e",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_af40461b3c5316f4"
-      ],
-      "likely_cause": "只记住局部动作，没有理解步骤之间的依赖关系和每一步的目的。 需要结合学生在“完成有步骤的数字作品”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“完成有步骤的数字作品”时，遗漏关键步骤、顺序颠倒，或得到结果后不检查，导致任务不能完整完成。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "64165ca77f2ba6d170f973b5af0f0647f15ce583346f1215c067cf84f981c3d3",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-DL-006:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "将学业质量要求转化为可展示的任务链，兼顾信息意识和计算思维。",
-          "excerpt_hash": "0be0758127eb82ba728e0023edc6f6ec4006c9035bab23c3a0a2ea8cbafa21bc",
-          "field": "teaching_tip",
-          "ref_id": "standard:IT-H4G8-DL-006:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后完成有步骤的数字作品，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“完成有步骤的数字作品”，让学生给混排步骤排序并解释理由，再用“做一步—说明目的—检查结果”的口述协议完成同构任务。 可结合本条教学建议：“将学业质量要求转化为可展示的任务链，兼顾信息意识和计算思维。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "language_expression",
       "component_ids": [
         "lc_c5983bfdda09aed4"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_fff339ae3d67a71d",
+      "difficulty_id": "cd_53c204198aa35b91",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_c6ced5faf2cf3568"
+      ],
       "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作”中的实际过程进一步核验。",
       "manifestation": "在要求学生“通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
@@ -59,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "64165ca77f2ba6d170f973b5af0f0647f15ce583346f1215c067cf84f981c3d3",
+          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。",
+          "excerpt_hash": "abfca8f430cd0523052f27669f69ff240a361abeceb39bbbb044bca96b89388c",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-DL-006:standard",
           "source_type": "curriculum_standard_field"
@@ -79,24 +43,26 @@
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_c5983bfdda09aed4"
+        "lc_2add167f5e8e142c"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a1a053d03d778fc8",
+      "diagnostic_probe": "给出一个需要学生贡献有价值的数据和资源的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_439edcf529c1c4bb",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "hardest_case_ids": [
+        "hc_c6ced5faf2cf3568"
+      ],
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“贡献有价值的数据和资源”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“贡献有价值的数据和资源”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "64165ca77f2ba6d170f973b5af0f0647f15ce583346f1215c067cf84f981c3d3",
+          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。",
+          "excerpt_hash": "abfca8f430cd0523052f27669f69ff240a361abeceb39bbbb044bca96b89388c",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-DL-006:standard",
           "source_type": "curriculum_standard_field"
@@ -109,8 +75,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“将学业质量要求转化为可展示的任务链，兼顾信息意识和计算思维。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后贡献有价值的数据和资源，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“贡献有价值的数据和资源”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“将学业质量要求转化为可展示的任务链，兼顾信息意识和计算思维。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -141,41 +107,43 @@
       "review_status": "machine_checked",
       "source_code": "IT-H4G8-DL-006",
       "target_code": "IT-H4G9-DL-005",
-      "target_label": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能设计、测试并评价数…"
+      "target_label": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_af40461b3c5316f4",
+      "case_id": "hc_c6ced5faf2cf3568",
       "component_ids": [
-        "lc_749a0523c96f2f46"
+        "lc_1f21d37a88139090",
+        "lc_2add167f5e8e142c",
+        "lc_c5983bfdda09aed4"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "步骤"
-      ],
-      "demand_dimension": "multi_step",
-      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生完成有步骤的数字作品。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用自己的话解释网络数据编码、传输和呈现原理。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够完成有步骤的数字作品；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。"
+        "学生能够用自己的话解释网络数据编码、传输和呈现原理；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。",
+        "学生能够贡献有价值的数据和资源；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。",
+        "学生能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能分析系统关系并完成有步骤的数字作品。",
-          "excerpt_hash": "64165ca77f2ba6d170f973b5af0f0647f15ce583346f1215c067cf84f981c3d3",
+          "excerpt": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。",
+          "excerpt_hash": "abfca8f430cd0523052f27669f69ff240a361abeceb39bbbb044bca96b89388c",
           "field": "standard",
           "ref_id": "standard:IT-H4G8-DL-006:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "保持多步骤或完整结构（步骤）",
-      "title": "保持多步骤或完整结构",
-      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+      "structure": "用自己的话解释网络数据编码、传输和呈现原理；贡献有价值的数据和资源；通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -250,54 +218,6 @@
         }
       ],
       "source_statement": "通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作"
-    },
-    {
-      "component_id": "lc_d67e1cbb9d57fb25",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够分析系统关系",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析系统关系，并说明关键步骤、特征或依据。",
-      "label": "分析系统关系",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析系统关系；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析系统关系",
-          "excerpt_hash": "ebac474de7322e39b3ec0dc7ec33a2102e19e5fe5b414c4ba8c39244053f052c",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-DL-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "分析系统关系"
-    },
-    {
-      "component_id": "lc_749a0523c96f2f46",
-      "component_type": "procedural",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成有步骤的数字作品",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成有步骤的数字作品，并说明关键步骤、特征或依据。",
-      "label": "完成有步骤的数字作品",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成有步骤的数字作品；优先采集：搜索记录、协同作品、数据贡献证据、原理说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成有步骤的数字作品",
-          "excerpt_hash": "dbbbd54f76d7834a2c97c486813f724ab7884056c98d6fe13349aba505702adb",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G8-DL-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成有步骤的数字作品"
     }
   ],
   "prerequisite_candidates": [
@@ -316,9 +236,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "IT-H4G7-DL-006",
-      "source_label": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能说明数字工具或数据…",
+      "source_label": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。",
       "target_code": "IT-H4G8-DL-006",
-      "target_label": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作；能分析系统关系并完成…"
+      "target_label": "理解网络数据编码、传输和呈现原理；能贡献有价值的数据和资源；能够通过互联网工具或平台进行较精准的信息搜索、沟通交流与协作。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -329,7 +249,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "64165ca77f2ba6d170f973b5af0f0647f15ce583346f1215c067cf84f981c3d3",
+  "source_standard_hash": "abfca8f430cd0523052f27669f69ff240a361abeceb39bbbb044bca96b89388c",
   "standard_code": "IT-H4G8-DL-006",
   "verified_prerequisites": []
 }

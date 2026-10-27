@@ -3,51 +3,13 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_88ebdb5faf65b626"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明数字工具或数据过程的基本做法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_8c020d1249eb146e",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_0ea5f3fbcec4a843"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明数字工具或数据过程的基本做法”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明数字工具或数据过程的基本做法”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动；能说明数字工具或数据过程的基本做法。",
-          "excerpt_hash": "a597db1cb9643ec2cec2fbf21a074a735ded9b34c1049abd2987dccd976ec23e",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G7-SR-006:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "要求学生用案例证据说明合理使用人工智能的原则和风险。",
-          "excerpt_hash": "fdf1ab678eea6dadbcf95a0a810a84578c539f7bb5cab489c3d91faee367d630",
-          "field": "teaching_tip",
-          "ref_id": "standard:IT-H4G7-SR-006:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后说明数字工具或数据过程的基本做法，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明数字工具或数据过程的基本做法”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“要求学生用案例证据说明合理使用人工智能的原则和风险。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_d7ec92181d8bb7d3"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生通过体验人工智能应用场景的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_f10c1de155be2dda",
+      "difficulty_id": "cd_3e1033273b7b2866",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [],
@@ -59,8 +21,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动；能说明数字工具或数据过程的基本做法。",
-          "excerpt_hash": "a597db1cb9643ec2cec2fbf21a074a735ded9b34c1049abd2987dccd976ec23e",
+          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动。",
+          "excerpt_hash": "2c8d160b72cbcd58610237ff49af1432817ef61b69414d1b161f12014cae8cf3",
           "field": "standard",
           "ref_id": "standard:IT-H4G7-SR-006:standard",
           "source_type": "curriculum_standard_field"
@@ -105,44 +67,12 @@
       "review_status": "machine_checked",
       "source_code": "IT-H4G7-SR-006",
       "target_code": "IT-H4G8-SR-006",
-      "target_label": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动；能分析系统关系并完成有步骤的数字作品。"
+      "target_label": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_0ea5f3fbcec4a843",
-      "component_ids": [
-        "lc_88ebdb5faf65b626"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明数字工具或数据过程的基本做法。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够说明数字工具或数据过程的基本做法；优先采集：伦理案例分析、讨论记录、使用规范建议。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动；能说明数字工具或数据过程的基本做法。",
-          "excerpt_hash": "a597db1cb9643ec2cec2fbf21a074a735ded9b34c1049abd2987dccd976ec23e",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G7-SR-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_1019cb752fd35dd5",
+      "case_id": "hc_d13c80f66493aa2e",
       "component_ids": [
         "lc_ecfaab0a36313ab5"
       ],
@@ -162,8 +92,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动；能说明数字工具或数据过程的基本做法。",
-          "excerpt_hash": "a597db1cb9643ec2cec2fbf21a074a735ded9b34c1049abd2987dccd976ec23e",
+          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动。",
+          "excerpt_hash": "2c8d160b72cbcd58610237ff49af1432817ef61b69414d1b161f12014cae8cf3",
           "field": "standard",
           "ref_id": "standard:IT-H4G7-SR-006:standard",
           "source_type": "curriculum_standard_field"
@@ -174,7 +104,7 @@
       "why_hard": "有提示时会做不等于能够独立、稳定并符合规范地完成。"
     },
     {
-      "case_id": "hc_ab4378ca811751b7",
+      "case_id": "hc_32b2c144e5f70db6",
       "component_ids": [
         "lc_3e4e9eba40b7caef"
       ],
@@ -194,8 +124,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动；能说明数字工具或数据过程的基本做法。",
-          "excerpt_hash": "a597db1cb9643ec2cec2fbf21a074a735ded9b34c1049abd2987dccd976ec23e",
+          "excerpt": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动。",
+          "excerpt_hash": "2c8d160b72cbcd58610237ff49af1432817ef61b69414d1b161f12014cae8cf3",
           "field": "standard",
           "ref_id": "standard:IT-H4G7-SR-006:standard",
           "source_type": "curriculum_standard_field"
@@ -278,30 +208,6 @@
         }
       ],
       "source_statement": "合理与人工智能互动"
-    },
-    {
-      "component_id": "lc_88ebdb5faf65b626",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明数字工具或数据过程的基本做法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明数字工具或数据过程的基本做法，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明数字工具或数据过程的基本做法",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明数字工具或数据过程的基本做法；优先采集：伦理案例分析、讨论记录、使用规范建议。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明数字工具或数据过程的基本做法",
-          "excerpt_hash": "a578d2fb17bbdec79eedf1635ae20493e83ea3c2f80eabfea02a716484d85a53",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G7-SR-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明数字工具或数据过程的基本做法"
     }
   ],
   "prerequisite_candidates": [
@@ -323,7 +229,7 @@
       "source_code": "IT-H3-SR-001",
       "source_label": "能以在线学习与生活中的算法应用为例，讨论算法带来的价值与局限（如推荐、排序、过滤等），能用事实或案例说明算法可能影响信息获取与决策，并能提出至…",
       "target_code": "IT-H4G7-SR-006",
-      "target_label": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动；能说明数字工具或数据过程的基本做法。"
+      "target_label": "了解人工智能带来的伦理与安全挑战；能通过体验人工智能应用场景；能合理与人工智能互动。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -334,7 +240,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "a597db1cb9643ec2cec2fbf21a074a735ded9b34c1049abd2987dccd976ec23e",
+  "source_standard_hash": "2c8d160b72cbcd58610237ff49af1432817ef61b69414d1b161f12014cae8cf3",
   "standard_code": "IT-H4G7-SR-006",
   "verified_prerequisites": []
 }

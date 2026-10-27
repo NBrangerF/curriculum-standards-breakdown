@@ -27,6 +27,8 @@ import styles from './StandardDetailPage.module.css'
 
 const LearningMapRoute = lazy(() => import('../features/learning-map/LearningMapRoute.jsx'))
 
+const JUNIOR_GRADE_LABELS = { H4G7: '七年级', H4G8: '八年级', H4G9: '九年级' }
+
 const PROVENANCE_LABELS = {
     official: '课标原文',
     extracted: '课标章节抽取',
@@ -573,6 +575,11 @@ function StandardDetailPage() {
                             <ProvenanceBadge metadata={field_provenance.standard || provenance} />
                             <span>页面标题与摘要为结构化索引内容；原文可用时在正文单独列出。</span>
                         </div>
+                        {JUNIOR_GRADE_LABELS[grade_band] ? (
+                            <p className={styles['grade-split-notice']} role="note">
+                                课标原文是第四学段（7–9 年级）的共同要求，没有细分到年级。本条归入{JUNIOR_GRADE_LABELS[grade_band]}是 kebiao 的推断，尚未经教材单元证据和人工审核确认，请结合所用教材判断。
+                            </p>
+                        ) : null}
                         {standardLead && (
                             <p className={styles['standard-lead']}>{standardLead}</p>
                         )}
@@ -845,7 +852,13 @@ function StandardDetailPage() {
                                 <span className={`${styles['provenance-badge']} ${styles.official}`}>课标原文</span>
                             </div>
                             <p>{official_text}</p>
-                            <small>{field_provenance.standard?.source_ref?.document} · {field_provenance.standard?.source_ref?.section}</small>
+                            <small>
+                                {field_provenance.standard?.source_ref?.document} · {field_provenance.standard?.source_ref?.section}
+                                {field_provenance.standard?.source_ref?.url ? (
+                                    <> · <a href={field_provenance.standard.source_ref.url} target="_blank" rel="noreferrer">打开官方 PDF</a></>
+                                ) : null}
+                            </small>
+                            <small>原文由官方 PDF 文字识别（OCR）得到，个别字词可能有误，请以官方 PDF 为准。</small>
                         </article>
                     ) : null}
                     <div className={styles['content-grid']}>

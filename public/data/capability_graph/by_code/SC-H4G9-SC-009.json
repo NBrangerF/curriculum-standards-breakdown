@@ -3,30 +3,29 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "language_expression",
       "component_ids": [
-        "lc_dc77cc3ff44b31ca",
-        "lc_31195e24940eb735",
-        "lc_c3605e4d2d8a61c5"
+        "lc_ad906530db925285",
+        "lc_74a08f90d926a095"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_8fc3ed613e8d261d",
+      "diagnostic_probe": "给出一个需要学生描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_40b0bc90fd8483a7",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_4edf7718bc93ada6"
+        "hc_01b79e326ae1209b"
       ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能分析并说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；分析物质变化存在物理变化和化学变化；理解化学变化本质是原子重新组合；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "3faf0d1992dd7e96d3d8171504d2f30b91aafef7ab178663ff6cfb9051179605",
+          "excerpt": "能描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；了解物质变化存在物理变化和化学变化；理解化学变化本质是原子重新组合。",
+          "excerpt_hash": "14602cb0f46d52cf31e1f77f0c1917cb42a12572387dba7cf045735707e71824",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-009:standard",
           "source_type": "curriculum_standard_field"
@@ -39,32 +38,32 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生用证据判断是否产生新物质，并从宏观和微观两个视角解释变化。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“引导学生用证据判断是否产生新物质，并从宏观和微观两个视角解释变化。”。随后撤去支架，用同构任务复测。"
     },
     {
       "category": "concept_discrimination",
       "component_ids": [
-        "lc_dc77cc3ff44b31ca"
+        "lc_74a08f90d926a095"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "diagnostic_probe": "给出一个需要学生识别并说出物质变化存在物理变化和化学变化的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
       "difficulty_id": "cd_8f1dcc94f5044ffe",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_4edf7718bc93ada6"
+        "hc_01b79e326ae1209b"
       ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出物质变化存在物理变化和化学变化的关键特征”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“识别并说出物质变化存在物理变化和化学变化的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能分析并说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；分析物质变化存在物理变化和化学变化；理解化学变化本质是原子重新组合；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "3faf0d1992dd7e96d3d8171504d2f30b91aafef7ab178663ff6cfb9051179605",
+          "excerpt": "能描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；了解物质变化存在物理变化和化学变化；理解化学变化本质是原子重新组合。",
+          "excerpt_hash": "14602cb0f46d52cf31e1f77f0c1917cb42a12572387dba7cf045735707e71824",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-009:standard",
           "source_type": "curriculum_standard_field"
@@ -77,8 +76,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生用证据判断是否产生新物质，并从宏观和微观两个视角解释变化。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后识别并说出物质变化存在物理变化和化学变化的关键特征，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“识别并说出物质变化存在物理变化和化学变化的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生用证据判断是否产生新物质，并从宏观和微观两个视角解释变化。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -87,9 +86,9 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 2,
+    "page_evidence_count": 1,
     "scope_count": 3,
-    "specific_count": 2,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
@@ -121,12 +120,12 @@
         }
       ],
       "learning_component_ids": [
-        "lc_9088f4f329a9763b"
+        "lc_74a08f90d926a095"
       ],
       "learning_components": [
         {
-          "component_id": "lc_9088f4f329a9763b",
-          "label": "分析物质变化存在物理变化和化学变化"
+          "component_id": "lc_74a08f90d926a095",
+          "label": "识别并说出物质变化存在物理变化和化学变化的关键特征"
         }
       ],
       "level": "page",
@@ -136,7 +135,7 @@
       "pdf_page": 12,
       "printed_page": "7",
       "publication_status": "published",
-      "rationale": "教材exercise“实验 变化后有无新变化前的物质 变化时发生的现象 变化后的物质序号 物质生成”与课标 SC-H4G9-SC-009 的可教学小能力“分析物质变化存在物理变化和化学变化”形成页内证据匹配。",
+      "rationale": "教材练习“实验 变化后有无新变化前的物质 变化时发生的现象 变化后的物质序号 物质生成”与课标 SC-H4G9-SC-009 的可教学小能力“识别并说出物质变化存在物理变化和化学变化的关键特征”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -147,61 +146,6 @@
       "textbook_volume": "上册",
       "unit_id": "tcu_01b0ccc0cb5171a5",
       "unit_title": "第一单元"
-    },
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_b200c0957525c695",
-      "alignment_type": "practices",
-      "confidence": 0.7539,
-      "coverage": "partial",
-      "edition_id": "ed_ba25683b949d491afb3c",
-      "evidence_basis": "textbook_page_span",
-      "evidence_gap": null,
-      "evidence_level": "L3_page_evidence",
-      "evidence_refs": [
-        "ctb_29dc6f39b08d",
-        "tes_acda03bd5a188da5",
-        "textbook-node:tcn_9af1fe88b8a80dd9",
-        "textbook-unit:tcu_108981966cbc2957"
-      ],
-      "evidence_role": "direct_textbook",
-      "evidence_spans": [
-        {
-          "evidence_role": "direct_textbook",
-          "excerpt": "实验和日常生活经验讨论:1. 燃烧着的红磷熄灭了,这种现象说明氮气能不能支持燃烧?",
-          "excerpt_hash": "8adb76667d7d23a8afcc0709a7fce7ce1510bb5ebb684214bcad17e304f7174e",
-          "pdf_page": 34,
-          "printed_page": "29",
-          "span_id": "tes_acda03bd5a188da5"
-        }
-      ],
-      "learning_component_ids": [
-        "lc_dc77cc3ff44b31ca"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_dc77cc3ff44b31ca",
-          "label": "说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象"
-        }
-      ],
-      "level": "page",
-      "method": "component_evidence_hybrid",
-      "node_id": "tcn_9af1fe88b8a80dd9",
-      "node_title": "实验和日常生活经验讨论:1. 燃烧着的红磷熄灭了,这种现象说明氮气能不能支持燃烧?",
-      "pdf_page": 34,
-      "printed_page": "29",
-      "publication_status": "published",
-      "rationale": "教材exercise“实验和日常生活经验讨论:1. 燃烧着的红磷熄灭了,这种现象说明氮气能不能支持燃烧?”与课标 SC-H4G9-SC-009 的可教学小能力“说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象”形成页内证据匹配。",
-      "relation_type": "practices",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 9,
-      "textbook_subject": "化学",
-      "textbook_title": "化学9年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_108981966cbc2957",
-      "unit_title": "第二单元"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -300,118 +244,91 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_4edf7718bc93ada6",
+      "case_id": "hc_01b79e326ae1209b",
       "component_ids": [
-        "lc_dc77cc3ff44b31ca",
-        "lc_31195e24940eb735",
-        "lc_c3605e4d2d8a61c5"
+        "lc_ad906530db925285",
+        "lc_74a08f90d926a095",
+        "lc_b6a8e55d328023cf"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "论证",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；优先采集：变化证据表、实验观察记录、安全说明。",
-        "学生能够用自己的话解释化学变化本质是原子重新组合；优先采集：变化证据表、实验观察记录、安全说明。",
-        "学生能够建模、论证；优先采集：变化证据表、实验观察记录、安全说明。"
+        "学生能够描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；优先采集：变化证据表、实验观察记录、安全说明。",
+        "学生能够识别并说出物质变化存在物理变化和化学变化的关键特征；优先采集：变化证据表、实验观察记录、安全说明。",
+        "学生能够用自己的话解释化学变化本质是原子重新组合；优先采集：变化证据表、实验观察记录、安全说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能分析并说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；分析物质变化存在物理变化和化学变化；理解化学变化本质是原子重新组合；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "3faf0d1992dd7e96d3d8171504d2f30b91aafef7ab178663ff6cfb9051179605",
+          "excerpt": "能描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；了解物质变化存在物理变化和化学变化；理解化学变化本质是原子重新组合。",
+          "excerpt_hash": "14602cb0f46d52cf31e1f77f0c1917cb42a12572387dba7cf045735707e71824",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-009:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（论证、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；识别并说出物质变化存在物理变化和化学变化的关键特征；用自己的话解释化学变化本质是原子重新组合",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_5847adef9dbbc46a",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够分析化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象，并说明关键步骤、特征或依据。",
-      "label": "分析化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；优先采集：变化证据表、实验观察记录、安全说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析并说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象",
-          "excerpt_hash": "aa56cf1f073707417fa7d7a4350555647800918c0385f40bd9a621037cf98146",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "分析化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象"
-    },
-    {
-      "component_id": "lc_dc77cc3ff44b31ca",
+      "component_id": "lc_ad906530db925285",
       "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象",
+      "description": "学生能够描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象，并说明关键步骤、特征或依据。",
+      "label": "描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；优先采集：变化证据表、实验观察记录、安全说明。",
+      "observable_evidence": "学生能够描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；优先采集：变化证据表、实验观察记录、安全说明。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象",
-          "excerpt_hash": "4347d7c57a25cfa6bbba6aa7738fec75dd1ebaf71729d3b3192c0ff9ca533506",
+          "excerpt": "描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象",
+          "excerpt_hash": "7b33ac8985ecac289dbc26f82bbbe0e23b37b2b3897da74e4cabcec2bbdf7edf",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-009:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象"
+      "source_statement": "描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象"
     },
     {
-      "component_id": "lc_9088f4f329a9763b",
-      "component_type": "conceptual",
+      "component_id": "lc_74a08f90d926a095",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够分析物质变化存在物理变化和化学变化",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生分析物质变化存在物理变化和化学变化，并说明关键步骤、特征或依据。",
-      "label": "分析物质变化存在物理变化和化学变化",
+      "description": "学生能够识别并说出物质变化存在物理变化和化学变化的关键特征",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生识别并说出物质变化存在物理变化和化学变化的关键特征，并说明关键步骤、特征或依据。",
+      "label": "识别并说出物质变化存在物理变化和化学变化的关键特征",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够分析物质变化存在物理变化和化学变化；优先采集：变化证据表、实验观察记录、安全说明。",
+      "observable_evidence": "学生能够识别并说出物质变化存在物理变化和化学变化的关键特征；优先采集：变化证据表、实验观察记录、安全说明。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析物质变化存在物理变化和化学变化",
-          "excerpt_hash": "9304ae4e4727f4de125c5c92eac0d1940ad56c4f7025d2f122ca33096fe537a8",
+          "excerpt": "了解物质变化存在物理变化和化学变化",
+          "excerpt_hash": "c4275ac3ec4a98e663d5356c136127744a932bef3b053ca8cc8433e2682f258d",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-009:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "分析物质变化存在物理变化和化学变化"
+      "source_statement": "了解物质变化存在物理变化和化学变化"
     },
     {
-      "component_id": "lc_31195e24940eb735",
+      "component_id": "lc_b6a8e55d328023cf",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
@@ -433,54 +350,6 @@
         }
       ],
       "source_statement": "理解化学变化本质是原子重新组合"
-    },
-    {
-      "component_id": "lc_c3605e4d2d8a61c5",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够建模、论证",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
-      "label": "建模、论证",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够建模、论证；优先采集：变化证据表、实验观察记录、安全说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "建模、论证",
-          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "建模、论证"
-    },
-    {
-      "component_id": "lc_4d2d598192231408",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价探究结论或社会影响",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
-      "label": "评价探究结论或社会影响",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：变化证据表、实验观察记录、安全说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价探究结论或社会影响",
-          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-009:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价探究结论或社会影响"
     }
   ],
   "prerequisite_candidates": [
@@ -501,7 +370,7 @@
       "source_code": "SC-H4G8-SC-008",
       "source_label": "了解物质变化存在物理变化和化学变化；能描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；理解化学变化本质是原子重…",
       "target_code": "SC-H4G9-SC-009",
-      "target_label": "能分析并说明化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；分析物质变化存在物理变化和化学变化；理解化学变化本质是…"
+      "target_label": "能描述化学变化产生新物质并伴随能量转化及沉淀、气体、颜色、发光、吸热或放热等现象；了解物质变化存在物理变化和化学变化；理解化学变化本质是原子重…"
     }
   ],
   "prerequisite_review_coverage": {
@@ -512,7 +381,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "3faf0d1992dd7e96d3d8171504d2f30b91aafef7ab178663ff6cfb9051179605",
+  "source_standard_hash": "14602cb0f46d52cf31e1f77f0c1917cb42a12572387dba7cf045735707e71824",
   "standard_code": "SC-H4G9-SC-009",
   "verified_prerequisites": []
 }

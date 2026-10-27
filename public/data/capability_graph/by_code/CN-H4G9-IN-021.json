@@ -3,56 +3,20 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_a662483d4d22eb3e"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_42f03e3fbe6c9226",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_2fafed845ee2988e"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作运用多种活动样式开展校园活动和社会活动；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "5a71374c3fff40ba74f2dd4ba7f3566ccc0f2ff12308e0b0a433b1d3009994ec",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G9-IN-021:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "评价信息权威性、证据使用、推断合理性、成果格式和合作实践。",
-          "excerpt_hash": "adf1c8fab5b494407fd17c80ae5e50c74d4620b37e586bb92a381bd68f6ed673",
-          "field": "teaching_tip",
-          "ref_id": "standard:CN-H4G9-IN-021:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“评价信息权威性、证据使用、推断合理性、成果格式和合作实践。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_e3ab7db7833b2a8c",
-        "lc_c3d6ddedc6ee5fdc"
+        "lc_d74ffacdc8646ddf"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生从相关学科材料中搜集资料、整合信息、发现解决问题线索的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_13005d3897281bbf",
+      "difficulty_id": "cd_2ec42d1b6b34d460",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_fd075aa3bdde15b0"
+        "hc_b0cca7709cd45724",
+        "hc_df52647e0efb81f9",
+        "hc_7733fa512fbfac36"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“从相关学科材料中搜集资料、整合信息、发现解决问题线索”中的实际过程进一步核验。",
       "manifestation": "在要求学生“从相关学科材料中搜集资料、整合信息、发现解决问题线索”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -62,8 +26,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作运用多种活动样式开展校园活动和社会活动；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "5a71374c3fff40ba74f2dd4ba7f3566ccc0f2ff12308e0b0a433b1d3009994ec",
+          "excerpt": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作综合运用多种活动样式开展校园活动和社会活动。",
+          "excerpt_hash": "8920055d7ad5c721d17223296125197296ec297ce22181bcecd12b3b6bac9969",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-IN-021:standard",
           "source_type": "curriculum_standard_field"
@@ -86,7 +50,7 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生从相关学科材料中搜集资料、整合信息、发现解决问题线索的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_fa9b049290f679f8",
+      "difficulty_id": "cd_5e4cc5e6212b6fcd",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [],
@@ -98,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作运用多种活动样式开展校园活动和社会活动；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "5a71374c3fff40ba74f2dd4ba7f3566ccc0f2ff12308e0b0a433b1d3009994ec",
+          "excerpt": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作综合运用多种活动样式开展校园活动和社会活动。",
+          "excerpt_hash": "8920055d7ad5c721d17223296125197296ec297ce22181bcecd12b3b6bac9969",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-IN-021:standard",
           "source_type": "curriculum_standard_field"
@@ -171,7 +135,7 @@
       "pdf_page": 120,
       "printed_page": "113",
       "publication_status": "published",
-      "rationale": "教材exercise“讨论的目的是研究、解决问题,发言时不得进行人身攻击,不得质疑他人就事论事,文明表达的动机、习惯或爱好”与课标 CN-H4G9-IN-021 的可教学小能力“从相关学科材料中搜集资料、整合信息、发现解决问题线索”形成页内证据匹配。",
+      "rationale": "教材练习“讨论的目的是研究、解决问题,发言时不得进行人身攻击,不得质疑他人就事论事,文明表达的动机、习惯或爱好”与课标 CN-H4G9-IN-021 的可教学小能力“从相关学科材料中搜集资料、整合信息、发现解决问题线索”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -249,42 +213,71 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_2fafed845ee2988e",
+      "case_id": "hc_b0cca7709cd45724",
       "component_ids": [
-        "lc_a662483d4d22eb3e"
+        "lc_d74ffacdc8646ddf"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
-        "证据",
-        "阐释"
+        "综合"
       ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由。",
+      "demand_dimension": "transfer",
+      "diagnostic_focus": "更换表面情境，检查学生能否识别不变结构并解释方法选择。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过合作综合运用多种活动样式开展校园活动和社会活动。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：策划书、调查报告或小论文、证据分析表、合作活动成果。"
+        "学生能够通过合作综合运用多种活动样式开展校园活动和社会活动；优先采集：策划书、调查报告或小论文、证据分析表、合作活动成果。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作运用多种活动样式开展校园活动和社会活动；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "5a71374c3fff40ba74f2dd4ba7f3566ccc0f2ff12308e0b0a433b1d3009994ec",
+          "excerpt": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作综合运用多种活动样式开展校园活动和社会活动。",
+          "excerpt_hash": "8920055d7ad5c721d17223296125197296ec297ce22181bcecd12b3b6bac9969",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-IN-021:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（证据、阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "在真实或变化情境中迁移（综合）",
+      "title": "在真实或变化情境中迁移",
+      "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
     },
     {
-      "case_id": "hc_fd075aa3bdde15b0",
+      "case_id": "hc_df52647e0efb81f9",
       "component_ids": [
-        "lc_c3d6ddedc6ee5fdc"
+        "lc_d74ffacdc8646ddf"
+      ],
+      "confidence": 0.7,
+      "covered_modifiers": [],
+      "demand_dimension": "multi_step",
+      "diagnostic_focus": "观察关键步骤是否齐全、顺序是否合理，以及学生能否回查结果。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过合作综合运用多种活动样式开展校园活动和社会活动。",
+      "method": "structural_demand_rules_v2",
+      "provenance": "rule_generated",
+      "publication_status": "candidate",
+      "required_student_evidence": [
+        "学生能够通过合作综合运用多种活动样式开展校园活动和社会活动；优先采集：策划书、调查报告或小论文、证据分析表、合作活动成果。"
+      ],
+      "review_status": "machine_checked",
+      "source_refs": [
+        {
+          "excerpt": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作综合运用多种活动样式开展校园活动和社会活动。",
+          "excerpt_hash": "8920055d7ad5c721d17223296125197296ec297ce22181bcecd12b3b6bac9969",
+          "field": "standard",
+          "ref_id": "standard:CN-H4G9-IN-021:standard",
+          "source_type": "curriculum_standard_field"
+        }
+      ],
+      "structure": "用策划书、调查报告、小论文等形式发表研究成果；从相关学科材料中搜集资料、整合信息、发现解决问题线索；通过合作综合运用多种活动样式开展校园活动和社会活动",
+      "title": "保持多步骤或完整结构",
+      "why_hard": "学生需要保持步骤之间的依赖关系；任一步遗漏、颠倒或缺少检查都会破坏完整表现。"
+    },
+    {
+      "case_id": "hc_7733fa512fbfac36",
+      "component_ids": [
+        "lc_d74ffacdc8646ddf"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
@@ -292,18 +285,18 @@
       ],
       "demand_dimension": "multiple_conditions",
       "diagnostic_focus": "把标准中的限定语列成核对项，逐项检查是否都有可观察证据。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过合作运用多种活动样式开展校园活动和社会活动。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生通过合作综合运用多种活动样式开展校园活动和社会活动。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够通过合作运用多种活动样式开展校园活动和社会活动；优先采集：策划书、调查报告或小论文、证据分析表、合作活动成果。"
+        "学生能够通过合作综合运用多种活动样式开展校园活动和社会活动；优先采集：策划书、调查报告或小论文、证据分析表、合作活动成果。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作运用多种活动样式开展校园活动和社会活动；能形成有观点、有证据、有修改意识的阐释或作品。",
-          "excerpt_hash": "5a71374c3fff40ba74f2dd4ba7f3566ccc0f2ff12308e0b0a433b1d3009994ec",
+          "excerpt": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作综合运用多种活动样式开展校园活动和社会活动。",
+          "excerpt_hash": "8920055d7ad5c721d17223296125197296ec297ce22181bcecd12b3b6bac9969",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-IN-021:standard",
           "source_type": "curriculum_standard_field"
@@ -364,52 +357,28 @@
       "source_statement": "从相关学科材料中搜集资料、整合信息、发现解决问题线索"
     },
     {
-      "component_id": "lc_c3d6ddedc6ee5fdc",
+      "component_id": "lc_d74ffacdc8646ddf",
       "component_type": "disposition",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够通过合作运用多种活动样式开展校园活动和社会活动",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过合作运用多种活动样式开展校园活动和社会活动，并说明关键步骤、特征或依据。",
-      "label": "通过合作运用多种活动样式开展校园活动和社会活动",
+      "description": "学生能够通过合作综合运用多种活动样式开展校园活动和社会活动",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生通过合作综合运用多种活动样式开展校园活动和社会活动，并说明关键步骤、特征或依据。",
+      "label": "通过合作综合运用多种活动样式开展校园活动和社会活动",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够通过合作运用多种活动样式开展校园活动和社会活动；优先采集：策划书、调查报告或小论文、证据分析表、合作活动成果。",
+      "observable_evidence": "学生能够通过合作综合运用多种活动样式开展校园活动和社会活动；优先采集：策划书、调查报告或小论文、证据分析表、合作活动成果。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "通过合作运用多种活动样式开展校园活动和社会活动",
-          "excerpt_hash": "c006108983d059b40703baba2f72f2f0985c595ec14389cb9c5bcd6ba844b2a1",
+          "excerpt": "通过合作综合运用多种活动样式开展校园活动和社会活动",
+          "excerpt_hash": "26fafec4860980d32c81bfe9f7dffa4a5f621c8c7b734bf1eadcaff513851e04",
           "field": "standard",
           "ref_id": "standard:CN-H4G9-IN-021:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "通过合作运用多种活动样式开展校园活动和社会活动"
-    },
-    {
-      "component_id": "lc_a662483d4d22eb3e",
-      "component_type": "disposition",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由，并保留可回查的口头、书面或操作过程证据。",
-      "label": "在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够在任务中表现出有观点、有证据、有修改意识的阐释或作品并说明选择理由；优先采集：策划书、调查报告或小论文、证据分析表、合作活动成果。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "形成有观点、有证据、有修改意识的阐释或作品",
-          "excerpt_hash": "81dd4494a3c7ea97b381cd70636e7fb21c3ea27f3530facc4bb9d353dcee96ce",
-          "field": "standard",
-          "ref_id": "standard:CN-H4G9-IN-021:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "形成有观点、有证据、有修改意识的阐释或作品"
+      "source_statement": "通过合作综合运用多种活动样式开展校园活动和社会活动"
     }
   ],
   "prerequisite_candidates": [
@@ -428,9 +397,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "CN-H4G8-IN-020",
-      "source_label": "能用策划书、调查报告、小论文等形式发表研究成果；能通过合作整合多种活动样式开展校园活动和社会活动；运用实证性材料作出合理解释与推断；能整合材料…",
+      "source_label": "能用策划书、调查报告、小论文等形式发表研究成果；能通过合作综合运用多种活动样式开展校园活动和社会活动；运用实证性材料作出合理解释与推断。",
       "target_code": "CN-H4G9-IN-021",
-      "target_label": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作运用多种活动样式开展校园活动…"
+      "target_label": "能用策划书、调查报告、小论文等形式发表研究成果；能从相关学科材料中搜集资料、整合信息、发现解决问题线索；能通过合作综合运用多种活动样式开展校园…"
     }
   ],
   "prerequisite_review_coverage": {
@@ -441,7 +410,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "5a71374c3fff40ba74f2dd4ba7f3566ccc0f2ff12308e0b0a433b1d3009994ec",
+  "source_standard_hash": "8920055d7ad5c721d17223296125197296ec297ce22181bcecd12b3b6bac9969",
   "standard_code": "CN-H4G9-IN-021",
   "verified_prerequisites": []
 }

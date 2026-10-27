@@ -3,28 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_b3e7e037e56ed746"
+        "lc_65469e383accca82"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明作品意图或效果的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_e5f12bde30580298",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生合作编创有主题思想的舞蹈片段的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_b689443970100ae3",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_92c7a7a2ad4eac2a"
+        "hc_84eba22e69745a2c"
       ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明作品意图或效果”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明作品意图或效果”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“合作编创有主题思想的舞蹈片段”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能合作编创有主题思想的舞蹈片段；能与他人合作完成队列变化与造型配合；能调动情绪和情感参与舞蹈实践；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "57fe8e70cf58c4d50424306474696af6dc6fdc39fc7745f46acfa770e9e64d54",
+          "excerpt": "能合作编创有主题思想的舞蹈片段；能与他人合作完成队列变化与造型配合；能调动情绪和情感参与舞蹈实践。",
+          "excerpt_hash": "16e3032c03bdde08d715898afd7338c491b1cf88b19b0c66b8aacaca10cf85db",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-CP-002:standard",
           "source_type": "curriculum_standard_field"
@@ -37,8 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后说明作品意图或效果，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明作品意图或效果”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“让学生在情境体验中发现美、表达美，并体验舞蹈创作的乐趣。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后合作编创有主题思想的舞蹈片段，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“合作编创有主题思想的舞蹈片段”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“让学生在情境体验中发现美、表达美，并体验舞蹈创作的乐趣。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -194,41 +194,43 @@
       "review_status": "machine_checked",
       "source_code": "AR-H4G8-CP-002",
       "target_code": "AR-H4G9-CP-001",
-      "target_label": "能合作编创有主题思想的舞蹈片段；能调动情绪和情感参与舞蹈实践；理解舞蹈与艺术主题之间的联系；能评价作品效果并完善展演、创作或文化阐释。"
+      "target_label": "能合作编创有主题思想的舞蹈片段；能调动情绪和情感参与舞蹈实践；理解舞蹈与艺术主题之间的联系。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_92c7a7a2ad4eac2a",
+      "case_id": "hc_84eba22e69745a2c",
       "component_ids": [
-        "lc_b3e7e037e56ed746"
+        "lc_65469e383accca82",
+        "lc_09077e5555e67197",
+        "lc_20832a56f3f3ed84"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明作品意图或效果。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生合作编创有主题思想的舞蹈片段。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够说明作品意图或效果；优先采集：舞段展示、合作记录、主题说明。"
+        "学生能够合作编创有主题思想的舞蹈片段；优先采集：舞段展示、合作记录、主题说明。",
+        "学生能够与他人合作完成队列变化与造型配合；优先采集：舞段展示、合作记录、主题说明。",
+        "学生能够调动情绪和情感参与舞蹈实践；优先采集：舞段展示、合作记录、主题说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能合作编创有主题思想的舞蹈片段；能与他人合作完成队列变化与造型配合；能调动情绪和情感参与舞蹈实践；能调整表现方法并说明作品意图或效果。",
-          "excerpt_hash": "57fe8e70cf58c4d50424306474696af6dc6fdc39fc7745f46acfa770e9e64d54",
+          "excerpt": "能合作编创有主题思想的舞蹈片段；能与他人合作完成队列变化与造型配合；能调动情绪和情感参与舞蹈实践。",
+          "excerpt_hash": "16e3032c03bdde08d715898afd7338c491b1cf88b19b0c66b8aacaca10cf85db",
           "field": "standard",
           "ref_id": "standard:AR-H4G8-CP-002:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "合作编创有主题思想的舞蹈片段；与他人合作完成队列变化与造型配合；调动情绪和情感参与舞蹈实践",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -303,54 +305,6 @@
         }
       ],
       "source_statement": "调动情绪和情感参与舞蹈实践"
-    },
-    {
-      "component_id": "lc_5d1939d5aeeb4a85",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够调整表现方法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生调整表现方法，并说明关键步骤、特征或依据。",
-      "label": "调整表现方法",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够调整表现方法；优先采集：舞段展示、合作记录、主题说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "调整表现方法",
-          "excerpt_hash": "624139c8c27447716076606d4fffc25d29bbd39623044fea23b9317d3438bb50",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-CP-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "调整表现方法"
-    },
-    {
-      "component_id": "lc_b3e7e037e56ed746",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明作品意图或效果",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明作品意图或效果，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明作品意图或效果",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明作品意图或效果；优先采集：舞段展示、合作记录、主题说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明作品意图或效果",
-          "excerpt_hash": "9848376f6e433abf944ce2802b9a7699e3ab8073534008b9730e477835bb86eb",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G8-CP-002:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明作品意图或效果"
     }
   ],
   "prerequisite_candidates": [
@@ -369,9 +323,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "AR-H4G7-CP-002",
-      "source_label": "理解舞蹈与艺术主题之间的联系；能合作编创有主题思想的舞蹈片段；能调动情绪和情感参与舞蹈实践；能描述艺术要素并完成基础表现或创作。",
+      "source_label": "理解舞蹈与艺术主题之间的联系；能合作编创有主题思想的舞蹈片段；能调动情绪和情感参与舞蹈实践。",
       "target_code": "AR-H4G8-CP-002",
-      "target_label": "能合作编创有主题思想的舞蹈片段；能与他人合作完成队列变化与造型配合；能调动情绪和情感参与舞蹈实践；能调整表现方法并说明作品意图或效果。"
+      "target_label": "能合作编创有主题思想的舞蹈片段；能与他人合作完成队列变化与造型配合；能调动情绪和情感参与舞蹈实践。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -382,7 +336,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "57fe8e70cf58c4d50424306474696af6dc6fdc39fc7745f46acfa770e9e64d54",
+  "source_standard_hash": "16e3032c03bdde08d715898afd7338c491b1cf88b19b0c66b8aacaca10cf85db",
   "standard_code": "AR-H4G8-CP-002",
   "verified_prerequisites": []
 }

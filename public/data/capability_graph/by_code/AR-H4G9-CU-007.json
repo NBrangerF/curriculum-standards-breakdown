@@ -3,45 +3,6 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_93acde5c50f840d5"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生评价作品效果并完善展演、创作或文化阐释的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d020b3ee6f5904f9",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_f361d7cdfa094cd5",
-        "hc_3798800a87027bae"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“评价作品效果并完善展演、创作或文化阐释”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“评价作品效果并完善展演、创作或文化阐释”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能评价作品效果并完善展演、创作或文化阐释。",
-          "excerpt_hash": "d46628af97992b691e30342eb162741916ba5c6172b13f8b592fbe0d9138ee8e",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G9-CU-007:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。",
-          "excerpt_hash": "ee12ebfa83dd1c53af40d218006682ecdfceeb87abb88dbafb6babbfeac27f18",
-          "field": "teaching_tip",
-          "ref_id": "standard:AR-H4G9-CU-007:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后评价作品效果并完善展演、创作或文化阐释，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“评价作品效果并完善展演、创作或文化阐释”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "transfer",
       "component_ids": [
         "lc_545c4f188d97a5bf",
@@ -49,11 +10,11 @@
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生分析评价生活中的音乐现象、活动和文化的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_95b305393900279f",
+      "difficulty_id": "cd_f50f9fe0ea9e94ee",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_83318d37a7d2a78a"
+        "hc_65eb83163080ef4a"
       ],
       "likely_cause": "记住了示例表面特征，没有提取决定方法选择的关键结构。 需要结合学生在“分析评价生活中的音乐现象、活动和文化”中的实际过程进一步核验。",
       "manifestation": "在要求学生“分析评价生活中的音乐现象、活动和文化”时，在熟悉例题中会做，更换材料、数字或情境后不能识别应使用的方法。",
@@ -63,8 +24,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能评价作品效果并完善展演、创作或文化阐释。",
-          "excerpt_hash": "d46628af97992b691e30342eb162741916ba5c6172b13f8b592fbe0d9138ee8e",
+          "excerpt": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演。",
+          "excerpt_hash": "f5a5de6816fd0912807576acb5ce1a751a122e7ce28607fe9ce5ab8783715afe",
           "field": "standard",
           "ref_id": "standard:AR-H4G9-CU-007:standard",
           "source_type": "curriculum_standard_field"
@@ -79,45 +40,6 @@
       ],
       "success_signal": "学生能在撤去提示后分析评价生活中的音乐现象、活动和文化，并说明关键步骤、特征或依据。",
       "teacher_action": "围绕“分析评价生活中的音乐现象、活动和文化”，并列一个同结构异情境正例和一个表面相似但结构不同的反例，让学生先说选择依据再操作。 可结合本条教学建议：“让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "creation_design",
-      "component_ids": [
-        "lc_93acde5c50f840d5"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生评价作品效果并完善展演、创作或文化阐释的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_346068e014a1e555",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_f361d7cdfa094cd5",
-        "hc_3798800a87027bae"
-      ],
-      "likely_cause": "把开放任务理解为“做出一个结果”，没有把标准转化为设计准则和检查点。 需要结合学生在“评价作品效果并完善展演、创作或文化阐释”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“评价作品效果并完善展演、创作或文化阐释”时，能产出作品或方案，但选择随意，不能说明如何满足任务约束，也缺少根据反馈修订的证据。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能评价作品效果并完善展演、创作或文化阐释。",
-          "excerpt_hash": "d46628af97992b691e30342eb162741916ba5c6172b13f8b592fbe0d9138ee8e",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G9-CU-007:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。",
-          "excerpt_hash": "ee12ebfa83dd1c53af40d218006682ecdfceeb87abb88dbafb6babbfeac27f18",
-          "field": "teaching_tip",
-          "ref_id": "standard:AR-H4G9-CU-007:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后评价作品效果并完善展演、创作或文化阐释，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“评价作品效果并完善展演、创作或文化阐释”，共同把要求改写成三至五项成功准则；先据准则评价样例，再要求学生记录一次有依据的修改。 可结合本条教学建议：“让学生从真实生活中寻找声音和音乐素材，形成探究、表现、分享的闭环。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -260,39 +182,7 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_f361d7cdfa094cd5",
-      "component_ids": [
-        "lc_93acde5c50f840d5"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "阐释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生评价作品效果并完善展演、创作或文化阐释。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能评价作品效果并完善展演、创作或文化阐释。",
-          "excerpt_hash": "d46628af97992b691e30342eb162741916ba5c6172b13f8b592fbe0d9138ee8e",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G9-CU-007:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "用证据或依据完成解释（阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
-    },
-    {
-      "case_id": "hc_83318d37a7d2a78a",
+      "case_id": "hc_65eb83163080ef4a",
       "component_ids": [
         "lc_545c4f188d97a5bf",
         "lc_c4dc76ca55af58c6"
@@ -314,8 +204,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能评价作品效果并完善展演、创作或文化阐释。",
-          "excerpt_hash": "d46628af97992b691e30342eb162741916ba5c6172b13f8b592fbe0d9138ee8e",
+          "excerpt": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演。",
+          "excerpt_hash": "f5a5de6816fd0912807576acb5ce1a751a122e7ce28607fe9ce5ab8783715afe",
           "field": "standard",
           "ref_id": "standard:AR-H4G9-CU-007:standard",
           "source_type": "curriculum_standard_field"
@@ -324,38 +214,6 @@
       "structure": "在真实或变化情境中迁移（生活）",
       "title": "在真实或变化情境中迁移",
       "why_hard": "情境改变后，学生需要先识别问题结构，再选择合适的知识或方法，不能只照搬示例。"
-    },
-    {
-      "case_id": "hc_3798800a87027bae",
-      "component_ids": [
-        "lc_93acde5c50f840d5"
-      ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "创作"
-      ],
-      "demand_dimension": "creation_constraints",
-      "diagnostic_focus": "检查成品之外的选择依据、修订过程和对约束的回应。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生评价作品效果并完善展演、创作或文化阐释。",
-      "method": "structural_demand_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "required_student_evidence": [
-        "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。"
-      ],
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能评价作品效果并完善展演、创作或文化阐释。",
-          "excerpt_hash": "d46628af97992b691e30342eb162741916ba5c6172b13f8b592fbe0d9138ee8e",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G9-CU-007:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "structure": "在约束下设计、创作或改进（创作）",
-      "title": "在约束下设计、创作或改进",
-      "why_hard": "开放任务要求学生同时处理目标、材料、步骤与评价标准，并根据反馈修订。"
     }
   ],
   "learning_components": [
@@ -430,30 +288,6 @@
         }
       ],
       "source_statement": "运用自然界和生活中声音的特点和规律进行音乐编创与表演"
-    },
-    {
-      "component_id": "lc_93acde5c50f840d5",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价作品效果并完善展演、创作或文化阐释",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价作品效果并完善展演、创作或文化阐释，并保留可回查的口头、书面或操作过程证据。",
-      "label": "评价作品效果并完善展演、创作或文化阐释",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价作品效果并完善展演、创作或文化阐释；优先采集：生活音乐调查、声音作品、自制乐器或分享记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价作品效果并完善展演、创作或文化阐释",
-          "excerpt_hash": "6687cd8df12e7718634d4db0ed8816d1665ffdbe2a1bae1cbf4b85d0268e9a39",
-          "field": "standard",
-          "ref_id": "standard:AR-H4G9-CU-007:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价作品效果并完善展演、创作或文化阐释"
     }
   ],
   "prerequisite_candidates": [
@@ -472,9 +306,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "AR-H4G8-CU-008",
-      "source_label": "分析分析并判断生活中的音乐现象、活动和文化；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能熟练运用信息技术搜集、听赏、表现和分享音…",
+      "source_label": "分析评价生活中的音乐现象、活动和文化；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能熟练运用信息技术搜集、听赏、表现和分享音乐。",
       "target_code": "AR-H4G9-CU-007",
-      "target_label": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演；能评价作品效果并完善展…"
+      "target_label": "分析评价生活中的音乐现象、活动和文化；能使用自制乐器合奏或伴奏；能运用自然界和生活中声音的特点和规律进行音乐编创与表演。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -485,7 +319,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "d46628af97992b691e30342eb162741916ba5c6172b13f8b592fbe0d9138ee8e",
+  "source_standard_hash": "f5a5de6816fd0912807576acb5ce1a751a122e7ce28607fe9ce5ab8783715afe",
   "standard_code": "AR-H4G9-CU-007",
   "verified_prerequisites": []
 }

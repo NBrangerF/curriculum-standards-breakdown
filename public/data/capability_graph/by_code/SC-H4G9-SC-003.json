@@ -3,56 +3,18 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
-      "component_ids": [
-        "lc_965be3fc2da383af",
-        "lc_b26d4d38a1f92ff9",
-        "lc_77637a312d4d8f19"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生阐释现代技术与工程具有系统性和复杂性的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a8e236325f89b3a8",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_34fc23a8f73b8118"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“阐释现代技术与工程具有系统性和复杂性”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“阐释现代技术与工程具有系统性和复杂性”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "阐释现代技术与工程具有系统性和复杂性；能从微观视角初步认识物质及其变化；理解运动、相互作用、能量转化与守恒；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "93b624ae8f34d856411be7215acfbcc4fed73c02c76500dca277f5fcd662f4e8",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-003:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "帮助学生把分散知识归入核心概念，形成跨领域的科学观念结构。",
-          "excerpt_hash": "49fd473ff413178d29442fb275bb0ecc9a5385a2f0891fe9acaaaae5c15dbfdc",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G9-SC-003:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后阐释现代技术与工程具有系统性和复杂性，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“阐释现代技术与工程具有系统性和复杂性”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“帮助学生把分散知识归入核心概念，形成跨领域的科学观念结构。”。随后撤去支架，用同构任务复测。"
-    },
-    {
       "category": "concept_discrimination",
       "component_ids": [
         "lc_bbb6c270e6135ba6"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生从微观视角初步认识物质及其变化的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_a8a7c6db614ee0fb",
+      "difficulty_id": "cd_5197913584c46b93",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
-      "hardest_case_ids": [],
+      "hardest_case_ids": [
+        "hc_eff0777955f0493e"
+      ],
       "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“从微观视角初步认识物质及其变化”中的实际过程进一步核验。",
       "manifestation": "在要求学生“从微观视角初步认识物质及其变化”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
@@ -61,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释现代技术与工程具有系统性和复杂性；能从微观视角初步认识物质及其变化；理解运动、相互作用、能量转化与守恒；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "93b624ae8f34d856411be7215acfbcc4fed73c02c76500dca277f5fcd662f4e8",
+          "excerpt": "知道现代技术与工程具有系统性和复杂性；能从微观视角初步认识物质及其变化；理解运动、相互作用、能量转化与守恒。",
+          "excerpt_hash": "788f1b1de4b2306b70406505a5f441d0d79742b915ff758ded437e11b2035813",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-003:standard",
           "source_type": "curriculum_standard_field"
@@ -188,67 +150,64 @@
   "forward_connections": [],
   "hardest_cases": [
     {
-      "case_id": "hc_34fc23a8f73b8118",
+      "case_id": "hc_eff0777955f0493e",
       "component_ids": [
-        "lc_965be3fc2da383af",
-        "lc_b26d4d38a1f92ff9",
-        "lc_77637a312d4d8f19"
+        "lc_cbd23f382d0cd354",
+        "lc_bbb6c270e6135ba6",
+        "lc_b26d4d38a1f92ff9"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "论证",
-        "阐释"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生阐释现代技术与工程具有系统性和复杂性。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生准确说出现代技术与工程具有系统性和复杂性。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够阐释现代技术与工程具有系统性和复杂性；优先采集：概念图、模型说明、综合问题解释。",
-        "学生能够用自己的话解释运动、相互作用、能量转化与守恒；优先采集：概念图、模型说明、综合问题解释。",
-        "学生能够建模、论证；优先采集：概念图、模型说明、综合问题解释。"
+        "学生能够准确说出现代技术与工程具有系统性和复杂性；优先采集：概念图、模型说明、综合问题解释。",
+        "学生能够从微观视角初步认识物质及其变化；优先采集：概念图、模型说明、综合问题解释。",
+        "学生能够用自己的话解释运动、相互作用、能量转化与守恒；优先采集：概念图、模型说明、综合问题解释。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释现代技术与工程具有系统性和复杂性；能从微观视角初步认识物质及其变化；理解运动、相互作用、能量转化与守恒；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "93b624ae8f34d856411be7215acfbcc4fed73c02c76500dca277f5fcd662f4e8",
+          "excerpt": "知道现代技术与工程具有系统性和复杂性；能从微观视角初步认识物质及其变化；理解运动、相互作用、能量转化与守恒。",
+          "excerpt_hash": "788f1b1de4b2306b70406505a5f441d0d79742b915ff758ded437e11b2035813",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（论证、阐释）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "准确说出现代技术与工程具有系统性和复杂性；从微观视角初步认识物质及其变化；用自己的话解释运动、相互作用、能量转化与守恒",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_965be3fc2da383af",
-      "component_type": "conceptual",
+      "component_id": "lc_cbd23f382d0cd354",
+      "component_type": "language",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够阐释现代技术与工程具有系统性和复杂性",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生阐释现代技术与工程具有系统性和复杂性，并保留可回查的口头、书面或操作过程证据。",
-      "label": "阐释现代技术与工程具有系统性和复杂性",
+      "description": "学生能够准确说出现代技术与工程具有系统性和复杂性",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生准确说出现代技术与工程具有系统性和复杂性，并说明关键步骤、特征或依据。",
+      "label": "准确说出现代技术与工程具有系统性和复杂性",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够阐释现代技术与工程具有系统性和复杂性；优先采集：概念图、模型说明、综合问题解释。",
+      "observable_evidence": "学生能够准确说出现代技术与工程具有系统性和复杂性；优先采集：概念图、模型说明、综合问题解释。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "阐释现代技术与工程具有系统性和复杂性",
-          "excerpt_hash": "2e6129fff385c0f1c929f7f89b816691c9eaa0ff9321ba7e46e32185af67220e",
+          "excerpt": "知道现代技术与工程具有系统性和复杂性",
+          "excerpt_hash": "2798e3208d8030be52c6abd090ba952b846a3a6409bc3498d98778bbd2d47292",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-SC-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "阐释现代技术与工程具有系统性和复杂性"
+      "source_statement": "知道现代技术与工程具有系统性和复杂性"
     },
     {
       "component_id": "lc_bbb6c270e6135ba6",
@@ -297,54 +256,6 @@
         }
       ],
       "source_statement": "理解运动、相互作用、能量转化与守恒"
-    },
-    {
-      "component_id": "lc_77637a312d4d8f19",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够建模、论证",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
-      "label": "建模、论证",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够建模、论证；优先采集：概念图、模型说明、综合问题解释。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "建模、论证",
-          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "建模、论证"
-    },
-    {
-      "component_id": "lc_2542c3db204c1416",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价探究结论或社会影响",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
-      "label": "评价探究结论或社会影响",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：概念图、模型说明、综合问题解释。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价探究结论或社会影响",
-          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-SC-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价探究结论或社会影响"
     }
   ],
   "prerequisite_candidates": [
@@ -363,9 +274,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "SC-H4G8-SC-002",
-      "source_label": "能解释生命过程及调节机制；能知道现代技术与工程具有系统性和复杂性；理解运动、相互作用、能量转化与守恒；能比较证据并解释概念之间的关系。",
+      "source_label": "能解释生命过程及调节机制；能知道现代技术与工程具有系统性和复杂性；理解运动、相互作用、能量转化与守恒。",
       "target_code": "SC-H4G9-SC-003",
-      "target_label": "阐释现代技术与工程具有系统性和复杂性；能从微观视角初步认识物质及其变化；理解运动、相互作用、能量转化与守恒；能建模、论证并评价探究结论或社会影…"
+      "target_label": "知道现代技术与工程具有系统性和复杂性；能从微观视角初步认识物质及其变化；理解运动、相互作用、能量转化与守恒。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -376,7 +287,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "93b624ae8f34d856411be7215acfbcc4fed73c02c76500dca277f5fcd662f4e8",
+  "source_standard_hash": "788f1b1de4b2306b70406505a5f441d0d79742b915ff758ded437e11b2035813",
   "standard_code": "SC-H4G9-SC-003",
   "verified_prerequisites": []
 }

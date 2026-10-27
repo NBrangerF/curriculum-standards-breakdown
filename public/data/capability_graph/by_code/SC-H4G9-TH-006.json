@@ -5,8 +5,7 @@
     {
       "category": "argument_evidence",
       "component_ids": [
-        "lc_8f3daa4fdb7eeed8",
-        "lc_ebfa69e4a53fd462"
+        "lc_8f3daa4fdb7eeed8"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生开展基于证据的反驳的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
@@ -24,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能确定、分析和评价实验中的变量控制；能基于证据与逻辑检验假设并开展基于证据的反驳；能提出科学假设和观点；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "48086546c95451fdb7fd1f0f11e44f22fa9e599154f0387964c2935fff5d820b",
+          "excerpt": "能确定、分析和评价实验中的变量控制；能基于证据与逻辑检验假设并开展基于证据的反驳；能提出科学假设和观点。",
+          "excerpt_hash": "12a7b77fa3afd2cd61140beff0fa0b61cab8f9d2b8a23f3e5891edd630c20d37",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-TH-006:standard",
           "source_type": "curriculum_standard_field"
@@ -153,13 +152,11 @@
     {
       "case_id": "hc_b66e86adba089d60",
       "component_ids": [
-        "lc_8f3daa4fdb7eeed8",
-        "lc_ebfa69e4a53fd462"
+        "lc_8f3daa4fdb7eeed8"
       ],
       "confidence": 0.7,
       "covered_modifiers": [
-        "证据",
-        "论证"
+        "证据"
       ],
       "demand_dimension": "argument_evidence",
       "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
@@ -168,20 +165,19 @@
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生基于证据与逻辑检验假设，能够开展基于证据的反驳；优先采集：模型分析、假设检验记录、变量控制说明、创意方案。",
-        "学生能够建模、论证；优先采集：模型分析、假设检验记录、变量控制说明、创意方案。"
+        "学生基于证据与逻辑检验假设，能够开展基于证据的反驳；优先采集：模型分析、假设检验记录、变量控制说明、创意方案。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能确定、分析和评价实验中的变量控制；能基于证据与逻辑检验假设并开展基于证据的反驳；能提出科学假设和观点；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "48086546c95451fdb7fd1f0f11e44f22fa9e599154f0387964c2935fff5d820b",
+          "excerpt": "能确定、分析和评价实验中的变量控制；能基于证据与逻辑检验假设并开展基于证据的反驳；能提出科学假设和观点。",
+          "excerpt_hash": "12a7b77fa3afd2cd61140beff0fa0b61cab8f9d2b8a23f3e5891edd630c20d37",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-TH-006:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（证据、论证）",
+      "structure": "用证据或依据完成解释（证据）",
       "title": "用证据或依据完成解释",
       "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
     }
@@ -226,8 +222,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能确定、分析和评价实验中的变量控制；能基于证据与逻辑检验假设并开展基于证据的反驳；能提出科学假设和观点；能建模、论证并评价探究结论或社会影响。",
-          "excerpt_hash": "48086546c95451fdb7fd1f0f11e44f22fa9e599154f0387964c2935fff5d820b",
+          "excerpt": "能确定、分析和评价实验中的变量控制；能基于证据与逻辑检验假设并开展基于证据的反驳；能提出科学假设和观点。",
+          "excerpt_hash": "12a7b77fa3afd2cd61140beff0fa0b61cab8f9d2b8a23f3e5891edd630c20d37",
           "field": "standard",
           "ref_id": "standard:SC-H4G9-TH-006:standard",
           "source_type": "curriculum_standard_field"
@@ -258,54 +254,6 @@
         }
       ],
       "source_statement": "提出科学假设和观点"
-    },
-    {
-      "component_id": "lc_ebfa69e4a53fd462",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够建模、论证",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生建模、论证，并保留可回查的口头、书面或操作过程证据。",
-      "label": "建模、论证",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够建模、论证；优先采集：模型分析、假设检验记录、变量控制说明、创意方案。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "建模、论证",
-          "excerpt_hash": "b095a9540c58238be238ec70009c3f55002e719db79fcb91cd27ba759a85eb86",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-TH-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "建模、论证"
-    },
-    {
-      "component_id": "lc_50da6882942791ff",
-      "component_type": "metacognitive",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够评价探究结论或社会影响",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生评价探究结论或社会影响，并说明关键步骤、特征或依据。",
-      "label": "评价探究结论或社会影响",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够评价探究结论或社会影响；优先采集：模型分析、假设检验记录、变量控制说明、创意方案。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "评价探究结论或社会影响",
-          "excerpt_hash": "fefc92ecc2db0a301f5b062f57d1926519d076d6b4a0720f469828fde90f5624",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G9-TH-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "评价探究结论或社会影响"
     }
   ],
   "prerequisite_candidates": [
@@ -324,9 +272,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "SC-H4G8-TH-005",
-      "source_label": "能分析和解释模型的要素及结构；能确定、分析和分析并判断实验中的变量控制；能基于证据与逻辑检验假设并开展基于证据的反驳；能比较证据并解释概念之间…",
+      "source_label": "能分析和解释模型的要素及结构；能确定、分析和评价实验中的变量控制；能基于证据与逻辑检验假设并开展基于证据的反驳。",
       "target_code": "SC-H4G9-TH-006",
-      "target_label": "能确定、分析和评价实验中的变量控制；能基于证据与逻辑检验假设并开展基于证据的反驳；能提出科学假设和观点；能建模、论证并评价探究结论或社会影响。"
+      "target_label": "能确定、分析和评价实验中的变量控制；能基于证据与逻辑检验假设并开展基于证据的反驳；能提出科学假设和观点。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -337,7 +285,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "48086546c95451fdb7fd1f0f11e44f22fa9e599154f0387964c2935fff5d820b",
+  "source_standard_hash": "12a7b77fa3afd2cd61140beff0fa0b61cab8f9d2b8a23f3e5891edd630c20d37",
   "standard_code": "SC-H4G9-TH-006",
   "verified_prerequisites": []
 }

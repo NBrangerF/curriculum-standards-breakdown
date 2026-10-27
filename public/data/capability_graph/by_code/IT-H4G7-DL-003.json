@@ -3,28 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_37404c080d70c3a5"
+        "lc_2c32aa1cc8e38d0f"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明数字工具或数据过程的基本做法的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_3f1cdd8a9a986576",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生自觉遵守物联网实验操作规程的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_d5ba44ca5aceacd0",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_1b3d998bd54ad4e2"
+        "hc_2de4dcc54c0d76a2"
       ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明数字工具或数据过程的基本做法”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明数字工具或数据过程的基本做法”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“自觉遵守物联网实验操作规程”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型；能说明数字工具或数据过程的基本做法。",
-          "excerpt_hash": "c7e094123a1f12a5f7895dae149533b01c25101f660efaf280726f3ded326e28",
+          "excerpt": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型。",
+          "excerpt_hash": "4fcc02b460eb0ab07b0b4867f49b229a1547377d91f351b52f17aafb6a7f9859",
           "field": "standard",
           "ref_id": "standard:IT-H4G7-DL-003:standard",
           "source_type": "curriculum_standard_field"
@@ -37,8 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后说明数字工具或数据过程的基本做法，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明数字工具或数据过程的基本做法”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“强调实验安全、操作规程和物联协议特点，鼓励学生记录每一步数据流。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后自觉遵守物联网实验操作规程，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“自觉遵守物联网实验操作规程”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“强调实验安全、操作规程和物联协议特点，鼓励学生记录每一步数据流。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -69,41 +69,43 @@
       "review_status": "machine_checked",
       "source_code": "IT-H4G7-DL-003",
       "target_code": "IT-H4G8-DL-003",
-      "target_label": "能通过实验平台读取、发送、接收、汇集和使用数据；能自觉遵守物联网实验操作规程；会使用实验设备搭建物联系统原型；能分析系统关系并完成有步骤的数字…"
+      "target_label": "能通过实验平台读取、发送、接收、汇集和使用数据；能自觉遵守物联网实验操作规程；会使用实验设备搭建物联系统原型。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_1b3d998bd54ad4e2",
+      "case_id": "hc_2de4dcc54c0d76a2",
       "component_ids": [
-        "lc_37404c080d70c3a5"
+        "lc_2c32aa1cc8e38d0f",
+        "lc_3c0725e35e447df7",
+        "lc_bbad8a7426d29a62"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明数字工具或数据过程的基本做法。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生自觉遵守物联网实验操作规程。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够说明数字工具或数据过程的基本做法；优先采集：系统原型、实验记录、数据流说明。"
+        "学生能够自觉遵守物联网实验操作规程；优先采集：系统原型、实验记录、数据流说明。",
+        "学生能够通过实验平台读取、发送、接收、汇集和使用数据；优先采集：系统原型、实验记录、数据流说明。",
+        "学生能够使用实验设备搭建物联系统原型；优先采集：系统原型、实验记录、数据流说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型；能说明数字工具或数据过程的基本做法。",
-          "excerpt_hash": "c7e094123a1f12a5f7895dae149533b01c25101f660efaf280726f3ded326e28",
+          "excerpt": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型。",
+          "excerpt_hash": "4fcc02b460eb0ab07b0b4867f49b229a1547377d91f351b52f17aafb6a7f9859",
           "field": "standard",
           "ref_id": "standard:IT-H4G7-DL-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "自觉遵守物联网实验操作规程；通过实验平台读取、发送、接收、汇集和使用数据；使用实验设备搭建物联系统原型",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -178,30 +180,6 @@
         }
       ],
       "source_statement": "使用实验设备搭建物联系统原型"
-    },
-    {
-      "component_id": "lc_37404c080d70c3a5",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明数字工具或数据过程的基本做法",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明数字工具或数据过程的基本做法，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明数字工具或数据过程的基本做法",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明数字工具或数据过程的基本做法；优先采集：系统原型、实验记录、数据流说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明数字工具或数据过程的基本做法",
-          "excerpt_hash": "a578d2fb17bbdec79eedf1635ae20493e83ea3c2f80eabfea02a716484d85a53",
-          "field": "standard",
-          "ref_id": "standard:IT-H4G7-DL-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明数字工具或数据过程的基本做法"
     }
   ],
   "prerequisite_candidates": [
@@ -223,7 +201,7 @@
       "source_code": "IT-H3-DL-001",
       "source_label": "能在典型应用场景中提出“用计算机实现过程与控制”的方案（传感—处理—执行），并能在仿真或实验系统中用编程实现并验证一个简单控制任务（开关量或连…",
       "target_code": "IT-H4G7-DL-003",
-      "target_label": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型；能说明数字工具或数据过程的基本做…"
+      "target_label": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型。"
     },
     {
       "confidence": "low",
@@ -243,7 +221,7 @@
       "source_code": "IT-H3-DL-002",
       "source_label": "能在小组合作中设计并搭建（或在线模拟）一个小型开关系统，能根据生活场景提出需求，编写或配置控制规则，并进行至少一次迭代优化（如改进声控开关）。",
       "target_code": "IT-H4G7-DL-003",
-      "target_label": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型；能说明数字工具或数据过程的基本做…"
+      "target_label": "能自觉遵守物联网实验操作规程；能通过实验平台读取、发送、接收、汇集和使用数据；会使用实验设备搭建物联系统原型。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -254,7 +232,7 @@
     "total_candidate_count": 2,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "c7e094123a1f12a5f7895dae149533b01c25101f660efaf280726f3ded326e28",
+  "source_standard_hash": "4fcc02b460eb0ab07b0b4867f49b229a1547377d91f351b52f17aafb6a7f9859",
   "standard_code": "IT-H4G7-DL-003",
   "verified_prerequisites": []
 }

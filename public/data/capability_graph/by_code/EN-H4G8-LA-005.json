@@ -3,28 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "concept_discrimination",
       "component_ids": [
-        "lc_33351e1c6296b1b8"
+        "lc_23a7cb29a5203eb0"
       ],
       "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生说明观点或文化差异的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_8fb7bc7882084627",
+      "diagnostic_probe": "给出一个需要学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_9c8d4df9e9cb0359",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_10045a39c0c3d955"
+        "hc_db44fcd996816eb3"
       ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“说明观点或文化差异”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“说明观点或文化差异”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
+      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇”中的实际过程进一步核验。",
+      "manifestation": "在要求学生“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "e78aba5ff1241ce6eaeab604be0d4921414edab17f9b0922c08943ac349c23c1",
+          "excerpt": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。",
+          "excerpt_hash": "6c133a79b642107b95414eed127f8e45f9a315f6c6f7ab10f8b2d4ce2ba12d9c",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-LA-005:standard",
           "source_type": "curriculum_standard_field"
@@ -37,112 +37,22 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后说明观点或文化差异，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“说明观点或文化差异”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“引导学生同时关注文字、图像、声音、表格等资源如何共同表达意义。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_9e782a8bfe1c5c41"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_d1c1eb23301ad309",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "e78aba5ff1241ce6eaeab604be0d4921414edab17f9b0922c08943ac349c23c1",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-LA-005:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "引导学生同时关注文字、图像、声音、表格等资源如何共同表达意义。",
-          "excerpt_hash": "c87a849daa8d2f4ff571198c57005037c27e58ebeb02985525445d340350cfaa",
-          "field": "teaching_tip",
-          "ref_id": "standard:EN-H4G8-LA-005:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生同时关注文字、图像、声音、表格等资源如何共同表达意义。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“引导学生同时关注文字、图像、声音、表格等资源如何共同表达意义。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "page_aligned",
-    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
     "gap_reason": null,
-    "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 1,
+    "highest_evidence_level": "L1_scope",
+    "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 1,
+    "specific_count": 0,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
-    {
-      "algorithm_version": "textbook-standard-semantic-adjudicator-v1.3.0",
-      "alignment_id": "tca_llm_215012d4a2d8362a401f",
-      "alignment_type": "practices",
-      "coverage": "partial",
-      "edition_id": "ed_46a4e4df6fd1edee4185",
-      "evidence_basis": "textbook_page_span",
-      "evidence_gap": null,
-      "evidence_level": "L3_page_evidence",
-      "evidence_refs": [
-        "ctb_b542c7b235fc",
-        "tes_llm_quote_70790ee4fe4c19494b1f",
-        "textbook-node:tcn_llm_quote_5235182059e7d526ad50",
-        "textbook-unit:tcu_fc7edda29a549157"
-      ],
-      "evidence_role": "direct_textbook",
-      "evidence_spans": [
-        {
-          "evidence_role": "direct_textbook",
-          "excerpt": "Can you come to my party? UNIT 9\n2a Make a list of the kinds of parties people have.\nbirthday party,\n2b Read the messages quickly. Why did the people write them? Match the\nreason with each message.\n1. accept an invitation 2. make an invitation 3. turn down an invitation\nMessage\nNew Reply Forward Delete Print Move to\nHi David,\nWhat a great idea! I really like Ms. Steen a lot. She helped me to improve my",
-          "excerpt_hash": "c4af7fcb4ee86cd4d90ba4f400dea5811839669df3282e2c9b545dcbe9fe663d",
-          "pdf_page": 80,
-          "printed_page": "69",
-          "span_id": "tes_llm_quote_70790ee4fe4c19494b1f"
-        }
-      ],
-      "learning_component_ids": [
-        "lc_9e782a8bfe1c5c41"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_9e782a8bfe1c5c41",
-          "label": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息"
-        }
-      ],
-      "level": "page",
-      "method": "llm_semantic_adjudication",
-      "node_id": "tcn_llm_quote_5235182059e7d526ad50",
-      "node_title": "2b Read the messages quickly. Why did the people write them? Match the\nreason with each message.\n1. ",
-      "pdf_page": 80,
-      "printed_page": "69",
-      "publication_status": "published",
-      "rationale": "证据中的任务要求学生阅读 messages 并匹配每条消息的写作原因，且页面保留了 New、Reply、Forward、Delete、Print、Move to 等电子消息界面元素，可直接证明学生接触并理解电子邮件/网络消息类语篇。该证据主要是学生阅读匹配练习，因此 relation_type 为 practices。证据没有要求整合语篇信息或说明观点/文化差异，所以不选择更宽泛组件。",
-      "relation_type": "practices",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 8,
-      "textbook_subject": "英语",
-      "textbook_title": "英语8年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_fc7edda29a549157",
-      "unit_title": "UNIT 9"
-    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0341fadbffd5ad45",
@@ -222,115 +132,65 @@
       "review_status": "machine_checked",
       "source_code": "EN-H4G8-LA-005",
       "target_code": "EN-H4G9-LA-006",
-      "target_label": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语…"
+      "target_label": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_10045a39c0c3d955",
+      "case_id": "hc_db44fcd996816eb3",
       "component_ids": [
-        "lc_33351e1c6296b1b8"
+        "lc_23a7cb29a5203eb0"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生说明观点或文化差异。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "independent_performance",
+      "diagnostic_focus": "撤去示范与提示，在同构新任务中检查表现是否稳定。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够说明观点或文化差异；优先采集：多模态信息提取表、主题表达、展示说明。"
+        "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇；优先采集：多模态信息提取表、主题表达、展示说明。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇；能整合语篇信息并说明观点或文化差异。",
-          "excerpt_hash": "e78aba5ff1241ce6eaeab604be0d4921414edab17f9b0922c08943ac349c23c1",
+          "excerpt": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。",
+          "excerpt_hash": "6c133a79b642107b95414eed127f8e45f9a315f6c6f7ab10f8b2d4ce2ba12d9c",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-LA-005:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇",
+      "title": "独立完成核心表现",
+      "why_hard": "学生在提示下复述或模仿，并不等于能够在新任务中独立、稳定地完成核心表现。"
     }
   ],
   "learning_components": [
     {
-      "component_id": "lc_9e782a8bfe1c5c41",
+      "component_id": "lc_23a7cb29a5203eb0",
       "component_type": "conceptual",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，并说明关键步骤、特征或依据。",
-      "label": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息",
+      "description": "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇，并说明关键步骤、特征或依据。",
+      "label": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；优先采集：多模态信息提取表、主题表达、展示说明。",
+      "observable_evidence": "学生能够接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇；优先采集：多模态信息提取表、主题表达、展示说明。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息",
-          "excerpt_hash": "b18f093e32db42560698ebc2121806105ce328ec12addcf7af4df4c5185d0f08",
+          "excerpt": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇",
+          "excerpt_hash": "41aba1186d1df24b0e9a4bd8842db338bc0c0901de2ca66c9f9c2eb11f9b0c38",
           "field": "standard",
           "ref_id": "standard:EN-H4G8-LA-005:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息"
-    },
-    {
-      "component_id": "lc_275ebc8864539d4d",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够整合语篇信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生整合语篇信息，并说明关键步骤、特征或依据。",
-      "label": "整合语篇信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够整合语篇信息；优先采集：多模态信息提取表、主题表达、展示说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "整合语篇信息",
-          "excerpt_hash": "8fc7fa6e6eeaf7e69dbafe1c0139000f909d2a7e8aba5e8aae0003274289a04b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-LA-005:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "整合语篇信息"
-    },
-    {
-      "component_id": "lc_33351e1c6296b1b8",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够说明观点或文化差异",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生说明观点或文化差异，并保留可回查的口头、书面或操作过程证据。",
-      "label": "说明观点或文化差异",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够说明观点或文化差异；优先采集：多模态信息提取表、主题表达、展示说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "说明观点或文化差异",
-          "excerpt_hash": "eddc2a80e635a5a126c12dfa34e72610db5e58b8d29295eaa8d1d361aecdddff",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G8-LA-005:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "说明观点或文化差异"
+      "source_statement": "接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇"
     }
   ],
   "prerequisite_candidates": [
@@ -349,9 +209,9 @@
       "relation_type": "curriculum_sequence_candidate",
       "review_status": "candidate",
       "source_code": "EN-H4G7-LA-004",
-      "source_label": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语…",
+      "source_label": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。",
       "target_code": "EN-H4G8-LA-005",
-      "target_label": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息；能以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语…"
+      "target_label": "能接触和理解常见网络媒体语篇、电子邮件、社交媒体信息，以及歌曲、诗歌、剧本、广告、图片、表格、图示、天气预报、广播、电视和网络节目等多模态语篇。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -362,7 +222,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "e78aba5ff1241ce6eaeab604be0d4921414edab17f9b0922c08943ac349c23c1",
+  "source_standard_hash": "6c133a79b642107b95414eed127f8e45f9a315f6c6f7ab10f8b2d4ce2ba12d9c",
   "standard_code": "EN-H4G8-LA-005",
   "verified_prerequisites": []
 }

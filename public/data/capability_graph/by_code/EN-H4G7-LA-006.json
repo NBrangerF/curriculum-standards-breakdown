@@ -5,8 +5,7 @@
     {
       "category": "language_expression",
       "component_ids": [
-        "lc_68ffa3d08f8eed11",
-        "lc_62e241cb45aed1eb"
+        "lc_68ffa3d08f8eed11"
       ],
       "confidence": 0.66,
       "diagnostic_probe": "给出一个需要学生整体理解并简要概括主要内容的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
@@ -24,8 +23,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能整体理解并简要概括主要内容；能在听、读、看的过程中围绕语篇内容记录重点信息；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "a3a4f977e91ca7b19b8b51e0cdab203801ed701b67c3bb6d997a655f93cc7c8a",
+          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能整体理解并简要概括主要内容；能在听、读、看的过程中围绕语篇内容记录重点信息。",
+          "excerpt_hash": "44341eca275f96d803235455fe2bfb1fcb2ee222279e47ce476492908a5b1937",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-LA-006:standard",
           "source_type": "curriculum_standard_field"
@@ -63,8 +62,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能整体理解并简要概括主要内容；能在听、读、看的过程中围绕语篇内容记录重点信息；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "a3a4f977e91ca7b19b8b51e0cdab203801ed701b67c3bb6d997a655f93cc7c8a",
+          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能整体理解并简要概括主要内容；能在听、读、看的过程中围绕语篇内容记录重点信息。",
+          "excerpt_hash": "44341eca275f96d803235455fe2bfb1fcb2ee222279e47ce476492908a5b1937",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-LA-006:standard",
           "source_type": "curriculum_standard_field"
@@ -172,7 +171,7 @@
       "review_status": "machine_checked",
       "source_code": "EN-H4G7-LA-006",
       "target_code": "EN-H4G8-LA-006",
-      "target_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能根据关键词对人物、地点、事件等进行推断；能整…"
+      "target_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能在听、读、看的过程中围绕语篇内容记录重点信息；能根据关键词对人物、地点、事件等进行推断。"
     }
   ],
   "hardest_cases": [
@@ -199,8 +198,8 @@
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能整体理解并简要概括主要内容；能在听、读、看的过程中围绕语篇内容记录重点信息；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "a3a4f977e91ca7b19b8b51e0cdab203801ed701b67c3bb6d997a655f93cc7c8a",
+          "excerpt": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能整体理解并简要概括主要内容；能在听、读、看的过程中围绕语篇内容记录重点信息。",
+          "excerpt_hash": "44341eca275f96d803235455fe2bfb1fcb2ee222279e47ce476492908a5b1937",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-LA-006:standard",
           "source_type": "curriculum_standard_field"
@@ -307,54 +306,6 @@
         }
       ],
       "source_statement": "在听、读、看的过程中围绕语篇内容记录重点信息"
-    },
-    {
-      "component_id": "lc_cf40806e354b9ed7",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够获取关键信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
-      "label": "获取关键信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够获取关键信息；优先采集：要点笔记、语篇结构图、推断说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "获取关键信息",
-          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-LA-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "获取关键信息"
-    },
-    {
-      "component_id": "lc_62e241cb45aed1eb",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成简短交流",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
-      "label": "完成简短交流",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成简短交流；优先采集：要点笔记、语篇结构图、推断说明。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成简短交流",
-          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-LA-006:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成简短交流"
     }
   ],
   "prerequisite_candidates": [
@@ -376,7 +327,7 @@
       "source_code": "EN-D2-LA-007",
       "source_label": "能读懂语言简单、主题相关的简短语篇，获取具体信息．理解主要内容。",
       "target_code": "EN-H4G7-LA-006",
-      "target_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能整体理解并简要概括主要内容；能在听、读、看的过程中围绕语篇内容记录重点信息；能获取关键信息并…"
+      "target_label": "能归纳语法规则并梳理常见书面语篇的基本结构特征；能整体理解并简要概括主要内容；能在听、读、看的过程中围绕语篇内容记录重点信息。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -387,7 +338,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "a3a4f977e91ca7b19b8b51e0cdab203801ed701b67c3bb6d997a655f93cc7c8a",
+  "source_standard_hash": "44341eca275f96d803235455fe2bfb1fcb2ee222279e47ce476492908a5b1937",
   "standard_code": "EN-H4G7-LA-006",
   "verified_prerequisites": []
 }

@@ -3,28 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "comparison",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_6576d31d4c9e3d9a"
+        "lc_672c9f36dfb9084a"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生定期初步判断学习收获、进步与不足的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_658bbc55611f0471",
+      "confidence": 0.54,
+      "diagnostic_probe": "给出一个需要学生制订明确的英语学习目标和计划并进行监控、反思和调整的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
+      "difficulty_id": "cd_7b35bf7386d9aaa5",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_f7706dee0f0d0583"
+        "hc_735be4de72ab7ed7"
       ],
-      "likely_cause": "没有把比较转化为“同一维度下逐项对照”的操作步骤。 需要结合学生在“定期初步判断学习收获、进步与不足”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“定期初步判断学习收获、进步与不足”时，能分别描述对象，但比较维度前后不一致，或只说“不同”而不能指出差异依据。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“制订明确的英语学习目标和计划并进行监控、反思和调整”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期初步判断学习收获、进步与不足；能探索适合自己的学习方法；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "3488df4ab889d497438751a6564cef53b86459793c7cdcec16e114dea8c62307",
+          "excerpt": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足；能探索适合自己的学习方法。",
+          "excerpt_hash": "d8f3d5a9ef4e4640659117c6628bba3fae8a841203d2b55268780b4bd7573e99",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-SA-003:standard",
           "source_type": "curriculum_standard_field"
@@ -37,44 +37,8 @@
           "source_type": "curriculum_standard_field"
         }
       ],
-      "success_signal": "学生能在撤去提示后定期初步判断学习收获、进步与不足，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“定期初步判断学习收获、进步与不足”，先共同确定一个比较维度，用表格完成一轮对照，再让学生选择新维度独立比较并说明依据。 可结合本条教学建议：“用学习日志和档案袋帮助学生监控、反思和调整学习过程。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "language_expression",
-      "component_ids": [
-        "lc_d17019f635f760f1"
-      ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生完成简短交流的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_018036140bae9b3f",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [],
-      "likely_cause": "注意力停留在局部内容，尚未形成面向听者或读者组织信息的结构。 需要结合学生在“完成简短交流”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“完成简短交流”时，表达包含零散信息，却遗漏关键要点、顺序或对象之间的关系。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期初步判断学习收获、进步与不足；能探索适合自己的学习方法；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "3488df4ab889d497438751a6564cef53b86459793c7cdcec16e114dea8c62307",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-SA-003:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用学习日志和档案袋帮助学生监控、反思和调整学习过程。",
-          "excerpt_hash": "000b081d4ab8d2ff253c5788a3c1fef04549e66a85615ba43f63acd6d7952a83",
-          "field": "teaching_tip",
-          "ref_id": "standard:EN-H4G7-SA-003:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后完成简短交流，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“完成简短交流”，用“对象—关键特征—顺序或关系”的简短框架比较完整与不完整样例，再撤去框架复测。 可结合本条教学建议：“用学习日志和档案袋帮助学生监控、反思和调整学习过程。”。随后撤去支架，用同构任务复测。"
+      "success_signal": "学生能在撤去提示后制订明确的英语学习目标和计划并进行监控、反思和调整，并说明关键步骤、特征或依据。",
+      "teacher_action": "围绕“制订明确的英语学习目标和计划并进行监控、反思和调整”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用学习日志和档案袋帮助学生监控、反思和调整学习过程。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -168,41 +132,43 @@
       "review_status": "machine_checked",
       "source_code": "EN-H4G7-SA-003",
       "target_code": "EN-H4G8-SA-003",
-      "target_label": "能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期分析并判断学习收获、进步与…"
+      "target_label": "能搜索并利用线上线下资源、工具书和同伴合作丰富英语学习；能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足。"
     }
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_f7706dee0f0d0583",
+      "case_id": "hc_735be4de72ab7ed7",
       "component_ids": [
-        "lc_6576d31d4c9e3d9a"
+        "lc_672c9f36dfb9084a",
+        "lc_bf800ab78ebeaa2a",
+        "lc_e760a2892918e290"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "判断"
-      ],
-      "demand_dimension": "comparison",
-      "diagnostic_focus": "要求学生明确比较维度，并为每个判断指出对应特征。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生定期初步判断学习收获、进步与不足。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生制订明确的英语学习目标和计划并进行监控、反思和调整。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够定期初步判断学习收获、进步与不足；优先采集：学习计划、学习日志、资源使用记录。"
+        "学生能够制订明确的英语学习目标和计划并进行监控、反思和调整；优先采集：学习计划、学习日志、资源使用记录。",
+        "学生能够定期评价学习收获、进步与不足；优先采集：学习计划、学习日志、资源使用记录。",
+        "学生能够探索适合自己的学习方法；优先采集：学习计划、学习日志、资源使用记录。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期初步判断学习收获、进步与不足；能探索适合自己的学习方法；能获取关键信息并完成简短交流。",
-          "excerpt_hash": "3488df4ab889d497438751a6564cef53b86459793c7cdcec16e114dea8c62307",
+          "excerpt": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足；能探索适合自己的学习方法。",
+          "excerpt_hash": "d8f3d5a9ef4e4640659117c6628bba3fae8a841203d2b55268780b4bd7573e99",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-SA-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "按一致维度比较或辨析（判断）",
-      "title": "按一致维度比较或辨析",
-      "why_hard": "学生容易分别描述对象，却没有使用同一维度建立可检验的比较。"
+      "structure": "制订明确的英语学习目标和计划并进行监控、反思和调整；定期评价学习收获、进步与不足；探索适合自己的学习方法",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -231,28 +197,28 @@
       "source_statement": "制订明确的英语学习目标和计划并进行监控、反思和调整"
     },
     {
-      "component_id": "lc_6576d31d4c9e3d9a",
-      "component_type": "conceptual",
+      "component_id": "lc_bf800ab78ebeaa2a",
+      "component_type": "metacognitive",
       "condition": "",
       "confidence": 0.72,
-      "description": "学生能够定期初步判断学习收获、进步与不足",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生定期初步判断学习收获、进步与不足，并说明关键步骤、特征或依据。",
-      "label": "定期初步判断学习收获、进步与不足",
+      "description": "学生能够定期评价学习收获、进步与不足",
+      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生定期评价学习收获、进步与不足，并说明关键步骤、特征或依据。",
+      "label": "定期评价学习收获、进步与不足",
       "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够定期初步判断学习收获、进步与不足；优先采集：学习计划、学习日志、资源使用记录。",
+      "observable_evidence": "学生能够定期评价学习收获、进步与不足；优先采集：学习计划、学习日志、资源使用记录。",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "定期初步判断学习收获、进步与不足",
-          "excerpt_hash": "07fd90285a2c137fd1c4ca3556ad08977f418cbe46eb7f328734bbe6b600de7f",
+          "excerpt": "定期评价学习收获、进步与不足",
+          "excerpt_hash": "58c045b442c83510ce058d1cd176dfe1cebf180be825e4c2f98cf1df7919b568",
           "field": "standard",
           "ref_id": "standard:EN-H4G7-SA-003:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "source_statement": "定期初步判断学习收获、进步与不足"
+      "source_statement": "定期评价学习收获、进步与不足"
     },
     {
       "component_id": "lc_e760a2892918e290",
@@ -277,54 +243,6 @@
         }
       ],
       "source_statement": "探索适合自己的学习方法"
-    },
-    {
-      "component_id": "lc_8443c17a3c4883be",
-      "component_type": "conceptual",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够获取关键信息",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生获取关键信息，并说明关键步骤、特征或依据。",
-      "label": "获取关键信息",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够获取关键信息；优先采集：学习计划、学习日志、资源使用记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "获取关键信息",
-          "excerpt_hash": "e7176631c3e8ae540be43a734e34e06edec50c708a37e9e68ef61aa66d6017c2",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-SA-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "获取关键信息"
-    },
-    {
-      "component_id": "lc_d17019f635f760f1",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够完成简短交流",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生完成简短交流，并说明关键步骤、特征或依据。",
-      "label": "完成简短交流",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够完成简短交流；优先采集：学习计划、学习日志、资源使用记录。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "完成简短交流",
-          "excerpt_hash": "e0d8e980d38fdd45deaf2acf3d21d16ee5acd4e273483f5057e96bc61198198b",
-          "field": "standard",
-          "ref_id": "standard:EN-H4G7-SA-003:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "完成简短交流"
     }
   ],
   "prerequisite_candidates": [
@@ -346,7 +264,7 @@
       "source_code": "EN-D2-SA-005",
       "source_label": "能了解自己英语学习中的进步与不足。",
       "target_code": "EN-H4G7-SA-003",
-      "target_label": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期初步判断学习收获、进步与不足；能探索适合自己的学习方法；能获取关键信息并完成简短交…"
+      "target_label": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足；能探索适合自己的学习方法。"
     },
     {
       "confidence": "medium",
@@ -366,7 +284,7 @@
       "source_code": "EN-D2-SA-007",
       "source_label": "能在教师指导下，初步找到适合自己的英语学习方法。",
       "target_code": "EN-H4G7-SA-003",
-      "target_label": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期初步判断学习收获、进步与不足；能探索适合自己的学习方法；能获取关键信息并完成简短交…"
+      "target_label": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足；能探索适合自己的学习方法。"
     },
     {
       "confidence": "medium",
@@ -386,7 +304,7 @@
       "source_code": "EN-D2-SA-008",
       "source_label": "能在教师指导下，制订并完成简单的英语学习计划，及时预习和复习所学内容。",
       "target_code": "EN-H4G7-SA-003",
-      "target_label": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期初步判断学习收获、进步与不足；能探索适合自己的学习方法；能获取关键信息并完成简短交…"
+      "target_label": "能制订明确的英语学习目标和计划并进行监控、反思和调整；能定期评价学习收获、进步与不足；能探索适合自己的学习方法。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -397,7 +315,7 @@
     "total_candidate_count": 3,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "3488df4ab889d497438751a6564cef53b86459793c7cdcec16e114dea8c62307",
+  "source_standard_hash": "d8f3d5a9ef4e4640659117c6628bba3fae8a841203d2b55268780b4bd7573e99",
   "standard_code": "EN-H4G7-SA-003",
   "verified_prerequisites": []
 }

@@ -3,68 +3,28 @@
   "capability_graph_schema_version": "1.1.0",
   "common_difficulties": [
     {
-      "category": "argument_evidence",
+      "category": "performance_stability",
       "component_ids": [
-        "lc_89ad90428dbcb512"
+        "lc_eedda864fa0a2d2f"
       ],
-      "confidence": 0.66,
-      "diagnostic_probe": "给出一个需要学生用观察证据说明基本科学概念的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_768019e8eac05aff",
-      "evidence_status": "rule_inferred_not_frequency_validated",
-      "frequency_claim": "not_available",
-      "hardest_case_ids": [
-        "hc_81f119dc54ae36bc"
-      ],
-      "likely_cause": "把“知道答案”当成“完成解释”，尚未形成结论—证据—推理的结构。 需要结合学生在“用观察证据说明基本科学概念”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“用观察证据说明基本科学概念”时，只给结论或复述材料，没有提供相关证据，或没有说明证据为何支持结论。",
-      "method": "difficulty_pattern_rules_v2",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "了解声音产生、传播和人耳听声条件；了解波及其在信息传播中的作用；能知道响度、音调与声源振动关系及防治噪声方法；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "acf4303b156c42e8d60c7588f4e016818483d87bed8193d0e430b63f64a70faa",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-038:standard",
-          "source_type": "curriculum_standard_field"
-        },
-        {
-          "excerpt": "用光线模型、实验观察和健康保护情境连接概念学习与生活应用。",
-          "excerpt_hash": "502ed4aed2b5d15ff4c1fbf8ddcbe9451f1f589724ad1e735f3a98fb9f4d06ce",
-          "field": "teaching_tip",
-          "ref_id": "standard:SC-H4G7-SC-038:teaching_tip",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "success_signal": "学生能在撤去提示后用观察证据说明基本科学概念，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“用观察证据说明基本科学概念”，展示一个“有结论无证据”和一个“证据能支持结论”的对比例，要求学生标注三部分后再独立作答。 可结合本条教学建议：“用光线模型、实验观察和健康保护情境连接概念学习与生活应用。”。随后撤去支架，用同构任务复测。"
-    },
-    {
-      "category": "concept_discrimination",
-      "component_ids": [
-        "lc_eedda864fa0a2d2f",
-        "lc_75c997e31e27ab63",
-        "lc_89ad90428dbcb512"
-      ],
-      "confidence": 0.66,
+      "confidence": 0.54,
       "diagnostic_probe": "给出一个需要学生识别并说出声音产生、传播和人耳听声条件的关键特征的新任务，记录学生从判断到完成的过程，而不只看最终答案。",
-      "difficulty_id": "cd_2ba54b016adeae40",
+      "difficulty_id": "cd_e68707b53b495c6e",
       "evidence_status": "rule_inferred_not_frequency_validated",
       "frequency_claim": "not_available",
       "hardest_case_ids": [
-        "hc_81f119dc54ae36bc"
+        "hc_1cf292f21c318558"
       ],
-      "likely_cause": "概念边界不清，只记住典型正例，没有检验必要特征。 需要结合学生在“识别并说出声音产生、传播和人耳听声条件的关键特征”中的实际过程进一步核验。",
-      "manifestation": "在要求学生“识别并说出声音产生、传播和人耳听声条件的关键特征”时，能复述术语或指出熟悉例子，但遇到近似反例时按表面特征作出错误判断。",
+      "likely_cause": "把听懂或模仿当作掌握，尚未形成可独立调用的判断步骤或表现结构。",
+      "manifestation": "在提示下能复述要求，但在独立任务中不能稳定完成“识别并说出声音产生、传播和人耳听声条件的关键特征”。",
       "method": "difficulty_pattern_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解声音产生、传播和人耳听声条件；了解波及其在信息传播中的作用；能知道响度、音调与声源振动关系及防治噪声方法；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "acf4303b156c42e8d60c7588f4e016818483d87bed8193d0e430b63f64a70faa",
+          "excerpt": "了解声音产生、传播和人耳听声条件；了解波及其在信息传播中的作用；能知道响度、音调与声源振动关系及防治噪声方法。",
+          "excerpt_hash": "34fee143805b507ad464c3da2c74abecec70a07b2d09063a2efcbd5429bb717f",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-038:standard",
           "source_type": "curriculum_standard_field"
@@ -78,7 +38,7 @@
         }
       ],
       "success_signal": "学生能在撤去提示后识别并说出声音产生、传播和人耳听声条件的关键特征，并说明关键步骤、特征或依据。",
-      "teacher_action": "围绕“识别并说出声音产生、传播和人耳听声条件的关键特征”，同时提供正例、近似反例和边界例，要求学生指出决定判断的特征并修正规则。 可结合本条教学建议：“用光线模型、实验观察和健康保护情境连接概念学习与生活应用。”。随后撤去支架，用同构任务复测。"
+      "teacher_action": "围绕“识别并说出声音产生、传播和人耳听声条件的关键特征”，先用一个正例和一个近似反例明确成功标准，再逐步撤去提示，并用同构新任务复测。 可结合本条教学建议：“用光线模型、实验观察和健康保护情境连接概念学习与生活应用。”。随后撤去支架，用同构任务复测。"
     }
   ],
   "curriculum_alignment_summary": {
@@ -239,37 +199,38 @@
   ],
   "hardest_cases": [
     {
-      "case_id": "hc_81f119dc54ae36bc",
+      "case_id": "hc_1cf292f21c318558",
       "component_ids": [
-        "lc_89ad90428dbcb512"
+        "lc_eedda864fa0a2d2f",
+        "lc_75c997e31e27ab63",
+        "lc_d9fadef50ed22447"
       ],
-      "confidence": 0.7,
-      "covered_modifiers": [
-        "证据",
-        "说明"
-      ],
-      "demand_dimension": "argument_evidence",
-      "diagnostic_focus": "检查学生是否同时给出结论、相关证据以及二者之间的解释。",
-      "example_task_stub": "设计一个不提供完整范例的任务，要求学生用观察证据说明基本科学概念。",
+      "confidence": 0.58,
+      "covered_modifiers": [],
+      "demand_dimension": "integration",
+      "diagnostic_focus": "逐项检查每个小能力，并确认学生能够在同一任务中把它们连贯整合。",
+      "example_task_stub": "设计一个不提供完整范例的任务，要求学生识别并说出声音产生、传播和人耳听声条件的关键特征。",
       "method": "structural_demand_rules_v2",
       "provenance": "rule_generated",
       "publication_status": "candidate",
       "required_student_evidence": [
-        "学生能够用观察证据说明基本科学概念；优先采集：光学实验记录、声学现象解释、健康建议。"
+        "学生能够识别并说出声音产生、传播和人耳听声条件的关键特征；优先采集：光学实验记录、声学现象解释、健康建议。",
+        "学生能够识别并说出波及其在信息传播中的作用的关键特征；优先采集：光学实验记录、声学现象解释、健康建议。",
+        "学生能够准确说出响度、音调与声源振动关系及防治噪声方法；优先采集：光学实验记录、声学现象解释、健康建议。"
       ],
       "review_status": "machine_checked",
       "source_refs": [
         {
-          "excerpt": "了解声音产生、传播和人耳听声条件；了解波及其在信息传播中的作用；能知道响度、音调与声源振动关系及防治噪声方法；能用观察证据说明基本科学概念。",
-          "excerpt_hash": "acf4303b156c42e8d60c7588f4e016818483d87bed8193d0e430b63f64a70faa",
+          "excerpt": "了解声音产生、传播和人耳听声条件；了解波及其在信息传播中的作用；能知道响度、音调与声源振动关系及防治噪声方法。",
+          "excerpt_hash": "34fee143805b507ad464c3da2c74abecec70a07b2d09063a2efcbd5429bb717f",
           "field": "standard",
           "ref_id": "standard:SC-H4G7-SC-038:standard",
           "source_type": "curriculum_standard_field"
         }
       ],
-      "structure": "用证据或依据完成解释（证据、说明）",
-      "title": "用证据或依据完成解释",
-      "why_hard": "学生不仅要给出结论，还要选择与结论相关的证据，并把证据与结论连接起来。"
+      "structure": "识别并说出声音产生、传播和人耳听声条件的关键特征；识别并说出波及其在信息传播中的作用的关键特征；准确说出响度、音调与声源振动关系及防治噪声方法",
+      "title": "整合多个小能力完成完整表现",
+      "why_hard": "标准包含多个可观察动作；学生可能只完成其中一部分，尚未形成完整表现。"
     }
   ],
   "learning_components": [
@@ -344,30 +305,6 @@
         }
       ],
       "source_statement": "知道响度、音调与声源振动关系及防治噪声方法"
-    },
-    {
-      "component_id": "lc_89ad90428dbcb512",
-      "component_type": "language",
-      "condition": "",
-      "confidence": 0.72,
-      "description": "学生能够用观察证据说明基本科学概念",
-      "diagnostic_prompt": "请设计一个不提供完整范例的诊断任务，要求学生用观察证据说明基本科学概念，并保留可回查的口头、书面或操作过程证据。",
-      "label": "用观察证据说明基本科学概念",
-      "method": "deterministic_clause_decomposition_v2",
-      "observable_evidence": "学生能够用观察证据说明基本科学概念；优先采集：光学实验记录、声学现象解释、健康建议。",
-      "provenance": "rule_generated",
-      "publication_status": "candidate",
-      "review_status": "machine_checked",
-      "source_refs": [
-        {
-          "excerpt": "用观察证据说明基本科学概念",
-          "excerpt_hash": "94067701a2692c4ca819063587b85e891af3175e8b699ae43998cb287b7270a0",
-          "field": "standard",
-          "ref_id": "standard:SC-H4G7-SC-038:standard",
-          "source_type": "curriculum_standard_field"
-        }
-      ],
-      "source_statement": "用观察证据说明基本科学概念"
     }
   ],
   "prerequisite_candidates": [
@@ -389,7 +326,7 @@
       "source_code": "SC-D3-SC-014",
       "source_label": "知道来自光源的光或来自物体的反射光进入眼睛，能使人们看到光源或该物体。；知道光在空气中沿直线传播。",
       "target_code": "SC-H4G7-SC-038",
-      "target_label": "了解声音产生、传播和人耳听声条件；了解波及其在信息传播中的作用；能知道响度、音调与声源振动关系及防治噪声方法；能用观察证据说明基本科学概念。"
+      "target_label": "了解声音产生、传播和人耳听声条件；了解波及其在信息传播中的作用；能知道响度、音调与声源振动关系及防治噪声方法。"
     }
   ],
   "prerequisite_review_coverage": {
@@ -400,7 +337,7 @@
     "total_candidate_count": 1,
     "verified_edge_count": 0
   },
-  "source_standard_hash": "acf4303b156c42e8d60c7588f4e016818483d87bed8193d0e430b63f64a70faa",
+  "source_standard_hash": "34fee143805b507ad464c3da2c74abecec70a07b2d09063a2efcbd5429bb717f",
   "standard_code": "SC-H4G7-SC-038",
   "verified_prerequisites": []
 }
