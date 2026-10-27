@@ -500,21 +500,11 @@ export async function loadStandardByCode(code) {
     const aliasMatches = aliases[requested.toUpperCase()] || []
     const canonicalCode = aliasMatches.length === 1 ? aliasMatches[0] : requested
     const subjectSlug = codeIndex[canonicalCode]
-    if (subjectSlug) {
-        const standards = await loadSubjectStandards(subjectSlug)
-        const found = standards.find(s => s.code === canonicalCode)
-        if (found) return found
-    }
-
-    // Fallback: search all (expensive)
-    const manifest = await loadManifest()
-    for (const subj of manifest.subjects) {
-        const standards = await loadSubjectStandards(subj.subject_slug)
-        const found = standards.find(s => s.code === code || s.id === code || s.legacy_code === code)
-        if (found) return found
-    }
-
-    return null
+    // The code and alias indexes cover every published code, id and legacy code,
+    // so an unknown code is missing without downloading every subject file.
+    if (!subjectSlug) return null
+    const standards = await loadSubjectStandards(subjectSlug)
+    return standards.find(s => s.code === canonicalCode) || null
 }
 
 /**

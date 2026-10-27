@@ -58,6 +58,16 @@ test('home navigation preserves the existing information architecture', async ({
     await expect(page.getByRole('heading', { level: 1, name: '可迁移技能与课程关系' })).toBeVisible()
 })
 
+test('an unknown standard code is reported without downloading every subject', async ({ page }) => {
+    const subjectRequests = []
+    page.on('request', request => {
+        if (request.url().includes('/data/by_subject/')) subjectRequests.push(request.url())
+    })
+    await page.goto('/standards/NOT-A-REAL-CODE')
+    await expect(page.getByRole('heading', { name: '标准未找到' })).toBeVisible()
+    expect(subjectRequests).toEqual([])
+})
+
 test('unknown routes show a not-found page with a way home', async ({ page }) => {
     await page.goto('/this-page-does-not-exist')
     await expect(page.getByRole('heading', { name: '页面不存在' })).toBeVisible()
