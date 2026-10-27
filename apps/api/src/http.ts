@@ -216,7 +216,8 @@ export const apiAccessMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
     const configuredKeys = parseApiKeys()
     const access = key ? configuredKeys.get(key) : undefined
     c.set('accessTier', access?.tier || 'anonymous')
-    c.set('apiKeyId', access?.key_id || (key ? keyFingerprint(key) : 'anonymous'))
+    // Unknown keys share the anonymous ID; a per-key ID would give every random key its own rate-limit bucket.
+    c.set('apiKeyId', access?.key_id || 'anonymous')
     await next()
 }
 

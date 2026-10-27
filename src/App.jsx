@@ -10,6 +10,7 @@ import SkillsOverviewPage from './pages/SkillsOverviewPage'
 import SkillDetailPage from './pages/SkillDetailPage'
 import SearchResultsPage from './pages/SearchResultsPage'
 import StandardDetailPage from './pages/StandardDetailPage'
+import NotFoundPage from './pages/NotFoundPage'
 import RouteUiBoundary from './components/RouteUiBoundary'
 import { LoadingState } from './components/StateComponents'
 import UiTelemetryListener from './observability/UiTelemetryListener'
@@ -77,6 +78,7 @@ function App() {
                     <Route path="/feedback" element={route('feedback', lazyPage(<FeedbackPage />, '正在打开反馈表单'))} />
                     <Route path="/api" element={route('api', lazyPage(<ApiPage />, '正在打开 API 页面'))} />
                     <Route path="/contact" element={route('contact', lazyPage(<ContactPage />, '正在打开联系页面'))} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </main>
             <Footer />

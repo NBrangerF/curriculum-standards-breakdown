@@ -1046,6 +1046,18 @@ test('semantic search redacts identifiers and uses a stricter anonymous rate lim
     assert.equal(statuses[10], 429)
 })
 
+test('unknown API keys cannot open fresh rate-limit buckets', async () => {
+    const statuses: number[] = []
+    for (let index = 0; index < 31; index += 1) {
+        const response = await app.request('/api/v1/health', {
+            headers: { 'x-forwarded-for': 'random-api-key-test', 'x-api-key': `unknown_key_${index}` }
+        })
+        statuses.push(response.status)
+    }
+    assert.deepEqual(statuses.slice(0, 30), Array(30).fill(200))
+    assert.equal(statuses[30], 429)
+})
+
 test('plan alignment APIs require teacher decisions before coverage', async () => {
     const parsedResponse = await app.request('/api/v1/plans/parse', {
         method: 'POST',
@@ -1291,4 +1303,29 @@ test('learning-resource API supports catalog filters and standard reverse lookup
 
     const invalidGrade = await publicApp.request('/api/v1/learning-resources?grade=10', { headers })
     assert.equal(invalidGrade.status, 422)
+})
+
+test('learning-resource subject filter accepts the standards slug for information technology', async () => {
+    const headers = { 'x-forwarded-for': 'learning-resource-subject-test' }
+    const legacy = await json(await publicApp.request('/api/v1/learning-resources?subject=information-technology&limit=1', { headers }))
+    const canonical = await json(await publicApp.request('/api/v1/learning-resources?subject=it&limit=1', { headers }))
+    assert.ok(legacy.meta.total > 0)
+    assert.equal(canonical.meta.total, legacy.meta.total)
+})
+
+test('learning-resource IDs that are not catalog IDs never reach the file system', async () => {
+    const headers = { 'x-forwarded-for': 'learning-resource-id-test' }
+    const list = await json(await publicApp.request('/api/v1/learning-resources?limit=1', { headers }))
+    const { resource_id: resourceId, fragment_id: fragmentId } = list.data[0]
+    const valid = await publicApp.request(`/api/v1/learning-resources/${resourceId}?fragment_id=${fragmentId}`, { headers })
+    assert.equal(valid.status, 200)
+
+    // Without validation this path resolves to textbooks/index.json and fails schema parsing with a 500.
+    const traversal = await publicApp.request(
+        `/api/v1/learning-resources/${resourceId}?fragment_id=${encodeURIComponent('/../../../textbooks/index')}`,
+        { headers }
+    )
+    assert.equal(traversal.status, 404)
+    const standards = await publicApp.request(`/api/v1/learning-resources/${encodeURIComponent('../catalog/index')}/standards`, { headers })
+    assert.equal(standards.status, 404)
 })

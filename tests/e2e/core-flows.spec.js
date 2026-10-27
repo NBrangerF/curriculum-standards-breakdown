@@ -58,6 +58,13 @@ test('home navigation preserves the existing information architecture', async ({
     await expect(page.getByRole('heading', { level: 1, name: '可迁移技能与课程关系' })).toBeVisible()
 })
 
+test('unknown routes show a not-found page with a way home', async ({ page }) => {
+    await page.goto('/this-page-does-not-exist')
+    await expect(page.getByRole('heading', { name: '页面不存在' })).toBeVisible()
+    await page.getByRole('main').getByRole('link', { name: '返回首页' }).click()
+    await expect(page).toHaveURL(/\/$/)
+})
+
 test('home narrative lazy boundary presents a structured placeholder before loading', async ({ page }) => {
     await page.goto('/')
 

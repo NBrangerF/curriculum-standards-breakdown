@@ -29,6 +29,14 @@ export interface LearningResourceSearch {
     query?: string
 }
 
+// IDs become file names, so only the formats defined in schemas.ts may reach the file system.
+const RESOURCE_ID_PATTERN = /^lr_[a-f0-9]{24}$/u
+const FRAGMENT_ID_PATTERN = /^lrf_[a-f0-9]{24}$/u
+
+// Resource data says 'information-technology' where standards say 'it'; accept both in filters.
+const SUBJECT_ALIASES: Record<string, string> = { 'information-technology': 'it' }
+const canonicalSubject = (slug: string) => SUBJECT_ALIASES[slug] || slug
+
 export class FileLearningResourceRepository {
     private catalog?: LearningResourceCatalog
     private readonly resourceCache = new Map<string, PublicLearningResourceProjection>()
@@ -59,8 +67,9 @@ export class FileLearningResourceRepository {
     async search(query: LearningResourceSearch = {}): Promise<PublicLearningResourceProjection[]> {
         const catalog = await this.loadCatalog()
         const keyword = String(query.query || '').trim().toLocaleLowerCase('zh-CN')
+        const subject = query.subject ? canonicalSubject(query.subject) : ''
         return catalog.resources.filter(resource => {
-            if (query.subject && !resource.mapped_subject_slugs.includes(query.subject)) return false
+            if (subject && !resource.mapped_subject_slugs.some(slug => canonicalSubject(slug) === subject)) return false
             if (query.stage && resource.mapped_china_stage !== query.stage) return false
             if (query.grade && !resource.mapped_china_grade_scope.includes(query.grade)) return false
             if (query.role && !resource.pedagogical_roles.includes(query.role as never)) return false
@@ -77,6 +86,7 @@ export class FileLearningResourceRepository {
     }
 
     async get(resourceId: string, fragmentId = ''): Promise<PublicLearningResourceProjection | null> {
+        if (!RESOURCE_ID_PATTERN.test(resourceId) || (fragmentId && !FRAGMENT_ID_PATTERN.test(fragmentId))) return null
         if (!this.resourceCache.size) await this.loadCatalog()
         const cacheKey = fragmentId ? `${resourceId}:${fragmentId}` : resourceId
         const cached = this.resourceCache.get(cacheKey)
@@ -125,6 +135,7 @@ export class FileLearningResourceRepository {
     }
 
     async getStandardsForResource(resourceId: string, fragmentId = ''): Promise<PublicLearningResourceAlignment[]> {
+        if (!RESOURCE_ID_PATTERN.test(resourceId)) return []
         const payload = await this.readJson<{ alignments?: unknown[] }>(
             `learning-resources/by-resource/${resourceId}.alignments.json`
         )
