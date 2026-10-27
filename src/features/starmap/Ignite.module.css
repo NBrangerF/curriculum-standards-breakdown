@@ -1,0 +1,27 @@
+.ch { display: inline-block; }
+.line { display: block; }
+.line:only-child { display: inline; }
+
+/* --p (0..1) is driven by scroll position */
+.scrub .ch {
+    --x: calc(var(--p, 1) * (var(--n, 10) + 5) - var(--i));
+    opacity: clamp(0.13, calc(var(--x) / 5), 1);
+    filter: blur(clamp(0px, calc((5 - var(--x)) * 1.1px), 5px));
+    text-shadow: 0 0 calc(clamp(0, min(var(--x), 5 - var(--x)), 2.5) * 5px) var(--kb-gold-glow);
+}
+
+.load .ch {
+    animation: chIn 1.1s var(--kb-ease) both;
+    animation-delay: calc(var(--i) * var(--step, 55ms) + var(--d, 0ms) + 120ms);
+}
+
+@keyframes chIn {
+    0% { opacity: 0; filter: blur(8px); transform: translateY(0.22em); text-shadow: 0 0 20px var(--glow, var(--kb-gold-glow)); }
+    55% { opacity: 1; filter: blur(0); text-shadow: 0 0 14px var(--glow, var(--kb-gold-glow)); }
+    100% { opacity: 1; filter: none; transform: none; text-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .load .ch { animation: none; }
+    .scrub .ch { opacity: 1; filter: none; text-shadow: none; }
+}

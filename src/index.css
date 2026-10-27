@@ -26,6 +26,7 @@ html {
 
 body {
   font-family: var(--font-family);
+  font-feature-settings: 'palt' 0;
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   color: var(--text-primary);
@@ -49,6 +50,11 @@ a:hover {
 button {
   font-family: inherit;
   cursor: pointer;
+}
+
+::selection {
+  background: rgba(233, 200, 135, 0.32);
+  color: var(--kb-moon);
 }
 
 button:focus-visible,
@@ -115,8 +121,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 650;
+  font-family: var(--font-display);
+  font-weight: 700;
   line-height: var(--line-height-tight);
+  letter-spacing: 0.02em;
   color: var(--text-primary);
   text-wrap: balance;
 }
@@ -166,7 +174,7 @@ h6 {
   min-width: 44px;
   min-height: 44px;
   font-weight: 620;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   border: 1px solid transparent;
   transition:
     transform var(--transition-fast),
@@ -177,34 +185,29 @@ h6 {
 }
 
 .btn-primary {
-  border-color: var(--color-primary);
-  background: var(--color-primary);
-  color: var(--text-inverse);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.24),
-    var(--shadow-primary);
+  border-color: var(--kb-moon);
+  background: var(--kb-moon);
+  color: var(--kb-night);
+  font-weight: 700;
 }
 
 .btn-primary:hover {
-  border-color: var(--color-primary-hover);
-  background: var(--color-primary-hover);
+  border-color: #fff;
+  background: #fff;
+  color: var(--kb-night);
   transform: translateY(-1px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
-    0 15px 32px rgba(61, 90, 254, 0.28);
 }
 
 .btn-secondary {
-  background: var(--bg-primary);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--text-primary);
-  border-color: var(--border-default);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--kb-line-strong);
 }
 
 .btn-secondary:hover {
-  background: var(--bg-primary);
-  border-color: var(--color-primary);
-  color: var(--color-primary-dark);
+  background: rgba(233, 200, 135, 0.08);
+  border-color: var(--kb-gold);
+  color: var(--text-primary);
   transform: translateY(-1px);
 }
 
@@ -214,7 +217,7 @@ h6 {
 }
 
 .btn-ghost:hover {
-  background: rgba(61, 90, 254, 0.055);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
 }
 
@@ -228,9 +231,9 @@ h6 {
    ======================================== */
 
 .card {
-  background: var(--bg-primary);
+  background: var(--kb-night-glass);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   border: 1px solid var(--border-default);
   transition:
     transform var(--transition-normal),
@@ -239,7 +242,6 @@ h6 {
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
   border-color: var(--border-strong);
 }
 
@@ -306,9 +308,10 @@ h6 {
   width: 100%;
   padding: var(--space-3) var(--space-4);
   font-size: var(--font-size-sm);
-  border: 1px solid var(--color-gray-300);
+  color: var(--text-primary);
+  border: 1px solid var(--kb-line-strong);
   border-radius: var(--radius-md);
-  background: var(--bg-primary);
+  background: rgba(14, 17, 24, 0.75);
   transition: all var(--transition-fast);
 }
 
@@ -330,8 +333,9 @@ h6 {
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   font-size: var(--font-size-sm);
-  background: var(--bg-primary);
-  border: 1px solid var(--color-gray-200);
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--kb-line);
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -339,14 +343,14 @@ h6 {
 }
 
 .checkbox-item:hover {
-  border-color: var(--color-primary);
-  background: var(--color-primary-subtle);
+  border-color: var(--kb-line-strong);
+  color: var(--text-primary);
 }
 
 .checkbox-item.active {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--text-inverse);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--kb-gold);
+  color: var(--text-primary);
 }
 
 .checkbox-item input {
@@ -441,16 +445,16 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-tertiary);
+  background: var(--kb-night);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gray-300);
+  background: rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gray-400);
+  background: rgba(255, 255, 255, 0.24);
 }
 }
 

@@ -1,0 +1,53 @@
+.flap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: clamp(24px, 4vw, 52px);
+    line-height: 1;
+    perspective: 400px;
+}
+
+.flap span {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 0.8em;
+    height: 1.2em;
+    border-radius: 6px;
+    background: linear-gradient(#171c28 50%, #11151e 50%);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+    color: var(--kb-moon);
+}
+
+.flap span::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.flap .dash {
+    width: 0.42em;
+    background: none;
+    box-shadow: none;
+    color: var(--kb-dim);
+}
+
+.flap .dash::after { display: none; }
+
+.tick { animation: flip 0.1s linear; }
+
+@keyframes flip {
+    0% { transform: rotateX(0); }
+    50% { transform: rotateX(-75deg); filter: brightness(1.5); }
+    100% { transform: rotateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tick { animation: none; }
+}

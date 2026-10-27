@@ -42,7 +42,7 @@ function Footer() {
                     {/* Column 1: Brand & Description */}
                     <div className={`${styles.column} ${styles.brand}`}>
                         <div className={styles.logo}>
-                            <span className={styles.coordinate} aria-hidden="true"></span>
+                            <span className={styles.seal} aria-hidden="true">课标</span>
                             <span className={styles.logoText}>kebiao</span>
                         </div>
                         <p className={styles.tagline}>

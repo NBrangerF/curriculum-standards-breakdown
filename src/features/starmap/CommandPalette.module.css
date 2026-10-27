@@ -1,0 +1,109 @@
+.scrim {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    padding: calc(12vh + env(safe-area-inset-top, 0px)) 16px 16px;
+    background: rgba(4, 5, 8, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.palette {
+    width: min(680px, 100%);
+    overflow: hidden;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: 18px;
+    background: var(--kb-surface);
+    box-shadow: var(--shadow-xl);
+    animation: pop 0.22s var(--kb-ease);
+}
+
+@keyframes pop { from { opacity: 0; transform: translateY(-8px) scale(0.98); } }
+
+.input {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 18px;
+    border-bottom: 1px solid var(--kb-line);
+    color: var(--kb-mist);
+}
+
+.input input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 60px;
+    border: 0;
+    background: none;
+    color: var(--kb-moon);
+    font: inherit;
+    font-size: 17px;
+}
+
+.input input:focus { outline: none; }
+.input input::placeholder { color: var(--kb-dim); }
+
+.count {
+    color: var(--kb-gold);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.results {
+    max-height: min(56vh, 520px);
+    margin: 0;
+    padding: 6px;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.option {
+    display: grid;
+    grid-template-columns: 10px minmax(0, 1fr);
+    align-items: baseline;
+    gap: 2px 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: var(--kb-moon);
+    cursor: pointer;
+}
+
+.option[aria-selected='true'] { background: rgba(255, 255, 255, 0.07); }
+
+.option i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--c);
+    box-shadow: 0 0 8px var(--c);
+    transform: translateY(-1px);
+}
+
+.title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.title mark { background: none; color: var(--kb-gold); }
+
+.meta {
+    grid-column: 2;
+    color: var(--kb-dim);
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.empty {
+    padding: 28px 18px;
+    color: var(--kb-dim);
+    text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .palette { animation: none; }
+}

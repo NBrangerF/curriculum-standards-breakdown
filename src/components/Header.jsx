@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence, m } from 'motion/react'
+import { useSky } from '../features/starmap/SkyProvider.jsx'
 import styles from './Header.module.css'
 
 const NAV_ITEMS = [
@@ -36,6 +37,7 @@ function Header() {
     const location = useLocation()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const menuButtonRef = useRef(null)
+    const { openPalette } = useSky()
 
     useEffect(() => {
         setMobileMenuOpen(false)
@@ -63,15 +65,9 @@ function Header() {
         <header className={styles.root} data-kb-shell="header">
             <div className={`container ${styles.container}`}>
                 {/* Brand */}
-                <Link to="/" className={styles.logo}>
-                    <span className={styles.coordinate} aria-hidden="true">
-                        <span className={styles.axis}></span>
-                        <span className={styles.point}></span>
-                    </span>
-                    <span className={styles.logoText}>
-                        <span className={styles.title}>kebiao</span>
-                        <span className={styles.subtitle}>中国课程标准的结构化索引与智能引擎</span>
-                    </span>
+                <Link to="/" className={styles.logo} aria-label="kebiao 首页">
+                    <span className={styles.seal} aria-hidden="true">课标</span>
+                    <span className={styles.title}>kebiao</span>
                 </Link>
 
                 {/* Desktop Nav */}
@@ -90,6 +86,12 @@ function Header() {
                         )
                     })}
                 </nav>
+
+                <button type="button" className={styles.searchButton} onClick={() => openPalette('')} aria-label="搜索课程标准" aria-keyshortcuts="Meta+K Control+K">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
+                    <span className={styles.searchLabel}>搜索</span>
+                    <kbd className={styles.kbd}>⌘K</kbd>
+                </button>
 
                 {/* Mobile Menu Button */}
                 <button

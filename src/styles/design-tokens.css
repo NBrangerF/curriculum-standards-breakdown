@@ -1,103 +1,102 @@
-@font-face {
-    font-family: 'Geist Sans';
-    src: url('/fonts/geist/Geist-Variable.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Geist Mono';
-    src: url('/fonts/geist/GeistMono-Variable.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-}
-
 :root {
-    color-scheme: light;
+    color-scheme: dark;
 
-    /* Canonical kebiao references */
-    --kb-canvas: #f5f7fa;
-    --kb-surface: #ffffff;
-    --kb-surface-muted: #eef1f6;
-    --kb-ink: #0c111d;
-    --kb-ink-muted: #5b6472;
-    --kb-hairline: rgba(12, 17, 29, 0.1);
-    --kb-accent: #3e5bef;
-    --kb-accent-hover: #2944d6;
-    --kb-accent-soft: #e8ecff;
-    --kb-focus: #88a0ff;
-    --kb-graph-canvas: #090c14;
-    --kb-graph-surface: #111725;
-    --kb-graph-text: #f3f6ff;
+    /* Canonical kebiao references: a night sky, moonlit text, one gold accent. */
+    --kb-canvas: #07080c;
+    --kb-surface: #0e1118;
+    --kb-surface-muted: #151a24;
+    --kb-ink: #eceff4;
+    --kb-ink-muted: #aab2bf;
+    --kb-hairline: rgba(222, 228, 238, 0.14);
+    --kb-accent: #e9c887;
+    --kb-accent-hover: #f3dcab;
+    --kb-accent-soft: rgba(233, 200, 135, 0.12);
+    --kb-focus: #e9c887;
+    --kb-graph-canvas: #07080c;
+    --kb-graph-surface: #0e1118;
+    --kb-graph-text: #eceff4;
     --kb-graph-muted: #97a1b2;
+    --kb-night: #07080c;
+    --kb-night-glass: rgba(9, 11, 16, 0.84);
+    --kb-moon: #eceff4;
+    --kb-mist: #aab2bf;
+    --kb-dim: #858e9c;
+    --kb-gold: #e9c887;
+    --kb-gold-glow: rgba(233, 200, 135, 0.85);
+    --kb-line: rgba(222, 228, 238, 0.14);
+    --kb-line-strong: rgba(222, 228, 238, 0.3);
+    --kb-paper: #f2ede1;
+    --kb-paper-ink: #25221c;
+    --kb-paper-mute: #6a6458;
+    --kb-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 
     /* Compatibility aliases: legacy names resolve one-way to canonical references. */
     --color-primary: var(--kb-accent);
-    --color-primary-light: #6d7cff;
-    --color-primary-dark: var(--kb-accent-hover);
+    --color-primary-light: #f3dcab;
+    --color-primary-dark: #f6e4bf;
     --color-primary-hover: var(--kb-accent-hover);
-    --color-primary-active: #2539c1;
+    --color-primary-active: #d9b36a;
     --color-primary-subtle: var(--kb-accent-soft);
 
-    --color-secondary: #273140;
-    --color-secondary-light: #526073;
-    --color-secondary-dark: #15181e;
-    --color-secondary-subtle: #f0f2f6;
+    --color-secondary: #c9cfd9;
+    --color-secondary-light: #aab2bf;
+    --color-secondary-dark: #eceff4;
+    --color-secondary-subtle: rgba(255, 255, 255, 0.06);
 
     --color-accent: var(--kb-accent);
-    --color-accent-light: #7d8aff;
-    --color-accent-dark: var(--kb-accent-hover);
+    --color-accent-light: #f3dcab;
+    --color-accent-dark: #f6e4bf;
     --color-accent-subtle: var(--kb-accent-soft);
 
-    --color-success: #167d55;
-    --color-success-light: #e7f5ef;
-    --color-success-dark: #0f6242;
-    --color-warning: #b96a0a;
-    --color-warning-light: #fff3df;
-    --color-warning-dark: #8d4d00;
-    --color-error: #c33945;
-    --color-error-light: #fff0f1;
-    --color-error-dark: #9f2732;
-    --color-info: #3d5afe;
-    --color-info-light: #eef0ff;
-    --color-info-dark: #2c43d8;
+    --color-success: #5bd08f;
+    --color-success-light: rgba(91, 208, 143, 0.12);
+    --color-success-dark: #8fe3b3;
+    --color-warning: #f0b35a;
+    --color-warning-light: rgba(240, 179, 90, 0.12);
+    --color-warning-dark: #f6cb8a;
+    --color-error: #f27a84;
+    --color-error-light: rgba(242, 122, 132, 0.12);
+    --color-error-dark: #f7a5ac;
+    --color-info: #8ea2ff;
+    --color-info-light: rgba(142, 162, 255, 0.12);
+    --color-info-dark: #b4c1ff;
 
-    --color-gray-50: #f8f9fb;
-    --color-gray-100: #f0f2f5;
-    --color-gray-200: #dfe3e9;
-    --color-gray-300: #c7ced8;
-    --color-gray-400: #9ca6b4;
-    --color-gray-500: #727d8d;
-    --color-gray-600: #566170;
-    --color-gray-700: #3c4654;
-    --color-gray-800: #242b35;
-    --color-gray-900: #15181e;
+    /* The gray scale is inverted for the night theme: low numbers are the darkest surfaces. */
+    --color-gray-50: #0b0d12;
+    --color-gray-100: #11141b;
+    --color-gray-200: #1b202a;
+    --color-gray-300: #2a303c;
+    --color-gray-400: #4a5260;
+    --color-gray-500: #6f7886;
+    --color-gray-600: #98a1ae;
+    --color-gray-700: #b8c0cb;
+    --color-gray-800: #d5dae2;
+    --color-gray-900: #eceff4;
 
     --bg-primary: var(--kb-surface);
     --bg-secondary: var(--kb-canvas);
     --bg-tertiary: var(--kb-surface-muted);
     --bg-surface: var(--kb-surface);
-    --bg-elevated: var(--kb-surface);
-    --bg-inverse: #10141c;
+    --bg-elevated: #121620;
+    --bg-inverse: #eceff4;
 
     --text-primary: var(--kb-ink);
     --text-secondary: var(--kb-ink-muted);
-    --text-tertiary: #5e6978;
-    --text-disabled: #aeb6c1;
-    --text-inverse: #ffffff;
+    --text-tertiary: #8b94a2;
+    --text-disabled: #4a5260;
+    --text-inverse: #07080c;
     --text-link: var(--color-primary);
     --text-link-hover: var(--color-primary-dark);
 
-    --border-default: #d8dde6;
-    --border-strong: #b9c1ce;
+    --border-default: var(--kb-line);
+    --border-strong: var(--kb-line-strong);
     --border-focus: var(--kb-focus);
 
-    --font-display: 'Geist Sans', 'Noto Sans SC', 'PingFang SC', system-ui, sans-serif;
-    --font-body: 'Geist Sans', 'Noto Sans SC', 'PingFang SC', system-ui, sans-serif;
+    --font-display: 'Noto Serif SC Variable', 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', 'STSong', serif;
+    --font-body: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'Source Han Sans SC', system-ui, sans-serif;
     --font-family: var(--font-body);
-    --font-mono: 'Geist Mono', 'SFMono-Regular', Consolas, monospace;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    --font-num: 'Instrument Serif', 'Noto Serif SC Variable', Georgia, serif;
 
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
@@ -110,16 +109,16 @@
     --font-size-5xl: 3rem;
 
     --font-weight-normal: 400;
-    --font-weight-medium: 520;
-    --font-weight-semibold: 650;
-    --font-weight-bold: 740;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
 
-    --line-height-tight: 1.16;
-    --line-height-normal: 1.55;
-    --line-height-relaxed: 1.74;
-    --letter-spacing-tight: -0.035em;
+    --line-height-tight: 1.3;
+    --line-height-normal: 1.7;
+    --line-height-relaxed: 1.85;
+    --letter-spacing-tight: 0.01em;
     --letter-spacing-normal: 0;
-    --letter-spacing-wide: 0.045em;
+    --letter-spacing-wide: 0.12em;
 
     --space-0: 0;
     --space-1: 0.25rem;
@@ -136,19 +135,19 @@
     --space-24: 6rem;
 
     --radius-none: 0;
-    --radius-sm: 4px;
-    --radius-md: 6px;
-    --radius-lg: 8px;
-    --radius-xl: 12px;
-    --radius-2xl: 16px;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 16px;
+    --radius-2xl: 22px;
     --radius-full: 9999px;
 
     --shadow-none: none;
-    --shadow-sm: 0 1px 2px rgba(25, 35, 53, 0.045), 0 1px 0 rgba(255, 255, 255, 0.85) inset;
-    --shadow-md: 0 8px 22px rgba(28, 39, 62, 0.075), 0 1px 2px rgba(28, 39, 62, 0.04);
-    --shadow-lg: 0 18px 40px rgba(28, 39, 62, 0.09), 0 2px 6px rgba(28, 39, 62, 0.045);
-    --shadow-xl: 0 28px 72px rgba(28, 39, 62, 0.12), 0 2px 8px rgba(28, 39, 62, 0.05);
-    --shadow-primary: 0 12px 28px rgba(61, 90, 254, 0.24);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 24px 60px -18px rgba(0, 0, 0, 0.7);
+    --shadow-xl: 0 40px 120px -20px rgba(0, 0, 0, 0.9);
+    --shadow-primary: 0 10px 30px -10px rgba(233, 200, 135, 0.45);
     --shadow-accent: var(--shadow-primary);
 
     --duration-instant: 0ms;
@@ -156,7 +155,7 @@
     --duration-normal: 220ms;
     --duration-slow: 340ms;
     --duration-slower: 520ms;
-    --easing-default: cubic-bezier(0.2, 0, 0, 1);
+    --easing-default: cubic-bezier(0.2, 0.8, 0.2, 1);
     --easing-in: cubic-bezier(0.4, 0, 1, 1);
     --easing-out: cubic-bezier(0.16, 1, 0.3, 1);
     --easing-bounce: cubic-bezier(0.22, 1.35, 0.36, 1);
@@ -181,40 +180,40 @@
     --list-gap: var(--space-3);
     --section-gap: var(--space-12);
 
-    --container-max: 1360px;
-    --container-padding: var(--space-6);
+    --container-max: 1280px;
+    --container-padding: clamp(16px, 4vw, 56px);
 
-    /* Data semantics are canonical tokens, never general decoration. */
-    --subject-chinese: #b91c1c;
-    --subject-math: #1d4ed8;
-    --subject-english: #6d28d9;
-    --subject-science: #047857;
-    --subject-it: #0e7490;
-    --subject-morality: #c2410c;
-    --subject-arts: #be185d;
-    --subject-labor: #4d7c0f;
-    --subject-pe: #a16207;
-    --skill-ts1: #b91c1c;
-    --skill-ts2: #b45309;
-    --skill-ts3: #8a6500;
-    --skill-ts4: #15803d;
-    --skill-ts5: #0e7490;
-    --skill-ts6: #1d4ed8;
-    --skill-ts7: #6d28d9;
-    --band-h1: #0284c7;
-    --band-h1-bg: #e0f2fe;
-    --band-h2: #0e7490;
-    --band-h2-bg: #cffafe;
-    --band-h3: #0d9488;
-    --band-h3-bg: #ccfbf1;
-    --band-h4: #0f766e;
-    --band-h4-bg: #d1fae5;
-    --band-h4g7: #16a34a;
-    --band-h4g7-bg: #dcfce7;
-    --band-h4g8: #ca8a04;
-    --band-h4g8-bg: #fef9c3;
-    --band-h4g9: #c2410c;
-    --band-h4g9-bg: #ffedd5;
+    /* Data semantics are canonical tokens, never general decoration. Subject hues are traditional pigments. */
+    --subject-chinese: #f2603a;
+    --subject-math: #3fa2e0;
+    --subject-english: #7d8af8;
+    --subject-science: #45c46f;
+    --subject-it: #4fd1c5;
+    --subject-morality: #ec6fa0;
+    --subject-arts: #c08cf0;
+    --subject-labor: #b6c94a;
+    --subject-pe: #f4b32f;
+    --skill-ts1: #f27a6b;
+    --skill-ts2: #f0a85a;
+    --skill-ts3: #e9c887;
+    --skill-ts4: #5bd08f;
+    --skill-ts5: #4fd1c5;
+    --skill-ts6: #7fa8ff;
+    --skill-ts7: #c08cf0;
+    --band-h1: #5ec4f2;
+    --band-h1-bg: rgba(94, 196, 242, 0.12);
+    --band-h2: #4fd1c5;
+    --band-h2-bg: rgba(79, 209, 197, 0.12);
+    --band-h3: #45c46f;
+    --band-h3-bg: rgba(69, 196, 111, 0.12);
+    --band-h4: #b6c94a;
+    --band-h4-bg: rgba(182, 201, 74, 0.12);
+    --band-h4g7: #b6c94a;
+    --band-h4g7-bg: rgba(182, 201, 74, 0.12);
+    --band-h4g8: #f4b32f;
+    --band-h4g8-bg: rgba(244, 179, 47, 0.12);
+    --band-h4g9: #f2603a;
+    --band-h4g9-bg: rgba(242, 96, 58, 0.12);
 }
 
 [data-density='comfortable'] {
@@ -230,9 +229,25 @@
     --font-size-lg: 1.1875rem;
 }
 
-@media (max-width: 768px) {
+/* Windows high-contrast and other forced palettes: hand every ink token to the system colors. */
+@media (forced-colors: active) {
     :root {
-        --container-padding: var(--space-4);
+        --kb-ink: CanvasText;
+        --kb-ink-muted: CanvasText;
+        --kb-moon: CanvasText;
+        --kb-mist: CanvasText;
+        --kb-dim: CanvasText;
+        --kb-gold: LinkText;
+        --kb-accent: LinkText;
+        --kb-accent-hover: LinkText;
+        --text-primary: CanvasText;
+        --text-secondary: CanvasText;
+        --text-tertiary: CanvasText;
+        --color-primary: LinkText;
+        --color-primary-dark: LinkText;
+        --color-primary-light: LinkText;
+        --kb-line: CanvasText;
+        --kb-line-strong: CanvasText;
     }
 }
 

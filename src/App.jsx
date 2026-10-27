@@ -5,7 +5,6 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
-import SubjectPage from './pages/SubjectPage'
 import SkillsOverviewPage from './pages/SkillsOverviewPage'
 import SkillDetailPage from './pages/SkillDetailPage'
 import SearchResultsPage from './pages/SearchResultsPage'
@@ -16,8 +15,10 @@ import { LoadingState } from './components/StateComponents'
 import UiTelemetryListener from './observability/UiTelemetryListener'
 import UmamiRouteTelemetry from './observability/UmamiRouteTelemetry'
 import { isKebiaoProductionHost } from './observability/umamiTelemetry.js'
+import { SkyProvider } from './features/starmap/SkyProvider.jsx'
 import './App.css'
 
+const SubjectPage = lazy(() => import('./pages/SubjectPage'))
 const CollectionsPage = lazy(() => import('./pages/CollectionsPage'))
 const GlossaryPage = lazy(() => import('./pages/GlossaryPage'))
 const FeedbackPage = lazy(() => import('./pages/FeedbackPage'))
@@ -47,13 +48,14 @@ function App() {
     const umamiEnabled = isKebiaoProductionHost()
 
     return (
+        <SkyProvider>
         <div className="app">
             <a className="skip-link" href="#main-content">跳到主要内容</a>
             <Header />
             <main className="main-content" id="main-content">
                 <Routes>
                     <Route path="/" element={route('home', <HomePage />)} />
-                    <Route path="/subjects/:slug" element={route('subject', <SubjectPage />)} />
+                    <Route path="/subjects/:slug" element={route('subject', lazyPage(<SubjectPage />, '正在展开学科星图'))} />
                     <Route path="/skills" element={route('skills', <SkillsOverviewPage />)} />
                     <Route path="/skills/:code" element={route('skillDetail', <SkillDetailPage />)} />
                     <Route path="/search" element={route('search', <SearchResultsPage />)} />
@@ -87,6 +89,7 @@ function App() {
             {umamiEnabled ? <UmamiRouteTelemetry /> : null}
             {speedInsightsEnabled ? <SpeedInsights /> : null}
         </div>
+        </SkyProvider>
     )
 }
 
