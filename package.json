@@ -12,6 +12,7 @@
         "predev": "npm run prepare:pdfjs",
         "prepare:pdfjs": "node scripts/copy-pdfjs-assets.mjs",
         "build": "vite build",
+        "postbuild": "node scripts/build-sitemap.mjs",
         "normalize:data": "node scripts/normalize-runtime-data.mjs --data-root data/internal",
         "migrate:code-taxonomy": "tsx scripts/migrate-code-taxonomy.ts --data-root data/internal --apply",
         "build:unified-progression": "tsx scripts/build-unified-progression.ts --data-root data/internal --apply",
