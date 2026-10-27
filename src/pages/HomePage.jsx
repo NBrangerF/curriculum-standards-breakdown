@@ -1,511 +1,330 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
-import { Link, useNavigate, useSearchParams } from 'react-router-dom'
-import {
-    loadManifest,
-    loadSubjectsMeta,
-    loadSkillsMeta,
-    loadSkillToSubjectsIndex,
-    getSubjectsFromManifest,
-    getSkillsMeta,
-    SUBJECT_COLORS,
-    SKILL_COLORS,
-    getSelectableGradeBands
-} from '../data/dataLoader'
-import {
-    serializeFiltersToURL,
-    QUERY_PARAMS
-} from '../data/query'
-import {
-    addSubject,
-    addGradeBand,
-    toggleSkill,
-    isValidCompareSelection,
-    getValidationMessage,
-    DEFAULT_COMPARE_STATE
-} from '../data/compareLogic'
-import { LoadingState, ErrorState } from '../components/StateComponents'
-import TSBadge from '../components/TSBadge'
-import HomeHeroBanner from '../components/HomeHeroBanner'
-import { useUiV2 } from '../components/RouteUiBoundary.jsx'
-import { Toast, useTransientToast } from '../ui/primitives/Toast'
-import { Disclosure, DisclosureIndicator } from '../ui/primitives/Disclosure'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
+import { useSky, useSkyView, useStarmap } from '../features/starmap/SkyProvider.jsx'
+import { BAND_LABEL, F, SKILL_SHORT, searchStarmap } from '../features/starmap/starmapData.js'
+import Ignite from '../features/starmap/Ignite.jsx'
+import FlapCode from '../features/starmap/FlapCode.jsx'
+import { COMPARE_DEFAULT } from '../features/starmap/compareLinks.js'
+import { useCountUp, useScramble } from '../features/starmap/motionHooks.js'
+import { readCompareParams } from '../features/starmap/compareLinks.js'
 import styles from './HomePage.module.css'
 
-const HomeNarrativeSection = lazy(() => import('../components/HomeNarrativeSection.jsx'))
+const CompareWindow = lazy(() => import('../features/starmap/CompareWindow.jsx'))
 
-function HomeNarrativePlaceholder() {
+const FEATURE = {
+    code: 'MA-D2-AL-005',
+    meta: '数学 · 3–4 年级 · 数与代数',
+    title: '在简单的实际情境中，运用四则混合运算解决问题',
+    page: 29,
+    official: '能在简单的实际情境中，运用四则混合运算解决问题，能选择合适的单位通过估算解决实际问题，形成初步的应用意识。',
+    rail: [['MA-D1-AL-003', '1–2 年级'], ['MA-D2-AL-005', '3–4 年级', true], ['MA-D3-AL-005', '5–6 年级'], ['MA-D3-AL-008', '5–6 年级']],
+    book: { edition: '人教版 · 数学 4 年级上册', unit: '第 6 单元 除数是两位数的除法', no: '10', text: '刘叔叔带 900 元去买大米，买了 12 袋同一种大米，剩 60 元。每袋大米的价钱是多少？', page: 86 }
+}
+const CAPTIONS = [
+    { step: '壹 · 全貌', title: '九门学科\n九种颜色' },
+    { step: '贰 · 一科 × 多学段', title: '一门学科\n九个年级' },
+    { step: '叁 · 多科 × 一学段', title: '一个学段\n九门学科' },
+    { step: '肆 · 可迁移能力', title: '七种能力\n散在九科' },
+    { step: '伍 · 检索', title: '找你要的\n那一颗' }
+]
+
+function SearchIcon({ size = 18 }) {
+    return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
+}
+
+function RailLink({ to, color, name, count, list, compact, title }) {
+    const { engineRef } = useSky()
+    const on = () => engineRef.current?.setChartHighlight({ list })
+    const off = () => engineRef.current?.setChartHighlight({})
     return (
-        <div
-            className={styles['home-narrative-placeholder']}
-            data-kb-component="home-narrative-placeholder"
-            aria-hidden="true"
-        >
-            <div className={`${styles['home-narrative-placeholder-stage']} container`}>
-                <div className={styles['home-narrative-placeholder-copy']}>
-                    <i></i>
-                    <b></b>
-                    <b></b>
-                    <span></span>
-                    <span></span>
-                </div>
-                <div className={styles['home-narrative-placeholder-index']}>
-                    {Array.from({ length: 4 }, (_, index) => <i key={index}></i>)}
-                </div>
-                <div className={styles['home-narrative-placeholder-map']}>
-                    {Array.from({ length: 4 }, (_, index) => (
-                        <div key={index} style={{ '--placeholder-width': `${100 - index * 10}%` }}>
-                            <i></i>
-                            <span></span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+        <li>
+            <Link
+                to={to}
+                title={title}
+                className={`${styles.sbtn} ${compact ? styles.compact : ''}`}
+                style={{ '--c': color }}
+                onPointerEnter={on}
+                onPointerLeave={off}
+                onFocus={on}
+                onBlur={off}
+                onPointerMove={event => { const r = event.currentTarget.getBoundingClientRect(); event.currentTarget.style.setProperty('--mx', `${event.clientX - r.left}px`) }}
+            >
+                <span className={styles.nm}><i aria-hidden="true" />{name}</span>
+                <span className={styles.ct}>{count}</span>
+            </Link>
+        </li>
+    )
+}
+
+function NowBlock({ K, idx, codeRef, dotRef }) {
+    const s = K ? K.S[idx] : null
+    const code = s ? s[F.CODE] : FEATURE.code
+    const scrambleRef = useScramble(code)
+    const color = s ? K.subjects[s[F.SUBJ]].color : '#3FA2E0'
+    const setCode = el => { scrambleRef.current = el; codeRef.current = el }
+    return (
+        <div className={styles.now} style={{ '--c': color }} aria-hidden="true">
+            <p className={styles.nowMeta}>
+                <i ref={dotRef} />
+                <span>{s ? `${K.subjects[s[F.SUBJ]].name} · ${BAND_LABEL[s[F.BAND]]}` : '数学 · 3–4 年级'}</span>
+                <code ref={setCode} />
+            </p>
+            <Ignite key={code} as="p" className={styles.nowText} text={s ? s[F.TITLE] : FEATURE.title} step={30} />
         </div>
     )
 }
 
-function HomeNarrativeGate(props) {
-    const gateRef = useRef(null)
-    const [enabled, setEnabled] = useState(false)
-
+function River({ K }) {
+    const { revealTo } = useSky()
+    const rowsRef = useRef(null)
+    const rows = useMemo(() => {
+        let seed = 7
+        const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647
+        const pool = Array.from({ length: K.N }, (_, i) => i)
+        for (let k = pool.length - 1; k > 0; k--) { const j = Math.floor(rnd() * (k + 1)); [pool[k], pool[j]] = [pool[j], pool[k]] }
+        return [0, 1, 2].map(r => pool.slice(r * 36, r * 36 + 36))
+    }, [K])
+    // the river runs faster while the page is being scrolled
     useEffect(() => {
-        if (!('IntersectionObserver' in window)) {
-            setEnabled(true)
-            return undefined
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        if (reduce || !rowsRef.current) return undefined
+        const anims = [...rowsRef.current.querySelectorAll('[data-track]')].flatMap(t => t.getAnimations())
+        let lastY = window.scrollY, last = performance.now(), speed = 0, rate = 1, raf = 0
+        const tick = now => {
+            const dt = Math.max(0.001, (now - last) / 1000)
+            last = now
+            const v = Math.abs(window.scrollY - lastY) / dt
+            lastY = window.scrollY
+            speed += (v - speed) * 0.1
+            rate += (1 + Math.min(speed / 260, 9) - rate) * 0.08
+            anims.forEach(a => { a.playbackRate = rate })
+            raf = requestAnimationFrame(tick)
         }
-        const observer = new IntersectionObserver(entries => {
-            if (entries.some(entry => entry.isIntersecting)) {
-                setEnabled(true)
-                observer.disconnect()
-            }
-        }, { rootMargin: '700px 0px' })
-        if (gateRef.current) observer.observe(gateRef.current)
-        return () => observer.disconnect()
-    }, [])
-
+        raf = requestAnimationFrame(tick)
+        return () => cancelAnimationFrame(raf)
+    }, [rows])
     return (
-        <div className={styles['home-narrative-gate']} ref={gateRef} data-kb-component="home-narrative-gate">
-            {enabled ? (
-                <Suspense fallback={<HomeNarrativePlaceholder />}>
-                    <HomeNarrativeSection {...props} />
-                </Suspense>
-            ) : <HomeNarrativePlaceholder />}
+        <div ref={rowsRef} className={styles.rows}>
+            {rows.map((pick, r) => (
+                <div key={r} className={styles.rowx}>
+                    <div className={styles.track} data-track>
+                        {[0, 1].flatMap(rep => pick.map(i => {
+                            const s = K.S[i]
+                            const to = `/standards/${encodeURIComponent(s[F.CODE])}`
+                            return (
+                                <Link
+                                    key={`${rep}-${s[F.CODE]}`}
+                                    to={to}
+                                    className={styles.chip}
+                                    style={{ '--c': K.subjects[s[F.SUBJ]].color }}
+                                    tabIndex={rep ? -1 : undefined}
+                                    aria-hidden={rep ? 'true' : undefined}
+                                    onClick={event => { event.preventDefault(); const rc = event.currentTarget.getBoundingClientRect(); revealTo(to, rc.left + rc.width / 2, rc.top + rc.height / 2) }}
+                                >
+                                    <i aria-hidden="true" /><code>{s[F.CODE]}</code>{s[F.TITLE]}
+                                </Link>
+                            )
+                        }))}
+                    </div>
+                </div>
+            ))}
         </div>
     )
 }
 
 function HomePage() {
-    const { enabled: uiV2Enabled } = useUiV2()
-    const navigate = useNavigate()
+    const { K } = useStarmap()
+    const { engineRef, revealTo, openPalette } = useSky()
+    const storyRef = useRef(null)
+    const capRefs = useRef([])
+    const codeRef = useRef(null)
+    const dotRef = useRef(null)
+    const pageRef = useRef(null)
+    const [nowIdx, setNowIdx] = useState(-1)
+    const [query, setQuery] = useState('')
+    const [cmp, setCmp] = useState(COMPARE_DEFAULT)
+    const count = useCountUp(2025, 2200)
     const [searchParams] = useSearchParams()
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
-    const [subjects, setSubjects] = useState([])
-    const [skills, setSkills] = useState([])
-    const [skillSubjects, setSkillSubjects] = useState({})
+    const searchKey = searchParams.toString()
 
-    // Compare mode state
-    const [filters, setFilters] = useState(() => {
-        // Try to restore from URL, otherwise use defaults
-        const urlSubjects = searchParams.get(QUERY_PARAMS.SUBJECTS)
-        const urlBands = searchParams.get(QUERY_PARAMS.BANDS)
-        const urlSkills = searchParams.get(QUERY_PARAMS.SKILLS)
-
-        if (urlSubjects || urlBands) {
-            return {
-                subjects: urlSubjects?.split(',').filter(Boolean) || [],
-                gradeBands: urlBands?.split(',').map(b => b.toUpperCase()).filter(Boolean) || [],
-                skills: urlSkills?.split(',').map(s => s.toUpperCase()).filter(Boolean) || []
-            }
-        }
-        return { ...DEFAULT_COMPARE_STATE }
-    })
-
-    const { toast, showToast, dismissToast } = useTransientToast()
-
-    // Skills accordion state
-    const [skillsExpanded, setSkillsExpanded] = useState(false)
+    // /?mode=B&bands=H2&subjects=math,science#compare opens the compare window on that view
+    useEffect(() => {
+        if (!K) return
+        const patch = readCompareParams(new URLSearchParams(searchKey), K)
+        if (!patch) return
+        setCmp(s => ({ ...s, ...patch }))
+        requestAnimationFrame(() => document.getElementById('compare')?.scrollIntoView({ behavior: 'auto', block: 'start' }))
+    }, [K, searchKey])
 
     useEffect(() => {
-        Promise.all([
-            loadManifest(),
-            loadSubjectsMeta(),
-            loadSkillsMeta(),
-            loadSkillToSubjectsIndex()
-        ])
-            .then(([, , , skillSubjectIndex]) => {
-                setSubjects(getSubjectsFromManifest())
-                setSkills(getSkillsMeta())
-                setSkillSubjects(skillSubjectIndex || {})
-                setLoading(false)
-            })
-            .catch(err => {
-                setError(err.message)
-                setLoading(false)
-            })
+        if (K && nowIdx < 0) setNowIdx(K.codeIndex.get(FEATURE.code) ?? 0)
+    }, [K, nowIdx])
+
+    const homeConfig = useMemo(() => ({
+        get storyEl() { return storyRef.current },
+        get capEls() { return capRefs.current },
+        get nowCodeEl() { return codeRef.current },
+        get nowDotEl() { return dotRef.current },
+        onNow: i => setNowIdx(i),
+        onStarClick: (i, x, y) => { if (K) revealTo(`/standards/${encodeURIComponent(K.S[i][F.CODE])}`, x, y) }
+    }), [K, revealTo])
+    useSkyView('home', K ? homeConfig : null, K ? 'ready' : 'waiting')
+
+    const results = useMemo(() => (K ? searchStarmap(K, query) : null), [K, query])
+    useEffect(() => {
+        engineRef.current?.setRestHighlight(results)
+        return () => engineRef.current?.setRestHighlight(null)
+    }, [results, engineRef])
+
+    const gotoCompare = useCallback(patch => {
+        setCmp(s => ({ ...s, ...patch }))
+        document.getElementById('compare')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
     }, [])
 
-    const handleSubjectToggle = (slug) => {
-        const result = addSubject(
-            { subjects: filters.subjects, gradeBands: filters.gradeBands },
-            slug
-        )
-        setFilters(prev => ({
-            ...prev,
-            subjects: result.subjects,
-            gradeBands: result.gradeBands
-        }))
-        if (result.message) {
-            showToast(result.message)
-        }
-    }
-
-    const handleBandToggle = (band) => {
-        const result = addGradeBand(
-            { subjects: filters.subjects, gradeBands: filters.gradeBands },
-            band
-        )
-        setFilters(prev => ({
-            ...prev,
-            subjects: result.subjects,
-            gradeBands: result.gradeBands
-        }))
-        if (result.message) {
-            showToast(result.message)
-        }
-    }
-
-    const handleSkillToggle = (code) => {
-        setFilters(prev => ({
-            ...prev,
-            skills: toggleSkill(prev.skills, code)
-        }))
-    }
-
-    const handleCompare = () => {
-        if (!isValidCompareSelection(filters.subjects, filters.gradeBands)) {
-            return
-        }
-        const params = new URLSearchParams()
-        params.set(QUERY_PARAMS.MODE, 'compare')
-        if (filters.subjects.length) {
-            params.set(QUERY_PARAMS.SUBJECTS, filters.subjects.join(','))
-        }
-        if (filters.gradeBands.length) {
-            params.set(QUERY_PARAMS.BANDS, filters.gradeBands.join(','))
-        }
-        if (filters.skills.length) {
-            params.set(QUERY_PARAMS.SKILLS, filters.skills.join(','))
-        }
-        navigate(`/search?${params.toString()}`)
-    }
-
-    const handleClear = () => {
-        setFilters({ ...DEFAULT_COMPARE_STATE })
-    }
-
-    const isValid = isValidCompareSelection(filters.subjects, filters.gradeBands)
-    const validationMessage = getValidationMessage(filters.subjects, filters.gradeBands)
-
-    if (loading) {
-        return (
-            <div className="page-content container">
-                <LoadingState message="加载课程标准数据..." />
-            </div>
-        )
-    }
-
-    if (error) {
-        return (
-            <div className="page-content container">
-                <ErrorState
-                    title="数据加载失败"
-                    message={error}
-                    onRetry={() => window.location.reload()}
-                />
-            </div>
-        )
-    }
-
-    const gradeBands = getSelectableGradeBands()
-    const standardCount = subjects.reduce((total, subject) => total + Number(subject.record_count || 0), 0)
+    const narrow = typeof window !== 'undefined' && window.innerWidth < 760
 
     return (
-        <div className={styles['home-page']} data-kb-route="home">
-            <Toast message={toast?.message} tone={toast?.tone} onDismiss={dismissToast} />
-
-            {/* Hero Banner - New TS-style component */}
-            <HomeHeroBanner
-                scrollTargetId="compare-filter"
-            />
-
-            {/* Compare Filter Section */}
-            <section className={styles['filter-section']} id="compare-filter">
-                <div className="container">
-                    <div className={styles['section-header']}>
-                        <h2>对比筛选</h2>
-                        <p>选择学科和学段/年级进行对比，支持 1-3 学科对比同一单元，或同一学科跨 1-6 个学段/年级对比</p>
-                    </div>
-                    <div className={`${styles['filter-card']} card`}>
-                        <div className={styles['card-body']}>
-                            {/* Subjects - Most prominent */}
-                            <div className={`${styles['filter-group']} ${styles['filter-group-primary']}`}>
-                                <h3 className={styles['filter-label']}>学科</h3>
-                                <p className={styles['filter-hint']}>选择 1-3 个学科进行对比</p>
-                                <div className={`${styles['filter-options']} ${styles['filter-options-primary']}`}>
-                                    {subjects.map(subj => (
-                                        <label
-                                            key={subj.subject_slug}
-                                            className={`${styles['checkbox-item']} ${filters.subjects.includes(subj.subject_slug) ? styles.active : ''}`}
-                                            style={{ '--subject-color': SUBJECT_COLORS[subj.subject_slug] }}
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                checked={filters.subjects.includes(subj.subject_slug)}
-                                                onChange={() => handleSubjectToggle(subj.subject_slug)}
-                                            />
-                                            <span>{subj.subject}</span>
-                                        </label>
-                                    ))}
-                                </div>
+        <div ref={pageRef} className={styles.page} data-kb-route="home">
+            <section className={styles.hero} aria-labelledby="hero-title">
+                <div className={styles.wrap}>
+                    <div className={styles.heroCopy}>
+                        <h1 className="sr-only" id="hero-title">kebiao 课标星图：义务教育课程标准的结构化索引</h1>
+                        <p className={styles.kicker}>义务教育课程标准 · 2022 · 共 <span className={styles.count}>{count.toLocaleString('en-US')}</span> 条</p>
+                        <NowBlock K={K} idx={nowIdx < 0 ? 0 : nowIdx} codeRef={codeRef} dotRef={dotRef} />
+                        <form className={styles.search} role="search" onSubmit={event => { event.preventDefault(); openPalette(query) }}>
+                            <label className="sr-only" htmlFor="hero-q">搜索课程标准</label>
+                            <div className={styles.field}>
+                                <SearchIcon />
+                                <input id="hero-q" type="search" autoComplete="off" placeholder="搜一条课标，如：合作" value={query} onChange={event => setQuery(event.target.value)} />
                             </div>
-
-                            {/* Grade Bands - Second prominent */}
-                            <div className={`${styles['filter-group']} ${styles['filter-group-secondary']}`}>
-                                <h3 className={styles['filter-label']}>学段</h3>
-                                <p className={styles['filter-hint']}>
-                                    {filters.subjects.length > 1
-                                        ? '多学科对比时只能选择1个学段'
-                                        : '选择 1-6 个学段/年级进行对比'}
-                                </p>
-                                <div className={`${styles['filter-options']} ${styles['filter-options-secondary']}`}>
-                                    {gradeBands.map(([key, info]) => (
-                                        <label
-                                            key={key}
-                                            className={`${styles['checkbox-item']} ${filters.gradeBands.includes(key) ? styles.active : ''}`}
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                checked={filters.gradeBands.includes(key)}
-                                                onChange={() => handleBandToggle(key)}
-                                            />
-                                            <span>{info.label}</span>
-                                            <span className={styles['filter-badge']}>{info.range}</span>
-                                        </label>
-                                    ))}
-                                </div>
-                                <p className={styles['filter-hint']}>七至九年级：课标原文是 7–9 年级的共同要求，年级划分为 kebiao 推断。</p>
-                            </div>
-
-                            {/* Skills - Collapsible accordion */}
-                            <div className={`${styles['filter-group']} ${styles['filter-group-tertiary']}`}>
-                                <Disclosure
-                                    isExpanded={skillsExpanded}
-                                    onExpandedChange={setSkillsExpanded}
-                                    triggerClassName={styles['skills-accordion-header']}
-                                    panelClassName={`${styles['filter-options']} ${styles['filter-options-tertiary']}`}
-                                    panelId="home-skill-filter-options"
-                                    trigger={({ isExpanded }) => (
-                                        <>
-                                            <span className={styles['accordion-title']}>
-                                                <DisclosureIndicator isExpanded={isExpanded} className={styles['accordion-icon']} />
-                                                可迁移技能
-                                                <span className={styles['optional-badge']}>可选</span>
-                                            </span>
-                                            {filters.skills.length > 0 ? <span className={styles['selected-count']}>{filters.skills.length} 个已选</span> : null}
-                                        </>
-                                    )}
-                                >
-                                    {skills.map(skill => (
-                                        <label
-                                            key={skill.code}
-                                            className={`${styles['checkbox-item']} ${styles['skill-option']} ${filters.skills.includes(skill.code) ? styles.active : ''}`}
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                checked={filters.skills.includes(skill.code)}
-                                                onChange={() => handleSkillToggle(skill.code)}
-                                            />
-                                            <span className={styles['skill-code-badge']}>{skill.code}</span>
-                                            <span>{skill.name_cn}</span>
-                                        </label>
-                                    ))}
-                                </Disclosure>
-                            </div>
-
-                            {/* Actions */}
-                            <div className={styles['filter-actions']}>
-                                <div className={styles['action-group']}>
-                                    <button
-                                        className={`btn btn-primary btn-lg ${!isValid ? styles.disabled : ''}`}
-                                        onClick={handleCompare}
-                                        disabled={!isValid}
-                                    >
-                                        查看对比结果
-                                    </button>
-                                    {!isValid && validationMessage && (
-                                        <span className={styles['validation-hint']}>{validationMessage}</span>
-                                    )}
-                                </div>
-                                <button className="btn btn-ghost" onClick={handleClear}>
-                                    重置
-                                </button>
-                            </div>
-                        </div>
+                            <button className={styles.go} type="submit" data-kb-telemetry-task="search_start">检索</button>
+                        </form>
+                        <p className={styles.match} aria-live="polite">{results == null ? '' : results.length ? `${results.length} 颗亮起 · 回车看列表` : '没有匹配'}</p>
+                        <p className={styles.entryLabel} id="subjects-section">从学科进入</p>
+                        <ul className={styles.srail} aria-labelledby="subjects-section">
+                            {(K ? K.subjects : []).map((s, k) => (
+                                <RailLink key={s.slug} to={`/subjects/${s.slug}`} color={s.color} name={s.name} count={s.count} list={K.bySubject[k]} />
+                            ))}
+                        </ul>
+                        <p className={styles.cue}><i aria-hidden="true" />向下</p>
                     </div>
                 </div>
             </section>
 
-            {/* Subjects Grid */}
-            <section className={styles['subjects-section']} id="subjects-section">
-                <div className="container">
-                    <div className={styles['section-header']}>
-                        <h2>学科入口</h2>
-                        <p>点击学科卡片，浏览该学科的所有课程标准</p>
-                    </div>
-                    <div className={styles['subjects-grid']}>
-                        {subjects.map(subject => (
-                            <Link
-                                key={subject.subject_slug}
-                                to={`/subjects/${subject.subject_slug}`}
-                                className={styles['subject-card']}
-                                style={{ '--subject-color': SUBJECT_COLORS[subject.subject_slug] }}
-                                aria-label={subject.subject}
-                                aria-describedby={`subject-preview-${subject.subject_slug}`}
-                            >
-                                <div className={styles['subject-card-accent']}></div>
-                                <div className={styles['subject-card-copy']}>
-                                    <h3 className={styles['subject-name']}>{subject.subject}</h3>
-                                    <span className={styles['subject-preview']} id={`subject-preview-${subject.subject_slug}`}>
-                                        <span>{subject.record_count} 条标准 · {Object.keys(subject.domains || {}).length} 个领域</span>
-                                        <small>{Object.keys(subject.domains || {}).slice(0, 3).join(' · ')}</small>
-                                    </span>
-                                </div>
-                                <svg className={styles['subject-arrow']} viewBox="0 0 20 20" aria-hidden="true">
-                                    <path d="M4 10h11M11 5l5 5-5 5" />
-                                </svg>
-                            </Link>
-                        ))}
-                    </div>
+            <section ref={storyRef} className={styles.story} aria-label="星图">
+                <div className={styles.stage}>
+                    {CAPTIONS.map((cap, k) => (
+                        <article key={cap.step} ref={el => { capRefs.current[k] = el }} className={styles.cap}>
+                            <p className={styles.step}>{cap.step}</p>
+                            <Ignite as="h2" mode="caption" className={styles.capTitle} text={cap.title} />
+                            <div className={styles.extra}>
+                                {k === 0 && K ? (
+                                    <ul>{K.subjects.map((s, si) => <RailLink key={s.slug} compact to={`/subjects/${s.slug}`} color={s.color} name={s.name} count={s.count} list={K.bySubject[si]} />)}</ul>
+                                ) : null}
+                                {k === 1 ? <button className={styles.kbtn} type="button" onClick={() => gotoCompare({ mode: 'A', subj: 2, dom: -1 })}>数学 · 并排看 →</button> : null}
+                                {k === 2 ? <button className={styles.kbtn} type="button" onClick={() => gotoCompare({ mode: 'B', band: 1 })}>三四年级 · 并排看 →</button> : null}
+                                {k === 3 && K ? (
+                                    <ul className={styles.sk}>{K.skills.map(([code, name], si) => <RailLink key={code} compact to={`/skills/${code}`} color="#E9C887" name={<><code>{code}</code>{narrow ? SKILL_SHORT[si] : name}</>} title={name} count={K.bySkill[si].length} list={K.bySkill[si]} />)}</ul>
+                                ) : null}
+                                {k === 4 ? <button className={styles.kbtn} type="button" onClick={() => openPalette('')}>搜索 <kbd>⌘K</kbd></button> : null}
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </section>
 
-            {uiV2Enabled ? (
-                <HomeNarrativeGate
-                    subjectCount={subjects.length}
-                    standardCount={standardCount}
-                    skillCount={skills.length}
-                />
-            ) : null}
-
-            {/* Developer API */}
-            <section className={styles['api-section']} aria-labelledby="home-api-title">
-                <div className={`container ${styles['api-layout']}`}>
-                    <div className={styles['api-copy']}>
-                        <span className={styles['api-eyebrow']}>KEBIAO API · V1</span>
-                        <h2 id="home-api-title">课程标准，也可以成为你的产品能力</h2>
-                        <p>通过 API 检索 {standardCount.toLocaleString('zh-CN')} 条结构化标准、批量读取指定标准，并浏览已建立的年级进阶与相邻关系。</p>
-                        <div className={styles['api-actions']}>
-                            <Link to="/api" className="btn btn-primary btn-lg">
-                                查看 API
-                                <svg className={styles['inline-arrow']} viewBox="0 0 20 20" aria-hidden="true">
-                                    <path d="M4 10h11M11 5l5 5-5 5" />
-                                </svg>
-                            </Link>
-                            <a href="/api/v1/docs" className={styles['api-docs-link']}>完整接口文档</a>
-                        </div>
-                    </div>
-                    <div className={styles['api-console']} aria-label="API 能力示例">
-                        <div className={styles['api-console-header']}>
-                            <span>api.kebiao / v1</span>
-                            <i aria-hidden="true"></i>
-                        </div>
-                        <div className={styles['api-endpoints']}>
-                            <code><b>POST</b><span>/standards/search</span><small>检索标准</small></code>
-                            <code><b>GET</b><span>/standards/&#123;code&#125;/progression</span><small>读取进阶</small></code>
-                            <code><b>POST</b><span>/standards/batch</span><small>批量读取</small></code>
-                        </div>
-                        <div className={styles['api-console-meta']}>
-                            <span>{subjects.length} subjects</span>
-                            <span>{standardCount.toLocaleString('en-US')} standards</span>
-                            <span>OpenAPI 3.1</span>
-                        </div>
-                    </div>
+            <section id="compare" className={styles.compare} aria-labelledby="compare-title">
+                <div className={styles.wrap}>
+                    {K ? (
+                        <Suspense fallback={<ComparePlaceholder />}>
+                            <CompareWindow
+                                K={K}
+                                state={cmp}
+                                setState={setCmp}
+                                heading={<div><p className={styles.kicker}>对照窗</p><Ignite as="h2" mode="scrub" className={styles.h2} id="compare-title" text="并排看" /></div>}
+                            />
+                        </Suspense>
+                    ) : <ComparePlaceholder />}
                 </div>
             </section>
 
-            {/* Skills Section */}
-            <section className={styles['skills-section']}>
-                <div className="container">
-                    <div className={styles['section-header']}>
-                        <h2>可迁移技能</h2>
-                        <p>学生能跨学科、跨情境迁移运用的能力与素养</p>
-                    </div>
-                    <div className={styles['skills-grid']}>
-                        {skills.map(skill => (
-                            <Link
-                                key={skill.code}
-                                to={`/skills/${skill.code}`}
-                                className={styles['skill-preview-card']}
-                                style={{ '--skill-color': SKILL_COLORS[skill.code] }}
-                                aria-label={skill.name_cn}
-                                aria-describedby={`skill-preview-${skill.code}`}
-                            >
-                                <div className={styles['skill-card-header']}>
-                                    <TSBadge tsId={skill.code} size="md" variant="solid" />
-                                </div>
-                                <h3 className={styles['skill-name']}>{skill.name_cn}</h3>
-                                <p className={styles['skill-tagline']}>{skill.tagline_cn}</p>
-                                <span className={styles['skill-relation-hint']} id={`skill-preview-${skill.code}`}>
-                                    连接 {(skillSubjects[skill.code] || []).length} 个学科
-                                    <i aria-hidden="true"></i>
-                                    {skill.subskills?.length || 0} 项子技能
+            <section className={styles.feature} aria-labelledby="feature-title">
+                <div className={`${styles.wrap} ${styles.featureGrid}`}>
+                    <div className={styles.panel} style={{ '--c': '#3FA2E0' }} data-solid>
+                        <p className={styles.kicker}>一颗星</p>
+                        <FlapCode code={FEATURE.code} className={styles.flap} />
+                        <p className={styles.meta}><i aria-hidden="true" />{FEATURE.meta}</p>
+                        <Ignite as="h2" mode="scrub" className={styles.ftitle} id="feature-title" text={FEATURE.title} />
+                        <div className={styles.quote}>
+                            <p className={styles.tag}><b>原文</b>第 {FEATURE.page} 页</p>
+                            <p>{FEATURE.official}</p>
+                        </div>
+                        <div className={styles.rail} aria-label="学段进阶">
+                            {FEATURE.rail.map(([code, band, here], k) => (
+                                <span key={code} className={styles.hopWrap}>
+                                    {k > 0 && k < 3 ? <span className={styles.arrow} aria-hidden="true">→</span> : null}
+                                    {here
+                                        ? <span className={`${styles.hop} ${styles.here}`}><code>{code}</code><small>{band}</small></span>
+                                        : <Link className={styles.hop} to={`/standards/${code}`}><code>{code}</code><small>{band}</small></Link>}
                                 </span>
-                            </Link>
-                        ))}
-                    </div>
-                    <div className={styles['skills-cta']}>
-                        <Link to="/skills" className="btn btn-secondary btn-lg">
-                            查看全部可迁移技能
-                            <svg className={styles['inline-arrow']} viewBox="0 0 20 20" aria-hidden="true">
-                                <path d="M4 10h11M11 5l5 5-5 5" />
-                            </svg>
+                            ))}
+                        </div>
+                        <Link className={styles.cta} to={`/standards/${FEATURE.code}`}>展开
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg>
                         </Link>
                     </div>
+                    <BookPage />
                 </div>
             </section>
 
-            {/* How to Use Section */}
-            <section className={styles['howto-section']}>
-                <div className="container">
-                    <div className={styles['section-header']}>
-                        <h2>如何使用</h2>
-                    </div>
-                    <div className={styles['howto-grid']}>
-                        <div className={styles['howto-card']}>
-                            <div className={styles['howto-icon']}>1</div>
-                            <h3>选择学科与学段</h3>
-                            <p>通过首页筛选或直接进入学科页面，选择你关注的学科和年级范围</p>
-                        </div>
-                        <div className={styles['howto-card']}>
-                            <div className={styles['howto-icon']}>2</div>
-                            <h3>对比课程标准</h3>
-                            <p>选择多个学科或多个学段进行并列对比，快速发现跨学科/跨学段关联</p>
-                        </div>
-                        <div className={styles['howto-card']}>
-                            <div className={styles['howto-icon']}>3</div>
-                            <h3>关注可迁移技能</h3>
-                            <p>查看每条标准关联的可迁移技能，设计跨学科整合的教学活动</p>
-                        </div>
-                        <div className={styles['howto-card']}>
-                            <div className={styles['howto-icon']}>4</div>
-                            <h3>分享对比结果</h3>
-                            <p>对比状态保存在URL中，可直接分享链接给同事或学生</p>
-                        </div>
-                    </div>
+            <section className={styles.river} aria-labelledby="river-title">
+                <div className={styles.wrap}>
+                    <p className={styles.kicker}>课标长河</p>
+                    <Ignite as="h2" mode="scrub" className={styles.h2} id="river-title" text="随手捞一条" />
+                </div>
+                {K ? <River K={K} /> : null}
+            </section>
+
+            <section className={styles.end} aria-labelledby="end-title">
+                <div className={styles.wrap}>
+                    <Ignite as="h2" mode="scrub" className={styles.big} id="end-title" text="从一条开始。" />
+                    <button className={styles.cta} type="button" onClick={() => openPalette('')}>搜索全部 2,025 条 <kbd>⌘K</kbd></button>
                 </div>
             </section>
         </div>
+    )
+}
+
+function ComparePlaceholder() {
+    return (
+        <>
+            <p className={styles.kicker}>对照窗</p>
+            <h2 className={styles.h2} id="compare-title">并排看</h2>
+            <div className={styles.cmpPlaceholder} aria-hidden="true" />
+        </>
+    )
+}
+
+function BookPage() {
+    const pageRef = useRef(null)
+    const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const onMove = event => {
+        if (reduce || !pageRef.current) return
+        const r = pageRef.current.getBoundingClientRect()
+        const px = (event.clientX - r.left) / r.width - 0.5, py = (event.clientY - r.top) / r.height - 0.5
+        pageRef.current.style.transform = `rotateY(${px * 22}deg) rotateX(${-py * 16}deg) translateZ(20px)`
+    }
+    const { book } = FEATURE
+    return (
+        <figure className={styles.book} onPointerMove={onMove} onPointerLeave={() => { if (pageRef.current) pageRef.current.style.transform = '' }} data-solid>
+            <div ref={pageRef} className={styles.paper}>
+                <header><span>{book.edition}</span><span>{book.unit}</span></header>
+                <p className={styles.q}><b>{book.no}</b><mark>{book.text}</mark></p>
+                <span className={styles.note}>→ {FEATURE.code}</span>
+                <footer>— {book.page} —</footer>
+            </div>
+            <figcaption>人教版 · 四年级上册 · 第 {book.page} 页</figcaption>
+        </figure>
     )
 }
 

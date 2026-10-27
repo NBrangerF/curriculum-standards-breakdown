@@ -21,7 +21,6 @@ const budgets = [
     },
     { label: 'graph-canvas', pattern: /^GraphCanvas-.*\.js$/, maxGzipKB: 60 },
     { label: 'graph-workspace', pattern: /^SkillsGraphWorkspace-.*\.js$/, maxGzipKB: 30 },
-    { label: 'home-narrative', pattern: /^HomeNarrativeSection-.*\.js$/, maxGzipKB: 60 },
     { label: 'learning-map-renderer', pattern: /^learningDagRendererDecision-.*\.js$/, maxGzipKB: 90 }
 ]
 
