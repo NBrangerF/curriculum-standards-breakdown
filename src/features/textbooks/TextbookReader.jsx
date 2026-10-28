@@ -17,10 +17,14 @@ import styles from './TextbookReader.module.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString()
 
+// Fetch only the byte ranges the visible pages need. By default PDF.js streams the whole
+// file in the background, so opening one page of a 100 MB textbook downloads all of it.
 const DOCUMENT_OPTIONS = {
     cMapUrl: '/pdfjs/cmaps/',
     standardFontDataUrl: '/pdfjs/standard_fonts/',
-    wasmUrl: '/pdfjs/wasm/'
+    wasmUrl: '/pdfjs/wasm/',
+    disableAutoFetch: true,
+    disableStream: true
 }
 
 function ThumbnailRail({ pdf, numPages, currentPage, onJump }) {
