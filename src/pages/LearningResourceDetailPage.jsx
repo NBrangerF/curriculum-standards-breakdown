@@ -1,66 +1,122 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams, useSearchParams } from 'react-router-dom'
-import { loadLearningResource, loadStandardsForLearningResource } from '../data/dataLoader'
+import { Link, useParams } from 'react-router-dom'
+import { loadLearningResource, SUBJECT_COLORS } from '../data/dataLoader'
 import { ErrorState, LoadingState } from '../components/StateComponents'
-import { roleLabel, sourceLabel, typeLabel } from '../features/learning-resources/labels'
+import { Chip, PageHero, SectionHead, kb } from '../components/kb'
+import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
+import {
+    OPEN_LEVEL_LABELS,
+    accessLabel,
+    formatLabel,
+    languageLabel,
+    licenseLabel,
+    stageLabel,
+    hasDistinctOriginal,
+    subjectLabel
+} from '../features/learning-resources/labels'
 import styles from './LearningResourceDetailPage.module.css'
+
+const ACCESS_NOTES = {
+    direct: '在中国大陆网络下两次检测都能正常打开。',
+    unstable: '在中国大陆网络下打开较慢或时好时坏，建议课前先试开。',
+    blocked: '在中国大陆网络下无法直接打开，课前请确认学校网络能否访问。'
+}
 
 export default function LearningResourceDetailPage() {
     const { resourceId } = useParams()
-    const [searchParams] = useSearchParams()
-    const fragmentId = searchParams.get('fragment') || ''
     const [resource, setResource] = useState(undefined)
-    const [standards, setStandards] = useState([])
     const [error, setError] = useState(null)
+
     useEffect(() => {
-        Promise.all([
-            loadLearningResource(resourceId, fragmentId),
-            loadStandardsForLearningResource(resourceId, fragmentId)
-        ]).then(([nextResource, nextStandards]) => {
-            setResource(nextResource)
-            setStandards(nextStandards)
-        }).catch(setError)
-    }, [resourceId, fragmentId])
+        setResource(undefined)
+        loadLearningResource(resourceId).then(setResource).catch(setError)
+    }, [resourceId])
+
     if (error) return <ErrorState title="学习资源暂时不可用" message={error.message} />
     if (resource === undefined) return <LoadingState message="正在整理学习资源" />
-    if (!resource) return <ErrorState title="未找到学习资源" message="该资源可能已更新或撤回。" />
+    if (!resource) return <ErrorState title="未找到学习资源" message="该资源可能已更新或移出目录。" />
+
+    const facts = [
+        ['学科', resource.subjects.map(subjectLabel).join('、')],
+        ['学段', resource.stages.map(stageLabel).join('、')],
+        ['类型', resource.formats.map(formatLabel).join('、')],
+        ['语言', resource.languages.map(languageLabel).join('、')]
+    ]
+
     return (
-        <article className={styles.page}>
-            <Link to="/learning-resources" className={styles.back}>← 返回学习资源库</Link>
-            <header className={styles.header}>
-                <span>{sourceLabel(resource.source_id)} · {typeLabel(resource.resource_type)}</span>
-                <h1>{resource.title.text}</h1>
-                <div className={styles.chips}>
-                    {resource.pedagogical_roles.map(role => <span key={role}>{roleLabel(role)}</span>)}
-                    {resource.mapped_china_grade_scope.length ? <span>{resource.mapped_china_grade_scope.join('、')} 年级</span> : null}
-                </div>
-            </header>
-            <div className={styles.layout}>
-                <main className={styles.body}>
-                    {resource.blocks.map(block => {
-                        if (block.type === 'heading') return <h2 key={block.target_block_id}>{block.text.text}</h2>
-                        if (block.type === 'quotation') return <blockquote key={block.target_block_id}>{block.text.text}</blockquote>
-                        return <p key={block.target_block_id}>{block.text.text}</p>
-                    })}
-                </main>
-                <aside className={styles.aside}>
-                    <section className={styles.standards}>
-                        <h2>对应课程标准</h2>
-                        {standards.length ? standards.map(({ alignment, standard }) => (
-                            <Link key={alignment.alignment_id} to={`/standards/${standard.code}`}>
-                                <strong>{standard.code}</strong>
-                                <span>{standard.standard_title || standard.standard}</span>
-                                <small>{alignment.rationale_zh}</small>
-                            </Link>
-                        )) : <p>这份资源暂时还没有通过证据检查的课标关联。</p>}
+        <div className={styles.root} data-kb-route="learning-resource-detail">
+            <PageHero
+                crumbs={[{ to: '/learning-resources', label: '学习资源' }, { label: resource.provider }]}
+                title={resource.title_zh}
+                long={resource.title_zh.length > 14}
+                lede={hasDistinctOriginal(resource) ? resource.title_original : undefined}
+                color={SUBJECT_COLORS[resource.subjects[0]]}
+                actions={(
+                    <>
+                        <OpenOriginalLink resource={resource} />
+                        <Chip to="/learning-resources">返回资源目录</Chip>
+                    </>
+                )}
+            >
+                <ResourceBadges resource={resource} className={styles.heroBadges} />
+            </PageHero>
+
+            <div className={`${kb.wrap} ${styles.layout}`}>
+                <div className={styles.main}>
+                    <section className={styles.block} aria-labelledby="lr-summary">
+                        <SectionHead kicker="简介" title="这是什么" size="sm" id="lr-summary" />
+                        <p className={styles.prose}>{resource.summary_zh}</p>
                     </section>
-                    <h2>来源与许可</h2>
-                    <p>{resource.provenance.attribution_text}</p>
-                    <a href={resource.provenance.canonical_url} target="_blank" rel="noreferrer">查看原始资源 ↗</a>
-                    <a href={resource.provenance.license_url} target="_blank" rel="noreferrer">{resource.provenance.license_id} ↗</a>
-                    <small>{resource.provenance.adaptation_notice}</small>
+
+                    <section className={styles.block} aria-labelledby="lr-how">
+                        <SectionHead kicker="课堂用法" title="怎么用" size="sm" id="lr-how" />
+                        <p className={styles.prose}>{resource.how_to_use_zh}</p>
+                    </section>
+
+                    <section className={styles.block} aria-labelledby="lr-standards">
+                        <SectionHead kicker={`对应课标 · ${resource.standards.length} 条`} title="对应的课程标准" size="sm" id="lr-standards" />
+                        <ol className={`${kb.list} ${styles.standards}`}>
+                            {resource.standards.map(item => (
+                                <li key={item.code} style={{ '--c': SUBJECT_COLORS[item.subject] }}>
+                                    <Link to={`/standards/${item.code}`} className={styles.standardLink}>
+                                        <span className={styles.code}><i aria-hidden="true" />{item.code}</span>
+                                        <span className={styles.standardTitle}>{item.standard_title}</span>
+                                        <span className={styles.standardMeta}>{subjectLabel(item.subject)} · {stageLabel(item.stage)}</span>
+                                    </Link>
+                                    <p className={styles.rationale}>{item.rationale_zh}</p>
+                                </li>
+                            ))}
+                        </ol>
+                    </section>
+                </div>
+
+                <aside className={`${kb.panel} ${styles.aside}`} aria-labelledby="lr-source">
+                    <p className={kb.kicker} id="lr-source">来源与许可</p>
+                    <dl className={styles.facts}>
+                        <div><dt>提供方</dt><dd>{resource.provider}</dd></div>
+                        <div>
+                            <dt>许可</dt>
+                            <dd>
+                                <a href={resource.license_url} target="_blank" rel="noopener noreferrer">{licenseLabel(resource.license)} ↗</a>
+                                <small>{OPEN_LEVEL_LABELS[resource.open_level]}</small>
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>国内访问</dt>
+                            <dd>
+                                {accessLabel(resource.china_access)}
+                                <small>{ACCESS_NOTES[resource.china_access]}检测于 {resource.checked_at}。</small>
+                            </dd>
+                        </div>
+                        {facts.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+                    </dl>
+                    <div className={styles.attribution}>
+                        <p className={kb.label}>引用署名</p>
+                        <p>《{resource.title_original}》，{resource.provider}，{licenseLabel(resource.license)}。</p>
+                    </div>
+                    <OpenOriginalLink resource={resource} className={styles.asideOpen} />
                 </aside>
             </div>
-        </article>
+        </div>
     )
 }

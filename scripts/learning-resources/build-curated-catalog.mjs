@@ -82,8 +82,9 @@ function subjectOrder(resource) {
 
 /** Pure: curated entries + standard index -> { catalog, byStandard }. */
 export function buildCatalog(curated, standards) {
+    // Subjects in curriculum order; within a subject, keep the order the curator chose.
     const resources = [...curated]
-        .sort((a, b) => subjectOrder(a) - subjectOrder(b) || a.id.localeCompare(b.id))
+        .sort((a, b) => subjectOrder(a) - subjectOrder(b))
         .map(resource => {
             const aligned = resource.standards.map(item => ({ ...item, ...standards.get(item.code) }))
             return {

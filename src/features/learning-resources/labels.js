@@ -1,57 +1,71 @@
-export const SOURCE_LABELS = {
-    oak: 'Oak 国家课程资源',
-    bookdash: 'Book Dash 儿童读物',
-    'african-storybook': '非洲故事书',
-    siyavula: 'Siyavula 开放教材',
-    'cs-unplugged': '不插电计算机科学',
-    'mdn-zh-cn': 'MDN 中文技术文档',
-    'raspberry-pi-learning': '树莓派学习资源'
+export const SUBJECT_LABELS = {
+    morality_law: '道德与法治',
+    chinese: '语文',
+    math: '数学',
+    english: '英语',
+    science: '科学',
+    it: '信息科技',
+    pe: '体育与健康',
+    arts: '艺术',
+    labor: '劳动'
 }
 
-export const ROLE_LABELS = {
-    explain: '概念讲解',
-    model: '示范案例',
-    explore: '探究活动',
-    practice: '练习活动',
-    assess: '学习评价',
-    assessment: '学习评价',
-    remediate: '补救学习',
-    extend: '拓展学习',
-    teacher_support: '教师支持',
-    read_aloud: '朗读材料',
-    reference: '参考资料',
-    project: '项目学习',
-    contextualize: '情境材料'
+export const STAGE_LABELS = {
+    'G1-2': '1–2 年级',
+    'G3-4': '3–4 年级',
+    'G5-6': '5–6 年级',
+    'G7-9': '7–9 年级'
 }
 
-export const TYPE_LABELS = {
-    article: '文章',
-    activity: '学习活动',
+export const FORMAT_LABELS = {
+    interactive: '互动仿真',
+    video: '视频',
+    lesson: '课程与活动',
     book: '读物',
-    assessment: '评价任务',
-    dataset: '数据材料',
-    explanation: '概念讲解',
-    glossary_entry: '术语条目',
-    lesson: '课时资源',
-    lesson_plan: '教学方案',
-    practice_set: '练习集',
-    primary_source: '一手材料',
-    reference: '参考资料',
-    story: '故事',
-    teacher_guide: '教师用书',
-    tutorial: '教程',
-    worked_example: '例题解析',
-    worksheet: '学习单'
+    tool: '工具',
+    dataset: '素材与数据',
+    text: '文本'
 }
 
-export function sourceLabel(value) {
-    return SOURCE_LABELS[value] || '开放学习资源'
+export const ACCESS_LABELS = {
+    direct: '国内可直接访问',
+    unstable: '国内访问不稳定',
+    blocked: '国内无法直接访问'
 }
 
-export function roleLabel(value) {
-    return ROLE_LABELS[value] || '学习支持'
+export const LICENSE_LABELS = {
+    'CC0-1.0': 'CC0',
+    PD: '公有领域',
+    'CC-BY-4.0': 'CC BY 4.0',
+    'CC-BY-3.0': 'CC BY 3.0',
+    'CC-BY-2.0-FR': 'CC BY 2.0',
+    'CC-BY-SA-4.0': 'CC BY-SA 4.0',
+    'CC-BY-SA-2.5': 'CC BY-SA 2.5',
+    MIT: 'MIT',
+    'Apache-2.0': 'Apache 2.0',
+    'MIXED-OPEN': '逐项开放许可',
+    'CC-BY-NC-4.0': 'CC BY-NC 4.0',
+    'CC-BY-NC-SA-4.0': 'CC BY-NC-SA 4.0'
 }
 
-export function typeLabel(value) {
-    return TYPE_LABELS[value] || '学习资源'
+export const OPEN_LEVEL_LABELS = {
+    open: '开放许可，可改编、可商用',
+    noncommercial: '仅限非商业使用'
 }
+
+export const LANGUAGE_LABELS = {
+    zh: '中文',
+    en: '英文'
+}
+
+const pick = (labels, value, fallback) => labels[value] || fallback || value
+
+export const subjectLabel = value => pick(SUBJECT_LABELS, value)
+export const stageLabel = value => pick(STAGE_LABELS, value)
+export const formatLabel = value => pick(FORMAT_LABELS, value, '资源')
+export const accessLabel = value => pick(ACCESS_LABELS, value, '未检测')
+export const licenseLabel = value => pick(LICENSE_LABELS, value)
+export const languageLabel = value => pick(LANGUAGE_LABELS, value)
+
+/** True when the original title says more than the Chinese one, ignoring book-title marks. */
+export const hasDistinctOriginal = resource => resource.title_original.replace(/[《》]/gu, '') !== resource.title_zh.replace(/[《》]/gu, '')

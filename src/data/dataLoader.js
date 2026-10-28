@@ -32,8 +32,7 @@ const cache = {
     codeAliases: null,
     capabilityGraphs: new Map(),
     learningResourceCatalog: null,
-    learningResourcesByStandard: new Map(),
-    learningResourceStandards: new Map()
+    learningResourcesByStandard: new Map()
 }
 
 // ============================================
@@ -70,13 +69,12 @@ export async function loadLearningResourceCatalog() {
     return data
 }
 
-export async function loadLearningResource(resourceId, fragmentId = '') {
+export async function loadLearningResource(resourceId) {
     const catalog = await loadLearningResourceCatalog()
-    return (catalog.resources || []).find(resource => (
-        resource.resource_id === resourceId && (!fragmentId || resource.fragment_id === fragmentId)
-    )) || null
+    return (catalog.resources || []).find(resource => resource.id === resourceId) || null
 }
 
+/** Curated resources aligned to one standard; most standards have none, so a missing file means an empty list. */
 export async function loadLearningResourcesForStandard(standardCode) {
     if (cache.learningResourcesByStandard.has(standardCode)) {
         return cache.learningResourcesByStandard.get(standardCode)
@@ -86,33 +84,9 @@ export async function loadLearningResourcesForStandard(standardCode) {
         cache.learningResourcesByStandard.set(standardCode, data)
         return data
     } catch {
-        const empty = { standard_code: standardCode, resources: [], alignments: [] }
+        const empty = { standard_code: standardCode, resources: [] }
         cache.learningResourcesByStandard.set(standardCode, empty)
         return empty
-    }
-}
-
-export async function loadStandardsForLearningResource(resourceId, fragmentId = '') {
-    const cacheKey = `${resourceId}:${fragmentId}`
-    if (cache.learningResourceStandards.has(cacheKey)) {
-        return cache.learningResourceStandards.get(cacheKey)
-    }
-    try {
-        const data = await fetchJSON(`/learning-resources/by-resource/${encodeURIComponent(resourceId)}.alignments.json`)
-        const standards = await Promise.all(
-            (data.alignments || [])
-                .filter(alignment => !fragmentId || alignment.fragment_id === fragmentId)
-                .map(async alignment => ({
-                alignment,
-                standard: await loadStandardByCode(alignment.standard_code)
-            }))
-        )
-        const result = standards.filter(item => item.standard)
-        cache.learningResourceStandards.set(cacheKey, result)
-        return result
-    } catch {
-        cache.learningResourceStandards.set(cacheKey, [])
-        return []
     }
 }
 

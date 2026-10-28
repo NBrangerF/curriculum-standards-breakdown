@@ -1,5 +1,201 @@
-.page{max-width:1180px;margin:0 auto;padding:48px 24px 96px}.hero{max-width:800px;margin-bottom:36px}.hero>span{color:#e9c887;font-size:.72rem;font-weight:800;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.7rem);line-height:1.08;margin:12px 0 16px;letter-spacing: 0.01em}.hero p{color:#c1c9d2;font-size:1.08rem;line-height:1.75}.hero strong{display:inline-block;margin-top:12px;color:#e9c887}.toolbar{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:12px;margin-bottom:28px}.toolbar input,.toolbar select{border:1px solid rgba(222, 228, 238, 0.171);border-radius:12px;background:#0f0f0f;padding:13px 15px;font:inherit;color:#e3e8f3}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{border:1px solid rgba(222, 228, 238, 0.161);background:#0f0f0f;border-radius:18px;padding:22px;box-shadow:0 12px 32px rgba(0, 0, 0, 0.22)}.card h2{font-size:1.18rem;line-height:1.4;margin:14px 0 10px}.card h2 a{color:#dfe5f2;text-decoration:none}.card p{color:#bec4ce;line-height:1.72}.meta{display:flex;justify-content:space-between;gap:10px;color:#b7bcc5;font-size:.76rem}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}.tags span{background:#0f1015;color:#97a0dc;border-radius:999px;padding:5px 9px;font-size:.72rem}.empty{padding:60px 0;text-align:center;color:#b5bbc5}
+.root { min-height: 100%; color: var(--kb-moon); }
 
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Filters stay in the flow: four rows are too tall to pin over the list. */
+.filters {
+    padding: 16px 0;
+    border-block: 1px solid var(--kb-line);
+}
 
-@media(max-width:600px){.page{padding:30px 16px 72px}.toolbar,.grid{grid-template-columns:1fr}.hero h1{font-size:2.25rem}}
+.filterInner { display: grid; gap: 10px; }
+
+.search {
+    display: flex;
+    width: min(100%, 26rem);
+    min-height: 44px;
+    align-items: center;
+    padding: 0 14px;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: 14px;
+    background: rgba(14, 17, 24, 0.75);
+}
+
+.search:focus-within { border-color: var(--kb-gold); outline: 2px solid var(--kb-gold); outline-offset: 2px; }
+
+.search input {
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--kb-moon);
+    font: inherit;
+    font-size: 15px;
+}
+
+.filterRow {
+    display: grid;
+    grid-template-columns: 3.2rem minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+}
+
+/* Each row scrolls on its own so the page itself never scrolls sideways. */
+.scroller {
+    display: flex;
+    min-width: 0;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 2px;
+    scrollbar-width: none;
+}
+
+.scroller::-webkit-scrollbar { display: none; }
+.scroller > * { flex: none; }
+
+.count {
+    color: var(--kb-dim);
+    font-family: var(--font-num);
+    font-size: 15px;
+    font-style: italic;
+}
+
+/* Results */
+.results { padding-block: clamp(32px, 5vw, 64px) clamp(72px, 10vw, 128px); }
+
+.resultsHead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 24px;
+    margin-bottom: 18px;
+}
+
+.resultsTitle {
+    margin: 0;
+    color: var(--kb-mist);
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.resultsTitle b {
+    margin-right: 6px;
+    color: var(--kb-gold);
+    font-family: var(--font-num);
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.note { max-width: 34rem; margin: 0; color: var(--kb-dim); font-size: 13px; line-height: 1.7; }
+
+.row {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    align-items: start;
+    gap: clamp(14px, 3vw, 36px);
+    padding: clamp(22px, 3.4vw, 40px) 0;
+}
+
+.index {
+    padding-top: 4px;
+    color: var(--kb-dim);
+    font-family: var(--font-num);
+    font-size: 26px;
+    font-style: italic;
+    line-height: 1;
+}
+
+.body { min-width: 0; }
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    margin: 0;
+    color: var(--kb-gold);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+}
+
+.meta span + span { color: var(--kb-dim); }
+
+.title {
+    margin: 10px 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 900;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+}
+
+.title a { color: var(--kb-moon); text-decoration: none; }
+.title a:hover { color: var(--kb-gold); }
+.title a:focus-visible { border-radius: 4px; outline: 3px solid var(--kb-focus); outline-offset: 3px; }
+
+.original { margin: 4px 0 0; color: var(--kb-dim); font-size: 13.5px; overflow-wrap: anywhere; }
+
+.badges { margin-top: 14px; }
+
+.summary {
+    max-width: 62ch;
+    margin: 14px 0 0;
+    color: var(--kb-mist);
+    font-size: 15.5px;
+    line-height: 1.85;
+    text-wrap: pretty;
+}
+
+.standards { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; }
+
+/* Standard titles can be long sentences; cut them so a chip never outgrows a phone screen. */
+.standardChip { max-width: 100%; }
+.standardChip span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
+.more { color: var(--kb-mist); font-size: 13px; }
+.more:hover { color: var(--kb-gold); }
+
+.actions { display: grid; justify-items: end; gap: 8px; padding-top: 4px; }
+
+.detail {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    color: var(--kb-mist);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.detail:hover { color: var(--kb-gold); }
+
+.empty {
+    display: grid;
+    justify-items: center;
+    gap: 14px;
+    padding: 72px 16px;
+    border-block: 1px solid var(--kb-line);
+    color: var(--kb-mist);
+    text-align: center;
+}
+
+.empty p { margin: 0; }
+
+.clear {
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: 999px;
+    background: none;
+    color: var(--kb-moon);
+    font: inherit;
+}
+
+@media (max-width: 760px) {
+    .row { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+    .index { display: none; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; justify-items: start; gap: 16px; }
+}
