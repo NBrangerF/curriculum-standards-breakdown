@@ -315,7 +315,14 @@ export class TextbookAssetService {
 
         let upstream: Response
         try {
-            upstream = await this.fetchRemote(remoteUrl, { method: c.req.method === 'HEAD' ? 'HEAD' : 'GET', headers })
+            // PDF.js opens with a full GET and drops it once it sees range support. The signal
+            // stops the upstream read when the reader hangs up, so the rest of the file never
+            // streams through the function.
+            upstream = await this.fetchRemote(remoteUrl, {
+                method: c.req.method === 'HEAD' ? 'HEAD' : 'GET',
+                headers,
+                signal: c.req.raw.signal
+            })
         } catch {
             return apiError(c, 503, 'asset_origin_unavailable', '教材文件源站暂时不可用，请稍后重试。')
         }
