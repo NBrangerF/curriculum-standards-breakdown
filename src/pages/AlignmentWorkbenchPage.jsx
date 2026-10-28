@@ -158,7 +158,7 @@ function AlignmentWorkbenchPage() {
         <div className={styles.root} data-kb-route="alignment-workbench">
             <header className={styles.hero}>
                 <div className="container">
-                    <p className={styles.eyebrow}>Alignment workbench · Text preview</p>
+                    <p className={styles.eyebrow}>教学计划对齐 · 文本预览版</p>
                     <h1>把教学计划对齐到课程标准</h1>
                     <p>解析、复核、匹配、确认、覆盖分析。机器只提出候选；教师决定什么真正进入计划。</p>
                 </div>

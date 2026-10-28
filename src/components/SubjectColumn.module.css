@@ -6,7 +6,7 @@
     background: var(--bg-primary);
     border-radius: var(--radius-xl);
     border: 1px solid var(--color-gray-200);
-    border-top: 4px solid var(--column-color, var(--color-primary));
+    border-top: 1px solid var(--column-color, var(--kb-gold));
     overflow: hidden;
     height: calc(100vh - 200px);
     min-height: 400px;
@@ -17,9 +17,10 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background: var(--bg-primary);
+    background: var(--kb-night-glass);
+    backdrop-filter: blur(16px);
     padding: var(--space-4);
-    border-bottom: 1px solid var(--color-gray-200);
+    border-bottom: 1px solid var(--kb-line);
 }
 
 .column-title-row {
@@ -30,9 +31,11 @@
 }
 
 .column-title {
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    color: color-mix(in srgb, var(--column-color, var(--color-primary)) 72%, #eaedf6);
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    color: var(--kb-moon);
     margin: 0;
 }
 
@@ -53,17 +56,18 @@
     width: 100%;
     padding: var(--space-2) var(--space-3);
     padding-right: var(--space-8);
-    font-size: var(--font-size-sm);
-    border: 1px solid var(--color-gray-200);
-    border-radius: var(--radius-md);
-    background: var(--bg-secondary);
+    font-size: 14px;
+    color: var(--kb-moon);
+    border: 1px solid var(--kb-line-strong);
+    border-radius: 12px;
+    background: rgba(14, 17, 24, 0.75);
     transition: all var(--transition-fast);
 }
 
 .column-search-input:focus {
     outline: none;
-    border-color: var(--column-color, var(--color-primary));
-    background: var(--bg-primary);
+    border-color: var(--kb-gold);
+    background: rgba(14, 17, 24, 0.9);
 }
 
 .column-search-clear {
@@ -112,26 +116,29 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--space-3);
-    background: var(--bg-secondary);
-    border: none;
-    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--kb-line);
+    border-radius: 14px;
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .domain-header:hover {
-    background: var(--color-gray-200);
+    background: rgba(255, 255, 255, 0.06);
 }
 
+/* Open: the subject colour shows as a glowing edge, not a filled bar. */
 .domain-header.expanded {
-    background: color-mix(in srgb, var(--column-color, var(--color-primary)) 72%, #111827);
-    color: var(--kb-night);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-color: color-mix(in srgb, var(--column-color, var(--kb-gold)) 60%, transparent);
+    box-shadow: inset 2px 0 var(--column-color, var(--kb-gold));
+    color: var(--kb-moon);
+    border-radius: 14px 14px 0 0;
 }
 
 .domain-name {
-    font-size: var(--font-size-sm);
+    font-size: 15px;
     font-weight: 600;
+    color: var(--kb-moon);
     text-align: left;
 }
 
@@ -142,14 +149,15 @@
 }
 
 .domain-count {
-    font-size: var(--font-size-xs);
-    padding: 2px var(--space-2);
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: var(--radius-sm);
+    font-family: var(--font-num);
+    font-size: 17px;
+    font-style: italic;
+    padding: 0 4px;
+    color: var(--column-color, var(--kb-gold));
 }
 
 .domain-header.expanded .domain-count {
-    background: rgba(255, 255, 255, 0.2);
+    color: var(--column-color, var(--kb-gold));
 }
 
 .domain-toggle {

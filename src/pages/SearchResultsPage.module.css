@@ -3,23 +3,18 @@
     display: inline-flex;
     min-height: 44px;
     align-items: center;
-    color: var(--text-secondary);
-    font-size: 0.78rem;
-    font-weight: 600;
+    color: var(--kb-gold);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
     text-decoration: none;
 }
 
-.backLink:hover { color: var(--kb-accent); }
+.backLink:hover { color: var(--kb-moon); }
 .backLink:focus-visible { outline: 3px solid var(--kb-focus); outline-offset: 3px; }
 
 .search-header {
-    background:
-        linear-gradient(rgba(233, 200, 135, 0.063) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(233, 200, 135, 0.063) 1px, transparent 1px),
-        var(--kb-surface);
-    background-size: 4.5rem 4.5rem;
-    border-bottom: 1px solid var(--kb-hairline);
-    padding: var(--space-8) 0;
+    padding: clamp(28px, 4vw, 48px) 0 clamp(18px, 3vw, 32px);
 }
 
 .search-header :global(.container) {
@@ -31,10 +26,13 @@
 
 .search-header h1 {
     display: flex;
-    font-size: var(--font-size-2xl);
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4.2vw, 56px);
+    font-weight: 900;
+    letter-spacing: 0.04em;
     align-items: center;
     gap: var(--space-3);
-    color: var(--kb-ink);
+    color: var(--kb-moon);
     flex: 1;
     margin: 0;
 }
@@ -46,9 +44,8 @@
 
 /* Filter Section */
 .search-results-page .filter-section {
-    background: var(--bg-primary);
     padding: var(--space-6) 0;
-    border-bottom: 1px solid var(--color-gray-200);
+    border-block: 1px solid var(--kb-line);
     animation: slideDown 0.2s ease-out;
 }
 
