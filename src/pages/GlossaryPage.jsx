@@ -184,14 +184,14 @@ function GlossaryPage() {
                             <ArrowLeftIcon size={17} aria-hidden="true" />
                             返回首页
                         </Link>
-                        <span className={styles.coordinate} aria-hidden="true">REFERENCE / TERMS</span>
+                        <span className={styles.coordinate} aria-hidden="true">术语 · 读懂课标的词</span>
                         <h1 id="glossary-title">术语表</h1>
                         <p>课程标准、结构字段与可迁移技能系统的关键定义。</p>
                     </div>
                     <div className={styles.indexMark} aria-hidden="true">
                         <BookOpenTextIcon size={30} weight="light" />
                         <span>{String(terms.length).padStart(2, '0')}</span>
-                        <small>TERMS</small>
+                        <small>条术语</small>
                     </div>
                 </div>
             </section>

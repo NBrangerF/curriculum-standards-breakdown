@@ -87,7 +87,7 @@ function SkillsOverviewPage() {
                     </div>
                     <div className={styles['skills-hero-content']}>
                         <div>
-                            <span className={styles['skills-eyebrow']}>Transferable Skills</span>
+                            <span className={styles['skills-eyebrow']}>可迁移技能 · TS1–TS7</span>
                             <h1 className={styles['skills-title']}>可迁移技能与课程关系</h1>
                         </div>
                         <p className={styles['skills-subtitle']}>
@@ -166,7 +166,7 @@ function SkillsOverviewPage() {
                         <div className="container">
                             <div className={`section-header ${styles['skills-section-header']}`}>
                                 <div>
-                                    <span>Definitions & Evidence</span>
+                                    <span>定义与证据</span>
                                     <h2>技能详情</h2>
                                 </div>
                                 <p>查看技能定义、子技能及其在不同学科课程标准中的真实映射。</p>

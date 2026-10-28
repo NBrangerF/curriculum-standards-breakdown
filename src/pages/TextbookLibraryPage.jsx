@@ -56,7 +56,7 @@ export default function TextbookLibraryPage() {
             <section className={styles.hero}>
                 <div className={`container ${styles.heroInner}`}>
                     <div>
-                        <span className={styles.eyebrow}><BookOpenTextIcon size={16} aria-hidden="true" /> KEBIAO TEXTBOOK LIBRARY</span>
+                        <span className={styles.eyebrow}><BookOpenTextIcon size={16} aria-hidden="true" /> 教材馆 · 义务教育教科书</span>
                         <h1>教材馆</h1>
                         <p>不只是 PDF 书架。从一本教材进入可定位的章节、印刷页码、课程标准和配套资源。</p>
                     </div>
