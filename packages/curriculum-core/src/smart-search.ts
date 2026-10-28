@@ -407,6 +407,19 @@ function scoreRecord(
     }
 }
 
+/** Topic terms not contained in a longer topic term; these are the ones a reader sees and can remove. */
+function topicHeads(terms: string[]): string[] {
+    return terms.filter(term => !terms.some(other => other !== term && other.includes(term)))
+}
+
+// Removing "数据分析" also removes its fragments "数据" and "分析", unless a remaining topic still contains them.
+function dropIgnoredTopics(terms: string[], ignored: string[]): string[] {
+    if (!ignored.length) return terms
+    const keptHeads = topicHeads(terms).filter(term => !ignored.includes(term))
+    return terms.filter(term => !ignored.includes(term)
+        && (!ignored.some(value => value.includes(term)) || keptHeads.some(head => head.includes(term))))
+}
+
 function parsedSkillOverlap(terms: string[], recordSkills: string[]): number {
     if (!recordSkills.length) return 0
     const inferred = Object.entries(SKILL_ALIASES)
@@ -421,20 +434,32 @@ export function smartSearchStandards(
 ): SmartSearchResponse {
     const parsedQuery = parseSmartSearchQuery(request.query)
     const rankingProfile: RankingProfile = request.ranking_profile || 'topic_evidence_v1'
+    const ignored = {
+        subjects: unique(request.ignored_constraints?.subjects || []),
+        excluded_subjects: unique(request.ignored_constraints?.excluded_subjects || []),
+        grade_bands: unique(request.ignored_constraints?.grade_bands || []),
+        core_terms: unique(request.ignored_constraints?.core_terms || [])
+    }
     const inferredCoreTerms = rankingProfile === 'plan_alignment_v1'
         ? []
         : unique((request.inferred_core_terms || []).flatMap(extractCoreTerms))
-    const coreTerms = rankingProfile === 'plan_alignment_v1'
+    const coreTerms = dropIgnoredTopics(rankingProfile === 'plan_alignment_v1'
         ? planAlignmentTokens(request.query)
-        : unique([...parsedQuery.core_terms, ...inferredCoreTerms]).slice(0, 24)
+        : unique([...parsedQuery.core_terms, ...inferredCoreTerms]).slice(0, 24), ignored.core_terms)
     const expansionTerms = rankingProfile === 'plan_alignment_v1'
         ? unique((request.query_expansion_terms || []).flatMap(planAlignmentTokens)).slice(0, 80)
         : unique((request.query_expansion_terms || []).flatMap(extractCoreTerms))
             .filter(term => !coreTerms.includes(term))
             .filter(term => sharesTopicAnchor(term, coreTerms))
             .slice(0, 60)
-    const { filters, warnings, conflicts } = mergeFilters(request, parsedQuery)
-    const limit = Math.min(Math.max(request.limit || 12, 1), 50)
+    const { filters: mergedFilters, warnings, conflicts } = mergeFilters(request, parsedQuery)
+    const filters = {
+        ...mergedFilters,
+        subjects: mergedFilters.subjects.filter(value => !ignored.subjects.includes(value)),
+        excluded_subjects: mergedFilters.excluded_subjects.filter(value => !ignored.excluded_subjects.includes(value)),
+        grade_bands: mergedFilters.grade_bands.filter(value => !ignored.grade_bands.includes(value))
+    }
+    const limit =Math.min(Math.max(request.limit || 12, 1), 50)
     const minScore = request.min_score ?? (rankingProfile === 'plan_alignment_v1' ? 0.08 : 0.12)
     const candidates = standards.filter(record => matchesHardFilters(record, filters))
     const relevant = candidates
@@ -479,6 +504,7 @@ export function smartSearchStandards(
                 confidence: parsedQuery.core_terms.includes(value) ? 1 : 0.72
             })),
             resolved_constraints: filters,
+            ignored_constraints: ignored,
             conflicts,
             ambiguities: [],
             needs_clarification: false,

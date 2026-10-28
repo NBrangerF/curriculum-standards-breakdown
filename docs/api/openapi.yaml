@@ -737,7 +737,7 @@ paths:
       tags: [课程标准]
       operationId: smartSearchStandards
       summary: 用自然语言检索可信课程标准候选
-      description: 以用户的完整自然语言为唯一必填输入。服务端先生成 `nlq-v2` Query Plan，再执行确定性检索。gpt-5-mini 只能提交带原句证据片段的主题、紧密扩展词、包含/排除学科与学段候选；无法回指到用户原句的硬约束会被丢弃。规则解析与模型矛盾时，用户原话优先并记入 `query_plan.conflicts`。Responses API 使用 Structured Outputs，兼容 Chat Completions 路径使用 JSON mode 并执行同一白名单与结构校验。发送给模型前，服务端会去除邮箱、手机号、身份证号及带标签的姓名/学校/班级信息。候选必须在允许检索的可追溯字段中命中主题；课标正文、标题与分类命中返回 `direct`，编辑整理字段命中只返回 `supporting`。结果不足 `limit` 时不会用低相关记录补足。模型不生成标准 code、来源、标准内容或匹配理由；不可用时回退到确定性解析。所有结果均为待复核候选。
+      description: 以用户的完整自然语言为唯一必填输入。服务端先生成 `nlq-v2` Query Plan，再执行确定性检索。gpt-5-mini 只能提交带原句证据片段的主题、紧密扩展词、包含/排除学科与学段候选；无法回指到用户原句的硬约束会被丢弃。规则解析与模型矛盾时，用户原话优先并记入 `query_plan.conflicts`。默认走 Chat Completions（JSON mode），可配置为 Responses API（Structured Outputs），两条路径执行同一白名单与结构校验，并使用最小推理强度。确定性检索与模型调用并行；模型约 4 秒内未返回时直接返回确定性结果并附带提示，返回后只按其约束重排一次。相同的规范化查询会复用进程内缓存的模型理解（`query_interpretation.cached`）。发送给模型前，服务端会去除邮箱、手机号、身份证号及带标签的姓名/学校/班级信息。候选必须在允许检索的可追溯字段中命中主题；课标正文、标题与分类命中返回 `direct`，编辑整理字段命中只返回 `supporting`。结果不足 `limit` 时不会用低相关记录补足。模型不生成标准 code、来源、标准内容或匹配理由；不可用时回退到确定性解析。所有结果均为待复核候选。
       security:
         - ApiKeyAuth: []
         - {}
@@ -1930,6 +1930,14 @@ components:
             domains: { type: array, items: { type: string } }
             skills: { type: array, items: { type: string } }
           required: [subjects, excluded_subjects, grade_bands, domains, skills]
+        ignored_constraints:
+          description: 请求中 `ignored_constraints` 的回显；这些条件已从 `resolved_constraints` 与主题中移除。
+          type: object
+          properties:
+            subjects: { type: array, items: { type: string } }
+            excluded_subjects: { type: array, items: { type: string } }
+            grade_bands: { type: array, items: { type: string } }
+            core_terms: { type: array, items: { type: string } }
         conflicts:
           type: array
           items:
@@ -1990,14 +1998,19 @@ components:
                 semantic_provider:
                   type: string
                   enum: [none]
-                query_interpretation: { type: object }
+                query_interpretation:
+                  description: 模型查询理解的状态与带证据的约束。`cached` 为 true 时表示复用了相同查询的缓存理解，未再次调用模型。
+                  type: object
+                  properties:
+                    status: { type: string, enum: [ok, disabled, timeout, invalid_config, invalid_response, provider_error] }
+                    cached: { type: boolean }
                 warnings:
                   type: array
                   items: { type: string }
               required: [query, parsed_query, applied_filters, query_plan, understanding_summary, results, total_candidates, relevant_candidates, omitted_low_relevance, relevance_summary, coverage_note, relevance_version, retrieval_version, semantic_provider, warnings]
     SmartSearchRequest:
       title: 可信智能检索请求
-      description: 网站界面只提交 `query`；学科、学段、排除条件和主题均从自然语言中解析。其余字段仅为程序化 API 客户端保留，不在用户界面暴露；程序化显式约束优先于自动识别结果。
+      description: 网站界面默认只提交 `query`；学科、学段、排除条件和主题均从自然语言中解析。用户在结果页移除某个已识别条件时，界面会额外提交 `ignored_constraints`。其余字段仅为程序化 API 客户端保留，不在用户界面暴露；程序化显式约束优先于自动识别结果。
       type: object
       required: [query]
       properties:
@@ -2035,6 +2048,14 @@ components:
           minimum: 1
           maximum: 50
           default: 12
+        ignored_constraints:
+          description: 解析与模型理解之后要移除的条件。移除一个主题时，同时移除仅属于它的较短片段（如移除“数据分析”会一并移除“数据”“分析”，除非另一个保留的主题也包含它们）。
+          type: object
+          properties:
+            subjects: { type: array, maxItems: 20, items: { type: string } }
+            excluded_subjects: { type: array, maxItems: 20, items: { type: string } }
+            grade_bands: { type: array, maxItems: 6, items: { type: string } }
+            core_terms: { type: array, maxItems: 24, items: { type: string, maxLength: 40 } }
         min_score:
           description: 主题证据候选的排序分下限，不代表正确概率；即使设为 0，无主题证据的记录仍不会返回。
           type: number

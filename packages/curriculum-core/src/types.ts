@@ -388,9 +388,18 @@ export interface SmartSearchRequest extends StandardFilters {
     inferred_subjects?: string[]
     inferred_excluded_subjects?: string[]
     inferred_grade_bands?: string[]
+    ignored_constraints?: SmartSearchIgnoredConstraints
     include?: Fieldset[]
     limit?: number
     min_score?: number
+}
+
+/** Understood constraints the reader removed; they are dropped after parsing and model interpretation. */
+export interface SmartSearchIgnoredConstraints extends JsonObject {
+    subjects?: string[]
+    excluded_subjects?: string[]
+    grade_bands?: string[]
+    core_terms?: string[]
 }
 
 export interface SmartSearchMatchedField {
@@ -450,6 +459,7 @@ export interface SmartSearchQueryPlan extends JsonObject {
         confidence: number
     }>
     resolved_constraints: SmartSearchResolvedConstraints
+    ignored_constraints: Required<SmartSearchIgnoredConstraints>
     conflicts: SmartSearchQueryPlanConflict[]
     ambiguities: string[]
     needs_clarification: boolean

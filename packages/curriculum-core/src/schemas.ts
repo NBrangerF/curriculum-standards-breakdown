@@ -20,6 +20,12 @@ export const SmartSearchRequestSchema = z.object({
     grade_bands: z.array(z.string().trim().min(1).max(16)).max(6).optional(),
     domains: z.array(z.string().trim().min(1).max(64)).max(40).optional(),
     skills: z.array(z.string().trim().min(1).max(16)).max(7).optional(),
+    ignored_constraints: z.object({
+        subjects: z.array(z.string().trim().min(1).max(64)).max(20).optional(),
+        excluded_subjects: z.array(z.string().trim().min(1).max(64)).max(20).optional(),
+        grade_bands: z.array(z.string().trim().min(1).max(16)).max(6).optional(),
+        core_terms: z.array(z.string().trim().min(1).max(40)).max(24).optional()
+    }).optional(),
     include: z.array(FieldsetSchema).optional(),
     limit: z.number().int().min(1).max(50).optional(),
     min_score: z.number().min(0).max(1).optional()
