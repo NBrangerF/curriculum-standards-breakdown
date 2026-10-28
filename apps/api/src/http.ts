@@ -40,6 +40,14 @@ const AI_TIER_LIMITS: Record<AccessTier, number> = {
     admin: 2000
 }
 
+// The reader pulls a textbook in many small byte ranges, so asset reads get their own budget.
+const ASSET_TIER_LIMITS: Record<AccessTier, number> = {
+    anonymous: 300,
+    developer: 600,
+    partner: 3000,
+    admin: 10000
+}
+
 const AI_ROUTES = new Set([
     '/api/v1/standards/semantic-search',
     '/api/v1/plans/parse'
@@ -224,11 +232,13 @@ export const apiAccessMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
 export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
     const tier = c.get('accessTier') || 'anonymous'
     const isAiRoute = AI_ROUTES.has(c.req.path)
-    const limit = isAiRoute ? AI_TIER_LIMITS[tier] : TIER_LIMITS[tier]
+    const isAssetRoute = c.req.path.startsWith('/api/v1/textbook-assets/')
+    const policy = isAiRoute ? 'ai' : isAssetRoute ? 'asset' : 'general'
+    const limit = isAiRoute ? AI_TIER_LIMITS[tier] : isAssetRoute ? ASSET_TIER_LIMITS[tier] : TIER_LIMITS[tier]
     const now = Date.now()
     const resetAt = Math.ceil(now / 60000) * 60000
     const clientId = c.req.header('x-forwarded-for') || c.req.header('cf-connecting-ip') || 'local'
-    const bucketKey = `${isAiRoute ? 'ai' : 'general'}:${tier}:${c.get('apiKeyId')}:${clientId}`
+    const bucketKey = `${policy}:${tier}:${c.get('apiKeyId')}:${clientId}`
     const bucket = rateBuckets.get(bucketKey)
     const current = bucket && bucket.resetAt > now ? bucket : { count: 0, resetAt }
     current.count += 1
@@ -238,7 +248,7 @@ export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
     c.header('x-ratelimit-limit', String(limit))
     c.header('x-ratelimit-remaining', String(remaining))
     c.header('x-ratelimit-reset', String(Math.ceil(current.resetAt / 1000)))
-    c.header('x-ratelimit-policy', isAiRoute ? 'ai-per-minute' : 'general-per-minute')
+    c.header('x-ratelimit-policy', `${policy}-per-minute`)
 
     if (current.count > limit) {
         c.header('retry-after', String(Math.max(1, Math.ceil((current.resetAt - now) / 1000))))

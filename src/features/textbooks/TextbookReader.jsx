@@ -24,7 +24,70 @@ const DOCUMENT_OPTIONS = {
     standardFontDataUrl: '/pdfjs/standard_fonts/',
     wasmUrl: '/pdfjs/wasm/',
     disableAutoFetch: true,
-    disableStream: true
+    disableStream: true,
+    // Larger ranges than the 64 KB default keep a page turn to a few requests.
+    rangeChunkSize: 262144
+}
+
+// Feeds PDF.js byte ranges only. Given a URL, PDF.js opens with a full GET and drops it once it
+// sees range support, but behind the API proxy the dropped bytes still stream from the server.
+class RangeOnlyTransport extends pdfjs.PDFDataRangeTransport {
+    constructor(url, length) {
+        super(length, null)
+        this.url = url
+        this.controller = new AbortController()
+    }
+
+    requestDataRange(begin, end) {
+        this.fetchRange(begin, end, 3)
+    }
+
+    // PDF.js has no error path for a missing range, so retry rate limits and server errors
+    // instead of leaving the page stuck on "loading".
+    fetchRange(begin, end, attemptsLeft) {
+        fetch(this.url, { headers: { range: `bytes=${begin}-${end - 1}` }, signal: this.controller.signal })
+            .then(response => {
+                if (response.status === 206) {
+                    return response.arrayBuffer().then(buffer => this.onDataRange(begin, new Uint8Array(buffer)))
+                }
+                if (attemptsLeft > 1 && (response.status === 429 || response.status >= 500)) {
+                    const wait = Number(response.headers.get('retry-after')) * 1000 || 1000
+                    setTimeout(() => this.fetchRange(begin, end, attemptsLeft - 1), wait)
+                }
+                return undefined
+            })
+            .catch(() => {})
+    }
+
+    abort() {
+        this.controller.abort()
+    }
+}
+
+// Learns the file size with a HEAD request, then reads by range. Falls back to the plain URL
+// when the server does not advertise byte ranges.
+function useRangeOnlySource(fileUrl) {
+    const [source, setSource] = useState(null)
+    useEffect(() => {
+        if (!fileUrl) return undefined
+        let cancelled = false
+        let transport = null
+        setSource(null)
+        fetch(fileUrl, { method: 'HEAD' })
+            .then(response => {
+                const length = Number(response.headers.get('content-length'))
+                if (!response.ok || response.headers.get('accept-ranges') !== 'bytes' || !(length > 0)) return fileUrl
+                transport = new RangeOnlyTransport(fileUrl, length)
+                return transport
+            })
+            .catch(() => fileUrl)
+            .then(next => { if (!cancelled) setSource(next) })
+        return () => {
+            cancelled = true
+            transport?.abort()
+        }
+    }, [fileUrl])
+    return source
 }
 
 function ThumbnailRail({ pdf, numPages, currentPage, onJump }) {
@@ -189,6 +252,7 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
     const location = useLocation()
     const navigate = useNavigate()
     const saved = loadReadingState(book.edition_id)
+    const documentSource = useRangeOnlySource(fileUrl)
     const initialReaderPage = Math.max(1, Math.min(book.page_count || Number.MAX_SAFE_INTEGER, Number(initialPage) || Number(saved?.page) || 1))
     const [pdf, setPdf] = useState(null)
     const [numPages, setNumPages] = useState(book.page_count || 1)
@@ -391,8 +455,9 @@ export default function TextbookReader({ book, fileUrl, initialPage = null, init
 
     return (
         <Document
-            file={fileUrl}
+            file={documentSource}
             options={DOCUMENT_OPTIONS}
+            noData={<div className={styles.documentState}>正在加载 PDF…</div>}
             onLoadSuccess={documentValue => { setPdf(documentValue); setNumPages(documentValue.numPages) }}
             loading={<div className={styles.documentState}>正在加载 PDF…</div>}
             error={<div className={styles.documentState}>无法加载 PDF。请检查 X9 Pro 连接或对象存储配置。</div>}

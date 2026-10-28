@@ -507,6 +507,8 @@ test('textbook asset service honors byte ranges without exposing arbitrary files
         assert.equal(response.status, 206)
         assert.equal(response.headers.get('accept-ranges'), 'bytes')
         assert.equal(response.headers.get('content-range'), `bytes 0-7/${bytes.length}`)
+        assert.equal(response.headers.get('x-ratelimit-policy'), 'asset-per-minute')
+        assert.equal(response.headers.get('x-ratelimit-limit'), '300')
         assert.equal(Buffer.from(await response.arrayBuffer()).toString(), bytes.subarray(0, 8).toString())
         const missing = await rangeApp.request('/api/v1/textbook-assets/asset_not_registered')
         assert.equal(missing.status, 404)
