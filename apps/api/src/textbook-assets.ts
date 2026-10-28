@@ -28,6 +28,11 @@ interface SupportResourceRecord {
     asset?: unknown
 }
 
+// Crawlers announce themselves with a contact URL ("+https://…"), a "Namebot/1.0" token, or a
+// spider/crawler/headless keyword; real browsers never do. A bare "bot" would also catch phone
+// models such as "Cubot".
+const CRAWLER_USER_AGENT = /\+https?:\/\/|bot\/|spider|crawler|headlesschrome/i
+
 const REMOTE_RESPONSE_HEADERS = [
     'accept-ranges',
     'cache-control',
@@ -278,6 +283,11 @@ export class TextbookAssetService {
     }
 
     async respond(c: Context<ApiBindings>, assetId: string) {
+        // Rendering crawlers open the reader and pull whole PDFs through this proxy, which is what
+        // used up the hosting quota. Textbooks are for reading on the site, so they get nothing.
+        if (CRAWLER_USER_AGENT.test(c.req.header('user-agent') || '')) {
+            return apiError(c, 403, 'crawler_not_allowed', '教材原文只供在线阅读，不向自动抓取程序提供。')
+        }
         const record = this.byAssetId.get(assetId)
         const remoteUrl = record ? this.remoteUrl(record) : null
         if (record && remoteUrl) return this.respondFromRemote(c, record, remoteUrl)

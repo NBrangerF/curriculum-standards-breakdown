@@ -510,6 +510,21 @@ test('textbook asset service honors byte ranges without exposing arbitrary files
         assert.equal(response.headers.get('x-ratelimit-policy'), 'asset-per-minute')
         assert.equal(response.headers.get('x-ratelimit-limit'), '300')
         assert.equal(Buffer.from(await response.arrayBuffer()).toString(), bytes.subarray(0, 8).toString())
+        const crawlerAgents = [
+            'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Reflectionbot/1.0; +https://reflection.ai/bot) Chrome/151.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+            'Mozilla/5.0 (Linux; Android 5.0) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; Bytespider; spider-feedback@bytedance.com)',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/130.0.0.0 Safari/537.36'
+        ]
+        for (const agent of crawlerAgents) {
+            const blocked = await rangeApp.request(`/api/v1/textbook-assets/${assetId}`, { headers: { range: 'bytes=0-7', 'user-agent': agent } })
+            assert.equal(blocked.status, 403, agent)
+            assert.equal((await json(blocked)).error.code, 'crawler_not_allowed')
+        }
+        const phone = await rangeApp.request(`/api/v1/textbook-assets/${assetId}`, {
+            headers: { range: 'bytes=0-7', 'user-agent': 'Mozilla/5.0 (Linux; Android 12; Cubot X30 Build/SP1A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Mobile Safari/537.36' }
+        })
+        assert.equal(phone.status, 206)
         const missing = await rangeApp.request('/api/v1/textbook-assets/asset_not_registered')
         assert.equal(missing.status, 404)
         assert.equal(localService.hasResource(resourceId), true)
