@@ -214,17 +214,15 @@ paths:
     get:
       tags: [学习资源]
       operationId: listLearningResources
-      summary: 检索简体中文学习资源
-      description: 按学科、学段、年级、教学作用、资源类型、来源和关键词筛选通过发布检查的结构化资源。
+      summary: 检索精选开放学习资源
+      description: 返回人工精选的开放教育资源目录。每条资源只提供中文简介、使用建议、许可信息和课标对应理由，并链接到原站，不转载正文。
       security: []
       parameters:
-        - { name: subject, in: query, schema: { type: string } }
-        - { name: stage, in: query, schema: { type: string, enum: [primary, junior] } }
-        - { name: grade, in: query, schema: { type: integer, minimum: 1, maximum: 9 } }
-        - { name: role, in: query, schema: { type: string } }
-        - { name: type, in: query, schema: { type: string } }
-        - { name: source, in: query, schema: { type: string } }
-        - { name: q, in: query, schema: { type: string } }
+        - { name: subject, in: query, description: 学科 slug，如 science、math、it（也接受 information-technology）, schema: { type: string } }
+        - { name: stage, in: query, schema: { type: string, enum: [G1-2, G3-4, G5-6, G7-9] } }
+        - { name: format, in: query, schema: { type: string, enum: [interactive, video, lesson, book, tool, dataset, text] } }
+        - { name: open_level, in: query, description: open 为可商用的开放许可，noncommercial 为仅限非商业使用, schema: { type: string, enum: [open, noncommercial] } }
+        - { name: q, in: query, description: 在标题、提供方、简介和对应课标中检索, schema: { type: string } }
         - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 200, default: 50 } }
         - { name: offset, in: query, schema: { type: integer, minimum: 0, default: 0 } }
       responses:
@@ -239,14 +237,13 @@ paths:
     get:
       tags: [学习资源]
       operationId: getLearningResource
-      summary: 获取结构化学习资源
+      summary: 获取一条精选学习资源
       security: []
       parameters:
-        - { name: resource_id, in: path, required: true, schema: { type: string, pattern: "^lr_[a-f0-9]{24}$" } }
-        - { name: fragment_id, in: query, required: false, description: 精确定位资源中的正文片段, schema: { type: string, pattern: "^lrf_[a-f0-9]{24}$" } }
+        - { name: resource_id, in: path, required: true, schema: { type: string, pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$", maxLength: 80 } }
       responses:
         "200":
-          description: 简体中文正文、来源、许可和版本信息
+          description: 简介、使用建议、原站链接、许可、国内可访问情况和对应课标
           content:
             application/json:
               schema: { $ref: "#/components/schemas/ApiResponse" }
@@ -259,11 +256,10 @@ paths:
       summary: 从学习资源反查课程标准
       security: []
       parameters:
-        - { name: resource_id, in: path, required: true, schema: { type: string, pattern: "^lr_[a-f0-9]{24}$" } }
-        - { name: fragment_id, in: query, required: false, description: 只返回该正文片段的课标关联, schema: { type: string, pattern: "^lrf_[a-f0-9]{24}$" } }
+        - { name: resource_id, in: path, required: true, schema: { type: string, pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$", maxLength: 80 } }
       responses:
         "200":
-          description: 带逐字证据和学习成分的课标关联
+          description: 该资源对应的课标编码、课标标题和一句话对应理由
           content:
             application/json:
               schema: { $ref: "#/components/schemas/ApiResponse" }
@@ -479,15 +475,13 @@ paths:
       tags: [学习资源, 课程标准]
       operationId: getStandardLearningResources
       summary: 从课程标准查找学习资源
-      description: 只返回通过机器语义裁决、逐字证据检查和版本哈希检查的资源片段。
+      description: 返回人工标注对应这条课标的精选资源，每条附对应理由 rationale_zh。
       security: []
       parameters:
         - $ref: "#/components/parameters/StandardCode"
-        - { name: component_id, in: query, schema: { type: string } }
-        - { name: role, in: query, schema: { type: string } }
       responses:
         "200":
-          description: 课标关联的学习资源与证据
+          description: 课标对应的精选学习资源
           content:
             application/json:
               schema: { $ref: "#/components/schemas/ApiResponse" }

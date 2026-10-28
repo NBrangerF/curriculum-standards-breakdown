@@ -1,146 +1,97 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import {
-    LearningResourceCatalogSchema,
-    PublicLearningResourceAlignmentSchema,
-    PublicLearningResourceProjectionSchema
-} from './schemas.js'
+import { LearningResourceCatalogSchema, RESOURCE_ID_PATTERN } from './schemas.js'
 import type {
     LearningResourceCatalog,
+    LearningResourceFormat,
+    LearningResourceOpenLevel,
+    LearningResourceStage,
+    PublicLearningResource,
     PublicLearningResourceAlignment,
-    PublicLearningResourceProjection
+    StandardLearningResources
 } from './types.js'
-
-interface StandardResourceIndex {
-    schema_version: string
-    generation_id: string
-    standard_code: string
-    alignments: PublicLearningResourceAlignment[]
-    resources: PublicLearningResourceProjection[]
-}
 
 export interface LearningResourceSearch {
     subject?: string
-    stage?: 'primary' | 'junior'
-    grade?: number
-    role?: string
-    type?: string
-    source?: string
+    stage?: LearningResourceStage
+    format?: LearningResourceFormat
+    openLevel?: LearningResourceOpenLevel
     query?: string
 }
 
-// IDs become file names, so only the formats defined in schemas.ts may reach the file system.
-const RESOURCE_ID_PATTERN = /^lr_[a-f0-9]{24}$/u
-const FRAGMENT_ID_PATTERN = /^lrf_[a-f0-9]{24}$/u
-
-// Resource data says 'information-technology' where standards say 'it'; accept both in filters.
+// Older links say 'information-technology' where standards say 'it'; accept both in filters.
 const SUBJECT_ALIASES: Record<string, string> = { 'information-technology': 'it' }
 const canonicalSubject = (slug: string) => SUBJECT_ALIASES[slug] || slug
 
+const EMPTY_CATALOG: LearningResourceCatalog = {
+    schema_version: 2,
+    updated_at: '1970-01-01',
+    counts: { resources: 0, alignments: 0, standards: 0, by_subject: {}, by_stage: {} },
+    resources: []
+}
+
+export function isLearningResourceId(value: string): boolean {
+    return value.length <= 80 && RESOURCE_ID_PATTERN.test(value)
+}
+
 export class FileLearningResourceRepository {
     private catalog?: LearningResourceCatalog
-    private readonly resourceCache = new Map<string, PublicLearningResourceProjection>()
-    private readonly standardCache = new Map<string, StandardResourceIndex>()
+    private readonly byId = new Map<string, PublicLearningResource>()
+    private readonly dataRoot: string
 
-    constructor(private readonly dataRoot: string) {}
-
-    private async readJson<T>(relativePath: string): Promise<T | null> {
-        try {
-            return JSON.parse(await readFile(join(this.dataRoot, relativePath), 'utf8')) as T
-        } catch {
-            return null
-        }
+    constructor(dataRoot: string) {
+        this.dataRoot = dataRoot
     }
 
     async loadCatalog(): Promise<LearningResourceCatalog> {
         if (this.catalog) return this.catalog
-        const payload = await this.readJson<unknown>('learning-resources/catalog/index.json')
-        if (!payload) return { schema_version: '1.0.0', generation_id: 'empty', resources: [] }
-        this.catalog = LearningResourceCatalogSchema.parse(payload)
-        for (const resource of this.catalog.resources) {
-            this.resourceCache.set(`${resource.resource_id}:${resource.fragment_id}`, resource)
-            if (!this.resourceCache.has(resource.resource_id)) this.resourceCache.set(resource.resource_id, resource)
+        let payload: unknown = null
+        try {
+            payload = JSON.parse(await readFile(join(this.dataRoot, 'learning-resources/catalog/index.json'), 'utf8'))
+        } catch {
+            payload = null
         }
+        this.catalog = payload ? LearningResourceCatalogSchema.parse(payload) : EMPTY_CATALOG
+        for (const resource of this.catalog.resources) this.byId.set(resource.id, resource)
         return this.catalog
     }
 
-    async search(query: LearningResourceSearch = {}): Promise<PublicLearningResourceProjection[]> {
+    async search(filters: LearningResourceSearch = {}): Promise<PublicLearningResource[]> {
         const catalog = await this.loadCatalog()
-        const keyword = String(query.query || '').trim().toLocaleLowerCase('zh-CN')
-        const subject = query.subject ? canonicalSubject(query.subject) : ''
+        const subject = filters.subject ? canonicalSubject(filters.subject) : ''
+        const keyword = String(filters.query || '').trim().toLocaleLowerCase('zh-CN')
         return catalog.resources.filter(resource => {
-            if (subject && !resource.mapped_subject_slugs.some(slug => canonicalSubject(slug) === subject)) return false
-            if (query.stage && resource.mapped_china_stage !== query.stage) return false
-            if (query.grade && !resource.mapped_china_grade_scope.includes(query.grade)) return false
-            if (query.role && !resource.pedagogical_roles.includes(query.role as never)) return false
-            if (query.type && resource.resource_type !== query.type) return false
-            if (query.source && resource.source_id !== query.source) return false
+            if (subject && !resource.subjects.includes(subject as never)) return false
+            if (filters.stage && !resource.stages.includes(filters.stage)) return false
+            if (filters.format && !resource.formats.includes(filters.format)) return false
+            if (filters.openLevel && resource.open_level !== filters.openLevel) return false
             if (!keyword) return true
-            const text = [
-                resource.title.text,
-                resource.description.text,
-                ...resource.blocks.map(block => block.text.text)
-            ].join(' ').toLocaleLowerCase('zh-CN')
-            return text.includes(keyword)
+            return [
+                resource.title_zh,
+                resource.title_original,
+                resource.provider,
+                resource.summary_zh,
+                ...resource.standards.flatMap(item => [item.code, item.standard_title])
+            ].join(' ').toLocaleLowerCase('zh-CN').includes(keyword)
         })
     }
 
-    async get(resourceId: string, fragmentId = ''): Promise<PublicLearningResourceProjection | null> {
-        if (!RESOURCE_ID_PATTERN.test(resourceId) || (fragmentId && !FRAGMENT_ID_PATTERN.test(fragmentId))) return null
-        if (!this.resourceCache.size) await this.loadCatalog()
-        const cacheKey = fragmentId ? `${resourceId}:${fragmentId}` : resourceId
-        const cached = this.resourceCache.get(cacheKey)
-        if (cached) return cached
-        const suffix = fragmentId ? `${resourceId}.${fragmentId}` : resourceId
-        const payload = await this.readJson<unknown>(`learning-resources/by-resource/${suffix}.json`)
-        if (!payload) return null
-        const resource = PublicLearningResourceProjectionSchema.parse(payload)
-        this.resourceCache.set(cacheKey, resource)
-        return resource
+    async get(resourceId: string): Promise<PublicLearningResource | null> {
+        if (!isLearningResourceId(resourceId)) return null
+        await this.loadCatalog()
+        return this.byId.get(resourceId) || null
     }
 
-    async getForStandard(
-        standardCode: string,
-        filters: { componentId?: string; role?: string } = {}
-    ): Promise<StandardResourceIndex> {
-        let payload = this.standardCache.get(standardCode)
-        if (!payload) {
-            const raw = await this.readJson<StandardResourceIndex>(`learning-resources/by-standard/${standardCode}.json`)
-            payload = raw || {
-                schema_version: '1.0.0',
-                generation_id: (await this.loadCatalog()).generation_id,
-                standard_code: standardCode,
-                alignments: [],
-                resources: []
-            }
-            payload.alignments = payload.alignments.map(value => PublicLearningResourceAlignmentSchema.parse(value))
-            payload.resources = payload.resources.map(value => PublicLearningResourceProjectionSchema.parse(value))
-            this.standardCache.set(standardCode, payload)
-        }
-        const alignments = payload.alignments.filter(alignment => {
-            if (filters.componentId && !alignment.learning_component_ids.includes(filters.componentId)) return false
-            if (filters.role && alignment.pedagogical_role !== filters.role) return false
-            return true
+    async getStandardsForResource(resourceId: string): Promise<PublicLearningResourceAlignment[]> {
+        return (await this.get(resourceId))?.standards || []
+    }
+
+    async getForStandard(standardCode: string): Promise<StandardLearningResources> {
+        const catalog = await this.loadCatalog()
+        const resources = catalog.resources.flatMap(resource => {
+            const alignment = resource.standards.find(item => item.code === standardCode)
+            return alignment ? [{ ...resource, rationale_zh: alignment.rationale_zh }] : []
         })
-        const resourceFragments = new Set(
-            alignments.map(alignment => `${alignment.resource_id}:${alignment.fragment_id}`)
-        )
-        return {
-            ...payload,
-            alignments,
-            resources: payload.resources.filter(
-                resource => resourceFragments.has(`${resource.resource_id}:${resource.fragment_id}`)
-            )
-        }
-    }
-
-    async getStandardsForResource(resourceId: string, fragmentId = ''): Promise<PublicLearningResourceAlignment[]> {
-        if (!RESOURCE_ID_PATTERN.test(resourceId)) return []
-        const payload = await this.readJson<{ alignments?: unknown[] }>(
-            `learning-resources/by-resource/${resourceId}.alignments.json`
-        )
-        return (payload?.alignments || [])
-            .map(value => PublicLearningResourceAlignmentSchema.parse(value))
-            .filter(alignment => !fragmentId || alignment.fragment_id === fragmentId)
+        return { schema_version: 2, standard_code: standardCode, resources }
     }
 }

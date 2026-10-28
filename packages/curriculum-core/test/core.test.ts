@@ -13,8 +13,8 @@ import {
     FileCurriculumRepository,
     FileLearningResourceRepository,
     FileTextbookRepository,
-    learningResourceHash,
-    learningResourceIds,
+    CuratedLearningResourceSchema,
+    isLearningResourceId,
     TextbookDetailRecordSchema,
     filterStandards,
     getLearningContext,
@@ -54,28 +54,56 @@ test('projectStandard hides admin fields by default', () => {
     assert.equal('grade_assignment_type' in projected, false)
 })
 
-test('learning resource identities separate stable identity from content version', () => {
-    const resourceId = learningResourceIds.resource('bookdash', 'a-beautiful-day')
-    assert.equal(resourceId, learningResourceIds.resource('bookdash', 'a-beautiful-day'))
-    assert.match(resourceId, /^lr_[a-f0-9]{24}$/)
+const curatedEntry = {
+    id: 'phet-density',
+    title_zh: '密度',
+    title_original: 'Density',
+    provider: 'PhET 互动仿真',
+    url: 'https://phet.colorado.edu/zh_CN/simulations/density',
+    license: 'CC-BY-NC-4.0',
+    license_url: 'https://phet.colorado.edu/en/licensing',
+    open_level: 'noncommercial',
+    formats: ['interactive'],
+    languages: ['zh', 'en'],
+    china_access: 'unstable',
+    subjects: ['science'],
+    stages: ['G7-9'],
+    summary_zh: '把不同材料的方块放进水池，读出质量和体积，再比较哪些会浮起来，界面有简体中文。',
+    how_to_use_zh: '先预测沉浮，再测量验证。',
+    standards: [{ code: 'SC-H4G7-SC-030', rationale_zh: '由质量和体积算出密度，理解物质属性。' }],
+    checked_at: '2026-10-28'
+}
 
-    const firstVersion = learningResourceIds.resourceVersion(resourceId, { title: 'A Beautiful Day', revision: '1' })
-    const secondVersion = learningResourceIds.resourceVersion(resourceId, { title: 'A Beautiful Day', revision: '2' })
-    assert.notEqual(firstVersion, secondVersion)
-    assert.match(learningResourceHash({ b: 2, a: '中文\r\n' }), /^[a-f0-9]{64}$/)
-    assert.equal(
-        learningResourceHash({ b: 2, a: '中文\r\n' }),
-        learningResourceHash({ a: '中文\n', b: 2 })
-    )
+test('curated learning resources must flag noncommercial licences and use slug ids', () => {
+    assert.equal(CuratedLearningResourceSchema.safeParse(curatedEntry).success, true)
+    assert.equal(CuratedLearningResourceSchema.safeParse({ ...curatedEntry, open_level: 'open' }).success, false)
+    assert.equal(CuratedLearningResourceSchema.safeParse({ ...curatedEntry, license: 'CC-BY-ND-4.0' }).success, false)
+    assert.equal(CuratedLearningResourceSchema.safeParse({ ...curatedEntry, stages: ['G7-9', 'G7-9'] }).success, false)
+    assert.equal(isLearningResourceId('phet-density'), true)
+    assert.equal(isLearningResourceId('../catalog/index'), false)
+    assert.equal(isLearningResourceId('lr_1234567890abcdef12345678'), false)
 })
 
-test('learning resource repository fails open to an empty catalog before first generation', async () => {
+test('learning resource repository fails open to an empty catalog', async () => {
     const repository = new FileLearningResourceRepository(resolve(tmpdir(), `kebiao-missing-${randomUUID()}`))
     assert.deepEqual(await repository.search(), [])
+    assert.equal(await repository.get('phet-density'), null)
     const standard = await repository.getForStandard('CN-D1-FAKE-001')
     assert.equal(standard.standard_code, 'CN-D1-FAKE-001')
     assert.deepEqual(standard.resources, [])
-    assert.deepEqual(standard.alignments, [])
+})
+
+test('learning resource repository serves the published curated catalog', async () => {
+    const repository = new FileLearningResourceRepository(publicDataRoot)
+    const catalog = await repository.loadCatalog()
+    assert.equal(catalog.schema_version, 2)
+    assert.ok(catalog.resources.length >= 60)
+    const science = await repository.search({ subject: 'science', stage: 'G7-9', format: 'interactive' })
+    assert.ok(science.length > 0)
+    assert.ok(science.every(item => item.subjects.includes('science') && item.stages.includes('G7-9')))
+    const [first] = catalog.resources
+    const forStandard = await repository.getForStandard(first.standards[0].code)
+    assert.ok(forStandard.resources.some(item => item.id === first.id && item.rationale_zh === first.standards[0].rationale_zh))
 })
 
 test('buildGroundedStandardContext separates sources and quarantines flagged content', () => {

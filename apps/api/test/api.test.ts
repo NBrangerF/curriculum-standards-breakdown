@@ -1326,22 +1326,57 @@ test('development API routes are not publicly available', async () => {
     }
 })
 
-test('learning-resource API supports catalog filters and standard reverse lookup', async () => {
+test('learning-resource API filters the curated catalog and validates filters', async () => {
     const headers = { 'x-forwarded-for': 'learning-resource-api-test' }
     const listResponse = await publicApp.request('/api/v1/learning-resources?limit=5', { headers })
     assert.equal(listResponse.status, 200)
     const listBody = await json(listResponse)
-    assert.ok(Array.isArray(listBody.data))
     assert.equal(listBody.meta.limit, 5)
+    assert.equal(listBody.data.length, 5)
+    assert.ok(listBody.meta.total >= 60)
+    for (const item of listBody.data) {
+        assert.match(item.url, /^https?:\/\//)
+        assert.ok(item.summary_zh && item.license && item.standards.length > 0)
+        assert.equal('blocks' in item, false, 'the curated catalog links out and never carries full text')
+    }
 
-    const reverseResponse = await publicApp.request('/api/v1/standards/SC-D2-SC-010/learning-resources', { headers })
-    assert.equal(reverseResponse.status, 200)
-    const reverseBody = await json(reverseResponse)
-    assert.equal(reverseBody.data.standard_code, 'SC-D2-SC-010')
-    assert.ok(Array.isArray(reverseBody.data.resources))
+    const filtered = await json(await publicApp.request(
+        '/api/v1/learning-resources?subject=math&stage=G7-9&format=lesson&open_level=open&limit=200',
+        { headers }
+    ))
+    assert.ok(filtered.meta.total > 0)
+    for (const item of filtered.data) {
+        assert.ok(item.subjects.includes('math') && item.stages.includes('G7-9') && item.formats.includes('lesson'))
+        assert.equal(item.open_level, 'open')
+    }
 
-    const invalidGrade = await publicApp.request('/api/v1/learning-resources?grade=10', { headers })
-    assert.equal(invalidGrade.status, 422)
+    const keyword = await json(await publicApp.request(`/api/v1/learning-resources?q=${encodeURIComponent('勾股定理')}`, { headers }))
+    assert.ok(keyword.data.some((item: Record<string, any>) => item.id === 'im-8-8-pythagorean-theorem'))
+
+    for (const query of ['stage=7', 'format=pdf', 'open_level=commercial']) {
+        const invalid = await publicApp.request(`/api/v1/learning-resources?${query}`, { headers })
+        assert.equal(invalid.status, 422, query)
+    }
+})
+
+test('learning-resource API looks up one resource and its standards in both directions', async () => {
+    const headers = { 'x-forwarded-for': 'learning-resource-lookup-test' }
+    const resource = await json(await publicApp.request('/api/v1/learning-resources/phet-density', { headers }))
+    assert.equal(resource.data.id, 'phet-density')
+    assert.equal(resource.data.open_level, 'noncommercial')
+
+    const standards = await json(await publicApp.request('/api/v1/learning-resources/phet-density/standards', { headers }))
+    assert.equal(standards.meta.total, standards.data.length)
+    const code = standards.data[0].code
+    assert.ok(standards.data[0].rationale_zh && standards.data[0].standard_title)
+
+    const reverse = await json(await publicApp.request(`/api/v1/standards/${code}/learning-resources`, { headers }))
+    assert.equal(reverse.data.standard_code, code)
+    assert.ok(reverse.data.resources.some((item: Record<string, any>) => item.id === 'phet-density' && item.rationale_zh))
+
+    const empty = await json(await publicApp.request('/api/v1/standards/SC-D2-SC-010/learning-resources', { headers }))
+    assert.equal(empty.data.standard_code, 'SC-D2-SC-010')
+    assert.ok(Array.isArray(empty.data.resources))
 })
 
 test('learning-resource subject filter accepts the standards slug for information technology', async () => {
@@ -1352,19 +1387,10 @@ test('learning-resource subject filter accepts the standards slug for informatio
     assert.equal(canonical.meta.total, legacy.meta.total)
 })
 
-test('learning-resource IDs that are not catalog IDs never reach the file system', async () => {
+test('learning-resource IDs that are not catalog IDs return 404', async () => {
     const headers = { 'x-forwarded-for': 'learning-resource-id-test' }
-    const list = await json(await publicApp.request('/api/v1/learning-resources?limit=1', { headers }))
-    const { resource_id: resourceId, fragment_id: fragmentId } = list.data[0]
-    const valid = await publicApp.request(`/api/v1/learning-resources/${resourceId}?fragment_id=${fragmentId}`, { headers })
-    assert.equal(valid.status, 200)
-
-    // Without validation this path resolves to textbooks/index.json and fails schema parsing with a 500.
-    const traversal = await publicApp.request(
-        `/api/v1/learning-resources/${resourceId}?fragment_id=${encodeURIComponent('/../../../textbooks/index')}`,
-        { headers }
-    )
-    assert.equal(traversal.status, 404)
-    const standards = await publicApp.request(`/api/v1/learning-resources/${encodeURIComponent('../catalog/index')}/standards`, { headers })
-    assert.equal(standards.status, 404)
+    for (const id of [encodeURIComponent('../catalog/index'), 'lr_1234567890abcdef12345678', 'Not-A-Slug', 'missing-resource']) {
+        assert.equal((await publicApp.request(`/api/v1/learning-resources/${id}`, { headers })).status, 404, id)
+        assert.equal((await publicApp.request(`/api/v1/learning-resources/${id}/standards`, { headers })).status, 404, id)
+    }
 })

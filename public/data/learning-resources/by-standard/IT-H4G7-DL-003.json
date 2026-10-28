@@ -1,0 +1,68 @@
+{
+  "schema_version": 2,
+  "standard_code": "IT-H4G7-DL-003",
+  "resources": [
+    {
+      "id": "makecode-microbit",
+      "title_zh": "micro:bit MakeCode 编程环境",
+      "title_original": "Microsoft MakeCode for micro:bit",
+      "provider": "微软 MakeCode / micro:bit 教育基金会",
+      "url": "https://makecode.microbit.org/?lang=zh-CN",
+      "license": "MIT",
+      "license_url": "https://github.com/microsoft/pxt-microbit/blob/master/LICENSE.txt",
+      "open_level": "open",
+      "formats": [
+        "tool"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it",
+        "labor"
+      ],
+      "stages": [
+        "G5-6",
+        "G7-9"
+      ],
+      "summary_zh": "在浏览器中用积木或 JavaScript、Python 给 micro:bit 编程，没有硬件也能在左侧模拟器里看到 LED、按钮和传感器的效果。界面支持简体中文，自带入门教程。",
+      "how_to_use_zh": "先在模拟器里完成“按下按钮显示图案”，再用传感器做一个小装置。",
+      "standards": [
+        {
+          "code": "IT-H3-DL-001",
+          "rationale_zh": "用光线、温度传感器读数控制 LED 或声音，完整体现“传感—处理—执行”的过程与控制。",
+          "standard_title": "能在典型应用场景中提出“用计算机实现过程与控制”的方案（传感—处理—执行）",
+          "subject": "it",
+          "grade_band": "H3",
+          "stage": "G5-6"
+        },
+        {
+          "code": "IT-H4G7-DL-003",
+          "rationale_zh": "两块 micro:bit 可以通过无线发送和接收数据，用来搭建简单的物联系统原型。",
+          "standard_title": "物联系统原型",
+          "subject": "it",
+          "grade_band": "H4G7",
+          "stage": "G7-9"
+        },
+        {
+          "code": "LA-D3-PL-012",
+          "rationale_zh": "适合做带测试环节的传感器创客作品，并根据测试结果改进程序。",
+          "standard_title": "能在教师指导下完成一个带测试环节的创客作品（简单电路/传感器应用）",
+          "subject": "labor",
+          "grade_band": "H3",
+          "stage": "G5-6"
+        }
+      ],
+      "standard_codes": [
+        "IT-H3-DL-001",
+        "IT-H4G7-DL-003",
+        "LA-D3-PL-012"
+      ],
+      "alignment_count": 3,
+      "checked_at": "2026-10-28",
+      "rationale_zh": "两块 micro:bit 可以通过无线发送和接收数据，用来搭建简单的物联系统原型。"
+    }
+  ]
+}

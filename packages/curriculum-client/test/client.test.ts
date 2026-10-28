@@ -96,12 +96,15 @@ test('CurriculumClient exposes learning-resource queries in both directions', as
             })
         }
     })
-    await client.listLearningResources({ subject: 'science', grade: 7, source: 'oak' })
-    await client.getLearningResource('lr_1234567890abcdef12345678', 'lrf_1234567890abcdef12345678')
-    await client.getLearningResourceStandards('lr_1234567890abcdef12345678', 'lrf_1234567890abcdef12345678')
-    await client.getStandardLearningResources('SC-D4-SC-001', { role: 'explain' })
-    assert.equal(calls[0], 'https://api.example.com/api/v1/learning-resources?subject=science&grade=7&source=oak')
-    assert.equal(calls[1], 'https://api.example.com/api/v1/learning-resources/lr_1234567890abcdef12345678?fragment_id=lrf_1234567890abcdef12345678')
-    assert.equal(calls[2], 'https://api.example.com/api/v1/learning-resources/lr_1234567890abcdef12345678/standards?fragment_id=lrf_1234567890abcdef12345678')
-    assert.equal(calls[3], 'https://api.example.com/api/v1/standards/SC-D4-SC-001/learning-resources?role=explain')
+    await client.listLearningResources({ subject: 'science', stage: 'G7-9', format: 'interactive', openLevel: 'open', query: '密度' })
+    await client.getLearningResource('phet-density')
+    await client.getLearningResourceStandards('phet-density')
+    await client.getStandardLearningResources('SC-H4G7-SC-030')
+    assert.equal(
+        calls[0],
+        `https://api.example.com/api/v1/learning-resources?subject=science&stage=G7-9&format=interactive&open_level=open&q=${encodeURIComponent('密度')}`
+    )
+    assert.equal(calls[1], 'https://api.example.com/api/v1/learning-resources/phet-density')
+    assert.equal(calls[2], 'https://api.example.com/api/v1/learning-resources/phet-density/standards')
+    assert.equal(calls[3], 'https://api.example.com/api/v1/standards/SC-H4G7-SC-030/learning-resources')
 })
