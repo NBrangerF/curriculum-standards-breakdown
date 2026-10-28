@@ -270,7 +270,7 @@ function humanizeConstraints(filters: ReturnType<typeof mergeFilters>['filters']
     if (filters.grade_bands.length) parts.push(filters.grade_bands.map(value => gradeLabels[value] || value).join('、'))
     if (filters.subjects.length) parts.push(`学科为${filters.subjects.map(value => subjectLabels[value] || value).join('、')}`)
     if (filters.excluded_subjects.length) parts.push(`排除${filters.excluded_subjects.map(value => subjectLabels[value] || value).join('、')}`)
-    if (coreTerms.length) parts.push(`主题为${coreTerms.slice(0, 4).join('、')}`)
+    if (coreTerms.length) parts.push(`主题为${topicHeads(coreTerms).slice(0, 4).join('、')}`)
     return parts.length ? `我理解你要查找${parts.join('，')}的课程标准。` : '我会根据你的自然语言描述查找课程标准。'
 }
 
