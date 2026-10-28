@@ -248,6 +248,20 @@ export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
     await next()
 }
 
+// Answers here must stay live, so the CDN never keeps them.
+const LIVE_PATHS = new Set(['/api/v1/health', '/api/v1/metrics'])
+
+// Lets the CDN answer repeat GETs so they skip the function. The data only changes with a
+// deploy, and Vercel clears its CDN cache on every deploy. Keyed callers can unlock extra
+// fields, so only anonymous answers are shared.
+export const cdnCacheMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
+    await next()
+    if (c.req.method !== 'GET' && c.req.method !== 'HEAD') return
+    if (c.res.status !== 200 || c.res.headers.has('cache-control')) return
+    if (c.req.header('x-api-key') || LIVE_PATHS.has(c.req.path)) return
+    c.header('cache-control', 'public, max-age=0, s-maxage=86400, stale-while-revalidate=604800')
+}
+
 export const observabilityMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
     const started = performance.now()
     await next()

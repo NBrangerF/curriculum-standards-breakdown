@@ -19,6 +19,7 @@ import {
 import {
     apiAccessMiddleware,
     apiError,
+    cdnCacheMiddleware,
     ensureFieldsetAccess,
     ensureTierAccess,
     metricsSnapshot,
@@ -82,6 +83,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     app.use('*', apiAccessMiddleware)
     app.use('*', rateLimitMiddleware)
     app.use('*', observabilityMiddleware)
+    app.use('*', cdnCacheMiddleware)
 
     for (const path of DEVELOPMENT_API_ROUTES) {
         app.all(path, c => apiError(c, 404, 'not_found', '未找到接口。'))

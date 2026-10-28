@@ -28,16 +28,6 @@ interface SupportResourceRecord {
     asset?: unknown
 }
 
-const REMOTE_RESPONSE_HEADERS = [
-    'accept-ranges',
-    'cache-control',
-    'content-length',
-    'content-range',
-    'content-type',
-    'etag',
-    'last-modified'
-] as const
-
 function readJson(path: string): Record<string, unknown> {
     return JSON.parse(readFileSync(path, 'utf8')) as Record<string, unknown>
 }
@@ -158,7 +148,6 @@ export class TextbookAssetService {
         private readonly privateDataRoot = resolveTextbookPrivateDataRoot(),
         private readonly libraryRoot = resolveTextbookLibraryRoot(),
         private readonly publicBaseUrl = process.env.TEXTBOOK_ASSET_BASE_URL || null,
-        private readonly fetchRemote: typeof fetch = fetch,
         private readonly publicBucket = process.env.TEXTBOOK_ASSET_BUCKET || 'kebiao-textbooks'
     ) {
         if (!privateDataRoot) return
@@ -234,7 +223,7 @@ export class TextbookAssetService {
                 asset_id: record.asset_id,
                 url: `/api/v1/textbook-assets/${record.asset_id}`,
                 expires_at: null,
-                delivery: 'object_storage_proxy' as const,
+                delivery: 'object_storage' as const,
                 supports_range: true as const
             }
         }
@@ -262,7 +251,7 @@ export class TextbookAssetService {
                 asset_id: record.asset_id,
                 url: `/api/v1/textbook-assets/${record.asset_id}`,
                 expires_at: null,
-                delivery: 'object_storage_proxy' as const,
+                delivery: 'object_storage' as const,
                 supports_range: true as const
             }
         }
@@ -280,7 +269,12 @@ export class TextbookAssetService {
     async respond(c: Context<ApiBindings>, assetId: string) {
         const record = this.byAssetId.get(assetId)
         const remoteUrl = record ? this.remoteUrl(record) : null
-        if (record && remoteUrl) return this.respondFromRemote(c, record, remoteUrl)
+        if (record && remoteUrl) {
+            // Send the reader straight to object storage so PDF bytes never pass through
+            // the function. Keys are content hashes, so the CDN may keep the redirect.
+            c.header('cache-control', 'public, max-age=3600, s-maxage=604800')
+            return c.redirect(remoteUrl.toString(), 302)
+        }
         const location = record ? this.localLocation(record) : null
         if (!location) return apiError(c, 404, 'not_found', '未找到可读的教材文件。')
         const info = await stat(location.path)
@@ -304,38 +298,5 @@ export class TextbookAssetService {
             return c.body(body, 206)
         }
         return c.body(body, 200)
-    }
-
-    private async respondFromRemote(c: Context<ApiBindings>, record: PrivateAssetRecord, remoteUrl: URL) {
-        const headers = new Headers()
-        for (const name of ['range', 'if-range', 'if-none-match', 'if-modified-since']) {
-            const value = c.req.header(name)
-            if (value) headers.set(name, value)
-        }
-
-        let upstream: Response
-        try {
-            upstream = await this.fetchRemote(remoteUrl, { method: c.req.method === 'HEAD' ? 'HEAD' : 'GET', headers })
-        } catch {
-            return apiError(c, 503, 'asset_origin_unavailable', '教材文件源站暂时不可用，请稍后重试。')
-        }
-
-        for (const name of REMOTE_RESPONSE_HEADERS) {
-            const value = upstream.headers.get(name)
-            if (value) c.header(name, value)
-        }
-        c.header('content-disposition', `inline; filename="${record.edition_id}.pdf"`)
-        c.header('x-content-type-options', 'nosniff')
-
-        if (![200, 206, 304, 416].includes(upstream.status)) {
-            upstream.body?.cancel().catch(() => undefined)
-            return apiError(c, upstream.status === 404 ? 404 : 503, upstream.status === 404 ? 'not_found' : 'asset_origin_error', upstream.status === 404 ? '未找到可读的教材文件。' : '教材文件源站返回异常。')
-        }
-        if (upstream.status === 304) return c.body(null, 304)
-        if (upstream.status === 416) return c.body(null, 416)
-        if (c.req.method === 'HEAD' || !upstream.body) {
-            return upstream.status === 206 ? c.body(null, 206) : c.body(null, 200)
-        }
-        return upstream.status === 206 ? c.body(upstream.body, 206) : c.body(upstream.body, 200)
     }
 }

@@ -507,6 +507,6 @@ export interface TextbookViewerSession {
     asset_id: string
     url: string
     expires_at: string | null
-    delivery: 'local_range' | 'object_storage' | 'object_storage_proxy'
+    delivery: 'local_range' | 'object_storage'
     supports_range: true
 }
