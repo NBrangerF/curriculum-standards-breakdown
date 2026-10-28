@@ -189,7 +189,7 @@ function FeedbackPage() {
                 <div className={`container ${styles.container}`}>
                     <section className={styles.success} aria-labelledby="feedback-success-title">
                         <CheckCircleIcon size={42} weight="fill" aria-hidden="true" />
-                        <span>FEEDBACK / RECEIVED</span>
+                        <span>反馈 · 已收到</span>
                         <h1 ref={successHeadingRef} id="feedback-success-title" tabIndex="-1">反馈已提交</h1>
                         <p>感谢你帮助我们校正课程标准信息。我们会按内容类型进行核对。</p>
                         <div className={styles.successActions}>
@@ -211,7 +211,7 @@ function FeedbackPage() {
                             <ArrowLeftIcon size={17} aria-hidden="true" />
                             返回首页
                         </Link>
-                        <span className={styles.coordinate} aria-hidden="true">FEEDBACK / CORRECTION</span>
+                        <span className={styles.coordinate} aria-hidden="true">反馈 · 纠错</span>
                         <h1>反馈与纠错</h1>
                         <p>报告内容问题、提出功能建议，或与 kebiao 团队建立联系。</p>
                     </div>

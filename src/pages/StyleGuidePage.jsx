@@ -12,21 +12,21 @@ import { Tooltip } from '../ui/primitives/Tooltip'
 import styles from './StyleGuidePage.module.css'
 
 const FOUNDATION_COLORS = [
-    ['Canvas', '--bg-secondary', '#F7F8FA'],
-    ['Surface', '--bg-primary', '#FFFFFF'],
-    ['Ink', '--text-primary', '#15181E'],
-    ['Muted ink', '--text-secondary', '#566170'],
-    ['Signal indigo', '--color-primary', '#3D5AFE'],
-    ['Accent soft', '--color-primary-subtle', '#EEF0FF']
+    ['夜空', '--kb-night', '#07080C'],
+    ['玻璃', '--kb-night-glass', 'rgba(9,11,16,.84)'],
+    ['月白', '--kb-moon', '#ECEFF4'],
+    ['薄雾', '--kb-mist', '#AAB2BF'],
+    ['暗星', '--kb-dim', '#858E9C'],
+    ['金', '--kb-gold', '#E9C887']
 ]
 
 const SEMANTIC_COLORS = [
-    ['Success', '--color-success', '#167D55'],
-    ['Warning', '--color-warning', '#B96A0A'],
-    ['Error', '--color-error', '#C33945'],
-    ['Graph canvas', '--kb-graph-canvas', '#090C14'],
-    ['Graph surface', '--kb-graph-surface', '#111725'],
-    ['Graph text', '--kb-graph-text', '#F3F6FF']
+    ['成功', '--color-success', '#5BD08F'],
+    ['提醒', '--color-warning', '#F0B35A'],
+    ['错误', '--color-error', '#F27A84'],
+    ['图谱画布', '--kb-graph-canvas', '#07080C'],
+    ['图谱面板', '--kb-graph-surface', '#0E1118'],
+    ['图谱文字', '--kb-graph-text', '#ECEFF4']
 ]
 
 const SUBJECTS = [
@@ -51,9 +51,9 @@ function StyleGuidePage() {
             <header className={styles.header}>
                 <div className={`container ${styles.headerLayout}`}>
                     <div>
-                        <span className={styles.coordinate} aria-hidden="true">SYSTEM / V2.0</span>
+                        <span className={styles.coordinate} aria-hidden="true">设计系统 · 课标星图</span>
                         <h1>kebiao Design System</h1>
-                        <p>Precision Intelligence Workbench——用于课程标准索引、阅读、审核与图谱探索的统一视觉和交互契约。</p>
+                        <p>2,025 颗星组成的课标星图：夜空打底，月白文字，金色强调；标题用衬线，数字用斜体。所有页面共用这一套组件与设计变量。</p>
                     </div>
                     <div className={styles.density} role="group" aria-label="预览密度">
                         <span>密度</span>
@@ -248,15 +248,15 @@ function StyleGuidePage() {
 
                 <section id="brand" className={styles.section}>
                     <div className="container">
-                        <SectionHeading index="05" title="Brand" description="品牌来自真实课程坐标系，不来自海浪、鲸鱼、古籍、印章或通用 AI 光球。" />
+                        <SectionHeading index="05" title="Brand" description="品牌来自 2,025 条真实课标组成的星图，不来自装饰性的数据面板或通用 AI 光球。" />
                         <div className={styles.brandLayout}>
                             <div className={styles.brandLockup}>
                                 <img src="/kebiao-mark.svg" alt="" />
                                 <div><strong>kebiao</strong><span>中国课程标准的结构化索引与智能引擎</span></div>
                             </div>
                             <div className={styles.brandRules}>
-                                <div><span>使用</span><p>冷白、石墨、信号靛蓝、课程坐标轴、标准编码锚点。</p></div>
-                                <div><span>避免</span><p>暖纸朱红、古籍衬线、蓝紫渐变、全站玻璃、装饰性数据面板。</p></div>
+                                <div><span>使用</span><p>夜空底色、月白文字、金色强调、学科九色（只点在星与编码上）、衬线标题与斜体数字、中文小标题。</p></div>
+                                <div><span>避免</span><p>不透明色块与方格纸背景、蓝紫渐变、英文小标题、厚重阴影、整块填色的标签。</p></div>
                             </div>
                         </div>
                     </div>

@@ -38,7 +38,7 @@ function ContactPage() {
             <section className={styles.hero}>
                 <div className={`container ${styles.heroLayout}`}>
                     <div>
-                        <span className={styles.eyebrow}>CONTACT · 联系</span>
+                        <span className={styles.eyebrow}>联系 · 一起做</span>
                         <h1>一起把课程数据做得更有用</h1>
                     </div>
                     <p>如果你需要 API 的更多功能、希望将课程标准接入产品，或想讨论课程设计与教育技术合作，欢迎联系我。</p>
@@ -48,7 +48,7 @@ function ContactPage() {
             <section className={styles.contactSection} aria-labelledby="contact-options-title">
                 <div className={`container ${styles.contactLayout}`}>
                     <div className={styles.contactIntro}>
-                        <span>DIRECT CONTACT</span>
+                        <span>直接联系</span>
                         <h2 id="contact-options-title">联系方式</h2>
                         <p>邮件通常是最清晰的起点。请简单说明你的使用场景、需要的能力或希望合作的方向。</p>
                     </div>
@@ -76,7 +76,7 @@ function ContactPage() {
             <section className={styles.wechatSection} id="wechat" aria-labelledby="wechat-title">
                 <div className={`container ${styles.wechatLayout}`}>
                     <div className={styles.wechatCopy}>
-                        <span>WECHAT PUBLIC ACCOUNT</span>
+                        <span>微信公众号</span>
                         <h2 id="wechat-title">关注公众号</h2>
                         <p>使用微信扫描二维码，关注我的公众号。这里会分享教育研究、课程设计、AI 与学习系统相关内容。</p>
                         <small>请使用微信扫一扫</small>
@@ -94,7 +94,7 @@ function ContactPage() {
             <section className={styles.scopeSection} aria-labelledby="contact-scope-title">
                 <div className="container">
                     <div className={styles.scopeHeader}>
-                        <span>GOOD TO INCLUDE</span>
+                        <span>来信可以写上</span>
                         <h2 id="contact-scope-title">联系时可以告诉我</h2>
                     </div>
                     <div className={styles.scopeList}>

@@ -55,7 +55,7 @@ function ApiPage() {
             <section className={styles.hero}>
                 <div className={`container ${styles.heroLayout}`}>
                     <div className={styles.heroCopy}>
-                        <span className={styles.eyebrow}>KEBIAO API · V1</span>
+                        <span className={styles.eyebrow}>开放接口 · 第一版</span>
                         <h1>把课程标准接入你的教育产品</h1>
                         <p>通过稳定、版本化的接口检索中国课程标准，批量读取标准数据，并浏览已经建立的年级进阶与相邻关系。</p>
                         <div className={styles.heroActions}>
@@ -64,7 +64,7 @@ function ApiPage() {
                         </div>
                     </div>
                     <div className={styles.endpointPanel} aria-label="API 基本信息">
-                        <span>BASE URL</span>
+                        <span>接口地址</span>
                         <code>{apiBase}</code>
                         <div className={styles.endpointMeta}>
                             <span><i aria-hidden="true"></i>公开接口可直接体验</span>
@@ -77,7 +77,7 @@ function ApiPage() {
             <section className={styles.capabilities} aria-labelledby="api-capabilities-title">
                 <div className="container">
                     <div className={styles.sectionIntro}>
-                        <span>WHAT YOU CAN BUILD</span>
+                        <span>可以做什么</span>
                         <div>
                             <h2 id="api-capabilities-title">一套数据，多种教育场景</h2>
                             <p>适用于课程检索、教学设计工具、知识图谱、学习路径、课程审查与 AI 教育应用。</p>
@@ -99,7 +99,7 @@ function ApiPage() {
                     </div>
                     <div className={styles.developmentBlock}>
                         <div>
-                            <span>IN DEVELOPMENT</span>
+                            <span>研发中</span>
                             <h3>正在开发中的能力</h3>
                             <p>以下能力尚未达到公开 API 的质量标准。页面仅用于说明研发方向，不提供接口调用。</p>
                         </div>
@@ -119,7 +119,7 @@ function ApiPage() {
             <section className={styles.quickStart} id="quick-start" aria-labelledby="quick-start-title">
                 <div className={`container ${styles.quickStartLayout}`}>
                     <div className={styles.quickStartCopy}>
-                        <span className={styles.sectionLabel}>QUICK START</span>
+                        <span className={styles.sectionLabel}>快速开始</span>
                         <h2 id="quick-start-title">三步完成第一次调用</h2>
                         <ol>
                             <li><span>1</span><div><strong>选择公开接口</strong><p>基础检索无需 API Key，可直接从浏览器、终端或服务端调用。</p></div></li>
@@ -141,7 +141,7 @@ function ApiPage() {
             <section className={styles.contract} aria-labelledby="response-contract-title">
                 <div className={`container ${styles.contractLayout}`}>
                     <div>
-                        <span className={styles.sectionLabel}>RESPONSE CONTRACT</span>
+                        <span className={styles.sectionLabel}>响应约定</span>
                         <h2 id="response-contract-title">可预测的响应，便于长期集成</h2>
                         <p>成功响应返回数据版本与请求 ID。请求失败时使用正确的 HTTP 状态码，并提供稳定的英文错误代码和请求 ID，方便程序处理与问题排查。</p>
                         <a href="/api/v1/openapi.yaml">查看 OpenAPI 3.1 契约 →</a>
@@ -161,7 +161,7 @@ function ApiPage() {
             <section className={styles.access} aria-labelledby="api-access-title">
                 <div className="container">
                     <div className={styles.sectionIntro}>
-                        <span>ACCESS</span>
+                        <span>访问方式</span>
                         <div>
                             <h2 id="api-access-title">从公开体验开始</h2>
                             <p>需要更高频率、更多字段或产品级支持时，可以联系我们讨论合适的访问层级。</p>
@@ -182,7 +182,7 @@ function ApiPage() {
             <section className={styles.cta}>
                 <div className={`container ${styles.ctaLayout}`}>
                     <div>
-                        <span>NEED MORE?</span>
+                        <span>需要更多？</span>
                         <h2>需要新的端点、字段或集成支持？</h2>
                         <p>告诉我们你的产品场景、需要的数据范围和预计调用规模，我们会一起评估可行的 API 方案。</p>
                     </div>

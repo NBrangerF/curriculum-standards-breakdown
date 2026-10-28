@@ -1,8 +1,7 @@
 .page {
-    --api-line: rgba(236, 240, 247, 0.12);
+    --api-line: var(--kb-line);
     min-height: 100%;
-    background: #0f1014;
-    color: #ebeef6;
+    color: var(--kb-moon);
 }
 
 .hero {
@@ -11,26 +10,6 @@
     min-height: min(46rem, calc(100svh - 4.5rem));
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--api-line);
-    background:
-        linear-gradient(rgba(233, 200, 135, 0.091) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(233, 200, 135, 0.091) 1px, transparent 1px),
-        radial-gradient(circle at 82% 35%, rgba(233, 200, 135, 0.182), transparent 28rem),
-        #0d0e13;
-    background-size: 4.5rem 4.5rem, 4.5rem 4.5rem, auto, auto;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 16%;
-    right: 6%;
-    width: clamp(9rem, 18vw, 16rem);
-    aspect-ratio: 1;
-    border: 1px solid rgba(233, 200, 135, 0.23);
-    border-radius: 50%;
-    box-shadow: 0 0 0 2.2rem rgba(233, 200, 135, 0.025), 0 0 0 4.4rem rgba(233, 200, 135, 0.018);
-    pointer-events: none;
 }
 
 .heroLayout {
@@ -50,9 +29,11 @@
 .sectionLabel,
 .sectionIntro > span,
 .ctaLayout > div > span {
-    color: var(--color-primary);
-    font: 650 0.68rem/1.2 var(--font-mono);
-    letter-spacing: 0.14em;
+    color: var(--kb-gold);
+    letter-spacing: 0.16em;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    line-height: 1.2;
 }
 
 .hero h1 {
@@ -60,9 +41,10 @@
     margin: 1.25rem 0 0;
     color: inherit;
     font-size: clamp(3.25rem, 6.7vw, 6.7rem);
-    font-weight: 670;
-    letter-spacing: 0.01em;
-    line-height: 1.2;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
+    font-family: var(--font-display);
 }
 
 .heroCopy > p {
@@ -83,7 +65,7 @@
     animation: api-rise 700ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.endpointPanel > span { color: #acb2bf; font: 600 0.62rem/1 var(--font-mono); letter-spacing: 0.13em; }
+.endpointPanel > span { color: var(--kb-dim); letter-spacing: 0.16em; font-family: var(--font-mono); font-size: 12px; }
 .endpointPanel > code { display: block; overflow: hidden; margin-top: 0.8rem; color: #dfe5f2; font: 560 clamp(0.78rem, 1.25vw, 1rem)/1.5 var(--font-mono); text-overflow: ellipsis; white-space: nowrap; }
 .endpointMeta { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.4rem; color: #bbc2cc; font-size: 0.72rem; }
 .endpointMeta span { display: inline-flex; align-items: center; gap: 0.45rem; }
@@ -126,8 +108,10 @@
 
 .developmentBlock > div:first-child > span {
     color: #c7b3b9;
-    font: 650 0.66rem/1.2 var(--font-mono);
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.2;
 }
 
 .developmentBlock h3 { margin: 0.9rem 0 0; font-size: clamp(1.6rem, 3vw, 2.5rem); letter-spacing: 0.01em; }
@@ -138,7 +122,7 @@
 .developmentList p { margin: 0; color: #b7bcc5; font-size: 0.78rem; line-height: 1.62; }
 .developmentList span { padding: 0.35rem 0.5rem; border: 1px solid rgba(222, 228, 238, 0.203); border-radius: var(--radius-xs); color: #cebcc2; font: 580 0.6rem/1.2 var(--font-mono); white-space: nowrap; }
 
-.quickStart { padding: clamp(4.5rem, 8vw, 8rem) 0; background: #111722; color: #f5f7fb; }
+.quickStart { padding: clamp(4.5rem, 8vw, 8rem) 0; background: transparent; color: #f5f7fb; border-top: 1px solid var(--kb-line); }
 .quickStartLayout { display: grid; grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; }
 .quickStart h2 { margin-top: 1rem; color: inherit; }
 .quickStart ol { display: grid; gap: 0; margin: 2.4rem 0 0; padding: 0; list-style: none; border-top: 1px solid #dadfe7; }
@@ -148,7 +132,7 @@
 .quickStart li p { margin: 0.35rem 0 0; color: #a9b3c2; font-size: 0.78rem; line-height: 1.62; }
 .quickStart li code { color: #aab7ff; font-family: var(--font-mono); }
 
-.codeExample { min-width: 0; overflow: hidden; border: 1px solid #d5dae3; border-radius: var(--radius-md); background: #0a0f17; box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5); }
+.codeExample { min-width: 0; overflow: hidden; border: 1px solid var(--kb-line); border-radius: 22px; background: var(--kb-night-glass); box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.5); }
 .codeToolbar { display: flex; min-height: 3.3rem; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 0.85rem 0 1.1rem; border-bottom: 1px solid #dbe0e8; }
 .codeToolbar span { color: #9da9ba; font: 540 0.65rem/1 var(--font-mono); }
 .codeToolbar button { min-height: 44px; padding: 0 0.8rem; border: 0; background: transparent; color: #c8d0dc; font-size: 0.72rem; }
@@ -157,7 +141,7 @@
 .codeExample code { color: #c9d2e1; font: 500 0.75rem/1.75 var(--font-mono); }
 .copyStatus { display: block; min-height: 1.8rem; padding: 0 1.5rem; color: #87d8b3; font-size: 0.68rem; }
 
-.contract { padding: clamp(4.5rem, 8vw, 7rem) 0; border-bottom: 1px solid var(--api-line); background: #101317; }
+.contract { padding: clamp(4.5rem, 8vw, 7rem) 0; border-bottom: 1px solid var(--api-line); background: transparent; border-top: 1px solid var(--kb-line); }
 .contractLayout { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 1.1fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; }
 .contract h2 { max-width: 13ch; margin-top: 1rem; }
 .contract p { max-width: 42rem; margin: 1.3rem 0 1.5rem; color: #bec4ce; line-height: 1.78; }
@@ -165,14 +149,14 @@
 .responseExample { overflow: auto; margin: 0; padding: clamp(1.5rem, 3vw, 2.4rem); border-left: 2px solid var(--color-primary); background: rgba(14, 17, 24, 0.63); color: #d6ddea; }
 .responseExample code { font: 520 0.78rem/1.8 var(--font-mono); }
 
-.access { background: #0f0f0f; }
+.access { background: transparent; border-top: 1px solid var(--kb-line); }
 .accessTable { border-top: 1px solid var(--api-line); }
 .accessRow { display: grid; grid-template-columns: minmax(8rem, 0.25fr) minmax(8rem, 0.25fr) minmax(0, 0.5fr); gap: 2rem; align-items: center; min-height: 6rem; padding: 1rem 0; border-bottom: 1px solid var(--api-line); }
 .accessRow strong { font-size: 0.96rem; }
 .accessRow code { color: var(--color-primary-dark); font: 550 0.7rem/1.4 var(--font-mono); }
 .accessRow p { margin: 0; color: #bec4cd; font-size: 0.82rem; line-height: 1.65; }
 
-.cta { padding: clamp(4.5rem, 7vw, 7rem) 0; border-top: 1px solid #dce1e9; background: #10141c; color: #f4f6fa; }
+.cta { padding: clamp(4.5rem, 7vw, 7rem) 0; border-top: 1px solid var(--kb-line); background: transparent; color: #f4f6fa; }
 .ctaLayout { display: flex; align-items: end; justify-content: space-between; gap: 3rem; }
 .cta h2 { max-width: 15ch; margin-top: 0.9rem; color: inherit; }
 .cta p { max-width: 42rem; margin: 1.1rem 0 0; color: #9da8b8; line-height: 1.72; }
@@ -189,7 +173,6 @@
     .quickStartLayout,
     .contractLayout { grid-template-columns: 1fr; }
     .heroLayout { align-items: start; gap: 3rem; }
-    .hero::after { opacity: 0.5; }
     .endpointPanel { width: min(100%, 35rem); }
     .capability { grid-template-columns: 2.5rem minmax(0, 1fr); }
     .endpointList { grid-column: 2; }

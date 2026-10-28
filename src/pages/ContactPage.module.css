@@ -1,29 +1,22 @@
 .page {
-    --contact-line: rgba(236, 240, 247, 0.12);
+    --contact-line: var(--kb-line);
     min-height: 100%;
-    background: #0f1014;
-    color: #ebeef6;
+    color: var(--kb-moon);
 }
 
 .hero {
     padding: clamp(4.5rem, 9vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
-    border-bottom: 1px solid var(--contact-line);
-    background:
-        linear-gradient(rgba(233, 200, 135, 0.077) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(233, 200, 135, 0.077) 1px, transparent 1px),
-        #0d0e13;
-    background-size: 4.5rem 4.5rem;
 }
 
 .heroLayout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr); gap: clamp(3rem, 9vw, 9rem); align-items: end; }
 .eyebrow,
 .contactIntro > span,
 .wechatCopy > span,
-.scopeHeader > span { color: var(--color-primary); font: 650 0.68rem/1.2 var(--font-mono); letter-spacing: 0.14em; }
-.hero h1 { max-width: 10ch; margin: 1.2rem 0 0; color: inherit; font-size: clamp(3.4rem, 7vw, 7rem); font-weight: 670; letter-spacing: 0.01em; line-height: 1.2; animation: contact-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both; }
-.hero p { max-width: 34rem; margin: 0 0 0.35rem; color: #bfc6d0; font-size: clamp(1rem, 1.45vw, 1.18rem); line-height: 1.82; animation: contact-rise 700ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.scopeHeader > span { color: var(--kb-gold); letter-spacing: 0.16em; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.2; }
+.hero h1 { max-width: 10ch; margin: 1.2rem 0 0; color: inherit; font-size: clamp(3.4rem, 7vw, 7rem); font-weight: 900; letter-spacing: 0.04em; line-height: 1.15; animation: contact-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both; font-family: var(--font-display); }
+.hero p { max-width: 34rem; margin: 0 0 0.35rem; color: var(--kb-mist); font-size: clamp(1rem, 1.45vw, 1.18rem); line-height: 1.82; animation: contact-rise 700ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both; }
 
-.contactSection { padding: clamp(4.5rem, 8vw, 8rem) 0; background: #0f0f0f; }
+.contactSection { padding: clamp(4.5rem, 8vw, 8rem) 0; background: transparent; border-top: 1px solid var(--kb-line); }
 .contactLayout { display: grid; grid-template-columns: minmax(14rem, 0.32fr) minmax(0, 0.68fr); gap: clamp(3rem, 8vw, 8rem); align-items: start; }
 .contactIntro { position: sticky; top: 7rem; }
 .contactIntro h2,
@@ -40,20 +33,20 @@
 .contactAction svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; transition: transform var(--transition-fast); }
 .contactRow:hover .contactAction svg { transform: translate(0.16rem, -0.16rem); }
 
-.wechatSection { position: relative; overflow: hidden; padding: clamp(4.5rem, 8vw, 8rem) 0; background: #111722; color: #f5f7fb; }
+.wechatSection { position: relative; overflow: hidden; padding: clamp(4.5rem, 8vw, 8rem) 0; background: transparent; color: #f5f7fb; border-top: 1px solid var(--kb-line); }
 .wechatSection::before { content: ''; position: absolute; inset: 0; opacity: 0.22; background-image: linear-gradient(rgba(90, 108, 226, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(90, 108, 226, 0.07) 1px, transparent 1px); background-size: 4.5rem 4.5rem; mask-image: linear-gradient(to right, black, transparent 72%); }
 .wechatLayout { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.65fr); gap: clamp(3rem, 9vw, 9rem); align-items: center; }
 .wechatCopy h2 { color: inherit; }
 .wechatCopy p { max-width: 38rem; margin: 1.35rem 0 0; color: #aab4c3; line-height: 1.78; }
 .wechatCopy small { display: block; margin-top: 2rem; color: #7f8b9e; font: 550 0.65rem/1.2 var(--font-mono); letter-spacing: 0.08em; }
 .qrFigure { justify-self: center; margin: 0; text-align: center; }
-.qrFrame { position: relative; width: clamp(15rem, 27vw, 20rem); padding: 1.1rem; border: 1px solid #cfd5df; background: #0f0f0f; box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.6); }
+.qrFrame { position: relative; width: clamp(15rem, 27vw, 20rem); padding: 1.1rem; border: 1px solid #cfd5df; background: var(--kb-night-glass); box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.6); border-radius: 22px; }
 .qrFrame img { display: block; width: 100%; height: auto; }
 .scanLine { position: absolute; right: 1.1rem; left: 1.1rem; top: 50%; height: 1px; background: rgba(233, 200, 135, 0.55); box-shadow: 0 0 0.8rem rgba(233, 200, 135, 0.5); opacity: 0; transition: opacity var(--transition-normal); }
 .qrFrame:hover .scanLine { opacity: 1; }
 .qrFigure figcaption { margin-top: 1rem; color: #8f9bad; font: 550 0.64rem/1.2 var(--font-mono); letter-spacing: 0.08em; }
 
-.scopeSection { padding: clamp(4.5rem, 8vw, 7rem) 0; background: #101215; }
+.scopeSection { padding: clamp(4.5rem, 8vw, 7rem) 0; background: transparent; border-top: 1px solid var(--kb-line); }
 .scopeHeader { display: grid; grid-template-columns: minmax(10rem, 0.3fr) minmax(0, 0.7fr); gap: clamp(2rem, 8vw, 8rem); align-items: start; margin-bottom: 3rem; }
 .scopeHeader h2 { margin: 0; }
 .scopeList { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--contact-line); }
