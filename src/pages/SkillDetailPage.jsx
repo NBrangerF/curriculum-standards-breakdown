@@ -11,7 +11,7 @@ import {
 } from '../data/dataLoader'
 import GradeBandTabs from '../components/GradeBandTabs'
 import StandardCard from '../components/StandardCard'
-import TSHeroBanner from '../components/TSHeroBanner'
+import { PageHero } from '../components/kb'
 import { LoadingState, ErrorState, EmptyState, ResultStats, CopyLinkButton } from '../components/StateComponents'
 import { useUiV2 } from '../components/RouteUiBoundary.jsx'
 import { buildShareableURL, mergeGraphStateIntoURL, parseGraphStateFromURL } from '../data/query'
@@ -160,21 +160,17 @@ function SkillDetailPage() {
 
     return (
         <div className={styles['skill-detail-page']} style={{ '--skill-color': skillColor }} data-kb-route="skill-detail">
-            {/* Skill Hero Banner - New Component */}
-            <TSHeroBanner
-                tsCode={skill.code}
-                titleCN={skill.name_cn}
-                titleEN={skill.name_en}
-                definition={skill.tagline_cn}
-                themeColor={skillColor}
-                backLink="/skills"
-                backLabel="← 返回技能列表"
+            <PageHero
+                color={skillColor}
+                crumbs={[{ to: '/skills', label: '← 返回技能列表' }, { label: `可迁移技能 · ${skill.code}` }]}
+                title={skill.name_cn}
+                lede={skill.tagline_cn}
             />
 
             <section className={styles['skill-definition-section']}>
                 <div className="container">
                     <div className={styles['definition-content']}>
-                        <span className={styles['skill-section-kicker']}>Definition</span>
+                        <span className={styles['skill-section-kicker']}>壹 · 定义</span>
                         <h2>技能定义</h2>
                         <p className={styles['definition-text']}>{skill.definition_cn}</p>
                     </div>
@@ -182,7 +178,7 @@ function SkillDetailPage() {
                     {skill.look_fors && skill.look_fors.length > 0 && (
                         <div className={styles['look-fors']}>
                             <span className={styles['skill-section-index']}>01</span>
-                            <h3>学生表现证据 <small>Look-fors</small></h3>
+                            <h3>学生表现证据</h3>
                             <ul className={styles['look-fors-list']}>
                                 {skill.look_fors.map((item, idx) => (
                                     <li key={idx}>{item}</li>
@@ -194,7 +190,7 @@ function SkillDetailPage() {
                     {skill.teacher_moves && skill.teacher_moves.length > 0 && (
                         <div className={styles['teacher-moves']}>
                             <span className={styles['skill-section-index']}>02</span>
-                            <h3>教师策略 <small>Teacher Moves</small></h3>
+                            <h3>教师策略</h3>
                             <ul className={styles['teacher-moves-list']}>
                                 {skill.teacher_moves.map((item, idx) => (
                                     <li key={idx}>{item}</li>
@@ -206,7 +202,7 @@ function SkillDetailPage() {
                     {skill.progression_notes && (
                         <div className={styles['progression-notes']}>
                             <span className={styles['skill-section-index']}>03</span>
-                            <h3>进阶说明 <small>Progression</small></h3>
+                            <h3>进阶说明</h3>
                             <p>{skill.progression_notes}</p>
                         </div>
                     )}
@@ -217,7 +213,7 @@ function SkillDetailPage() {
                 <section className={styles['subskills-section']}>
                     <div className="container">
                         <div className={styles['skill-section-heading']}>
-                            <div><span className={styles['skill-section-kicker']}>Taxonomy</span><h2>子技能</h2></div>
+                            <div><span className={styles['skill-section-kicker']}>贰 · 子技能</span><h2>子技能</h2></div>
                             <p>{skill.subskills.length} 个可观察、可教学的能力分支</p>
                         </div>
                         <div className={styles['subskills-grid']}>
@@ -252,7 +248,7 @@ function SkillDetailPage() {
                 <div className="container">
                     <div className={styles['section-header-row']}>
                         <div>
-                            <span className={styles['skill-section-kicker']}>Curriculum Index</span>
+                            <span className={styles['skill-section-kicker']}>叁 · 课程标准</span>
                             <h2>关联的课程标准</h2>
                             <p className={styles['section-desc']}>
                                 以下标准的主标签或次标签包含 <strong>{skill.code}</strong> 或其子技能

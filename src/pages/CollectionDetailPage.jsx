@@ -139,7 +139,7 @@ function CollectionDetailPage() {
                             </form>
                         ) : (
                             <div className={styles.titleBlock}>
-                                <span aria-hidden="true">COLLECTION / {id === 'default' ? 'DEFAULT' : 'CUSTOM'}</span>
+                                <span aria-hidden="true">清单 · {id === 'default' ? '默认收藏' : '自建清单'}</span>
                                 <div>
                                     <h1 id="collection-detail-title">{collection.name}</h1>
                                     {id !== 'default' ? (

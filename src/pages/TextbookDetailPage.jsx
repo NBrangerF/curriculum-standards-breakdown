@@ -31,7 +31,7 @@ function StandardScopeLinks({ standardCodes }) {
         <section className={styles.scopePanel} aria-labelledby="textbook-standard-scope-heading">
             <div className={styles.scopeHeading}>
                 <div>
-                    <span>CURRICULUM SCOPE</span>
+                    <span>课标范围</span>
                     <h3 id="textbook-standard-scope-heading">同学科、同学段课标范围</h3>
                 </div>
                 <p>范围关系帮助进入相关课标，但不代表已经定位到本书某个单元或页码。</p>
@@ -120,7 +120,7 @@ export default function TextbookDetailPage() {
             <div className={`container ${styles.contentGrid}`}>
                 <main className={styles.mainColumn}>
                     <section className={styles.section}>
-                        <div className={styles.sectionHeading}><div><span>LOCATE</span><h2>可定位目录</h2></div><p>同时显示 PDF 页与印刷页，点击可直达。</p></div>
+                        <div className={styles.sectionHeading}><div><span>目录</span><h2>可定位目录</h2></div><p>同时显示 PDF 页与印刷页，点击可直达。</p></div>
                         {book.toc.length ? (
                             <ol className={styles.toc}>
                                 {book.toc.map(entry => (
@@ -140,7 +140,7 @@ export default function TextbookDetailPage() {
                     </section>
 
                     <section className={styles.section}>
-                        <div className={styles.sectionHeading}><div><span>ALIGN</span><h2>课标与教材关联</h2></div><p>机器校验后直接展示，并附页内证据、置信度与算法版本。</p></div>
+                        <div className={styles.sectionHeading}><div><span>课标关联</span><h2>课标与教材关联</h2></div><p>机器校验后直接展示，并附页内证据、置信度与算法版本。</p></div>
                         {book.alignments.length ? (
                             <div className={styles.alignmentList}>{book.alignments.map(item => <TextbookAlignmentCard key={item.alignment_id} book={book} alignment={item} />)}</div>
                         ) : <EmptyState title="暂无可靠的单元级关联" message={standardScopeCodes.length ? `已建立 ${standardScopeCodes.length} 条同学科、同学段课标范围关系；可以先浏览下方相关课标，具体单元证据仍需增强。` : '尚未生成具体单元证据或适用范围关系。'} />}
@@ -149,11 +149,11 @@ export default function TextbookDetailPage() {
                 </main>
 
                 <aside className={styles.aside}>
-                    <section><span className={styles.asideLabel}>RESOURCES</span><h2>配套资源</h2>
+                    <section><span className={styles.asideLabel}>配套</span><h2>配套资源</h2>
                         {book.related_resources.length ? <ul>{book.related_resources.map(resource => <li key={resource.relation_id}>{resource.resource_reading_available && resource.resource_id ? <Link to={`/textbook-resources/${encodeURIComponent(resource.resource_id)}/read?page=1`}><strong>{resource.title}</strong><span>{RELATION_LABELS[resource.relationship] || '相关资料'} · 在线阅读</span></Link> : <div className={styles.resourceUnavailable}><strong>{resource.title}</strong><span>{RELATION_LABELS[resource.relationship] || '相关资料'} · 文件暂不可在线阅读</span></div>}</li>)}</ul> : <p className={styles.muted}>尚未收录该册的教师用书或辅助材料。配对接口已就绪，资源入库后会自动出现。</p>}
                     </section>
-                    <section><span className={styles.asideLabel}>QUALITY</span><h2>处理说明</h2><ul className={styles.notes}>{book.extraction.notes.map((note, index) => <li key={index}>{note}</li>)}</ul></section>
-                    <section><span className={styles.asideLabel}>EDITION</span><h2>版本状态</h2><p className={styles.muted}>{book.revision_label}。{book.bibliographic_verified ? '书目信息已核实。' : '书目版次仍需人工核实，不影响已验证 PDF 阅读。'}</p></section>
+                    <section><span className={styles.asideLabel}>处理</span><h2>处理说明</h2><ul className={styles.notes}>{book.extraction.notes.map((note, index) => <li key={index}>{note}</li>)}</ul></section>
+                    <section><span className={styles.asideLabel}>版本</span><h2>版本状态</h2><p className={styles.muted}>{book.revision_label}。{book.bibliographic_verified ? '书目信息已核实。' : '书目版次仍需人工核实，不影响已验证 PDF 阅读。'}</p></section>
                 </aside>
             </div>
         </div>

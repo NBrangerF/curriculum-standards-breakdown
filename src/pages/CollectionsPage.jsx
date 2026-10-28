@@ -139,7 +139,7 @@ function CollectionsPage() {
             <section className={styles.hero} aria-labelledby="collections-title">
                 <div className={`container ${styles.heroLayout}`}>
                     <div className={styles.heroCopy}>
-                        <span className={styles.coordinate} aria-hidden="true">COLLECTION / LOCAL</span>
+                        <span className={styles.coordinate} aria-hidden="true">清单 · 只存在本机</span>
                         <h1 id="collections-title">我的清单</h1>
                         <p>把课程标准整理成可复用的教学与研究工作集。</p>
                     </div>

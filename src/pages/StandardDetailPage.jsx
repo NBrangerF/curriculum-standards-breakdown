@@ -536,11 +536,11 @@ function StandardDetailPage() {
                 <div className="container">
                     <nav className={styles.breadcrumb} aria-label="面包屑">
                         <Link to="/">首页</Link>
-                        <span className={styles.separator}>›</span>
+                        <span className={styles.separator}>/</span>
                         <Link to={`/subjects/${subject_slug}`}>{subject}</Link>
-                        <span className={styles.separator}>›</span>
+                        <span className={styles.separator}>/</span>
                         <span className={styles.current}>{domain}</span>
-                        <span className={styles.separator}>›</span>
+                        <span className={styles.separator}>/</span>
                         <span className={styles.current}>{code}</span>
                     </nav>
                 </div>
@@ -736,7 +736,7 @@ function StandardDetailPage() {
                 <div className="container">
                     <header className={styles['capability-intro']}>
                         <div>
-                            <span>TEACHABLE GRAPH</span>
+                            <span>能力图谱</span>
                             <h2>可教学能力图谱</h2>
                         </div>
                         <p>把课标拆成可教、可诊断、可追溯的课堂线索。已核验关系与机器候选分开展示；候选内容用于备课判断，不等同于官方课标结论。</p>
@@ -757,7 +757,7 @@ function StandardDetailPage() {
 
                             <div className={styles['capability-layout']}>
                         <CapabilityGroup
-                            eyebrow="DECOMPOSE"
+                            eyebrow="壹 · 拆解"
                             title="可教学小能力"
                             description="将一条标准分解为课堂中能够教授和观察的学习成分。"
                             emptyMessage="尚未形成可公开的学习成分。"
@@ -770,7 +770,7 @@ function StandardDetailPage() {
                         </CapabilityGroup>
 
                         <CapabilityGroup
-                            eyebrow="PREREQUISITES"
+                            eyebrow="贰 · 前置"
                             title="前置能力"
                             description="专家核验关系可作为正式学习路径；机器候选仍需教师或学科专家确认。"
                             emptyMessage="暂无已核验或候选前置能力。"
@@ -798,7 +798,7 @@ function StandardDetailPage() {
                         </CapabilityGroup>
 
                         <CapabilityGroup
-                            eyebrow="HARD CASES"
+                            eyebrow="叁 · 难点"
                             title="最难结构"
                             description="标准中容易被简化或遗漏、需要专门诊断的复杂要求。"
                             emptyMessage="尚未识别可公开的高难结构。"
@@ -811,7 +811,7 @@ function StandardDetailPage() {
                         </CapabilityGroup>
 
                         <CapabilityGroup
-                            eyebrow="DIFFICULTIES"
+                            eyebrow="肆 · 困难"
                             title="可能困难与教师动作"
                             description="规则根据标准结构提出错误表现、可能成因和教学响应候选；尚无频率证据，需结合真实学生表现核验。"
                             emptyMessage="尚未形成可公开的常见困难分析。"
@@ -824,7 +824,7 @@ function StandardDetailPage() {
                         </CapabilityGroup>
 
                         <CapabilityGroup
-                            eyebrow="FORWARD"
+                            eyebrow="伍 · 去向"
                             title="后续学习去向"
                             description="说明这条标准将连接到哪些后续学习，并标明关系的证据状态。"
                             emptyMessage="暂无达到公开门槛的后续连接。"
