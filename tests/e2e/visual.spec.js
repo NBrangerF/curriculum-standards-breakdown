@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import { expect, test } from '@playwright/test'
 import { installLearningMapFixtureRoutes } from './helpers/learningMapFixtureRoute.js'
 
@@ -9,6 +10,9 @@ const waitForVisualStability = page => page.evaluate(async () => {
     )
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))
 })
+
+// The night sky canvas and the home "now" star change on their own; hide them so the layout is what gets compared.
+const LIVE_SKY = fileURLToPath(new URL('./visual-live-sky.css', import.meta.url))
 
 const learningMapRoute = ({ selectedNode = 'kp:d', contextPath } = {}) => {
     const params = new URLSearchParams({ 'learning-map': '1', view: 'learning-map', selectedNode })
@@ -81,7 +85,8 @@ test('home first viewport visual baseline', async ({ page }) => {
     await expect(page).toHaveScreenshot('home-desktop.png', {
         animations: 'disabled',
         fullPage: false,
-        maxDiffPixels: 400
+        maxDiffPixels: 400,
+        stylePath: LIVE_SKY
     })
 })
 
@@ -125,7 +130,7 @@ test('subject coordinate hero visual baseline', async ({ page }) => {
     await page.goto('/subjects/math')
     await expect(page.getByRole('heading', { level: 1, name: '数学' })).toBeVisible()
     await waitForVisualStability(page)
-    await expect(page).toHaveScreenshot('subject-math-desktop.png', { animations: 'disabled', fullPage: false })
+    await expect(page).toHaveScreenshot('subject-math-desktop.png', { animations: 'disabled', fullPage: false, stylePath: LIVE_SKY })
 })
 
 test('aligned compare workspace visual baseline', async ({ page }) => {
@@ -156,7 +161,8 @@ test('mobile home visual baseline', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 })
     await page.goto('/')
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-    await expect(page).toHaveScreenshot('home-mobile.png', { animations: 'disabled', fullPage: false })
+    await waitForVisualStability(page)
+    await expect(page).toHaveScreenshot('home-mobile.png', { animations: 'disabled', fullPage: false, stylePath: LIVE_SKY })
 })
 
 test('collections workspace visual baseline', async ({ page }) => {

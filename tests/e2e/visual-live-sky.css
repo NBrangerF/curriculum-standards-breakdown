@@ -1,0 +1,6 @@
+/* Visual baselines only: the night sky canvas and the home "now" star change on their own,
+   so hide them while the screenshot is taken. Layout is unchanged. */
+canvas,
+[data-kb-live] {
+    visibility: hidden !important;
+}

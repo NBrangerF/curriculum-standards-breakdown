@@ -63,7 +63,7 @@ function NowBlock({ K, idx, codeRef, dotRef }) {
     const color = s ? K.subjects[s[F.SUBJ]].color : '#3FA2E0'
     const setCode = el => { scrambleRef.current = el; codeRef.current = el }
     return (
-        <div className={styles.now} style={{ '--c': color }} aria-hidden="true">
+        <div className={styles.now} style={{ '--c': color }} aria-hidden="true" data-kb-live="now-star">
             <p className={styles.nowMeta}>
                 <i ref={dotRef} />
                 <span>{s ? `${K.subjects[s[F.SUBJ]].name} · ${BAND_LABEL[s[F.BAND]]}` : '数学 · 3–4 年级'}</span>
