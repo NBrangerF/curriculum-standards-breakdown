@@ -17,6 +17,8 @@ export default {
         'media-feature-range-notation': null,
         'no-descending-specificity': null,
         'property-no-deprecated': null,
+        // CSS Modules: pages compose the shared star-map classes from src/components/kb.
+        'property-no-unknown': [true, { ignoreProperties: ['composes'] }],
         'property-no-vendor-prefix': null,
         'rule-empty-line-before': null,
         'selector-class-pattern': null,

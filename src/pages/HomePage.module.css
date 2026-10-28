@@ -4,20 +4,9 @@
     color: var(--kb-moon);
 }
 
-.wrap {
-    max-width: 1240px;
-    margin-inline: auto;
-    padding-right: max(clamp(16px, 4vw, 56px), env(safe-area-inset-right, 0px));
-    padding-left: max(clamp(16px, 4vw, 56px), env(safe-area-inset-left, 0px));
-}
+.wrap { composes: wrap from '../components/kb/kb.module.css'; }
 
-.kicker {
-    margin: 0;
-    color: var(--kb-gold);
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    letter-spacing: 0.16em;
-}
+.kicker { composes: kicker from '../components/kb/kb.module.css'; }
 
 .count { font-variant-numeric: tabular-nums; }
 
@@ -313,15 +302,7 @@
 .compare .wrap { padding-block: clamp(88px, 11vw, 150px) 0; }
 .compare { scroll-margin-top: 4rem; }
 
-.h2 {
-    margin: 10px 0 0;
-    color: var(--kb-moon);
-    font-family: var(--font-display);
-    font-size: clamp(34px, 4.2vw, 60px);
-    font-weight: 900;
-    line-height: 1.25;
-    letter-spacing: 0.04em;
-}
+.h2 { composes: h2 from '../components/kb/kb.module.css'; }
 
 .cmpPlaceholder { height: 560px; margin-top: 24px; border: 1px solid var(--kb-line); border-radius: 22px; }
 
@@ -511,21 +492,7 @@
 
 @keyframes drift { to { transform: translateX(-50%); } }
 
-.chip {
-    display: inline-flex;
-    min-height: 44px;
-    align-items: center;
-    gap: 10px;
-    padding: 0 16px;
-    border: 1px solid var(--kb-line);
-    border-radius: 999px;
-    background: rgba(14, 17, 24, 0.7);
-    color: var(--kb-moon);
-    font-size: 15px;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: border-color 0.2s, background 0.2s;
-}
+.chip { composes: chip from '../components/kb/kb.module.css'; }
 
 .chip:hover { border-color: var(--c); background: rgba(255, 255, 255, 0.05); color: var(--kb-moon); }
 .chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }

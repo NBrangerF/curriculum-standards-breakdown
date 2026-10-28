@@ -6,6 +6,7 @@ import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/csr/MagnifyingGl
 import { StarIcon } from '@phosphor-icons/react/dist/csr/Star'
 import { WarningCircleIcon } from '@phosphor-icons/react/dist/csr/WarningCircle'
 import { EmptyState, ErrorState, LoadingState } from '../components/StateComponents'
+import { Chip, Pill, SectionHead, Seg } from '../components/kb'
 import { Disclosure, DisclosureIndicator } from '../ui/primitives/Disclosure'
 import { Tooltip } from '../ui/primitives/Tooltip'
 import styles from './StyleGuidePage.module.css'
@@ -42,6 +43,8 @@ function StyleGuidePage() {
     const [disclosureOpen, setDisclosureOpen] = useState(true)
     const [selectedSkill, setSelectedSkill] = useState('TS4')
     const [checked, setChecked] = useState(true)
+    const [kbPill, setKbPill] = useState(true)
+    const [kbSeg, setKbSeg] = useState('table')
 
     return (
         <div className={styles.root} data-density={density} data-kb-route="styleguide">
@@ -92,11 +95,11 @@ function StyleGuidePage() {
 
                         <div className={styles.typography}>
                             <div className={styles.typeDisplay}>
-                                <span>DISPLAY / GEIST SANS 660</span>
+                                <span>DISPLAY / NOTO SERIF SC 900</span>
                                 <p>课程标准<br />关系索引</p>
                             </div>
                             <div className={styles.typeBody}>
-                                <span>BODY / GEIST SANS 400</span>
+                                <span>BODY / PINGFANG SC 400</span>
                                 <p>学生通过观察、操作、想象等活动，认识物体的形状与结构，理解图形的位置与运动，发展空间观念。</p>
                                 <code>MA-D2-GE-003 · IBM Plex Mono 500</code>
                             </div>
@@ -254,6 +257,21 @@ function StyleGuidePage() {
                             <div className={styles.brandRules}>
                                 <div><span>使用</span><p>冷白、石墨、信号靛蓝、课程坐标轴、标准编码锚点。</p></div>
                                 <div><span>避免</span><p>暖纸朱红、古籍衬线、蓝紫渐变、全站玻璃、装饰性数据面板。</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="starmap" className={styles.section}>
+                    <div className="container">
+                        <SectionHeading index="06" title="星图组件" description="二级页面共用的页头、区块标题与控件，来自 src/components/kb。" />
+                        <div className={styles.kbDemo}>
+                            <SectionHead kicker="区块 · 示例" title="一门学科，九个年级" size="sm" />
+                            <div className={styles.kbRow}>
+                                <Chip color="#3FA2E0" dot>数学 <code>370</code></Chip>
+                                <Chip to="/skills" small>可迁移技能</Chip>
+                                <Pill pressed={kbPill} onClick={() => setKbPill(value => !value)}>数与代数</Pill>
+                                <Seg label="视图" options={[{ value: 'table', label: '对照表' }, { value: 'graph', label: '关系图谱' }]} value={kbSeg} onChange={setKbSeg} />
                             </div>
                         </div>
                     </div>
