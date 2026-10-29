@@ -1,9 +1,31 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { CopyIcon } from '@phosphor-icons/react/dist/csr/Copy'
 import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/csr/MagnifyingGlass'
 import { WarningCircleIcon } from '@phosphor-icons/react/dist/csr/WarningCircle'
 import { Skeleton } from '../ui/primitives/Skeleton'
+import { getPrerenderSnapshot } from '../seo/prerenderSnapshot.js'
 import styles from './StateComponents.module.css'
+
+/**
+ * Whole-page loading state. On the page the visitor landed on, it keeps showing the
+ * prerendered content (from scripts/prerender-pages.mjs) instead of a skeleton.
+ * `className` wraps only the skeleton; the prerendered content brings its own layout.
+ */
+export function PageLoading({ message, className }) {
+    const { pathname } = useLocation()
+    const snapshot = getPrerenderSnapshot(pathname)
+    if (!snapshot) return className ? <div className={className}><LoadingState message={message} /></div> : <LoadingState message={message} />
+    return (
+        <div
+            className="kbp"
+            data-kb-state="loading"
+            aria-busy="true"
+            // Written at build time from our own data, with every value escaped.
+            dangerouslySetInnerHTML={{ __html: snapshot }}
+        />
+    )
+}
 
 /**
  * Loading state component

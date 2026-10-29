@@ -11,7 +11,8 @@ import SearchResultsPage from './pages/SearchResultsPage'
 import StandardDetailPage from './pages/StandardDetailPage'
 import NotFoundPage from './pages/NotFoundPage'
 import RouteUiBoundary from './components/RouteUiBoundary'
-import { LoadingState } from './components/StateComponents'
+import { PageLoading } from './components/StateComponents'
+import { DefaultPageMeta } from './seo/usePageMeta.js'
 import UiTelemetryListener from './observability/UiTelemetryListener'
 import UmamiRouteTelemetry from './observability/UmamiRouteTelemetry'
 import { isKebiaoProductionHost } from './observability/umamiTelemetry.js'
@@ -38,7 +39,7 @@ const LearningResourceLibraryPage = lazy(() => import('./pages/LearningResourceL
 const LearningResourceDetailPage = lazy(() => import('./pages/LearningResourceDetailPage'))
 
 function lazyPage(element, message) {
-    return <Suspense fallback={<LoadingState message={message} />}>{element}</Suspense>
+    return <Suspense fallback={<PageLoading message={message} />}>{element}</Suspense>
 }
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             <a className="skip-link" href="#main-content">跳到主要内容</a>
             <Header />
             <main className="main-content" id="main-content">
+                <DefaultPageMeta />
                 <Routes>
                     <Route path="/" element={route('home', <HomePage />)} />
                     <Route path="/subjects/:slug" element={route('subject', lazyPage(<SubjectPage />, '正在展开学科星图'))} />

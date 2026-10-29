@@ -12,7 +12,9 @@ import {
 import GradeBandTabs from '../components/GradeBandTabs'
 import StandardCard from '../components/StandardCard'
 import { PageHero } from '../components/kb'
-import { LoadingState, ErrorState, EmptyState, ResultStats, CopyLinkButton } from '../components/StateComponents'
+import { LoadingState, PageLoading, ErrorState, EmptyState, ResultStats, CopyLinkButton } from '../components/StateComponents'
+import { skillMeta } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import { useUiV2 } from '../components/RouteUiBoundary.jsx'
 import { buildShareableURL, mergeGraphStateIntoURL, parseGraphStateFromURL } from '../data/query'
 import { runViewTransition } from '../utils/viewTransition.js'
@@ -32,6 +34,7 @@ function SkillDetailPage() {
     const [selectedSubjects, setSelectedSubjects] = useState([])
 
     const [skill, setSkill] = useState(null)
+    usePageMeta(skill ? skillMeta(skill) : null)
     const [subjects, setSubjects] = useState([])
     const [allStandards, setAllStandards] = useState([])
     const searchKey = searchParams.toString()
@@ -126,9 +129,7 @@ function SkillDetailPage() {
 
     if (loading) {
         return (
-            <div className="page-content container">
-                <LoadingState message="加载技能信息..." />
-            </div>
+            <PageLoading className="page-content container" message="加载技能信息..." />
         )
     }
 

@@ -3,7 +3,9 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { BookOpenTextIcon } from '@phosphor-icons/react/dist/csr/BookOpenText'
 import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/csr/MagnifyingGlass'
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/csr/ArrowRight'
-import { LoadingState, ErrorState, EmptyState } from '../components/StateComponents'
+import { PageLoading, ErrorState, EmptyState } from '../components/StateComponents'
+import { textbooksMeta } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import TextbookCover from '../features/textbooks/TextbookCover'
 import TextbookStatus from '../features/textbooks/TextbookStatus'
 import { filterTextbooks, loadTextbookCatalog } from '../features/textbooks/textbookApi'
@@ -22,6 +24,7 @@ function filtersFromParams(params) {
 export default function TextbookLibraryPage() {
     const [searchParams, setSearchParams] = useSearchParams()
     const [catalog, setCatalog] = useState(null)
+    usePageMeta(catalog ? textbooksMeta({ textbookCount: catalog.items?.length }) : null)
     const [error, setError] = useState('')
     const [visibleCount, setVisibleCount] = useState(36)
     const filters = filtersFromParams(searchParams)
@@ -45,7 +48,7 @@ export default function TextbookLibraryPage() {
     }
 
     if (error) return <ErrorState title="教材馆加载失败" message={error} />
-    if (!catalog) return <LoadingState message="正在整理教材馆" />
+    if (!catalog) return <PageLoading message="正在整理教材馆" />
 
     const manifest = catalog.manifest
     const primaryCount = manifest.filters.stages.find(item => item.value === 'primary')?.count || 0

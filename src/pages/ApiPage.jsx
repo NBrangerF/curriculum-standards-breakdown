@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { STATIC_PAGE_META } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import styles from './ApiPage.module.css'
 
 const CAPABILITIES = [
@@ -29,6 +31,7 @@ const ACCESS_LEVELS = [
 ]
 
 function ApiPage() {
+    usePageMeta(STATIC_PAGE_META['/api'])
     const [copied, setCopied] = useState(false)
     const apiBase = `${window.location.origin}/api/v1`
     const example = useMemo(() => `curl --request POST '${apiBase}/standards/search' \\

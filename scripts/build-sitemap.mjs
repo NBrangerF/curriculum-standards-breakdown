@@ -6,16 +6,30 @@ import { join } from 'node:path'
 const SITE = 'https://www.kebiao.org'
 const DATA = 'public/data'
 const readJson = path => JSON.parse(readFileSync(join(DATA, path), 'utf8'))
+const day = value => String(value || '').slice(0, 10)
 
-const paths = ['/', '/skills', '/search', '/smart-search', '/textbooks', '/learning-resources', '/glossary', '/api', '/contact']
-for (const subject of readJson('manifest.json').subjects) paths.push(`/subjects/${subject.subject_slug}`)
-for (const skill of readJson('skills_meta.json').competencies || []) paths.push(`/skills/${skill.code}`)
+const standardsDate = day(readJson('data_version.json').generated_at)
+const units = readJson('textbooks/units.json')
+const textbooksDate = day(units.generated_at)
+const resources = readJson('learning-resources/catalog/index.json')
+const resourcesDate = day(resources.updated_at)
+
+const entries = [['/'], ['/skills'], ['/smart-search'], ['/textbooks', textbooksDate], ['/learning-resources', resourcesDate], ['/glossary'], ['/api'], ['/contact']]
+for (const subject of readJson('manifest.json').subjects) entries.push([`/subjects/${subject.subject_slug}`, standardsDate])
+for (const skill of readJson('skills_meta.json').competencies || []) entries.push([`/skills/${skill.code}`])
 for (const file of readdirSync(join(DATA, 'by_subject')).filter(name => name.endsWith('.json')).sort()) {
-    for (const standard of readJson(`by_subject/${file}`).standards) paths.push(`/standards/${standard.code}`)
+    for (const standard of readJson(`by_subject/${file}`).standards) entries.push([`/standards/${standard.code}`, standardsDate])
 }
-for (const textbook of readJson('textbooks/index.json').items) paths.push(`/textbooks/${textbook.edition_id}`)
-for (const resource of readJson('learning-resources/catalog/index.json').resources) paths.push(`/learning-resources/${resource.id}`)
+for (const textbook of readJson('textbooks/index.json').items) entries.push([`/textbooks/${textbook.edition_id}`, textbooksDate])
+for (const unit of units.items) entries.push([`/textbook-units/${unit.entry_id}`, textbooksDate])
+for (const resource of resources.resources) entries.push([`/learning-resources/${resource.id}`, resourcesDate])
 
-const urls = [...new Set(paths)].map(path => `  <url><loc>${SITE}${encodeURI(path)}</loc></url>`)
+const seen = new Set()
+const urls = []
+for (const [path, lastmod] of entries) {
+    if (seen.has(path)) continue
+    seen.add(path)
+    urls.push(`  <url><loc>${SITE}${encodeURI(path)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}</url>`)
+}
 writeFileSync('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`)
 console.log(`sitemap: ${urls.length} URLs`)

@@ -12,7 +12,7 @@ import {
     SKILL_COLORS,
     GRADE_BANDS
 } from '../data/dataLoader'
-import { LoadingState, ErrorState, CopyLinkButton } from '../components/StateComponents'
+import { LoadingState, PageLoading, ErrorState, CopyLinkButton } from '../components/StateComponents'
 import FavoriteButton from '../components/FavoriteButton'
 import StandardRelationPanel from '../components/StandardRelationPanel'
 import StandardTextbookLinks from '../features/textbooks/StandardTextbookLinks'
@@ -23,6 +23,8 @@ import { copyToClipboard, mergeLearningMapStateIntoURL, parseLearningMapStateFro
 import { resolveLearningMapFlag } from '../config/learningMapFlags.js'
 import { runViewTransition } from '../utils/viewTransition.js'
 import { buildStandardGraphModel } from '../graph/adapters/standardGraphAdapter'
+import { getDisplayTitle, standardMeta } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import styles from './StandardDetailPage.module.css'
 
 const LearningMapRoute = lazy(() => import('../features/learning-map/LearningMapRoute.jsx'))
@@ -229,19 +231,6 @@ function TrustedContentCard({ title, value, metadata }) {
     )
 }
 
-function getDisplayTitle(sourceText, fallbackTitle = '') {
-    const cleanFallback = String(fallbackTitle || '').replace(/[.…]+$/u, '').trim()
-    if (cleanFallback && cleanFallback.length <= 32 && !String(fallbackTitle).includes('...')) {
-        return cleanFallback
-    }
-
-    const cleanSource = String(sourceText || '').trim()
-    if (cleanSource.length <= 32) return cleanSource
-
-    const firstClause = cleanSource.split(/[，；。]/u).map(part => part.trim()).find(Boolean)
-    return firstClause || cleanFallback || cleanSource
-}
-
 function StandardPreviewLink({ standardCode, direction }) {
     const normalizedCode = standardCode.trim()
     const [preview, setPreview] = useState(null)
@@ -330,6 +319,7 @@ function StandardDetailPage() {
         () => (standard ? buildStandardGraphModel(standard, { skills }) : null),
         [standard, skills]
     )
+    usePageMeta(standard ? standardMeta(standard) : null)
 
     useEffect(() => {
         let cancelled = false
@@ -457,9 +447,7 @@ function StandardDetailPage() {
 
     if (loading) {
         return (
-            <div className="page-content container">
-                <LoadingState message={`加载标准 ${code}...`} />
-            </div>
+            <PageLoading className="page-content container" message={`加载标准 ${code}...`} />
         )
     }
 

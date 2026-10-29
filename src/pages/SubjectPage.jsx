@@ -1,6 +1,6 @@
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
-import { ErrorState, LoadingState } from '../components/StateComponents'
+import { ErrorState, PageLoading } from '../components/StateComponents'
 import { useUiV2 } from '../components/RouteUiBoundary.jsx'
 import { mergeGraphStateIntoURL, parseGraphStateFromURL } from '../data/query.js'
 import { runViewTransition } from '../utils/viewTransition.js'
@@ -9,6 +9,8 @@ import { BAND_LABEL, CN_DIGIT, F, SKILL_SHORT, STAGE_RANGE, stageName } from '..
 import Ignite from '../features/starmap/Ignite.jsx'
 import { useCountUp } from '../features/starmap/motionHooks.js'
 import { compareHref } from '../features/starmap/compareLinks.js'
+import { subjectMeta } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import styles from './SubjectPage.module.css'
 
 const SkillsGraphWorkspace = lazy(() => import('../features/graph/SkillsGraphWorkspace.jsx'))
@@ -204,6 +206,8 @@ function SubjectPage() {
     const graphState = useMemo(() => parseGraphStateFromURL(new URLSearchParams(searchKey)), [searchKey])
     const graphView = uiV2Enabled && graphState.view === 'graph'
     const s = K ? K.slugIndex.get(slug) : undefined
+    const subjectInfo = s == null ? null : K.subjects[s]
+    usePageMeta(subjectInfo ? subjectMeta({ subject: subjectInfo.name, subject_slug: slug }, { standardCount: subjectInfo.count }) : null)
 
     useEffect(() => { setJr(3); setFocus(-1); setTs(-1); setQuery('') }, [slug])
 
@@ -273,7 +277,7 @@ function SubjectPage() {
     }
 
     if (error) return <div className="page-content container"><ErrorState title="数据加载失败" message={String(error.message || error)} onRetry={() => window.location.reload()} /></div>
-    if (!K) return <div className="page-content container"><LoadingState message="正在展开学科星图" /></div>
+    if (!K) return <PageLoading className="page-content container" message="正在展开学科星图" />
     if (s == null) {
         return (
             <div className="page-content container">

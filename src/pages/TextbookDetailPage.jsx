@@ -3,7 +3,9 @@ import { Link, useParams } from 'react-router-dom'
 import { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft'
 import { BookOpenTextIcon } from '@phosphor-icons/react/dist/csr/BookOpenText'
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/csr/ArrowRight'
-import { LoadingState, ErrorState, EmptyState } from '../components/StateComponents'
+import { PageLoading, ErrorState, EmptyState } from '../components/StateComponents'
+import { textbookMeta } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import TextbookAlignmentCard from '../features/textbooks/TextbookAlignmentCard'
 import TextbookCover from '../features/textbooks/TextbookCover'
 import TextbookStatus from '../features/textbooks/TextbookStatus'
@@ -54,6 +56,7 @@ function StandardScopeLinks({ standardCodes }) {
 export default function TextbookDetailPage() {
     const { editionId } = useParams()
     const [book, setBook] = useState(null)
+    usePageMeta(book ? textbookMeta(book) : null)
     const [error, setError] = useState('')
 
     useEffect(() => {
@@ -85,7 +88,7 @@ export default function TextbookDetailPage() {
     }, [book])
 
     if (error) return <ErrorState title="教材加载失败" message={error} />
-    if (!book) return <LoadingState message="正在打开教材详情" />
+    if (!book) return <PageLoading message="正在打开教材详情" />
 
     return (
         <div className={styles.page}>

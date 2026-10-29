@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { loadLearningResourceCatalog, SUBJECT_COLORS } from '../data/dataLoader'
-import { ErrorState, LoadingState } from '../components/StateComponents'
+import { ErrorState, PageLoading } from '../components/StateComponents'
+import { learningResourcesMeta } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import { Chip, PageHero, Pill, Seg, kb } from '../components/kb'
 import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
 import {
@@ -81,6 +83,7 @@ function ResourceRow({ resource, index }) {
 
 export default function LearningResourceLibraryPage() {
     const [catalog, setCatalog] = useState(null)
+    usePageMeta(catalog ? learningResourcesMeta({ resourceCount: catalog.resources.length }) : null)
     const [error, setError] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
     const [query, setQuery] = useState(searchParams.get('q') || '')
@@ -110,7 +113,7 @@ export default function LearningResourceLibraryPage() {
     }
 
     if (error) return <ErrorState title="学习资源暂时不可用" message={error.message} />
-    if (!catalog) return <LoadingState message="正在打开学习资源库" />
+    if (!catalog) return <PageLoading message="正在打开学习资源库" />
 
     const all = catalog.resources
     const resources = all.filter(resource => matches(resource, filters))

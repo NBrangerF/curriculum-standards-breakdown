@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { loadLearningResource, SUBJECT_COLORS } from '../data/dataLoader'
-import { ErrorState, LoadingState } from '../components/StateComponents'
+import { ErrorState, PageLoading } from '../components/StateComponents'
+import { learningResourceMeta } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import { Chip, PageHero, SectionHead, kb } from '../components/kb'
 import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
 import {
@@ -25,6 +27,7 @@ const ACCESS_NOTES = {
 export default function LearningResourceDetailPage() {
     const { resourceId } = useParams()
     const [resource, setResource] = useState(undefined)
+    usePageMeta(resource ? learningResourceMeta(resource) : null)
     const [error, setError] = useState(null)
 
     useEffect(() => {
@@ -33,7 +36,7 @@ export default function LearningResourceDetailPage() {
     }, [resourceId])
 
     if (error) return <ErrorState title="学习资源暂时不可用" message={error.message} />
-    if (resource === undefined) return <LoadingState message="正在整理学习资源" />
+    if (resource === undefined) return <PageLoading message="正在整理学习资源" />
     if (!resource) return <ErrorState title="未找到学习资源" message="该资源可能已更新或移出目录。" />
 
     const facts = [

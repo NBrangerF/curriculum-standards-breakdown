@@ -4,7 +4,9 @@ import { loadSkillsMeta, loadSkillsInfo, getSkillsMeta, getSkillsInfo, SKILL_COL
 import { mergeGraphStateIntoURL, parseGraphStateFromURL } from '../data/query.js'
 import { runViewTransition } from '../utils/viewTransition.js'
 import SkillCard from '../components/SkillCard'
-import { LoadingState, ErrorState } from '../components/StateComponents'
+import { PageLoading, ErrorState } from '../components/StateComponents'
+import { skillsOverviewMeta } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import { useUiV2 } from '../components/RouteUiBoundary.jsx'
 import styles from './SkillsOverviewPage.module.css'
 
@@ -22,6 +24,7 @@ function SkillsOverviewPage() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [skills, setSkills] = useState([])
+    usePageMeta(skills.length ? skillsOverviewMeta({ competencyCount: skills.length, subskillCount: skills.reduce((sum, skill) => sum + skill.subskills.length, 0) }) : null)
     const [skillsInfo, setSkillsInfo] = useState({})
     const searchKey = searchParams.toString()
     const graphState = useMemo(() => parseGraphStateFromURL(new URLSearchParams(searchKey)), [searchKey])
@@ -56,9 +59,7 @@ function SkillsOverviewPage() {
 
     if (loading) {
         return (
-            <div className="page-content container">
-                <LoadingState message="加载可迁移技能数据..." />
-            </div>
+            <PageLoading className="page-content container" message="加载可迁移技能数据..." />
         )
     }
 

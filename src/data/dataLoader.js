@@ -10,6 +10,7 @@ import {
     normalizeSubjectMeta,
     normalizeManifestSubject
 } from './schema.js'
+import { getPreloadedStandard } from '../seo/prerenderSnapshot.js'
 
 // Base path for data files
 const DATA_BASE_PATH = '/data'
@@ -31,6 +32,7 @@ const cache = {
     codeToSubjectMap: null,
     codeAliases: null,
     capabilityGraphs: new Map(),
+    preloadedStandards: new Map(),
     learningResourceCatalog: null,
     learningResourcesByStandard: new Map()
 }
@@ -464,6 +466,13 @@ export async function loadStandardByCode(code) {
     for (const [slug, standards] of cache.subjectStandards.entries()) {
         const found = standards.find(s => s.code === code || s.id === code || s.legacy_code === code)
         if (found) return found
+    }
+
+    // Prerendered standard pages inline their record, so the first view skips the subject file.
+    const preloaded = getPreloadedStandard(code)
+    if (preloaded) {
+        if (!cache.preloadedStandards.has(code)) cache.preloadedStandards.set(code, normalizeStandards([preloaded])[0])
+        return cache.preloadedStandards.get(code)
     }
 
     // The generated index is the source of truth. Code prefixes are not

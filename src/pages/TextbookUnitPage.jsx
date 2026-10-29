@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft'
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/csr/ArrowRight'
-import { LoadingState, ErrorState, EmptyState } from '../components/StateComponents'
+import { PageLoading, ErrorState, EmptyState } from '../components/StateComponents'
+import { textbookUnitMeta } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import TextbookAlignmentCard from '../features/textbooks/TextbookAlignmentCard'
 import { loadTextbookDetail, loadTextbookUnit } from '../features/textbooks/textbookApi'
 import styles from './TextbookUnitPage.module.css'
@@ -63,6 +65,7 @@ export default function TextbookUnitPage() {
     const { unitId } = useParams()
     const [unit, setUnit] = useState(null)
     const [book, setBook] = useState(null)
+    usePageMeta(unit && book ? textbookUnitMeta(unit, book) : null)
     const [error, setError] = useState('')
     useEffect(() => {
         let active = true
@@ -80,7 +83,7 @@ export default function TextbookUnitPage() {
         return () => { active = false }
     }, [unitId])
     if (error) return <ErrorState title="单元加载失败" message={error} />
-    if (!unit || !book) return <LoadingState message="正在整理单元关联" />
+    if (!unit || !book) return <PageLoading message="正在整理单元关联" />
     return (
         <div className={`container ${styles.page}`}>
             <Link className={styles.back} to={`/textbooks/${unit.edition_id}`}><ArrowLeftIcon size={16} aria-hidden="true" /> 返回{unit.textbook_title}</Link>

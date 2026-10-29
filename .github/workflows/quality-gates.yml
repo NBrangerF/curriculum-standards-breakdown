@@ -31,4 +31,5 @@ jobs:
       - run: npm run textbooks:quality-align-llm
       - run: npm run textbooks:resources:test
       - run: npm run lint:styles
+      - run: npm run seo:test
       - run: npm run build

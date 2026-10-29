@@ -1,3 +1,5 @@
+import { STATIC_PAGE_META } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import styles from './ContactPage.module.css'
 
 const CONTACTS = [
@@ -33,6 +35,7 @@ function ExternalArrow() {
 }
 
 function ContactPage() {
+    usePageMeta(STATIC_PAGE_META['/contact'])
     return (
         <div className={styles.page} data-kb-route="contact">
             <section className={styles.hero}>

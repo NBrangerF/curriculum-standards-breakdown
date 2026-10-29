@@ -5,7 +5,9 @@ import { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft'
 import { BookOpenTextIcon } from '@phosphor-icons/react/dist/csr/BookOpenText'
 import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/csr/MagnifyingGlass'
 import { XIcon } from '@phosphor-icons/react/dist/csr/X'
-import { LoadingState, ErrorState } from '../components/StateComponents'
+import { PageLoading, ErrorState } from '../components/StateComponents'
+import { STATIC_PAGE_META } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import styles from './GlossaryPage.module.css'
 
 const RELATED_TERM_ALIASES = Object.freeze({
@@ -42,6 +44,7 @@ function getTermId(term) {
 function GlossaryPage() {
     const [searchParams, setSearchParams] = useSearchParams()
     const [glossary, setGlossary] = useState(null)
+    usePageMeta(STATIC_PAGE_META['/glossary'])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [activeTermKey, setActiveTermKey] = useState(searchParams.get('term') || '')
@@ -135,7 +138,7 @@ function GlossaryPage() {
     }, [filteredTerms, requestedTermKey])
 
     if (loading) {
-        return <div className="page-content container"><LoadingState message="加载术语表" /></div>
+        return <PageLoading className="page-content container" message="加载术语表" />
     }
 
     if (error) {

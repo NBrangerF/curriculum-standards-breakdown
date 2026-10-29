@@ -10,6 +10,10 @@ import '@fontsource/ibm-plex-mono/600.css'
 import '@fontsource/instrument-serif/400.css'
 import '@fontsource/instrument-serif/400-italic.css'
 import './index.css'
+import { capturePrerenderSnapshot } from './seo/prerenderSnapshot.js'
+
+// Rendering clears #root, so keep the prerendered page content first.
+capturePrerenderSnapshot()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>

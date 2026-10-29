@@ -12,7 +12,7 @@
         "predev": "npm run prepare:pdfjs",
         "prepare:pdfjs": "node scripts/copy-pdfjs-assets.mjs",
         "build": "vite build",
-        "postbuild": "node scripts/build-sitemap.mjs",
+        "postbuild": "node scripts/build-sitemap.mjs && node scripts/prerender-pages.mjs && node scripts/validate-prerender.mjs",
         "normalize:data": "node scripts/normalize-runtime-data.mjs --data-root data/internal",
         "migrate:code-taxonomy": "tsx scripts/migrate-code-taxonomy.ts --data-root data/internal --apply",
         "build:unified-progression": "tsx scripts/build-unified-progression.ts --data-root data/internal --apply",
@@ -161,7 +161,8 @@
         "grade7_9:validate": "node scripts/grade7_9/validate_schema.js",
         "grade7_9:manifest": "node scripts/grade7_9/generate_manifest.js",
     "prebuild": "npm run validate:data-contract && npm run build:indexes && npm run textbooks:relations:build && npm run textbooks:align-all && npm run textbooks:audit-align-all && npm run textbooks:resources:build && npm run textbooks:resources:audit && npm run textbooks:public:build && npm run textbooks:public:audit && npm run capability-graph:build && npm run capability-graph:audit && npm run capability-graph:check && npm run build:public-data && npm run validate:public-data && npm run prepare:pdfjs && npm run validate:data-trust && npm run build:knowledge-graph-preview && npm run validate:knowledge-graph-preview",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "seo:test": "node --test tests/seo_page_meta.test.mjs"
     },
     "dependencies": {
         "@dagrejs/dagre": "^3.0.0",

@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { notFoundMeta } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import { PageHero } from '../components/kb'
 import { useSky } from '../features/starmap/SkyProvider.jsx'
 
 function NotFoundPage() {
+    usePageMeta(notFoundMeta(useLocation().pathname))
     const { openPalette } = useSky()
     return (
         <div style={{ minHeight: '62vh' }}>

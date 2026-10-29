@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
+import { STATIC_PAGE_META } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import { Chip, kb, PageHero, Pill, SectionHead, Stat } from '../components/kb'
 import Marked from '../features/smart-search/Marked.jsx'
 import SmartSearchStandardPreview from '../features/smart-search/SmartSearchStandardPreview.jsx'
@@ -139,6 +141,7 @@ function Understanding({ view, base, ignored, onToggle }) {
 }
 
 function SmartSearchPage() {
+    usePageMeta(STATIC_PAGE_META['/smart-search'])
     const [searchParams, setSearchParams] = useSearchParams()
     const urlQuery = (searchParams.get('q') || '').trim()
     const [query, setQuery] = useState(urlQuery)

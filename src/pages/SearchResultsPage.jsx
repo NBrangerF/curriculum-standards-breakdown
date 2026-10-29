@@ -25,6 +25,8 @@ import {
 } from '../data/compareLogic'
 import CompareView from '../components/CompareView'
 import { LoadingState, ErrorState, EmptyState, CopyLinkButton } from '../components/StateComponents'
+import { STATIC_PAGE_META } from '../seo/pageMeta.js'
+import { usePageMeta } from '../seo/usePageMeta.js'
 import { Toast, useTransientToast } from '../ui/primitives/Toast'
 import { Disclosure, DisclosureIndicator } from '../ui/primitives/Disclosure'
 import styles from './SearchResultsPage.module.css'
@@ -45,6 +47,7 @@ function parseFiltersFromURL(searchParams) {
 }
 
 function SearchResultsPage() {
+    usePageMeta(STATIC_PAGE_META['/search'])
     const [searchParams, setSearchParams] = useSearchParams()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(true)
