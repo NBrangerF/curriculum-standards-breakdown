@@ -1,262 +1,123 @@
 import { z } from 'zod'
 
-export const LearningResourceTypeSchema = z.enum([
-    'lesson', 'explanation', 'worked_example', 'activity', 'practice_set', 'assessment',
-    'story', 'primary_source', 'reference', 'teacher_guide', 'glossary_entry', 'dataset'
-])
-export const LearningResourceRoleSchema = z.enum([
-    'explain', 'model', 'explore', 'practice', 'assess', 'remediate', 'extend', 'teacher_support'
-])
-export const LearningResourceRelationTypeSchema = z.enum([
-    'supports', 'practices', 'assesses', 'mentions', 'contextualizes'
-])
-export const LearningResourceBlockTypeSchema = z.enum([
-    'heading', 'paragraph', 'ordered_list', 'unordered_list', 'table', 'formula', 'code',
-    'quotation', 'callout', 'worked_example', 'activity_step', 'question', 'choice',
-    'answer', 'explanation', 'glossary', 'citation'
-])
-const HashSchema = z.string().regex(/^[a-f0-9]{64}$/u)
+// The curated catalog links out to open educational resources; it never stores their full text.
+// This file has no imports besides zod so Node can load it directly from the build scripts.
 
-export const SourceSnapshotSchema = z.object({
-    snapshot_id: z.string().regex(/^lrs_[a-f0-9]{24}$/u),
-    source_id: z.string().min(1),
-    upstream_id: z.string().min(1),
-    canonical_url: z.string().url(),
-    retrieved_at: z.string().datetime(),
-    source_revision: z.string().min(1),
-    etag: z.string().nullable().optional(),
-    last_modified: z.string().nullable().optional(),
-    git_commit: z.string().nullable().optional(),
-    media_type: z.string().min(1),
-    payload_hash: HashSchema,
-    extractor_name: z.string().min(1),
-    extractor_version: z.string().min(1),
-    retention_policy: z.enum(['metadata_only', 'retain_canonical_text', 'ephemeral_binary', 'retain_private_binary']),
-    upstream_status: z.enum(['available', 'deleted', 'unavailable'])
-}).strict()
+export const LEARNING_RESOURCE_SUBJECTS = [
+    'morality_law', 'chinese', 'math', 'english', 'science', 'it', 'pe', 'arts', 'labor'
+] as const
+export const LEARNING_RESOURCE_STAGES = ['G1-2', 'G3-4', 'G5-6', 'G7-9'] as const
+export const LEARNING_RESOURCE_FORMATS = ['interactive', 'video', 'lesson', 'book', 'tool', 'dataset', 'text'] as const
+export const LEARNING_RESOURCE_ACCESS = ['direct', 'unstable', 'blocked'] as const
+export const LEARNING_RESOURCE_OPEN_LEVELS = ['open', 'noncommercial'] as const
 
-export const RightsProfileSchema = z.object({
-    rights_profile_id: z.string().regex(/^lrr_[a-f0-9]{24}$/u),
-    license_id: z.string().min(1),
-    license_url: z.string().url(),
-    rights_holder: z.string().min(1),
-    creators: z.array(z.string().min(1)),
-    attribution_text: z.string().min(1),
-    derivatives_allowed: z.boolean(),
-    commercial_use_allowed: z.boolean(),
-    share_alike_required: z.boolean(),
-    source_notice: z.string(),
-    third_party_exceptions: z.array(z.string()),
-    public_decision: z.enum([
-        'publish_translation', 'publish_translation_share_alike', 'private_or_noncommercial',
-        'link_only', 'private_only', 'item_level_decision'
-    ]),
-    decision_reason: z.string().min(1),
-    checked_at: z.string().datetime(),
-    policy_version: z.string().min(1)
-}).strict()
+// PD covers public-domain works and official Chinese documents, which Copyright Law art. 5 excludes from protection.
+// MIXED-OPEN is for collections whose items each carry their own open licence (CC0, PD, CC BY or CC BY-SA).
+export const OPEN_LICENSES = [
+    'CC0-1.0', 'PD', 'CC-BY-4.0', 'CC-BY-3.0', 'CC-BY-2.0-FR', 'CC-BY-SA-4.0', 'CC-BY-SA-2.5',
+    'MIT', 'Apache-2.0', 'MIXED-OPEN'
+] as const
+export const NONCOMMERCIAL_LICENSES = ['CC-BY-NC-4.0', 'CC-BY-NC-SA-4.0'] as const
 
-export const LearningResourceBlockSchema = z.object({
-    source_block_id: z.string().min(1),
-    type: LearningResourceBlockTypeSchema,
-    text: z.string(),
-    source_hash: HashSchema,
-    source_locator: z.string().nullable().optional(),
-    language: z.string().optional(),
-    rights_profile_id: z.string().nullable().optional(),
-    attribution_id: z.string().nullable().optional(),
-    third_party_exception_refs: z.array(z.string()).optional(),
-    items: z.array(z.string()).optional(),
-    rows: z.array(z.array(z.string())).optional()
-}).strict().refine(value => value.text.trim().length > 0 || Boolean(value.items?.length) || Boolean(value.rows?.length), {
-    message: 'block requires text, items, or rows'
-})
+// IDs become URL segments and file names, so they stay lowercase slugs.
+export const RESOURCE_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/u
+export const STANDARD_CODE_PATTERN = /^[A-Z]{2}-[A-Z0-9]+-[A-Z]+-\d{3}$/u
 
-export const LearningResourceSchema = z.object({
-    resource_id: z.string().regex(/^lr_[a-f0-9]{24}$/u),
-    resource_version_id: z.string().regex(/^lrv_[a-f0-9]{24}$/u),
-    source_id: z.string().min(1),
-    upstream_id: z.string().min(1),
-    canonical_url: z.string().url(),
-    resource_type: LearningResourceTypeSchema,
-    audience: z.enum(['student', 'teacher', 'mixed']),
-    source_language: z.string().min(2),
-    title_source: z.string().min(1),
-    source_curriculum: z.string(),
-    source_subject: z.string(),
-    source_grade_range: z.string(),
-    mapped_subject_slugs: z.array(z.string().min(1)),
-    mapped_china_stage: z.enum(['primary', 'junior']).nullable(),
-    mapped_china_grade_scope: z.array(z.number().int().min(1).max(9)),
-    mapping_method: z.string().min(1),
-    mapping_version: z.string().min(1),
-    mapping_status: z.enum(['verified', 'candidate', 'unmapped']),
-    estimated_minutes: z.number().int().positive().nullable(),
-    pedagogical_roles: z.array(LearningResourceRoleSchema).min(1),
-    safety_profile: z.object({
-        risk_level: z.enum(['low', 'medium', 'high']),
-        minimum_age: z.number().int().nonnegative().nullable(),
-        adult_supervision: z.boolean(),
-        materials: z.array(z.string()),
-        warnings_source_block_ids: z.array(z.string())
-    }).strict(),
-    rights_profile_id: z.string().regex(/^lrr_[a-f0-9]{24}$/u),
-    source_revision: z.string().min(1),
-    source_hash: HashSchema,
-    delivery_mode: z.literal('structured_text'),
-    visual_dependency: z.enum(['none', 'helpful', 'required']),
-    publication_status: z.enum(['shadow', 'eligible', 'published', 'quarantined', 'revoked'])
-}).strict()
+export const LearningResourceSubjectSchema = z.enum(LEARNING_RESOURCE_SUBJECTS)
+export const LearningResourceStageSchema = z.enum(LEARNING_RESOURCE_STAGES)
+export const LearningResourceFormatSchema = z.enum(LEARNING_RESOURCE_FORMATS)
+export const LearningResourceAccessSchema = z.enum(LEARNING_RESOURCE_ACCESS)
+export const LearningResourceOpenLevelSchema = z.enum(LEARNING_RESOURCE_OPEN_LEVELS)
+export const LearningResourceLicenseSchema = z.enum([...OPEN_LICENSES, ...NONCOMMERCIAL_LICENSES])
 
-export const ResourceFragmentSchema = z.object({
-    fragment_id: z.string().regex(/^lrf_[a-f0-9]{24}$/u),
-    resource_id: z.string().regex(/^lr_[a-f0-9]{24}$/u),
-    upstream_fragment_id: z.string().min(1),
-    parent_fragment_id: z.string().regex(/^lrf_[a-f0-9]{24}$/u).nullable(),
-    fragment_type: z.string().min(1),
-    order: z.number().int().nonnegative(),
-    breadcrumb: z.array(z.string().min(1)),
-    source_text: z.string().min(1),
-    source_text_hash: HashSchema,
-    source_locator: z.string().min(1),
-    blocks: z.array(LearningResourceBlockSchema).min(1),
-    visual_dependency: z.enum(['none', 'helpful', 'required']),
-    rights_profile_id: z.string().regex(/^lrr_[a-f0-9]{24}$/u),
-    attribution_id: z.string().min(1),
-    license_scope: z.enum(['resource', 'fragment', 'block']),
-    third_party_exception_refs: z.array(z.string()),
-    aliases: z.array(z.string()).optional(),
-    supersedes: z.string().nullable().optional(),
-    tombstone: z.boolean().optional(),
-    redirect_to_fragment_id: z.string().nullable().optional()
-}).strict()
-
-export const LocalizedTargetBlockSchema = z.object({
-    target_block_id: z.string().min(1),
-    source_block_ids: z.array(z.string().min(1)).min(1),
-    mapping_mode: z.enum(['one_to_one', 'split', 'merge']),
-    target_block_hash: HashSchema,
-    type: LearningResourceBlockTypeSchema,
-    canonical_plain_text: z.string(),
-    items: z.array(z.string()).optional(),
-    rows: z.array(z.array(z.string())).optional()
-}).strict()
-
-export const LocalizedVariantSchema = z.object({
-    variant_id: z.string().regex(/^lrz_[a-f0-9]{24}$/u),
-    variant_version_id: z.string().regex(/^lrzv_[a-f0-9]{24}$/u),
-    fragment_id: z.string().regex(/^lrf_[a-f0-9]{24}$/u),
-    source_text_hash: HashSchema,
-    target_locale: z.literal('zh-Hans-CN'),
-    title_zh: z.string().min(1),
-    description_zh: z.string(),
-    target_blocks: z.array(LocalizedTargetBlockSchema).min(1),
-    target_text_hash: HashSchema,
-    translation_method: z.enum(['source_zh_hans', 'opencc', 'llm_translation', 'translation_memory']),
-    model_version: z.string().min(1),
-    prompt_version: z.string().min(1),
-    glossary_version: z.string().min(1),
-    translation_memory_version: z.string().min(1),
-    opencc_config: z.string().min(1),
-    rights_decision_id: z.string().min(1),
-    output_license_id: z.string().min(1),
-    output_license_url: z.string().url(),
-    adaptation_notice: z.string().min(1),
-    attribution_snapshot_hash: HashSchema,
-    qa_status: z.enum(['passed', 'failed', 'quarantined']),
-    qa_findings: z.array(z.string())
-}).strict()
+const ChineseText = (min: number, max: number) => z.string().trim().min(min).max(max)
+const DateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/u)
 
 export const LearningResourceAlignmentSchema = z.object({
-    alignment_id: z.string().regex(/^lra_[a-f0-9]{24}$/u),
-    alignment_version_id: z.string().regex(/^lrav_[a-f0-9]{24}$/u),
-    standard_code: z.string().min(1),
-    learning_component_ids: z.array(z.string().min(1)).min(1),
-    resource_id: z.string().regex(/^lr_[a-f0-9]{24}$/u),
-    fragment_id: z.string().regex(/^lrf_[a-f0-9]{24}$/u),
-    relation_type: LearningResourceRelationTypeSchema,
-    pedagogical_role: LearningResourceRoleSchema,
-    source_evidence_quote: z.string().min(1),
-    evidence_quote_zh: z.string().min(1),
-    rationale_zh: z.string().min(1),
-    source_block_ids: z.array(z.string().min(1)).min(1),
-    target_block_ids: z.array(z.string().min(1)).min(1),
-    source_text_hash: HashSchema,
-    target_text_hash: HashSchema,
-    variant_version_id: z.string().regex(/^lrzv_[a-f0-9]{24}$/u),
-    source_standard_hash: HashSchema,
-    capability_graph_schema_version: z.string().min(1),
-    capability_graph_method: z.string().min(1),
-    learning_component_set_hash: HashSchema,
-    model_version: z.string().min(1),
-    prompt_version: z.string().min(1),
-    input_hash: HashSchema,
-    critic_version: z.string().min(1),
-    review_status: z.literal('machine_checked'),
-    publication_status: z.enum(['shadow', 'eligible', 'published', 'quarantined', 'stale'])
+    code: z.string().regex(STANDARD_CODE_PATTERN),
+    rationale_zh: ChineseText(8, 120)
 }).strict()
 
-const PublicLocalizedTextSchema = z.object({
-    locale: z.literal('zh-Hans-CN'),
-    text: z.string(),
-    text_hash: HashSchema,
-    qa_status: z.literal('passed'),
-    variant_version_id: z.string().regex(/^lrzv_[a-f0-9]{24}$/u)
+/** One hand-curated entry in data/learning-resources/curated/<subject>.json. */
+export const CuratedLearningResourceSchema = z.object({
+    id: z.string().regex(RESOURCE_ID_PATTERN).max(80),
+    title_zh: ChineseText(2, 60),
+    title_original: ChineseText(1, 120),
+    provider: ChineseText(2, 60),
+    url: z.string().url().startsWith('http'),
+    license: LearningResourceLicenseSchema,
+    license_url: z.string().url().startsWith('http'),
+    open_level: LearningResourceOpenLevelSchema,
+    formats: z.array(LearningResourceFormatSchema).min(1),
+    languages: z.array(z.string().regex(/^[a-z]{2}(?:-[A-Za-z]+)?$/u)).min(1),
+    china_access: LearningResourceAccessSchema,
+    subjects: z.array(LearningResourceSubjectSchema).min(1),
+    stages: z.array(LearningResourceStageSchema).min(1),
+    summary_zh: ChineseText(30, 220),
+    how_to_use_zh: ChineseText(8, 90),
+    standards: z.array(LearningResourceAlignmentSchema).min(1).max(6),
+    checked_at: DateSchema
+}).strict().superRefine((value, ctx) => {
+    const noncommercial = (NONCOMMERCIAL_LICENSES as readonly string[]).includes(value.license)
+    if (noncommercial !== (value.open_level === 'noncommercial')) {
+        ctx.addIssue({ code: 'custom', path: ['open_level'], message: 'NC licences must be flagged noncommercial, and only they may be' })
+    }
+    for (const key of ['formats', 'languages', 'subjects', 'stages', 'standards'] as const) {
+        const items = (value[key] as Array<string | { code: string }>).map(item => typeof item === 'string' ? item : item.code)
+        if (new Set(items).size !== items.length) ctx.addIssue({ code: 'custom', path: [key], message: 'duplicate entries' })
+    }
+})
+
+export const CuratedSubjectFileSchema = z.object({
+    subject: LearningResourceSubjectSchema,
+    resources: z.array(CuratedLearningResourceSchema).min(1)
 }).strict()
 
-export const PublicLearningResourceProjectionSchema = z.object({
-    resource_id: z.string().regex(/^lr_[a-f0-9]{24}$/u),
-    resource_version_id: z.string().regex(/^lrv_[a-f0-9]{24}$/u),
-    fragment_id: z.string().regex(/^lrf_[a-f0-9]{24}$/u),
-    variant_id: z.string().regex(/^lrz_[a-f0-9]{24}$/u),
-    variant_version_id: z.string().regex(/^lrzv_[a-f0-9]{24}$/u),
-    source_id: z.string().min(1),
-    resource_type: LearningResourceTypeSchema,
-    pedagogical_roles: z.array(LearningResourceRoleSchema).min(1),
-    mapped_subject_slugs: z.array(z.string().min(1)),
-    mapped_china_stage: z.enum(['primary', 'junior']).nullable(),
-    mapped_china_grade_scope: z.array(z.number().int().min(1).max(9)),
-    estimated_minutes: z.number().int().positive().nullable(),
-    title: PublicLocalizedTextSchema,
-    description: PublicLocalizedTextSchema,
-    blocks: z.array(z.object({
-        target_block_id: z.string().min(1),
-        type: LearningResourceBlockTypeSchema,
-        text: PublicLocalizedTextSchema,
-        items: z.array(z.string()).optional(),
-        rows: z.array(z.array(z.string())).optional()
-    }).strict()).min(1),
-    provenance: z.object({
-        canonical_url: z.string().url(),
-        source_title: z.string().min(1),
-        source_revision: z.string().min(1),
-        attribution_text: z.string().min(1),
-        license_id: z.string().min(1),
-        license_url: z.string().url(),
-        adaptation_notice: z.string().min(1)
-    }).strict(),
-    visual_dependency: z.enum(['none', 'helpful']),
-    generation_id: z.string().min(1)
+/** An alignment as published: the build script adds the standard's own title and band. */
+export const PublicLearningResourceAlignmentSchema = LearningResourceAlignmentSchema.extend({
+    standard_title: z.string().min(1),
+    subject: LearningResourceSubjectSchema,
+    grade_band: z.string().min(1),
+    stage: LearningResourceStageSchema
 }).strict()
 
-export const PublicLearningResourceAlignmentSchema = z.object({
-    alignment_id: z.string().regex(/^lra_[a-f0-9]{24}$/u),
-    alignment_version_id: z.string().regex(/^lrav_[a-f0-9]{24}$/u),
-    standard_code: z.string().min(1),
-    learning_component_ids: z.array(z.string().min(1)).min(1),
-    resource_id: z.string().regex(/^lr_[a-f0-9]{24}$/u),
-    fragment_id: z.string().regex(/^lrf_[a-f0-9]{24}$/u),
-    relation_type: LearningResourceRelationTypeSchema,
-    pedagogical_role: LearningResourceRoleSchema,
-    evidence_quote_zh: z.string().min(1),
-    rationale_zh: z.string().min(1),
-    target_block_ids: z.array(z.string().min(1)).min(1),
-    variant_version_id: z.string().regex(/^lrzv_[a-f0-9]{24}$/u)
+export const PublicLearningResourceSchema = z.object({
+    id: z.string().regex(RESOURCE_ID_PATTERN),
+    title_zh: z.string().min(1),
+    title_original: z.string().min(1),
+    provider: z.string().min(1),
+    url: z.string().url(),
+    license: LearningResourceLicenseSchema,
+    license_url: z.string().url(),
+    open_level: LearningResourceOpenLevelSchema,
+    formats: z.array(LearningResourceFormatSchema),
+    languages: z.array(z.string()),
+    china_access: LearningResourceAccessSchema,
+    subjects: z.array(LearningResourceSubjectSchema),
+    stages: z.array(LearningResourceStageSchema),
+    summary_zh: z.string().min(1),
+    how_to_use_zh: z.string().min(1),
+    standards: z.array(PublicLearningResourceAlignmentSchema),
+    standard_codes: z.array(z.string()),
+    alignment_count: z.number().int().nonnegative(),
+    checked_at: DateSchema
 }).strict()
 
 export const LearningResourceCatalogSchema = z.object({
-    schema_version: z.string().min(1),
-    generation_id: z.string().min(1),
-    resources: z.array(PublicLearningResourceProjectionSchema)
+    schema_version: z.literal(2),
+    updated_at: DateSchema,
+    counts: z.object({
+        resources: z.number().int().nonnegative(),
+        alignments: z.number().int().nonnegative(),
+        standards: z.number().int().nonnegative(),
+        by_subject: z.record(z.string(), z.number().int().nonnegative()),
+        by_stage: z.record(z.string(), z.number().int().nonnegative())
+    }).strict(),
+    resources: z.array(PublicLearningResourceSchema)
 }).strict()
 
+export const StandardLearningResourcesSchema = z.object({
+    schema_version: z.literal(2),
+    standard_code: z.string(),
+    resources: z.array(PublicLearningResourceSchema.extend({ rationale_zh: z.string().min(1) }).strict())
+}).strict()

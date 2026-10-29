@@ -1,0 +1,491 @@
+{
+  "subject": "it",
+  "resources": [
+    {
+      "id": "cs-unplugged-binary-numbers",
+      "title_zh": "不插电计算机科学：二进制数",
+      "title_original": "CS Unplugged: Binary numbers",
+      "provider": "CS Unplugged（新西兰坎特伯雷大学）",
+      "url": "https://csunplugged.org/zh-hans/topics/binary-numbers/",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://csunplugged.org/en/about/",
+      "open_level": "open",
+      "formats": [
+        "lesson"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "china_access": "unstable",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G3-4",
+        "G5-6"
+      ],
+      "summary_zh": "不用电脑，只用五张画着 1、2、4、8、16 个点的卡片，学生翻正反面就能表示 0 到 31 的数，进而理解计算机为什么只用 0 和 1。页面已译成简体中文，附教案、学生活动单和延伸任务。",
+      "how_to_use_zh": "按教案让五名学生举卡片，全班根据翻牌读出二进制数。",
+      "standards": [
+        {
+          "code": "IT-H2-IC-003",
+          "rationale_zh": "用卡片把数编码成 0 和 1 再解码回来，体会“信息存储与传输中需要编码与解码”。"
+        },
+        {
+          "code": "IT-H2-CS-001",
+          "rationale_zh": "活动最后让学生用二进制给字母编码，结合实例说明编码的目的和规则。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "cs-unplugged-error-detection",
+      "title_zh": "不插电计算机科学：检错与纠错",
+      "title_original": "CS Unplugged: Error detection and correction",
+      "provider": "CS Unplugged（新西兰坎特伯雷大学）",
+      "url": "https://csunplugged.org/zh-hans/topics/error-detection-and-correction/",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://csunplugged.org/en/about/",
+      "open_level": "open",
+      "formats": [
+        "lesson"
+      ],
+      "languages": [
+        "en"
+      ],
+      "china_access": "unstable",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G3-4",
+        "G7-9"
+      ],
+      "summary_zh": "经典的“奇偶校验魔术”：学生摆好一组黑白卡片，老师加上一行一列后转身，学生偷偷翻一张，老师马上找出是哪一张。由此讲清数据传输中如何发现和纠正错误。正文暂为英文。",
+      "how_to_use_zh": "先表演魔术引起好奇，再揭秘每行每列保持偶数张黑卡的规则。",
+      "standards": [
+        {
+          "code": "IT-H2-IC-003",
+          "rationale_zh": "附加的校验位让接收方发现传输出错，是编码与解码作用的直观例子。"
+        },
+        {
+          "code": "IT-H4G7-CS-004",
+          "rationale_zh": "奇偶校验正是网络传输中保证数据正确的基本原理，对应“网络中信息编码、传输的原理”。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "cs-unplugged-sorting-networks",
+      "title_zh": "不插电计算机科学：排序网络",
+      "title_original": "CS Unplugged: Sorting networks",
+      "provider": "CS Unplugged（新西兰坎特伯雷大学）",
+      "url": "https://csunplugged.org/zh-hans/topics/sorting-networks/",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://csunplugged.org/en/about/",
+      "open_level": "open",
+      "formats": [
+        "lesson"
+      ],
+      "languages": [
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G5-6"
+      ],
+      "summary_zh": "在操场上用粉笔画出“排序网络”，六名学生各拿一个数从起点出发，每到一个节点两人比较，小的往左、大的往右，走到终点时就排好了序。正文暂为英文，图示清楚。",
+      "how_to_use_zh": "在操场画网络让学生走一遍，再讨论为什么几步比较就能排好。",
+      "standards": [
+        {
+          "code": "IT-H3-CS-001",
+          "rationale_zh": "每个节点只执行“比较、交换”这一明确步骤，帮助理解算法由明确可执行的步骤构成。"
+        },
+        {
+          "code": "IT-H3-CS-003",
+          "rationale_zh": "可以讨论人数增加时比较次数如何增长，体会问题规模与执行次数的关系。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "blockly-games",
+      "title_zh": "Blockly 积木编程游戏",
+      "title_original": "Blockly Games",
+      "provider": "Blockly Games 开源项目（源自 Google Blockly）",
+      "url": "https://blockly.games/?lang=zh-hans",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/blockly-games/blockly-games/blob/master/LICENSE",
+      "open_level": "open",
+      "formats": [
+        "interactive"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G5-6"
+      ],
+      "summary_zh": "一组循序渐进的积木编程小游戏：迷宫、小鸟、海龟作图、动画、音乐等，每关只增加一个新概念。从拼积木过渡到查看对应的 JavaScript 代码，界面有简体中文。",
+      "how_to_use_zh": "用“迷宫”关卡练习循环和条件，让学生比较不同解法用了多少积木。",
+      "standards": [
+        {
+          "code": "IT-H3-CS-002",
+          "rationale_zh": "迷宫和小鸟关卡依次要求用顺序、循环和条件判断，对应三种基本控制结构。"
+        },
+        {
+          "code": "IT-H3-CS-004",
+          "rationale_zh": "每关先想清走法再拼积木运行检验，练习“设计算法并转化为程序”。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "raspberry-pi-projects-zh",
+      "title_zh": "树莓派基金会编程项目库（中文版）",
+      "title_original": "Raspberry Pi Foundation Projects",
+      "provider": "树莓派基金会（Raspberry Pi Foundation）",
+      "url": "https://projects.raspberrypi.org/zh-CN/projects",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "open_level": "open",
+      "formats": [
+        "lesson"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G5-6"
+      ],
+      "summary_zh": "树莓派基金会的免费编程项目库，按难度分级，每个项目带截图逐步完成一个小作品。摇滚乐队、捉鬼敢死队、接住小点等经典 Scratch 项目已由志愿者译成简体中文，并排在列表前面；较新的项目尚未翻译，会显示英文原文。",
+      "how_to_use_zh": "从已翻译的 1 级 Scratch 项目中选一个作为课堂主任务，先演示成品再让学生跟做。",
+      "standards": [
+        {
+          "code": "IT-H3-CS-002",
+          "rationale_zh": "项目中反复用到“重复执行”“如果……那么”积木，练习顺序、分支、循环结构。"
+        },
+        {
+          "code": "IT-H3-CS-004",
+          "rationale_zh": "每个项目都从作品目标出发，逐步把想法实现为可运行的 Scratch 程序。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "raspberry-pi-turtle-race",
+      "title_zh": "乌龟赛跑！（Python 入门项目）",
+      "title_original": "Turtle race!",
+      "provider": "树莓派基金会（Raspberry Pi Foundation）",
+      "url": "https://projects.raspberrypi.org/zh-CN/projects/turtle-race",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "open_level": "open",
+      "formats": [
+        "lesson"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G5-6",
+        "G7-9"
+      ],
+      "summary_zh": "树莓派基金会的 1 级 Python 项目，已完整译成简体中文：用 for 循环和海龟绘图画出赛道，再让几只乌龟每回合随机前进，比比谁先到终点。每一步都有代码截图和挑战任务。",
+      "how_to_use_zh": "让每个学生选一只乌龟参赛，再修改循环次数和随机步数观察结果。",
+      "standards": [
+        {
+          "code": "IT-H3-CS-002",
+          "rationale_zh": "用循环画赛道、用循环让乌龟逐回合前进，直观体会循环结构的作用。"
+        },
+        {
+          "code": "IT-H3-CS-004",
+          "rationale_zh": "项目按“画赛道—放乌龟—比赛”的步骤，把一个游戏规则转化为 Python 程序。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "makecode-microbit",
+      "title_zh": "micro:bit MakeCode 编程环境",
+      "title_original": "Microsoft MakeCode for micro:bit",
+      "provider": "微软 MakeCode / micro:bit 教育基金会",
+      "url": "https://makecode.microbit.org/?lang=zh-CN",
+      "license": "MIT",
+      "license_url": "https://github.com/microsoft/pxt-microbit/blob/master/LICENSE.txt",
+      "open_level": "open",
+      "formats": [
+        "tool"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it",
+        "labor"
+      ],
+      "stages": [
+        "G5-6",
+        "G7-9"
+      ],
+      "summary_zh": "在浏览器中用积木或 JavaScript、Python 给 micro:bit 编程，没有硬件也能在左侧模拟器里看到 LED、按钮和传感器的效果。界面支持简体中文，自带入门教程。",
+      "how_to_use_zh": "先在模拟器里完成“按下按钮显示图案”，再用传感器做一个小装置。",
+      "standards": [
+        {
+          "code": "IT-H3-DL-001",
+          "rationale_zh": "用光线、温度传感器读数控制 LED 或声音，完整体现“传感—处理—执行”的过程与控制。"
+        },
+        {
+          "code": "IT-H4G7-DL-003",
+          "rationale_zh": "两块 micro:bit 可以通过无线发送和接收数据，用来搭建简单的物联系统原型。"
+        },
+        {
+          "code": "LA-D3-PL-012",
+          "rationale_zh": "适合做带测试环节的传感器创客作品，并根据测试结果改进程序。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "code-org-csf",
+      "title_zh": "Code.org 计算机科学基础课程",
+      "title_original": "Code.org Computer Science Fundamentals",
+      "provider": "Code.org",
+      "url": "https://studio.code.org/catalog",
+      "license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://code.org/tos",
+      "open_level": "noncommercial",
+      "formats": [
+        "interactive",
+        "lesson"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G3-4",
+        "G5-6"
+      ],
+      "summary_zh": "面向小学的分年级编程课程，每课包含一段不插电活动和一组积木编程关卡，关卡可切换为简体中文。教师可以免费建班级、查看学生进度。课程资料按非商业许可开放。",
+      "how_to_use_zh": "从课程目录选对应年级的课程，先做不插电活动再上机闯关。",
+      "standards": [
+        {
+          "code": "IT-H3-CS-001",
+          "rationale_zh": "不插电活动让学生写出“给同伴的步骤说明”，体会算法是明确可执行的步骤。"
+        },
+        {
+          "code": "IT-H3-CS-002",
+          "rationale_zh": "编程关卡依次引入顺序、循环和条件，对应三种基本控制结构。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "hello-algo",
+      "title_zh": "Hello 算法",
+      "title_original": "Hello 算法（Hello Algo）",
+      "provider": "Hello 算法开源社区",
+      "url": "https://www.hello-algo.com/",
+      "license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://github.com/krahets/hello-algo/blob/main/LICENSE",
+      "open_level": "noncommercial",
+      "formats": [
+        "book"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G5-6",
+        "G7-9"
+      ],
+      "summary_zh": "原生中文的开源算法入门书，用大量动画图解讲解查找、排序、递归等，并附多种编程语言的可运行代码。内容偏深，主要供教师备课参考，也适合学有余力的学生自学。",
+      "how_to_use_zh": "备课时借用其动画图解，讲“排序”“查找”或“复杂度”时投屏展示。",
+      "standards": [
+        {
+          "code": "IT-H3-CS-003",
+          "rationale_zh": "“复杂度分析”一章用图解说明数据量变大时执行次数如何增长，对应“问题规模—执行次数—时间效率”。"
+        },
+        {
+          "code": "IT-H3-CS-008",
+          "rationale_zh": "书中用汉诺塔讲解递归和分治，可直接支撑“在汉诺塔等益智问题中用递归求解”。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "mdn-learn-web-development",
+      "title_zh": "MDN：学习 Web 开发",
+      "title_original": "MDN Learn web development",
+      "provider": "Mozilla 开发者网络（MDN）",
+      "url": "https://developer.mozilla.org/zh-CN/docs/Learn_web_development",
+      "license": "CC-BY-SA-2.5",
+      "license_url": "https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license",
+      "open_level": "open",
+      "formats": [
+        "text"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G7-9"
+      ],
+      "summary_zh": "Mozilla 维护的网页入门教程，从“互联网是如何工作的”讲到用 HTML 写出第一个网页、用 CSS 加样式。大部分页面有简体中文译本，示例可在浏览器中直接修改运行。",
+      "how_to_use_zh": "选“网页是如何工作的”和“HTML 基础”两篇，作为网页编辑单元的阅读材料。",
+      "standards": [
+        {
+          "code": "IT-H4G7-DL-005",
+          "rationale_zh": "教程讲解浏览器与服务器如何通过协议传输网页，并动手编辑网页，对应“网页编辑与互联网原理”。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "machine-learning-for-kids",
+      "title_zh": "给孩子的机器学习",
+      "title_original": "Machine Learning for Kids",
+      "provider": "Dale Lane（IBM 开源项目）",
+      "url": "https://machinelearningforkids.co.uk/",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/IBM/taxinomitis/blob/master/LICENSE",
+      "open_level": "open",
+      "formats": [
+        "tool",
+        "lesson"
+      ],
+      "languages": [
+        "en"
+      ],
+      "china_access": "blocked",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G7-9"
+      ],
+      "summary_zh": "学生自己收集文字、图片或数字样本并贴上标签，训练一个分类模型，再把模型接入 Scratch 做成小程序。网站附几十个分步骤的项目说明，可以直观看到“数据多少、好坏”如何影响结果。",
+      "how_to_use_zh": "让两组学生用不同数量的样本训练同一模型，比较识别效果。",
+      "standards": [
+        {
+          "code": "IT-H4G9-SR-006",
+          "rationale_zh": "亲手准备数据、训练模型，体会人工智能依赖的数据、算法和算力基础。"
+        },
+        {
+          "code": "IT-H4G9-CS-003",
+          "rationale_zh": "可以把训练出的分类器和手写规则的程序比一比，对应“比较人工智能方法与传统方法的效果”。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "cs-unplugged-image-representation",
+      "title_zh": "不插电计算机科学：图像表示",
+      "title_original": "CS Unplugged: Image representation",
+      "provider": "CS Unplugged（新西兰坎特伯雷大学）",
+      "url": "https://csunplugged.org/zh-hans/topics/image-representation/",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://csunplugged.org/en/about/",
+      "open_level": "open",
+      "formats": [
+        "lesson"
+      ],
+      "languages": [
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G3-4",
+        "G7-9"
+      ],
+      "summary_zh": "学生按一串数字在方格纸上涂黑白格，还原出一幅图，从而理解计算机如何把图片编码成像素和数字，以及怎样用“行程编码”压缩图片。正文暂为英文，活动单可直接打印。",
+      "how_to_use_zh": "发编码好的数字卡，让学生涂色还原图片，再互相给图片编码。",
+      "standards": [
+        {
+          "code": "IT-H2-CS-006",
+          "rationale_zh": "亲手把图片变成数字、再把数字还原成图片，是从编码视角观察事物的直接练习。"
+        },
+        {
+          "code": "IT-H4G7-CS-004",
+          "rationale_zh": "行程编码展示了图像在存储和传输前如何编码压缩，对应“信息编码与数据呈现”的原理。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    },
+    {
+      "id": "creative-computing-guide",
+      "title_zh": "创意计算课程指南（Scratch）",
+      "title_original": "Creative Computing Curriculum Guide",
+      "provider": "哈佛大学教育研究生院 Creative Computing Lab",
+      "url": "https://creativecomputing.gse.harvard.edu/guide/",
+      "license": "CC-BY-NC-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "open_level": "noncommercial",
+      "formats": [
+        "lesson"
+      ],
+      "languages": [
+        "en"
+      ],
+      "china_access": "direct",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G5-6"
+      ],
+      "summary_zh": "一套以 Scratch 为工具的计算思维课程，分七个单元，从探索、艺术、故事、游戏到自主项目，每节课有活动设计、学习单和反思问题，强调设计、调试和分享。全英文，可免费下载 PDF。",
+      "how_to_use_zh": "借用其“调试”和“反思”环节的设计，改进本校图形化编程课的流程。",
+      "standards": [
+        {
+          "code": "IT-H3-CS-004",
+          "rationale_zh": "每个单元都让学生先设计再编程并调试改进，对应“设计求解算法并转化为程序”。"
+        },
+        {
+          "code": "IT-H3-CS-002",
+          "rationale_zh": "游戏和故事单元反复用到顺序、条件与循环，让学生在作品中运用三种控制结构。"
+        }
+      ],
+      "checked_at": "2026-10-28"
+    }
+  ]
+}

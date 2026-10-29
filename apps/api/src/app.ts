@@ -5,6 +5,9 @@ import {
     FileCurriculumRepository,
     FileLearningResourceRepository,
     FileTextbookRepository,
+    LEARNING_RESOURCE_FORMATS,
+    LEARNING_RESOURCE_OPEN_LEVELS,
+    LEARNING_RESOURCE_STAGES,
     PlanParseRequestSchema,
     PlanToStandardsRequestSchema,
     PlanValidateRequestSchema,
@@ -15,6 +18,11 @@ import {
     SMART_SEARCH_RELEVANCE_VERSION,
     WeeklyScheduleRequestSchema,
     projectStandard
+} from '../../../packages/curriculum-core/src/index.js'
+import type {
+    LearningResourceFormat,
+    LearningResourceOpenLevel,
+    LearningResourceStage
 } from '../../../packages/curriculum-core/src/index.js'
 import {
     apiAccessMiddleware,
@@ -185,18 +193,23 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
 
     app.get('/api/v1/learning-resources', async c => {
         const version = await repository.loadDataVersion()
-        const rawGrade = c.req.query('grade')
-        const grade = rawGrade ? Number(rawGrade) : undefined
-        if (rawGrade && (!Number.isInteger(grade) || Number(grade) < 1 || Number(grade) > 9)) {
-            return apiError(c, 422, 'validation_error', '年级必须是 1–9 的整数。')
+        const stage = c.req.query('stage')
+        const format = c.req.query('format')
+        const openLevel = c.req.query('open_level')
+        if (stage && !(LEARNING_RESOURCE_STAGES as readonly string[]).includes(stage)) {
+            return apiError(c, 422, 'validation_error', `学段必须是 ${LEARNING_RESOURCE_STAGES.join('、')} 之一。`)
+        }
+        if (format && !(LEARNING_RESOURCE_FORMATS as readonly string[]).includes(format)) {
+            return apiError(c, 422, 'validation_error', `资源类型必须是 ${LEARNING_RESOURCE_FORMATS.join('、')} 之一。`)
+        }
+        if (openLevel && !(LEARNING_RESOURCE_OPEN_LEVELS as readonly string[]).includes(openLevel)) {
+            return apiError(c, 422, 'validation_error', 'open_level 必须是 open 或 noncommercial。')
         }
         const items = await learningResourceRepository.search({
             subject: c.req.query('subject'),
-            stage: c.req.query('stage') as 'primary' | 'junior' | undefined,
-            grade,
-            role: c.req.query('role'),
-            type: c.req.query('type'),
-            source: c.req.query('source'),
+            stage: stage as LearningResourceStage | undefined,
+            format: format as LearningResourceFormat | undefined,
+            openLevel: openLevel as LearningResourceOpenLevel | undefined,
             query: c.req.query('q')
         })
         const limit = Math.min(200, Math.max(1, Number(c.req.query('limit') || 50)))
@@ -210,38 +223,24 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
 
     app.get('/api/v1/learning-resources/:resource_id', async c => {
         const version = await repository.loadDataVersion()
-        const resource = await learningResourceRepository.get(
-            c.req.param('resource_id'),
-            c.req.query('fragment_id')
-        )
+        const resource = await learningResourceRepository.get(c.req.param('resource_id'))
         if (!resource) return apiError(c, 404, 'not_found', '未找到学习资源。')
         return ok(c, version, resource)
     })
 
     app.get('/api/v1/learning-resources/:resource_id/standards', async c => {
         const version = await repository.loadDataVersion()
-        const fragmentId = c.req.query('fragment_id')
-        const resource = await learningResourceRepository.get(c.req.param('resource_id'), fragmentId)
+        const resource = await learningResourceRepository.get(c.req.param('resource_id'))
         if (!resource) return apiError(c, 404, 'not_found', '未找到学习资源。')
-        const alignments = await learningResourceRepository.getStandardsForResource(resource.resource_id, fragmentId)
-        return ok(c, version, alignments, { total: alignments.length })
+        return ok(c, version, resource.standards, { total: resource.standards.length })
     })
 
     app.get('/api/v1/standards/:code/learning-resources', async c => {
         const version = await repository.loadDataVersion()
         const standardResult = await resolveStandardOrError(c, c.req.param('code'))
         if (standardResult.response) return standardResult.response
-        const result = await learningResourceRepository.getForStandard(
-            standardResult.resolved!.record!.code,
-            {
-                componentId: c.req.query('component_id'),
-                role: c.req.query('role')
-            }
-        )
-        return ok(c, version, result, {
-            total: result.resources.length,
-            alignment_count: result.alignments.length
-        })
+        const result = await learningResourceRepository.getForStandard(standardResult.resolved!.record!.code)
+        return ok(c, version, result, { total: result.resources.length })
     })
 
     app.get('/api/v1/textbooks', async c => {

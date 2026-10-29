@@ -1,3 +1,87 @@
-.page{max-width:1050px;margin:0 auto;padding:38px 24px 100px}.back{color:#8c97da;text-decoration:none;font-weight:650}.header{padding:52px 0 36px;border-bottom:1px solid rgba(222, 228, 238, 0.158)}.header>span{font-size:.76rem;color:#b5bcc8;text-transform:uppercase;letter-spacing:.12em}.header h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.12;letter-spacing: 0.01em;margin:12px 0 20px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{background:#0f1116;color:#99a3dc;border-radius:999px;padding:7px 11px;font-size:.78rem}.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:56px;padding-top:40px}.body{font-size:1.06rem;line-height:1.95;color:#d7dde9}.body h2{font-size:1.45rem;line-height:1.35;margin:2.2em 0 .7em;color:#dfe5f2}.body h2:first-child{margin-top:0}.body blockquote{border-left:3px solid #e9c887;margin:24px 0;padding:8px 20px;background:#0e0f14}.aside{height:max-content;position:sticky;top:90px;border:1px solid rgba(222, 228, 238, 0.163);border-radius:16px;padding:20px;display:grid;gap:12px}.aside h2{font-size:1rem;margin:0}.aside p,.aside small{color:#b5bbc6;line-height:1.65}.aside a{color:#96a0dc;text-decoration:none}.standards{display:grid;gap:10px;padding-bottom:18px;margin-bottom:6px;border-bottom:1px solid rgba(222, 228, 238, 0.158)}.standards>a{display:grid;gap:4px;padding:11px;border-radius:11px;background:#0e0f14}.standards strong{font-size:.76rem;letter-spacing:.04em}.standards span{color:#d5dcea;font-size:.9rem;line-height:1.5}.standards small{font-size:.76rem}
+.root { min-height: 100%; color: var(--kb-moon); }
 
-@media(max-width:760px){.page{padding:28px 16px 72px}.layout{grid-template-columns:1fr;gap:28px}.aside{position:static;order:-1}}
+.heroBadges { margin-top: 22px; }
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+    align-items: start;
+    gap: clamp(32px, 6vw, 88px);
+    padding-block: clamp(16px, 3vw, 40px) clamp(72px, 10vw, 128px);
+}
+
+.main { min-width: 0; }
+
+.block + .block { margin-top: clamp(40px, 6vw, 72px); }
+
+.prose {
+    max-width: 62ch;
+    margin: 0;
+    color: var(--kb-mist);
+    font-size: 16.5px;
+    line-height: 1.9;
+    text-wrap: pretty;
+}
+
+.standards > li { padding: 20px 0; }
+
+.standardLink { display: grid; gap: 6px; color: var(--kb-moon); text-decoration: none; }
+.standardLink:hover .standardTitle { color: var(--kb-gold); }
+.standardLink:focus-visible { border-radius: 6px; outline: 3px solid var(--kb-focus); outline-offset: 4px; }
+
+.code {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--kb-gold);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+}
+
+.code i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--c, var(--kb-gold));
+}
+
+.standardTitle {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.55;
+    letter-spacing: 0.02em;
+    transition: color var(--transition-fast);
+}
+
+.standardMeta { color: var(--kb-dim); font-size: 13px; }
+
+.rationale {
+    margin: 10px 0 0;
+    padding-left: 14px;
+    border-left: 2px solid var(--c, var(--kb-gold));
+    color: var(--kb-mist);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.aside { position: sticky; top: 6rem; display: grid; gap: 18px; }
+
+.facts { display: grid; gap: 14px; margin: 0; }
+.facts > div { display: grid; grid-template-columns: 4.5em minmax(0, 1fr); gap: 12px; }
+.facts dt { color: var(--kb-dim); font-size: 13px; letter-spacing: 0.12em; }
+.facts dd { display: grid; gap: 4px; margin: 0; color: var(--kb-moon); font-size: 14.5px; line-height: 1.6; }
+.facts small { color: var(--kb-dim); font-size: 12.5px; line-height: 1.6; }
+.facts a { color: var(--kb-gold); text-decoration: none; }
+.facts a:hover { text-decoration: underline; }
+
+.attribution { padding-top: 16px; border-top: 1px solid var(--kb-line); }
+.attribution p:last-child { margin: 8px 0 0; color: var(--kb-mist); font-size: 13.5px; line-height: 1.7; overflow-wrap: anywhere; }
+
+.asideOpen { justify-self: start; }
+
+@media (max-width: 900px) {
+    .layout { grid-template-columns: minmax(0, 1fr); }
+    .aside { position: static; }
+}

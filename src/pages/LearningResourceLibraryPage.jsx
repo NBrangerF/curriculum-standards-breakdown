@@ -1,72 +1,227 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { loadLearningResourceCatalog } from '../data/dataLoader'
+import { useEffect, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
+import { loadLearningResourceCatalog, SUBJECT_COLORS } from '../data/dataLoader'
 import { ErrorState, LoadingState } from '../components/StateComponents'
-import { SOURCE_LABELS, roleLabel, sourceLabel } from '../features/learning-resources/labels'
+import { Chip, PageHero, Pill, Seg, kb } from '../components/kb'
+import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
+import {
+    FORMAT_LABELS,
+    STAGE_LABELS,
+    SUBJECT_LABELS,
+    formatLabel,
+    stageLabel,
+    hasDistinctOriginal,
+    subjectLabel
+} from '../features/learning-resources/labels'
 import styles from './LearningResourceLibraryPage.module.css'
+
+const STANDARD_CHIP_LIMIT = 4
+
+function matches(resource, { subject, stage, format, reachable, keyword }) {
+    if (subject && !resource.subjects.includes(subject)) return false
+    if (stage && !resource.stages.includes(stage)) return false
+    if (format && !resource.formats.includes(format)) return false
+    if (reachable && resource.china_access === 'blocked') return false
+    if (!keyword) return true
+    return [
+        resource.title_zh,
+        resource.title_original,
+        resource.provider,
+        resource.summary_zh,
+        ...resource.standards.flatMap(item => [item.code, item.standard_title])
+    ].join(' ').toLocaleLowerCase('zh-CN').includes(keyword)
+}
+
+function ResourceRow({ resource, index }) {
+    const extraStandards = resource.standards.length - STANDARD_CHIP_LIMIT
+    return (
+        <li className={styles.row}>
+            <span className={styles.index} aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+            <article className={styles.body} aria-labelledby={`lr-${resource.id}`}>
+                <p className={styles.meta}>
+                    <span>{resource.provider}</span>
+                    <span>{resource.formats.map(formatLabel).join(' · ')}</span>
+                    <span>{resource.stages.map(stageLabel).join('、')}</span>
+                </p>
+                <h2 className={styles.title} id={`lr-${resource.id}`}>
+                    <Link to={`/learning-resources/${resource.id}`}>{resource.title_zh}</Link>
+                </h2>
+                {hasDistinctOriginal(resource) && <p className={styles.original}>{resource.title_original}</p>}
+                <ResourceBadges resource={resource} className={styles.badges} />
+                <p className={styles.summary}>{resource.summary_zh}</p>
+                <div className={styles.standards} aria-label="对应课标">
+                    {resource.standards.slice(0, STANDARD_CHIP_LIMIT).map(item => (
+                        <Chip
+                            key={item.code}
+                            to={`/standards/${item.code}`}
+                            small
+                            dot
+                            color={SUBJECT_COLORS[item.subject]}
+                            className={styles.standardChip}
+                            title={`${item.code} ${item.standard_title}`}
+                        >
+                            <code>{item.code}</code>
+                            <span>{item.standard_title}</span>
+                        </Chip>
+                    ))}
+                    {extraStandards > 0 && (
+                        <Link className={styles.more} to={`/learning-resources/${resource.id}`}>另有 {extraStandards} 条</Link>
+                    )}
+                </div>
+            </article>
+            <div className={styles.actions}>
+                <OpenOriginalLink resource={resource} />
+                <Link className={styles.detail} to={`/learning-resources/${resource.id}`}>
+                    详情<span className="sr-only">：{resource.title_zh}</span>
+                </Link>
+            </div>
+        </li>
+    )
+}
 
 export default function LearningResourceLibraryPage() {
     const [catalog, setCatalog] = useState(null)
     const [error, setError] = useState(null)
-    const [query, setQuery] = useState('')
-    const [source, setSource] = useState('')
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [query, setQuery] = useState(searchParams.get('q') || '')
 
     useEffect(() => {
         loadLearningResourceCatalog().then(setCatalog).catch(setError)
     }, [])
 
-    const resources = useMemo(() => {
-        const keyword = query.trim().toLocaleLowerCase('zh-CN')
-        return (catalog?.resources || []).filter(resource => {
-            if (source && resource.source_id !== source) return false
-            if (!keyword) return true
-            return [
-                resource.title.text,
-                resource.description.text,
-                ...resource.blocks.map(block => block.text.text)
-            ].join(' ').toLocaleLowerCase('zh-CN').includes(keyword)
-        })
-    }, [catalog, query, source])
+    const filters = {
+        subject: SUBJECT_LABELS[searchParams.get('subject')] ? searchParams.get('subject') : '',
+        stage: STAGE_LABELS[searchParams.get('stage')] ? searchParams.get('stage') : '',
+        format: FORMAT_LABELS[searchParams.get('format')] ? searchParams.get('format') : '',
+        reachable: searchParams.get('access') === 'cn',
+        keyword: query.trim().toLocaleLowerCase('zh-CN')
+    }
+
+    const setFilter = (key, value) => {
+        const next = new URLSearchParams(searchParams)
+        if (value) next.set(key, value)
+        else next.delete(key)
+        setSearchParams(next, { replace: true })
+    }
+
+    const updateQuery = value => {
+        setQuery(value)
+        setFilter('q', value.trim())
+    }
 
     if (error) return <ErrorState title="学习资源暂时不可用" message={error.message} />
     if (!catalog) return <LoadingState message="正在打开学习资源库" />
 
+    const all = catalog.resources
+    const resources = all.filter(resource => matches(resource, filters))
+    const reachableCount = all.filter(resource => resource.china_access !== 'blocked').length
+    const formatsInUse = Object.keys(FORMAT_LABELS).filter(format => all.some(resource => resource.formats.includes(format)))
+    const hasFilters = filters.subject || filters.stage || filters.format || filters.reachable || filters.keyword
+
     return (
-        <div className={styles.page}>
-            <section className={styles.hero}>
-                <span>LEARNING RESOURCES</span>
-                <h1>从课标出发，找到可以直接使用的学习材料</h1>
-                <p>所有内容均以简体中文结构化呈现，并保留来源、许可和课标关联证据。</p>
-                <strong>{new Set(resources.map(item => item.resource_id)).size} 项资源</strong>
-            </section>
-            <section className={styles.toolbar} aria-label="学习资源筛选">
-                <input
-                    value={query}
-                    onChange={event => setQuery(event.target.value)}
-                    placeholder="搜索主题、活动或知识点"
-                    aria-label="搜索学习资源"
-                />
-                <select value={source} onChange={event => setSource(event.target.value)} aria-label="按来源筛选">
-                    <option value="">全部来源</option>
-                    {Object.entries(SOURCE_LABELS).map(([id, label]) => <option key={id} value={id}>{label}</option>)}
-                </select>
-            </section>
-            <section className={styles.grid}>
-                {resources.map(resource => (
-                    <article key={`${resource.resource_id}-${resource.fragment_id}`} className={styles.card}>
-                        <div className={styles.meta}>
-                            <span>{sourceLabel(resource.source_id)}</span>
-                            <span>{resource.estimated_minutes ? `${resource.estimated_minutes} 分钟` : '灵活时长'}</span>
+        <div className={styles.root} data-kb-route="learning-resources">
+            <PageHero
+                kicker="学习资源 · 精选开放资源目录"
+                title="学习资源"
+                lede="从全球开放教育资源中挑出适合义务教育课堂的条目，逐条核对许可、写好中文简介、标注对应课标。点击即跳转原站，本站不转载正文。"
+                stats={[
+                    { value: catalog.counts.resources, label: '项精选资源' },
+                    { value: catalog.counts.standards, label: '条课标有对应' },
+                    { value: reachableCount, label: '项国内可访问' }
+                ]}
+            />
+
+            <section className={styles.filters} aria-label="筛选学习资源">
+                <div className={`${kb.wrap} ${styles.filterInner}`}>
+                    <label className={styles.search}>
+                        <span className="sr-only">搜索学习资源</span>
+                        <input
+                            type="search"
+                            value={query}
+                            onChange={event => updateQuery(event.target.value)}
+                            placeholder="搜索资源、提供方或课标编码"
+                        />
+                    </label>
+                    <div className={styles.filterRow}>
+                        <span className={kb.label}>学科</span>
+                        <div className={styles.scroller} role="group" aria-label="按学科筛选">
+                            <Pill pressed={!filters.subject} onClick={() => setFilter('subject', '')}>全部</Pill>
+                            {Object.keys(SUBJECT_LABELS).map(subject => (
+                                <Pill
+                                    key={subject}
+                                    pressed={filters.subject === subject}
+                                    onClick={() => setFilter('subject', filters.subject === subject ? '' : subject)}
+                                    color={SUBJECT_COLORS[subject]}
+                                    dot
+                                >
+                                    {subjectLabel(subject)}
+                                    <span className={styles.count}>{catalog.counts.by_subject[subject] || 0}</span>
+                                </Pill>
+                            ))}
                         </div>
-                        <h2><Link to={`/learning-resources/${resource.resource_id}?fragment=${encodeURIComponent(resource.fragment_id)}`}>{resource.title.text}</Link></h2>
-                        <p>{resource.blocks[0]?.text.text.slice(0, 150)}{resource.blocks[0]?.text.text.length > 150 ? '…' : ''}</p>
-                        <div className={styles.tags}>
-                            {resource.pedagogical_roles.map(role => <span key={role}>{roleLabel(role)}</span>)}
+                    </div>
+                    <div className={styles.filterRow}>
+                        <span className={kb.label}>学段</span>
+                        <div className={styles.scroller}>
+                            <Seg
+                                label="按学段筛选"
+                                value={filters.stage}
+                                onChange={value => setFilter('stage', value)}
+                                options={[{ value: '', label: '全部' }, ...Object.entries(STAGE_LABELS).map(([value, label]) => ({ value, label }))]}
+                            />
                         </div>
-                    </article>
-                ))}
+                    </div>
+                    <div className={styles.filterRow}>
+                        <span className={kb.label}>类型</span>
+                        <div className={styles.scroller} role="group" aria-label="按资源类型筛选">
+                            <Pill pressed={!filters.format} onClick={() => setFilter('format', '')}>全部</Pill>
+                            {formatsInUse.map(format => (
+                                <Pill
+                                    key={format}
+                                    pressed={filters.format === format}
+                                    onClick={() => setFilter('format', filters.format === format ? '' : format)}
+                                >
+                                    {formatLabel(format)}
+                                </Pill>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={styles.filterRow}>
+                        <span className={kb.label}>访问</span>
+                        <div className={styles.scroller}>
+                            <Pill pressed={filters.reachable} onClick={() => setFilter('access', filters.reachable ? '' : 'cn')}>
+                                只看国内可访问
+                                <span className={styles.count}>{reachableCount}</span>
+                            </Pill>
+                        </div>
+                    </div>
+                </div>
             </section>
-            {!resources.length ? <p className={styles.empty}>没有找到符合条件的资源。</p> : null}
+
+            <section className={`${kb.wrap} ${styles.results}`} aria-labelledby="lr-results-title">
+                <div className={styles.resultsHead}>
+                    <h2 id="lr-results-title" className={styles.resultsTitle}>
+                        <b>{resources.length}</b> 项资源
+                    </h2>
+                    <p className={styles.note}>
+                        “国内可访问”是本站在中国大陆网络下的实测结果，每条资源的检测日期见详情页。
+                    </p>
+                </div>
+                {resources.length ? (
+                    <ol className={kb.list}>
+                        {resources.map((resource, index) => <ResourceRow key={resource.id} resource={resource} index={index} />)}
+                    </ol>
+                ) : (
+                    <div className={styles.empty}>
+                        <p>没有符合条件的资源。</p>
+                        {hasFilters && (
+                            <button type="button" className={styles.clear} onClick={() => { setQuery(''); setSearchParams({}, { replace: true }) }}>
+                                清除全部筛选
+                            </button>
+                        )}
+                    </div>
+                )}
+            </section>
         </div>
     )
 }

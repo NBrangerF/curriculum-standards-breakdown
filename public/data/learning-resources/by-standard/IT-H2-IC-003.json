@@ -1,0 +1,109 @@
+{
+  "schema_version": 2,
+  "standard_code": "IT-H2-IC-003",
+  "resources": [
+    {
+      "id": "cs-unplugged-binary-numbers",
+      "title_zh": "不插电计算机科学：二进制数",
+      "title_original": "CS Unplugged: Binary numbers",
+      "provider": "CS Unplugged（新西兰坎特伯雷大学）",
+      "url": "https://csunplugged.org/zh-hans/topics/binary-numbers/",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://csunplugged.org/en/about/",
+      "open_level": "open",
+      "formats": [
+        "lesson"
+      ],
+      "languages": [
+        "zh",
+        "en"
+      ],
+      "china_access": "unstable",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G3-4",
+        "G5-6"
+      ],
+      "summary_zh": "不用电脑，只用五张画着 1、2、4、8、16 个点的卡片，学生翻正反面就能表示 0 到 31 的数，进而理解计算机为什么只用 0 和 1。页面已译成简体中文，附教案、学生活动单和延伸任务。",
+      "how_to_use_zh": "按教案让五名学生举卡片，全班根据翻牌读出二进制数。",
+      "standards": [
+        {
+          "code": "IT-H2-IC-003",
+          "rationale_zh": "用卡片把数编码成 0 和 1 再解码回来，体会“信息存储与传输中需要编码与解码”。",
+          "standard_title": "能理解数字化表示信息的优势",
+          "subject": "it",
+          "grade_band": "H2",
+          "stage": "G3-4"
+        },
+        {
+          "code": "IT-H2-CS-001",
+          "rationale_zh": "活动最后让学生用二进制给字母编码，结合实例说明编码的目的和规则。",
+          "standard_title": "能结合真实情境说明编码在生活中的应用",
+          "subject": "it",
+          "grade_band": "H2",
+          "stage": "G3-4"
+        }
+      ],
+      "standard_codes": [
+        "IT-H2-IC-003",
+        "IT-H2-CS-001"
+      ],
+      "alignment_count": 2,
+      "checked_at": "2026-10-28",
+      "rationale_zh": "用卡片把数编码成 0 和 1 再解码回来，体会“信息存储与传输中需要编码与解码”。"
+    },
+    {
+      "id": "cs-unplugged-error-detection",
+      "title_zh": "不插电计算机科学：检错与纠错",
+      "title_original": "CS Unplugged: Error detection and correction",
+      "provider": "CS Unplugged（新西兰坎特伯雷大学）",
+      "url": "https://csunplugged.org/zh-hans/topics/error-detection-and-correction/",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://csunplugged.org/en/about/",
+      "open_level": "open",
+      "formats": [
+        "lesson"
+      ],
+      "languages": [
+        "en"
+      ],
+      "china_access": "unstable",
+      "subjects": [
+        "it"
+      ],
+      "stages": [
+        "G3-4",
+        "G7-9"
+      ],
+      "summary_zh": "经典的“奇偶校验魔术”：学生摆好一组黑白卡片，老师加上一行一列后转身，学生偷偷翻一张，老师马上找出是哪一张。由此讲清数据传输中如何发现和纠正错误。正文暂为英文。",
+      "how_to_use_zh": "先表演魔术引起好奇，再揭秘每行每列保持偶数张黑卡的规则。",
+      "standards": [
+        {
+          "code": "IT-H2-IC-003",
+          "rationale_zh": "附加的校验位让接收方发现传输出错，是编码与解码作用的直观例子。",
+          "standard_title": "能理解数字化表示信息的优势",
+          "subject": "it",
+          "grade_band": "H2",
+          "stage": "G3-4"
+        },
+        {
+          "code": "IT-H4G7-CS-004",
+          "rationale_zh": "奇偶校验正是网络传输中保证数据正确的基本原理，对应“网络中信息编码、传输的原理”。",
+          "standard_title": "信息编码与数据呈现",
+          "subject": "it",
+          "grade_band": "H4G7",
+          "stage": "G7-9"
+        }
+      ],
+      "standard_codes": [
+        "IT-H2-IC-003",
+        "IT-H4G7-CS-004"
+      ],
+      "alignment_count": 2,
+      "checked_at": "2026-10-28",
+      "rationale_zh": "附加的校验位让接收方发现传输出错，是编码与解码作用的直观例子。"
+    }
+  ]
+}

@@ -36,11 +36,9 @@ export interface RequestOptions {
 
 export interface LearningResourceRequestOptions {
     subject?: string
-    stage?: 'primary' | 'junior'
-    grade?: number
-    role?: string
-    type?: string
-    source?: string
+    stage?: 'G1-2' | 'G3-4' | 'G5-6' | 'G7-9'
+    format?: 'interactive' | 'video' | 'lesson' | 'book' | 'tool' | 'dataset' | 'text'
+    openLevel?: 'open' | 'noncommercial'
     query?: string
     limit?: number
     offset?: number
@@ -169,10 +167,8 @@ export class CurriculumClient {
         const query = queryString({
             subject: options.subject,
             stage: options.stage,
-            grade: options.grade,
-            role: options.role,
-            type: options.type,
-            source: options.source,
+            format: options.format,
+            open_level: options.openLevel,
             q: options.query,
             limit: options.limit,
             offset: options.offset
@@ -180,26 +176,16 @@ export class CurriculumClient {
         return this.request<JsonObject[]>(`/api/v1/learning-resources${query}`)
     }
 
-    getLearningResource(resourceId: string, fragmentId?: string) {
-        const query = queryString({ fragment_id: fragmentId })
-        return this.request<JsonObject>(`/api/v1/learning-resources/${encodeURIComponent(resourceId)}${query}`)
+    getLearningResource(resourceId: string) {
+        return this.request<JsonObject>(`/api/v1/learning-resources/${encodeURIComponent(resourceId)}`)
     }
 
-    getLearningResourceStandards(resourceId: string, fragmentId?: string) {
-        const query = queryString({ fragment_id: fragmentId })
-        return this.request<JsonObject[]>(
-            `/api/v1/learning-resources/${encodeURIComponent(resourceId)}/standards${query}`
-        )
+    getLearningResourceStandards(resourceId: string) {
+        return this.request<JsonObject[]>(`/api/v1/learning-resources/${encodeURIComponent(resourceId)}/standards`)
     }
 
-    getStandardLearningResources(code: string, options: { componentId?: string; role?: string } = {}) {
-        const query = queryString({
-            component_id: options.componentId,
-            role: options.role
-        })
-        return this.request<JsonObject>(
-            `/api/v1/standards/${encodeURIComponent(code)}/learning-resources${query}`
-        )
+    getStandardLearningResources(code: string) {
+        return this.request<JsonObject>(`/api/v1/standards/${encodeURIComponent(code)}/learning-resources`)
     }
 
     searchStandards(body: JsonObject) {
