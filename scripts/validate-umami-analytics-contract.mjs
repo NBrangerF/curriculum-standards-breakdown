@@ -30,7 +30,11 @@ assert.deepEqual(UMAMI_EVENTS, [
     'ui_graph_ready',
     'ui_graph_fallback',
     'ui_favorite_toggle',
-    'ui_collection_create'
+    'ui_collection_create',
+    'standard_code_copy',
+    'share_open',
+    'share_poster_save',
+    'share_link_copy'
 ])
 
 assert.equal(isKebiaoProductionHost('kebiao.org'), true)

@@ -4,6 +4,10 @@
     "installCommand": "npm install",
     "outputDirectory": "dist",
     "functions": {
+        "api/cards/[...path].ts": {
+            "maxDuration": 15,
+            "includeFiles": "{public/data/manifest.json,public/data/starmap.json,public/data/indexes/code_to_subject.json,public/data/by_subject/**,node_modules/@fontsource/noto-serif-sc/400.css,node_modules/@fontsource/noto-serif-sc/files/*-400-normal.woff,node_modules/@fontsource/noto-serif-sc/files/*-900-normal.woff,node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff}"
+        },
         "api/v1/[...path].ts": {
             "maxDuration": 60,
             "supportsCancellation": true,
@@ -25,6 +29,10 @@
         {
             "source": "/api/v1/:path*",
             "destination": "/api/v1/[...path]"
+        },
+        {
+            "source": "/cards/:path*",
+            "destination": "/api/cards/[...path]"
         },
         {
             "source": "/api",

@@ -5,7 +5,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import {
-    SITE_URL, SITE_NAME, getDisplayTitle, gradeLabel, clip,
+    SITE_URL, SITE_NAME, cardVersion, getDisplayTitle, gradeLabel, clip,
     homeMeta, subjectMeta, standardMeta, skillsOverviewMeta, skillMeta, textbooksMeta, textbookMeta,
     textbookUnitMeta, learningResourcesMeta, learningResourceMeta, STATIC_PAGE_META
 } from '../src/seo/pageMeta.js'
@@ -53,6 +53,8 @@ const standardsToTextbooks = readJson('textbooks/standards-to-textbooks.json')
 const learningResources = readJson('learning-resources/catalog/index.json').resources
 const glossary = readJson('glossary.json')
 const GRADE_ORDER = ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9']
+const CARD_VERSION = cardVersion(readJson('data_version.json').data_version)
+const cardUrl = path => `${SITE_URL}/cards/${path}.png?v=${CARD_VERSION}`
 
 const standardTitle = standard => getDisplayTitle(standard.standard, standard.standard_title)
 const standardLink = code => {
@@ -113,7 +115,7 @@ function subjectPage(subject) {
 <p class="kbp-lede">${esc(info.short_description || '')}</p>
 ${info.structure_notes ? `<p>${esc(info.structure_notes)}</p>` : ''}
 <p class="kbp-note">共 ${standards.length} 条课标，按学段和领域排列。</p>
-${bands}`, { jsonLd: [breadcrumbs(crumbs)] })
+${bands}`, { jsonLd: [breadcrumbs(crumbs)], image: cardUrl(`subject/${subject.subject_slug}`) })
 }
 
 function standardPage(standard) {
@@ -160,6 +162,7 @@ ${section(`同领域的其他课标（${standard.domain}）`, list(siblings))}
     const preloadCodes = [standard.code, ...splitCodes(standard.previous_code), ...splitCodes(standard.next_code)]
     add(meta, main, {
         type: 'article',
+        image: cardUrl(`s/${standard.code}`),
         jsonLd: [breadcrumbs(crumbs), {
             '@context': 'https://schema.org',
             '@type': 'DefinedTerm',
@@ -318,13 +321,11 @@ function render(page) {
         `<meta property="og:description" content="${esc(page.description)}" />`,
         `<meta property="og:url" content="${esc(url)}" />`,
         '<meta property="og:locale" content="zh_CN" />',
-        `<meta name="twitter:card" content="${page.image ? 'summary_large_image' : 'summary'}" />`,
-        ...(page.image ? [
-            `<meta property="og:image" content="${esc(page.image)}" />`,
-            '<meta property="og:image:width" content="1200" />',
-            '<meta property="og:image:height" content="630" />',
-            `<meta name="twitter:image" content="${esc(page.image)}" />`
-        ] : []),
+        '<meta name="twitter:card" content="summary_large_image" />',
+        `<meta property="og:image" content="${esc(page.image || cardUrl('site'))}" />`,
+        '<meta property="og:image:width" content="1200" />',
+        '<meta property="og:image:height" content="630" />',
+        `<meta name="twitter:image" content="${esc(page.image || cardUrl('site'))}" />`,
         ...(page.jsonLd || []).map(item => `<script type="application/ld+json">${scriptJson(item)}</script>`),
         STYLE
     ].join('\n  ')

@@ -1,7 +1,10 @@
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { cardVersion } from './src/seo/pageMeta.js'
+
+const dataVersion = JSON.parse(readFileSync('public/data/data_version.json', 'utf8')).data_version
 
 // Make `vite preview` route like vercel.json: a prerendered page if one exists
 // (scripts/prerender-pages.mjs), otherwise the bare app shell.
@@ -24,6 +27,9 @@ function prerenderedPagesPreview() {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), prerenderedPagesPreview()],
+  define: {
+    'import.meta.env.VITE_KB_CARD_VERSION': JSON.stringify(cardVersion(dataVersion))
+  },
   server: {
     port: 3000,
     open: true,

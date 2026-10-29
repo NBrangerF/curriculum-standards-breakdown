@@ -223,7 +223,8 @@
 .standard-detail-page .graph-locate-button,
 .standard-detail-page .header-actions [data-kb-action="favorite-toggle"],
 .standard-detail-page .header-actions [data-kb-action="collection-menu"],
-.standard-detail-page .header-actions [data-kb-component="copy-link-control"] > button {
+.standard-detail-page .header-actions [data-kb-component="copy-link-control"] > button,
+.standard-detail-page .header-actions [data-kb-action="share-open"] {
     min-height: 44px;
     border: 1px solid var(--kb-line-strong);
     border-radius: 999px;
@@ -268,7 +269,8 @@
     min-width: 2.8rem;
 }
 
-.standard-detail-page .header-actions [data-kb-component="copy-link-control"] > button {
+.standard-detail-page .header-actions [data-kb-component="copy-link-control"] > button,
+.standard-detail-page .header-actions [data-kb-action="share-open"] {
     justify-content: center;
 }
 

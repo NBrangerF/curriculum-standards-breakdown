@@ -17,6 +17,8 @@ import FavoriteButton from '../components/FavoriteButton'
 import StandardRelationPanel from '../components/StandardRelationPanel'
 import StandardTextbookLinks from '../features/textbooks/StandardTextbookLinks'
 import StandardLearningResources from '../features/learning-resources/StandardLearningResources'
+import ShareStandardButton from '../features/share/ShareStandardButton'
+import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { useUiV2 } from '../components/RouteUiBoundary.jsx'
 import { Tooltip } from '../ui/primitives/Tooltip.jsx'
 import { copyToClipboard, mergeLearningMapStateIntoURL, parseLearningMapStateFromURL } from '../data/query'
@@ -403,6 +405,7 @@ function StandardDetailPage() {
     const handleCopyCode = useCallback(async () => {
         const copied = await copyToClipboard(code)
         setCodeCopyStatus(copied ? 'copied' : 'error')
+        if (copied) trackUmamiEvent('standard_code_copy', { standard_code: code })
         if (copyTimerRef.current) window.clearTimeout(copyTimerRef.current)
         copyTimerRef.current = window.setTimeout(() => setCodeCopyStatus('idle'), 1800)
     }, [code])
@@ -590,6 +593,7 @@ function StandardDetailPage() {
                             </button> : null}
                             <FavoriteButton code={code} showLabel={true} size="large" />
                             <CopyLinkButton url={shareURL} />
+                            <ShareStandardButton code={code} title={pageTitle} />
                         </div>
                     </div>
                 </div>

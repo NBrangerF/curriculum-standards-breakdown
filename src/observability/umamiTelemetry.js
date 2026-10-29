@@ -18,7 +18,12 @@ const EVENT_PROPERTIES = Object.freeze({
     ui_graph_ready: ['variant'],
     ui_graph_fallback: ['variant'],
     ui_favorite_toggle: ['variant'],
-    ui_collection_create: ['variant']
+    ui_collection_create: ['variant'],
+    // "课标引用": a standard leaving the site as a code, a link or a share image.
+    standard_code_copy: ['standard_code'],
+    share_open: ['standard_code'],
+    share_poster_save: ['standard_code'],
+    share_link_copy: ['standard_code']
 })
 
 export const UMAMI_EVENTS = Object.freeze(Object.keys(EVENT_PROPERTIES))
