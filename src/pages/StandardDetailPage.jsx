@@ -874,7 +874,7 @@ function StandardDetailPage() {
                 <div className="container">
                     <header className={styles['section-title-row']}>
                         <h2>学习资源</h2>
-                        <p className={styles['candidate-notice']}>从开放资源中提取、转为简体中文，并通过内容—课标证据检查。</p>
+                        <p className={styles['candidate-notice']}>精选的开放学习资源，标明许可与国内能否直接访问，点击跳转原站使用。</p>
                     </header>
                     <StandardLearningResources standardCode={code} />
                 </div>
