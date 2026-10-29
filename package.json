@@ -162,7 +162,8 @@
         "grade7_9:manifest": "node scripts/grade7_9/generate_manifest.js",
     "prebuild": "npm run validate:data-contract && npm run build:indexes && npm run textbooks:relations:build && npm run textbooks:align-all && npm run textbooks:audit-align-all && npm run textbooks:resources:build && npm run textbooks:resources:audit && npm run textbooks:public:build && npm run textbooks:public:audit && npm run capability-graph:build && npm run capability-graph:audit && npm run capability-graph:check && npm run build:public-data && npm run validate:public-data && npm run prepare:pdfjs && npm run validate:data-trust && npm run build:knowledge-graph-preview && npm run validate:knowledge-graph-preview",
         "preview": "vite preview",
-        "seo:test": "node --test tests/seo_page_meta.test.mjs"
+        "seo:test": "node --test tests/seo_page_meta.test.mjs",
+        "reach:report": "node scripts/reach-report.mjs"
     },
     "dependencies": {
         "@dagrejs/dagre": "^3.0.0",
