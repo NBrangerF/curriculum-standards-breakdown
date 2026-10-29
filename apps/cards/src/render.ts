@@ -154,10 +154,13 @@ function qrDataUri(url: string, pixels: number) {
 }
 
 // ---------- cards ----------
+// The card fonts have no emoji, which would render as empty boxes.
+const plain = (value = '') => value.replace(/\p{Extended_Pictographic}\uFE0F?/gu, '')
+
 function standardParts(standard: Standard) {
-    const title = getDisplayTitle(standard.standard, standard.standard_title)
+    const title = plain(getDisplayTitle(standard.standard, standard.standard_title))
     const kicker = [standard.subject, gradeLabel(standard), standard.domain].filter(Boolean).join(' · ')
-    const body = standard.official_text || standard.standard
+    const body = plain(standard.official_text || standard.standard)
     return { title, kicker, body, accent: subjectColor(standard.subject_slug), doc: `义务教育${standard.subject}课程标准（2022年版）` }
 }
 
@@ -168,9 +171,9 @@ function remainder(body: string, title: string) {
 
 // A takeaway for the poster: the teaching tip, or else the "学习意义" note.
 function takeaway(standard: Standard) {
-    if (standard.teaching_tip) return { label: '教学提示', value: clip(standard.teaching_tip, 92) }
+    if (standard.teaching_tip) return { label: '教学提示', value: clip(plain(standard.teaching_tip), 92) }
     const meaning = String(standard.context || '').match(/【学习意义】([^\n]+)/u)?.[1]
-    return meaning ? { label: '学习意义', value: clip(meaning, 92) } : null
+    return meaning ? { label: '学习意义', value: clip(plain(meaning), 92) } : null
 }
 
 export async function standardOgCard(standard: Standard) {
