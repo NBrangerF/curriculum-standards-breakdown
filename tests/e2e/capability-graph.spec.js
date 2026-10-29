@@ -80,6 +80,32 @@ function capabilityFixture() {
     return { payload, graph }
 }
 
+// Textbook evidence on the standard page comes from the reverse-link API, not the sidecar.
+function textbookLinksFixture() {
+    return [{
+        alignment_id: 'ca_unit_test',
+        edition_id: TEXTBOOK_ID,
+        textbook_title: '语文2年级上册',
+        unit_id: 'tcu_7f106376d43b2837',
+        unit_title: '植物妈妈有办法',
+        pdf_page: 12,
+        printed_page: '6',
+        relation_type: 'supports',
+        review_status: 'machine_checked',
+        publication_status: 'published'
+    }, {
+        alignment_id: 'tcs_scope_test:CN-D1-CM-001',
+        scope_id: 'tcs_scope_test',
+        edition_id: 'ed_4a114a6b7c341f1d8ddf',
+        textbook_title: '语文2年级下册',
+        pdf_page: null,
+        printed_page: null,
+        unit_id: null,
+        relation_type: 'curriculum_scope',
+        review_status: 'machine_checked'
+    }]
+}
+
 test('standard detail distinguishes verified graph evidence from machine candidates', async ({ page }) => {
     const { payload, graph } = capabilityFixture()
     await page.route('**/data/by_subject/chinese.json', route => route.fulfill({
@@ -90,6 +116,10 @@ test('standard detail distinguishes verified graph evidence from machine candida
         contentType: 'application/json',
         body: JSON.stringify(graph)
     }))
+    await page.route(`**/api/v1/standards/${STANDARD_CODE}/textbooks`, route => route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({ data: textbookLinksFixture() })
+    }))
 
     await page.goto(`/standards/${STANDARD_CODE}`)
 
@@ -97,10 +127,16 @@ test('standard detail distinguishes verified graph evidence from machine candida
     await expect(page.getByText('辨认关键结构', { exact: true })).toBeVisible()
     await expect(page.getByTitle('approved · published')).toHaveText('已核验')
     await expect(page.getByText('机器候选', { exact: true }).first()).toBeVisible()
-    await expect(page.getByRole('link', { name: 'PDF 12 · 印刷页 6' })).toHaveAttribute('href', `/textbooks/${TEXTBOOK_ID}/read?page=12`)
-    await expect(page.getByText('待补页码证据', { exact: true })).toBeVisible()
-    await expect(page.locator(`a[href="/textbooks/${TEXTBOOK_ID}/read?page=99"]`)).toHaveCount(0)
     await expect(page.getByRole('link', { name: '后续表达能力' })).toHaveAttribute('href', '/standards/CN-D1-CM-002')
+
+    // A page-located textbook link opens the reader at its PDF page; a scope relation does not.
+    const textbooks = page.getByRole('region', { name: '这条课标关联哪些教材' })
+    const readerLinks = textbooks.getByRole('link', { name: '定位原文与课标 →' })
+    await expect(readerLinks).toHaveCount(1)
+    await expect(readerLinks).toHaveAttribute('href', `/textbooks/${TEXTBOOK_ID}/read?page=12&alignment=ca_unit_test&panel=standards`)
+    await expect(textbooks.getByText('印刷页 6', { exact: true })).toBeVisible()
+    await expect(textbooks.getByText('机器生成', { exact: true })).toBeVisible()
+    await expect(textbooks.getByText('范围关系不代表已定位到具体单元或页面')).toBeVisible()
 })
 
 test('standard text renders before a slow capability sidecar finishes', async ({ page }) => {
@@ -143,6 +179,14 @@ test('stale capability sidecar is rejected without hiding the standard', async (
 })
 
 test('textbook detail exposes scope standards when unit evidence is empty', async ({ page }) => {
+    // This book has had published unit alignments since 2026-07; clear them to reach the empty state.
+    const book = JSON.parse(fs.readFileSync(path.resolve(`public/data/textbooks/by-edition/${TEXTBOOK_ID}.json`), 'utf8'))
+    Object.assign(book, { alignments: [], published_alignment_count: 0 })
+    await page.route(`**/data/textbooks/by-edition/${TEXTBOOK_ID}.json`, route => route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify(book)
+    }))
+
     await page.goto(`/textbooks/${TEXTBOOK_ID}`)
 
     await expect(page.getByRole('heading', { name: '暂无可靠的单元级关联' })).toBeVisible()
