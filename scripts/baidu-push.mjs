@@ -16,13 +16,20 @@ const envFile = join(homedir(), '.config/kebiao/baidu.env')
 const token = process.env.BAIDU_PUSH_TOKEN || (existsSync(envFile) ? readFileSync(envFile, 'utf8').match(/^BAIDU_PUSH_TOKEN=(.+)$/mu)?.[1].trim() : null)
 if (!token) throw new Error('No Baidu token: set BAIDU_PUSH_TOKEN or write it to ~/.config/kebiao/baidu.env')
 
-// Hubs first (home, subjects), then standards, then everything else.
+// The quota is small (10 a day for a new site), so hubs go first because they link to
+// everything else: home and subjects, then other top-level pages, then standards, then the rest.
 const sitemap = await (await fetch(`${SITE}/sitemap.xml`)).text()
-const rank = url => (/\/(subjects\/[^/]+)?$/u.test(url) ? 0 : url.includes('/standards/') ? 1 : 2)
+const rank = url => {
+    const path = new URL(url).pathname
+    if (/^\/(subjects\/[^/]+)?$/u.test(path)) return 0
+    if (/^\/[^/]+$/u.test(path)) return 1
+    return path.startsWith('/standards/') ? 2 : 3
+}
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/gu)].map(match => match[1]).sort((a, b) => rank(a) - rank(b))
 const batch = urls.slice(offset, offset + limit)
 
-const response = await fetch(`http://data.zz.baidu.com/urls?site=${encodeURIComponent(SITE)}&token=${encodeURIComponent(token)}`, {
+// Baidu rejects an encoded site parameter ("site init fail"), so it goes in as written.
+const response = await fetch(`http://data.zz.baidu.com/urls?site=${SITE}&token=${encodeURIComponent(token)}`, {
     method: 'POST',
     headers: { 'content-type': 'text/plain' },
     body: batch.join('\n')
