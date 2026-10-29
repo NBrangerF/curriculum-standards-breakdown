@@ -33,7 +33,7 @@ import {
 } from './http.js'
 import { resolveOpenApiPath, resolveSwaggerUiAssetPath } from './config.js'
 import { renderApiDocsPage } from './docs-page.js'
-import { interpretSearchQueryWithLlm } from './llm.js'
+import { interpretSearchQueryWithLlm, queryInterpretationCache } from './llm.js'
 import { redactSensitiveText } from './ai-privacy.js'
 import { parsePlanWithLlm } from './plan-llm.js'
 import { resolveDataRoot } from './config.js'
@@ -582,7 +582,10 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
             return apiError(c, 422, 'validation_error', '筛选条件不在当前公开数据契约中。', filterErrors)
         }
         const privacy = redactSensitiveText(parsed.data.query)
-        const interpretation = await interpretSearchQueryWithLlm(privacy.text)
+        // The model call starts first; loading and the rule-based retrieval run while it is in flight.
+        const interpretationRequest = interpretSearchQueryWithLlm(privacy.text, { cache: queryInterpretationCache })
+        const deterministicRequest = repository.smartSearchStandards(parsed.data)
+        const [interpretation, deterministic] = await Promise.all([interpretationRequest, deterministicRequest])
         c.set('aiMetrics', {
             feature: 'query_interpretation',
             used: interpretation.used,
@@ -596,14 +599,17 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
             total_tokens: interpretation.usage?.total_tokens || 0
         })
         const aiInterpretation = interpretation.interpretation
-        const result = await repository.smartSearchStandards({
-            ...parsed.data,
-            inferred_subjects: aiInterpretation?.subjects,
-            inferred_excluded_subjects: aiInterpretation?.excluded_subjects,
-            inferred_grade_bands: aiInterpretation?.grade_bands,
-            inferred_core_terms: aiInterpretation?.core_terms,
-            query_expansion_terms: aiInterpretation?.expanded_terms || []
-        })
+        // One re-rank over the already loaded standards; on timeout or error the rule-based result stands.
+        const result = aiInterpretation
+            ? await repository.smartSearchStandards({
+                ...parsed.data,
+                inferred_subjects: aiInterpretation.subjects,
+                inferred_excluded_subjects: aiInterpretation.excluded_subjects,
+                inferred_grade_bands: aiInterpretation.grade_bands,
+                inferred_core_terms: aiInterpretation.core_terms,
+                query_expansion_terms: aiInterpretation.expanded_terms
+            })
+            : deterministic
         const ambiguities = aiInterpretation?.ambiguities || []
         const clarificationQuestion = aiInterpretation?.clarification_question || ''
         if (ambiguities.length && clarificationQuestion) {
@@ -620,6 +626,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
             model: interpretation.model,
             protocol: interpretation.protocol,
             latency_ms: interpretation.latency_ms,
+            cached: interpretation.cached,
             subjects: aiInterpretation?.subjects || [],
             excluded_subjects: aiInterpretation?.excluded_subjects || [],
             grade_bands: aiInterpretation?.grade_bands || [],

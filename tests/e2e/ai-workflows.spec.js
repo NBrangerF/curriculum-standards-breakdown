@@ -60,7 +60,7 @@ test('smart search uses natural language only, separates evidence tiers and supp
     await expect(page.getByText('可选硬筛选')).toHaveCount(0)
     await expect(page.getByRole('combobox')).toHaveCount(0)
     await page.getByLabel('描述你的教学目标或使用情境').fill('三四年级科学观察')
-    await page.getByRole('button', { name: '智能检索' }).click()
+    await page.getByRole('button', { name: '检索', exact: true }).click()
     await expect(page.getByText('我理解你要查找小学 3–4 年级，学科为科学，主题为观察的课程标准。')).toBeVisible()
     await expect(page.getByRole('heading', { level: 2, name: '1 条直接对应课标' })).toBeVisible()
     await expect(page.getByText('1 条教学情境延伸', { exact: true })).toBeVisible()
@@ -68,11 +68,13 @@ test('smart search uses natural language only, separates evidence tiers and supp
     await page.getByText('1 条教学情境延伸', { exact: true }).click()
     await expect(page.getByText('教学情境中的观察活动')).toBeVisible()
     await expect(page.getByText('课标章节抽取')).toBeVisible()
+    await expect(page.locator('[data-search-result="direct"] dt').getByText('标准正文')).toBeVisible()
+    await expect(page.locator('[data-search-result="direct"] mark').first()).toHaveText('观察')
     const previewTrigger = page.locator('[data-search-result="direct"]').getByRole('button', { name: '观察植物的结构与生长变化' })
     await previewTrigger.click()
     const preview = page.getByRole('dialog')
     await expect(preview).toBeVisible()
-    await expect(page).toHaveURL(/\/smart-search$/)
+    await expect(page).toHaveURL(/\/smart-search\?q=/)
     await expect(preview.getByRole('link', { name: '打开完整标准页面' })).toHaveAttribute('href', '/standards/SC-D2-SC-010')
     await expect(preview.getByRole('button', { name: '关闭标准预览' })).toBeFocused()
     const accessibility = await new AxeBuilder({ page })
@@ -133,7 +135,7 @@ test('smart search applies AI exclusion intent and explains it once', async ({ p
     })
     await page.goto('/smart-search')
     await page.getByLabel('描述你的教学目标或使用情境').fill('第一学段，除了语文学科之外，跟阅读相关的课标')
-    await page.getByRole('button', { name: '智能检索' }).click()
+    await page.getByRole('button', { name: '检索', exact: true }).click()
     await expect(page.getByText('我理解你要查找小学 1–2 年级，排除语文，主题为阅读的课程标准。')).toBeVisible()
     await expect(page.getByRole('heading', { level: 2, name: '1 条直接对应课标' })).toBeVisible()
     await expect(page.getByText(/系统没有用低相关记录补足 12 条/)).toBeVisible()
@@ -166,9 +168,83 @@ test('smart search discloses privacy redaction and deterministic fallback', asyn
     }))
     await page.goto('/smart-search')
     await page.getByLabel('描述你的教学目标或使用情境').fill('教师姓名：测试用户 观察植物')
-    await page.getByRole('button', { name: '智能检索' }).click()
-    await expect(page.getByText('AI 查询理解暂不可用')).toBeVisible()
+    await page.getByRole('button', { name: '检索', exact: true }).click()
+    await expect(page.getByText('AI 这次没能及时理解，下面是按你的原话检索的结果。')).toBeVisible()
     await expect(page.getByText(/发送到模型服务前已自动移除 1 处/)).toBeVisible()
+})
+
+function searchResponse(query, overrides = {}) {
+    return envelope({
+        query,
+        parsed_query: { subjects: ['science'], excluded_subjects: [], grade_bands: ['H2'], skills: [], core_terms: ['观察'] },
+        applied_filters: { subjects: ['science'], excluded_subjects: [], grade_bands: ['H2'], domains: [], skills: [] },
+        query_plan: { version: 'nlq-v2', normalized_query: query, topics: [{ value: '观察', source: 'explicit_text', confidence: 1 }], resolved_constraints: { subjects: ['science'], excluded_subjects: [], grade_bands: ['H2'], domains: [], skills: [] }, conflicts: [], ambiguities: [], needs_clarification: false, clarification_question: null },
+        understanding_summary: `已理解：${query}`,
+        results: [{ ...candidate, matched_fields: [{ field: 'teaching_tip', matched_terms: ['观察'], excerpt: '组织学生观察植物。', provenance: 'editorial', review_status: 'machine_checked', confidence: 0.7, quality_flags: [] }] }],
+        total_candidates: 12,
+        relevant_candidates: 1,
+        omitted_low_relevance: 11,
+        relevance_summary: { direct: 1, supporting: 0 },
+        coverage_note: '共发现 1 条具备主题证据的候选。',
+        relevance_version: 'topic-evidence-v1',
+        retrieval_version: 'trusted-hybrid-v1',
+        semantic_provider: 'none',
+        query_interpretation: { used: false, status: 'disabled', privacy: { redacted: false, redaction_count: 0, categories: [] } },
+        warnings: [],
+        ...overrides
+    })
+}
+
+test('smart search runs from the URL and examples, shows staged progress and lets readers remove conditions', async ({ page }) => {
+    const requests = []
+    let release
+    await page.route('**/api/v1/standards/semantic-search', async route => {
+        const request = route.request().postDataJSON()
+        requests.push(request)
+        if (request.query.startsWith('七年级')) await new Promise(resolve => { release = resolve })
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(searchResponse(request.query)) })
+    })
+    await page.goto('/smart-search?q=三四年级科学观察')
+    await expect(page.getByLabel('描述你的教学目标或使用情境')).toHaveValue('三四年级科学观察')
+    await expect(page.getByText('已理解：三四年级科学观察')).toBeVisible()
+    await expect(page.locator('[data-search-result="direct"] dt').getByText('教学提示')).toBeVisible()
+    await expect(page.getByText('teaching_tip')).toHaveCount(0)
+    expect(requests[0]).toEqual({ query: '三四年级科学观察' })
+
+    const conditions = page.getByRole('group', { name: /已识别的条件/ })
+    await expect(conditions.getByRole('button')).toHaveCount(3)
+    await conditions.getByRole('button', { name: /学科\s*科学/ }).click()
+    await expect.poll(() => requests.at(-1)?.ignored_constraints?.subjects).toEqual(['science'])
+    expect(requests.at(-1).query).toBe('三四年级科学观察')
+    await expect(conditions.getByRole('button', { name: /学科\s*科学/ })).toHaveAttribute('aria-pressed', 'false')
+
+    await page.getByRole('button', { name: '七年级数学里与数据分析和表达有关的标准' }).click()
+    await expect(page).toHaveURL(/q=%E4%B8%83%E5%B9%B4%E7%BA%A7/)
+    await expect(page.getByRole('status', { name: '检索进度' })).toBeVisible()
+    await expect(page.locator('[data-search-result]')).toHaveCount(0)
+    await expect.poll(() => typeof release).toBe('function')
+    release()
+    await expect(page.getByText('已理解：七年级数学里与数据分析和表达有关的标准')).toBeVisible()
+    await expect(page.getByRole('status', { name: '检索进度' })).toHaveCount(0)
+    expect(requests.at(-1)).toEqual({ query: '七年级数学里与数据分析和表达有关的标准' })
+})
+
+test('smart search explains failures without exposing server messages', async ({ page }) => {
+    let calls = 0
+    await page.route('**/api/v1/standards/semantic-search', route => {
+        calls += 1
+        if (calls === 1) {
+            return route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: { code: 'internal_error', message: 'TypeError: cannot read properties of undefined' } }) })
+        }
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(searchResponse('科学观察')) })
+    })
+    await page.goto('/smart-search?q=科学观察')
+    const alert = page.getByRole('alert')
+    await expect(alert.getByRole('heading', { name: '检索服务暂时没有响应' })).toBeVisible()
+    await expect(page.getByText(/TypeError/)).toHaveCount(0)
+    await alert.getByRole('button', { name: '再试一次' }).click()
+    await expect(page.getByText('已理解：科学观察')).toBeVisible()
+    await expect(page.getByRole('alert')).toHaveCount(0)
 })
 
 test('alignment workbench counts only teacher-accepted candidates', async ({ page }) => {

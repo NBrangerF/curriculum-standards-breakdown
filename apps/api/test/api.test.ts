@@ -6,7 +6,15 @@ import { readFile, rm, mkdtemp, mkdir, symlink, writeFile } from 'node:fs/promis
 import { FileCurriculumRepository, FileTextbookRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
 import { TextbookAssetService } from '../src/textbook-assets.js'
-import { interpretSearchQueryWithLlm, resolveLlmConfig } from '../src/llm.js'
+import {
+    interpretSearchQueryWithLlm,
+    LruCache,
+    QUERY_INTERPRETATION_PROMPT_VERSION,
+    queryInterpretationCache,
+    queryInterpretationCacheKey,
+    resolveLlmConfig,
+    type QueryInterpretationCache
+} from '../src/llm.js'
 import { redactSensitiveText } from '../src/ai-privacy.js'
 import { parsePlanWithLlm } from '../src/plan-llm.js'
 import vercelHandler from '../../../api/v1/[...path].js'
@@ -29,6 +37,7 @@ test('LLM query interpreter is disabled without a secret and keeps safe defaults
     assert.equal(config.enabled, false)
     assert.equal(config.model, 'gpt-5-mini')
     assert.equal(config.baseUrl, 'https://www.openai-labs.com/v1')
+    assert.equal(config.style, 'chat_completions')
 
     const result = await interpretSearchQueryWithLlm('三四年级科学观察', { env: {} })
     assert.equal(result.status, 'disabled')
@@ -51,13 +60,17 @@ test('LLM query interpreter accepts a schema-constrained Responses API payload',
         env: {
             KEBIAO_LLM_API_KEY: 'test-secret',
             KEBIAO_LLM_BASE_URL: 'https://llm.example.test/v1',
-            KEBIAO_LLM_MODEL: 'gpt-5-mini'
+            KEBIAO_LLM_MODEL: 'gpt-5-mini',
+            KEBIAO_LLM_API_STYLE: 'responses'
         },
         fetchImpl: async (input, init) => {
             endpoint = String(input)
             assert.equal(new Headers(init?.headers).get('authorization'), 'Bearer test-secret')
             const request = JSON.parse(String(init?.body))
             assert.equal(request.model, 'gpt-5-mini')
+            assert.deepEqual(request.reasoning, { effort: 'minimal' })
+            assert.equal(request.max_output_tokens, 400)
+            assert.equal(request.text.verbosity, 'low')
             assert.equal(request.text.format.type, 'json_schema')
             assert.ok(request.text.format.schema.required.includes('excluded_subjects'))
             assert.ok(request.text.format.schema.required.includes('core_terms'))
@@ -96,7 +109,8 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
     const fallback = await interpretSearchQueryWithLlm('语文跨媒介表达', {
         env: {
             KEBIAO_LLM_API_KEY: 'test-secret',
-            KEBIAO_LLM_BASE_URL: 'https://llm.example.test/v1'
+            KEBIAO_LLM_BASE_URL: 'https://llm.example.test/v1',
+            KEBIAO_LLM_API_STYLE: 'auto'
         },
         fetchImpl: async (input, init) => {
             endpoints.push(String(input))
@@ -127,14 +141,14 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
     assert.equal(fallback.protocol, 'chat_completions')
 
     const malformed = await interpretSearchQueryWithLlm('科学观察', {
-        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        env: { KEBIAO_LLM_API_KEY: 'test-secret', KEBIAO_LLM_API_STYLE: 'responses' },
         fetchImpl: async () => Response.json({ output_text: 'not json' })
     })
     assert.equal(malformed.status, 'invalid_response')
     assert.equal(malformed.used, false)
 
     const filteredEnum = await interpretSearchQueryWithLlm('历史课程', {
-        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        env: { KEBIAO_LLM_API_KEY: 'test-secret', KEBIAO_LLM_API_STYLE: 'responses' },
         fetchImpl: async () => Response.json({ output_text: JSON.stringify({
             subjects: ['history'],
             excluded_subjects: [],
@@ -151,7 +165,7 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
     assert.ok(filteredEnum.interpretation?.warnings.some(warning => warning.includes('公开枚举')))
 
     const invalidShape = await interpretSearchQueryWithLlm('科学观察', {
-        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        env: { KEBIAO_LLM_API_KEY: 'test-secret', KEBIAO_LLM_API_STYLE: 'responses' },
         fetchImpl: async () => Response.json({ output_text: JSON.stringify({
             subjects: [42],
             excluded_subjects: ['chinese'],
@@ -171,7 +185,7 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
 
 test('LLM query interpreter accepts only hard constraints backed by source spans', async () => {
     const unsupported = await interpretSearchQueryWithLlm('第二学段 G3-4，和阅读相关，但不是语文', {
-        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        env: { KEBIAO_LLM_API_KEY: 'test-secret', KEBIAO_LLM_API_STYLE: 'responses' },
         fetchImpl: async () => Response.json({ output_text: JSON.stringify({
             subjects: [],
             excluded_subjects: ['chinese'],
@@ -191,7 +205,7 @@ test('LLM query interpreter accepts only hard constraints backed by source spans
     assert.ok(unsupported.interpretation?.warnings.some(warning => warning.includes('原文证据')))
 
     const supported = await interpretSearchQueryWithLlm('第二学段 G3-4，和阅读相关，但不是语文', {
-        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        env: { KEBIAO_LLM_API_KEY: 'test-secret', KEBIAO_LLM_API_STYLE: 'responses' },
         fetchImpl: async () => Response.json({ output_text: JSON.stringify({
             subjects: [],
             excluded_subjects: ['chinese'],
@@ -214,6 +228,90 @@ test('LLM query interpreter accepts only hard constraints backed by source spans
     assert.equal(supported.interpretation?.constraint_evidence.length, 2)
 })
 
+function chatInterpretation(fields: Record<string, unknown>) {
+    return Response.json({
+        choices: [{ message: { content: JSON.stringify({
+            subjects: [], excluded_subjects: [], grade_bands: [], skills: [], core_terms: [], expanded_terms: [],
+            constraint_evidence: [], ambiguities: [], clarification_question: '', intent_summary: '', warnings: [],
+            ...fields
+        }) } }],
+        usage: { prompt_tokens: 500, completion_tokens: 60, total_tokens: 560 }
+    })
+}
+
+function hangUntilAborted(onSignal?: (signal: AbortSignal | undefined) => void): typeof fetch {
+    return (_input, init) => new Promise((_resolve, reject) => {
+        const signal = init?.signal ?? undefined
+        onSignal?.(signal)
+        signal?.addEventListener('abort', () => reject(Object.assign(new Error('aborted'), { name: 'AbortError' })))
+    })
+}
+
+test('LLM query interpreter aborts after about 4 s and caps longer configured budgets', async t => {
+    t.mock.timers.enable({ apis: ['setTimeout'] })
+    for (const [env, budget] of [[{}, 4000], [{ KEBIAO_LLM_QUERY_TIMEOUT_MS: '60000' }, 5000]] as const) {
+        let signal: AbortSignal | undefined
+        const pending = interpretSearchQueryWithLlm('科学观察', {
+            env: { KEBIAO_LLM_API_KEY: 'test-secret', ...env },
+            fetchImpl: hangUntilAborted(value => { signal = value })
+        })
+        t.mock.timers.tick(budget - 1)
+        assert.equal(signal?.aborted, false)
+        t.mock.timers.tick(1)
+        assert.equal(signal?.aborted, true)
+        const result = await pending
+        assert.equal(result.status, 'timeout')
+        assert.equal(result.used, false)
+        assert.equal(result.protocol, 'chat_completions')
+        assert.equal(result.interpretation, null)
+    }
+})
+
+test('LLM query interpretations are cached by normalized query, model and prompt version', async () => {
+    const lru = new LruCache<string>(2, 1000)
+    lru.set('a', 'A', 0)
+    lru.set('b', 'B', 0)
+    assert.equal(lru.get('a', 10), 'A')
+    lru.set('c', 'C', 10)
+    assert.equal(lru.get('b', 10), undefined)
+    assert.equal(lru.get('a', 999), 'A')
+    assert.equal(lru.get('c', 1010), undefined)
+
+    const cache = new LruCache(10, 60_000) as QueryInterpretationCache
+    let calls = 0
+    const options = {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        cache,
+        fetchImpl: async () => {
+            calls += 1
+            return chatInterpretation({
+                excluded_subjects: ['chinese'],
+                core_terms: ['阅读'],
+                constraint_evidence: [{ kind: 'excluded_subject', value: 'chinese', evidence_span: '除了语文' }]
+            })
+        }
+    }
+    const first = await interpretSearchQueryWithLlm('除了语文，跟阅读相关', options)
+    const second = await interpretSearchQueryWithLlm('  除了语文，跟阅读相关 ', options)
+    assert.equal(calls, 1)
+    assert.equal(first.cached, false)
+    assert.equal(second.cached, true)
+    assert.equal(second.status, 'ok')
+    assert.equal(second.usage, null)
+    assert.deepEqual(second.interpretation?.excluded_subjects, ['chinese'])
+    assert.notEqual(
+        queryInterpretationCacheKey('除了语文，跟阅读相关', 'gpt-5-mini'),
+        queryInterpretationCacheKey('除了语文，跟阅读相关', 'gpt-5-nano')
+    )
+    assert.ok(queryInterpretationCacheKey('q', 'm').includes(QUERY_INTERPRETATION_PROMPT_VERSION))
+
+    await interpretSearchQueryWithLlm('除了语文，跟阅读相关', { ...options, env: { ...options.env, KEBIAO_LLM_MODEL: 'gpt-5-nano' } })
+    assert.equal(calls, 2)
+    const failed = await interpretSearchQueryWithLlm('科学观察', { ...options, fetchImpl: async () => new Response(null, { status: 500 }) })
+    assert.equal(failed.status, 'provider_error')
+    assert.equal(cache.size, 2)
+})
+
 test('LLM plan parser applies only fields with locatable evidence', async () => {
     const input = '三年级科学植物观察计划\n学科：科学\n年级：三年级\n共 4 周，每周 2 课时\n单元一：观察植物生长\n学习目标：记录植物结构变化'
     const fallback = {
@@ -227,7 +325,8 @@ test('LLM plan parser applies only fields with locatable evidence', async () => 
         env: {
             KEBIAO_LLM_API_KEY: 'test-secret',
             KEBIAO_LLM_BASE_URL: 'https://llm.example.test/v1',
-            KEBIAO_LLM_MODEL: 'gpt-5-mini'
+            KEBIAO_LLM_MODEL: 'gpt-5-mini',
+            KEBIAO_LLM_API_STYLE: 'responses'
         },
         fetchImpl: async (_input, init) => {
             const request = JSON.parse(String(init?.body))
@@ -1052,6 +1151,123 @@ test('semantic search preserves exclusion intent when AI falls back', async () =
     assert.equal(body.data.relevant_candidates, 1)
     assert.ok(body.data.omitted_low_relevance > 0)
     assert.match(body.data.coverage_note, /没有用低相关记录补足 12 条/)
+})
+
+async function withLiveLlm<T>(fetchImpl: typeof fetch, env: Record<string, string>, run: () => Promise<T>) {
+    const originalFetch = globalThis.fetch
+    const keys = ['KEBIAO_LLM_API_KEY', ...Object.keys(env)]
+    const originalEnv = Object.fromEntries(keys.map(key => [key, process.env[key]]))
+    globalThis.fetch = fetchImpl
+    Object.assign(process.env, { KEBIAO_LLM_API_KEY: 'test-secret', ...env })
+    queryInterpretationCache.clear()
+    try {
+        return await run()
+    } finally {
+        globalThis.fetch = originalFetch
+        for (const [key, value] of Object.entries(originalEnv)) {
+            if (value === undefined) delete process.env[key]
+            else process.env[key] = value
+        }
+        queryInterpretationCache.clear()
+    }
+}
+
+function tracedSearchApp(events: string[]) {
+    const repository = new FileCurriculumRepository(publicDataRoot)
+    const search = repository.smartSearchStandards.bind(repository)
+    repository.smartSearchStandards = request => {
+        events.push(request.inferred_core_terms ? 'rerank' : 'retrieval')
+        return search(request)
+    }
+    return createApp(repository)
+}
+
+test('semantic search retrieves while the model runs, re-ranks once, then serves the cached interpretation', async () => {
+    const events: string[] = []
+    const searchApp = tracedSearchApp(events)
+    const query = '第一学段，除了语文学科之外，跟阅读相关的课标'
+    const llm: typeof fetch = async input => {
+        assert.match(String(input), /\/chat\/completions$/)
+        events.push('llm:start')
+        await new Promise(resolve => setTimeout(resolve, 40))
+        events.push('llm:end')
+        return chatInterpretation({
+            excluded_subjects: ['chinese'],
+            grade_bands: ['H1'],
+            core_terms: ['阅读'],
+            constraint_evidence: [
+                { kind: 'excluded_subject', value: 'chinese', evidence_span: '除了语文学科之外' },
+                { kind: 'grade_band', value: 'H1', evidence_span: '第一学段' }
+            ],
+            intent_summary: '第一学段语文以外的阅读'
+        })
+    }
+    await withLiveLlm(llm, {}, async () => {
+        const send = (text: string) => searchApp.request('/api/v1/standards/semantic-search', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', 'x-forwarded-for': 'smart-search-parallel-test' },
+            body: JSON.stringify({ query: text })
+        })
+        const first = await json(await send(query))
+        assert.deepEqual(events, ['llm:start', 'retrieval', 'llm:end', 'rerank'])
+        assert.equal(first.data.query_interpretation.status, 'ok')
+        assert.equal(first.data.query_interpretation.cached, false)
+        assert.deepEqual(first.data.applied_filters.excluded_subjects, ['chinese'])
+        assert.ok(first.data.results.every((item: any) => item.standard.subject_slug !== 'chinese'))
+
+        events.length = 0
+        const second = await json(await send(` ${query} `))
+        assert.deepEqual(events, ['retrieval', 'rerank'])
+        assert.equal(second.data.query_interpretation.cached, true)
+        assert.deepEqual(second.data.results.map((item: any) => item.code), first.data.results.map((item: any) => item.code))
+    })
+})
+
+test('semantic search returns rule-based results with a soft warning when the model times out', async () => {
+    const events: string[] = []
+    const searchApp = tracedSearchApp(events)
+    const query = '三四年级科学中，适合培养证据推理的观察活动'
+    const expected = await new FileCurriculumRepository(publicDataRoot).smartSearchStandards({ query })
+    const llm = hangUntilAborted(() => events.push('llm:start'))
+    await withLiveLlm(llm, { KEBIAO_LLM_QUERY_TIMEOUT_MS: '1000' }, async () => {
+        const response = await searchApp.request('/api/v1/standards/semantic-search', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', 'x-forwarded-for': 'smart-search-timeout-test' },
+            body: JSON.stringify({ query })
+        })
+        assert.equal(response.status, 200)
+        const body = await json(response)
+        assert.deepEqual(events, ['llm:start', 'retrieval'])
+        assert.equal(body.data.query_interpretation.status, 'timeout')
+        assert.equal(body.meta.query_interpreter, 'deterministic_fallback')
+        assert.ok(body.meta.latency_ms < 2500)
+        assert.ok(body.data.warnings.some((warning: string) => warning.includes('AI 查询理解暂不可用')))
+        assert.deepEqual(body.data.results.map((item: any) => item.code), expected.results.map(item => item.code))
+    })
+})
+
+test('semantic search drops constraints the reader removed', async () => {
+    const send = async (body: Record<string, unknown>) => json(await app.request('/api/v1/standards/semantic-search', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'smart-search-ignore-test' },
+        body: JSON.stringify(body)
+    }))
+    const query = '七年级数学里与数据分析和表达有关的标准'
+    const base = await send({ query })
+    assert.deepEqual(base.data.applied_filters.subjects, ['math'])
+    assert.deepEqual(base.data.query_plan.ignored_constraints, { subjects: [], excluded_subjects: [], grade_bands: [], core_terms: [] })
+
+    const relaxed = await send({ query, ignored_constraints: { subjects: ['math'], core_terms: ['数据分析'] } })
+    assert.deepEqual(relaxed.data.applied_filters.subjects, [])
+    assert.deepEqual(relaxed.data.applied_filters.grade_bands, ['H4G7'])
+    assert.deepEqual(base.data.parsed_query.core_terms, ['数据分析', '数据', '分析', '表达'])
+    assert.deepEqual(relaxed.data.parsed_query.core_terms, ['表达'])
+    assert.deepEqual(relaxed.data.query_plan.ignored_constraints.subjects, ['math'])
+    assert.ok(relaxed.data.results.some((item: any) => item.standard.subject_slug !== 'math'))
+
+    const exclusion = await send({ query: '第一学段，除了语文学科之外，跟阅读相关的课标', ignored_constraints: { excluded_subjects: ['chinese'] } })
+    assert.deepEqual(exclusion.data.applied_filters.excluded_subjects, [])
+    assert.ok(exclusion.data.results.some((item: any) => item.standard.subject_slug === 'chinese'))
 })
 
 test('semantic search redacts identifiers and uses a stricter anonymous rate limit', async () => {

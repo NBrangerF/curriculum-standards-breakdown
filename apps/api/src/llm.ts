@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto'
+
 const SUBJECTS = ['chinese', 'math', 'english', 'science', 'morality_law', 'pe', 'arts', 'labor', 'it'] as const
 const GRADE_BANDS = ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9'] as const
 const SKILLS = ['TS1', 'TS2', 'TS3', 'TS4', 'TS5', 'TS6', 'TS7'] as const
@@ -33,6 +35,7 @@ export interface LlmInterpretationResult {
     latency_ms: number
     interpretation: LlmQueryInterpretation | null
     usage: LlmUsage | null
+    cached: boolean
 }
 
 export interface LlmUsage {
@@ -115,7 +118,8 @@ const INSTRUCTIONS = `你是 kebiao 的课程标准查询理解器。只分析�
 	学段映射必须严格使用：H1=第一学段=1-2年级=G1-2；H2=第二学段=3-4年级=G3-4；H3=第三学段=5-6年级=G5-6；H4G7=七年级=G7；H4G8=八年级=G8；H4G9=九年级=G9。
 	grade_bands、skills 只在用户意图明确时填写。无法可靠判断时返回空数组。
 	每个 subjects、excluded_subjects、grade_bands 值都必须在 constraint_evidence 中提供 kind、value 和用户原文中逐字存在的 evidence_span；没有原文证据时不得输出该约束。
-	如果用户表达真的存在歧义，把原因写入 ambiguities，并只提出一个简短 clarification_question；不要猜测。没有歧义时返回空数组和空字符串。`
+	如果用户表达真的存在歧义，把原因写入 ambiguities，并只提出一个简短 clarification_question；不要猜测。没有歧义时返回空数组和空字符串。
+	输出务必简短：intent_summary 不超过 30 个汉字；expanded_terms 最多 4 个；evidence_span 只截取最短的原文片段；warnings 没有必要时返回空数组。`
 
 const CHAT_JSON_INSTRUCTIONS = `${INSTRUCTIONS}
 	必须只返回一个 JSON 对象，并完整包含以下字段：subjects、excluded_subjects、grade_bands、skills、core_terms、expanded_terms、constraint_evidence、ambiguities、clarification_question、intent_summary、warnings。
@@ -130,8 +134,9 @@ export function resolveLlmConfig(env: NodeJS.ProcessEnv = process.env): LlmConfi
     const apiKey = String(env.KEBIAO_LLM_API_KEY || '').trim()
     const explicitlyDisabled = String(env.KEBIAO_LLM_ENABLED || '').toLowerCase() === 'false'
     const baseUrl = String(env.KEBIAO_LLM_BASE_URL || 'https://www.openai-labs.com/v1').replace(/\/+$/u, '')
-    const styleValue = String(env.KEBIAO_LLM_API_STYLE || 'auto')
-    const style = styleValue === 'responses' || styleValue === 'chat_completions' ? styleValue : 'auto'
+    // Chat Completions is the default: in `auto` a slow Responses attempt used up the budget before any fallback.
+    const styleValue = String(env.KEBIAO_LLM_API_STYLE || 'chat_completions')
+    const style = styleValue === 'responses' || styleValue === 'auto' ? styleValue : 'chat_completions'
     let valid = false
     try {
         valid = new URL(baseUrl).protocol === 'https:'
@@ -316,7 +321,9 @@ function requestBody<T>(protocol: LlmProtocol, model: string, input: string, ada
         model,
         instructions: adapter.instructions,
         input,
-        text: { format }
+        reasoning: { effort: 'minimal' },
+        max_output_tokens: adapter.maxCompletionTokens,
+        text: { format, verbosity: 'low' }
     }
 }
 
@@ -425,20 +432,89 @@ const QUERY_INTERPRETATION_ADAPTER: StructuredLlmAdapter<LlmQueryInterpretation>
     validate: validateInterpretation
 }
 
+// Search results never wait on the model for long: retrieval runs alongside it and stands on its own.
 function readQueryTimeoutMs(env: NodeJS.ProcessEnv): number {
     const parsed = Number(env.KEBIAO_LLM_QUERY_TIMEOUT_MS)
-    return Number.isInteger(parsed) ? Math.max(2000, Math.min(12000, parsed)) : 8000
+    return Number.isInteger(parsed) ? Math.max(1000, Math.min(5000, parsed)) : 4000
+}
+
+/** Changes whenever the prompt or schema changes, so cached interpretations never outlive the prompt that made them. */
+export const QUERY_INTERPRETATION_PROMPT_VERSION = createHash('sha256')
+    .update(JSON.stringify([INSTRUCTIONS, CHAT_JSON_INSTRUCTIONS, OUTPUT_SCHEMA]))
+    .digest('hex')
+    .slice(0, 12)
+
+interface CachedInterpretation {
+    protocol: LlmProtocol | null
+    output: LlmQueryInterpretation
+}
+
+/** Small in-memory LRU with a TTL; Map keeps insertion order, so the first key is the least recently used. */
+export class LruCache<V> {
+    private readonly entries = new Map<string, { value: V; expiresAt: number }>()
+
+    constructor(private readonly maxEntries: number, private readonly ttlMs: number) {}
+
+    get(key: string, now = Date.now()): V | undefined {
+        const entry = this.entries.get(key)
+        if (!entry) return undefined
+        this.entries.delete(key)
+        if (entry.expiresAt <= now) return undefined
+        this.entries.set(key, entry)
+        return entry.value
+    }
+
+    set(key: string, value: V, now = Date.now()) {
+        this.entries.delete(key)
+        this.entries.set(key, { value, expiresAt: now + this.ttlMs })
+        while (this.entries.size > this.maxEntries) this.entries.delete(this.entries.keys().next().value as string)
+    }
+
+    clear() {
+        this.entries.clear()
+    }
+
+    get size() {
+        return this.entries.size
+    }
+}
+
+export type QueryInterpretationCache = LruCache<CachedInterpretation>
+
+export const queryInterpretationCache: QueryInterpretationCache = new LruCache(500, 6 * 60 * 60 * 1000)
+
+export function queryInterpretationCacheKey(query: string, model: string) {
+    return [model, QUERY_INTERPRETATION_PROMPT_VERSION, normalizeEvidenceText(query)].join('\u0000')
 }
 
 export async function interpretSearchQueryWithLlm(
     query: string,
-    options: StructuredLlmOptions = {}
+    options: StructuredLlmOptions & { cache?: QueryInterpretationCache } = {}
 ): Promise<LlmInterpretationResult> {
+    const started = performance.now()
     const env = options.env || process.env
+    const config = resolveLlmConfig(env)
+    const cacheKey = options.cache && config.enabled && config.valid ? queryInterpretationCacheKey(query, config.model) : null
+    const cached = cacheKey ? options.cache!.get(cacheKey) : undefined
+    if (cached) {
+        return {
+            used: true,
+            status: 'ok',
+            model: config.model,
+            protocol: cached.protocol,
+            latency_ms: Math.round((performance.now() - started) * 100) / 100,
+            interpretation: enforceConstraintEvidence(query, cached.output),
+            usage: null,
+            cached: true
+        }
+    }
     const result = await runStructuredLlm(query, QUERY_INTERPRETATION_ADAPTER, {
         ...options,
-        timeoutMs: readQueryTimeoutMs(env)
+        timeoutMs: options.timeoutMs ?? readQueryTimeoutMs(env)
     })
+    if (cacheKey && result.status === 'ok' && result.output) {
+        options.cache!.set(cacheKey, { protocol: result.protocol, output: result.output })
+    }
     return {
         used: result.used,
         status: result.status,
@@ -446,6 +522,7 @@ export async function interpretSearchQueryWithLlm(
         protocol: result.protocol,
         latency_ms: result.latency_ms,
         interpretation: result.output ? enforceConstraintEvidence(query, result.output) : null,
-        usage: result.usage
+        usage: result.usage,
+        cached: false
     }
 }
