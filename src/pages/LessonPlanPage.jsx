@@ -34,6 +34,21 @@ async function getJson(url) {
     return payload.data
 }
 
+// a deliberately weak plan for the lesson at hand: vague objectives, no 课标 basis, an objective with no
+// assessment and timings that do not add up, so a first-time teacher sees what the check catches
+const samplePlan = title => [
+    `课题：${title}`,
+    '教学目标：',
+    `1. 了解${title}的主要内容。`,
+    '2. 培养学生的核心素养，激发学习兴趣。',
+    '教学过程：',
+    '一、导入（5 分钟）：创设情境，引出课题。',
+    '二、新授（25 分钟）：教师讲解重点内容，学生听讲、记笔记。',
+    '三、练习（5 分钟）：完成课本练习。',
+    '四、小结（2 分钟）：回顾本课内容。',
+    '评价：课堂提问。'
+].join('\n')
+
 function readStored() {
     try {
         const history = JSON.parse(window.localStorage.getItem(STORE_KEY) || '[]')
@@ -598,6 +613,9 @@ export default function LessonPlanPage() {
                                 <span>教案全文（自己写的或 AI 写的都可以）</span>
                                 <textarea rows={10} maxLength={8000} value={ownPlan} onChange={event => setOwnPlan(event.target.value)} placeholder="把教案贴在这里，至少包括教学目标；有教学过程和评价更好。请删去学生姓名等个人信息。" />
                             </label>
+                            {!ownPlan.trim() ? (
+                                <button type="button" className={styles.sample} onClick={() => setOwnPlan(samplePlan(context.lesson.title))}>手边没有教案？先用一份示例试试，看核验会指出什么</button>
+                            ) : null}
                             <div className={styles.go}>
                                 <button type="button" className="btn btn-primary" disabled={checking || !selectedCount || ownPlan.trim().length < 30} onClick={checkOwn}>
                                     {checking ? 'AI 正在读这份教案（约 20–40 秒）…' : `对照选定的 ${selectedCount} 条要点核验`}
