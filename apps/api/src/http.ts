@@ -48,6 +48,15 @@ const ASSET_TIER_LIMITS: Record<AccessTier, number> = {
     admin: 10000
 }
 
+// The MCP server and the 扣子/元器 plugin are called from those platforms' shared servers, many users to one IP;
+// they only read published data, so they get a larger budget than the general one.
+const TOOL_TIER_LIMITS: Record<AccessTier, number> = {
+    anonymous: 300,
+    developer: 600,
+    partner: 3000,
+    admin: 10000
+}
+
 const AI_ROUTES = new Set([
     '/api/v1/standards/semantic-search',
     '/api/v1/plans/parse'
@@ -205,7 +214,8 @@ export const securityHeadersMiddleware: MiddlewareHandler<ApiBindings> = async (
         c.header('vary', 'origin')
     }
     c.header('access-control-allow-methods', 'GET,POST,OPTIONS')
-    c.header('access-control-allow-headers', 'content-type,x-api-key,x-request-id')
+    // the MCP headers let browser-based MCP clients reach /mcp
+    c.header('access-control-allow-headers', 'content-type,x-api-key,x-request-id,accept,mcp-protocol-version,mcp-session-id,last-event-id')
     c.header('access-control-max-age', '86400')
     c.header('x-content-type-options', 'nosniff')
     c.header('x-frame-options', 'SAMEORIGIN')
@@ -233,8 +243,9 @@ export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
     const tier = c.get('accessTier') || 'anonymous'
     const isAiRoute = AI_ROUTES.has(c.req.path)
     const isAssetRoute = c.req.path.startsWith('/api/v1/textbook-assets/')
-    const policy = isAiRoute ? 'ai' : isAssetRoute ? 'asset' : 'general'
-    const limit = isAiRoute ? AI_TIER_LIMITS[tier] : isAssetRoute ? ASSET_TIER_LIMITS[tier] : TIER_LIMITS[tier]
+    const isToolRoute = c.req.path === '/mcp' || c.req.path === '/api/v1/mcp' || c.req.path.startsWith('/api/v1/plugin/')
+    const policy = isAiRoute ? 'ai' : isAssetRoute ? 'asset' : isToolRoute ? 'tools' : 'general'
+    const limit = isAiRoute ? AI_TIER_LIMITS[tier] : isAssetRoute ? ASSET_TIER_LIMITS[tier] : isToolRoute ? TOOL_TIER_LIMITS[tier] : TIER_LIMITS[tier]
     const now = Date.now()
     const resetAt = Math.ceil(now / 60000) * 60000
     const clientId = c.req.header('x-forwarded-for') || c.req.header('cf-connecting-ip') || 'local'

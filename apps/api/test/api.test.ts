@@ -1612,3 +1612,96 @@ test('learning-resource IDs that are not catalog IDs return 404', async () => {
         assert.equal((await publicApp.request(`/api/v1/learning-resources/${id}/standards`, { headers })).status, 404, id)
     }
 })
+
+async function mcp(body: unknown) {
+    return publicApp.request('/mcp', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', accept: 'application/json, text/event-stream' },
+        body: JSON.stringify(body)
+    })
+}
+
+test('MCP server answers initialize, ping and tools/list', async () => {
+    const init = await json(await mcp({ jsonrpc: '2.0', id: 1, method: 'initialize', params: { protocolVersion: '2025-03-26', capabilities: {}, clientInfo: { name: 'test', version: '0' } } }))
+    assert.equal(init.result.protocolVersion, '2025-03-26')
+    assert.equal(init.result.serverInfo.name, 'kebiao')
+    assert.ok(init.result.capabilities.tools)
+    const unknownVersion = await json(await mcp({ jsonrpc: '2.0', id: 2, method: 'initialize', params: { protocolVersion: '1999-01-01' } }))
+    assert.equal(unknownVersion.result.protocolVersion, '2025-06-18')
+    assert.deepEqual((await json(await mcp({ jsonrpc: '2.0', id: 3, method: 'ping' }))).result, {})
+    const list = await json(await mcp({ jsonrpc: '2.0', id: 4, method: 'tools/list' }))
+    const names = list.result.tools.map((tool: any) => tool.name)
+    assert.deepEqual(names, ['list_subjects', 'search_standards', 'get_standard', 'list_standards', 'get_stage_goals', 'get_textbook_links', 'find_textbook_chapter', 'compare_versions'])
+    for (const tool of list.result.tools) {
+        assert.equal(tool.inputSchema.type, 'object')
+        assert.equal(tool.annotations.readOnlyHint, true)
+    }
+})
+
+test('MCP tools return cited text and structured data', async () => {
+    const call = async (name: string, args: Record<string, unknown>) => json(await mcp({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name, arguments: args } }))
+    const search = await call('search_standards', { query: '浮力', subject: '物理', stage: '初中' })
+    assert.equal(search.result.isError, false)
+    assert.ok(search.result.structuredContent.results.length > 0)
+    assert.match(search.result.structuredContent.results[0].code, /^PH-S4-/)
+    assert.match(search.result.content[0].text, /https:\/\/www\.kebiao\.org\/standards\/PH-S4-/)
+
+    const standard = await call('get_standard', { code: 'MA-S2-NA-02' })
+    assert.equal(standard.result.structuredContent.code, 'MA-S2-NA-02')
+    assert.ok(standard.result.structuredContent.indicators.every((item: any) => item.code.startsWith('MA-S2-NA-02.') && item.text))
+    // an old code says where it moved
+    const moved = await call('get_standard', { code: 'MA-D2-AL-005' })
+    assert.equal(moved.result.structuredContent.moved_from, 'MA-D2-AL-005')
+    assert.equal(moved.result.structuredContent.code, 'MA-S2-NA-02')
+
+    const chapter = await call('find_textbook_chapter', { query: '分数的基本性质' })
+    const hit = chapter.result.structuredContent.results[0]
+    assert.match(hit.textbook, /数学5年级下册/)
+    assert.ok(hit.standards.some((s: any) => s.code.startsWith('MA-S3-')))
+
+    const bad = await call('get_standard', { code: 'XX-S9-ZZ-99' })
+    assert.equal(bad.result.isError, true)
+    const unknown = await json(await mcp({ jsonrpc: '2.0', id: 9, method: 'tools/call', params: { name: 'no_such_tool', arguments: {} } }))
+    assert.equal(unknown.error.code, -32602)
+})
+
+test('MCP transport handles notifications, batches and bad requests', async () => {
+    const note = await mcp({ jsonrpc: '2.0', method: 'notifications/initialized' })
+    assert.equal(note.status, 202)
+    const batch = await (await mcp([{ jsonrpc: '2.0', id: 1, method: 'ping' }, { jsonrpc: '2.0', method: 'notifications/initialized' }, { jsonrpc: '2.0', id: 2, method: 'nope' }])).json() as any[]
+    assert.equal(batch.length, 2)
+    assert.equal(batch[1].error.code, -32601)
+    const parse = await publicApp.request('/mcp', { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{oops' })
+    assert.equal(parse.status, 400)
+    assert.equal((await json(parse)).error.code, -32700)
+    assert.equal((await mcp({ id: 1, method: 'ping' })).status, 400)
+    const get = await publicApp.request('/mcp')
+    assert.equal(get.status, 405)
+    assert.equal(get.headers.get('allow'), 'POST')
+    // the same server answers under the API prefix the Vercel function sees
+    assert.equal((await json(await publicApp.request('/api/v1/mcp', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'ping' }) }))).id, 1)
+})
+
+test('plugin API serves the 扣子/元器 OpenAPI file and answers each operation', async () => {
+    const spec = await publicApp.request('/api/v1/plugin/openapi.yaml')
+    assert.equal(spec.status, 200)
+    const text = await spec.text()
+    for (const path of ['search', 'standard', 'standards', 'stage-goals', 'textbook-chapter', 'textbooks', 'changes']) assert.match(text, new RegExp(`/api/v1/plugin/${path}:`))
+    const search = await publicApp.request(`/api/v1/plugin/search?query=${encodeURIComponent('辛亥革命')}`)
+    assert.equal(search.status, 200)
+    const body = await json(search)
+    assert.match(body.answer, /HI-S4-/)
+    assert.ok(body.results.length > 0)
+    const goals = await json(await publicApp.request(`/api/v1/plugin/stage-goals?subject=${encodeURIComponent('数学')}&stage=${encodeURIComponent('三年级')}`))
+    assert.ok(goals.answer.length > 20)
+    const missing = await publicApp.request('/api/v1/plugin/standard')
+    assert.equal(missing.status, 400)
+    assert.ok((await json(missing)).error)
+    assert.equal((await publicApp.request('/api/v1/plugin/nothing')).status, 404)
+})
+
+test('MCP and plugin routes get the larger tools rate budget', async () => {
+    const response = await publicApp.request('/api/v1/plugin/subjects', { headers: { 'x-forwarded-for': '203.0.113.77' } })
+    assert.equal(response.headers.get('x-ratelimit-policy'), 'tools-per-minute')
+    assert.equal(response.headers.get('x-ratelimit-limit'), '300')
+})

@@ -24,10 +24,23 @@ function SourceLine({ section, pages, check }) {
     )
 }
 
+// The 要点 text with the words the 2025 revision newly wrote marked.
+function withAdditions(text, added = []) {
+    if (!added.length) return text
+    const parts = []
+    let rest = text
+    for (const phrase of added) {
+        const at = rest.indexOf(phrase)
+        if (at < 0) continue
+        parts.push(rest.slice(0, at), <mark key={phrase} className={styles.added}>{phrase}</mark>)
+        rest = rest.slice(at + phrase.length)
+    }
+    return [...parts, rest]
+}
+
 // One 要点: the official sentence, its place in the 课标 and, folded away, the kebiao 表现示例.
-function Indicator({ item, edition, dimmed, targeted }) {
+function Indicator({ item, dimmed, targeted }) {
     const revised = item.check?.status === 'revised'
-    const show2022 = edition === '2022' && revised
     return (
         <li id={item.code} className={`${styles.indicator} ${dimmed ? styles.dimmed : ''} ${targeted ? styles.targeted : ''}`}>
             <div className={styles.indicatorHead}>
@@ -36,12 +49,10 @@ function Indicator({ item, edition, dimmed, targeted }) {
                     {item.label ? <span className={styles.tag}>{item.label}</span> : null}
                     {item.grades?.length ? <span className={styles.gradeTag} title={item.grade_basis || ''}>{gradesLabel(item.grades)}</span> : null}
                     {item.optional ? <span className={styles.tag}>选学</span> : null}
-                    {revised ? <span className={styles.revTag}>{edition === '2022' ? '2022 年版' : '2025 修订'}</span> : null}
+                    {revised ? <span className={styles.revTag} title={item.check.summary}>2025 修订</span> : null}
                 </div>
             </div>
-            {show2022
-                ? <p className={styles.indicatorText}>{item.check.text_2022 || '（2022 年版没有这一句，为修订时新增）'}</p>
-                : <p className={styles.indicatorText}>{item.text}</p>}
+            <p className={styles.indicatorText}>{revised ? withAdditions(item.text, item.check.added) : item.text}</p>
             {item.official_examples ? <p className={styles.officialExample}>{item.official_examples}</p> : null}
             <SourceLine section={item.section} pages={item.pages} check={item.check} />
             {item.examples.length ? (
@@ -117,7 +128,6 @@ export default function StandardV2Page() {
     const [searchParams] = useSearchParams()
     const standardCode = standardCodeOf(code)
     const [state, setState] = useState({ status: 'loading' })
-    const [edition, setEdition] = useState('2025')
     const [grade, setGrade] = useState(0)
     const from = searchParams.get('from')
     const target = decodeURIComponent(hash.replace(/^#/u, '')) || (code !== standardCode ? code : '')
@@ -222,24 +232,17 @@ export default function StandardV2Page() {
                                     {gradeOptions.map(g => <button key={g} type="button" aria-pressed={grade === g} onClick={() => setGrade(g)}>{g} 年级</button>)}
                                 </div>
                             ) : null}
-                            {hasRevised ? (
-                                <div className={styles.segment} role="group" aria-label="课标版本">
-                                    <button type="button" aria-pressed={edition === '2025'} onClick={() => setEdition('2025')}>2025 修订版</button>
-                                    <button type="button" aria-pressed={edition === '2022'} onClick={() => setEdition('2022')}>2022 年版</button>
-                                </div>
-                            ) : null}
                         </div>
                     </div>
                     <p className={styles.note}>
                         要点逐字取自课标原文{standard.stage === '7-9' && gradeOptions.length ? '；年级标签依据教材章节，没有标签的是 7–9 年级共同要求' : ''}。
-                        {hasRevised ? '标「2025 修订」的要点在修订版中有改动，可切换查看 2022 年版文字。' : ''}
+                        {hasRevised ? '标「2025 修订」的要点在修订版中有改动，高亮处是修订版新写入的文字。' : ''}
                     </p>
                     <ol className={styles.indicators}>
                         {standard.indicators.map(item => (
                             <Indicator
                                 key={item.code}
                                 item={item}
-                                edition={edition}
                                 dimmed={grade > 0 && item.grades?.length > 0 && !item.grades.includes(grade)}
                                 targeted={item.code === target}
                             />

@@ -41,3 +41,10 @@ export function resolveSwaggerUiAssetPath(asset: 'swagger-ui.css' | 'swagger-ui-
         `../../node_modules/swagger-ui-dist/${asset}`
     ], `../../node_modules/swagger-ui-dist/${asset}`)
 }
+
+export function resolvePluginOpenApiPath(): string {
+    return resolveFirstExisting([
+        'docs/api/plugin-openapi.yaml',
+        '../../docs/api/plugin-openapi.yaml'
+    ], '../../docs/api/plugin-openapi.yaml')
+}

@@ -67,5 +67,22 @@ export function readContents(pages) {
             }
         }
     }
-    return out.filter(e => e.title || e.label).map(e => ({ ...e, pdf_page: e.printed_page != null && offset != null ? e.printed_page + offset : null }))
+    let entries = out.filter(e => e.title || e.label)
+    // Primary-school books number their units and lessons ("1 观察物体(三) 2", two columns of "8. 卖火柴的小女孩 28"):
+    // read those when the 第…单元/章/节 headings give too little.
+    if (entries.length < 3) {
+        const numbered = []
+        for (const p of pages.slice(start, start + 4)) {
+            if (p.pdf_page > pages[start].pdf_page && !/\.{4,}|…{2,}|\s\d{1,3}\s*$/mu.test(p.text)) break
+            for (const raw of p.text.split('\n')) {
+                const t = normal(raw).replace(/^[.\s]+/u, '')
+                for (const m of t.matchAll(/(?:^|\s)\.?(\d{1,2})\*?\.?\s*(\p{Script=Han}[^\d]*?)\s+(\d{1,3})(?=\s|$)/gu)) {
+                    const title = m[2].replace(/[\s.]+$/u, '').trim()
+                    if ((title.match(/\p{Script=Han}/gu) || []).length >= 2) numbered.push({ label: m[1], title, level: 1, printed_page: Number(m[3]) })
+                }
+            }
+        }
+        if (numbered.length >= 3) entries = [...entries, ...numbered].sort((a, b) => (a.printed_page ?? 0) - (b.printed_page ?? 0))
+    }
+    return entries.map(e => ({ ...e, pdf_page: e.printed_page != null && offset != null ? e.printed_page + offset : null }))
 }

@@ -1,0 +1,44 @@
+# kebiao 课标
+
+> kebiao.org 是《义务教育课程标准（2022年版2025年修订）》的结构化索引：14 门学科、513 条标准、2,520 条要点。每条标准对应一个学段的一个内容单元；要点逐字取自课标原文并标明页码。免费、只读、无需登录。
+
+- 标准：编码如 MA-S2-NA-02（学科-学段-领域-序号），每条一页：https://www.kebiao.org/standards/MA-S2-NA-02 。标准句是课标原句，或 kebiao 用课标原词写的概括（页面标明「kebiao 整理」）。
+- 要点：编码如 MA-S2-NA-02.1，课标原文，在标准页里用锚点定位：https://www.kebiao.org/standards/MA-S2-NA-02#MA-S2-NA-02.1 。标「2025 修订」的要点在修订版中有改动。
+- 表现示例和教材对应是 kebiao 整理或机器对齐，待核验。
+- 2022 年版的旧编码（如 MA-D2-AL-005）会跳转到它并入的新标准。
+- 修订版文本取自凤溪中学网站转载的日常修订版，以官方出版物为准。
+
+引用时请给出编码、要点原文和链接；不要编造编码，不要改写原文。
+
+## 给 AI 用的接口
+
+- [MCP 服务器](https://www.kebiao.org/mcp): Streamable HTTP（POST JSON-RPC），无需登录；只读工具：检索课标、查看标准、列出标准、学段目标、标准对应的教材、从教材章节找课标、2025 修订对照
+- [插件 OpenAPI](https://www.kebiao.org/api/v1/plugin/openapi.yaml): 扣子、腾讯元器等平台可直接导入；每个接口都返回一段可直接引用的 answer
+- [API 文档](https://www.kebiao.org/api/v1/docs): 完整的课程智能 API
+
+## 学科
+
+- [语文](https://www.kebiao.org/subjects/chinese): 97 条标准、265 条要点；第一学段（1–2 年级）、第二学段（3–4 年级）、第三学段（5–6 年级）、第四学段（7–9 年级）
+- [数学](https://www.kebiao.org/subjects/math): 43 条标准、230 条要点；第一学段（1–2 年级）、第二学段（3–4 年级）、第三学段（5–6 年级）、第四学段（7–9 年级）
+- [英语](https://www.kebiao.org/subjects/english): 54 条标准、489 条要点；一级（3–4 年级）、二级（5–6 年级）、三级（7–9 年级）
+- [道德与法治](https://www.kebiao.org/subjects/morality_law): 20 条标准、134 条要点；第一学段（1–2 年级）、第二学段（3–4 年级）、第三学段（5–6 年级）、第四学段（7–9 年级）
+- [历史](https://www.kebiao.org/subjects/history): 31 条标准、109 条要点；7–9 年级
+- [地理](https://www.kebiao.org/subjects/geography): 17 条标准、70 条要点；7–9 年级
+- [科学](https://www.kebiao.org/subjects/science): 49 条标准、353 条要点；第一学段（1–2 年级）、第二学段（3–4 年级）、第三学段（5–6 年级）、第四学段（7–9 年级）
+- [物理](https://www.kebiao.org/subjects/physics): 18 条标准、86 条要点；7–9 年级
+- [化学](https://www.kebiao.org/subjects/chemistry): 33 条标准、125 条要点；7–9 年级
+- [生物学](https://www.kebiao.org/subjects/biology): 25 条标准、99 条要点；7–9 年级
+- [信息科技](https://www.kebiao.org/subjects/it): 13 条标准、74 条要点；第一学段（1–2 年级）、第二学段（3–4 年级）、第三学段（5–6 年级）、第四学段（7–9 年级）
+- [体育与健康](https://www.kebiao.org/subjects/pe): 26 条标准、78 条要点；水平一（1–2 年级）、水平二（3–4 年级）、水平三（5–6 年级）、水平四（7–9 年级）
+- [艺术](https://www.kebiao.org/subjects/arts): 56 条标准、275 条要点；第一学段（1–2 年级）、第二学段（3–5 年级）、第三学段（6–7 年级）、第四学段（8–9 年级）
+- [劳动](https://www.kebiao.org/subjects/labor): 31 条标准、133 条要点；第一学段（1–2 年级）、第二学段（3–4 年级）、第三学段（5–6 年级）、第四学段（7–9 年级）
+
+## 页面
+
+- [检索](https://www.kebiao.org/smart-search?q=%E5%88%86%E6%95%B0%E7%9A%84%E5%A4%A7%E5%B0%8F): 用一句话找课标
+- [教材](https://www.kebiao.org/textbooks): 统编版、人教版等教材的单元与课标对应
+- [站点地图](https://www.kebiao.org/sitemap.xml)
+
+## Optional
+
+- [联系](https://www.kebiao.org/contact)

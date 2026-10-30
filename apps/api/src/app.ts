@@ -46,6 +46,10 @@ import { redactSensitiveText } from './ai-privacy.js'
 import { parsePlanWithLlm } from './plan-llm.js'
 import { resolveDataRoot } from './config.js'
 import { TextbookAssetService } from './textbook-assets.js'
+import { createV2Store, v2TextbookItem } from './v2-store.js'
+import { ToolInputError, findTool, type ToolContext } from './ai-tools.js'
+import { handleMcp } from './mcp.js'
+import { resolvePluginOpenApiPath } from './config.js'
 
 const DEVELOPMENT_API_ROUTES = [
     '/api/v1/standards/:code/evidence',
@@ -72,65 +76,6 @@ function publicOpenApiDocument(source: string) {
             return !omit
         })
         .join('\n')
-}
-
-// v2 standards (标准 → 要点), published by scripts/build-public-v2.mjs into <data root>/v2.
-// MA-S1-NA-01 is a standard and MA-S1-NA-01.3 one of its 要点; old (v1) codes keep their records and say where they moved.
-const V2_CODE = /^[A-Z]{2}-S\d-[A-Z]{2,3}-\d{2}(?:\.\d+)?$/u
-type V2Standard = Record<string, unknown> & { code: string, legacy_codes?: string[], indicators: Array<{ code: string }> }
-type V2Subject = { subject_slug: string, subject: string, source_version: string, source_note: string, standards: V2Standard[] }
-type V2TextbookLink = { edition_id: string, textbook_title: string, entry_id: string | null, unit_id: string | null, title: string | null, printed_page: number | null, pdf_page: number | null, indicator: string | null, method: string, score: number }
-type V2TextbookLinks = { standards: Record<string, V2TextbookLink[]>, units: Record<string, Array<{ code: string, indicator: string | null, title?: string }>> }
-const LINK_METHOD: Record<string, string> = { grade_basis: '要点年级依据所指的章节', toc_title: '目录标题与标准文字相符', grade_basis_volume: '要点年级依据所指的分册' }
-
-// A v2 textbook link in the shape the standard page's textbook list reads.
-function v2TextbookItem(code: string, link: V2TextbookLink) {
-    return {
-        alignment_id: `v2_${code}_${link.entry_id || link.edition_id}`,
-        ...(link.entry_id ? {} : { scope_id: `v2_scope_${code}_${link.edition_id}` }),
-        edition_id: link.edition_id,
-        textbook_title: link.textbook_title,
-        unit_id: link.unit_id,
-        unit_title: link.title,
-        node_title: link.title,
-        printed_page: link.printed_page,
-        pdf_page: link.pdf_page,
-        relation_type: link.entry_id ? 'teaches' : 'contextualizes',
-        review_status: 'machine_checked',
-        alignment_method: 'v2_textbook_links',
-        rationale: `${LINK_METHOD[link.method] || '机器对齐'}；机器生成，待核验。`,
-        via_indicator: link.indicator
-    }
-}
-
-function createV2Store(dataRoot: string) {
-    const read = async <T>(path: string): Promise<T | null> => {
-        try { return JSON.parse(await readFile(`${dataRoot}/v2/${path}`, 'utf8')) as T } catch { return null }
-    }
-    let manifest: Promise<{ subjects: Array<{ subject_slug: string, prefix: string }> } | null> | null = null
-    let legacy: Promise<Record<string, string> | null> | null = null
-    let links: Promise<V2TextbookLinks | null> | null = null
-    const subjects = new Map<string, Promise<V2Subject | null>>()
-    return {
-        async find(code: string) {
-            if (!V2_CODE.test(code)) return null
-            manifest ??= read('manifest.json')
-            const entry = (await manifest)?.subjects.find(item => item.prefix === code.slice(0, 2))
-            if (!entry) return null
-            if (!subjects.has(entry.subject_slug)) subjects.set(entry.subject_slug, read<V2Subject>(`by_subject/${entry.subject_slug}.json`))
-            const subject = await subjects.get(entry.subject_slug)!
-            const standard = subject?.standards.find(item => item.code === code.replace(/\.\d+$/u, ''))
-            return standard && subject ? { standard, subject } : null
-        },
-        async movedTo(code: string) {
-            legacy ??= read('legacy_codes.json')
-            return (await legacy)?.[code] || null
-        },
-        async textbookLinks() {
-            links ??= read<V2TextbookLinks>('textbook_links.json')
-            return (await links) || { standards: {}, units: {} }
-        }
-    }
 }
 
 export interface CurriculumAppOptions {
@@ -183,6 +128,32 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         }
         return { resolved, response: null }
     }
+
+    // AI clients: a remote MCP server (/mcp) and plain GET endpoints for 扣子 / 元器 plugins, over the same tools.
+    const toolContext: ToolContext = { repository, textbookRepository, v2 }
+    app.on(['GET', 'POST'], ['/mcp', '/api/v1/mcp'], c => handleMcp(c, toolContext))
+    const PLUGIN_ROUTES: Record<string, string> = {
+        subjects: 'list_subjects', search: 'search_standards', standard: 'get_standard', standards: 'list_standards',
+        'stage-goals': 'get_stage_goals', textbooks: 'get_textbook_links', 'textbook-chapter': 'find_textbook_chapter', changes: 'compare_versions'
+    }
+    app.get('/api/v1/plugin/openapi.yaml', async c => {
+        c.header('content-type', 'application/yaml; charset=utf-8')
+        return c.body(await readFile(resolvePluginOpenApiPath(), 'utf8'))
+    })
+    app.get('/api/v1/plugin/:name', async c => {
+        const tool = findTool(PLUGIN_ROUTES[c.req.param('name')] || '')
+        if (!tool) return c.json({ error: '没有这个接口。' }, 404)
+        const args: Record<string, unknown> = { ...c.req.query() }
+        if (args.limit) args.limit = Number(args.limit)
+        try {
+            const out = await tool.run(args, toolContext)
+            // `answer` is the same text an MCP client gets: ready to quote, with codes, 原文 and links
+            return c.json({ ...(out.data as Record<string, unknown>), answer: out.text })
+        } catch (error) {
+            if (error instanceof ToolInputError) return c.json({ error: error.message }, 400)
+            throw error
+        }
+    })
 
     app.get('/api/v1/health', async c => {
         const version = await repository.loadDataVersion()

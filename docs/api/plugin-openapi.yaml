@@ -1,0 +1,223 @@
+openapi: 3.0.1
+info:
+  title: kebiao 课标
+  version: 1.0.0
+  description: |
+    中国义务教育课程标准（2022年版2025年修订）的检索与查证插件：14 门学科，每条标准对应一个学段的一个内容单元，要点逐字取自课标原文并标明页码。
+    每个接口都返回 answer 字段：一段可直接引用的中文说明，带编码、要点原文和 kebiao.org 链接。请引用编码和原文，不要编造编码或改写原文。
+    数据来自 https://www.kebiao.org，免费、只读、无需登录。
+servers:
+  - url: https://www.kebiao.org
+paths:
+  /api/v1/plugin/search:
+    get:
+      operationId: search_standards
+      summary: 检索课标
+      description: 用一句话检索义务教育课程标准，返回最相关的标准、命中的要点原文和链接。适合「三年级科学里讲植物生长的课标」「初中物理 浮力」这类问题。
+      parameters:
+        - name: query
+          in: query
+          required: true
+          description: 要找的教学内容或主题，例如「分数的大小比较」「辛亥革命」
+          schema: { type: string }
+        - name: subject
+          in: query
+          required: false
+          description: 学科，可选，例如「数学」「历史」
+          schema: { type: string }
+        - name: stage
+          in: query
+          required: false
+          description: 学段或年级，可选，例如「3-4」「五年级」「初中」
+          schema: { type: string }
+        - name: limit
+          in: query
+          required: false
+          description: 返回条数，1–10，默认 5
+          schema: { type: integer }
+      responses:
+        '200':
+          description: 检索结果
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SearchResult' }
+  /api/v1/plugin/standard:
+    get:
+      operationId: get_standard
+      summary: 查看一条标准
+      description: 按编码查看一条课标的标准句、全部要点原文和页码、学业要求和链接。接受标准编码（如 MA-S2-NA-02）、要点编码（如 MA-S2-NA-02.1）和 2022 年版旧编码（如 MA-D2-AL-005）。
+      parameters:
+        - name: code
+          in: query
+          required: true
+          description: 标准、要点或旧编码
+          schema: { type: string }
+      responses:
+        '200':
+          description: 标准详情
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Standard' }
+  /api/v1/plugin/standards:
+    get:
+      operationId: list_standards
+      summary: 列出一门学科的标准
+      description: 列出一门学科（可限定学段）的全部标准：编码、名称、领域、要点条数。
+      parameters:
+        - name: subject
+          in: query
+          required: true
+          description: 学科，例如「历史」
+          schema: { type: string }
+        - name: stage
+          in: query
+          required: false
+          description: 学段或年级，可选
+          schema: { type: string }
+      responses:
+        '200':
+          description: 标准列表
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Answer' }
+  /api/v1/plugin/stage-goals:
+    get:
+      operationId: get_stage_goals
+      summary: 学段目标
+      description: 一门学科各学段的学段目标（体育为水平目标），课标原文，按核心素养或学科分组。
+      parameters:
+        - name: subject
+          in: query
+          required: true
+          description: 学科
+          schema: { type: string }
+        - name: stage
+          in: query
+          required: false
+          description: 学段或年级，可选
+          schema: { type: string }
+      responses:
+        '200':
+          description: 学段目标
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Answer' }
+  /api/v1/plugin/textbook-chapter:
+    get:
+      operationId: find_textbook_chapter
+      summary: 从教材章节找课标
+      description: 按教材单元、章节或课的标题找到它，并给出对应的课标。适合「下周教这一课，对应哪条课标」。
+      parameters:
+        - name: query
+          in: query
+          required: true
+          description: 单元、章节或课的标题，例如「分数的基本性质」
+          schema: { type: string }
+        - name: subject
+          in: query
+          required: false
+          description: 学科，可选
+          schema: { type: string }
+        - name: grade
+          in: query
+          required: false
+          description: 年级，可选，例如「五年级」
+          schema: { type: string }
+      responses:
+        '200':
+          description: 教材章节和对应课标
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Answer' }
+  /api/v1/plugin/textbooks:
+    get:
+      operationId: get_textbook_links
+      summary: 标准对应的教材
+      description: 一条标准对应哪些教材的哪些单元、章节或页码。多为机器对齐，结果会标明待核验。
+      parameters:
+        - name: code
+          in: query
+          required: true
+          description: 标准或要点编码
+          schema: { type: string }
+      responses:
+        '200':
+          description: 对应教材
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Answer' }
+  /api/v1/plugin/changes:
+    get:
+      operationId: compare_versions
+      summary: 2022 与 2025 修订对照
+      description: 一条标准在 2025 修订版中改了哪些地方：改动的要点、修订版原文和其中新写入的文字。
+      parameters:
+        - name: code
+          in: query
+          required: true
+          description: 标准或要点编码
+          schema: { type: string }
+      responses:
+        '200':
+          description: 修订对照
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Answer' }
+components:
+  schemas:
+    Answer:
+      type: object
+      properties:
+        answer:
+          type: string
+          description: 可直接引用的中文说明，带编码、课标原文和链接
+    SearchResult:
+      type: object
+      properties:
+        answer:
+          type: string
+          description: 可直接引用的中文说明
+        query: { type: string }
+        understood: { type: string, description: 系统对问题的理解（学科、学段、主题） }
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              code: { type: string, description: 标准编码 }
+              name: { type: string, description: 标准名称 }
+              subject: { type: string }
+              stage: { type: string, description: 学段 }
+              statement: { type: string, description: 标准句 }
+              statement_source: { type: string, description: 课标原文或 kebiao 整理 }
+              url: { type: string }
+              matched_point:
+                type: object
+                properties:
+                  code: { type: string, description: 要点编码 }
+                  text: { type: string, description: 要点原文 }
+                  page: { type: string, description: 课标页码 }
+                  url: { type: string }
+    Standard:
+      type: object
+      properties:
+        answer:
+          type: string
+          description: 可直接引用的中文说明
+        code: { type: string }
+        name: { type: string }
+        subject: { type: string }
+        stage: { type: string }
+        statement: { type: string }
+        statement_source: { type: string }
+        moved_from: { type: string, description: 查询的旧编码（若有） }
+        url: { type: string }
+        indicators:
+          type: array
+          description: 要点，课标原文
+          items:
+            type: object
+            properties:
+              code: { type: string }
+              text: { type: string }
+              page: { type: string }

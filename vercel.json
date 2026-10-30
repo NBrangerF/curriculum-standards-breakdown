@@ -31,6 +31,10 @@
             "destination": "/api/v1/[...path]"
         },
         {
+            "source": "/mcp",
+            "destination": "/api/v1/[...path]"
+        },
+        {
             "source": "/cards/:path*",
             "destination": "/api/cards/[...path]"
         },
