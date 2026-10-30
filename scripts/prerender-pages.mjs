@@ -7,7 +7,8 @@ import { dirname, join } from 'node:path'
 import {
     SITE_URL, SITE_NAME, cardVersion, getDisplayTitle, clip, V2_STANDARDS_DOC, v2StageLabel, v2StandardMeta,
     homeMeta, subjectMeta, skillsOverviewMeta, skillMeta, textbooksMeta, textbookMeta,
-    textbookUnitMeta, learningResourcesMeta, learningResourceMeta, STATIC_PAGE_META
+    textbookUnitMeta, learningResourcesMeta, learningResourceMeta, STATIC_PAGE_META,
+    conceptsMeta, conceptMeta, subjectSkeletonMeta
 } from '../src/seo/pageMeta.js'
 import { logoSvg } from '../src/brand/logo.js'
 
@@ -53,6 +54,7 @@ const units = readJson('textbooks/units.json').items
 const standardsToTextbooks = readJson('textbooks/standards-to-textbooks.json')
 const learningResources = readJson('learning-resources/catalog/index.json').resources
 const glossary = readJson('glossary.json')
+const concepts = readJson('concepts.json')
 const CARD_VERSION = cardVersion(readJson('data_version.json').data_version)
 const cardUrl = path => `${SITE_URL}/cards/${path}.png?v=${CARD_VERSION}`
 
@@ -297,6 +299,44 @@ ${section('对应的课程标准', list(aligned))}
     }
 }
 
+function conceptPages() {
+    const crumbs = [['首页', '/'], ['概念词典', '/concepts']]
+    const name = slug => concepts.subject_names[slug] || slug
+    add(conceptsMeta({ termCount: concepts.terms.length }), `${crumbNav(crumbs)}
+<p class="kbp-kicker">概念词典 · ${concepts.terms.length} 个概念</p>
+<h1>这些词，课标原文是怎么说的</h1>
+<p class="kbp-lede">大概念、大单元、学习任务群、教—学—评一致性……逐条引用修订版课标原文和页码，写清各学科用法的不同，附国外课程的对照、常见误解和真实条目。</p>
+${concepts.categories.map(category => section(category.label, list(concepts.terms.filter(term => term.category === category.id).map(term => `${link(`/concepts/${term.id}`, term.term)} <span class="kbp-note">${esc(clip(term.plain, 60))}</span>`)))).join('')}
+${section('每门学科的骨架', list(concepts.subjects.map(subject => `${link(`/concepts/subjects/${subject.slug}`, `${subject.name}课标的骨架`)} <span class="kbp-note">${esc(clip(subject.organized_by, 60))}</span>`)))}`, { jsonLd: [breadcrumbs(crumbs)] })
+
+    for (const term of concepts.terms) {
+        const termCrumbs = [...crumbs, [term.term, `/concepts/${term.id}`]]
+        const quotes = term.quotes.map(quote => `<blockquote>${esc(quote.text)}</blockquote><p class="kbp-note">${esc(name(quote.subject))} · 修订版 PDF 第 ${quote.pages.join('–')} 页${quote.note ? `。${esc(quote.note)}` : ''}</p>`).join('')
+        add(conceptMeta(term), `${crumbNav(termCrumbs)}
+<p class="kbp-kicker">${esc(concepts.categories.find(item => item.id === term.category)?.label || '')}</p>
+<h1>${esc(term.term)}</h1>
+<p class="kbp-lede">${esc(term.plain)}</p>
+${section('课标原文', quotes)}
+${section('各学科怎么用', list(term.by_subject.map(item => `<strong>${esc(name(item.subject))}</strong>：${esc(item.text)}`)))}
+${section('备课时怎么用', paras(term.how_to_use))}
+${section('常见误解', list(term.misreadings.map(esc)))}
+${section('国外怎么处理同一件事', list(term.abroad.map(item => `<strong>${esc(item.name)}</strong>：${esc(item.text)}`)))}
+${section('在 kebiao 里看真实条目', list([...term.examples, ...term.mentions].map(item => `${link(`/standards/${item.code}`, item.title)} <span class="kbp-code">${esc(item.code)}</span>${item.why ? `<br><span class="kbp-note">${esc(item.why)}</span>` : ''}`)))}`, { jsonLd: [breadcrumbs(termCrumbs), { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: term.term, description: term.plain, inDefinedTermSet: `${SITE_URL}/concepts` }] })
+    }
+
+    for (const subject of concepts.subjects) {
+        const subjectCrumbs = [...crumbs, [`${subject.name}课标的骨架`, `/concepts/subjects/${subject.slug}`]]
+        add(subjectSkeletonMeta(subject), `${crumbNav(subjectCrumbs)}
+<p class="kbp-kicker">${subject.standard_count} 条标准 · ${subject.indicator_count} 条要点</p>
+<h1>${esc(subject.name)}课标的骨架</h1>
+<p class="kbp-lede">${esc(subject.organized_by)}</p>
+<p>核心素养：${esc(subject.core_literacy.join('、'))}</p>
+${section('课标原文', `<blockquote>${esc(subject.quote.text)}</blockquote><p class="kbp-note">修订版 PDF 第 ${subject.quote.pages.join('–')} 页</p>`)}
+${section('备课时的抓手', paras(subject.unit_hint))}
+${subject.groups.map(group => section(group.name, list(group.children.map(child => `${esc(child.name)}：${child.standards.map(([code, stage]) => link(`/standards/${code}`, `${stage.replace('-', '–')} 年级`)).join('、')}`)))).join('')}`, { jsonLd: [breadcrumbs(subjectCrumbs)] })
+    }
+}
+
 function staticPages() {
     const terms = glossary.terms || []
     add(STATIC_PAGE_META['/glossary'], `<h1>术语表</h1>${terms.map(term => `<section><h2>${esc(term.term)}</h2><p>${esc(term.definition)}</p></section>`).join('')}`)
@@ -311,6 +351,7 @@ for (const entry of v2ByCode.values()) standardPage(entry)
 skillPages()
 textbookPages()
 learningResourcePages()
+conceptPages()
 staticPages()
 
 // ---------- render ----------
@@ -338,7 +379,7 @@ const STYLE = `<style id="kbp-style">
 .kbp-foot .kbp-wrap{padding-top:16px;padding-bottom:0;border-top:1px solid var(--kb-line,rgba(222,228,238,.14))}
 </style>`
 
-const NAV = [...v2Subjects.map(subject => link(`/subjects/${subject.subject_slug}`, subject.subject)), link('/textbooks', '教材馆'), link('/skills', '可迁移技能'), link('/smart-search', '智能检索')].join('')
+const NAV = [...v2Subjects.map(subject => link(`/subjects/${subject.subject_slug}`, subject.subject)), link('/textbooks', '教材馆'), link('/concepts', '概念词典'), link('/skills', '可迁移技能'), link('/smart-search', '智能检索')].join('')
 const FOOTER = '<footer class="kbp-foot"><div class="kbp-wrap"><p>课标原文来自教育部《义务教育课程标准（2022年版）》及其 2025 年日常修订版。kebiao 是独立的开放索引，与教育部无隶属关系。</p></div></footer>'
 
 function render(page) {

@@ -157,6 +157,30 @@ export function learningResourceMeta(resource) {
     )
 }
 
+export function conceptsMeta({ termCount } = {}) {
+    return page(
+        '概念词典：大概念、大单元、学习任务群……课标原文怎么说',
+        `${termCount || ''} 个教研常用概念，逐条引用修订版课标原文和页码，按学科说明含义的不同，附国外课程的对照、常见误解和真实条目；另有 14 门学科的内容骨架。`,
+        '/concepts'
+    )
+}
+
+export function conceptMeta(term) {
+    return page(
+        `${term.term}是什么 · 课标原文、各学科用法与常见误解`,
+        `${term.plain}`,
+        `/concepts/${term.id}`
+    )
+}
+
+export function subjectSkeletonMeta(subject) {
+    return page(
+        `${subject.name}课标的骨架：用什么组织内容、核心素养、单元抓手`,
+        `${subject.name}（${V2_STANDARDS_DOC}）${subject.organized_by} 核心素养：${(subject.core_literacy || []).join('、')}。`,
+        `/concepts/subjects/${subject.slug}`
+    )
+}
+
 export const STATIC_PAGE_META = {
     '/glossary': page('术语表', '课标、学段、领域、可迁移技能等 kebiao 常用概念的解释与示例。', '/glossary'),
     '/api': page('开放 API', '用 REST API 查询义务教育课程标准、可迁移技能和教材对照，可接入备课工具、智能体和 MCP。', '/api'),

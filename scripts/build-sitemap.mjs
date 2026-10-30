@@ -25,6 +25,10 @@ for (const subject of v2.subjects) {
 for (const textbook of readJson('textbooks/index.json').items) entries.push([`/textbooks/${textbook.edition_id}`, textbooksDate])
 for (const unit of units.items) entries.push([`/textbook-units/${unit.entry_id}`, textbooksDate])
 for (const resource of resources.resources) entries.push([`/learning-resources/${resource.id}`, resourcesDate])
+const concepts = readJson('concepts.json')
+entries.push(['/concepts', standardsDate])
+for (const term of concepts.terms) entries.push([`/concepts/${term.id}`, standardsDate])
+for (const subject of concepts.subjects) entries.push([`/concepts/subjects/${subject.slug}`, standardsDate])
 
 const seen = new Set()
 const urls = []

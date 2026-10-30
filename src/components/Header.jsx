@@ -8,6 +8,7 @@ import styles from './Header.module.css'
 const NAV_ITEMS = [
     { path: '/', label: '首页' },
     { path: '/textbooks', label: '教材馆' },
+    { path: '/concepts', label: '概念词典' },
     { path: '/learning-resources', label: '学习资源' },
     { path: '/skills', label: '可迁移技能' },
     { path: '/search', label: '筛选搜索' },
