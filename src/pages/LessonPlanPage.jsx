@@ -389,7 +389,7 @@ export default function LessonPlanPage() {
 
                     <p className={styles.aiStatus} aria-live="polite">
                         {ai.status === 'loading' ? 'AI 正在读课标要点，找和这一课最贴切的几条（约 10–20 秒）…'
-                            : ai.status === 'ok' ? `AI 读完了，已勾选它判断直接对应的 ${selectedCount} 条要点。请核对：只留这节课真正要教的（一般 1–3 条）。`
+                            : ai.status === 'ok' ? (isUnit ? `AI 读完了，已勾选这个单元对应的 ${selectedCount} 条要点。请核对：去掉单元里不教的，补上漏掉的。` : `AI 读完了，已勾选它判断直接对应的 ${selectedCount} 条要点。请核对：只留这节课真正要教的（一般 1–3 条）。`)
                                 : ai.status === 'none' ? 'AI 没有找到直接对应的要点。请从下面的候选里自己勾选，或换个课题写法。'
                                     : ai.status === 'failed' ? 'AI 这次没能读完要点。请读下面候选的原文，自己勾选：机器对齐和字面匹配可能出错，比如会把「分数的基本性质」对到「等式的基本性质」。' : ''}
                     </p>

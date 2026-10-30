@@ -69,7 +69,8 @@ function candidatesFor(book, materials) {
         if (!title.startsWith(stage) || /五•四学制|五四学制/u.test(title)) return false
         if (!subjects.some(subject => title.includes(subject))) return false
         if (!tokens.some(token => title.includes(token))) return false
-        if (!title.includes(grade)) return false
+        // 「三年级起点」 names where the English series starts, not the book's grade
+        if (!title.replace(/[一三]年级起点/gu, '').includes(grade)) return false
         return volume ? title.includes(volume) : /全一册|年级$/u.test(title) || !/[上下]册/u.test(title)
     })
 }
@@ -158,7 +159,6 @@ for (const book of books) {
             : nodes.filter(node => ours.has(normaliseTitle(node.title))).length
         const variant = variantScore(book, candidate.title)
         const score = overlap / Math.max(1, bookText ? titled.length : Math.min(nodes.length, ours.size)) + variant * 0.2
-        if (process.env.DEBUG_MATCH) console.log("   cand", candidate.title, { overlap, variant, score })
         if (!best || score > best.score) best = { candidate, tree, nodes, overlap, score, variant, tie: false }
         else if (score === best.score) best.tie = true
     }
