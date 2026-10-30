@@ -64,7 +64,9 @@ const bandMatches = (bands: string[], recordBand: string) => bands.some(band => 
 const TOPIC_STOP_WORDS = new Set([
     '学生', '学习', '课程', '标准', '课标', '教学', '相关', '有关', '要求', '目标', '能力',
     '能够', '通过', '进行', '一个', '一些', '如何', '需要', '适合', '内容', '活动', '任务',
-    '学科', '学段', '年级', '理解', '掌握', '培养', '查找', '寻找', '检索'
+    '学科', '学段', '年级', '理解', '掌握', '培养', '查找', '寻找', '检索',
+    // too general to carry a topic: 「分数的基本性质」 put 「基本的化学实验技能」 first; 「基本性质」 stays a term
+    '基本'
 ])
 const PAIR_SUFFIX_START = /^[性的地得之们着了]/u
 const PLAN_ALIGNMENT_STOP_WORDS = new Set([
@@ -78,7 +80,9 @@ const QUERY_SCAFFOLDING = [
     '学科', '课程', '课标', '标准', '教学', '学习', '要求', '目标', '能力', '理解', '掌握', '中的', '中', '里的',
     '里', '关于', '跟', '以及', '并且', '并用', '并', '与', '和', '通过', '进行', '用于',
     // connectives and question words: "但是非语文或者英语学科" leaves no topic behind
-    '但是', '可是', '不过', '或者', '还是', '而且', '或是', '哪些', '什么', '有哪些', '有没有', '一下', '的'
+    '但是', '可是', '不过', '或者', '还是', '而且', '或是', '哪些', '什么', '有哪些', '有没有', '一下', '的',
+    // a teacher's question around the topic: 「怎么教圆的面积」 is about 圆的面积
+    '怎么教', '怎样教', '如何教', '怎么', '怎样'
 ].sort((left, right) => right.length - left.length)
 const SEARCH_FIELDS: Array<[string, number]> = [
     ['standard', 1],

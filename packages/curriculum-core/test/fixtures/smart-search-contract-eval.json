@@ -36,5 +36,20 @@
     "expected_grade_bands": ["H2"],
     "expected_core_terms": ["阅读"],
     "forbidden_core_terms": ["三年级", "语文以外"]
+  },
+  {
+    "id": "teacher-question-how-to-teach",
+    "query": "怎么教圆的面积",
+    "natural_only": true,
+    "expected_core_terms": ["面积"],
+    "forbidden_core_terms": ["怎么", "怎么教圆", "教圆"]
+  },
+  {
+    "id": "generic-word-basic",
+    "query": "分数的基本性质",
+    "natural_only": true,
+    "expected_core_terms": ["分数", "基本性质"],
+    "forbidden_core_terms": ["基本"],
+    "expected_codes": ["MA-S3-NA-01"]
   }
 ]
