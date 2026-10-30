@@ -534,3 +534,10 @@ button.badge:focus-visible {
     font-size: 0.8rem;
     line-height: 1.7;
 }
+
+/* links inside running text need more than colour to stand out (WCAG link-in-text-block) */
+.blockNote a {
+    color: var(--kb-gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
