@@ -209,3 +209,37 @@ body{font-family:"SimSun","Songti SC",serif;font-size:12pt;line-height:1.6;margi
     link.remove()
     setTimeout(() => URL.revokeObjectURL(url), 2000)
 }
+
+// ---------- 核验报告 (a teacher's own plan, checked) ----------
+function reportLines(report) {
+    const { read, checks, evidence, title } = report
+    const risks = checks.filter(item => item.level === 'risk').length
+    const warns = checks.filter(item => item.level === 'warn').length
+    const out = [`教案核验报告：${read.frame.title || title || ''}`, `${risks ? `${risks} 处需要修改` : '没有必须修改的地方'}${warns ? `，${warns} 处建议` : ''}`, '', '一、核验发现']
+    for (const item of checks) out.push(`· ${item.message}${item.quote ? `（${item.quote}）` : ''}`)
+    out.push('', '二、教学目标与对应的课标要点')
+    read.frame.objectives.forEach((item, index) => out.push(`${index + 1}. ${item.text}　→ ${item.basis.length ? item.basis.join('、') : '没有对应的要点'}`))
+    out.push('', '三、依据的课标原文（义务教育课程标准 2022年版2025年修订）')
+    for (const item of evidence) out.push(`${item.code}　${item.text}（修订版第 ${item.pages.join('、')} 页）`)
+    out.push('', 'AI 只负责把教案整理成目标、评价和环节，并判断每条目标对应哪条要点；超标、目标—活动—评价是否一致由程序对照课标原文检查（kebiao.org）。结果供参考，以课标原文为准。')
+    return out
+}
+
+export function reportToText(report) {
+    return reportLines(report).join('\n')
+}
+
+export function downloadReportWord(report) {
+    const lines = reportLines(report)
+    const body = lines.map((line, index) => (index === 0 ? `<h1>${esc(line)}</h1>` : /^[一二三]、/u.test(line) ? `<h2>${esc(line)}</h2>` : line ? `<p>${esc(line)}</p>` : '')).join('\n')
+    const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(lines[0])}</title><style>body{font-family:"SimSun","Songti SC",serif;font-size:12pt;line-height:1.7;margin:2cm}h1{font-size:16pt;text-align:center}h2{font-size:13pt;margin:14pt 0 4pt}</style></head><body>${body}</body></html>`
+    const blob = new Blob(['\ufeff', html], { type: 'application/msword' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${(report.read.frame.title || '教案').replace(/[\\/:*?"<>|]/gu, '')}-核验报告.doc`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    setTimeout(() => URL.revokeObjectURL(url), 2000)
+}

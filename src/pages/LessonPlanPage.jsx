@@ -8,7 +8,7 @@ import { XCircleIcon } from '@phosphor-icons/react/dist/csr/XCircle'
 import { postApi } from '../data/api'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
-import { downloadTestWord, downloadWord, downloadUnitWord, planToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
+import { downloadReportWord, downloadTestWord, downloadWord, downloadUnitWord, planToText, reportToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
@@ -1007,11 +1007,23 @@ function TestReport({ report }) {
 
 function CheckReport({ report }) {
     const { read, checks, evidence } = report
+    const [copied, setCopied] = useState(false)
+    async function copy() {
+        try {
+            await navigator.clipboard.writeText(reportToText(report))
+            setCopied(true)
+            trackUmamiEvent('lesson_plan_export', { format: 'copy', kind: 'check' })
+        } catch { setCopied(false) }
+    }
     const risks = checks.filter(item => item.level === 'risk').length
     const warns = checks.filter(item => item.level === 'warn').length
     return (
         <article className={styles.doc} aria-labelledby="lp-report-title">
-            <div className={styles.docActions}><span className={styles.aiBadge}>AI 读取 + 程序核验</span></div>
+            <div className={styles.docActions}>
+                <span className={styles.aiBadge}>AI 读取 + 程序核验</span>
+                <button type="button" className="btn btn-secondary" onClick={copy}>{copied ? '已复制' : '复制报告'}</button>
+                <button type="button" className="btn btn-secondary" onClick={() => { downloadReportWord(report); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'check' }) }}>下载 Word</button>
+            </div>
             <header className={styles.docHead}>
                 <h2 id="lp-report-title">核验报告{read.frame.title ? `：${read.frame.title}` : ''}</h2>
                 <p>{risks ? `${risks} 处需要修改` : '没有必须修改的地方'}{warns ? ` · ${warns} 处建议` : ''}</p>

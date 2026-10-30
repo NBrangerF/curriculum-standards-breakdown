@@ -146,6 +146,14 @@ test('核验我的教案 reads a pasted plan and shows what to fix', async ({ pa
     await expect(page.getByText(/2 处需要修改/)).toBeVisible()
     await expect(page.getByText('没有对应的要点')).toBeVisible()
     expect(sent.indicator_codes).toEqual(['MA-S3-NA-01.3'])
+    await page.context().grantPermissions(['clipboard-read', 'clipboard-write'])
+    await page.getByRole('button', { name: '复制报告' }).click()
+    const text = await page.evaluate(() => navigator.clipboard.readText())
+    expect(text).toContain('教案核验报告：分数的基本性质')
+    expect(text).toContain('2 处需要修改')
+    const download = page.waitForEvent('download')
+    await page.getByRole('button', { name: '下载 Word' }).click()
+    expect((await download).suggestedFilename()).toBe('分数的基本性质-核验报告.doc')
 })
 
 test('the AI reads the grade\'s standards for a lesson; the teacher hint reruns only that step', async ({ page }) => {
