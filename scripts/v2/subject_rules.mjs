@@ -66,6 +66,8 @@ RULES.arts = {
     }
 }
 
+const e0text = (e, lines) => (lines.find(x => x.id === e.id) || e).text
+
 // Walk a subject's 课程内容 in source order and file each line by the outline numbering instead of the catalogue's
 // section labels (the scan carries one section's label onto the next heading):
 //   unitRe  (e.g. 1.2)   opens a unit; its name is the heading line, or from docs/data/v2/units/<slug>-names.tsv
@@ -73,28 +75,34 @@ RULES.arts = {
 //   itemRe  (e.g. 1.2.3) opens a 要点; unmarked lines continue it; exampleRe lines ("例1 ……") are official examples
 //   otherRe (e.g. （1）)  opens text that is not a 要点 (活动建议); unmarked lines continue it
 //   reqSection lines are the theme's 学业要求 (shown in the stage overview)
-function outline(lines, { readTsv, strip }, { slug, sections, themeOf = e => (e.topic || [])[0], unitRe, itemRe, otherRe, exampleRe = /^例\s*\d+|^例(?!如)/u, itemPerMarker = true }) {
+function outline(lines, { readTsv, strip }, { slug, sections, themeOf = e => (e.topic || [])[0], unitRe, itemRe, otherRe, otherText, exampleRe = /^例\s*\d+|^例(?!如)/u, itemPerMarker = true, gluedAs = 'item', headingName = 'short' }) {
     const names = new Map(readTsv(`docs/data/v2/units/${slug}-names.tsv`).map(([theme, marker, name]) => [`${theme}|${marker}`, name]))
     const out = new Map()
     let unit = null, mode = 'item', item = null, itemPara = null
-    for (const e of lines) {
+    for (let e of lines) {
         if (e.part !== '课程内容' || !sections.includes(e.section)) continue
         const area = themeOf(e)
         if (!area) continue
         if (unit && unit.area !== area) { unit = null; item = null }
-        const marker = e.marker || ''
+        let marker = e.marker || ''
+        // OCR split "6.1.2" into marker "6." and text "1.2 ……".
+        if (/^\d\.$/u.test(marker) && /^\d\.\d\s/u.test(e.text)) { marker = marker + e.text.match(/^\d\.\d/u)[0]; e = { ...e, text: e.text.replace(/^\d\.\d\s*/u, '') }; out.set(e.id, null) }
+        if (otherText && otherText.test(e.text)) { if (unit) out.set(e.id, { ...unit, role: 'other' }); continue }
         if (unitRe.test(marker)) {
-            const name = names.get(`${area}|${marker}`) || (!/[。；，]/u.test(e.text) ? e.text.trim() : null)
+            const name = names.get(`${area}|${marker}`) || (headingName === 'line' || !/[。；，]/u.test(e.text) ? e.text.trim() : null)
             if (!name) { unit = null; continue }
             unit = { area, unit: name }
             mode = 'item'; item = null
-            const rest = e.text.startsWith(name) ? e.text.slice(name.length).trim() : (strip(e.text) === strip(name) ? '' : e.text)
-            if (!rest) out.set(e.id, { ...unit, role: 'heading' })
+            const rest = e.text.startsWith(name) ? e.text.slice(name.length).replace(/^[：:]/u, '').trim() : (strip(e.text) === strip(name) ? '' : e.text)
+            // A heading that runs onto the next line ("……是每个人" + "应有的责任") continues until the first numbered item.
+            if (!rest) { out.set(e.id, { ...unit, role: 'heading' }); if (itemRe) mode = 'heading' }
+            else if (gluedAs === 'heading') { out.set(e.id, { ...unit, role: 'heading', text: rest }); mode = 'heading' }
             else { out.set(e.id, { ...unit, role: 'item', text: rest }); item = e.id }
             continue
         }
         if (!unit) continue
-        if (itemRe && itemRe.test(marker)) { mode = 'item'; item = e.id; itemPara = e.para; const name = names.get(`${area}|${marker}`); out.set(e.id, { ...unit, role: 'item', ...(itemPerMarker ? { para: itemPara } : {}), ...(name && e.text.startsWith(name) ? { text: e.text.slice(name.length).trim() } : {}) }); continue }
+        if (itemRe && itemRe.test(marker)) { mode = 'item'; item = e.id; itemPara = e.para; const name = names.get(`${area}|${marker}`); out.set(e.id, { ...unit, role: 'item', ...(itemPerMarker ? { para: itemPara } : {}), ...(name && e.text.startsWith(name) ? { text: e.text.slice(name.length).trim() } : e.text !== e0text(e, lines) ? { text: e.text } : {}) }); continue }
+        if (mode === 'heading') { out.set(e.id, { ...unit, role: 'heading' }); continue }
         if (otherRe && otherRe.test(marker)) { mode = 'other'; out.set(e.id, { ...unit, role: 'other' }); continue }
         if (mode === 'other') { out.set(e.id, { ...unit, role: 'other' }); continue }
         // An example runs until the next marker.
@@ -126,4 +134,16 @@ RULES.chemistry = {
     title: u => (u.unit === '学生必做实验及实践活动' ? `${u.unit}（${u.area}）` : `${u.unit}（${u.stage.replace('-', '–')} 年级）`),
     dropIndicator: /^注：|应达到如下基本要求。$/u,
     prepare: (lines, h) => outline(lines, h, { slug: 'chemistry', sections: ['内容要求'], unitRe: /^\d\.\d(\.\d)?$/u })
+}
+
+const BI_AREAS = { 生物体的结构层次: 'ST', 生物的多样性: 'DI', 生物与环境: 'EN', 植物的生活: 'PL', 人体生理与健康: 'HU', 遗传与进化: 'GE', '生物学与社会•跨学科实践': 'XP' }
+// 生物学：单元是重要概念（1.1 细胞是生物体结构和功能的基本单位……），标准句就是这句概念原文；要点是次位概念
+// （1.1.1……）；跨学科实践（9.1……）的要点是（1）（2）活动。大概念（「概念1 ……」）和学业要求放学段概览。
+RULES.biology = {
+    areas: BI_AREAS,
+    split: 'items',
+    statement: { from: 'heading', section: '内容要求（重要概念）', cut: /在这类跨学科实践活动中.*$/u },
+    stageRequirement: e => e.part === '课程内容' && e.section === '学业要求',
+    title: u => `${u.unit}（${u.stage.replace('-', '–')} 年级）`,
+    prepare: (lines, h) => outline(lines, h, { slug: 'biology', sections: ['内容要求'], unitRe: /^\d\.\d$/u, itemRe: /^\d\.\d\.\d$|^（\d+）$/u, otherText: /^概念\s*\d/u, gluedAs: 'heading', headingName: 'line', exampleRe: null })
 }

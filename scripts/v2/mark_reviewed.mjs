@@ -12,7 +12,7 @@ if (!existsSync(file)) writeFileSync(file, '# 修订改动和疑似识别差异�
 const reviewed = readTsv(file).map(([t]) => t)
 const units = JSON.parse(readFileSync(`generated/v2/units/${slug}.json`, 'utf8'))
 const SUSPECT = /[A-Za-z%"”［］�•]/u
-const FORMULA = /pH|\d+%|y=k\/x|y=kx\+b|y=kx|sinA|cosA|tanA|k[≠＞＜]0|“[^”]*”/gu
+const FORMULA = /pH|DNA|\d+%|y=k\/x|y=kx\+b|y=kx|sinA|cosA|tanA|k[≠＞＜]0|“[^”]*”/gu
 let n = 0
 for (const s of units.standards) {
     const all = [

@@ -374,11 +374,12 @@ function buildGeneric() {
         }
         return merged
     }
-    const gradesFor = (unit, text) => {
-        const rules = gradeRules.filter(r => r.unit === unit || r.unit === '*')
+    // Grade rules name a unit, a level-1 area, or "*" (every unit).
+    const gradesFor = ({ unit, area }, text) => {
+        const own = r => r.unit === unit || r.unit === area
+        const rules = gradeRules.filter(r => own(r) || r.unit === '*')
         let hits = rules.filter(r => r.re && r.re.test(text))
-        // A unit's own rules come first; keyword rules for every unit ("*") add to them.
-        if (!hits.length) hits = rules.filter(r => r.any && r.unit === unit)
+        if (!hits.length) hits = rules.filter(r => r.any && own(r))
         if (!hits.length) hits = rules.filter(r => r.any && r.unit === '*')
         if (!hits.length) return { grades: [7, 8, 9], grade_basis: null }
         return { grades: [...new Set(hits.flatMap(r => r.grades))].sort(), grade_basis: [...new Set(hits.map(r => r.basis))].join('；') }
@@ -429,7 +430,9 @@ function buildGeneric() {
             }
         } else if (sc.from === 'heading') {
             const h = headings.get(`${u.stage}|${u.area}|${u.unit}`) || []
-            if (h.length) statement = { ...make({ text: h.map(e => e.text).join(''), ids: h.map(e => e.id), pages: [...new Set(h.map(e => e.page))] }), source: 'official', section: sc.section || '内容要求' }
+            // sc.cut drops a lead-in that follows the heading ("在这类……可供选择的项目如下。").
+            const text = h.map(e => e.text).join('').replace(sc.cut || /$^/u, '')
+            if (h.length) statement = { ...make({ text, ids: h.map(e => e.id), pages: [...new Set(h.map(e => e.page))] }), source: 'official', section: sc.section || '内容要求' }
         } else if (sc.from === 'statement') {
             const st = role('statement')
             if (st.length) {
@@ -442,7 +445,7 @@ function buildGeneric() {
             statement = summary ? { text: summary, source: 'kebiao_summary' } : { text: '', source: 'missing' }
             if (!summary) problems.push(`no statement: ${u.stage} ${u.unit}`)
         }
-        if (u.stage === '7-9' && cfg.junior !== 'none') indicators = indicators.map(i => ({ ...i, ...(i.grades ? {} : gradesFor(u.unit, i.text)), ...(i.text.startsWith('*') ? { optional: true } : {}) }))
+        if (u.stage === '7-9' && cfg.junior !== 'none') indicators = indicators.map(i => ({ ...i, ...(i.grades ? {} : gradesFor(u, i.text)), ...(i.text.startsWith('*') ? { optional: true } : {}) }))
         if (!indicators.length) problems.push(`no 要点: ${u.stage} ${u.unit}`)
         built.push({ ...u, statement, indicators, requirements })
     }
