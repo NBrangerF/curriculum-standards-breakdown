@@ -775,20 +775,31 @@ export async function readTest(testText: string, input: DraftInput, options: Str
     return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
 }
 
-// A whole paper (期末卷, 30–45 items) is more than one call writes in time. Long papers are cut at question
-// boundaries into parts of about 1,800 characters, read side by side, then merged.
-const QUESTION_START = /^\s*(?:[一二三四五六七八九十]+、|\d+\s*[.．、])/u
-export function splitTest(text: string, partChars = 1800, maxParts = 4): string[] {
-    if (text.length <= partChars * 1.3) return [text]
+// A whole paper (期末卷, 30–45 items) is more than one call writes in time: the time goes on the answer, about
+// one line per question, so a live 34-question paper of only 1,700 characters timed out. Papers are cut at
+// question starts into parts of at most 12 questions (or about 1,800 characters), read side by side, then
+// merged. A part that starts inside a section repeats that section's heading, which carries the 分值.
+const SECTION_START = /^\s*[一二三四五六七八九十]+\s*[、.．]/u
+const QUESTION_START = /^\s*\d+\s*[.．、]/u
+export function splitTest(text: string, partQuestions = 12, partChars = 1800, maxParts = 4): string[] {
+    const lines = text.split('\n')
+    const questionCount = lines.filter(line => QUESTION_START.test(line)).length
+    if (questionCount <= partQuestions * 1.25 && text.length <= partChars * 1.3) return [text]
     const parts: string[] = []
     let current: string[] = []
     let size = 0
-    for (const line of text.split('\n')) {
-        if (size >= partChars && QUESTION_START.test(line) && parts.length < maxParts - 1) {
+    let questions = 0
+    let section = ''
+    for (const line of lines) {
+        const starts = SECTION_START.test(line) || QUESTION_START.test(line)
+        if (starts && (questions >= partQuestions || size >= partChars) && parts.length < maxParts - 1) {
             parts.push(current.join('\n'))
-            current = []
+            current = section && !SECTION_START.test(line) ? [section] : []
             size = 0
+            questions = 0
         }
+        if (SECTION_START.test(line)) section = line.trim()
+        if (QUESTION_START.test(line)) questions += 1
         current.push(line)
         size += line.length + 1
     }

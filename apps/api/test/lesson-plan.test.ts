@@ -486,6 +486,13 @@ test('a long paper is cut at question boundaries; a short one stays whole', () =
     // every part starts at a question, and nothing is lost
     assert.ok(parts.slice(1).every(part => /^\d+\./u.test(part)))
     assert.equal(parts.join('\n'), lines.join('\n'))
+    // a short paper with many questions is split too, and a part inside a section repeats its heading
+    const many = ['一、填空（每空 1 分）', ...Array.from({ length: 20 }, (_, k) => `${k + 1}. 第 ${k + 1} 空（ ）。`), '二、计算（每题 4 分）', ...Array.from({ length: 14 }, (_, k) => `${k + 21}. 计算第 ${k + 21} 题。`)]
+    const pieces = splitTest(many.join('\n'))
+    assert.equal(pieces.length, 3)
+    assert.ok(pieces[1].startsWith('一、填空（每空 1 分）\n13.'))
+    assert.ok(pieces[2].startsWith('二、计算（每题 4 分）') || pieces[2].includes('二、计算（每题 4 分）\n25.'))
+    assert.equal(pieces.join('\n').split('\n').filter(line => /^\d+\./u.test(line)).length, 34)
 })
 
 test('核验我的试卷: a long paper is read in parts and the questions are merged', async t => {
