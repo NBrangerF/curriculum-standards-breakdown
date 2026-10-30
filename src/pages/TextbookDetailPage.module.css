@@ -30,6 +30,9 @@
 .relationCount { color: var(--kb-gold); font-size: 12px; white-space: nowrap; }
 .toc .unitLink { display: inline-flex; min-width: 2.75rem; min-height: 2.75rem; align-items: center; justify-content: center; padding: .35rem; color: var(--kb-gold); font-size: 12.5px; white-space: nowrap; }
 .toc .unitLink:hover { background: transparent; text-decoration: underline; }
+.aiPoints { display: flex; flex-wrap: wrap; gap: .25rem .6rem; align-items: baseline; grid-column: 1 / -1; margin: .1rem 0 .3rem; font-size: 12px; }
+.aiPoints span { color: var(--kb-dim); }
+.aiPoints a { color: var(--kb-gold); font-family: var(--font-mono); text-decoration: underline; text-underline-offset: 3px; }
 .alignmentList { display: grid; gap: .75rem; }
 .scopePanel { margin-top: var(--space-6); padding: clamp(18px,2.4vw,26px); border: 1px solid var(--kb-line); border-radius: 22px; background: var(--kb-night-glass); }
 .scopeHeading { display: grid; grid-template-columns: minmax(12rem,.8fr) minmax(0,1fr); gap: var(--space-6); align-items: end; }

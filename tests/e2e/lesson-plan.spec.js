@@ -346,3 +346,10 @@ test('中考复习地图 lists a subject\'s junior standards with the textbook u
     await page.getByRole('tab', { name: '物理' }).click()
     await expect(page.getByText('学业要求（课标原文').first()).toBeVisible()
 })
+
+test('a textbook\'s table of contents shows the 要点 the AI judged each unit to teach', async ({ page }) => {
+    await page.goto('/textbooks/ed_2860489fc83ddeb6cec5')
+    const points = page.getByText('AI 按单元判断的要点').first()
+    await expect(points).toBeVisible()
+    await expect(page.getByRole('link', { name: /^HI-S4-MC-0\d\.\d+$/ }).first()).toHaveAttribute('href', /\/standards\/HI-S4-MC-0\d#HI-S4-MC-0\d\.\d+/)
+})

@@ -65,6 +65,25 @@ export default function TextbookDetailPage() {
         loadTextbookDetail(editionId).then(setBook).catch(errorValue => setError(errorValue.message))
     }, [editionId])
 
+    // the 要点 the AI judged each unit to teach (国家平台 unit picks), keyed by kebiao unit
+    const [aiPoints, setAiPoints] = useState(() => new Map())
+    useEffect(() => {
+        let active = true
+        setAiPoints(new Map())
+        fetch(`/data/textbooks/national-lessons/${editionId}.json`).then(response => (response.ok ? response.json() : null)).then(record => {
+            if (!active || !record) return
+            const byUnit = new Map()
+            for (const lesson of record.lessons || []) {
+                if (!lesson.unit_id || !lesson.ai_points?.length) continue
+                const list = byUnit.get(lesson.unit_id) || []
+                for (const point of lesson.ai_points) if (!list.includes(point)) list.push(point)
+                byUnit.set(lesson.unit_id, list)
+            }
+            setAiPoints(byUnit)
+        }).catch(() => {})
+        return () => { active = false }
+    }, [editionId])
+
     const alignmentsByUnit = useMemo(() => {
         const groups = new Map()
         for (const alignment of book?.alignments || []) {
@@ -137,6 +156,9 @@ export default function TextbookDetailPage() {
                                             {(alignmentsByUnit.get(entry.entry_id)?.length || 0) > 0 && <span className={styles.relationCount}>{alignmentsByUnit.get(entry.entry_id).length} 条课标</span>}
                                             <Link className={styles.unitLink} to={`/textbook-units/${entry.entry_id}`}>关联页</Link>
                                         </div>
+                                        {aiPoints.get(entry.entry_id)?.length ? (
+                                            <p className={styles.aiPoints}><span>AI 按单元判断的要点</span>{aiPoints.get(entry.entry_id).slice(0, 3).map(code => <Link key={code} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`}>{code}</Link>)}</p>
+                                        ) : null}
                                     </li>
                                 ))}
                             </ol>
