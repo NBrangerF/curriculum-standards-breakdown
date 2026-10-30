@@ -11,17 +11,21 @@
 //   wording    — kebiao summaries use the subject's own words (bigram recall ≥ 0.9, warning)
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { RULES } from './subject_rules.mjs'
-import { SUBJECT_PREFIX, STAGES, loadCatalog, loadOcrFixes, applyFixes, tidy, grams, recall, dice, readTsv } from './lib.mjs'
+import { SUBJECT_PREFIX, STAGES, loadCatalog, loadOcrFixes, applyFixes, tidy, grams, recall, dice, readTsv, strip } from './lib.mjs'
 
 // Which catalogue clauses each subject promises to cover (docs/STANDARDS_METHOD_V2.md §2).
 // Subjects on the shared builder promise every line their rules give a 要点, 学业要求 or activity role.
-const ruled = slug => RULES[slug] && (e => { const u = e.part === '课程内容' || RULES[slug].anyPart ? RULES[slug].unitOf(e) : null; return Boolean(u && ['item', 'req', 'activity'].includes(u.role) && !(RULES[slug].activityNote && RULES[slug].activityNote.test(e.text))) })
+const ruled = (slug, catalog) => {
+    if (!RULES[slug]) return null
+    const prepared = RULES[slug].prepare ? RULES[slug].prepare(catalog, { readTsv, strip }) : null
+    return e => { const u = prepared ? prepared.get(e.id) : (e.part === '课程内容' ? RULES[slug].unitOf(e) : null); return Boolean(u && ['item', 'req', 'activity', 'example'].includes(u.role) && !(RULES[slug].activityNote && RULES[slug].activityNote.test(e.text))) }
+}
 const COVERAGE = {
     labor: e => e.part === '课程内容' && ['内容要求', '素养表现'].includes(e.section),
     math: e => e.part === '课程内容' && (e.section === '学业要求' || (e.stage === '7-9' && e.section === '内容要求'))
 }
 const SUSPECT = /[A-Za-z%"”［］�•]/u
-const FORMULA = /y=k\/x|y=kx\+b|y=kx|y\/x=k|y=a\(x−h\)²\+k|\(a[+±−]b\)[^，]*|sinA|cosA|tanA|k[≠＞＜]0|“[^”]*”/gu
+const FORMULA = /pH|\d+%|y=k\/x|y=kx\+b|y=kx|y\/x=k|y=a\(x−h\)²\+k|\(a[+±−]b\)[^，]*|sinA|cosA|tanA|k[≠＞＜]0|“[^”]*”/gu
 
 const slugs = process.argv.slice(2).length ? process.argv.slice(2) : readdirSync('data/v2/by_subject').map(f => f.replace(/\.json$/u, ''))
 let errorCount = 0
@@ -31,7 +35,7 @@ for (const slug of slugs) {
     const data = JSON.parse(readFileSync(`data/v2/by_subject/${slug}.json`, 'utf8'))
     const overview = existsSync(`data/v2/stage_overview/${slug}.json`) ? JSON.parse(readFileSync(`data/v2/stage_overview/${slug}.json`, 'utf8')) : {}
     const legacyMap = JSON.parse(readFileSync(`data/v2/legacy/${slug}.json`, 'utf8'))
-    const oldRecords = JSON.parse(readFileSync(`data/internal/by_subject/${slug}.json`, 'utf8')).standards
+    const oldRecords = existsSync(`data/internal/by_subject/${slug}.json`) ? JSON.parse(readFileSync(`data/internal/by_subject/${slug}.json`, 'utf8')).standards : []
     const catalog = loadCatalog('2025r', slug)
     const byId = new Map(catalog.map(e => [e.id, e]))
     const fixes = loadOcrFixes(slug)
@@ -89,7 +93,7 @@ for (const slug of slugs) {
     for (const x of data.skipped_source_ids || []) used.add(x.id)
 
     // Coverage of the official clauses.
-    const promised = COVERAGE[slug] || ruled(slug)
+    const promised = COVERAGE[slug] || ruled(slug, catalog)
     if (!promised) warnings.push('no coverage rule for this subject')
     else {
         const missing = catalog.filter(e => e.stage && promised(e) && !used.has(e.id))

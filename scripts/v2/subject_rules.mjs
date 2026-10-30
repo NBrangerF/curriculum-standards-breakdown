@@ -65,3 +65,65 @@ RULES.arts = {
         return { area: t[0], unit: t[1].replace(/^学习任务\s*\d+\s*[：:]/u, '').trim(), role }
     }
 }
+
+// Walk a subject's 课程内容 in source order and file each line by the outline numbering instead of the catalogue's
+// section labels (the scan carries one section's label onto the next heading):
+//   unitRe  (e.g. 1.2)   opens a unit; its name is the heading line, or from docs/data/v2/units/<slug>-names.tsv
+//                        (theme \t marker \t name) when the name is glued to the first sentence
+//   itemRe  (e.g. 1.2.3) opens a 要点; unmarked lines continue it; exampleRe lines ("例1 ……") are official examples
+//   otherRe (e.g. （1）)  opens text that is not a 要点 (活动建议); unmarked lines continue it
+//   reqSection lines are the theme's 学业要求 (shown in the stage overview)
+function outline(lines, { readTsv, strip }, { slug, sections, themeOf = e => (e.topic || [])[0], unitRe, itemRe, otherRe, exampleRe = /^例\s*\d+|^例(?!如)/u, itemPerMarker = true }) {
+    const names = new Map(readTsv(`docs/data/v2/units/${slug}-names.tsv`).map(([theme, marker, name]) => [`${theme}|${marker}`, name]))
+    const out = new Map()
+    let unit = null, mode = 'item', item = null, itemPara = null
+    for (const e of lines) {
+        if (e.part !== '课程内容' || !sections.includes(e.section)) continue
+        const area = themeOf(e)
+        if (!area) continue
+        if (unit && unit.area !== area) { unit = null; item = null }
+        const marker = e.marker || ''
+        if (unitRe.test(marker)) {
+            const name = names.get(`${area}|${marker}`) || (!/[。；，]/u.test(e.text) ? e.text.trim() : null)
+            if (!name) { unit = null; continue }
+            unit = { area, unit: name }
+            mode = 'item'; item = null
+            const rest = e.text.startsWith(name) ? e.text.slice(name.length).trim() : (strip(e.text) === strip(name) ? '' : e.text)
+            if (!rest) out.set(e.id, { ...unit, role: 'heading' })
+            else { out.set(e.id, { ...unit, role: 'item', text: rest }); item = e.id }
+            continue
+        }
+        if (!unit) continue
+        if (itemRe && itemRe.test(marker)) { mode = 'item'; item = e.id; itemPara = e.para; const name = names.get(`${area}|${marker}`); out.set(e.id, { ...unit, role: 'item', ...(itemPerMarker ? { para: itemPara } : {}), ...(name && e.text.startsWith(name) ? { text: e.text.slice(name.length).trim() } : {}) }); continue }
+        if (otherRe && otherRe.test(marker)) { mode = 'other'; out.set(e.id, { ...unit, role: 'other' }); continue }
+        if (mode === 'other') { out.set(e.id, { ...unit, role: 'other' }); continue }
+        // An example runs until the next marker.
+        if (exampleRe && exampleRe.test(e.text) && item) { mode = 'example'; out.set(e.id, { ...unit, role: 'example', attachTo: item, text: e.text.replace(exampleRe, '').trim() }); continue }
+        if (mode === 'example') { out.set(e.id, { ...unit, role: 'example', attachTo: item }); continue }
+        if (!item) { item = e.id; itemPara = e.para }
+        out.set(e.id, { ...unit, role: 'item', ...(itemPerMarker && itemRe ? { para: itemPara } : {}) })
+    }
+    return out
+}
+
+const PH_AREAS = { 物质: 'MA', 运动和相互作用: 'MI', 能量: 'EN', 实验探究: 'EX', 跨学科实践: 'XP' }
+// 物理：二级主题（1.1 物质的形态和变化……）。要点是内容要求的编号条目（1.1.1……），「例1」是课标示例；活动建议（（1）（2））
+// 不作要点；学业要求按一级主题写，放学段概览；标准句由 kebiao 概括。
+RULES.physics = {
+    areas: PH_AREAS,
+    split: 'items',
+    stageRequirement: e => e.part === '课程内容' && e.section === '学业要求',
+    prepare: (lines, h) => outline(lines, h, { slug: 'physics', sections: ['内容要求', '活动建议'], unitRe: /^\d\.\d$/u, itemRe: /^\d\.\d\.\d$/u, otherRe: /^（\d+）$/u })
+}
+
+const CH_AREAS = { 科学探究与化学实验: 'SI', 物质的性质与应用: 'PR', 物质的组成与结构: 'CO', 物质的化学变化: 'RE', '化学与社会•跨学科实践': 'SO' }
+// 化学：单元取最深一级编号主题（2.2.1 空气、氧气、二氧化碳……；没有三级的取二级）。要点是内容要求的分句和
+// （1）（2）条目；学业要求按一级主题写，放学段概览；标准句由 kebiao 概括；年级都是九年级。
+RULES.chemistry = {
+    areas: CH_AREAS,
+    split: 'clauses',
+    stageRequirement: e => e.part === '课程内容' && e.section === '学业要求',
+    title: u => (u.unit === '学生必做实验及实践活动' ? `${u.unit}（${u.area}）` : `${u.unit}（${u.stage.replace('-', '–')} 年级）`),
+    dropIndicator: /^注：|应达到如下基本要求。$/u,
+    prepare: (lines, h) => outline(lines, h, { slug: 'chemistry', sections: ['内容要求'], unitRe: /^\d\.\d(\.\d)?$/u })
+}

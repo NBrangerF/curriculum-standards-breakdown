@@ -15,7 +15,9 @@ import { SUBJECT_NAMES, STAGES, grams, recall, loadCatalog, stageCode, gradesOf 
 
 const slug = process.argv[2]
 const units = JSON.parse(readFileSync(`generated/v2/units/${slug}.json`, 'utf8'))
-const legacy = JSON.parse(readFileSync(`data/internal/by_subject/${slug}.json`, 'utf8')).standards
+// New subjects (历史、地理、物理、化学、生物学) have no old records.
+const legacyFile = `data/internal/by_subject/${slug}.json`
+const legacy = existsSync(legacyFile) ? JSON.parse(readFileSync(legacyFile, 'utf8')).standards : []
 const tsv = file => existsSync(file) ? readFileSync(file, 'utf8').split('\n').filter(l => l.trim() && !l.startsWith('#')).map(l => l.split('\t')) : []
 const verdicts = new Map(tsv(`docs/data/audit-2026-11/review/${slug}.tsv`).filter(p => !p[0].startsWith('ADD-')).map(([code, verdict, reason]) => [code, { verdict, reason }]))
 const targets = new Map(tsv(`docs/data/v2/mapping/${slug}.tsv`).map(([code, stage, unit, note]) => [code, { stage, unit, note }]))
