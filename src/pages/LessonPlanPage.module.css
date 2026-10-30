@@ -841,3 +841,19 @@
     outline: 2px solid var(--kb-gold);
     outline-offset: 2px;
 }
+
+/* 复制成提示词 */
+.promptCopy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.8rem;
+    align-items: center;
+    margin: 0.4rem 0 1rem;
+    color: var(--kb-dim);
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
+.promptCopy span {
+    flex: 1 1 16rem;
+}

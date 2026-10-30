@@ -69,6 +69,13 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     await expect(page.getByText('AI 判断：不切题：讲的是等式的性质，不是分数')).toBeVisible()
     await expect(page.getByRole('link', { name: /分数的基本性质/ }).filter({ hasText: '分数的基本性质' }).first()).toBeVisible()
 
+    await page.context().grantPermissions(['clipboard-read', 'clipboard-write'])
+    await page.getByRole('button', { name: '复制成提示词' }).click()
+    await expect(page.getByRole('button', { name: '已复制，去粘贴吧' })).toBeVisible()
+    const prompt = await page.evaluate(() => navigator.clipboard.readText())
+    expect(prompt).toContain('MA-S3-NA-01.3：')
+    expect(prompt).toContain('「分数的基本性质」')
+    expect(prompt).toContain('不要编造课标编码')
     await page.getByPlaceholder(/班级整体情况/).fill('学生会画图表示分数')
     await page.getByRole('button', { name: /按选定的 1 条要点起草教案/ }).click()
     await expect(page.getByRole('heading', { name: '二、教学目标' })).toBeVisible()

@@ -513,6 +513,7 @@ export default function LessonPlanPage() {
                         ))}
                     </ul>
                     {!context.standards.length ? <p className={styles.small}>这一课还没有对齐的课标。等 AI 读完，或改用「直接写课题」。</p> : null}
+                    {selectedCount && ai.status !== 'loading' ? <PromptCopy context={context} selected={selected} isUnit={isUnit} /> : null}
 
                     <div className={styles.sideGrid}>
                         {context.subject_note ? (
@@ -855,6 +856,41 @@ function CheckList({ checks }) {
                 return <li key={`${item.kind}-${index}`} data-level={item.level}><Icon size={16} aria-hidden="true" /><span>{item.message}{item.quote ? <small>「{item.quote}」</small> : null}</span></li>
             })}
         </ul>
+    )
+}
+
+// For teachers who write with 豆包、DeepSeek or 元宝: the ticked 要点, verbatim with pages, and the rules kebiao's own
+// drafts follow, as one prompt to paste there. The plan can come back to 「核验教案」.
+function PromptCopy({ context, selected, isUnit }) {
+    const [copied, setCopied] = useState(false)
+    const lesson = context.lesson
+    const points = context.standards.flatMap(standard => standard.indicators.filter(item => selected.has(item.code)))
+    const what = isUnit ? '单元整体教学设计（单元大概念、基本问题、单元目标、表现性任务、课时安排）' : '一份 40 分钟的教案'
+    const text = [
+        `请你作为${context.subject_note?.name || ''}教研员，依据下面的课程标准要点，为${[lesson.edition_name, lesson.textbook_title].filter(Boolean).join('')}${lesson.textbook_title ? '的' : ''}「${lesson.title}」${lesson.grade ? `（${lesson.grade} 年级）` : ''}写${what}。`,
+        '',
+        '课标依据（《义务教育课程标准（2022年版2025年修订）》原文）：',
+        ...points.map(item => `- ${item.code}：${item.text}（修订版第 ${item.pages.join('、')} 页）`),
+        '',
+        '要求：',
+        '1. 教学目标 2–4 条，每条以「学生能」开头，写清条件、行为和程度，用看得见的动词，并在括号里注明依据的要点编码。',
+        '2. 先写评价任务（每条目标至少对应一个），再写教学过程（环节、时间、教师活动、学生活动、设计意图），每个环节注明推进哪条目标。',
+        '3. 要点里写明「不包括」「不要求」的内容不要出现；只用上面的要点编码，不要编造课标编码或原文。',
+        '',
+        '写好后，可以把教案贴到 kebiao.org/lesson-plan 的「核验教案」，对照课标逐条核验。'
+    ].join('\n')
+    async function copy() {
+        try {
+            await navigator.clipboard.writeText(text)
+            setCopied(true)
+            trackUmamiEvent('lesson_plan_export', { format: 'prompt', kind: isUnit ? 'unit' : 'lesson' })
+        } catch { setCopied(false) }
+    }
+    return (
+        <div className={styles.promptCopy}>
+            <button type="button" className="btn btn-secondary" onClick={copy}>{copied ? '已复制，去粘贴吧' : '复制成提示词'}</button>
+            <span>习惯用豆包、DeepSeek、元宝写教案？把勾好的 {points.length} 条要点原文和写法要求一起复制过去。写完可以回来「核验教案」。</span>
+        </div>
     )
 }
 
