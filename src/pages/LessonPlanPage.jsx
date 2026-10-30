@@ -56,6 +56,8 @@ export default function LessonPlanPage() {
     const [ownPlan, setOwnPlan] = useState('')
     const [report, setReport] = useState(null)
     const [unitPlan, setUnitPlan] = useState(null)
+    const [talk, setTalk] = useState(null)
+    const [talking, setTalking] = useState(false)
     const [unitHours, setUnitHours] = useState(0)
     const [checking, setChecking] = useState(false)
     const [hint, setHint] = useState('')
@@ -217,6 +219,7 @@ export default function LessonPlanPage() {
         }
         const base = { lesson: { ...lesson, subject_name: subjectName }, meta: { period_minutes: settings.period, lesson_index: request.lesson_index, lesson_count: settings.count } }
         setPlan(null)
+        setTalk(null)
         try {
             setStep('frame')
             const first = (await postApi('/api/v1/lesson-plans/draft', { ...request, step: 'frame' })).data
@@ -262,6 +265,30 @@ export default function LessonPlanPage() {
         } catch (errorValue) {
             setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
             setStep('')
+        }
+    }
+
+    // 说课稿 from the drafted plan (说课比赛、教资面试)
+    async function makeTalk() {
+        if (!plan?.process) return
+        setTalking(true)
+        setError('')
+        try {
+            const lesson = plan.lesson
+            const payload = (await postApi('/api/v1/lesson-plans/draft', {
+                step: 'talk',
+                lesson: { title: lesson.title.slice(0, 60), ...(lesson.unit_title ? { unit_title: lesson.unit_title.slice(0, 60) } : {}), ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}), ...(lesson.edition_name ? { edition_name: lesson.edition_name } : {}), subject_slug: lesson.subject_slug, grade: lesson.grade || null },
+                indicator_codes: plan.evidence.map(item => item.code),
+                period_minutes: plan.meta?.period_minutes || 40,
+                frame: plan.frame,
+                process: plan.process
+            })).data
+            setTalk(payload.talk)
+            trackUmamiEvent('lesson_plan_export', { format: 'talk', kind: 'lesson' })
+        } catch (errorValue) {
+            setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
+        } finally {
+            setTalking(false)
         }
     }
 
@@ -553,7 +580,8 @@ export default function LessonPlanPage() {
 
             {unitPlan && isUnit ? <UnitDocument plan={unitPlan} edition={edition} subject={subject} onCopy={async () => { try { await navigator.clipboard.writeText(unitToText(unitPlan)); setCopied(true) } catch { setCopied(false) } }} copied={copied} /> : null}
             {report && task === 'check' && !isUnit ? <CheckReport report={report} /> : null}
-            {plan && !isUnit ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} /> : null}
+            {plan && !isUnit ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} onTalk={makeTalk} talking={talking} /> : null}
+            {talk && plan && !isUnit ? <TalkScriptView talk={talk} title={plan.frame?.title || plan.lesson.title} /> : null}
         </div>
     )
 }
@@ -704,6 +732,26 @@ function UnitDocument({ plan, edition, subject, onCopy, copied }) {
     )
 }
 
+function TalkScriptView({ talk, title }) {
+    const [copied, setCopied] = useState(false)
+    const text = [`《${title}》说课稿`, ...talk.sections.flatMap(item => [`${item.heading}`, item.text])].join('\n\n')
+    return (
+        <article className={styles.doc} aria-labelledby="lp-talk-title">
+            <div className={styles.docActions}>
+                <span className={styles.aiBadge}>AI 根据上面的教案改写 · 约 {talk.minutes} 分钟</span>
+                <button type="button" className="btn btn-secondary" onClick={async () => { try { await navigator.clipboard.writeText(text); setCopied(true) } catch { setCopied(false) } }}>{copied ? '已复制' : '复制说课稿'}</button>
+            </div>
+            <header className={styles.docHead}><h2 id="lp-talk-title">《{title}》说课稿</h2><p>说课比赛、教师资格面试用。只改写教案已有的内容，没有新增活动。</p></header>
+            {talk.sections.map(item => (
+                <section key={item.heading}>
+                    <h3>{item.heading}</h3>
+                    {item.text.split(/\n+/u).map((line, index) => <p key={index}>{line}</p>)}
+                </section>
+            ))}
+        </article>
+    )
+}
+
 function CheckList({ checks }) {
     return (
         <ul>
@@ -752,7 +800,7 @@ function CheckReport({ report }) {
     )
 }
 
-function PlanDocument({ plan, done, onCopy, copied }) {
+function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
     const { lesson, frame, process, evidence, checks, meta } = plan
     const objectiveNo = id => id.replace('O', '')
     return (
@@ -764,6 +812,7 @@ function PlanDocument({ plan, done, onCopy, copied }) {
                         <button type="button" className="btn btn-secondary" onClick={onCopy}>{copied ? '已复制' : '复制全文'}</button>
                         <button type="button" className="btn btn-secondary" onClick={() => { downloadWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'lesson' }) }}>下载 Word</button>
                         <button type="button" className="btn btn-ghost" onClick={() => { trackUmamiEvent('lesson_plan_export', { format: 'print', kind: 'lesson' }); window.print() }}>打印</button>
+                        {onTalk ? <button type="button" className="btn btn-secondary" onClick={onTalk} disabled={talking}>{talking ? '正在写说课稿…' : '生成说课稿'}</button> : null}
                     </>
                 ) : null}
             </div>

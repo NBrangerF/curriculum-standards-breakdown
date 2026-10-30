@@ -7,6 +7,15 @@ import { usePageMeta } from '../seo/usePageMeta.js'
 import { loadConcepts, subjectName } from '../features/concepts/conceptsData'
 import styles from './ConceptsPage.module.css'
 
+const READING_PATH = [
+    ['standard-document', '一本课标有哪六个部分，什么问题翻哪一部分'],
+    ['core-literacy', '每门课要培养的是什么'],
+    ['content-academic-guidance', '学什么、学到什么程度、可以怎么教'],
+    ['learning-objective', '目标怎么写才看得见、评得了'],
+    ['teach-learn-assess', '目标、活动、评价为什么要对齐'],
+    ['unit-design', '从一课到一个单元：单元整体教学设计']
+]
+
 const firstSentence = text => {
     const end = text.indexOf('。')
     return end > 0 ? text.slice(0, end + 1) : text
@@ -43,6 +52,19 @@ export default function ConceptsPage() {
                     <Link className="btn btn-secondary" to="/concepts/big-ideas">从「大概念」开始</Link>
                 </div>
             </header>
+
+            <section className={styles.block} aria-labelledby="concept-path">
+                <div className={styles.blockHead}>
+                    <h2 id="concept-path">师范生、新教师：先读这六页</h2>
+                    <p>按这个顺序读，能把一本课标的来龙去脉理清楚，教资笔试、面试说课和第一次写教案都用得上。</p>
+                </div>
+                <ol className={styles.path}>
+                    {READING_PATH.map(([id, why]) => {
+                        const term = data.terms.find(item => item.id === id)
+                        return term ? <li key={id}><Link to={`/concepts/${id}`}>{term.term}</Link><span>{why}</span></li> : null
+                    })}
+                </ol>
+            </section>
 
             {data.categories.map(category => {
                 const terms = data.terms.filter(term => term.category === category.id)

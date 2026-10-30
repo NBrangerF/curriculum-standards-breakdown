@@ -50,7 +50,9 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     await page.route('**/api/v1/lesson-plans/draft', route => {
         const body = route.request().postDataJSON()
         drafts.push(body)
-        const data = body.step === 'frame'
+        const data = body.step === 'talk'
+            ? { step: 'talk', talk: { sections: [{ heading: '说教材', text: '本课依据 MA-S3-NA-01.3。' }, { heading: '说学情', text: '学生已学过分数的意义。' }, { heading: '说教学目标与重难点', text: '…' }, { heading: '说教学过程', text: '…' }], minutes: 6 }, evidence, model: 'gpt-5-mini' }
+            : body.step === 'frame'
             ? { step: 'frame', frame, checks: [{ level: 'warn', kind: 'unused_indicator', message: '…' }], evidence, privacy: { redacted: false }, model: 'gpt-5-mini' }
             : { step: 'process', frame, process: processDraft, checks: [{ level: 'ok', kind: 'aligned', message: '每条目标都有课标要点依据、教学环节和评价任务，没有发现超出课标限定的内容。' }], evidence, privacy: { redacted: false }, model: 'gpt-5-mini' }
         return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(data)) })
@@ -72,6 +74,11 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     await expect(page.getByText('每条目标都有课标要点依据、教学环节和评价任务')).toBeVisible()
     await expect(page.getByRole('button', { name: '下载 Word' })).toBeVisible()
     expect(drafts.map(item => item.step)).toEqual(['frame', 'process'])
+    await page.getByRole('button', { name: '生成说课稿' }).click()
+    await expect(page.getByRole('heading', { name: '《分数的基本性质》说课稿' })).toBeVisible()
+    await expect(page.getByText('本课依据 MA-S3-NA-01.3。')).toBeVisible()
+    expect(drafts.at(-1).step).toBe('talk')
+    expect(drafts.at(-1).process.stages.length).toBe(2)
     expect(drafts[0].indicator_codes).toEqual(['MA-S3-NA-01.3'])
     expect(drafts[0].class_notes).toBe('学生会画图表示分数')
     expect(drafts[1].frame.objectives[0].basis).toEqual(['MA-S3-NA-01.3'])

@@ -484,3 +484,29 @@
         justify-content: flex-start;
     }
 }
+
+.path {
+    display: grid;
+    gap: 0.5rem;
+    max-width: 62ch;
+    margin: 0;
+    padding-left: 1.4em;
+    color: var(--kb-mist);
+}
+
+.path li::marker {
+    color: var(--kb-gold);
+    font-family: var(--font-num);
+}
+
+.path a {
+    margin-right: 0.6rem;
+    color: var(--kb-moon);
+    font-weight: 600;
+    text-decoration-color: rgba(233, 200, 135, 0.5);
+    text-underline-offset: 3px;
+}
+
+.path span {
+    font-size: 0.9rem;
+}

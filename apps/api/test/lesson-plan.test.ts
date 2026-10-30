@@ -232,3 +232,30 @@ test('单元整体设计: a textbook unit is planned over its own lessons and ch
     assert.match(prompts[0], /1\. 分数的意义\n2\. 分数的基本性质/)
     assert.match(prompts[0], /单元总课时：5/)
 })
+
+test('说课稿: a drafted plan is retold in the six 说课 parts, citing only its own 要点', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body))
+        assert.match(String(body.messages[0].content), /说课稿/)
+        assert.match(String(body.messages[1].content), /环节「探究」/)
+        const content = { sections: [
+            { heading: '说教材', text: `本课依据 ${LIMITED} 和 MA-S1-ZZ-99.1。` },
+            { heading: '说学情', text: '学生已学过分数的意义。' },
+            { heading: '说教学目标与重难点', text: '目标一……' },
+            { heading: '说教法与学法', text: '折纸操作。' },
+            { heading: '说教学过程', text: '导入、探究、练习。' },
+            { heading: '说板书设计', text: '分数的基本性质' },
+            { heading: '说别的', text: '不该出现' }
+        ], minutes: 6 }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 600, total_tokens: 1500 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const response = await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ step: 'talk', lesson: { title: '分数的基本性质', subject_slug: 'math', grade: 5 }, indicator_codes: [LIMITED], frame: frame(), process: planProcess }) })
+    assert.equal(response.status, 200)
+    const { data } = await json(response)
+    assert.deepEqual(data.talk.sections.map((item: any) => item.heading), ['说教材', '说学情', '说教学目标与重难点', '说教法与学法', '说教学过程', '说板书设计'])
+    assert.ok(data.talk.sections[0].text.includes(LIMITED))
+    assert.ok(!data.talk.sections[0].text.includes('MA-S1-ZZ-99'))
+})

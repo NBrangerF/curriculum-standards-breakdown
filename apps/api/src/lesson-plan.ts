@@ -250,6 +250,10 @@ export function sanitiseFrame(value: unknown, indicatorCodes: Set<string>): Fram
     return validateFrame(value, indicatorCodes)
 }
 
+export function sanitiseProcess(value: unknown, frame: Frame): Process | null {
+    return validateProcess(value, frame)
+}
+
 function validateProcess(value: unknown, frame: Frame): Process | null {
     if (!value || typeof value !== 'object') return null
     const raw = value as Record<string, unknown>
@@ -514,4 +518,52 @@ export function checkUnit(unit: UnitPlan, input: DraftInput, totalHours: number)
     if (!unit.performance_task) checks.push({ level: 'warn', kind: 'no_performance_task', message: '没有表现性任务，单元评价只剩纸笔或零散提问。' })
     if (!checks.length) checks.push({ level: 'ok', kind: 'aligned', message: '每条单元目标都有课标要点依据、评价任务，并排进了具体课时；课时合计与设定一致。' })
     return checks
+}
+
+// ---------- 说课稿: a drafted plan retold for 说课 / 教资面试, nothing added ----------
+export type TalkScript = { sections: Array<{ heading: string, text: string }>, minutes: number }
+const TALK_HEADINGS = ['说教材', '说学情', '说教学目标与重难点', '说教法与学法', '说教学过程', '说板书设计']
+
+const TALK_INSTRUCTIONS = `你是中小学教研员，帮老师把一份已经写好的教案改写成说课稿，用于说课比赛或教师资格面试。
+规则：
+1. 只用教案和「依据」里已有的内容，不新增教案里没有的活动、材料或结论，不编造教材内容。
+2. 用第一人称「我」，面向评委，口语化但规范，5–8 分钟能说完（约 1200–1800 字）。
+3. 按顺序写六个部分：说教材、说学情、说教学目标与重难点、说教法与学法、说教学过程、说板书设计。
+4. 说教材：说明本课在教材和单元中的位置，并引用课标依据（写出要点编码和原文中的关键语句）。说教学目标时说明每条目标依据哪条要点。说教法与学法要和教学过程里的活动一致。说教学过程按环节说，每个环节说清做什么、为什么这样设计。
+必须只返回一个 JSON 对象：{"sections":[{"heading":"说教材","text":"…"}],"minutes":6}`
+
+export async function draftTalk(input: DraftInput, frame: Frame, process: Process, options: StructuredLlmOptions = {}): Promise<DraftResult<TalkScript>> {
+    const codes = new Set(input.indicators.map(item => item.code))
+    const planText = [
+        `教案：${frame.title}`,
+        frame.core_understanding ? `核心理解：${frame.core_understanding}` : '',
+        ...frame.objectives.map(item => `目标 ${item.id.replace('O', '')}（依据 ${item.basis.join('、')}）：${item.text}`),
+        `重点：${frame.key_points.join('；')}　难点：${frame.difficult_points.join('；')}`,
+        `学情：${frame.learner_analysis}`,
+        ...frame.assessments.map(item => `评价：${item.task}（证据：${item.evidence}）`),
+        ...process.stages.map(stage => `环节「${stage.name}」${stage.minutes} 分钟。教师：${stage.teacher} 学生：${stage.students} 意图：${stage.purpose}`),
+        process.board.length ? `板书：${process.board.join(' / ')}` : ''
+    ].filter(Boolean).join('\n')
+    const prompt = [lessonBlock(input), basisBlock(input), planText].join('\n\n')
+    const adapter: StructuredLlmAdapter<TalkScript> = {
+        name: 'kebiao_talk_script',
+        schema: { type: 'object' },
+        instructions: TALK_INSTRUCTIONS,
+        chatInstructions: TALK_INSTRUCTIONS,
+        maxCompletionTokens: 4000,
+        validate(value) {
+            const raw = (value || {}) as Record<string, unknown>
+            const sections = (Array.isArray(raw.sections) ? raw.sections : []).map(item => {
+                const record = (item || {}) as Record<string, unknown>
+                // a 要点 code the plan does not cite is dropped from the text
+                const text = String(record.text || '').replace(/[A-Z]{2}-S\d-[A-Z]{2,3}-\d{2}(?:\.\d+)?/gu, code => (codes.has(code) || [...codes].some(item => item.startsWith(`${code}.`)) ? code : '')).trim().slice(0, 1600)
+                return { heading: str(record.heading, 12), text }
+            }).filter(item => TALK_HEADINGS.includes(item.heading) && item.text)
+            if (sections.length < 4) return null
+            const minutes = Math.round(Number(raw.minutes))
+            return { sections, minutes: Number.isFinite(minutes) && minutes > 0 && minutes < 20 ? minutes : 6 }
+        }
+    }
+    const run = await runStructuredLlm(prompt, adapter, { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
+    return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
 }

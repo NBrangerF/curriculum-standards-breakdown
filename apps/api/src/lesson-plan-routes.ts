@@ -8,7 +8,7 @@ import { z } from 'zod'
 import type { FileCurriculumRepository } from '@curriculum/core'
 import { redactSensitiveText } from './ai-privacy.js'
 import type { ApiBindings } from './http.js'
-import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftUnit, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
+import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftTalk, draftUnit, sanitiseProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
 
 type Deps = {
@@ -63,7 +63,8 @@ function canonicalLessons(lessons: NationalLesson[]) {
 }
 
 export const DraftRequestSchema = BaseRequestSchema.extend({
-    step: z.enum(['frame', 'process', 'unit']),
+    step: z.enum(['frame', 'process', 'unit', 'talk']),
+    process: z.unknown().optional(),
     frame: z.unknown().optional(),
     unit_lessons: z.array(z.string().trim().min(1).max(60)).max(40).default([]),
     unit_hours: z.number().int().min(1).max(60).optional()
@@ -345,6 +346,16 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
             if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `draft_${run.status}`, run.status === 'disabled' ? 'AI 起草暂不可用。' : run.status === 'timeout' ? 'AI 这次写得太久，没有完成。请再试一次。' : 'AI 这次没有写出可用的单元设计。请再试一次。')
             return deps.ok(c, version as never, { step: 'unit', unit: run.output, checks: checkUnit(run.output, input, hours), evidence, privacy, model: run.model, latency_ms: run.latency_ms })
+        }
+
+        if (body.step === 'talk') {
+            const frame = sanitiseFrame(body.frame, new Set(input.indicators.map(item => item.code)))
+            const process = frame ? sanitiseProcess(body.process, frame) : null
+            if (!frame || !process) return deps.apiError(c, 422, 'validation_error', '说课稿需要一份写好的教案（目标和教学过程）。')
+            const run = await draftTalk(input, frame, process)
+            c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
+            if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `draft_${run.status}`, run.status === 'disabled' ? 'AI 暂不可用。' : 'AI 这次没有写出可用的说课稿。请再试一次。')
+            return deps.ok(c, version as never, { step: 'talk', talk: run.output, evidence, model: run.model, latency_ms: run.latency_ms })
         }
 
         if (body.step === 'frame') {
