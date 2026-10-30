@@ -378,3 +378,11 @@ test('a textbook page lists its 国家平台 units with 要点 and a way into ea
     await expect(unit.getByRole('link', { name: '备这个单元' })).toHaveAttribute('href', /chapter=4/)
     await expect(units.getByRole('link', { name: '把这些单元排进学期进度表' })).toHaveAttribute('href', /\/schedule\?/)
 })
+
+test('AI 备课 opens on the textbook a teacher picked last time', async ({ page }) => {
+    await page.route('**/api/v1/lesson-plans/textbooks/*/lessons', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ platform_title: '小学数学人教版五年级下册', confidence: 'text', lessons: [{ id: 'L1', title: '分数的基本性质', chapters: ['4 分数的意义和性质'], pdf_page: 62, materials: [], url: '' }] })) }))
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e`)
+    await expect(page).toHaveURL(/edition=ed_1bb9d396d4d884aee79e/)
+    await page.goto('/lesson-plan')
+    await expect(page).toHaveURL(/subject=%E6%95%B0%E5%AD%A6&edition=ed_1bb9d396d4d884aee79e/)
+})
