@@ -130,6 +130,17 @@ test('AI 备课 says when the AI could not read the 要点 and leaves the tickin
     await expect(page.getByRole('button', { name: /按选定的 0 条要点起草教案/ })).toBeDisabled()
 })
 
+test('when the live pick fails, AI 备课 ticks the 要点 the AI judged for the whole unit earlier', async ({ page }) => {
+    const unitContext = { ...context, standards: [{ ...standards[1], via: 'ai_unit' }, standards[0]], ai_points: ['MA-S3-NA-01.3'] }
+    await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(unitContext)) }))
+    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'timeout', read: 9, picks: [] })) }))
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&lesson=L1`)
+    await expect(page.getByText(/先勾上了它此前按整个单元判断的要点/)).toBeVisible()
+    await expect(page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })).toBeChecked()
+    await expect(page.getByRole('checkbox', { name: /等式的基本性质/ })).not.toBeChecked()
+    await expect(page.getByRole('button', { name: /按选定的 1 条要点起草教案/ })).toBeEnabled()
+})
+
 test('concept pages quote the 课标 with pages and link real standards', async ({ page }) => {
     await page.goto('/concepts')
     await expect(page.getByRole('heading', { level: 1, name: '这些词，课标原文是怎么说的' })).toBeVisible()

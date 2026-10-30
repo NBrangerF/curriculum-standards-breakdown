@@ -241,12 +241,17 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         // AI 按单元判断 (scripts/resources/pick_unit_standards.mjs): the 直接对应 要点 the AI found for the platform unit
         // these lessons sit in. It read the standards' text, so it goes before the page alignment.
         const scope = chosen ? [chosen] : unitLessons.length ? unitLessons : national && linkedUnit ? national.lessons.filter(item => item.unit_id === linkedUnit) : []
+        // the 要点 themselves are returned too: the page ticks them when the live pick fails
+        const unitPoints: string[] = []
         for (const point of [...new Set(scope.flatMap(item => item.ai_points || []))]) {
             if (standards.length >= (unitLessons.length ? 6 : 4)) break
-            const standard = await planStandard(point.replace(/\.\d+$/u, ''))
-            if (!standard || standards.some(existing => existing.code === standard.code)) continue
+            const code = point.replace(/\.\d+$/u, '')
+            if (standards.some(existing => existing.code === code)) { unitPoints.push(point); continue }
+            const standard = await planStandard(code)
+            if (!standard) continue
             if (subjectSlug && standard.subject_slug !== subjectSlug) continue
             standards.push({ ...standard, via: 'ai_unit', suggested: [] })
+            unitPoints.push(point)
         }
         for (const item of aligned.slice(0, unitLessons.length ? 8 : 6)) {
             const standard = await planStandard(item.code)
@@ -308,6 +313,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
                 printed_page: printedPage
             },
             standards,
+            ai_points: unitPoints.slice(0, 8),
             subject_note: subjectSlug ? await subjectNote(subjectSlug) : null,
             national_lessons: nationalLessons,
             national_confidence: national?.confidence || null,

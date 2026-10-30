@@ -228,6 +228,14 @@ export default function LessonPlanPage() {
         setAi({ status: 'loading', reasons: {} })
         const lesson = base.lesson
         const isUnitPick = Boolean(base.unit_lessons?.length)
+        // when the live pick fails, the 要点 the AI judged for the whole unit earlier are ticked instead of nothing
+        const unitFallback = () => {
+            const points = (base.ai_points || []).filter(code => base.standards.some(standard => standard.indicators.some(item => item.code === code)))
+            if (!points.length) return false
+            setSelected(new Set(points))
+            setAi({ status: 'fallback', reasons: {} })
+            return true
+        }
         postApi('/api/v1/lesson-plans/pick', {
             lesson: {
                 title: String(lesson.title || '').slice(0, 60),
@@ -240,6 +248,7 @@ export default function LessonPlanPage() {
             lessons: (base.unit_lessons || []).map(item => item.title.slice(0, 60)).slice(0, 20)
         }).then(async payload => {
             if (run !== runRef.current) return
+            if (!['ok', 'partial'].includes(payload.data?.status) && unitFallback()) return
             const judged = payload.data?.picks || []
             const picks = judged.filter(item => item.point && item.grade > 0)
             const strict = picks.filter(item => item.grade === 2)
@@ -269,7 +278,7 @@ export default function LessonPlanPage() {
             setSelected(picked)
             const read = ['ok', 'partial'].includes(payload.data?.status)
             setAi({ status: !read ? 'failed' : strict.length ? 'ok' : closest.length ? 'closest' : 'none', reasons })
-        }).catch(() => { if (run === runRef.current) setAi({ status: 'failed', reasons: {} }) })
+        }).catch(() => { if (run === runRef.current && !unitFallback()) setAi({ status: 'failed', reasons: {} }) })
     }, [base, hint]) // contextQuery changes always replace base first
 
     const toggle = code => setSelected(current => {
@@ -537,6 +546,7 @@ export default function LessonPlanPage() {
                             : ai.status === 'ok' ? (isUnit ? `AI 读完了，已勾选这个单元对应的 ${selectedCount} 条要点。请核对：去掉单元里不教的，补上漏掉的。` : `AI 读完了，已勾选它判断直接对应的 ${selectedCount} 条要点。请核对：只留这节课真正要教的（一般 1–3 条）。`)
                                 : ai.status === 'closest' ? `AI 没有找到直接对应的要点，先勾了 ${selectedCount} 条最接近的。请读原文核对，或在下面补一句这节课主要教什么，让 AI 重新找。`
                                 : ai.status === 'none' ? 'AI 没有找到直接对应的要点。请从下面的候选里自己勾选，或换个课题写法。'
+                                    : ai.status === 'fallback' ? 'AI 这次没能读完要点，先勾上了它此前按整个单元判断的要点：不一定都是这一课教的，请读原文，按这一课增删。'
                                     : ai.status === 'failed' ? 'AI 这次没能读完要点。请读下面候选的原文，自己勾选：机器对齐和字面匹配可能出错，比如会把「分数的基本性质」对到「等式的基本性质」。' : ''}
                     </p>
 

@@ -437,6 +437,9 @@ test('lesson-plan context puts the AI 按单元判断 要点 of the lesson\'s un
     assert.equal(data.standards[0].via, 'ai_unit')
     assert.equal(data.standards[0].code, found.lesson.ai_points[0].replace(/\.\d+$/u, ''))
     assert.ok(data.standards.every((item: any) => item.suggested.length === 0))
+    // the 要点 come along, for the page to tick when the live pick fails
+    assert.equal(data.ai_points[0], found.lesson.ai_points[0])
+    assert.ok(data.ai_points.every((point: string) => data.standards.some((item: any) => item.via === 'ai_unit' && item.indicators.some((indicator: any) => indicator.code === point))))
 })
 
 test('pick: a 历史 lesson is judged only against its volume\'s period', async t => {
