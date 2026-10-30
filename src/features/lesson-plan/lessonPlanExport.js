@@ -303,3 +303,52 @@ export function downloadObservationWord(plan) {
     link.remove()
     setTimeout(() => URL.revokeObjectURL(url), 2000)
 }
+
+// ---------- 课后反思表: the plan's own objectives, evidence and expected difficulties, to fill in after class (no AI) ----------
+export function reflectionHtml(plan) {
+    const { lesson, frame, process, meta } = plan
+    const title = frame?.title || lesson.title
+    const assessmentsOf = id => (frame?.assessments || []).filter(item => item.objective_ids.includes(id))
+    const goalRows = (frame?.objectives || []).map((item, index) => {
+        const found = assessmentsOf(item.id)
+        const evidence = found.map(entry => [entry.evidence || entry.task, entry.criteria].filter(Boolean).join('，达成标准：')).join('；')
+        return `<tr><td>${index + 1}. ${esc(item.text)}<br><span class="dim">${item.basis.map(esc).join('、')}</span></td><td>${esc(evidence || '（教案没有写评价证据）')}</td><td class="tick">约＿＿人达成<br>共＿＿人</td><td class="blank"></td></tr>`
+    }).join('')
+    const expected = [
+        ...(frame?.difficult_points || []).map(text => ({ kind: '难点', text, response: '' })),
+        ...(frame?.misconceptions || []).map(item => ({ kind: '易错', text: item.text, response: item.response }))
+    ]
+    const expectedRows = expected.map(item => `<tr><td><b>${item.kind}</b>　${esc(item.text)}${item.response ? `<br><span class="dim">预设对策：${esc(item.response)}</span>` : ''}</td><td class="tick">□出现<br>□没出现</td><td class="blank"></td><td class="blank"></td></tr>`).join('')
+    const stageRows = (process?.stages || []).map((stage, index) => `<tr><td>${index + 1}. ${esc(stage.name)}</td><td class="short">${esc(stage.minutes)} 分钟</td><td class="short"></td><td class="blank"></td></tr>`).join('')
+    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}课后反思</title><style>
+body{font-family:"SimSun","Songti SC",serif;font-size:11pt;line-height:1.6;margin:1.6cm}h1{font-size:16pt;text-align:center;margin:0 0 4pt}h2{font-size:12.5pt;margin:12pt 0 4pt}
+.meta{text-align:center;color:#444;margin:0 0 6pt}.fill{margin:0 0 8pt}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:4pt 5pt;vertical-align:top;font-size:10pt}th{background:#eee}
+.tick{white-space:nowrap}.blank{width:28%;height:42pt}.box{border:1px solid #999;height:60pt;margin:2pt 0 8pt}.short{width:11%}.dim{color:#666;font-size:9pt}.foot{color:#666;font-size:9pt;margin-top:12pt}
+</style></head><body>
+<h1>《${esc(title)}》课后反思</h1>
+<p class="meta">${esc([lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', meta ? `${meta.period_minutes} 分钟` : ''].filter(Boolean).join(' · '))}</p>
+<p class="fill">上课日期：＿＿＿＿＿　班级：＿＿＿＿＿</p>
+<h2>一、目标达成了吗：对照课前定的证据</h2>
+<table><tr><th>教学目标</th><th>课前定的证据和标准</th><th>达成情况</th><th>没达成的原因 / 依据（作业、练习、课堂表现）</th></tr>${goalRows}</table>
+${expectedRows ? `<h2>二、预设的难点和易错点，课上出现了吗</h2>
+<table><tr><th>预设</th><th>课上</th><th>学生实际的说法或做法</th><th>下次怎么调整</th></tr>${expectedRows}</table>` : ''}
+<h2>${expectedRows ? '三' : '二'}、时间花在哪里</h2>
+<table><tr><th>环节</th><th>计划</th><th>实际</th><th>原因和调整</th></tr>${stageRows}</table>
+<h2>${expectedRows ? '四' : '三'}、意外和收获</h2>
+<p>课上出现的、教案没有预设到的情况：</p><div class="box"></div>
+<p>下次再教这一课，我会：</p><div class="box"></div>
+<p class="foot">反思表由教案的目标、评价证据和预设难点生成（kebiao.org）。先写证据，再写感受：哪条目标多少学生达成，依据是什么。</p>
+</body></html>`
+}
+
+export function downloadReflectionWord(plan) {
+    const blob = new Blob(['﻿', reflectionHtml(plan)], { type: 'application/msword' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${(plan.frame?.title || plan.lesson.title || '教案').replace(/[\\/:*?"<>|]/gu, '')}-课后反思.doc`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    setTimeout(() => URL.revokeObjectURL(url), 2000)
+}

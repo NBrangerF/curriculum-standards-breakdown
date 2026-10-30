@@ -333,7 +333,7 @@ function SubjectPage() {
                                 return <RailButton key={stage.code} color={sub.color} name={stage.range} title={stage.label} count={bl.length} disabled={!bl.length} onClick={() => focusStage(b)} onEnter={hl({ ring: b, list: bl })} onLeave={hl({})} />
                             })}
                         </ul>
-                        <p className={styles.tools}>
+                        <p className={styles.viewLinks}>
                             <Link to={`/concepts/subjects/${slug}`}>课标骨架与课程理念</Link>
                             <Link to={`/interdisciplinary?subject=${slug}`}>跨学科主题</Link>
                             {REVIEW_SUBJECTS.includes(slug) ? <Link to={`/review?subject=${slug}`}>中考复习地图</Link> : null}
