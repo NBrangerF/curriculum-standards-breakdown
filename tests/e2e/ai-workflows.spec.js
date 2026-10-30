@@ -274,10 +274,10 @@ test('smart search runs from the URL and examples, shows staged progress and let
 })
 
 test('smart search explains failures without exposing server messages', async ({ page }) => {
-    let calls = 0
+    // every request fails until the teacher retries (React StrictMode sends the first search twice in dev)
+    let failing = true
     await page.route('**/api/v1/standards/semantic-search', route => {
-        calls += 1
-        if (calls === 1) {
+        if (failing) {
             return route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ error: { code: 'internal_error', message: 'TypeError: cannot read properties of undefined' } }) })
         }
         return route.fulfill({ contentType: 'application/json', body: JSON.stringify(searchResponse('科学观察')) })
@@ -286,6 +286,7 @@ test('smart search explains failures without exposing server messages', async ({
     const alert = page.getByRole('alert')
     await expect(alert.getByRole('heading', { name: '检索服务暂时没有响应' })).toBeVisible()
     await expect(page.getByText(/TypeError/)).toHaveCount(0)
+    failing = false
     await alert.getByRole('button', { name: '再试一次' }).click()
     await expect(page.getByText('已理解：科学观察')).toBeVisible()
     await expect(page.getByRole('alert')).toHaveCount(0)
