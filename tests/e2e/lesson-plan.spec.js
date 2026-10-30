@@ -408,3 +408,14 @@ test('when the AI cannot draft, the error points the teacher to the prompt copy'
     await expect(page.getByRole('alert')).toContainText('复制成提示词')
     await expect(page.getByRole('button', { name: '复制成提示词' })).toBeVisible()
 })
+
+test('项目式学习 quotes the 课标 and tells it apart from 跨学科主题学习', async ({ page }) => {
+    await page.goto('/concepts/project-learning')
+    await expect(page.getByRole('heading', { level: 1, name: /项目式学习/ })).toBeVisible()
+    await expect(page.getByText(/项目式学习的关键是发掘合适的项目/)).toBeVisible()
+    await expect(page.getByText('数学 · 修订版 PDF 第 81 页')).toBeVisible()
+    await expect(page.getByText(/项目式学习就是跨学科主题学习/)).toBeVisible()
+    await expect(page.getByRole('link', { name: /MA-S4-IP-01/ })).toBeVisible()
+    await page.goto('/concepts/subjects/math')
+    await expect(page.getByRole('link', { name: /项目式学习/ }).first()).toHaveAttribute('href', '/concepts/project-learning')
+})
