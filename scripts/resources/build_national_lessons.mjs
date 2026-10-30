@@ -41,6 +41,22 @@ export function buildNationalLessons() {
     const HISTORY_SCOPE = { 历史7年级上册: ['中国古代史'], 历史7年级下册: ['中国古代史'], 历史8年级上册: ['中国近代史'], 历史8年级下册: ['中国现代史'], 历史9年级上册: ['世界古代史', '世界近代史'], 历史9年级下册: ['世界近代史', '世界现代史'] }
     const historyLevel = new Map(JSON.parse(readFileSync(path.join(ROOT, 'data/v2/by_subject/history.json'), 'utf8')).standards.map(item => [item.code, item.level1]))
     const inScope = (textbook, code) => !HISTORY_SCOPE[textbook] || HISTORY_SCOPE[textbook].includes(historyLevel.get(code))
+    // 化学 repeats its 必做实验 under four standards (CH-S4-SI-06.5 and CH-S4-PR-08.5 read the same); one of each text is enough
+    const pointText = new Map()
+    for (const file of readdirSync(path.join(ROOT, 'data/v2/by_subject')).filter(name => name.endsWith('.json'))) {
+        for (const standard of JSON.parse(readFileSync(path.join(ROOT, 'data/v2/by_subject', file), 'utf8')).standards) {
+            for (const item of standard.indicators || []) pointText.set(item.code, item.text)
+        }
+    }
+    const firstFour = points => {
+        const seen = new Set()
+        return points.filter(point => {
+            const text = pointText.get(point) || point
+            if (seen.has(text)) return false
+            seen.add(text)
+            return true
+        }).slice(0, 4)
+    }
     const picksFile = path.join(SOURCE, 'unit_picks.json')
     const unitPicks = existsSync(picksFile) ? JSON.parse(readFileSync(picksFile, 'utf8')).editions : {}
     const byStandard = new Map()
@@ -92,7 +108,7 @@ export function buildNationalLessons() {
         // the platform lists lessons by upload; show them in the book's chapter order
         const position = lesson => order.get(lesson.chapter_path.at(-1)) ?? Number.MAX_SAFE_INTEGER
         const sorted = record.lessons.map((lesson, index) => ({ lesson, index })).sort((a, b) => position(a.lesson) - position(b.lesson) || a.index - b.index).map(item => item.lesson)
-        const aiOf = new Map(sorted.map(lesson => [lesson.id, (unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([code, grade, point]) => grade === 2 && point && inScope(record.textbook_title, code)).slice(0, 4).map(([, , point]) => point)]))
+        const aiOf = new Map(sorted.map(lesson => [lesson.id, firstFour((unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([code, grade, point]) => grade === 2 && point && inScope(record.textbook_title, code)).map(([, , point]) => point))]))
         const lessons = sorted.map(lesson => ({
             id: lesson.id,
             title: lesson.title,
