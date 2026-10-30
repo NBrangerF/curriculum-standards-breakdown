@@ -2,7 +2,7 @@
 // Writes a static HTML page for every public route, so search engines, link previews and
 // slow connections get the page's own title and content before the app's JavaScript runs.
 // Runs after `vite build`. When the app starts it shows this content until its data is ready.
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import {
     SITE_URL, SITE_NAME, cardVersion, getDisplayTitle, clip, V2_STANDARDS_DOC, v2StageLabel, v2StandardMeta,
@@ -58,6 +58,8 @@ const glossary = readJson('glossary.json')
 const concepts = readJson('concepts.json')
 const interdisciplinary = readJson('interdisciplinary.json')
 const experiments = readJson('experiments.json')
+// standard → the textbook units the AI (or the page alignment) tied it to, from build_national_lessons.mjs
+const nationalUnits = new Map(existsSync(join(DATA, 'v2/national-lessons')) ? readdirSync(join(DATA, 'v2/national-lessons')).flatMap(file => Object.entries(readJson(`v2/national-lessons/${file}`).units || {})) : [])
 const CARD_VERSION = cardVersion(readJson('data_version.json').data_version)
 const cardUrl = path => `${SITE_URL}/cards/${path}.png?v=${CARD_VERSION}`
 
@@ -168,6 +170,11 @@ function standardPage({ standard, subject }) {
         if (pageEvidence.has(key)) continue
         const target = l.unit_id ? `/textbook-units/${l.unit_id}` : `/textbooks/${l.edition_id}`
         pageEvidence.set(key, `${link(target, `${l.textbook_title}${l.title ? ` · ${l.title}` : '（整册）'}`)}<span class="kbp-note">${l.printed_page ? `，第 ${l.printed_page} 页` : ''} · 机器对齐，待核验</span>`)
+    }
+    for (const [edition, textbook, unit, unitId, viaAi] of nationalUnits.get(standard.code) || []) {
+        const key = unitId || `${edition}|${unit}`
+        if (pageEvidence.has(key)) continue
+        pageEvidence.set(key, `${link(unitId ? `/textbook-units/${unitId}` : `/textbooks/${edition}`, `${textbook} · ${unit}`)}<span class="kbp-note"> · ${viaAi ? 'AI 按单元判断' : '机器对齐'}，待核验</span>`)
     }
     const siblings = subject.standards
         .filter(other => other.code !== standard.code && other.stage_code === standard.stage_code && other.level1 === standard.level1)

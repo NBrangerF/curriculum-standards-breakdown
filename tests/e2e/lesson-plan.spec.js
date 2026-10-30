@@ -293,3 +293,10 @@ test('学期进度表 lays a textbook\'s units over the weeks, warns when hours 
     await expect(page.getByRole('row').filter({ hasText: '第一单元' }).getByRole('spinbutton')).toHaveValue('6')
     await expect(page.getByLabel('每周课时')).toHaveValue('1')
 })
+
+test('a standard page lists the textbook units that teach it', async ({ page }) => {
+    await page.goto('/standards/HI-S4-MC-02')
+    const section = page.locator('#standard-textbook-units')
+    await expect(section.getByRole('heading', { name: '教材里在哪教' })).toBeVisible()
+    await expect(section.getByRole('link', { name: /历史8年级上册 · 第三单元/ })).toHaveAttribute('href', /\/textbook-units\/tcu_/)
+})

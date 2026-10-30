@@ -103,9 +103,25 @@ function NationalLessons({ code }) {
         return () => { cancelled = true }
     }, [code])
     const lessons = data?.standards?.[code] || []
+    const units = data?.units?.[code] || []
     if (!lessons.length) return null
     const byAi = lessons.some(item => item[6] === 1)
     return (
+        <>
+        {units.length ? (
+            <section className={styles.block} id="standard-textbook-units">
+                <h2>教材里在哪教</h2>
+                <ul className={styles.resourceList}>
+                    {units.map(([edition, textbook, unit, unitId, viaAi]) => (
+                        <li key={`${edition}-${unit}`}>
+                            <Link to={unitId ? `/textbook-units/${unitId}` : `/textbooks/${edition}`}>{textbook} · {unit.replace(/\s+/gu, ' ')}</Link>
+                            <span>{viaAi === 1 ? 'AI 按单元判断' : '按教材页码对齐（机器）'}</span>
+                        </li>
+                    ))}
+                </ul>
+                <p className={styles.blockNote}>按国家平台的单元目录列出，都待核验。点开是 kebiao 教材馆里的这一单元，可以接着备课。</p>
+            </section>
+        ) : null}
         <section className={styles.block} id="standard-national-lessons">
             <h2>国家平台同步课</h2>
             <ul className={styles.resourceList}>
@@ -118,6 +134,7 @@ function NationalLessons({ code }) {
             </ul>
             <p className={styles.blockNote}>{byAi ? '标「AI 按单元判断」的，是 AI 读了教材单元的课名和本学段全部课标后判断为直接对应的；其余按教材页码与课标的机器对应列出。都待核验。' : '按教材页码与课标的机器对应列出，待核验。'}国家中小学智慧教育平台免费提供，观看需登录平台账号。</p>
         </section>
+        </>
     )
 }
 

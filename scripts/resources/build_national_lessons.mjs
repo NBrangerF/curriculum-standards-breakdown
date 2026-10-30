@@ -44,6 +44,21 @@ export function buildNationalLessons() {
     const picksFile = path.join(SOURCE, 'unit_picks.json')
     const unitPicks = existsSync(picksFile) ? JSON.parse(readFileSync(picksFile, 'utf8')).editions : {}
     const byStandard = new Map()
+    // standard → the textbook units that teach it (「这条课标在教材哪里教」), one row per book and unit
+    const unitsByStandard = new Map()
+    const NOT_A_UNIT = /附录|总复习|期末复习|中考复习|复习与关联|整理与复习|整理和复习/u
+    const UNIT_TITLE = /^(?:\d+|第[一二三四五六七八九十]+(?:单元|章)|Unit\s*\d+|Module)/u
+    const linkUnit = (codes, lesson, record, viaAi) => {
+        const unit = lesson.chapters[0] || lesson.title
+        if (NOT_A_UNIT.test(unit)) return
+        for (const code of new Set(codes.map(value => value.replace(/\.\d+$/u, '')))) {
+            if (!unitsByStandard.has(code)) unitsByStandard.set(code, new Map())
+            const rows = unitsByStandard.get(code)
+            const key = `${record.edition_id}|${unit}`
+            if (!rows.has(key)) rows.set(key, { edition: record.edition_id, textbook: record.textbook_title, unit, ids: [], viaAi })
+            if (lesson.unit_id && !rows.get(key).ids.includes(lesson.unit_id)) rows.get(key).ids.push(lesson.unit_id)
+        }
+    }
     const linkLesson = (codes, entry) => {
         for (const code of new Set(codes.map(value => value.replace(/\.\d+$/u, '')))) {
             if (!byStandard.has(code)) byStandard.set(code, [])
@@ -104,6 +119,7 @@ export function buildNationalLessons() {
             const ai = aiOf.get(lesson.id) || []
             if (ai.length) {
                 linkLesson(ai, [record.edition_id, lesson.id, lesson.title, record.textbook_title, MATERIALS.filter(name => lesson.materials.includes(name)).map(name => MATERIALS.indexOf(name)), confidence === 'text' ? 1 : 0, 1])
+                linkUnit(ai, lesson, record, 1)
                 continue
             }
             const codes = []
@@ -117,7 +133,10 @@ export function buildNationalLessons() {
                 const next = rows.find(item => item[3] > (row?.[3] ?? Infinity))
                 if (row && (!next || lesson.pdf_page < next[3])) codes.push(...row[5])
             }
-            if (codes.length) linkLesson(codes, [record.edition_id, lesson.id, lesson.title, record.textbook_title, MATERIALS.filter(name => lesson.materials.includes(name)).map(name => MATERIALS.indexOf(name)), confidence === 'text' ? 1 : 0, 0])
+            if (codes.length) {
+                linkLesson(codes, [record.edition_id, lesson.id, lesson.title, record.textbook_title, MATERIALS.filter(name => lesson.materials.includes(name)).map(name => MATERIALS.indexOf(name)), confidence === 'text' ? 1 : 0, 0])
+                linkUnit(codes, lesson, record, 0)
+            }
         }
         index.editions[record.edition_id] = { platform_title: record.platform_title, lessons: lessons.length, confidence, units_linked: lessons.filter(item => item.unit_id).length }
     }
@@ -135,11 +154,20 @@ export function buildNationalLessons() {
         })
         ;(bySubject[prefix] ??= {})[code] = kept.slice(0, 8)
     }
+    const unitsBySubject = {}
+    for (const [code, rows] of unitsByStandard) {
+        const all = [...rows.values()]
+        // a lesson the platform lists at the top of its tree (「小数乘小数」) folds into the unit sharing its pages
+        const kept = all.filter(row => UNIT_TITLE.test(row.unit) || !all.some(other => other !== row && other.edition === row.edition && UNIT_TITLE.test(other.unit) && other.ids.some(id => row.ids.includes(id))))
+        // in textbook order (grade, then 上 before 下), at most eight units
+        const sorted = kept.sort((a, b) => a.textbook.localeCompare(b.textbook, 'zh-Hans-CN', { numeric: true }))
+        ;(unitsBySubject[code.slice(0, 2)] ??= {})[code] = sorted.slice(0, 8).map(row => [row.edition, row.textbook, row.unit, row.ids[0] || null, row.viaAi])
+    }
     const subjectOut = path.join(ROOT, 'public/data/v2/national-lessons')
     rmSync(subjectOut, { recursive: true, force: true })
     mkdirSync(subjectOut, { recursive: true })
     for (const [prefix, standards] of Object.entries(bySubject)) {
-        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards })}\n`)
+        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards, unit_fields: ['edition_id', 'textbook_title', 'unit', 'unit_id', 'via_ai'], units: unitsBySubject[prefix] || {} })}\n`)
     }
     return { editions: Object.keys(index.editions).length, lessons: lessonTotal, standards: byStandard.size }
 }
