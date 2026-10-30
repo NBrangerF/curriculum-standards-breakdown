@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
-import { checkPlan, checkTest, fitMinutes, limitsOf, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
+import { checkPlan, checkTest, fitHours, fitMinutes, limitsOf, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
 
 const publicDataRoot = resolve(process.cwd(), '../../public/data')
 const app = createApp(new FileCurriculumRepository(publicDataRoot))
@@ -468,4 +468,11 @@ test('stages that miss the period by up to ten minutes are fitted on the longest
     // too far off, or a stage with no time: left for the timing check
     assert.deepEqual(fitMinutes([stage('导入', 5), stage('新授', 50)], 40).map(item => item.minutes), [5, 50])
     assert.deepEqual(fitMinutes([stage('导入', 0), stage('新授', 30)], 40).map(item => item.minutes), [0, 30])
+})
+
+test('unit lessons that miss the unit hours by up to four are fitted on the lesson with the most hours', () => {
+    const lesson = (title: string, hours: number) => ({ title, hours, focus: '', objective_ids: [], assessment_ids: [] })
+    assert.deepEqual(fitHours([lesson('分数的意义', 2), lesson('约分', 3), lesson('整理和复习', 1)], 7).map(item => item.hours), [2, 4, 1])
+    assert.deepEqual(fitHours([lesson('分数的意义', 2), lesson('约分', 3)], 3).map(item => item.hours), [2, 1])
+    assert.deepEqual(fitHours([lesson('分数的意义', 2), lesson('约分', 3)], 12).map(item => item.hours), [2, 3])
 })

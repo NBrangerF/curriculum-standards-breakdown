@@ -516,7 +516,19 @@ export async function draftUnit(input: DraftInput, lessonTitles: string[], total
         validate: value => validateUnit(value, codes, lessonTitles)
     }
     const run = await runStructuredLlm(prompt, adapter, { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
+    if (run.output) fitHours(run.output.lessons, totalHours)
     return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
+
+// 21 of 22 hours (分数的意义和性质, live): a gap of up to four is taken from, or given to, the lesson with the most hours,
+// keeping every lesson at one hour or more; a larger gap is left for the hours check to report.
+export function fitHours(lessons: UnitLesson[], total: number) {
+    const sum = lessons.reduce((acc, item) => acc + item.hours, 0)
+    const gap = total - sum
+    if (!lessons.length || !gap || Math.abs(gap) > 4) return lessons
+    const longest = lessons.reduce((best, item) => (item.hours > best.hours ? item : best), lessons[0])
+    if (longest.hours + gap >= 1) longest.hours += gap
+    return lessons
 }
 
 // the unit's checks: the lesson checks with lessons standing in for stages, plus the unit's own
