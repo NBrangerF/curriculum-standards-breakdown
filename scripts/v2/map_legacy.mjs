@@ -11,7 +11,8 @@
 //   goal                        → listed in the stage overview; the old URL goes to the subject page
 //   merge / remove              → no new home; the old URL goes to the closest standard (merge) or the subject page
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { SUBJECT_NAMES, STAGES, grams, recall, loadCatalog, stageCode, gradesOf } from './lib.mjs'
+import { SUBJECT_NAMES, STAGES, grams, recall, stageCode, gradesOf } from './lib.mjs'
+import { stageGoals } from './stage_goals.mjs'
 
 const slug = process.argv[2]
 const units = JSON.parse(readFileSync(`generated/v2/units/${slug}.json`, 'utf8'))
@@ -113,9 +114,11 @@ for (const r of legacy) {
     legacyMap.push({ code: r.code, kind: home ? 'indicator' : 'standard', to: std.code, anchor: home ? home.code : null, match: +Math.min(1, home ? best.score : statementScore).toFixed(2), verdict: v.verdict })
 }
 
-// Stage goals (学段目标) from the official text, shown in the subject overview, not as standards.
-const catalog = loadCatalog('2025r', slug)
-const goals = catalog.filter(e => e.part === '课程目标' && e.section === '学段目标' && e.stage).map(e => ({ stage: e.stage, text: e.text, page: e.page }))
+// Stage goals (学段目标) rebuilt from the official text (scripts/v2/stage_goals.mjs), shown in the subject overview,
+// not as standards. 语文 and 英语 have none here: their 学段要求 / 学段目标 are standards already; the five junior
+// subjects have a single stage.
+const rebuilt = stageGoals(slug) || { groups: [], notes: [] }
+const goals = rebuilt.groups.map(g => ({ stage: g.stage, group: g.group, items: g.items.map(it => ({ text: it.text, pages: it.pages, source_ids: it.source_ids, check: it.check })) }))
 
 mkdirSync('data/v2/by_subject', { recursive: true })
 mkdirSync('data/v2/legacy', { recursive: true })
@@ -123,7 +126,7 @@ mkdirSync('data/v2/stage_overview', { recursive: true })
 const out = { schema_version: '2.0.0', subject_slug: slug, subject: SUBJECT_NAMES[slug], source_version: units.source_version, ...(units.skipped_source_ids?.length ? { skipped_source_ids: units.skipped_source_ids } : {}), source_note: '修订版文本取自上海市青浦区凤溪中学网站转载的《义务教育课程标准 日常修订版（2022年版2025年修订）》；以官方出版物为准。', standards }
 writeFileSync(`data/v2/by_subject/${slug}.json`, `${JSON.stringify(out, null, 1)}\n`)
 writeFileSync(`data/v2/legacy/${slug}.json`, `${JSON.stringify(legacyMap, null, 1)}\n`)
-writeFileSync(`data/v2/stage_overview/${slug}.json`, `${JSON.stringify({ subject_slug: slug, stage_goals: goals, theme_requirements: units.theme_requirements || [], kept_from_v1: overview }, null, 1)}\n`)
+writeFileSync(`data/v2/stage_overview/${slug}.json`, `${JSON.stringify({ subject_slug: slug, stage_goals: goals, stage_notes: rebuilt.notes, theme_requirements: units.theme_requirements || [], kept_from_v1: overview }, null, 1)}\n`)
 
 const kinds = {}
 legacyMap.forEach(m => { kinds[m.kind] = (kinds[m.kind] || 0) + 1 })

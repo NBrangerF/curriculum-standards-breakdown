@@ -115,6 +115,18 @@ for (const slug of slugs) {
         if (['merged', 'removed'].includes(m.kind) && !codes.has(m.to) && !m.to.startsWith('/subjects/')) errors.push(`old code ${r.code} → missing target ${m.to}`)
     }
 
+    // 学段目标 (scripts/v2/stage_goals.mjs): whole sentences, on the subject's own stages, each with a page.
+    for (const g of overview.stage_goals || []) {
+        if (!stageCodes[g.stage]) errors.push(`学段目标 ${g.stage}: not a stage of this subject`)
+        if (!g.items?.length) errors.push(`学段目标 ${g.stage} ${g.group || ''}: no items`)
+        for (const it of g.items || []) {
+            const where = `学段目标 ${g.stage} ${g.group || ''}「${it.text.slice(0, 16)}」`
+            if (!/[。！？]$/u.test(it.text)) errors.push(`${where}: does not end a sentence`)
+            if (!it.pages?.length) errors.push(`${where}: no page`)
+            if (/“五四”学制|［\d］|[A-Za-z]{2}|\s/u.test(it.text)) errors.push(`${where}: note, footnote or stray text inside the item`)
+        }
+    }
+
     const indicators = data.standards.reduce((n, s) => n + s.indicators.length, 0)
     console.log(`${slug}: ${data.standards.length} standards, ${indicators} 要点, ${oldRecords.length} old codes — ${errors.length} errors, ${warnings.length} warnings`)
     errors.forEach(e => console.log(`  ERROR ${e}`))
