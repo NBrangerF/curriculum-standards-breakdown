@@ -154,7 +154,7 @@ export default function SchedulePage() {
                                 {plan.rows.map(row => (
                                     <tr key={row.name} data-over={row.end > plan.teaching ? 'true' : undefined}>
                                         <td className={styles.week}>{weekLabel(row.start, row.end)}{settings.start ? <small>{dateOf(settings.start, row.start)} 起</small> : null}</td>
-                                        <td className={styles.unit}>{row.name}</td>
+                                        <td className={styles.unit}>{row.name}<Link className={styles.prep} to={`/lesson-plan?subject=${encodeURIComponent(book.subject)}&edition=${edition}&${row.chapter ? `chapter=${encodeURIComponent(row.chapter)}` : `lesson=${row.first}`}`}>{row.chapter ? '备这个单元' : '备这一课'}</Link></td>
                                         <td className={styles.lessons}>{row.lessons.map(item => item.title).join('、')}</td>
                                         <td><input type="number" min="0" max="60" aria-label={`${row.name}的课时`} value={row.hours} onChange={event => setUnitHours(row.name, event.target.value)} /></td>
                                         <td className={styles.points}>{row.points.length ? row.points.map(code => <Link key={code} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`}>{code}</Link>) : <span>—</span>}</td>

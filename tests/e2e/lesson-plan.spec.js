@@ -285,6 +285,7 @@ test('学期进度表 lays a textbook\'s units over the weeks, warns when hours 
     // 第二次鸦片战争 is its own lesson, not merged into 鸦片战争
     const first = page.getByRole('row').filter({ hasText: '第一单元' })
     await expect(first.getByText('鸦片战争、第二次鸦片战争、太平天国运动')).toBeVisible()
+    await expect(first.getByRole('link', { name: '备这个单元' })).toHaveAttribute('href', /chapter=%E7%AC%AC%E4%B8%80%E5%8D%95%E5%85%83/)
     await expect(page.getByRole('status')).toContainText('还有')
     await page.getByLabel('每周课时').fill('1')
     await expect(page.getByRole('status')).toContainText('超出')

@@ -21,7 +21,8 @@ export function unitsOf(record) {
     for (const lesson of record.lessons) {
         const name = lesson.chapters[0] || lesson.title
         let unit = units.find(item => item.name === name)
-        if (!unit) units.push(unit = { name, lessons: [], points: [], hours: 0 })
+        // a flat tree (美术, 音乐) has no chapter: the 「unit」 is one lesson, opened in AI 备课 by its id
+        if (!unit) units.push(unit = { name, chapter: lesson.chapters[0] || null, first: lesson.id, lessons: [], points: [], hours: 0 })
         const key = normalise(lesson.title)
         // the same lesson uploaded again, or one 课时 of a lesson already listed (「口语交际-春天去哪儿玩」 after 「口语交际」);
         // a shared start of at least four characters, so 「第二次鸦片战争」 stays apart from 「鸦片战争」
