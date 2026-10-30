@@ -34,6 +34,15 @@
 .aiPoints span { color: var(--kb-dim); }
 .aiPoints a { color: var(--kb-gold); font-family: var(--font-mono); text-decoration: underline; text-underline-offset: 3px; }
 .aiPoints .report { color: var(--kb-dim); font-family: inherit; }
+.platformUnits { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--kb-line); }
+.platformUnits li { display: grid; gap: .35rem; padding: .85rem 0; border-bottom: 1px solid var(--kb-line); }
+.platformUnits h3 { margin: 0; color: var(--kb-moon); font-size: 15.5px; font-weight: 700; }
+.unitLessons { margin: 0; color: var(--kb-mist); font-size: 13.5px; line-height: 1.7; }
+.unitActions { display: flex; flex-wrap: wrap; gap: .3rem .9rem; align-items: baseline; margin: 0; font-size: 13px; }
+.unitActions a { color: var(--kb-gold); text-decoration: underline; text-underline-offset: 3px; }
+.unitActions .unitCode { font-family: var(--font-mono); font-size: 12px; }
+.platformMore { margin: .9rem 0 0; font-size: 13.5px; }
+.platformMore a { color: var(--kb-gold); text-decoration: underline; text-underline-offset: 3px; }
 .alignmentList { display: grid; gap: .75rem; }
 .scopePanel { margin-top: var(--space-6); padding: clamp(18px,2.4vw,26px); border: 1px solid var(--kb-line); border-radius: 22px; background: var(--kb-night-glass); }
 .scopeHeading { display: grid; grid-template-columns: minmax(12rem,.8fr) minmax(0,1fr); gap: var(--space-6); align-items: end; }

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { unitsOf } from '../features/schedule/scheduleModel'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft'
 import { BookOpenTextIcon } from '@phosphor-icons/react/dist/csr/BookOpenText'
@@ -67,11 +68,15 @@ export default function TextbookDetailPage() {
 
     // the 要点 the AI judged each unit to teach (国家平台 unit picks), keyed by kebiao unit
     const [aiPoints, setAiPoints] = useState(() => new Map())
+    // the 国家平台 unit list: clean even when this book's own 目录 scan is not
+    const [platformUnits, setPlatformUnits] = useState([])
     useEffect(() => {
         let active = true
         setAiPoints(new Map())
+        setPlatformUnits([])
         fetch(`/data/textbooks/national-lessons/${editionId}.json`).then(response => (response.ok ? response.json() : null)).then(record => {
             if (!active || !record) return
+            setPlatformUnits(unitsOf(record).filter(unit => unit.chapter))
             const byUnit = new Map()
             for (const lesson of record.lessons || []) {
                 if (!lesson.unit_id || !lesson.ai_points?.length) continue
@@ -164,6 +169,26 @@ export default function TextbookDetailPage() {
                             </ol>
                         ) : <EmptyState title="目录还在处理" message={book.text_quality === 'scan_only' ? '这是扫描型 PDF，需要 OCR 后才能建立可搜索目录。' : '可以先阅读原书，结构化目录将在复核后显示。'} />}
                     </section>
+
+                    {platformUnits.length ? (
+                        <section className={styles.section} aria-labelledby="textbook-platform-units">
+                            <div className={styles.sectionHeading}><div><span>按单元备课</span><h2 id="textbook-platform-units">这本书的 {platformUnits.length} 个单元</h2></div><p>单元和课目来自国家中小学智慧教育平台的同步课目录；要点是 AI 按单元判断的，待核验。</p></div>
+                            <ol className={styles.platformUnits}>
+                                {platformUnits.map(unit => (
+                                    <li key={unit.name}>
+                                        <h3>{unit.name}</h3>
+                                        <p className={styles.unitLessons}>{unit.lessons.map(item => item.title).join('、')}</p>
+                                        <p className={styles.unitActions}>
+                                            {unit.points.slice(0, 3).map(code => <Link key={code} className={styles.unitCode} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`}>{code}</Link>)}
+                                            <Link to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&chapter=${encodeURIComponent(unit.chapter)}`}>备这个单元</Link>
+                                            <Link to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&chapter=${encodeURIComponent(unit.chapter)}&task=test`}>核验单元测试卷</Link>
+                                        </p>
+                                    </li>
+                                ))}
+                            </ol>
+                            <p className={styles.platformMore}><Link to={`/schedule?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>把这些单元排进学期进度表</Link></p>
+                        </section>
+                    ) : null}
 
                     <section className={styles.section}>
                         <div className={styles.sectionHeading}><div><span>课标关联</span><h2>课标与教材关联</h2></div><p>机器校验后直接展示，并附页内证据、置信度与算法版本。</p></div>

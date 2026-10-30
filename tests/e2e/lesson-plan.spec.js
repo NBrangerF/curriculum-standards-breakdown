@@ -369,3 +369,12 @@ test('上手指南 lists the weekly workflows with a way into each', async ({ pa
     await page.goto('/')
     await expect(page.getByRole('link', { name: '五分钟上手指南' })).toHaveAttribute('href', '/guide')
 })
+
+test('a textbook page lists its 国家平台 units with 要点 and a way into each unit design', async ({ page }) => {
+    await page.goto('/textbooks/ed_1bb9d396d4d884aee79e')
+    const units = page.getByRole('region', { name: /这本书的 \d+ 个单元/ })
+    await expect(units.getByRole('heading', { name: '4 分数的意义和性质' })).toBeVisible()
+    const unit = units.getByRole('listitem').filter({ has: page.getByRole('heading', { name: '4 分数的意义和性质' }) })
+    await expect(unit.getByRole('link', { name: '备这个单元' })).toHaveAttribute('href', /chapter=4/)
+    await expect(units.getByRole('link', { name: '把这些单元排进学期进度表' })).toHaveAttribute('href', /\/schedule\?/)
+})
