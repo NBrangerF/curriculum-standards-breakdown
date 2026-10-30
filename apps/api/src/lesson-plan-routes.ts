@@ -9,7 +9,7 @@ import type { FileCurriculumRepository } from '@curriculum/core'
 import { redactSensitiveText } from './ai-privacy.js'
 import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate } from './search-judge.js'
 import type { ApiBindings } from './http.js'
-import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftTalk, draftUnit, sanitiseProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
+import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftTalk, draftUnit, rankPoints, sanitiseProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
 
 type Deps = {
@@ -433,12 +433,29 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             hintText ? `老师补充：${hintText}` : ''
         ].filter(Boolean).join('，')
         const judge = await judgeSearchCandidates(query, '', candidates, { cache: searchJudgeCache })
-        c.set('aiMetrics', { feature: 'lesson_plan', used: judge.used, status: judge.status, model: judge.model, protocol: 'chat_completions', latency_ms: judge.latency_ms, redaction_count: 0, input_tokens: judge.usage?.input_tokens || 0, output_tokens: judge.usage?.output_tokens || 0, total_tokens: judge.usage?.total_tokens || 0 })
         // every judgement comes back: grade 0 carries the reason a machine-aligned standard does not fit
-        const picks = [...judge.judgements.values()].sort((a, b) => b.grade - a.grade)
+        let picks = [...judge.judgements.values()].sort((a, b) => b.grade - a.grade)
+        // more 直接对应 than the page ticks (3, or 6 for a unit): one more call puts the most specific first
+        const keep = lessons.length ? 6 : 3
+        const direct = picks.filter(item => item.grade === 2 && item.point)
+        let ranked = false
+        let rankTokens = { input_tokens: 0, output_tokens: 0, total_tokens: 0 }
+        if (direct.length > keep) {
+            const texts = new Map(candidates.flatMap(item => item.indicators).map(item => [item.code, item.text]))
+            const rank = await rankPoints(query, direct.map(item => ({ code: item.point as string, text: texts.get(item.point as string) || '' })), keep)
+            if (rank.usage) rankTokens = rank.usage
+            if (rank.output) {
+                const order = rank.output
+                const position = (item: (typeof picks)[number]) => (item.grade === 2 && item.point && order.includes(item.point) ? order.indexOf(item.point) : order.length)
+                picks = [...picks].sort((a, b) => b.grade - a.grade || position(a) - position(b))
+                ranked = true
+            }
+        }
+        c.set('aiMetrics', { feature: 'lesson_plan', used: judge.used, status: judge.status, model: judge.model, protocol: 'chat_completions', latency_ms: judge.latency_ms, redaction_count: 0, input_tokens: (judge.usage?.input_tokens || 0) + rankTokens.input_tokens, output_tokens: (judge.usage?.output_tokens || 0) + rankTokens.output_tokens, total_tokens: (judge.usage?.total_tokens || 0) + rankTokens.total_tokens })
         return deps.ok(c, version as never, {
             status: judge.status,
             read: candidates.length,
+            ranked,
             picks: picks.map(item => ({ code: item.code, grade: item.grade, reason: item.reason, point: item.point })),
             latency_ms: judge.latency_ms
         })

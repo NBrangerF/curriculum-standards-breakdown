@@ -67,15 +67,38 @@ export const SEARCH_JUDGE_PROMPT_VERSION = createHash('sha256').update(JSON.stri
 
 const clip = (text: string, length: number) => (text.length > length ? `${text.slice(0, length)}…` : text)
 
-function describe(candidate: JudgeCandidate) {
+const MAX_POINTS = 12
+const pairsOf = (text: string) => {
+    const plain = text.replace(/[^\p{Script=Han}A-Za-z0-9]/gu, '')
+    const pairs = new Set<string>()
+    for (let index = 0; index + 1 < plain.length; index += 1) pairs.add(plain.slice(index, index + 2))
+    return pairs
+}
+
+// A standard can hold up to 71 要点 (英语语言技能). The model reads at most 12: those sharing the most word pairs with
+// the request first, then the rest in order, so 「线段垂直平分线的性质」 sees MA-S4-GG-03.10 and not only .1–.8.
+export function pointsFor(candidate: JudgeCandidate, query: string) {
+    if (candidate.indicators.length <= MAX_POINTS) return candidate.indicators
+    const wanted = pairsOf(query)
+    const scored = candidate.indicators.map((item, index) => ({ index, score: [...pairsOf(item.text)].filter(pair => wanted.has(pair)).length }))
+    const keep = new Set(scored.filter(item => item.score > 0).sort((a, b) => b.score - a.score || a.index - b.index).slice(0, MAX_POINTS).map(item => item.index))
+    for (const item of scored) {
+        if (keep.size >= MAX_POINTS) break
+        keep.add(item.index)
+    }
+    return candidate.indicators.filter((_, index) => keep.has(index))
+}
+
+function describe(candidate: JudgeCandidate, query: string) {
     return [
         `【${candidate.code}】${candidate.subject} · ${candidate.stage} · ${candidate.title}`,
         `标准：${clip(candidate.statement, 120)}`,
-        ...candidate.indicators.slice(0, 8).map(item => `${item.code}：${clip(item.text, 90)}`)
+        ...pointsFor(candidate, query).map(item => `${item.code}：${clip(item.text, 90)}`)
     ].join('\n')
 }
 
-function adapterFor(codes: Set<string>): StructuredLlmAdapter<Judgement[]> {
+function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> {
+    const points = new Map(batch.map(candidate => [candidate.code, new Set(candidate.indicators.map(item => item.code))]))
     return {
         name: 'kebiao_search_judge',
         schema: SCHEMA,
@@ -91,13 +114,14 @@ function adapterFor(codes: Set<string>): StructuredLlmAdapter<Judgement[]> {
                 const record = item as Record<string, unknown>
                 const code = String(record.code || '').trim()
                 const grade = Number(record.grade)
-                if (!codes.has(code) || ![0, 1, 2].includes(grade) || out.some(j => j.code === code)) continue
-                const point = String(record.point || '').trim()
+                if (!points.has(code) || ![0, 1, 2].includes(grade) || out.some(j => j.code === code)) continue
+                // the model sometimes lists two 要点 in one field ("GE-S4-RE-04.3, GE-S4-RE-04.4"): keep the first real one
+                const point = String(record.point || '').split(/[\s,，、;；]+/u).find(item => points.get(code)?.has(item)) || null
                 out.push({
                     code,
                     grade: grade as 0 | 1 | 2,
                     reason: String(record.reason || '').trim().slice(0, 60),
-                    point: point.startsWith(`${code}.`) ? point : null
+                    point
                 })
             }
             return out.length ? out : null
@@ -128,8 +152,8 @@ export async function judgeSearchCandidates(
     for (let index = 0; index < fresh.length; index += BATCH_SIZE) batches.push(fresh.slice(index, index + BATCH_SIZE))
     // batches run side by side, so the wait is about one batch however many candidates there are
     const runs = await Promise.all(batches.map(batch => runStructuredLlm(
-        [`老师的需要：${query}`, understanding ? `系统的理解：${understanding}` : '', '候选：', ...batch.map(describe)].filter(Boolean).join('\n\n'),
-        adapterFor(new Set(batch.map(c => c.code))),
+        [`老师的需要：${query}`, understanding ? `系统的理解：${understanding}` : '', '候选：', ...batch.map(candidate => describe(candidate, query))].filter(Boolean).join('\n\n'),
+        adapterFor(batch),
         { ...options, timeoutMs: options.timeoutMs ?? TIMEOUT_MS }
     )))
     for (const run of runs) {

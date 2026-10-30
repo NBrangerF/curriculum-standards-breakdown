@@ -283,3 +283,35 @@ test('pick: the AI reads every standard of the subject at the lesson grade, and 
     assert.equal(data.picks[0].code, 'MA-S3-NA-01')
     assert.equal(data.picks[0].point, 'MA-S3-NA-01.3')
 })
+
+test('pick: a 要点 past the eighth reaches the AI, two codes in one field keep the first, and extra 直接对应 are ranked', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const direct: Record<string, string> = { 'MA-S4-GG-01': 'MA-S4-GG-01.2', 'MA-S4-GG-02': 'MA-S4-GG-02.3', 'MA-S4-GG-03': 'MA-S4-GG-03.10, MA-S4-GG-03.11', 'MA-S4-GG-07': 'MA-S4-GG-07.1' }
+    const prompts: string[] = []
+    let rankPrompt = ''
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body))
+        const system = String(body.messages[0].content)
+        const user = String(body.messages[1].content)
+        let content: unknown
+        if (system.includes('核对员')) {
+            prompts.push(user)
+            const codes = [...user.matchAll(/【([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2})】/gu)].map(match => match[1])
+            content = { judgements: codes.map(code => ({ code, grade: direct[code] ? 2 : 0, reason: direct[code] ? '垂直平分线' : '不相关', point: direct[code] || '' })) }
+        } else {
+            rankPrompt = user
+            content = { order: ['MA-S4-GG-03.10', 'MA-S4-GG-07.1', 'MA-S4-GG-99.1', 'MA-S4-GG-02.3'] }
+        }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 100, completion_tokens: 50, total_tokens: 150 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const response = await app.request('/api/v1/lesson-plans/pick', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ lesson: { title: '线段的垂直平分线的性质（测试）', unit_title: '轴对称', subject_slug: 'math', grade: 8 } }) })
+    assert.equal(response.status, 200)
+    const { data } = await json(response)
+    // GG-03 has 16 要点; the one about the 性质定理 is the tenth
+    assert.ok(prompts.some(text => text.includes('MA-S4-GG-03.10：')))
+    assert.ok(rankPrompt.includes('MA-S4-GG-01.2：'))
+    assert.equal(data.ranked, true)
+    assert.deepEqual(data.picks.slice(0, 4).map((item: any) => item.point), ['MA-S4-GG-03.10', 'MA-S4-GG-07.1', 'MA-S4-GG-02.3', 'MA-S4-GG-01.2'])
+})

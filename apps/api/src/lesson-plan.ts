@@ -570,3 +570,30 @@ export async function draftTalk(input: DraftInput, frame: Frame, process: Proces
     const run = await runStructuredLlm(prompt, adapter, { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
     return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
 }
+
+// ---------- 要点排序 ----------
+// The search judge grades each standard on its own, in batches, so four or five can all come back 「直接对应」 with no order
+// between them. When there are more than the page ticks, one short call reads just those 要点 side by side and orders them.
+const RANK_INSTRUCTIONS = `你是中小学教研员。下面是一节课（或一个单元）和若干条都与它直接对应的课标要点原文。
+选出这节课最核心、最需要落实的要点，按重要性从高到低排序，最多保留指定的条数。
+优先选内容上和本课课题具体对应的要点；对很多课都适用的通用要求排在后面。只用给出的编码，不得编造。
+必须只返回一个 JSON 对象：{"order":["编码",…]}`
+
+export async function rankPoints(request: string, points: Array<{ code: string, text: string }>, keep: number, options: StructuredLlmOptions = {}): Promise<DraftResult<string[]>> {
+    const codes = new Set(points.map(item => item.code))
+    const prompt = [`本课：${request}`, `最多保留 ${keep} 条。`, '要点：', ...points.map(item => `${item.code}：${item.text}`)].join('\n')
+    const adapter: StructuredLlmAdapter<string[]> = {
+        name: 'kebiao_rank_points',
+        schema: { type: 'object' },
+        instructions: RANK_INSTRUCTIONS,
+        chatInstructions: RANK_INSTRUCTIONS,
+        maxCompletionTokens: 400,
+        validate(value) {
+            const raw = (value || {}) as Record<string, unknown>
+            const order = [...new Set((Array.isArray(raw.order) ? raw.order : []).map(item => String(item).trim()).filter(item => codes.has(item)))].slice(0, keep)
+            return order.length ? order : null
+        }
+    }
+    const run = await runStructuredLlm(prompt, adapter, { ...options, timeoutMs: options.timeoutMs ?? 15000 })
+    return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
