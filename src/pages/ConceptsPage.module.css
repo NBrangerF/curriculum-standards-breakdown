@@ -602,3 +602,16 @@
     color: var(--kb-mist);
     font-size: 0.92rem;
 }
+
+/* links inside running text need more than colour to stand out (WCAG link-in-text-block) */
+.footnote a,
+.prose a,
+.quoteSource a,
+.callout a,
+.small a,
+.lede a,
+.blockHead p a {
+    text-decoration: underline;
+    text-decoration-color: rgba(233, 200, 135, 0.6);
+    text-underline-offset: 3px;
+}

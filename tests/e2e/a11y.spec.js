@@ -21,7 +21,16 @@ const routes = [
     ['glossary', '/glossary'],
     ['feedback', '/feedback'],
     ['print', '/print?codes=MA-D2-GE-003'],
-    ['styleguide', '/styleguide']
+    ['styleguide', '/styleguide'],
+    ['lessonPlan', '/lesson-plan'],
+    ['concepts', '/concepts'],
+    ['concept', '/concepts/test-blueprint'],
+    ['subjectSkeleton', '/concepts/subjects/math'],
+    ['interdisciplinary', '/interdisciplinary?subject=chinese&grade=8'],
+    ['experiments', '/experiments'],
+    ['teacherExam', '/teacher-exam'],
+    ['schedule', '/schedule?subject=%E5%8E%86%E5%8F%B2&edition=ed_2860489fc83ddeb6cec5'],
+    ['reviewMap', '/review?subject=history']
 ]
 
 const summarizeViolations = violations => violations.map(violation => ({
@@ -52,6 +61,8 @@ for (const [name, route] of routes) {
         test.setTimeout(90_000)
         await page.goto(route)
         await page.locator('#main-content').waitFor()
+        // pages that load their data first: wait for the heading, so axe reads the content and not the loading state
+        await page.locator('main h1').first().waitFor({ timeout: 20_000 }).catch(() => undefined)
         await waitForMotionToSettle(page)
         const results = await new AxeBuilder({ page })
             .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])

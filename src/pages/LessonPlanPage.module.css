@@ -857,3 +857,12 @@
 .promptCopy span {
     flex: 1 1 16rem;
 }
+
+/* links inside running text need more than colour to stand out (WCAG link-in-text-block) */
+.small a,
+.lede a,
+.docFoot a,
+.aiStatus a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
