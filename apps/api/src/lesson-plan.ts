@@ -535,9 +535,8 @@ const TALK_INSTRUCTIONS = `你是中小学教研员，帮老师把一份已经�
 4. 说教材：说明本课在教材和单元中的位置，并引用课标依据（写出要点编码和原文中的关键语句）。说教学目标时说明每条目标依据哪条要点。说教法与学法要和教学过程里的活动一致。说教学过程按环节说，每个环节说清做什么、为什么这样设计。
 必须只返回一个 JSON 对象：{"sections":[{"heading":"说教材","text":"…"}],"minutes":6}`
 
-export async function draftTalk(input: DraftInput, frame: Frame, process: Process, options: StructuredLlmOptions = {}): Promise<DraftResult<TalkScript>> {
-    const codes = new Set(input.indicators.map(item => item.code))
-    const planText = [
+function planSummary(frame: Frame, process: Process) {
+    return [
         `教案：${frame.title}`,
         frame.core_understanding ? `核心理解：${frame.core_understanding}` : '',
         ...frame.objectives.map(item => `目标 ${item.id.replace('O', '')}（依据 ${item.basis.join('、')}）：${item.text}`),
@@ -547,7 +546,14 @@ export async function draftTalk(input: DraftInput, frame: Frame, process: Proces
         ...process.stages.map(stage => `环节「${stage.name}」${stage.minutes} 分钟。教师：${stage.teacher} 学生：${stage.students} 意图：${stage.purpose}`),
         process.board.length ? `板书：${process.board.join(' / ')}` : ''
     ].filter(Boolean).join('\n')
-    const prompt = [lessonBlock(input), basisBlock(input), planText].join('\n\n')
+}
+
+// a 要点 code the plan does not cite is dropped from generated text
+const keepCodes = (text: string, codes: Set<string>) => text.replace(/[A-Z]{2}-S\d-[A-Z]{2,3}-\d{2}(?:\.\d+)?/gu, code => (codes.has(code) || [...codes].some(item => item.startsWith(`${code}.`)) ? code : ''))
+
+export async function draftTalk(input: DraftInput, frame: Frame, process: Process, options: StructuredLlmOptions = {}): Promise<DraftResult<TalkScript>> {
+    const codes = new Set(input.indicators.map(item => item.code))
+    const prompt = [lessonBlock(input), basisBlock(input), planSummary(frame, process)].join('\n\n')
     const adapter: StructuredLlmAdapter<TalkScript> = {
         name: 'kebiao_talk_script',
         schema: { type: 'object' },
@@ -558,13 +564,51 @@ export async function draftTalk(input: DraftInput, frame: Frame, process: Proces
             const raw = (value || {}) as Record<string, unknown>
             const sections = (Array.isArray(raw.sections) ? raw.sections : []).map(item => {
                 const record = (item || {}) as Record<string, unknown>
-                // a 要点 code the plan does not cite is dropped from the text
-                const text = String(record.text || '').replace(/[A-Z]{2}-S\d-[A-Z]{2,3}-\d{2}(?:\.\d+)?/gu, code => (codes.has(code) || [...codes].some(item => item.startsWith(`${code}.`)) ? code : '')).trim().slice(0, 1600)
+                const text = keepCodes(String(record.text || ''), codes).trim().slice(0, 1600)
                 return { heading: str(record.heading, 12), text }
             }).filter(item => TALK_HEADINGS.includes(item.heading) && item.text)
             if (sections.length < 4) return null
             const minutes = Math.round(Number(raw.minutes))
             return { sections, minutes: Number.isFinite(minutes) && minutes > 0 && minutes < 20 ? minutes : 6 }
+        }
+    }
+    const run = await runStructuredLlm(prompt, adapter, { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
+    return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
+
+// ---------- 试讲稿 + 答辩 (教师资格面试) ----------
+export type TrialScript = { stages: Array<{ name: string, minutes: number, text: string }>, board: string[], defense: Array<{ question: string, answer: string }>, minutes: number }
+
+const TRIAL_INSTRUCTIONS = `你是指导师范生备考教师资格证面试的教研员。把一份写好的教案改写成 10 分钟的试讲稿，并准备答辩。试讲是在没有学生的考场里对评委模拟上课。
+规则：
+1. 只用教案和「依据」里已有的内容和活动，不新增教案里没有的活动、材料或结论，不编造教材内容。时间不够时压缩各环节，但保留评价和小结。
+2. stages：按教案的环节顺序写，每个环节写 name、minutes（各环节合计 8–10 分钟）和 text。text 是教师在课堂上说的原话：第一人称，口语化，面向「同学们」。需要学生回答的地方，先写出问题，再用「（模拟学生回答：……）」写一句典型的学生回答，接着写教师的反馈；需要写板书的地方用「（板书：……）」标出。不要写「教师活动」「设计意图」之类的说明。
+3. board：试讲结束时黑板上的完整板书，3–8 行，和 text 里写的板书一致。
+4. defense：3 个评委可能追问的答辩题和参考回答。问题围绕本课的教学目标、重难点怎么突破、环节为什么这样设计、对应的课标要求；每个回答 80–150 字，引用课标时写出要点编码，只能用「依据」里的编码。
+必须只返回一个 JSON 对象：{"stages":[{"name":"导入","minutes":1,"text":"…"}],"board":["…"],"defense":[{"question":"…","answer":"…"}]}`
+
+export async function draftTrial(input: DraftInput, frame: Frame, process: Process, options: StructuredLlmOptions = {}): Promise<DraftResult<TrialScript>> {
+    const codes = new Set(input.indicators.map(item => item.code))
+    const prompt = [lessonBlock(input), basisBlock(input), planSummary(frame, process)].join('\n\n')
+    const adapter: StructuredLlmAdapter<TrialScript> = {
+        name: 'kebiao_trial_script',
+        schema: { type: 'object' },
+        instructions: TRIAL_INSTRUCTIONS,
+        chatInstructions: TRIAL_INSTRUCTIONS,
+        maxCompletionTokens: 5000,
+        validate(value) {
+            const raw = (value || {}) as Record<string, unknown>
+            const stages = (Array.isArray(raw.stages) ? raw.stages : []).slice(0, 8).map(item => {
+                const record = (item || {}) as Record<string, unknown>
+                const minutes = Math.round(Number(record.minutes))
+                return { name: str(record.name, 20), minutes: Number.isFinite(minutes) && minutes > 0 && minutes <= 10 ? minutes : 1, text: keepCodes(String(record.text || ''), codes).trim().slice(0, 1500) }
+            }).filter(item => item.name && item.text)
+            const defense = (Array.isArray(raw.defense) ? raw.defense : []).slice(0, 4).map(item => {
+                const record = (item || {}) as Record<string, unknown>
+                return { question: str(record.question, 80), answer: keepCodes(String(record.answer || ''), codes).replace(/\s+/gu, ' ').trim().slice(0, 400) }
+            }).filter(item => item.question && item.answer)
+            if (stages.length < 3 || defense.length < 2) return null
+            return { stages, board: strList(raw.board, 8, 60), defense, minutes: stages.reduce((sum, item) => sum + item.minutes, 0) }
         }
     }
     const run = await runStructuredLlm(prompt, adapter, { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })

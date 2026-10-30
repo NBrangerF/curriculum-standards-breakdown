@@ -60,7 +60,9 @@ export default function LessonPlanPage() {
     const [testing, setTesting] = useState(false)
     const [unitPlan, setUnitPlan] = useState(null)
     const [talk, setTalk] = useState(null)
-    const [talking, setTalking] = useState(false)
+    const [trial, setTrial] = useState(null)
+    // which script is being written: '' | 'talk' (说课稿) | 'trial' (试讲稿)
+    const [talking, setTalking] = useState('')
     const [unitHours, setUnitHours] = useState(0)
     const [checking, setChecking] = useState(false)
     const [hint, setHint] = useState('')
@@ -235,6 +237,7 @@ export default function LessonPlanPage() {
         const base = { lesson: { ...lesson, subject_name: subjectName }, meta: { period_minutes: settings.period, lesson_index: request.lesson_index, lesson_count: settings.count } }
         setPlan(null)
         setTalk(null)
+        setTrial(null)
         try {
             setStep('frame')
             const first = (await postApi('/api/v1/lesson-plans/draft', { ...request, step: 'frame' })).data
@@ -283,27 +286,28 @@ export default function LessonPlanPage() {
         }
     }
 
-    // 说课稿 from the drafted plan (说课比赛、教资面试)
-    async function makeTalk() {
-        if (!plan?.process) return
-        setTalking(true)
+    // 说课稿 (说课比赛) or 试讲稿 + 答辩 (教资面试) from the drafted plan
+    async function makeTalk(step = 'talk') {
+        if (!plan?.process || talking) return
+        setTalking(step)
         setError('')
         try {
             const lesson = plan.lesson
             const payload = (await postApi('/api/v1/lesson-plans/draft', {
-                step: 'talk',
+                step,
                 lesson: { title: lesson.title.slice(0, 60), ...(lesson.unit_title ? { unit_title: lesson.unit_title.slice(0, 60) } : {}), ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}), ...(lesson.edition_name ? { edition_name: lesson.edition_name } : {}), subject_slug: lesson.subject_slug, grade: lesson.grade || null },
                 indicator_codes: plan.evidence.map(item => item.code),
                 period_minutes: plan.meta?.period_minutes || 40,
                 frame: plan.frame,
                 process: plan.process
             })).data
-            setTalk(payload.talk)
-            trackUmamiEvent('lesson_plan_export', { format: 'talk', kind: 'lesson' })
+            if (step === 'trial') setTrial(payload.trial)
+            else setTalk(payload.talk)
+            trackUmamiEvent('lesson_plan_export', { format: step, kind: 'lesson' })
         } catch (errorValue) {
             setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
         } finally {
-            setTalking(false)
+            setTalking('')
         }
     }
 
@@ -629,6 +633,7 @@ export default function LessonPlanPage() {
             {testReport && task === 'test' ? <TestReport report={testReport} /> : null}
             {plan && !isUnit ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} onTalk={makeTalk} talking={talking} /> : null}
             {talk && plan && !isUnit ? <TalkScriptView talk={talk} title={plan.frame?.title || plan.lesson.title} /> : null}
+            {trial && plan && !isUnit ? <TrialScriptView trial={trial} title={plan.frame?.title || plan.lesson.title} /> : null}
         </div>
     )
 }
@@ -782,6 +787,36 @@ function TalkScriptView({ talk, title }) {
                     {item.text.split(/\n+/u).map((line, index) => <p key={index}>{line}</p>)}
                 </section>
             ))}
+        </article>
+    )
+}
+
+// 教资面试: a 10-minute 试讲 spoken to an empty room, then 答辩
+function TrialScriptView({ trial, title }) {
+    const [copied, setCopied] = useState(false)
+    const text = [`《${title}》试讲稿（约 ${trial.minutes} 分钟）`, ...trial.stages.flatMap(item => [`【${item.name}】约 ${item.minutes} 分钟`, item.text]), trial.board.length ? `板书\n${trial.board.join('\n')}` : '', '答辩', ...trial.defense.flatMap((item, index) => [`${index + 1}. ${item.question}`, item.answer])].filter(Boolean).join('\n\n')
+    // （模拟学生回答：……） and （板书：……） stand out from what the teacher says
+    const cues = line => line.split(/(（(?:模拟学生回答|板书)[：:][^）]*）)/u).map((part, index) => (index % 2 ? <span key={index} className={styles.cue}>{part}</span> : part))
+    return (
+        <article className={styles.doc} aria-labelledby="lp-trial-title">
+            <div className={styles.docActions}>
+                <span className={styles.aiBadge}>AI 根据上面的教案改写 · 约 {trial.minutes} 分钟</span>
+                <button type="button" className="btn btn-secondary" onClick={async () => { try { await navigator.clipboard.writeText(text); setCopied(true) } catch { setCopied(false) } }}>{copied ? '已复制' : '复制试讲稿'}</button>
+            </div>
+            <header className={styles.docHead}><h2 id="lp-trial-title">《{title}》试讲稿</h2><p>教师资格面试用：面对评委模拟上课 10 分钟，再答辩。只改写教案已有的内容。灰色括号里是模拟的学生回答和板书时机。</p></header>
+            {trial.stages.map((item, index) => (
+                <section key={`${item.name}-${index}`}>
+                    <h3>{item.name}<small> · 约 {item.minutes} 分钟</small></h3>
+                    {item.text.split(/\n+/u).map((line, lineIndex) => <p key={lineIndex}>{cues(line)}</p>)}
+                </section>
+            ))}
+            {trial.board.length ? <section><h3>板书</h3><pre className={styles.board}>{trial.board.join('\n')}</pre></section> : null}
+            <section>
+                <h3>答辩准备</h3>
+                <ol className={styles.defense}>
+                    {trial.defense.map(item => <li key={item.question}><b>{item.question}</b><p>{item.answer}</p></li>)}
+                </ol>
+            </section>
         </article>
     )
 }
@@ -957,7 +992,8 @@ function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
                         <button type="button" className="btn btn-secondary" onClick={onCopy}>{copied ? '已复制' : '复制全文'}</button>
                         <button type="button" className="btn btn-secondary" onClick={() => { downloadWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'lesson' }) }}>下载 Word</button>
                         <button type="button" className="btn btn-ghost" onClick={() => { trackUmamiEvent('lesson_plan_export', { format: 'print', kind: 'lesson' }); window.print() }}>打印</button>
-                        {onTalk ? <button type="button" className="btn btn-secondary" onClick={onTalk} disabled={talking}>{talking ? '正在写说课稿…' : '生成说课稿'}</button> : null}
+                        {onTalk ? <button type="button" className="btn btn-secondary" onClick={() => onTalk('talk')} disabled={Boolean(talking)}>{talking === 'talk' ? '正在写说课稿…' : '生成说课稿'}</button> : null}
+                        {onTalk ? <button type="button" className="btn btn-secondary" onClick={() => onTalk('trial')} disabled={Boolean(talking)}>{talking === 'trial' ? '正在写试讲稿…' : '试讲稿 + 答辩'}</button> : null}
                     </>
                 ) : null}
             </div>

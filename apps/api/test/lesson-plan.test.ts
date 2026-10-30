@@ -385,3 +385,37 @@ test('细目表 without 分值 counts questions; a question on two 素养 counts
     assert.deepEqual(table.levels, [])
     assert.ok(checks.some(item => item.kind === 'no_point' && item.message.includes('第 2 题')))
 })
+
+test('试讲稿: a drafted plan becomes a spoken 10-minute 试讲 with 答辩, citing only its own 要点', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body))
+        assert.match(String(body.messages[0].content), /试讲稿/)
+        assert.match(String(body.messages[0].content), /模拟学生回答/)
+        assert.match(String(body.messages[1].content), /环节「探究」/)
+        const content = {
+            stages: [
+                { name: '导入', minutes: 1, text: '同学们，看这三张纸……（模拟学生回答：涂色部分一样大。）' },
+                { name: '探究', minutes: 6, text: '（板书：分数的基本性质）请大家折一折。' },
+                { name: '小结', minutes: 2, text: '今天我们学了……' },
+                { name: '', minutes: 1, text: '没有名字的环节不要' }
+            ],
+            board: ['分数的基本性质', '分子分母同乘或同除以相同的数（0 除外）'],
+            defense: [
+                { question: '本课的教学目标依据是什么？', answer: `依据 ${LIMITED}，并参考 MA-S1-ZZ-99.1。` },
+                { question: '难点怎么突破？', answer: '用折纸让学生看到涂色部分大小不变。' }
+            ]
+        }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 900, total_tokens: 1800 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const response = await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ step: 'trial', lesson: { title: '分数的基本性质', subject_slug: 'math', grade: 5 }, indicator_codes: [LIMITED], frame: frame(), process: planProcess }) })
+    assert.equal(response.status, 200)
+    const { data } = await json(response)
+    assert.deepEqual(data.trial.stages.map((item: any) => item.name), ['导入', '探究', '小结'])
+    assert.equal(data.trial.minutes, 9)
+    assert.equal(data.trial.board.length, 2)
+    assert.ok(data.trial.defense[0].answer.includes(LIMITED))
+    assert.ok(!data.trial.defense[0].answer.includes('MA-S1-ZZ-99'))
+})

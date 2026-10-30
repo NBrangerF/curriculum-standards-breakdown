@@ -50,7 +50,9 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     await page.route('**/api/v1/lesson-plans/draft', route => {
         const body = route.request().postDataJSON()
         drafts.push(body)
-        const data = body.step === 'talk'
+        const data = body.step === 'trial'
+            ? { step: 'trial', trial: { stages: [{ name: '导入', minutes: 1, text: '同学们，这三张纸的涂色部分一样大吗？（模拟学生回答：一样大。）' }, { name: '探究', minutes: 6, text: '（板书：分数的基本性质）请大家折一折。' }, { name: '小结', minutes: 2, text: '今天我们发现……' }], board: ['分数的基本性质'], defense: [{ question: '本课目标的课标依据是什么？', answer: '依据 MA-S3-NA-01.3。' }, { question: '难点怎么突破？', answer: '用折纸。' }], minutes: 9 }, evidence, model: 'gpt-5-mini' }
+            : body.step === 'talk'
             ? { step: 'talk', talk: { sections: [{ heading: '说教材', text: '本课依据 MA-S3-NA-01.3。' }, { heading: '说学情', text: '学生已学过分数的意义。' }, { heading: '说教学目标与重难点', text: '…' }, { heading: '说教学过程', text: '…' }], minutes: 6 }, evidence, model: 'gpt-5-mini' }
             : body.step === 'frame'
             ? { step: 'frame', frame, checks: [{ level: 'warn', kind: 'unused_indicator', message: '…' }], evidence, privacy: { redacted: false }, model: 'gpt-5-mini' }
@@ -79,6 +81,11 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     await expect(page.getByText('本课依据 MA-S3-NA-01.3。')).toBeVisible()
     expect(drafts.at(-1).step).toBe('talk')
     expect(drafts.at(-1).process.stages.length).toBe(2)
+    await page.getByRole('button', { name: '试讲稿 + 答辩' }).click()
+    await expect(page.getByRole('heading', { name: '《分数的基本性质》试讲稿' })).toBeVisible()
+    await expect(page.getByText('（模拟学生回答：一样大。）')).toBeVisible()
+    await expect(page.getByText('本课目标的课标依据是什么？')).toBeVisible()
+    expect(drafts.at(-1).step).toBe('trial')
     expect(drafts[0].indicator_codes).toEqual(['MA-S3-NA-01.3'])
     expect(drafts[0].class_notes).toBe('学生会画图表示分数')
     expect(drafts[1].frame.objectives[0].basis).toEqual(['MA-S3-NA-01.3'])
