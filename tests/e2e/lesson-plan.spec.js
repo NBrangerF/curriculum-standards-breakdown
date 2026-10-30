@@ -228,6 +228,15 @@ test('单元整体设计: a whole textbook unit is planned over its own lessons,
     await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&chapter=${encodeURIComponent('4 分数的意义和性质')}`)
     await expect(page.getByRole('heading', { name: /单元整体设计/ }).first()).toBeVisible()
     await expect(page.getByRole('combobox').nth(2)).toHaveValue('chapter::4 分数的意义和性质')
+    // the 单元设计框架 lists the unit's own lessons, with no AI
+    const frameDownload = page.waitForEvent('download')
+    await page.getByRole('button', { name: '下载单元设计框架' }).click()
+    const frameFile = await frameDownload
+    expect(frameFile.suggestedFilename()).toBe('分数的意义和性质-单元设计框架.doc')
+    const frameText = await (await import('node:fs/promises')).readFile(await frameFile.path(), 'utf8')
+    expect(frameText).toContain('《分数的意义和性质》单元整体教学设计')
+    expect(frameText).toContain('<td>分数的基本性质</td>')
+    expect(frameText).toContain('七、表现性任务（单元评价，先定证据）')
     await page.getByRole('button', { name: /起草单元设计/ }).click()
     await expect(page.getByText('同一个数可以有多种等值的分数表示')).toBeVisible()
     await expect(page.getByRole('heading', { name: /表现性任务：班级分饼会/ })).toBeVisible()

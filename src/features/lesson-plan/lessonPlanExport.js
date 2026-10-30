@@ -353,10 +353,11 @@ export function downloadReflectionWord(plan) {
     setTimeout(() => URL.revokeObjectURL(url), 2000)
 }
 
-// ---------- 教案框架: the ticked 要点 verbatim and blank sections in evidence-first order, for teachers who write
-// in their school's own template or when the AI is unavailable (no AI) ----------
+// ---------- 教案框架 / 单元设计框架: the ticked 要点 verbatim and blank sections in evidence-first order, for teachers
+// who write in their school's own template or when the AI is unavailable (no AI). A unit lists its real lessons. ----------
 export function skeletonHtml(context, selected) {
     const lesson = context.lesson
+    const unitLessons = context.unit_lessons?.length ? context.unit_lessons : null
     const standards = context.standards
         .map(standard => ({ ...standard, points: standard.indicators.filter(item => selected.has(item.code)) }))
         .filter(standard => standard.points.length)
@@ -365,43 +366,60 @@ export function skeletonHtml(context, selected) {
 <ul>${standard.points.map(item => `<li><span class="code">${esc(item.code)}</span>　${esc(item.text)}（修订版第 ${esc(item.pages.join('、'))} 页）</li>`).join('')}</ul>
 ${standard.requirements?.length ? `<p class="dim">学业要求：${standard.requirements.map(esc).join('；')}</p>` : ''}${standard.guidance?.length ? `<p class="dim">教学提示：${standard.guidance.map(esc).join('；')}</p>` : ''}`).join('')
     const goalRows = points.map((item, index) => `<tr><td class="short">目标 ${index + 1}</td><td>学生能＿＿＿＿＿＿＿＿＿＿＿＿＿＿（条件 + 看得见的行为 + 程度）</td><td class="code">${esc(item.code)}</td></tr>`).join('')
-    const assessRows = points.map((_, index) => `<tr><td class="short">目标 ${index + 1}</td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>`).join('')
-    const stageRows = ['导入', '新授 / 探究', '练习 / 运用', '小结'].map(name => `<tr><td class="short">${name}</td><td class="short"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="short"></td></tr>`).join('')
-    const title = lesson.title
-    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}教案框架</title><style>
+    const goals = `<table><tr><th>目标</th><th>学生能……</th><th>依据要点</th></tr>${goalRows}</table>`
+    const title = unitLessons ? (lesson.unit_title || lesson.title).replace(/^\d+\s*/u, '') : lesson.title
+    const box = hint => `<p class="hint">${hint}</p><div class="box"></div>`
+    const body = unitLessons ? `<h2>二、单元内容分析</h2>
+${box('这个单元在整册、整个学段里的位置：前面学过什么，后面接着学什么。')}
+<h2>三、学情分析</h2>
+${box('学生已经会什么，可能在哪里出错。')}
+<h2>四、单元大概念</h2>
+${box('用一句完整的话写出学生学完要真正理解、能迁移的观点，不是知识点的名称。')}
+<h2>五、基本问题</h2>
+<p>1. ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿？</p><p>2. ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿？</p>
+<h2>六、单元目标</h2>
+${goals}
+<h2>七、表现性任务（单元评价，先定证据）</h2>
+<table><tr><th>任务情境</th><th>学生要交出的作品或表现</th><th>评价标准（量规）</th><th>对应目标</th></tr><tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="short"></td></tr></table>
+<h2>八、课时安排</h2>
+<table><tr><th>课时</th><th>课题</th><th>课时数</th><th>主要目标</th><th>关键活动与评价</th></tr>${unitLessons.map((item, index) => `<tr><td class="short">${index + 1}</td><td>${esc(item.title)}</td><td class="short">${esc(item.hours || '')}</td><td class="short"></td><td class="blank"></td></tr>`).join('')}</table>
+<h2>九、单元作业与反思</h2>
+${box('单元作业怎样分层；学完后哪条目标达成得不好，下次怎么调整。')}` : `<h2>二、教材分析</h2>
+${box('这一课在单元里的位置、前后联系，教材用了哪些情境和例题。')}
+<h2>三、学情分析</h2>
+${box('学生已经会什么，可能在哪里出错。')}
+<h2>四、教学目标</h2>
+${goals}
+<h2>五、教学重点和难点</h2>
+<p>重点：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p><p>难点：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+<h2>六、评价任务（先定证据，再设计活动）</h2>
+<table><tr><th>对应目标</th><th>学生要完成的任务</th><th>看什么证据</th><th>达成标准</th></tr>${points.map((_, index) => `<tr><td class="short">目标 ${index + 1}</td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>`).join('')}</table>
+<h2>七、教学过程</h2>
+<table><tr><th>环节</th><th>时间</th><th>教师活动</th><th>学生活动</th><th>设计意图</th><th>对应目标</th></tr>${['导入', '新授 / 探究', '练习 / 运用', '小结'].map(name => `<tr><td class="short">${name}</td><td class="short"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="short"></td></tr>`).join('')}</table>
+<h2>八、作业设计</h2>
+<p>基础：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p><p>拓展：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+<h2>九、板书设计</h2><div class="box"></div>`
+    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}${unitLessons ? '单元设计框架' : '教案框架'}</title><style>
 body{font-family:"SimSun","Songti SC",serif;font-size:11pt;line-height:1.6;margin:1.8cm}h1{font-size:16pt;text-align:center;margin:0 0 4pt}h2{font-size:12.5pt;margin:12pt 0 4pt}
 .meta{text-align:center;color:#444;margin:0 0 8pt}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:4pt 5pt;vertical-align:top;font-size:10pt}th{background:#eee}
 ul{margin:2pt 0 6pt;padding-left:1.2em}.code{white-space:nowrap;font-size:9.5pt}.dim{color:#555;font-size:10pt}.short{width:12%;white-space:nowrap}.blank{height:40pt}.box{border:1px solid #999;height:56pt;margin:2pt 0 8pt}.hint{color:#666;font-size:9.5pt;margin:0 0 2pt}.foot{color:#666;font-size:9pt;margin-top:12pt}
 </style></head><body>
-<h1>《${esc(title)}》教学设计</h1>
-<p class="meta">${esc([context.subject_note?.name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', lesson.unit_title || ''].filter(Boolean).join(' · '))}</p>
+<h1>《${esc(title)}》${unitLessons ? '单元整体教学设计' : '教学设计'}</h1>
+<p class="meta">${esc([context.subject_note?.name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', unitLessons ? `共 ${unitLessons.length} 课` : lesson.unit_title || ''].filter(Boolean).join(' · '))}</p>
 <h2>一、课标依据</h2>
 ${basis}
-<h2>二、教材分析</h2>
-<p class="hint">这一课在单元里的位置、前后联系，教材用了哪些情境和例题。</p><div class="box"></div>
-<h2>三、学情分析</h2>
-<p class="hint">学生已经会什么，可能在哪里出错。</p><div class="box"></div>
-<h2>四、教学目标</h2>
-<table><tr><th>目标</th><th>学生能……</th><th>依据要点</th></tr>${goalRows}</table>
-<h2>五、教学重点和难点</h2>
-<p>重点：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p><p>难点：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
-<h2>六、评价任务（先定证据，再设计活动）</h2>
-<table><tr><th>对应目标</th><th>学生要完成的任务</th><th>看什么证据</th><th>达成标准</th></tr>${assessRows}</table>
-<h2>七、教学过程</h2>
-<table><tr><th>环节</th><th>时间</th><th>教师活动</th><th>学生活动</th><th>设计意图</th><th>对应目标</th></tr>${stageRows}</table>
-<h2>八、作业设计</h2>
-<p>基础：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p><p>拓展：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
-<h2>九、板书设计</h2><div class="box"></div>
+${body}
 <p class="foot">课标依据逐字摘自《义务教育课程标准（2022年版2025年修订）》（kebiao.org）。写好后可以贴回 kebiao.org/lesson-plan 的「核验教案」，对照课标逐条核验。</p>
 </body></html>`
 }
 
 export function downloadSkeletonWord(context, selected) {
-    const blob = new Blob(['﻿', skeletonHtml(context, selected)], { type: 'application/msword' })
+    const blob = new Blob(['\ufeff', skeletonHtml(context, selected)], { type: 'application/msword' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = `${(context.lesson.title || '教案').replace(/[\\/:*?"<>|]/gu, '')}-教案框架.doc`
+    const name = context.unit_lessons?.length ? `${(context.lesson.unit_title || context.lesson.title).replace(/^\d+\s*/u, '')}-单元设计框架` : `${context.lesson.title}-教案框架`
+    link.download = `${name.replace(/[\\/:*?"<>|]/gu, '')}.doc`
     document.body.appendChild(link)
     link.click()
     link.remove()

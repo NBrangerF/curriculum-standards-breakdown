@@ -960,8 +960,8 @@ function PromptCopy({ context, selected, isUnit }) {
     return (
         <div className={styles.promptCopy}>
             <button type="button" className="btn btn-secondary" onClick={copy}>{copied ? '已复制，去粘贴吧' : '复制成提示词'}</button>
-            {!isUnit ? <button type="button" className="btn btn-ghost" onClick={() => { downloadSkeletonWord(context, selected); trackUmamiEvent('lesson_plan_export', { format: 'skeleton', kind: 'lesson' }) }}>下载教案框架</button> : null}
-            <span>习惯用豆包、DeepSeek、元宝写教案？把勾好的 {points.length} 条要点原文和写法要求一起复制过去。{!isUnit ? '或下载一份教案框架（课标依据已填好），按学校的格式自己写。' : ''}写完可以回来「核验教案」。</span>
+            <button type="button" className="btn btn-ghost" onClick={() => { downloadSkeletonWord(context, selected); trackUmamiEvent('lesson_plan_export', { format: 'skeleton', kind: isUnit ? 'unit' : 'lesson' }) }}>{isUnit ? '下载单元设计框架' : '下载教案框架'}</button>
+            <span>习惯用豆包、DeepSeek、元宝写教案？把勾好的 {points.length} 条要点原文和写法要求一起复制过去。或下载一份{isUnit ? '单元设计框架（课标依据和单元里的课已填好）' : '教案框架（课标依据已填好）'}，按学校的格式自己写。写完可以回来「核验教案」。</span>
         </div>
     )
 }
