@@ -13,7 +13,10 @@ import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
 
-const STORE_KEY = 'kebiao.lessonPlan.last'
+// the last 10 drafts stay in this browser; the old single-draft key is read once and folded in
+const STORE_KEY = 'kebiao.lessonPlan.history'
+const OLD_KEY = 'kebiao.lessonPlan.last'
+const HISTORY_SIZE = 10
 const SUBJECT_ORDER = ['语文', '数学', '英语', '道德与法治', '科学', '物理', '化学', '生物学', '历史', '地理', '信息科技', '体育与健康', '音乐', '美术', '劳动']
 // 「直接写课题」 covers every 课标, including subjects with no textbook in the library
 const TOPIC_SUBJECTS = [['语文', 'chinese'], ['数学', 'math'], ['英语', 'english'], ['道德与法治', 'morality_law'], ['科学', 'science'], ['物理', 'physics'], ['化学', 'chemistry'], ['生物学', 'biology'], ['历史', 'history'], ['地理', 'geography'], ['信息科技', 'it'], ['体育与健康', 'pe'], ['艺术（音乐、美术等）', 'arts'], ['劳动', 'labor']]
@@ -32,10 +35,24 @@ async function getJson(url) {
 }
 
 function readStored() {
-    try { return JSON.parse(window.localStorage.getItem(STORE_KEY) || 'null') } catch { return null }
+    try {
+        const history = JSON.parse(window.localStorage.getItem(STORE_KEY) || '[]')
+        const old = JSON.parse(window.localStorage.getItem(OLD_KEY) || 'null')
+        return Array.isArray(history) ? (old && !history.length ? [old] : history) : []
+    } catch { return [] }
 }
-function writeStored(value) {
-    try { window.localStorage.setItem(STORE_KEY, JSON.stringify(value)) } catch { /* private mode */ }
+function writeStored(plan) {
+    const key = item => `${item.lesson?.title}|${item.created_at}`
+    const history = [plan, ...readStored().filter(item => key(item) !== key(plan))].slice(0, HISTORY_SIZE)
+    try {
+        window.localStorage.setItem(STORE_KEY, JSON.stringify(history))
+        window.localStorage.removeItem(OLD_KEY)
+    } catch { /* private mode or full */ }
+    return history
+}
+const draftDate = value => {
+    const date = new Date(value)
+    return Number.isNaN(date.getTime()) ? '' : `${date.getMonth() + 1} 月 ${date.getDate()} 日`
 }
 
 const viaLabel = { aligned: '教材页码对齐（机器）', ai_unit: 'AI 按单元判断', search: '按课题检索', ai: 'AI 推荐', seed: '你从标准页选的' }
@@ -71,7 +88,7 @@ export default function LessonPlanPage() {
     const [step, setStep] = useState('')
     const [error, setError] = useState('')
     const [copied, setCopied] = useState(false)
-    const [stored] = useState(readStored)
+    const [stored, setStored] = useState(readStored)
     const runRef = useRef(0)
 
     const subject = params.get('subject') || ''
@@ -248,7 +265,7 @@ export default function LessonPlanPage() {
             setStep('check')
             const done = { ...partial, process: second.process, checks: second.checks, created_at: new Date().toISOString() }
             setPlan(done)
-            writeStored(done)
+            setStored(writeStored(done))
             setStep('done')
             trackUmamiEvent('lesson_plan_drafted', { subject: lesson.subject_slug, indicators: selected.size, risks: second.checks.filter(item => item.level === 'risk').length })
         } catch (errorValue) {
@@ -377,8 +394,17 @@ export default function LessonPlanPage() {
                 <p className={styles.lede}>
                     选你下周要教的一课，确认它对应的课标要点，再说说班级情况。AI 只按你勾选的要点写，每条目标都标出依据；写完后程序会逐条核对：有没有超出课标的限定、目标有没有对应的活动和评价。整个过程约一分钟。也可以贴入自己的教案、试卷或作业：教案逐条核验，试卷编成多维细目表并查超标和漏考。
                 </p>
-                {stored && !plan ? (
-                    <button type="button" className={styles.restore} onClick={() => setPlan(stored)}>打开上次的草稿：{stored.frame?.title || stored.lesson?.title}</button>
+                {stored.length && !plan ? (
+                    <div className={styles.history}>
+                        <span>最近的草稿（只存在这台设备的浏览器里）</span>
+                        <ul>
+                            {stored.slice(0, 5).map(item => (
+                                <li key={`${item.lesson?.title}-${item.created_at}`}>
+                                    <button type="button" className={styles.restore} onClick={() => setPlan(item)}>{item.frame?.title || item.lesson?.title}<small>{[item.lesson?.subject_name, item.lesson?.grade ? `${item.lesson.grade} 年级` : '', draftDate(item.created_at)].filter(Boolean).join(' · ')}</small></button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 ) : null}
             </header>
 

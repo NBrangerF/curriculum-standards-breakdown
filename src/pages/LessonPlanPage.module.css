@@ -35,8 +35,33 @@
     line-height: 1.9;
 }
 
+.history {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 1.1rem;
+}
+
+.history > span {
+    color: var(--kb-dim);
+    font-size: 0.8rem;
+}
+
+.history ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.restore small {
+    margin-left: 0.5rem;
+    color: var(--kb-dim);
+    font-size: 0.76rem;
+}
+
 .restore {
-    margin-top: 1rem;
     padding: 0.5rem 0.9rem;
     border: 1px dashed var(--kb-line-strong);
     border-radius: var(--radius-full, 999px);

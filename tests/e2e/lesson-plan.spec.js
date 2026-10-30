@@ -253,3 +253,13 @@ test('必做实验清单 lists the 课标 experiments with pages, matching 同�
     // corrected against the PDF: the scan read 「材质子」
     await expect(page.getByText('观察热传导现象，如比较不同材质勺子的导热能力')).toBeVisible()
 })
+
+test('AI 备课 keeps recent drafts in this browser, including one saved under the old single-draft key', async ({ page }) => {
+    const old = { lesson: { ...lesson, subject_name: '数学' }, frame, process: processDraft, evidence, checks: [], meta: { period_minutes: 40, lesson_index: 1, lesson_count: 1 }, created_at: '2026-10-20T08:00:00.000Z' }
+    await page.addInitScript(value => { if (!window.sessionStorage.getItem('seeded')) { window.localStorage.setItem('kebiao.lessonPlan.last', JSON.stringify(value)); window.sessionStorage.setItem('seeded', '1') } }, old)
+    await page.route('**/api/v1/textbooks**', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ items: [] })) }))
+    await page.goto('/lesson-plan')
+    await expect(page.getByText('最近的草稿（只存在这台设备的浏览器里）')).toBeVisible()
+    await page.getByRole('button', { name: /分数的基本性质.*10 月 20 日/ }).click()
+    await expect(page.getByRole('heading', { name: '二、教学目标' })).toBeVisible()
+})
