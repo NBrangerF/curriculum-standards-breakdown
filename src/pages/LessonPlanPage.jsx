@@ -1003,7 +1003,7 @@ function TestReport({ report }) {
             </div>
             <header className={styles.docHead}>
                 <h2 id="lp-test-title">多维细目表：{report.title}</h2>
-                <p>{read.questions.length} 道题{whole ? ` · 共 ${whole} 分` : ''} · {risks ? `${risks} 处需要修改` : '没有必须修改的地方'}{warns ? ` · ${warns} 处建议` : ''}</p>
+                <p>{read.questions.length} 道题{whole ? ` · 共 ${whole} 分` : ''}{report.parts > 1 ? ` · 整卷较长，分 ${report.parts} 段同时读` : ''} · {risks ? `${risks} 处需要修改` : '没有必须修改的地方'}{warns ? ` · ${warns} 处建议` : ''}</p>
             </header>
             <section className={styles.checks} aria-label="核验结果">
                 <h3>发现</h3>

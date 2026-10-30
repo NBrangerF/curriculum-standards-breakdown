@@ -234,6 +234,7 @@ test('核验单元测试卷: a pasted test becomes a 多维细目表 with the �
             table: { unit: 'score', weight_total: 30, literacy: ['数感', '运算能力', '推理意识'], levels: ['了解', '理解', '掌握', '运用'], level_source: '数学课标附录 2「有关行为动词的分类」（修订版第 185 页）', rows: [{ code: 'MA-S3-NA-01.3', text: '能比较两个分数的大小', questions: ['1', '2'], score: 30, by_level: { 了解: [], 理解: [], 掌握: ['1'], 运用: ['2'] } }], score: 30, by_level: { 掌握: 20, 运用: 10 }, by_difficulty: { 易: 20, 难: 10 }, by_type: { 填空题: 30 }, by_literacy: { 运算能力: 20, 数感: 10 } },
             checks: [{ level: 'risk', kind: 'beyond_standard', message: '第 2 题出现了「循环小数」，而课标写明不包括将循环小数转化成分数，可能超标，请核对。' }],
             evidence,
+            parts: 2,
             privacy: { redacted: false },
             model: 'gpt-5-mini'
         })) })
@@ -246,6 +247,7 @@ test('核验单元测试卷: a pasted test becomes a 多维细目表 with the �
     await page.getByRole('button', { name: /对照选定的 1 条要点编细目表/ }).click()
     await expect(page.getByRole('heading', { name: /多维细目表：分数的意义和性质/ })).toBeVisible()
     await expect(page.getByText(/第 2 题出现了「循环小数」/)).toBeVisible()
+    await expect(page.getByText(/分 2 段同时读/)).toBeVisible()
     await expect(page.getByRole('columnheader', { name: '运用' }).first()).toBeVisible()
     await expect(page.getByText(/没有考到：推理意识/)).toBeVisible()
     expect(sent.indicator_codes).toEqual(['MA-S3-NA-01.3'])
