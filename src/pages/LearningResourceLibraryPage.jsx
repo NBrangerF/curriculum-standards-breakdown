@@ -6,6 +6,7 @@ import { learningResourcesMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { Chip, PageHero, Pill, Seg, kb } from '../components/kb'
 import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
+import { loadPlatforms } from '../features/learning-resources/platforms'
 import {
     FORMAT_LABELS,
     STAGE_LABELS,
@@ -81,6 +82,34 @@ function ResourceRow({ resource, index }) {
     )
 }
 
+const SUBJECT_NAMES = { chinese: '语文', math: '数学', english: '英语', morality_law: '道德与法治', science: '科学', physics: '物理', chemistry: '化学', biology: '生物学', history: '历史', geography: '地理', it: '信息科技', pe: '体育与健康', arts: '艺术', labor: '劳动' }
+
+// Official and public-interest platforms that open in mainland China, listed before the curated (mostly overseas) items.
+function PlatformList() {
+    const [platforms, setPlatforms] = useState([])
+    useEffect(() => { loadPlatforms().then(data => setPlatforms(data.platforms || [])) }, [])
+    if (!platforms.length) return null
+    return (
+        <section className={`${kb.wrap} ${styles.platforms}`} aria-labelledby="lr-platforms-title">
+            <h2 id="lr-platforms-title" className={styles.resultsTitle}>国内官方平台 <small>{platforms.length} 个，直接访问</small></h2>
+            <ul className={styles.platformGrid}>
+                {platforms.map(platform => {
+                    const subjects = [...new Set(platform.match.flatMap(rule => rule.subjects))]
+                    return (
+                        <li key={platform.id}>
+                            <a href={platform.url} target="_blank" rel="noopener noreferrer"><b>{platform.title}</b> ↗</a>
+                            <span>{platform.provider} · {platform.cost}</span>
+                            <p>{platform.summary}</p>
+                            <p className={styles.platformUse}>{platform.how_to_use}</p>
+                            <span className={styles.platformSubjects}>{subjects.length >= 10 ? '全部学科' : subjects.map(slug => SUBJECT_NAMES[slug] || slug).join(' · ')}</span>
+                        </li>
+                    )
+                })}
+            </ul>
+        </section>
+    )
+}
+
 export default function LearningResourceLibraryPage() {
     const [catalog, setCatalog] = useState(null)
     usePageMeta(catalog ? learningResourcesMeta({ resourceCount: catalog.resources.length }) : null)
@@ -133,6 +162,8 @@ export default function LearningResourceLibraryPage() {
                     { value: reachableCount, label: '项国内可访问' }
                 ]}
             />
+
+            <PlatformList />
 
             <section className={styles.filters} aria-label="筛选学习资源">
                 <div className={`${kb.wrap} ${styles.filterInner}`}>

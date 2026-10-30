@@ -97,9 +97,9 @@ export function buildNationalLessons() {
             }
             if (!codes.length && lesson.pdf_page) {
                 const row = rows.filter(item => item[3] <= lesson.pdf_page && item[5].length).at(-1)
-                // only the chapter the lesson starts in, not one many pages back
+                // only the chapter the lesson starts in: it must begin before the next chapter does
                 const next = rows.find(item => item[3] > (row?.[3] ?? Infinity))
-                if (row && (!next || lesson.pdf_page < next[3] + 30)) codes.push(...row[5])
+                if (row && (!next || lesson.pdf_page < next[3])) codes.push(...row[5])
             }
             if (codes.length) linkLesson(codes, [record.edition_id, lesson.id, lesson.title, record.textbook_title, MATERIALS.filter(name => lesson.materials.includes(name)).map(name => MATERIALS.indexOf(name)), confidence === 'text' ? 1 : 0])
         }

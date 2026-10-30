@@ -6,6 +6,7 @@ import { PageLoading, ErrorState, CopyLinkButton } from '../components/StateComp
 import FavoriteButton from '../components/FavoriteButton'
 import ShareStandardButton from '../features/share/ShareStandardButton'
 import StandardTextbookLinks from '../features/textbooks/StandardTextbookLinks'
+import { loadPlatforms, platformsFor } from '../features/learning-resources/platforms'
 import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
 import { v2StandardMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
@@ -115,6 +116,31 @@ function NationalLessons({ code }) {
                 ))}
             </ul>
             <p className={styles.blockNote}>按教材页码与课标的机器对应列出，待核验。国家中小学智慧教育平台免费提供，观看需登录平台账号。</p>
+        </section>
+    )
+}
+
+function Platforms({ subjectSlug, standard }) {
+    const [platforms, setPlatforms] = useState([])
+    useEffect(() => {
+        let cancelled = false
+        loadPlatforms().then(data => { if (!cancelled) setPlatforms(platformsFor(data.platforms, subjectSlug, standard).slice(0, 4)) })
+        return () => { cancelled = true }
+    }, [subjectSlug, standard])
+    if (!platforms.length) return null
+    return (
+        <section className={styles.block} id="standard-platforms">
+            <h2>国内官方平台</h2>
+            <ul className={styles.resourceList}>
+                {platforms.map(platform => (
+                    <li key={platform.id}>
+                        <a href={platform.url} target="_blank" rel="noopener noreferrer">{platform.title} ↗</a>
+                        <span>{platform.provider} · {platform.cost}</span>
+                        <p>{platform.how_to_use}</p>
+                    </li>
+                ))}
+            </ul>
+            <p className={styles.blockNote}>按学科和课标的内容分类对应，国内可以直接打开。课堂用法为 kebiao 整理。</p>
         </section>
     )
 }
@@ -299,6 +325,7 @@ export default function StandardV2Page() {
                     <StandardTextbookLinks standardCode={standard.code} />
                 </section>
                 <NationalLessons code={standard.code} />
+                <Platforms subjectSlug={slug} standard={standard} />
                 <LearningResources ids={standard.learning_resource_ids || []} legacyCodes={standard.legacy_codes || []} />
 
                 <nav className={styles.neighbours} aria-label="同学段的标准">

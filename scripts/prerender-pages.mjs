@@ -53,6 +53,7 @@ const textbooksById = new Map(textbooks.map(book => [book.edition_id, book]))
 const units = readJson('textbooks/units.json').items
 const standardsToTextbooks = readJson('textbooks/standards-to-textbooks.json')
 const learningResources = readJson('learning-resources/catalog/index.json').resources
+const platforms = readJson('learning-resources/platforms.json').platforms
 const glossary = readJson('glossary.json')
 const concepts = readJson('concepts.json')
 const CARD_VERSION = cardVersion(readJson('data_version.json').data_version)
@@ -284,6 +285,7 @@ function learningResourcePages() {
 <p class="kbp-kicker">开放学习资源 · ${learningResources.length} 个</p>
 <h1>开放学习资源</h1>
 <p class="kbp-lede">精选的开放学习资源，标明许可与国内能否直接访问，点击跳转原站使用。</p>
+${section('国内官方平台', list(platforms.map(platform => `<a href="${esc(platform.url)}" rel="noopener">${esc(platform.title)}</a> <span class="kbp-note">${esc(platform.provider)}</span><br><span class="kbp-note">${esc(platform.how_to_use)}</span>`)))}
 ${list(learningResources.map(resource => `${link(`/learning-resources/${resource.id}`, resource.title_zh)} <span class="kbp-note">${esc(resource.provider)}</span>`))}`, { jsonLd: [breadcrumbs(crumbs)] })
 
     for (const resource of learningResources) {

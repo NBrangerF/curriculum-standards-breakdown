@@ -1,0 +1,449 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-31",
+  "note": "国内可以直接访问的官方或公益平台。每个平台按学科和课标的内容分类对应到标准；how_to_use 为 kebiao 整理的课堂用法。网址于 checked_at 当天逐一打开核实。",
+  "platforms": [
+    {
+      "id": "smartedu-sync",
+      "title": "国家中小学智慧教育平台 · 课程教学",
+      "provider": "教育部",
+      "url": "https://basic.smartedu.cn/syncClassroom",
+      "cost": "免费，部分内容需登录",
+      "summary": "按教材版本、年级和课时组织的同步课，每课通常有视频课程、课件、教学设计、学习任务单和课后练习。",
+      "how_to_use": "备课时先看同一课的教学设计和学习任务单，借鉴环节和练习，再按自己班级调整。kebiao 的教材单元页和 AI 备课已经对到具体课时。",
+      "match": [
+        {
+          "subjects": [
+            "chinese",
+            "math",
+            "english",
+            "morality_law",
+            "science",
+            "physics",
+            "chemistry",
+            "biology",
+            "history",
+            "geography",
+            "it",
+            "pe",
+            "arts",
+            "labor"
+          ]
+        }
+      ],
+      "show_on_standards": false
+    },
+    {
+      "id": "dpm-digicol",
+      "title": "故宫博物院 · 数字文物库",
+      "provider": "故宫博物院",
+      "url": "https://digicol.dpm.org.cn/",
+      "cost": "免费浏览",
+      "summary": "故宫藏品的高清影像和说明，可按类别、年代检索，书画、陶瓷、青铜器等都能放大看细节。",
+      "how_to_use": "讲某一朝代的经济文化或做美术欣赏时，选两三件文物的高清图，让学生先观察细节、说出时代特征，再看说明核对。",
+      "match": [
+        {
+          "subjects": [
+            "history"
+          ],
+          "level1": [
+            "中国古代史"
+          ]
+        },
+        {
+          "subjects": [
+            "arts"
+          ],
+          "level1": [
+            "美术"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chnmuseum",
+      "title": "中国国家博物馆 · 藏品",
+      "provider": "中国国家博物馆",
+      "url": "https://www.chnmuseum.cn/zp/",
+      "cost": "免费浏览",
+      "summary": "国博馆藏精品的图片与介绍，涵盖从史前到近现代的中国历史文物。",
+      "how_to_use": "用一件文物作为史料实证的起点：让学生说出它能证明什么、不能证明什么，再与教材叙述对照。",
+      "match": [
+        {
+          "subjects": [
+            "history"
+          ],
+          "level1": [
+            "中国古代史",
+            "中国近代史",
+            "中国现代史"
+          ]
+        },
+        {
+          "subjects": [
+            "morality_law"
+          ],
+          "level1": [
+            "中华优秀传统文化与革命传统教育",
+            "中华优秀传统文化教育",
+            "革命传统教育"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdstm",
+      "title": "中国数字科技馆",
+      "provider": "中国科学技术协会",
+      "url": "https://www.cdstm.cn/",
+      "cost": "免费浏览",
+      "summary": "国家级科普网站，有科普视频、虚拟展厅和专题，内容覆盖物理、化学、生命、地球与航天等领域。",
+      "how_to_use": "在课前或课后布置一个相关专题让学生浏览，带着一个问题回到课堂交流；也可以截取短视频做情境导入。",
+      "match": [
+        {
+          "subjects": [
+            "science",
+            "physics",
+            "chemistry",
+            "biology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kepu-cas",
+      "title": "中国科普博览",
+      "provider": "中国科学院",
+      "url": "https://www.kepu.net.cn/",
+      "cost": "免费浏览",
+      "summary": "中国科学院的科普网站，按天文、地球、生命、物理等主题整理科普文章、图片和虚拟博物馆。",
+      "how_to_use": "需要可靠的科学背景资料时从这里找；适合让学生做小课题时作为首选查阅来源。",
+      "match": [
+        {
+          "subjects": [
+            "science"
+          ],
+          "level1": [
+            "地球与宇宙科学",
+            "生命科学"
+          ]
+        },
+        {
+          "subjects": [
+            "geography"
+          ],
+          "level1": [
+            "认识全球"
+          ]
+        },
+        {
+          "subjects": [
+            "biology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "iplant",
+      "title": "iPlant 植物智",
+      "provider": "中国科学院植物研究所",
+      "url": "https://www.iplant.cn/",
+      "cost": "免费浏览",
+      "summary": "中国植物物种信息系统，可按中文名查植物的形态描述、分布和照片。",
+      "how_to_use": "校园植物观察时，让学生先记录特征，再用中文名查证；也可用来比较不同类群植物的形态。",
+      "match": [
+        {
+          "subjects": [
+            "biology"
+          ],
+          "level1": [
+            "植物的生活",
+            "生物的多样性"
+          ]
+        },
+        {
+          "subjects": [
+            "science"
+          ],
+          "level1": [
+            "生命科学"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tianditu",
+      "title": "天地图",
+      "provider": "国家地理信息公共服务平台（自然资源部）",
+      "url": "https://www.tianditu.gov.cn/",
+      "cost": "免费使用",
+      "summary": "国家权威的在线地图，有矢量、影像和地形图层，可以查位置、量距离和面积。",
+      "how_to_use": "认识区域时，用影像和地形图层对照看地形与城市分布；地图教学中让学生量算两地距离、判读方向。使用国家标准地图，课件里引用更放心。",
+      "match": [
+        {
+          "subjects": [
+            "geography"
+          ],
+          "level1": [
+            "认识区域",
+            "地理工具与地理实践"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cma-kepu",
+      "title": "中国气象局 · 气象科普",
+      "provider": "中国气象局",
+      "url": "https://www.cma.gov.cn/kppd/",
+      "cost": "免费浏览",
+      "summary": "气象知识、天气现象和气象灾害防御的科普内容。",
+      "how_to_use": "讲天气与气候、天气符号时，配合当地天气预报做读图练习；讲灾害防御时引用官方科普。",
+      "match": [
+        {
+          "subjects": [
+            "geography"
+          ],
+          "level2": [
+            "天气与气候"
+          ]
+        },
+        {
+          "subjects": [
+            "science"
+          ],
+          "level2": [
+            "地球系统"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nmdis",
+      "title": "中国海洋信息网",
+      "provider": "国家海洋信息中心",
+      "url": "https://www.nmdis.org.cn/",
+      "cost": "免费浏览",
+      "summary": "国家海洋信息中心的网站，有海洋资料、公报和海洋科普。",
+      "how_to_use": "讲世界海陆分布或我国海洋国土时，引用官方的海洋资料和公报数据。",
+      "match": [
+        {
+          "subjects": [
+            "geography"
+          ],
+          "level2": [
+            "陆地和海洋",
+            "认识中国全貌"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stats-data",
+      "title": "国家统计局 · 国家数据",
+      "provider": "国家统计局",
+      "url": "https://data.stats.gov.cn/",
+      "cost": "免费查询",
+      "summary": "官方统计数据库，可按年度、地区查询人口、经济、教育等数据并导出。",
+      "how_to_use": "统计教学用真实数据：让学生查本省近十年人口或粮食产量，自己选统计图表达并说明变化；地理课用来分析人口和发展差异。",
+      "match": [
+        {
+          "subjects": [
+            "math"
+          ],
+          "level1": [
+            "统计与概率"
+          ]
+        },
+        {
+          "subjects": [
+            "geography"
+          ],
+          "level2": [
+            "居民与文化",
+            "发展与合作",
+            "认识中国全貌"
+          ]
+        },
+        {
+          "subjects": [
+            "it"
+          ],
+          "level1": [
+            "数据与编码"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nlc-guji",
+      "title": "国家图书馆 · 中华古籍资源库",
+      "provider": "国家图书馆",
+      "url": "http://read.nlc.cn/thematDataSearch/toGujiIndex",
+      "cost": "免费浏览",
+      "summary": "国家图书馆馆藏古籍的数字影像，可在线翻阅。",
+      "how_to_use": "古诗文或历史课上展示一页古籍原貌，让学生感受版式和用字；做史料研读时说明史料的来源。",
+      "match": [
+        {
+          "subjects": [
+            "chinese"
+          ],
+          "level1": [
+            "梳理与探究",
+            "阅读与鉴赏"
+          ]
+        },
+        {
+          "subjects": [
+            "history"
+          ],
+          "level1": [
+            "中国古代史"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pep",
+      "title": "人民教育出版社 · 人教网",
+      "provider": "人民教育出版社",
+      "url": "https://www.pep.com.cn/",
+      "cost": "免费浏览",
+      "summary": "人教版教材的出版社网站，有各学科教材介绍、教学研究文章和配套资源信息。",
+      "how_to_use": "用人教版教材的老师，可以在学科频道查教材编写意图和教学建议，作为解读教材的参考。",
+      "match": [
+        {
+          "subjects": [
+            "math",
+            "english",
+            "physics",
+            "chemistry",
+            "biology",
+            "geography",
+            "pe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geogebra",
+      "title": "GeoGebra 中文版",
+      "provider": "GeoGebra",
+      "url": "https://www.geogebra.org/?lang=zh_CN",
+      "cost": "免费（非商业用途）",
+      "summary": "动态几何与函数作图工具，拖动点和滑块就能看到图形和函数图像怎样变化。",
+      "how_to_use": "讲图形的变换、轴对称、函数图像时，现场拖动给学生看「什么变了、什么没变」，再让学生自己操作验证猜想。",
+      "match": [
+        {
+          "subjects": [
+            "math"
+          ],
+          "level1": [
+            "图形与几何"
+          ]
+        },
+        {
+          "subjects": [
+            "math"
+          ],
+          "level2": [
+            "一次函数",
+            "二次函数",
+            "反比例函数",
+            "函数的概念"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ptable",
+      "title": "Ptable 元素周期表（中文）",
+      "provider": "Ptable",
+      "url": "https://ptable.com/?lang=zh",
+      "cost": "免费在线使用",
+      "summary": "交互式元素周期表，可以查看元素性质、电子排布和同位素，并按性质着色。",
+      "how_to_use": "认识元素时让学生按金属与非金属、常温状态给元素着色，观察周期表的规律。",
+      "match": [
+        {
+          "subjects": [
+            "chemistry"
+          ],
+          "level2": [
+            "元素",
+            "分子、原子",
+            "物质的组成"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mem-kepu",
+      "title": "应急管理部 · 应急科普",
+      "provider": "应急管理部",
+      "url": "https://www.mem.gov.cn/kp/",
+      "cost": "免费浏览",
+      "summary": "防灾减灾、安全生产和应急避险的官方科普。",
+      "how_to_use": "安全教育课引用官方的避险要点；结合本地常见灾害做情境演练。",
+      "match": [
+        {
+          "subjects": [
+            "morality_law"
+          ],
+          "level1": [
+            "生命安全与健康教育"
+          ]
+        },
+        {
+          "subjects": [
+            "pe"
+          ],
+          "level1": [
+            "健康教育"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "python-docs",
+      "title": "Python 官方文档（中文）",
+      "provider": "Python 软件基金会",
+      "url": "https://docs.python.org/zh-cn/3/",
+      "cost": "免费",
+      "summary": "Python 语言官方教程和标准库文档的中文版。",
+      "how_to_use": "初中用 Python 实践算法或数据处理时，教师备课查语法和示例；教程前几章也适合学有余力的学生自学。",
+      "match": [
+        {
+          "subjects": [
+            "it"
+          ],
+          "level1": [
+            "互联网应用与创新",
+            "物联网实践与探索",
+            "人工智能与智慧社会",
+            "数据与编码"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scratch",
+      "title": "Scratch",
+      "provider": "麻省理工学院媒体实验室",
+      "url": "https://scratch.mit.edu/",
+      "cost": "免费（有中文界面）",
+      "summary": "图形化编程平台，用积木搭程序，适合小学生体验算法和控制。",
+      "how_to_use": "讲身边的算法、过程与控制时，让学生用积木实现一个有顺序、分支或循环的小程序，再说出算法步骤。",
+      "match": [
+        {
+          "subjects": [
+            "it"
+          ],
+          "level1": [
+            "身边的算法",
+            "过程与控制"
+          ]
+        }
+      ]
+    }
+  ]
+}

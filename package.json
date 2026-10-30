@@ -16,7 +16,7 @@
         "normalize:data": "node scripts/normalize-runtime-data.mjs --data-root data/internal",
         "migrate:code-taxonomy": "tsx scripts/migrate-code-taxonomy.ts --data-root data/internal --apply",
         "build:unified-progression": "tsx scripts/build-unified-progression.ts --data-root data/internal --apply",
-        "build:public-data": "node scripts/build-public-data.mjs --source data/internal --output public/data && npm run learning-resources:build && npm run build:public-v2 && npm run build:starmap && node scripts/concepts/build_concepts.mjs && node scripts/resources/build_national_lessons.mjs",
+        "build:public-data": "node scripts/build-public-data.mjs --source data/internal --output public/data && npm run learning-resources:build && npm run build:public-v2 && npm run build:starmap && node scripts/concepts/build_concepts.mjs && node scripts/resources/build_national_lessons.mjs && node scripts/resources/build_platforms.mjs",
         "build:public-v2": "node scripts/build-public-v2.mjs",
         "check:concepts": "node scripts/concepts/check_terms.mjs",
         "build:starmap": "node scripts/build-starmap-data.mjs .",
