@@ -7,6 +7,7 @@ import type { Context, Hono } from 'hono'
 import { z } from 'zod'
 import type { FileCurriculumRepository } from '@curriculum/core'
 import { redactSensitiveText } from './ai-privacy.js'
+import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate } from './search-judge.js'
 import type { ApiBindings } from './http.js'
 import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftTalk, draftUnit, sanitiseProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
@@ -68,6 +69,17 @@ export const DraftRequestSchema = BaseRequestSchema.extend({
     frame: z.unknown().optional(),
     unit_lessons: z.array(z.string().trim().min(1).max(60)).max(40).default([]),
     unit_hours: z.number().int().min(1).max(60).optional()
+})
+export const PickRequestSchema = z.object({
+    lesson: z.object({
+        title: z.string().trim().min(1).max(60),
+        unit_title: z.string().trim().max(60).optional(),
+        textbook_title: z.string().trim().max(40).optional(),
+        subject_slug: z.string().trim().max(20),
+        grade: z.number().int().min(1).max(9).nullable().optional()
+    }),
+    hint: z.string().trim().max(80).default(''),
+    lessons: z.array(z.string().trim().max(60)).max(20).default([])
 })
 export const CheckRequestSchema = BaseRequestSchema.extend({ plan_text: z.string().trim().min(30).max(8000) })
 
@@ -392,6 +404,43 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             privacy: { redacted: planText.redacted, redaction_count: planText.redaction_count },
             model: run.model,
             latency_ms: run.latency_ms
+        })
+    })
+
+    // The AI reads every standard of the lesson's subject at its grade (at most ~33) and says which 要点 the lesson
+    // teaches. Retrieval by words misses lessons whose topic word is not in the 课标 (「河流」, 「My friends」).
+    app.post('/api/v1/lesson-plans/pick', async c => {
+        const version = await repository.loadDataVersion()
+        const parsed = PickRequestSchema.safeParse(await deps.parseJson(c))
+        if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请求参数校验失败。', parsed.error.issues)
+        const { lesson, hint, lessons } = parsed.data
+        const subject = await v2.subject(lesson.subject_slug)
+        if (!subject) return deps.apiError(c, 422, 'validation_error', '未知学科。')
+        const grade = lesson.grade ?? null
+        const pool = subject.standards.filter(item => !grade || !Array.isArray(item.grades) || !item.grades.length || item.grades.includes(grade)).slice(0, 36)
+        const candidates: JudgeCandidate[] = pool.map(standard => ({
+            code: standard.code,
+            subject: subject.subject,
+            stage: subject.stages.find(stage => stage.stage === standard.stage)?.label || standard.stage,
+            title: String(standard.level2 || standard.title || ''),
+            statement: String(standard.statement || ''),
+            indicators: (standard.indicators || []).map(item => ({ code: item.code, text: item.text }))
+        }))
+        const hintText = redactSensitiveText(hint).text.trim()
+        const query = [
+            `${grade ? `${grade}年级` : ''}${subject.subject}${lesson.textbook_title ? `（${lesson.textbook_title}）` : ''}${lesson.unit_title ? ` ${lesson.unit_title}` : ''}`,
+            lessons.length ? `单元「${lesson.title}」（包括：${lessons.slice(0, 12).join('、')}）要教的内容` : `「${lesson.title}」这一课要教的内容`,
+            hintText ? `老师补充：${hintText}` : ''
+        ].filter(Boolean).join('，')
+        const judge = await judgeSearchCandidates(query, '', candidates, { cache: searchJudgeCache })
+        c.set('aiMetrics', { feature: 'lesson_plan', used: judge.used, status: judge.status, model: judge.model, protocol: 'chat_completions', latency_ms: judge.latency_ms, redaction_count: 0, input_tokens: judge.usage?.input_tokens || 0, output_tokens: judge.usage?.output_tokens || 0, total_tokens: judge.usage?.total_tokens || 0 })
+        // every judgement comes back: grade 0 carries the reason a machine-aligned standard does not fit
+        const picks = [...judge.judgements.values()].sort((a, b) => b.grade - a.grade)
+        return deps.ok(c, version as never, {
+            status: judge.status,
+            read: candidates.length,
+            picks: picks.map(item => ({ code: item.code, grade: item.grade, reason: item.reason, point: item.point })),
+            latency_ms: judge.latency_ms
         })
     })
 }

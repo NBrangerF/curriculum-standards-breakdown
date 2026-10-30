@@ -259,3 +259,27 @@ test('说课稿: a drafted plan is retold in the six 说课 parts, citing only i
     assert.ok(data.talk.sections[0].text.includes(LIMITED))
     assert.ok(!data.talk.sections[0].text.includes('MA-S1-ZZ-99'))
 })
+
+test('pick: the AI reads every standard of the subject at the lesson grade, and only those', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const seen: string[] = []
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body))
+        const user = String(body.messages[1].content)
+        const codes = [...user.matchAll(/【([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2})】/gu)].map(match => match[1])
+        seen.push(...codes)
+        const content = { judgements: codes.map(code => ({ code, grade: code === 'MA-S3-NA-01' ? 2 : 0, reason: code === 'MA-S3-NA-01' ? '分数' : '不相关', point: code === 'MA-S3-NA-01' ? `${code}.3` : '' })) }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 100, completion_tokens: 50, total_tokens: 150 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const response = await app.request('/api/v1/lesson-plans/pick', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ lesson: { title: '分数的基本性质（测试）', subject_slug: 'math', grade: 5 } }) })
+    assert.equal(response.status, 200)
+    const { data } = await json(response)
+    const math = JSON.parse(await readFile(resolve(publicDataRoot, 'v2/by_subject/math.json'), 'utf8'))
+    const atGrade5 = math.standards.filter((item: any) => item.grades.includes(5)).map((item: any) => item.code).sort()
+    assert.deepEqual([...new Set(seen)].sort(), atGrade5)
+    assert.equal(data.read, atGrade5.length)
+    assert.equal(data.picks[0].code, 'MA-S3-NA-01')
+    assert.equal(data.picks[0].point, 'MA-S3-NA-01.3')
+})

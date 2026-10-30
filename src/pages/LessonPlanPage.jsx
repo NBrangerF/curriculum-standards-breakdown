@@ -14,7 +14,6 @@ import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
 
 const STORE_KEY = 'kebiao.lessonPlan.last'
-const BAND = grade => (grade <= 2 ? 'H1' : grade <= 4 ? 'H2' : grade <= 6 ? 'H3' : 'H4')
 const SUBJECT_ORDER = ['语文', '数学', '英语', '道德与法治', '科学', '物理', '化学', '生物学', '历史', '地理', '信息科技', '体育与健康', '音乐', '美术', '劳动']
 // 「直接写课题」 covers every 课标, including subjects with no textbook in the library
 const TOPIC_SUBJECTS = [['语文', 'chinese'], ['数学', 'math'], ['英语', 'english'], ['道德与法治', 'morality_law'], ['科学', 'science'], ['物理', 'physics'], ['化学', 'chemistry'], ['生物学', 'biology'], ['历史', 'history'], ['地理', 'geography'], ['信息科技', 'it'], ['体育与健康', 'pe'], ['艺术（音乐、美术等）', 'arts'], ['劳动', 'labor']]
@@ -147,43 +146,55 @@ export default function LessonPlanPage() {
         return () => { active = false }
     }, [contextQuery, seedCodes])
 
-    // 2. the AI search reads the 要点 and ticks the closest ones; a teacher's hint reruns only this step
+    // 2. the AI reads every standard of the subject at this grade and ticks the 要点 this lesson teaches;
+    //    a teacher's hint reruns only this step
     useEffect(() => {
         if (!base) return
         const run = ++runRef.current
         setAi({ status: 'loading', reasons: {} })
         const lesson = base.lesson
-        postApi('/api/v1/standards/semantic-search', {
-            query: searchQuery(lesson, base.subject_note?.name, hint, base.unit_lessons),
-            ...(lesson.subject_slug ? { subjects: [lesson.subject_slug] } : {}),
-            ...(lesson.grade ? { grade_bands: [BAND(lesson.grade)] } : {}),
-            limit: 8
+        const isUnitPick = Boolean(base.unit_lessons?.length)
+        postApi('/api/v1/lesson-plans/pick', {
+            lesson: {
+                title: String(lesson.title || '').slice(0, 60),
+                ...(lesson.unit_title ? { unit_title: lesson.unit_title.slice(0, 60) } : {}),
+                ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}),
+                subject_slug: lesson.subject_slug,
+                grade: lesson.grade || null
+            },
+            hint,
+            lessons: (base.unit_lessons || []).map(item => item.title.slice(0, 60)).slice(0, 20)
         }).then(async payload => {
             if (run !== runRef.current) return
-            const results = payload.data?.results || []
-            const direct = results.filter(item => item.match_strength === 'direct' && item.checked_by_ai && item.matched_point?.code).slice(0, base.unit_lessons?.length ? 5 : 3)
-            const reasons = Object.fromEntries(results.filter(item => item.checked_by_ai).map(item => [item.code, item.relevance_reason]))
-            const missing = direct.map(item => item.code).filter(code => !base.standards.some(standard => standard.code === code))
+            const judged = payload.data?.picks || []
+            const picks = judged.filter(item => item.point && item.grade > 0)
+            const strict = picks.filter(item => item.grade === 2)
+            // nothing direct: the closest related ones, marked as such for the teacher to judge
+            const closest = strict.length ? [] : picks.filter(item => item.grade === 1).slice(0, 2)
+            const chosen = (strict.length ? strict : closest).slice(0, isUnitPick ? 6 : 3)
+            const reasons = Object.fromEntries(judged.filter(item => item.reason).map(item => [item.code, `${item.grade === 2 ? '直接对应' : item.grade === 1 ? '相关' : '不切题'}：${item.reason}`]))
+            const missing = [...new Set(chosen.map(item => item.code))].filter(code => !base.standards.some(standard => standard.code === code))
+            let standards = base.standards
             if (missing.length) {
                 const more = await getJson(`/api/v1/lesson-plans/context?${contextQuery}&codes=${missing.join(',')}${seedCodes ? `&seed=${encodeURIComponent(seedCodes)}` : ''}`)
                 if (run !== runRef.current) return
                 setContext(more)
+                standards = more.standards
             }
-            const picked = new Set(direct.map(item => item.matched_point.code))
+            const picked = new Set(chosen.map(item => item.point))
             // a unit spans several 要点: within the standards the AI confirmed, also tick those that share words with the unit's lesson titles
-            if (base.unit_lessons?.length) {
+            if (isUnitPick) {
                 const titles = base.unit_lessons.map(item => item.title)
-                for (const code of direct.map(item => item.code)) {
-                    const standard = (missing.length ? null : base.standards.find(item => item.code === code)) || base.standards.find(item => item.code === code)
-                    for (const indicator of standard?.indicators || []) {
+                for (const code of new Set(strict.map(item => item.code))) {
+                    for (const indicator of standards.find(item => item.code === code)?.indicators || []) {
                         if (picked.size >= 8) break
                         if (titles.some(title => sharedPairs(title, indicator.text) >= 2)) picked.add(indicator.code)
                     }
                 }
             }
             setSelected(picked)
-            const checked = results.some(item => item.checked_by_ai)
-            setAi({ status: !checked ? 'failed' : direct.length ? 'ok' : 'none', reasons })
+            const read = ['ok', 'partial'].includes(payload.data?.status)
+            setAi({ status: !read ? 'failed' : strict.length ? 'ok' : closest.length ? 'closest' : 'none', reasons })
         }).catch(() => { if (run === runRef.current) setAi({ status: 'failed', reasons: {} }) })
     }, [base, hint]) // contextQuery changes always replace base first
 
@@ -415,8 +426,9 @@ export default function LessonPlanPage() {
                     </div>
 
                     <p className={styles.aiStatus} aria-live="polite">
-                        {ai.status === 'loading' ? 'AI 正在读课标要点，找和这一课最贴切的几条（约 10–20 秒）…'
+                        {ai.status === 'loading' ? 'AI 正在把这个年级的课标逐条读一遍，找这一课要教的要点（约 10–20 秒）…'
                             : ai.status === 'ok' ? (isUnit ? `AI 读完了，已勾选这个单元对应的 ${selectedCount} 条要点。请核对：去掉单元里不教的，补上漏掉的。` : `AI 读完了，已勾选它判断直接对应的 ${selectedCount} 条要点。请核对：只留这节课真正要教的（一般 1–3 条）。`)
+                                : ai.status === 'closest' ? `AI 没有找到直接对应的要点，先勾了 ${selectedCount} 条最接近的。请读原文核对，或在下面补一句这节课主要教什么，让 AI 重新找。`
                                 : ai.status === 'none' ? 'AI 没有找到直接对应的要点。请从下面的候选里自己勾选，或换个课题写法。'
                                     : ai.status === 'failed' ? 'AI 这次没能读完要点。请读下面候选的原文，自己勾选：机器对齐和字面匹配可能出错，比如会把「分数的基本性质」对到「等式的基本性质」。' : ''}
                     </p>
@@ -584,19 +596,6 @@ export default function LessonPlanPage() {
             {talk && plan && !isUnit ? <TalkScriptView talk={talk} title={plan.frame?.title || plan.lesson.title} /> : null}
         </div>
     )
-}
-
-// A text title alone (「落花生」) tells the AI little; 语文 and 英语 lessons are asked about as texts to read and discuss.
-function searchQuery(lesson, subjectName, hint, unitLessons) {
-    const grade = lesson.grade ? `${lesson.grade}年级` : ''
-    const title = String(lesson.title || '').replace(/^\d+\*?\s*/u, '')
-    const names = (unitLessons || []).map(item => item.title.replace(/^\d+\*?\s*/u, '')).slice(0, 8).join('、')
-    const base = unitLessons?.length
-        ? `${grade}${subjectName || ''}${lesson.textbook_title ? `（${lesson.textbook_title}）` : ''}单元「${title}」，包括：${names}`
-        : ['chinese', 'english'].includes(lesson.subject_slug)
-        ? `${grade}${subjectName || ''}课文《${title}》的阅读与表达教学`
-        : [lesson.textbook_title, lesson.unit_title, lesson.title].filter(Boolean).join(' ')
-    return [base, hint].filter(Boolean).join('，').slice(0, 200)
 }
 
 // how many two-character pieces two texts share (「百家争鸣」 and 「“百家争鸣”局面的产生」 share three)

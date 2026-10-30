@@ -43,9 +43,9 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     const drafts = []
     await page.route('**/api/v1/lesson-plans/textbooks/*/lessons', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ platform_title: '小学数学人教版五年级下册', confidence: 'text', lessons: [{ id: 'L1', title: '分数的基本性质', chapters: ['4 分数的意义和性质'], pdf_page: 62, materials: [], url: '' }] })) }))
     await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(context)) }))
-    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ results: [
-        { code: 'MA-S3-NA-01', match_strength: 'direct', checked_by_ai: true, relevance_reason: '要点讲比较分数大小和分数转化', matched_point: { code: 'MA-S3-NA-01.3', text: '' } },
-        { code: 'MA-S3-NA-02', match_strength: 'supporting', checked_by_ai: true, relevance_reason: '讲的是等式的性质，不是分数', matched_point: null }
+    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [
+        { code: 'MA-S3-NA-01', grade: 2, reason: '要点讲比较分数大小和分数转化', point: 'MA-S3-NA-01.3' },
+        { code: 'MA-S3-NA-02', grade: 0, reason: '讲的是等式的性质，不是分数', point: null }
     ] })) }))
     await page.route('**/api/v1/lesson-plans/draft', route => {
         const body = route.request().postDataJSON()
@@ -64,7 +64,7 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     const picked = page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })
     await expect(picked).toBeChecked()
     await expect(page.getByRole('checkbox', { name: /等式的基本性质/ })).not.toBeChecked()
-    await expect(page.getByText('AI 判断：讲的是等式的性质，不是分数')).toBeVisible()
+    await expect(page.getByText('AI 判断：不切题：讲的是等式的性质，不是分数')).toBeVisible()
     await expect(page.getByRole('link', { name: /分数的基本性质/ }).filter({ hasText: '分数的基本性质' }).first()).toBeVisible()
 
     await page.getByPlaceholder(/班级整体情况/).fill('学生会画图表示分数')
@@ -89,7 +89,7 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
 
 test('AI 备课 says when the AI could not read the 要点 and leaves the ticking to the teacher', async ({ page }) => {
     await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(context)) }))
-    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ results: [{ code: 'MA-S3-NA-02', match_strength: 'direct', matched_point: null }] })) }))
+    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'timeout', read: 9, picks: [] })) }))
     await page.goto('/lesson-plan?mode=topic&subject=%E6%95%B0%E5%AD%A6&grade=5&topic=%E5%88%86%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8')
     await expect(page.getByText(/AI 这次没能读完要点/)).toBeVisible()
     await expect(page.getByRole('checkbox', { checked: true })).toHaveCount(0)
@@ -111,7 +111,7 @@ test('concept pages quote the 课标 with pages and link real standards', async 
 
 test('核验我的教案 reads a pasted plan and shows what to fix', async ({ page }) => {
     await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(context)) }))
-    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ results: [{ code: 'MA-S3-NA-01', match_strength: 'direct', checked_by_ai: true, relevance_reason: '比较分数大小', matched_point: { code: 'MA-S3-NA-01.3', text: '' } }] })) }))
+    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [{ code: 'MA-S3-NA-01', grade: 2, reason: '比较分数大小', point: 'MA-S3-NA-01.3' }] })) }))
     let sent = null
     await page.route('**/api/v1/lesson-plans/check', route => {
         sent = route.request().postDataJSON()
@@ -134,22 +134,22 @@ test('核验我的教案 reads a pasted plan and shows what to fix', async ({ pa
     expect(sent.indicator_codes).toEqual(['MA-S3-NA-01.3'])
 })
 
-test('a 语文 lesson is searched as a text, and the teacher hint reruns only the AI search', async ({ page }) => {
-    const queries = []
+test('the AI reads the grade\'s standards for a lesson; the teacher hint reruns only that step', async ({ page }) => {
+    const picks = []
     let contextCalls = 0
     const cnContext = { ...context, lesson: { ...lesson, title: '2 落花生', unit_title: '第一单元', textbook_title: '语文5年级上册', subject_slug: 'chinese', grade: 5 }, subject_note: { ...context.subject_note, name: '语文' } }
     await page.route('**/api/v1/lesson-plans/context?*', route => { contextCalls += 1; return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(cnContext)) }) })
-    await page.route('**/api/v1/standards/semantic-search', route => {
-        queries.push(route.request().postDataJSON().query)
-        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ results: [] })) })
+    await page.route('**/api/v1/lesson-plans/pick', route => {
+        picks.push(route.request().postDataJSON())
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 28, picks: [{ code: 'MA-S3-NA-01', grade: 1, reason: '最接近', point: 'MA-S3-NA-01.3' }] })) })
     })
     await page.goto(`/lesson-plan?subject=${encodeURIComponent('语文')}&edition=ed_9d4028e2ab482520d0aa&lesson=L2`)
-    await expect(page.getByLabel(/让 AI 重新找/)).toBeVisible()
-    expect(queries.at(-1)).toBe('5年级语文课文《落花生》的阅读与表达教学')
+    await expect(page.getByText(/AI 没有找到直接对应的要点，先勾了 1 条最接近的/)).toBeVisible()
+    expect(picks.at(-1).lesson).toMatchObject({ title: '2 落花生', subject_slug: 'chinese', grade: 5 })
     const before = contextCalls
     await page.getByLabel(/让 AI 重新找/).fill('借物喻人')
     await page.getByRole('button', { name: '重新找' }).click()
-    await expect.poll(() => queries.at(-1)).toBe('5年级语文课文《落花生》的阅读与表达教学，借物喻人')
+    await expect.poll(() => picks.at(-1).hint).toBe('借物喻人')
     expect(contextCalls).toBe(before)
 })
 
@@ -157,7 +157,7 @@ test('单元整体设计: a whole textbook unit is planned over its own lessons,
     const unitContext = { ...context, lesson: { ...lesson, title: '分数的意义和性质', unit_title: '4 分数的意义和性质', lesson_id: null }, unit_lessons: [{ id: 'L0', title: '分数的意义', section: null, pdf_page: 50, hours: 2 }, { id: 'L1', title: '分数的基本性质', section: null, pdf_page: 62, hours: 2 }] }
     await page.route('**/api/v1/lesson-plans/textbooks/*/lessons', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ platform_title: '小学数学人教版五年级下册', confidence: 'text', lessons: [{ id: 'L0', title: '分数的意义', chapters: ['4 分数的意义和性质'], pdf_page: 50, materials: [], url: '' }, { id: 'L1', title: '分数的基本性质', chapters: ['4 分数的意义和性质'], pdf_page: 62, materials: [], url: '' }] })) }))
     await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(unitContext)) }))
-    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ results: [{ code: 'MA-S3-NA-01', match_strength: 'direct', checked_by_ai: true, relevance_reason: '分数', matched_point: { code: 'MA-S3-NA-01.3', text: '' } }] })) }))
+    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [{ code: 'MA-S3-NA-01', grade: 2, reason: '分数', point: 'MA-S3-NA-01.3' }] })) }))
     let sent = null
     await page.route('**/api/v1/lesson-plans/draft', route => {
         sent = route.request().postDataJSON()

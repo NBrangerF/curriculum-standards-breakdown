@@ -113,6 +113,9 @@ export function checkPlan(frame: Frame, process: Process | null, input: Pick<Dra
         if (!cited.has(code)) checks.push({ level: 'warn', kind: 'unused_indicator', message: `你选的要点 ${code} 没有落到任何目标上；如果这节课不教它，可以不选。`, code })
     }
     if (process) {
+        for (const stage of process.stages) {
+            if (!stage.minutes && options.assessmentsPlaced !== false) checks.push({ level: 'warn', kind: 'timing', message: `环节「${stage.name}」没有安排时间。` })
+        }
         const total = process.stages.reduce((sum, stage) => sum + (Number.isFinite(stage.minutes) ? stage.minutes : 0), 0)
         if (Math.abs(total - input.periodMinutes) > 3) checks.push({ level: 'warn', kind: 'timing', message: `各环节合计 ${total} 分钟，和一节课 ${input.periodMinutes} 分钟不一致。` })
         for (const assessment of options.assessmentsPlaced === false ? [] : frame.assessments) {
@@ -167,7 +170,7 @@ ${SHARED_RULES}
 const PROCESS_INSTRUCTIONS = `你是经验丰富的中小学教研员。老师已经定好了这节课的目标和评价任务（见「已定的目标与评价」），请写教学过程和作业。
 ${SHARED_RULES}
 写法要求：
-- stages：3–7 个环节，按上课顺序。每个环节的 objective_ids 都要填（导入、小结等环节也填它服务的目标），不能留空。每个环节写 name（环节名）、minutes（分钟，整数）、teacher（教师活动，具体到要问的关键问题或要做的示范）、students（学生活动，具体到学生做什么、产出什么）、purpose（设计意图，一句话）、objective_ids（这个环节推进哪些目标）、assessment_ids（这个环节完成哪些评价任务，可为空）。所有环节分钟数合计必须等于一节课的时长。每条目标至少在一个环节里推进；每个评价任务都要安排在某个环节。
+- stages：3–7 个环节，按上课顺序，每个环节至少 2 分钟。每个环节的 objective_ids 都要填（导入、小结等环节也填它服务的目标），不能留空。每个环节写 name（环节名）、minutes（分钟，整数）、teacher（教师活动，具体到要问的关键问题或要做的示范）、students（学生活动，具体到学生做什么、产出什么）、purpose（设计意图，一句话）、objective_ids（这个环节推进哪些目标）、assessment_ids（这个环节完成哪些评价任务，可为空）。所有环节分钟数合计必须等于一节课的时长。每条目标至少在一个环节里推进；每个评价任务都要安排在某个环节。
 - 环节里要有学生自己动手、动脑完成的部分，不要整节课都是教师讲授。
 - homework：1–3 条，level 填「基础」「拓展」或「实践」，与目标对应，总量适度。
 - board：板书设计，3–8 行，体现本课结构。
