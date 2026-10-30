@@ -68,7 +68,32 @@
     [data-kb-shell="footer"],
     .noPrint { display: none !important; }
     :global(.main-content) { min-height: 0 !important; }
-    .root { min-height: 0; padding: 0; background: #0f0f0f; }
+    /* this page prints its own dark sheet: undo the site-wide ink-on-paper tokens (design-tokens.css) */
+    .root {
+        --kb-canvas: #07080c;
+        --kb-surface: #0e1118;
+        --kb-surface-muted: #151a24;
+        --kb-night: #07080c;
+        --kb-night-glass: rgba(9, 11, 16, 0.84);
+        --kb-ink: #eceff4;
+        --kb-ink-muted: #aab2bf;
+        --kb-moon: #eceff4;
+        --kb-mist: #aab2bf;
+        --kb-dim: #858e9c;
+        --kb-gold: #e9c887;
+        --kb-accent: #e9c887;
+        --kb-accent-soft: rgba(233, 200, 135, 0.12);
+        --kb-line: rgba(222, 228, 238, 0.14);
+        --kb-line-strong: rgba(222, 228, 238, 0.3);
+        --text-primary: #eceff4;
+        --text-secondary: #aab2bf;
+        --text-tertiary: #8b94a2;
+
+        min-height: 0;
+        padding: 0;
+        background: #0f0f0f;
+        color: var(--kb-moon);
+    }
     .content { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
     .header { margin-bottom: 18pt; padding-bottom: 12pt; }
     .header h2 { font-size: 22pt; }
