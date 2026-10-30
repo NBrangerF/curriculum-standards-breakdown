@@ -414,12 +414,12 @@ export type UnitPlan = {
 const UNIT_INSTRUCTIONS = `你是经验丰富的中小学教研员，帮老师做一个教材单元的单元整体教学设计。按「逆向设计」的顺序：先定单元要达成的理解和目标，再定评价证据（含一个表现性任务），最后把课时排进教材原有的课里。
 ${SHARED_RULES}
 写法要求：
-- big_idea：一句话写出单元大概念，即学完本单元学生应形成的可迁移的理解。要写成完整的判断句，不要只写话题或知识点名称（不要写「分数」，要写「分数的大小……」这样的句子）。
+- big_idea：一句话写出单元大概念，即学完本单元学生应形成的、关于学科内容本身的可迁移的理解。写成陈述学科道理的判断句，不能以「学生能」开头，也不能只写话题。反例：「分数」「学生能理解分数并进行比较」。正例：「同一个数量可以用许多个相等的分数表示，分数的基本性质是约分、通分和比较大小的依据」。
 - essential_questions：2–3 个开放的基本问题，能引发思考、贯穿整个单元，不能用一个事实回答。
 - objectives：3–5 条单元目标，每条以「学生能」开头，写清条件、行为和程度；kind 填「知道」「理解」或「能做」；basis 填依据的要点编码（至少 1 个，只能从「依据」里选）。
 - performance_task：一个贯穿或收束单元的表现性任务：title（任务名），scenario（真实情境和学生的角色，一两句），product（学生交出的作品或表现），criteria（2–4 条评价标准）。
 - assessments：2–5 个评价任务（含表现性任务和课时中的小评价），每条目标至少被一个任务覆盖；objective_ids 填覆盖的目标，task、evidence、criteria 同前。
-- lessons：按「教材里的课」的顺序安排课时。title 必须用教材里的课名（可以把几节合成一行，用「、」连接课名）；hours 是课时数；focus 写这几节课在单元里推进什么（一句话）；objective_ids、assessment_ids 填它推进的目标和完成的评价。所有 hours 合计等于单元总课时。每条目标至少在一行里推进。
+- lessons：按「教材里的课」的顺序安排课时。title 必须用教材里的课名（可以把几节合成一行，用「、」连接课名）；hours 是课时数；focus 写这几节课在单元里推进什么（一句话）；objective_ids、assessment_ids 填它推进的目标和完成的评价。所有 hours 合计必须正好等于「单元总课时」，写完请自己加一遍核对。每条目标至少在一行里推进。
 - prior_knowledge：1–4 条学生学本单元前应已具备的。
 - connections：一句话说明本单元和前后学段或前后单元的联系。
 必须只返回一个 JSON 对象：{"title":"…","big_idea":"…","essential_questions":["…"],"objectives":[{"id":"O1","text":"…","basis":["…"],"kind":"…"}],"performance_task":{"title":"…","scenario":"…","product":"…","criteria":["…"]},"assessments":[{"id":"A1","objective_ids":["O1"],"task":"…","evidence":"…","criteria":"…"}],"lessons":[{"title":"…","hours":2,"focus":"…","objective_ids":["O1"],"assessment_ids":[]}],"prior_knowledge":["…"],"connections":"…"}`
@@ -495,6 +495,7 @@ export function checkUnit(unit: UnitPlan, input: DraftInput, totalHours: number)
     const hours = unit.lessons.reduce((sum, item) => sum + item.hours, 0)
     if (hours !== totalHours) checks.push({ level: 'warn', kind: 'timing', message: `课时合计 ${hours} 节，和你定的单元 ${totalHours} 课时不一致。` })
     if (!unit.big_idea) checks.push({ level: 'warn', kind: 'no_big_idea', message: '没有写出单元大概念。' })
+    else if (/^学生(能|会|可以)/u.test(unit.big_idea)) checks.push({ level: 'warn', kind: 'big_idea_objective', message: '单元大概念写成了目标（以「学生能」开头），建议改成一句关于学科内容本身的判断。', quote: unit.big_idea })
     if (!unit.performance_task) checks.push({ level: 'warn', kind: 'no_performance_task', message: '没有表现性任务，单元评价只剩纸笔或零散提问。' })
     if (!checks.length) checks.push({ level: 'ok', kind: 'aligned', message: '每条单元目标都有课标要点依据、评价任务，并排进了具体课时；课时合计与设定一致。' })
     return checks
