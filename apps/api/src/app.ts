@@ -115,7 +115,7 @@ function applyJudgements(pool: SmartSearchResponse, judge: JudgeResult | null, s
     const rank = (item: SmartSearchResult) => (item.match_strength === 'direct' ? 0 : 2) + (item.checked_by_ai ? 0 : 1)
     const kept = pool.results.flatMap((item): SmartSearchResult[] => {
         const verdict = judge.judgements.get(item.code)
-        if (!verdict) return [item]
+        if (!verdict) return [{ ...item, relevance_reason: `AI 没来得及核对这一条；${item.relevance_reason}` }]
         if (verdict.grade === 0) return []
         return [{
             ...item,
@@ -127,14 +127,13 @@ function applyJudgements(pool: SmartSearchResponse, judge: JudgeResult | null, s
     }).sort((left, right) => rank(left) - rank(right))
     const dropped = pool.results.length - kept.length
     const direct = kept.filter(item => item.match_strength === 'direct').length
-    const unread = Math.max(0, pool.relevant_candidates - pool.results.length)
     return {
         ...pool,
         results: kept.slice(0, shown),
         relevant_candidates: kept.length,
         omitted_low_relevance: pool.omitted_low_relevance + dropped,
         relevance_summary: { direct, supporting: kept.length - direct },
-        coverage_note: `AI 逐条读了 ${pool.results.length} 条候选的要点原文：${direct} 条直接对应，${kept.length - direct} 条相关，${dropped} 条不切题，已略去。${kept.length > shown ? `下面列出前 ${shown} 条。` : ''}${unread ? `另有 ${unread} 条字面相近、排在后面的候选没有读。` : ''}`,
+        coverage_note: `AI 逐条读了最相关的 ${pool.results.length} 条候选的要点原文：${direct} 条直接对应，${kept.length - direct} 条相关，${dropped} 条不切题，已略去。${kept.length > shown ? `下面列出前 ${shown} 条。` : ''}${judge.status === 'partial' ? `有 ${pool.results.length - judge.judgements.size} 条 AI 没来得及核对，已标出。` : ''}`,
         relevance_check: { status: judge.status, model: judge.model, latency_ms: judge.latency_ms, read: judge.judgements.size, kept: kept.length, dropped }
     }
 }

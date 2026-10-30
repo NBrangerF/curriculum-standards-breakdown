@@ -27,7 +27,8 @@ const root = process.cwd()
 const fixturePath = resolve(root, 'packages/curriculum-core/test/fixtures/smart-search-contract-eval.json')
 const cases = JSON.parse(await readFile(fixturePath, 'utf8')) as EvalCase[]
 const repository = new FileCurriculumRepository(resolve(root, 'public/data'))
-const all = await repository.loadAllStandards()
+// search reads the 2025 standards when they are published (see FileCurriculumRepository.smartSearchStandards)
+const all = (await repository.loadV2SearchRecords()) || await repository.loadAllStandards()
 const canonicalCodes = new Set(all.map(record => record.code))
 let returned = 0
 let hardFilterViolations = 0
@@ -89,7 +90,8 @@ for (const fixture of cases) {
         const standard = result.standard as Record<string, unknown>
         if ((expectedSubjects.length && !expectedSubjects.includes(String(standard.subject_slug)))
             || expectedExcludedSubjects.includes(String(standard.subject_slug))
-            || (expectedGradeBands.length && !expectedGradeBands.includes(String(standard.grade_band)))) {
+            // the 2025 standards have one 7–9 学段 (H4) where the old records had H4G7–9
+            || (expectedGradeBands.length && !expectedGradeBands.some(band => band === standard.grade_band || (band.startsWith('H4') && String(standard.grade_band).startsWith('H4'))))) {
             hardFilterViolations += 1
         }
         if (!canonicalCodes.has(result.code)) hallucinatedCodes += 1

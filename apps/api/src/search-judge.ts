@@ -25,7 +25,8 @@ export type JudgeResult = {
     judgements: Map<string, Judgement>
 }
 
-const BATCH_SIZE = 10
+// smaller batches answer sooner, and one slow call holds back fewer candidates
+const BATCH_SIZE = 8
 const TIMEOUT_MS = 15000
 
 const SCHEMA = {

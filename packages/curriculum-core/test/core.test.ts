@@ -512,3 +512,9 @@ test('smart search parser reads 非语言类 as excluding 语文 and 英语 and 
     }
     assert.deepEqual(parseSmartSearchQuery('理科里跟模型有关的').subjects, ['math', 'science', 'physics', 'chemistry', 'biology'])
 })
+
+test('smart search splits long topic words into real word pairs', () => {
+    assert.deepEqual(parseSmartSearchQuery('培养批判性思维的语文标准').core_terms, ['批判性思维', '批判', '思维'])
+    assert.ok(parseSmartSearchQuery('性别平等教育').core_terms.includes('性别'))
+    assert.deepEqual(parseSmartSearchQuery('五年级分数的大小比较').core_terms, ['分数', '大小比较', '大小', '比较'])
+})

@@ -66,6 +66,7 @@ const TOPIC_STOP_WORDS = new Set([
     '能够', '通过', '进行', '一个', '一些', '如何', '需要', '适合', '内容', '活动', '任务',
     '学科', '学段', '年级', '理解', '掌握', '培养', '查找', '寻找', '检索'
 ])
+const PAIR_SUFFIX_START = /^[性的地得之们着了]/u
 const PLAN_ALIGNMENT_STOP_WORDS = new Set([
     '学生', '学习', '课程', '标准', '课标', '教学', '相关', '能够', '通过', '进行',
     '一个', '一些', '如何', '需要', '适合', '内容', '活动'
@@ -111,9 +112,13 @@ function topicTokens(value: unknown): string[] {
     for (const part of parts) {
         tokens.push(part)
         if (!/^[\u4e00-\u9fff]+$/u.test(part) || part.length < 4) continue
-        for (let index = 0; index < part.length - 1; index += 2) {
+        // "分数大小比较" → 分数、大小、比较; an odd-length word also gives its last pair ("批判性思维" → 思维), and a pair
+        // inside a word that starts with a suffix character is not a word ("性思"; "性别" at the start is)
+        const starts = [...Array(Math.floor(part.length / 2)).keys()].map(k => k * 2)
+        if (part.length % 2) starts.push(part.length - 2)
+        for (const index of starts) {
             const pair = part.slice(index, index + 2)
-            if (!TOPIC_STOP_WORDS.has(pair)) tokens.push(pair)
+            if (!TOPIC_STOP_WORDS.has(pair) && !(index > 0 && PAIR_SUFFIX_START.test(pair))) tokens.push(pair)
         }
     }
     return unique(tokens.filter(term => term.length >= 2 && !TOPIC_STOP_WORDS.has(term))).slice(0, 80)
