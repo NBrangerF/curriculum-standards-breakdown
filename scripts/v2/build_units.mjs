@@ -261,7 +261,7 @@ function buildMath() {
         }
     })
     if (problems.length) console.log('problems:\n  ' + problems.join('\n  '))
-    return { standards, theme_requirements: themeRequirements }
+    return { standards, theme_requirements: themeRequirements, skipped_source_ids: skipped }
 }
 
 
@@ -305,13 +305,42 @@ function buildGeneric() {
     }
     // Units in source order.
     const units = new Map()
-    for (const e of lines) {
+    const stopped = new Set()
+    const skipped = []
+    const intros = new Map()
+    const reachedContent = new Set()
+    for (const e0 of lines) {
+        let e = e0
         const base = cfg.unitOf(e)
         const u = base && moved.has(e.id) ? { ...base, area: moved.get(e.id), unit: moved.get(e.id) } : base
         if (!u) continue
-        const key = `${e.stage}|${u.unit}`
-        if (!units.has(key)) units.set(key, { stage: e.stage, area: u.area, unit: u.unit, theme: u.theme, lines: [] })
-        units.get(key).lines.push({ ...e, role: u.role, group: u.group || null })
+        // Topic introductions: the lines of a topic before its first 内容要求 (the catalogue carries the previous
+        // section's label onto them).
+        const topicKey = `${u.area}|${u.unit}`
+        if (cfg.topicIntro) {
+            if (e.section === '内容要求') reachedContent.add(topicKey)
+            if (!reachedContent.has(topicKey)) { if (!intros.has(topicKey)) intros.set(topicKey, []); intros.get(topicKey).push(e); skipped.push({ id: e.id, why: 'intro' }); continue }
+        }
+        if (u.role === 'other') continue
+        const stage = u.stage || e.stage
+        const key = `${stage}|${u.area}|${u.unit}`
+        // A section heading the catalogue missed ("教学提示⋯", "教学策略建议……") ends the section for this unit;
+        // text before it on the same line is kept.
+        if (stopped.has(`${key}|${e.section}`)) { skipped.push({ id: e.id, why: 'other section' }); continue }
+        const stopAt = cfg.stopAt ? e.text.search(cfg.stopAt) : -1
+        if (stopAt >= 0) {
+            stopped.add(`${key}|${e.section}`)
+            if (stopAt === 0) { skipped.push({ id: e.id, why: 'other section' }); continue }
+            e = { ...e, text: e.text.slice(0, stopAt) }
+            byId.set(e.id, e)
+        }
+        if (!units.has(key)) units.set(key, { stage, area: u.area, unit: u.unit, theme: u.theme, grades: u.grades || null, lines: [] })
+        units.get(key).lines.push({ ...e, stage, role: u.role, group: u.group || null })
+    }
+    // Grade headings inside a stage ("6年级" … "7年级") put the 要点 that follow in that grade.
+    if (cfg.gradeMarker) for (const u of units.values()) {
+        let grade = null
+        u.lines = u.lines.filter(e => { const m = e.text.trim().match(cfg.gradeMarker); if (m && e.role === 'item') { grade = +m[1]; skipped.push({ id: e.id, why: 'grade heading' }); return false } e.grade = e.role === 'item' ? grade : null; return true })
     }
     const paraKey = e => `${e.stage}|${e.section}|${e.role}|${e.group || ''}`
     const sentenceUnits = paras => {
@@ -348,8 +377,11 @@ function buildGeneric() {
     const built = []
     for (const u of units.values()) {
         const role = r => u.lines.filter(e => e.role === r)
-        const itemParas = paragraphs(role('item'), paraKey)
-        let indicators = (cfg.split === 'sentences' ? sentenceUnits(itemParas) : itemParas).map(p => make(p))
+        const itemParas = paragraphs(role('item'), e => `${paraKey(e)}|${e.grade ?? ''}`)
+        let indicators = (cfg.split === 'sentences' ? sentenceUnits(itemParas) : itemParas).map(p => {
+            const grade = byId.get(p.ids[0]) && u.lines.find(e => e.id === p.ids[0])?.grade
+            return make(p, grade ? { grades: [grade], grade_basis: '课标原文按年级列出' } : u.grades ? { grades: u.grades, grade_basis: '课标原文：7 年级学习任务' } : {})
+        })
         // Activities: one 要点 per named topic (its name is the label).
         const acts = new Map()
         for (const e of role('activity')) { if (!acts.has(e.group)) acts.set(e.group, []); acts.get(e.group).push(e) }
@@ -359,10 +391,10 @@ function buildGeneric() {
             indicators.push(make({ text: keep.map(e => e.text).join(''), ids: keep.map(e => e.id), pages: [...new Set(keep.map(e => e.page))] }, { label: name }))
         }
         if (cfg.dropIndicator) indicators = indicators.filter(i => !cfg.dropIndicator.test(i.text))
-        const requirements = paragraphs(role('req'), paraKey).map(p => make(p))
+        const requirements = paragraphs(role('req'), paraKey).map(p => make(p, { section: p.section }))
         // Statement.
         let statement = null
-        const sc = cfg.statement || {}
+        const sc = (typeof cfg.statement === 'function' ? cfg.statement(u) : cfg.statement) || {}
         if (sc.from === 'intro') {
             const intro = role('intro')
             const start = intro.findIndex(e => sc.start.test(e.text))
@@ -370,6 +402,13 @@ function buildGeneric() {
                 const picked = []
                 for (let i = start; i < intro.length; i += 1) { picked.push(intro[i]); if (/。$/u.test(intro[i].text)) break }
                 statement = { ...make({ text: picked.map(e => e.text).join(''), ids: picked.map(e => e.id), pages: [...new Set(picked.map(e => e.page))] }), source: 'official', section: sc.section || '模块说明' }
+            }
+        } else if (sc.from === 'topicIntro') {
+            const intro = intros.get(`${u.area}|${u.unit}`) || []
+            if (intro.length) {
+                const sentences = sentenceUnits(paragraphs(intro.map(e => ({ ...e, role: 'intro' })), e => 'intro'))
+                const first = (sc.pick && sentences.find(x => sc.pick.test(x.text))) || sentences[0]
+                statement = { ...make(first), source: 'official', section: sc.section || '学习任务说明' }
             }
         } else if (sc.from === 'statement') {
             const st = role('statement')
@@ -379,11 +418,11 @@ function buildGeneric() {
             }
         }
         if (!statement) {
-            const summary = summaries.get(`${u.stage}|${u.unit}`)
+            const summary = summaries.get(`${u.stage}|${u.unit}`) || summaries.get(`${u.stage}|${u.area}·${u.unit}`)
             statement = summary ? { text: summary, source: 'kebiao_summary' } : { text: '', source: 'missing' }
             if (!summary) problems.push(`no statement: ${u.stage} ${u.unit}`)
         }
-        if (u.stage === '7-9' && cfg.junior !== 'none') indicators = indicators.map(i => ({ ...i, ...gradesFor(u.unit, i.text), ...(i.text.startsWith('*') ? { optional: true } : {}) }))
+        if (u.stage === '7-9' && cfg.junior !== 'none') indicators = indicators.map(i => ({ ...i, ...(i.grades ? {} : gradesFor(u.unit, i.text)), ...(i.text.startsWith('*') ? { optional: true } : {}) }))
         if (!indicators.length) problems.push(`no 要点: ${u.stage} ${u.unit}`)
         built.push({ ...u, statement, indicators, requirements })
     }
@@ -401,7 +440,7 @@ function buildGeneric() {
         return {
             code, subject: SUBJECT_NAMES[slug], subject_slug: slug, stage: u.stage, stage_code: sc, grades: gradesOf(u.stage),
             level1: u.area, ...(u.theme && u.theme !== u.unit ? { theme: u.theme } : {}), level2: u.unit,
-            title: `${u.unit}（${u.stage.replace('-', '–')} 年级）`,
+            title: cfg.title ? cfg.title(u) : `${u.unit}（${u.stage.replace('-', '–')} 年级）`,
             statement: st.text, statement_source: st.source, statement_section: st.section || null,
             statement_pages: st.pages || [], statement_source_ids: st.source_ids || [], statement_check: st.check || null,
             indicators: u.indicators.map((ind, i) => ({ code: `${code}.${i + 1}`, section: cfg.itemSection || '内容要求', ...ind })),
@@ -412,7 +451,7 @@ function buildGeneric() {
     // Stage-wide 学业要求 go to the stage overview.
     const themeRequirements = paragraphs(stageReq.map(e => ({ ...e, role: 'stage' })), e => e.stage).filter(p => !(cfg.dropStageRequirement && cfg.dropStageRequirement.test(p.text))).map(p => ({ stage: p.stage, level1: null, theme: '本学段学业要求', ...make(p) }))
     if (problems.length) console.log('problems:\n  ' + problems.join('\n  '))
-    return { standards, theme_requirements: themeRequirements }
+    return { standards, theme_requirements: themeRequirements, skipped_source_ids: skipped }
 }
 
 const BUILDERS = { labor: buildLabor, math: buildMath, ...Object.fromEntries(Object.keys(RULES).map(k => [k, buildGeneric])) }

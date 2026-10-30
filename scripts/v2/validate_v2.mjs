@@ -85,6 +85,8 @@ for (const slug of slugs) {
         for (const ex of s.examples || []) if (!ex.from) errors.push(`${s.code}: example without its old code`)
     }
     for (const q of overview.theme_requirements || []) q.source_ids.forEach(id => used.add(id))
+    // Lines the builder drops on purpose: grade headings, task introductions, text after a missed section heading.
+    for (const x of data.skipped_source_ids || []) used.add(x.id)
 
     // Coverage of the official clauses.
     const promised = COVERAGE[slug] || ruled(slug)

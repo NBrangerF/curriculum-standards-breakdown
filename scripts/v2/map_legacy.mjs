@@ -11,7 +11,7 @@
 //   goal                        → listed in the stage overview; the old URL goes to the subject page
 //   merge / remove              → no new home; the old URL goes to the closest standard (merge) or the subject page
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { SUBJECT_NAMES, grams, recall, loadCatalog, stageCode } from './lib.mjs'
+import { SUBJECT_NAMES, STAGES, grams, recall, loadCatalog, stageCode, gradesOf } from './lib.mjs'
 
 const slug = process.argv[2]
 const units = JSON.parse(readFileSync(`generated/v2/units/${slug}.json`, 'utf8'))
@@ -22,10 +22,17 @@ const targets = new Map(tsv(`docs/data/v2/mapping/${slug}.tsv`).map(([code, stag
 // Old second-level names that differ from the v2 unit names; "@overview" sends the record to the stage overview.
 const aliases = new Map(tsv(`docs/data/v2/mapping/${slug}-aliases.tsv`).map(([from, to]) => [from, to]))
 
-const unitName = t => String(t || '').replace(/^(?:学习)?任务群\s*\d+[：:]/u, '').replace(/\s/gu, '')
+const unitName = t => String(t || '').replace(/^(?:学习)?任务群\s*\d+[：:]/u, '').replace(/^学习任务\s*\d+\s*[：:]/u, '').replace(/\s/gu, '')
 const stageOf = r => (r.grade_band || '').startsWith('H4') ? '7-9' : r.grade_range
 const standards = units.standards.map(s => ({ ...s, examples: [], indicators: s.indicators.map(i => ({ ...i, legacy_codes: [], examples: [] })) }))
 const findStandard = (stage, unit) => standards.find(s => s.stage === stage && s.level2 === unit)
+// Old records use 1-2 / 3-4 / 5-6 and H4G7–9; a subject with other official stages (艺术 3-5, 6-7, 8-9) maps
+// them by grade, so an old 5-6 record may land in 3-5 or 6-7.
+const candidateStages = r => {
+    const grades = (r.grade_band || '').startsWith('H4') ? [+r.grade_band.slice(3)] : gradesOf(r.grade_range)
+    const hit = Object.keys(STAGES[slug] || STAGES.default).filter(st => gradesOf(st).some(g => grades.includes(g)))
+    return hit.length ? hit : [stageOf(r)]
+}
 
 const legacyMap = []
 const overview = []
@@ -34,7 +41,8 @@ for (const r of legacy) {
     const v = verdicts.get(r.code)
     if (!v) { problems.push(`${r.code}: no verdict`); continue }
     const target = targets.get(r.code)
-    const stage = target?.stage || stageOf(r)
+    const stages = target?.stage ? [target.stage] : candidateStages(r)
+    let stage = stages[0]
     const unit = target?.unit || aliases.get(unitName(r.subdomain)) || unitName(r.subdomain)
     if (v.verdict === 'goal' || unit === '@overview') {
         overview.push({ legacy_code: r.code, stage, text: r.standard, reason: v.verdict === 'goal' ? v.reason : `${r.subdomain}：主题层面的综合描述，不挂到单个单元` })
@@ -43,19 +51,20 @@ for (const r of legacy) {
     }
     // Old records filed by 核心素养 or another dimension name no v2 unit: take the stage's standard whose
     // official text (statement, 要点, 学业要求) best covers the old text.
-    let std = findStandard(stage, unit)
+    let std = null
+    for (const st of stages) if (!std) { std = findStandard(st, unit); if (std) stage = st }
     if (!std) {
         const og = grams(r.standard)
         const quotes0 = [...String(v.reason).matchAll(/「([^」]{3,})」/gu)].map(m => m[1])
         let top = null
-        for (const cand of standards.filter(x => x.stage === stage)) {
+        for (const cand of standards.filter(x => stages.includes(x.stage))) {
             const pieces = [cand.statement, ...cand.indicators.map(i => i.text + (i.official_examples || '')), ...(cand.requirements || []).map(q => q.text)]
             const quoted = quotes0.length ? Math.max(0, ...pieces.flatMap(t => quotes0.map(q => recall(grams(q), grams(t))))) : 0
             const clauseScore = Math.max(0, ...pieces.flatMap(t => t.split(/[，、；：。]/u).filter(c => c.length >= 3).map(c => recall(grams(c), og))))
             const score = Math.max(quoted >= 0.8 ? 1 + quoted : 0, recall(og, grams(pieces.join(''))), clauseScore * 0.9)
             if (!top || score > top.score) top = { cand, score }
         }
-        if (top && top.score >= 0.3) std = top.cand
+        if (top && top.score >= 0.3) { std = top.cand; stage = std.stage }
     }
     if (v.verdict === 'remove' || v.verdict === 'merge') {
         legacyMap.push({ code: r.code, kind: v.verdict === 'merge' ? 'merged' : 'removed', to: std ? std.code : `/subjects/${slug}`, reason: v.reason })
@@ -109,7 +118,7 @@ const goals = catalog.filter(e => e.part === '课程目标' && e.section === '�
 mkdirSync('data/v2/by_subject', { recursive: true })
 mkdirSync('data/v2/legacy', { recursive: true })
 mkdirSync('data/v2/stage_overview', { recursive: true })
-const out = { schema_version: '2.0.0', subject_slug: slug, subject: SUBJECT_NAMES[slug], source_version: units.source_version, source_note: '修订版文本取自上海市青浦区凤溪中学网站转载的《义务教育课程标准 日常修订版（2022年版2025年修订）》；以官方出版物为准。', standards }
+const out = { schema_version: '2.0.0', subject_slug: slug, subject: SUBJECT_NAMES[slug], source_version: units.source_version, ...(units.skipped_source_ids?.length ? { skipped_source_ids: units.skipped_source_ids } : {}), source_note: '修订版文本取自上海市青浦区凤溪中学网站转载的《义务教育课程标准 日常修订版（2022年版2025年修订）》；以官方出版物为准。', standards }
 writeFileSync(`data/v2/by_subject/${slug}.json`, `${JSON.stringify(out, null, 1)}\n`)
 writeFileSync(`data/v2/legacy/${slug}.json`, `${JSON.stringify(legacyMap, null, 1)}\n`)
 writeFileSync(`data/v2/stage_overview/${slug}.json`, `${JSON.stringify({ subject_slug: slug, stage_goals: goals, theme_requirements: units.theme_requirements || [], kept_from_v1: overview }, null, 1)}\n`)

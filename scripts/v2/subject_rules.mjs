@@ -39,3 +39,29 @@ RULES.morality_law = {
         return ML_AREAS[t] ? { area: t, unit: t, role: 'item' } : null
     }
 }
+
+const AR_AREAS = { 音乐: 'MU', 美术: 'VA', 舞蹈: 'DA', '戏剧（含戏曲）': 'DR', '影视（含数字媒体艺术）': 'FM' }
+// 8–9 年级选项学科在 7 年级开设的学习任务（catalogue 把它们记在 8–9 学段、没有任务名）。
+const AR_GRADE7 = { 舞蹈: '多舞种体验与舞段编创', '戏剧（含戏曲）': '戏剧游戏', '影视（含数字媒体艺术）': '初试影视技术' }
+// 艺术：学段（1–2、3–5、6–7、8–9）× 艺术学科 × 学习任务。要点是学业要求的「•」条目，6–7 学段按原文的「6年级」「7年级」
+// 标年级；内容要求原文附在标准下；标准句由 kebiao 概括。
+RULES.arts = {
+    areas: AR_AREAS,
+    split: 'items',
+    itemSection: '学业要求',
+    stopAt: /^教学提示|教学策略建议/u,
+    gradeMarker: /^([6-9])\s*年级$/u,
+    topicIntro: true,
+    // 美术、舞蹈、戏剧、影视的学习任务说明（「本学习任务主要引导学生……」）是官方的概括句；音乐的说明讲任务是什么，
+    // 7 年级任务的说明讲开设目的，这两类由 kebiao 概括。
+    statement: u => (u.area === '音乐' || u.grades ? null : { from: 'topicIntro', section: '学习任务说明', pick: /学生|通过|引导/u }),
+    title: u => `${u.area} · ${u.unit}（${u.stage.replace('-', '–')} 年级）`,
+    unitOf: e => {
+        if (e.part !== '课程内容') return null
+        const t = e.topic || []
+        if (!AR_AREAS[t[0]]) return null
+        const role = { 学业要求: 'item', 内容要求: 'req' }[e.section] || 'other'
+        if (!t[1]) return AR_GRADE7[t[0]] && e.stage === '8-9' ? { area: t[0], unit: AR_GRADE7[t[0]], role, stage: '6-7', grades: [7] } : null
+        return { area: t[0], unit: t[1].replace(/^学习任务\s*\d+\s*[：:]/u, '').trim(), role }
+    }
+}
