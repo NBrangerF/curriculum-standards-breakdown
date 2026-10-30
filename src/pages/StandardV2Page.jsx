@@ -87,6 +87,38 @@ function OfficialList({ title, items, id }) {
     )
 }
 
+const NATIONAL_URL = id => `https://basic.smartedu.cn/syncClassroom/classActivity?activityId=${id}`
+
+// 国家中小学智慧教育平台 同步课 for the textbook chapters this standard is aligned to.
+function NationalLessons({ code }) {
+    const [data, setData] = useState(null)
+    useEffect(() => {
+        let cancelled = false
+        setData(null)
+        fetch(`/data/v2/national-lessons/${code.slice(0, 2)}.json`)
+            .then(response => (response.ok ? response.json() : null))
+            .then(value => { if (!cancelled) setData(value) })
+            .catch(() => { if (!cancelled) setData(null) })
+        return () => { cancelled = true }
+    }, [code])
+    const lessons = data?.standards?.[code] || []
+    if (!lessons.length) return null
+    return (
+        <section className={styles.block} id="standard-national-lessons">
+            <h2>国家平台同步课</h2>
+            <ul className={styles.resourceList}>
+                {lessons.map(([, id, title, textbook, materials]) => (
+                    <li key={id}>
+                        <a href={NATIONAL_URL(id)} target="_blank" rel="noopener noreferrer">{title} ↗</a>
+                        <span>{textbook}{materials.length ? ` · ${materials.map(index => data.materials[index]).join(' · ')}` : ''}</span>
+                    </li>
+                ))}
+            </ul>
+            <p className={styles.blockNote}>按教材页码与课标的机器对应列出，待核验。国家中小学智慧教育平台免费提供，观看需登录平台账号。</p>
+        </section>
+    )
+}
+
 function LearningResources({ ids, legacyCodes }) {
     const [resources, setResources] = useState(null)
     useEffect(() => {
@@ -266,6 +298,7 @@ export default function StandardV2Page() {
                 <section className={styles.block} id="standard-textbooks">
                     <StandardTextbookLinks standardCode={standard.code} />
                 </section>
+                <NationalLessons code={standard.code} />
                 <LearningResources ids={standard.learning_resource_ids || []} legacyCodes={standard.legacy_codes || []} />
 
                 <nav className={styles.neighbours} aria-label="同学段的标准">

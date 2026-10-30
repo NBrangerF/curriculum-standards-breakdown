@@ -90,7 +90,9 @@ export function limitsOf(texts: string[]) {
 
 const VAGUE = /(了解|感受|体会|培养|渗透|提升|增强|激发|感悟|领悟|熏陶)/u
 
-export function checkPlan(frame: Frame, process: Process | null, input: Pick<DraftInput, 'indicators' | 'standards' | 'periodMinutes'>): PlanCheck[] {
+export type CheckOptions = { planText?: string, assessmentsPlaced?: boolean }
+
+export function checkPlan(frame: Frame, process: Process | null, input: Pick<DraftInput, 'indicators' | 'standards' | 'periodMinutes'>, options: CheckOptions = {}): PlanCheck[] {
     const checks: PlanCheck[] = []
     const picked = new Set(input.indicators.map(item => item.code))
     const cited = new Set(frame.objectives.flatMap(item => item.basis))
@@ -113,14 +115,14 @@ export function checkPlan(frame: Frame, process: Process | null, input: Pick<Dra
     if (process) {
         const total = process.stages.reduce((sum, stage) => sum + (Number.isFinite(stage.minutes) ? stage.minutes : 0), 0)
         if (Math.abs(total - input.periodMinutes) > 3) checks.push({ level: 'warn', kind: 'timing', message: `各环节合计 ${total} 分钟，和一节课 ${input.periodMinutes} 分钟不一致。` })
-        for (const assessment of frame.assessments) {
+        for (const assessment of options.assessmentsPlaced === false ? [] : frame.assessments) {
             if (!process.stages.some(stage => stage.assessment_ids.includes(assessment.id))) {
                 checks.push({ level: 'warn', kind: 'assessment_unplaced', message: `评价任务 ${assessment.id} 没有安排在哪个环节完成。`, quote: assessment.task })
             }
         }
     }
     // 课标 says what is not required; flag a plan that mentions it
-    const planText = JSON.stringify({ frame, process })
+    const planText = options.planText ?? JSON.stringify({ frame, process })
     const sources = [
         ...input.indicators.map(item => item.text),
         ...input.standards.flatMap(item => [...item.requirements, ...item.guidance])
@@ -130,7 +132,7 @@ export function checkPlan(frame: Frame, process: Process | null, input: Pick<Dra
         if (seen.has(limit.key)) continue
         seen.add(limit.key)
         const mentioned = planText.split(limit.key).length - 1
-        const inLimitItself = JSON.stringify(frame).includes(limit.phrase)
+        const inLimitItself = planText.includes(limit.phrase)
         if (mentioned > 0 && !inLimitItself) {
             checks.push({ level: 'risk', kind: 'beyond_standard', message: `教案里出现了「${limit.key}」，而课标写明${limit.phrase}，可能超标，请核对。`, quote: limit.source })
         }
@@ -316,4 +318,75 @@ export async function draftProcess(input: DraftInput, frame: Frame, options: Str
     const prompt = [lessonBlock(input), basisBlock(input), framed, teacherBlock(input)].filter(Boolean).join('\n\n')
     const run = await runStructuredLlm(prompt, processAdapter(frame), { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
     return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
+
+// ---------- 核验我的教案: read a teacher's own (or another AI's) plan, then run the same checks ----------
+export type ReadPlan = { frame: Frame, process: Process | null, notes: Array<{ objective_id: string, note: string }> }
+
+const READ_INSTRUCTIONS = `你是中小学教研员。老师贴来一份教案（可能是自己写的，也可能是 AI 写的），请把它整理成结构，并对照「依据」里的课标要点。
+规则：
+1. 只整理教案里写了的内容，不补写、不改写；教案没写的部分返回空数组。
+2. objectives：教案里的每条教学目标或学习目标，按原文抄录（可去掉编号）。basis 填它对应的要点编码，只能从「依据」里选；找不到对应的要点就留空数组。note 用一句话指出问题（如「太空泛，看不出学生要做到什么」「超出所选要点的范围」「是教师行为，不是学生的学习结果」），没有问题就留空字符串。
+3. assessments：教案里的评价、检测、练习反馈等，task 抄录要点，objective_refs 填它检验的目标序号（从 1 开始）。
+4. stages：教学过程的各环节，name、minutes（教案没写就填 0）、objective_refs 填这个环节推进的目标序号。
+5. period_minutes：教案写明的一节课时长，没写填 0。
+必须只返回一个 JSON 对象：{"title":"…","objectives":[{"text":"…","basis":["…"],"note":""}],"assessments":[{"task":"…","objective_refs":[1]}],"stages":[{"name":"…","minutes":5,"objective_refs":[1]}],"period_minutes":40}`
+
+function validateRead(value: unknown, codes: Set<string>): ReadPlan | null {
+    if (!value || typeof value !== 'object') return null
+    const raw = value as Record<string, unknown>
+    const objectivesRaw = (Array.isArray(raw.objectives) ? raw.objectives : []).slice(0, 8)
+    const objectives: Objective[] = []
+    const notes: ReadPlan['notes'] = []
+    objectivesRaw.forEach((item, index) => {
+        const record = (item || {}) as Record<string, unknown>
+        const text = str(record.text, 260)
+        if (!text) return
+        const id = `O${index + 1}`
+        objectives.push({ id, text, basis: ids(record.basis, codes), kind: '' })
+        const note = str(record.note, 80)
+        if (note) notes.push({ objective_id: id, note })
+    })
+    if (!objectives.length) return null
+    const known = new Set(objectives.map(item => item.id))
+    const refs = (value: unknown) => [...new Set((Array.isArray(value) ? value : []).map(item => `O${Number(item)}`).filter(id => known.has(id)))]
+    const assessments: Assessment[] = (Array.isArray(raw.assessments) ? raw.assessments : []).slice(0, 8).map((item, index) => {
+        const record = (item || {}) as Record<string, unknown>
+        return { id: `A${index + 1}`, objective_ids: refs(record.objective_refs), task: str(record.task, 200), evidence: '', criteria: '' }
+    }).filter(item => item.task)
+    const stages: Stage[] = (Array.isArray(raw.stages) ? raw.stages : []).slice(0, 10).map(item => {
+        const record = (item || {}) as Record<string, unknown>
+        const minutes = Math.round(Number(record.minutes))
+        return { name: str(record.name, 30), minutes: Number.isFinite(minutes) && minutes > 0 && minutes < 90 ? minutes : 0, teacher: '', students: '', purpose: '', objective_ids: refs(record.objective_refs), assessment_ids: [] }
+    }).filter(item => item.name)
+    const frame: Frame = { title: str(raw.title, 60), core_understanding: '', objectives, key_points: [], difficult_points: [], learner_analysis: '', prior_knowledge: [], misconceptions: [], keywords: [], assessments }
+    const period = Math.round(Number(raw.period_minutes))
+    return { frame, process: stages.length ? { stages, homework: [], board: [], materials: [], safety: [] } : null, notes, ...(period > 0 ? { period } : {}) } as ReadPlan
+}
+
+export async function readTeacherPlan(planText: string, input: DraftInput, options: StructuredLlmOptions = {}): Promise<DraftResult<ReadPlan>> {
+    const codes = new Set(input.indicators.map(item => item.code))
+    const prompt = [lessonBlock(input), basisBlock(input), `老师的教案：\n${planText}`].join('\n\n')
+    const adapter: StructuredLlmAdapter<ReadPlan> = {
+        name: 'kebiao_lesson_read',
+        schema: { type: 'object' },
+        instructions: READ_INSTRUCTIONS,
+        chatInstructions: READ_INSTRUCTIONS,
+        maxCompletionTokens: 3000,
+        validate: value => validateRead(value, codes)
+    }
+    const run = await runStructuredLlm(prompt, adapter, { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
+    return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
+
+// the read plan's checks, plus the reader's notes on each objective
+export function checkTeacherPlan(read: ReadPlan & { period?: number }, planText: string, input: DraftInput): PlanCheck[] {
+    const checks = checkPlan(read.frame, read.process, { ...input, periodMinutes: read.period || input.periodMinutes }, { planText, assessmentsPlaced: false })
+        .filter(item => !(item.kind === 'timing' && read.process?.stages.every(stage => !stage.minutes)))
+    const notes = read.notes.map(item => {
+        const objective = read.frame.objectives.find(entry => entry.id === item.objective_id)
+        return { level: 'warn' as const, kind: 'reader_note', message: `目标 ${item.objective_id.replace('O', '')}：${item.note}`, quote: objective?.text }
+    })
+    const all = [...checks.filter(item => item.kind !== 'aligned'), ...notes]
+    return all.length ? all.map(item => ({ ...item, message: item.message.replace(/目标 O(\d+)/gu, '目标 $1') })) : checks
 }

@@ -144,3 +144,38 @@ test('lesson-plan draft refuses 要点 codes that do not exist', async () => {
     const response = await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ step: 'frame', lesson: { title: '测试', subject_slug: 'math', grade: 5 }, indicator_codes: ['MA-S3-NA-01.99'] }) })
     assert.equal(response.status, 422)
 })
+
+test('核验我的教案: a pasted plan is read into objectives and checked against the 课标 limits', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const prompts: string[] = []
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body))
+        assert.match(String(body.messages[0].content), /老师贴来一份教案/)
+        prompts.push(String(body.messages[1].content))
+        const content = {
+            title: '分数的基本性质',
+            objectives: [
+                { text: '理解分数的基本性质', basis: [LIMITED, 'MA-S1-ZZ-99.1'], note: '' },
+                { text: '培养学生的数学核心素养', basis: [], note: '太空泛，看不出学生要做到什么' }
+            ],
+            assessments: [{ task: '课堂提问', objective_refs: [1] }],
+            stages: [{ name: '新授', minutes: 25, objective_refs: [1] }, { name: '拓展', minutes: 15, objective_refs: [1] }],
+            period_minutes: 40
+        }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 300, total_tokens: 1200 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const plan = '教学目标：1. 理解分数的基本性质；2. 培养学生的数学核心素养。\n教学过程：新授 25 分钟；拓展：把 0.3 循环小数化成分数，15 分钟。\n评价：课堂提问。'
+    const response = await app.request('/api/v1/lesson-plans/check', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ lesson: { title: '分数的基本性质', subject_slug: 'math', grade: 5 }, indicator_codes: [LIMITED], plan_text: plan }) })
+    assert.equal(response.status, 200)
+    assert.equal(response.headers.get('x-ratelimit-policy'), 'ai-per-minute')
+    const { data } = await json(response)
+    assert.deepEqual(data.read.frame.objectives[0].basis, [LIMITED])
+    const kinds = data.checks.map((item: any) => item.kind)
+    assert.ok(kinds.includes('beyond_standard'))
+    assert.ok(kinds.includes('no_basis'))
+    assert.ok(kinds.includes('reader_note'))
+    assert.ok(data.checks.every((item: any) => !/目标 O\d/.test(item.message)))
+    assert.match(prompts[0], /老师的教案：/)
+})

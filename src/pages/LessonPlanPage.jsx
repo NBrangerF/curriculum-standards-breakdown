@@ -50,6 +50,10 @@ export default function LessonPlanPage() {
     const [ai, setAi] = useState({ status: 'idle', reasons: {} })
     const [selected, setSelected] = useState(() => new Set())
     const [settings, setSettings] = useState({ period: 40, index: 1, count: 1, classNotes: '', teacherNotes: '' })
+    const [task, setTask] = useState('draft')
+    const [ownPlan, setOwnPlan] = useState('')
+    const [report, setReport] = useState(null)
+    const [checking, setChecking] = useState(false)
     const [plan, setPlan] = useState(null)
     const [step, setStep] = useState('')
     const [error, setError] = useState('')
@@ -197,6 +201,27 @@ export default function LessonPlanPage() {
         } catch (errorValue) {
             setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
             setStep('')
+        }
+    }
+
+    async function checkOwn() {
+        if (!context || !selected.size || ownPlan.trim().length < 30) return
+        setError('')
+        setReport(null)
+        setChecking(true)
+        const lesson = context.lesson
+        try {
+            const payload = await postApi('/api/v1/lesson-plans/check', {
+                lesson: { title: lesson.title, subject_slug: lesson.subject_slug, grade: lesson.grade || null, ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}) },
+                indicator_codes: [...selected],
+                period_minutes: settings.period,
+                plan_text: ownPlan.trim()
+            })
+            setReport(payload.data)
+        } catch (errorValue) {
+            setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
+        } finally {
+            setChecking(false)
         }
     }
 
@@ -354,7 +379,27 @@ export default function LessonPlanPage() {
 
             {context ? (
                 <section className={styles.step} aria-labelledby="lp-class">
-                    <h2 id="lp-class"><span>3</span>说说你的情况<small>（可不填）</small></h2>
+                    <h2 id="lp-class"><span>3</span>{task === 'draft' ? <>说说你的情况<small>（可不填）</small></> : '贴入你的教案'}</h2>
+                    <div className={styles.modeSwitch} role="tablist" aria-label="要做什么">
+                        <button type="button" role="tab" aria-selected={task === 'draft'} onClick={() => setTask('draft')}>起草新教案</button>
+                        <button type="button" role="tab" aria-selected={task === 'check'} onClick={() => setTask('check')}>核验我的教案</button>
+                    </div>
+                    {task === 'check' ? (
+                        <>
+                            <label className={styles.textarea}>
+                                <span>教案全文（自己写的或 AI 写的都可以）</span>
+                                <textarea rows={10} maxLength={8000} value={ownPlan} onChange={event => setOwnPlan(event.target.value)} placeholder="把教案贴在这里，至少包括教学目标；有教学过程和评价更好。请删去学生姓名等个人信息。" />
+                            </label>
+                            <div className={styles.go}>
+                                <button type="button" className="btn btn-primary" disabled={checking || !selectedCount || ownPlan.trim().length < 30} onClick={checkOwn}>
+                                    {checking ? 'AI 正在读这份教案（约 20–40 秒）…' : `对照选定的 ${selectedCount} 条要点核验`}
+                                </button>
+                                {!selectedCount ? <span className={styles.small}>先在上面勾选这节课依据的要点。</span> : null}
+                            </div>
+                            {error ? <p className={styles.error} role="alert">{error}</p> : null}
+                        </>
+                    ) : null}
+                    {task === 'draft' ? <>
                     <div className={styles.settings}>
                         <label><span>每课时</span>
                             <select value={settings.period} onChange={event => setSettings({ ...settings, period: Number(event.target.value) })}>
@@ -397,9 +442,11 @@ export default function LessonPlanPage() {
                         </ol>
                     ) : null}
                     {error ? <p className={styles.error} role="alert">{error}</p> : null}
+                    </> : null}
                 </section>
             ) : null}
 
+            {report && task === 'check' ? <CheckReport report={report} /> : null}
             {plan ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} /> : null}
         </div>
     )
@@ -422,6 +469,54 @@ function TopicInput({ value, onCommit }) {
 }
 
 const CHECK_ICON = { ok: CheckCircleIcon, warn: WarningIcon, risk: XCircleIcon }
+
+function CheckList({ checks }) {
+    return (
+        <ul>
+            {checks.map((item, index) => {
+                const Icon = CHECK_ICON[item.level] || WarningIcon
+                return <li key={`${item.kind}-${index}`} data-level={item.level}><Icon size={16} aria-hidden="true" /><span>{item.message}{item.quote ? <small>「{item.quote}」</small> : null}</span></li>
+            })}
+        </ul>
+    )
+}
+
+function CheckReport({ report }) {
+    const { read, checks, evidence } = report
+    const risks = checks.filter(item => item.level === 'risk').length
+    const warns = checks.filter(item => item.level === 'warn').length
+    return (
+        <article className={styles.doc} aria-labelledby="lp-report-title">
+            <div className={styles.docActions}><span className={styles.aiBadge}>AI 读取 + 程序核验</span></div>
+            <header className={styles.docHead}>
+                <h2 id="lp-report-title">核验报告{read.frame.title ? `：${read.frame.title}` : ''}</h2>
+                <p>{risks ? `${risks} 处需要修改` : '没有必须修改的地方'}{warns ? ` · ${warns} 处建议` : ''}</p>
+            </header>
+            <section className={styles.checks} aria-label="核验结果">
+                <h3>发现</h3>
+                <CheckList checks={checks} />
+            </section>
+            <section>
+                <h3>你的教学目标对应的课标要点</h3>
+                <ol className={styles.objectives}>
+                    {read.frame.objectives.map(item => (
+                        <li key={item.id}>
+                            <span>{item.text}</span>
+                            <span className={styles.basis}>{item.basis.length ? item.basis.map(code => <code key={code}>{code}</code>) : <em>没有对应的要点</em>}</span>
+                        </li>
+                    ))}
+                </ol>
+            </section>
+            <section>
+                <h3>依据的课标原文</h3>
+                <ul className={styles.evidence}>
+                    {evidence.map(item => <li key={item.code}><Link to={`/standards/${item.standard_code}#${item.code}`} target="_blank" rel="noopener"><code>{item.code}</code></Link>{item.text}<small>修订版第 {item.pages.join('、')} 页</small></li>)}
+                </ul>
+            </section>
+            <p className={styles.docFoot}>AI 只负责把教案整理成目标、评价和环节，并判断每条目标对应哪条要点；超标、目标—活动—评价是否一致由程序对照课标原文检查。结果供参考，请以课标原文为准。</p>
+        </article>
+    )
+}
 
 function PlanDocument({ plan, done, onCopy, copied }) {
     const { lesson, frame, process, evidence, checks, meta } = plan

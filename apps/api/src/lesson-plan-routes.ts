@@ -8,7 +8,7 @@ import { z } from 'zod'
 import type { FileCurriculumRepository } from '@curriculum/core'
 import { redactSensitiveText } from './ai-privacy.js'
 import type { ApiBindings } from './http.js'
-import { checkPlan, draftFrame, draftProcess, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
+import { checkPlan, checkTeacherPlan, draftFrame, draftProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
 
 type Deps = {
@@ -30,8 +30,7 @@ const BAND_OF_GRADE = (grade: number) => (grade <= 2 ? 'H1' : grade <= 4 ? 'H2' 
 const v2Slug = (slug: string) => (['art', 'music'].includes(slug) ? 'arts' : slug)
 const cleanTitle = (title: string) => title.replace(/^(?:第[一二三四五六七八九十百零\d]+(?:单元|章|节|课)|课题\s*\d+|\d+(?:\.\d+)*\*?)\s*/u, '').trim()
 
-export const DraftRequestSchema = z.object({
-    step: z.enum(['frame', 'process']),
+const BaseRequestSchema = z.object({
     lesson: z.object({
         title: z.string().trim().min(1).max(60),
         unit_title: z.string().trim().max(60).optional(),
@@ -46,9 +45,10 @@ export const DraftRequestSchema = z.object({
     lesson_index: z.number().int().min(1).max(30).default(1),
     lesson_count: z.number().int().min(1).max(30).default(1),
     class_notes: z.string().max(800).default(''),
-    teacher_notes: z.string().max(1000).default(''),
-    frame: z.unknown().optional()
+    teacher_notes: z.string().max(1000).default('')
 })
+export const DraftRequestSchema = BaseRequestSchema.extend({ step: z.enum(['frame', 'process']), frame: z.unknown().optional() })
+export const CheckRequestSchema = BaseRequestSchema.extend({ plan_text: z.string().trim().min(30).max(8000) })
 
 export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
     const { repository, textbookRepository, v2 } = deps
@@ -249,12 +249,8 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         })
     })
 
-    app.post('/api/v1/lesson-plans/draft', async c => {
-        const version = await repository.loadDataVersion()
-        const parsed = DraftRequestSchema.safeParse(await deps.parseJson(c))
-        if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请求参数校验失败。', parsed.error.issues)
-        const body = parsed.data
-        // 要点 text always comes from kebiao's data, never from the request
+    // 要点 text always comes from kebiao's data, never from the request
+    async function resolveInput(body: z.infer<typeof BaseRequestSchema>) {
         const standards: PlanStandard[] = []
         const indicators: PlanIndicator[] = []
         for (const code of [...new Set(body.indicator_codes)]) {
@@ -262,11 +258,11 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             let standard = standards.find(item => item.code === standardCode) || null
             if (!standard) {
                 standard = await planStandard(standardCode)
-                if (!standard) return deps.apiError(c, 422, 'validation_error', `找不到要点 ${code}。`)
+                if (!standard) return { error: `找不到要点 ${code}。` }
                 standards.push(standard)
             }
             const picked = /\.\d+$/u.test(code) ? standard.indicators.filter(item => item.code === code) : standard.indicators
-            if (!picked.length) return deps.apiError(c, 422, 'validation_error', `找不到要点 ${code}。`)
+            if (!picked.length) return { error: `找不到要点 ${code}。` }
             for (const item of picked) indicators.push({ code: item.code, text: item.text, pages: item.pages, standard_code: standard.code, standard_title: standard.title, stage_label: standard.stage_label })
         }
         const classNotes = redactSensitiveText(body.class_notes)
@@ -286,6 +282,17 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         }
         const privacy = { redacted: classNotes.redacted || teacherNotes.redacted, redaction_count: classNotes.redaction_count + teacherNotes.redaction_count }
         const evidence = input.indicators.map(item => ({ code: item.code, text: item.text, pages: item.pages, standard_code: item.standard_code, standard_title: item.standard_title, stage_label: item.stage_label }))
+        return { input, privacy, evidence }
+    }
+
+    app.post('/api/v1/lesson-plans/draft', async c => {
+        const version = await repository.loadDataVersion()
+        const parsed = DraftRequestSchema.safeParse(await deps.parseJson(c))
+        if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请求参数校验失败。', parsed.error.issues)
+        const body = parsed.data
+        const resolved = await resolveInput(body)
+        if ('error' in resolved) return deps.apiError(c, 422, 'validation_error', String(resolved.error))
+        const { input, privacy, evidence } = resolved
 
         if (body.step === 'frame') {
             const run = await draftFrame(input)
@@ -300,5 +307,27 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
         if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `draft_${run.status}`, run.status === 'disabled' ? 'AI 起草暂不可用。' : run.status === 'timeout' ? 'AI 这次写得太久，没有完成。请再试一次。' : 'AI 这次没有写出可用的教学过程。请再试一次。')
         return deps.ok(c, version as never, { step: 'process', frame, process: run.output, checks: checkPlan(frame, run.output, input), evidence, privacy, model: run.model, latency_ms: run.latency_ms })
+    })
+
+    // 核验我的教案: the teacher's own (or another AI's) plan, read and checked against the picked 要点
+    app.post('/api/v1/lesson-plans/check', async c => {
+        const version = await repository.loadDataVersion()
+        const parsed = CheckRequestSchema.safeParse(await deps.parseJson(c))
+        if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请贴入至少 30 个字的教案，并勾选依据的课标要点。', parsed.error.issues)
+        const resolved = await resolveInput(parsed.data)
+        if ('error' in resolved) return deps.apiError(c, 422, 'validation_error', String(resolved.error))
+        const { input, evidence } = resolved
+        const planText = redactSensitiveText(parsed.data.plan_text)
+        const run = await readTeacherPlan(planText.text, input)
+        c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: planText.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
+        if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `check_${run.status}`, run.status === 'disabled' ? 'AI 核验暂不可用。' : 'AI 这次没有读完这份教案。请再试一次。')
+        return deps.ok(c, version as never, {
+            read: run.output,
+            checks: checkTeacherPlan(run.output, planText.text, input),
+            evidence,
+            privacy: { redacted: planText.redacted, redaction_count: planText.redaction_count },
+            model: run.model,
+            latency_ms: run.latency_ms
+        })
     })
 }

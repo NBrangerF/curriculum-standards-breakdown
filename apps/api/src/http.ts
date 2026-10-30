@@ -62,7 +62,8 @@ const TOOL_TIER_LIMITS: Record<AccessTier, number> = {
 const AI_ROUTES = new Set([
     '/api/v1/standards/semantic-search',
     '/api/v1/plans/parse',
-    '/api/v1/lesson-plans/draft'
+    '/api/v1/lesson-plans/draft',
+    '/api/v1/lesson-plans/check'
 ])
 
 const TIER_ORDER: Record<AccessTier, number> = {

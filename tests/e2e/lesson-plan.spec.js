@@ -101,3 +101,28 @@ test('concept pages quote the 课标 with pages and link real standards', async 
     await expect(page.getByRole('heading', { level: 1, name: '科学课标的骨架' })).toBeVisible()
     await expect(page.getByRole('link', { name: '1–2 年级' }).first()).toHaveAttribute('href', /\/standards\/SC-S1-/)
 })
+
+test('核验我的教案 reads a pasted plan and shows what to fix', async ({ page }) => {
+    await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(context)) }))
+    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ results: [{ code: 'MA-S3-NA-01', match_strength: 'direct', checked_by_ai: true, relevance_reason: '比较分数大小', matched_point: { code: 'MA-S3-NA-01.3', text: '' } }] })) }))
+    let sent = null
+    await page.route('**/api/v1/lesson-plans/check', route => {
+        sent = route.request().postDataJSON()
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({
+            read: { frame: { title: '分数的基本性质', objectives: [{ id: 'O1', text: '理解分数的基本性质', basis: ['MA-S3-NA-01.3'], kind: '' }, { id: 'O2', text: '培养核心素养', basis: [], kind: '' }], assessments: [] }, process: null, notes: [] },
+            checks: [{ level: 'risk', kind: 'beyond_standard', message: '教案里出现了「循环小数」，而课标写明不包括将循环小数转化成分数，可能超标，请核对。' }, { level: 'risk', kind: 'no_basis', message: '目标 2 没有对应的课标要点。' }],
+            evidence,
+            privacy: { redacted: false },
+            model: 'gpt-5-mini'
+        })) })
+    })
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&lesson=L1`)
+    await expect(page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })).toBeChecked()
+    await page.getByRole('tab', { name: '核验我的教案' }).click()
+    await page.getByPlaceholder(/把教案贴在这里/).fill('教学目标：1. 理解分数的基本性质；2. 培养核心素养。拓展：循环小数化分数。')
+    await page.getByRole('button', { name: /对照选定的 1 条要点核验/ }).click()
+    await expect(page.getByRole('heading', { name: /核验报告/ })).toBeVisible()
+    await expect(page.getByText(/2 处需要修改/)).toBeVisible()
+    await expect(page.getByText('没有对应的要点')).toBeVisible()
+    expect(sent.indicator_codes).toEqual(['MA-S3-NA-01.3'])
+})

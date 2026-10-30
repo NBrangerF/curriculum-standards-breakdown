@@ -25,6 +25,23 @@ export function buildNationalLessons() {
     mkdirSync(OUT, { recursive: true })
     const index = { source: 'https://basic.smartedu.cn/syncClassroom', note: '国家中小学智慧教育平台同步课，免费，观看需登录平台账号。kebiao 只保存课名和链接。', editions: {} }
     let lessonTotal = 0
+    // standard → lessons, through the textbook chapter each lesson starts in (chapter rows carry the standards
+    // aligned to their pages). Machine-made, so the page labels it.
+    const chapters = JSON.parse(readFileSync(path.join(ROOT, 'public/data/v2/textbook_chapters.json'), 'utf8'))
+    const v2Links = JSON.parse(readFileSync(path.join(ROOT, 'public/data/v2/textbook_links.json'), 'utf8'))
+    const rowsByEdition = new Map()
+    for (const row of chapters.chapters) {
+        if (!rowsByEdition.has(row[0])) rowsByEdition.set(row[0], [])
+        rowsByEdition.get(row[0]).push(row)
+    }
+    const byStandard = new Map()
+    const linkLesson = (codes, entry) => {
+        for (const code of new Set(codes.map(value => value.replace(/\.\d+$/u, '')))) {
+            if (!byStandard.has(code)) byStandard.set(code, [])
+            const list = byStandard.get(code)
+            if (!list.some(item => item[1] === entry[1] || (item[0] === entry[0] && item[2] === entry[2]))) list.push(entry)
+        }
+    }
     for (const file of readdirSync(SOURCE).filter(name => name.startsWith('ed_'))) {
         const record = JSON.parse(readFileSync(path.join(SOURCE, file), 'utf8'))
         const titles = new Map()
@@ -71,13 +88,41 @@ export function buildNationalLessons() {
             lessons
         }
         writeFileSync(path.join(OUT, `${record.edition_id}.json`), `${JSON.stringify(out)}\n`)
+        const rows = (rowsByEdition.get(record.edition_id) || []).filter(row => Number.isInteger(row[3])).sort((a, b) => a[3] - b[3])
+        for (const lesson of lessons) {
+            const codes = []
+            if (lesson.unit_id) {
+                for (const item of v2Links.units[lesson.unit_id] || []) codes.push(item.code)
+                for (const row of rows) if (row[4] === lesson.unit_id) codes.push(...row[5])
+            }
+            if (!codes.length && lesson.pdf_page) {
+                const row = rows.filter(item => item[3] <= lesson.pdf_page && item[5].length).at(-1)
+                // only the chapter the lesson starts in, not one many pages back
+                const next = rows.find(item => item[3] > (row?.[3] ?? Infinity))
+                if (row && (!next || lesson.pdf_page < next[3] + 30)) codes.push(...row[5])
+            }
+            if (codes.length) linkLesson(codes, [record.edition_id, lesson.id, lesson.title, record.textbook_title, MATERIALS.filter(name => lesson.materials.includes(name)).map(name => MATERIALS.indexOf(name)), confidence === 'text' ? 1 : 0])
+        }
         index.editions[record.edition_id] = { platform_title: record.platform_title, lessons: lessons.length, confidence, units_linked: lessons.filter(item => item.unit_id).length }
     }
     writeFileSync(path.join(OUT, 'index.json'), `${JSON.stringify(index)}\n`)
-    return { editions: Object.keys(index.editions).length, lessons: lessonTotal }
+    // per subject, so a standard page loads only its own subject; lessons with a video and a 教学设计 first
+    const bySubject = {}
+    for (const [code, list] of byStandard) {
+        const prefix = code.slice(0, 2)
+        list.sort((a, b) => b[4].length - a[4].length)
+        ;(bySubject[prefix] ??= {})[code] = list.slice(0, 8)
+    }
+    const subjectOut = path.join(ROOT, 'public/data/v2/national-lessons')
+    rmSync(subjectOut, { recursive: true, force: true })
+    mkdirSync(subjectOut, { recursive: true })
+    for (const [prefix, standards] of Object.entries(bySubject)) {
+        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched'], standards })}\n`)
+    }
+    return { editions: Object.keys(index.editions).length, lessons: lessonTotal, standards: byStandard.size }
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-    const { editions, lessons } = buildNationalLessons()
-    console.log(`national-lessons: ${editions} textbooks, ${lessons} lessons`)
+    const { editions, lessons, standards } = buildNationalLessons()
+    console.log(`national-lessons: ${editions} textbooks, ${lessons} lessons, ${standards} standards with lessons`)
 }
