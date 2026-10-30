@@ -14,6 +14,9 @@ import { loadV2Subject } from '../data/v2Data.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import styles from './SubjectPage.module.css'
 
+// subjects with a 中考复习地图 (/review)
+const REVIEW_SUBJECTS = ['chinese', 'math', 'english', 'morality_law', 'physics', 'chemistry', 'biology', 'history', 'geography']
+
 const SkillsGraphWorkspace = lazy(() => import('../features/graph/SkillsGraphWorkspace.jsx'))
 const GRAPH_RELATION_TYPES = Object.freeze(['contains', 'progression', 'skill_alignment'])
 const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -330,6 +333,12 @@ function SubjectPage() {
                                 return <RailButton key={stage.code} color={sub.color} name={stage.range} title={stage.label} count={bl.length} disabled={!bl.length} onClick={() => focusStage(b)} onEnter={hl({ ring: b, list: bl })} onLeave={hl({})} />
                             })}
                         </ul>
+                        <p className={styles.tools}>
+                            <Link to={`/concepts/subjects/${slug}`}>课标骨架与课程理念</Link>
+                            <Link to={`/interdisciplinary?subject=${slug}`}>跨学科主题</Link>
+                            {REVIEW_SUBJECTS.includes(slug) ? <Link to={`/review?subject=${slug}`}>中考复习地图</Link> : null}
+                            <Link to="/lesson-plan">AI 备课</Link>
+                        </p>
                         <p className={styles.cue}><i aria-hidden="true" />向下 · 展开</p>
                     </div>
                 </div>

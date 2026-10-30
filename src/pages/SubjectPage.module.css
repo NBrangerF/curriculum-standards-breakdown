@@ -331,3 +331,19 @@ a.peer:hover, a.peer:focus-visible { border-color: var(--c); background: rgba(25
     .lines path { stroke-dashoffset: 0; }
     .lines path.draw { animation: none; }
 }
+
+/* links to the subject's other views */
+.tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    margin: 14px 0 0;
+    font-size: 13.5px;
+}
+
+.tools a {
+    color: var(--kb-gold);
+    text-decoration: underline;
+    text-decoration-color: rgba(233, 200, 135, 0.5);
+    text-underline-offset: 3px;
+}
