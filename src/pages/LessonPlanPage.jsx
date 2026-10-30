@@ -8,7 +8,7 @@ import { XCircleIcon } from '@phosphor-icons/react/dist/csr/XCircle'
 import { postApi } from '../data/api'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
-import { downloadTestWord, downloadWord, downloadUnitWord, planToText, testRows, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
+import { downloadTestWord, downloadWord, downloadUnitWord, planToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
@@ -823,8 +823,7 @@ function TestReport({ report }) {
     const warns = checks.filter(item => item.level === 'warn').length
     const rows = testRows(report)
     const whole = table.score
-    const byCount = key => read.questions.filter(item => item.level === key || item.difficulty === key).length
-    const shareOf = (scores, key) => (whole ? `${Math.round(((scores[key] || 0) / whole) * 100)}%` : `${byCount(key)} 题`)
+    const shareOf = (scores, key) => testShare(table, scores[key])
     const untested = table.literacy.filter(item => !table.by_literacy[item])
     async function copy() {
         try {
@@ -854,7 +853,7 @@ function TestReport({ report }) {
                 <h3>内容 × {table.levels.length ? '层次' : '题目'}</h3>
                 <div className={styles.tableWrap}>
                     <table>
-                        <thead><tr><th>要点</th><th>题号</th><th>{whole ? '分值' : '题数'}</th>{table.levels.map(level => <th key={level}>{level}</th>)}<th>占比</th></tr></thead>
+                        <thead><tr><th>要点</th><th>题号</th><th>{table.unit === 'score' ? '分值' : '题数'}</th>{table.levels.map(level => <th key={level}>{level}</th>)}<th>占比</th></tr></thead>
                         <tbody>
                             {rows.map(row => (
                                 <tr key={row.code} data-empty={row.questions === '—' ? 'true' : undefined}>
@@ -866,16 +865,17 @@ function TestReport({ report }) {
                                 </tr>
                             ))}
                         </tbody>
-                        {table.levels.length ? <tfoot><tr><th>合计</th><td>{read.questions.length} 题</td><td>{whole || read.questions.length}</td>{table.levels.map(level => <td key={level}>{shareOf(table.by_level, level)}</td>)}<td>100%</td></tr></tfoot> : null}
+                        {table.levels.length ? <tfoot><tr><th>合计</th><td>{read.questions.length} 题</td><td>{table.unit === 'score' ? whole : read.questions.length}</td>{table.levels.map(level => <td key={level}>{shareOf(table.by_level, level)}</td>)}<td>100%</td></tr></tfoot> : null}
                     </table>
                 </div>
                 {table.level_source ? <p className={styles.small}>层次依据：{table.level_source}。其他学科课标没有统一规定认知层次，细目表只列难度。</p> : null}
+                {table.unit === 'count' ? <p className={styles.small}>这份试卷没有标分值，占比按题数计算。</p> : null}
             </section>
             <section>
                 <h3>结构</h3>
                 <dl className={styles.testMix}>
                     <div><dt>难度</dt><dd>{['易', '中', '难'].map(key => `${key} ${shareOf(table.by_difficulty, key)}`).join(' · ')}</dd></div>
-                    <div><dt>题型</dt><dd>{Object.entries(table.by_type).map(([key, value]) => `${key} ${whole ? `${value} 分` : ''}`.trim()).join(' · ') || '—'}</dd></div>
+                    <div><dt>题型</dt><dd>{Object.entries(table.by_type).map(([key, value]) => `${key} ${table.unit === 'score' ? `${value} 分` : `${value} 题`}`).join(' · ') || '—'}</dd></div>
                     <div><dt>素养</dt><dd>{Object.entries(table.by_literacy).map(([key]) => `${key} ${shareOf(table.by_literacy, key)}`).join(' · ') || '—'}{untested.length ? <small>没有考到：{untested.join('、')}</small> : null}</dd></div>
                 </dl>
             </section>

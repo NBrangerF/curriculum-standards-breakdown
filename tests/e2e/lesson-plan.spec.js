@@ -195,7 +195,7 @@ test('核验单元测试卷: a pasted test becomes a 多维细目表 with the �
                 { no: '1', quote: '把 6/8 化成最简分数', score: 20, type: '填空题', points: ['MA-S3-NA-01.3'], literacy: ['运算能力'], level: '掌握', difficulty: '易' },
                 { no: '2', quote: '把循环小数 0.333… 化成分数', score: 10, type: '填空题', points: ['MA-S3-NA-01.3'], literacy: ['数感'], level: '运用', difficulty: '难' }
             ], beyond: [], total: 30, dropped: 0 },
-            table: { literacy: ['数感', '运算能力', '推理意识'], levels: ['了解', '理解', '掌握', '运用'], level_source: '数学课标附录 2「有关行为动词的分类」（修订版第 185 页）', rows: [{ code: 'MA-S3-NA-01.3', text: '能比较两个分数的大小', questions: ['1', '2'], score: 30, by_level: { 了解: [], 理解: [], 掌握: ['1'], 运用: ['2'] } }], score: 30, by_level: { 掌握: 20, 运用: 10 }, by_difficulty: { 易: 20, 难: 10 }, by_type: { 填空题: 30 }, by_literacy: { 运算能力: 20, 数感: 10 } },
+            table: { unit: 'score', weight_total: 30, literacy: ['数感', '运算能力', '推理意识'], levels: ['了解', '理解', '掌握', '运用'], level_source: '数学课标附录 2「有关行为动词的分类」（修订版第 185 页）', rows: [{ code: 'MA-S3-NA-01.3', text: '能比较两个分数的大小', questions: ['1', '2'], score: 30, by_level: { 了解: [], 理解: [], 掌握: ['1'], 运用: ['2'] } }], score: 30, by_level: { 掌握: 20, 运用: 10 }, by_difficulty: { 易: 20, 难: 10 }, by_type: { 填空题: 30 }, by_literacy: { 运算能力: 20, 数感: 10 } },
             checks: [{ level: 'risk', kind: 'beyond_standard', message: '第 2 题出现了「循环小数」，而课标写明不包括将循环小数转化成分数，可能超标，请核对。' }],
             evidence,
             privacy: { redacted: false },

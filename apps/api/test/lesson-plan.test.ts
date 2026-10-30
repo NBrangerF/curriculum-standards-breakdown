@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
-import { checkPlan, limitsOf, type Frame, type Process } from '../src/lesson-plan.js'
+import { checkPlan, checkTest, limitsOf, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
 
 const publicDataRoot = resolve(process.cwd(), '../../public/data')
 const app = createApp(new FileCurriculumRepository(publicDataRoot))
@@ -360,4 +360,28 @@ test('核验我的试卷: questions become a 多维细目表; 超标, made-up an
     assert.ok(kinds.includes('no_point'))
     assert.ok(kinds.includes('score_total'))
     assert.ok(kinds.includes('reader_dropped'))
+})
+
+test('细目表 without 分值 counts questions; a question on two 素养 counts half on each', () => {
+    const input: DraftInput = {
+        lesson: { title: '中华民国的创建', subject: '历史', subject_slug: 'history', grade: 8 },
+        standards: [],
+        indicators: [{ code: 'HI-S4-MC-02.1', text: '了解武昌起义及中华民国成立的史事', pages: [27], standard_code: 'HI-S4-MC-02', standard_title: '', stage_label: '' }],
+        subjectNote: { organized_by: '', unit_hint: '', core_literacy: ['时空观念', '史料实证'] },
+        periodMinutes: 40, lessonIndex: 1, lessonCount: 1, classNotes: '', teacherNotes: ''
+    }
+    const read = {
+        questions: [
+            { no: '1', quote: '武昌起义爆发于哪一年', score: 0, type: '填空题', points: ['HI-S4-MC-02.1'], literacy: ['时空观念'], level: '', difficulty: '易' },
+            { no: '2', quote: '列举新文化运动的代表人物', score: 0, type: '简答题', points: [], literacy: ['史料实证', '时空观念'], level: '', difficulty: '中' }
+        ],
+        beyond: [], total: 0, dropped: 0
+    }
+    const { table, checks } = checkTest(read, '1. 武昌起义爆发于哪一年？\n2. 列举新文化运动的代表人物。', input)
+    assert.equal(table.unit, 'count')
+    assert.equal(table.weight_total, 2)
+    assert.deepEqual(table.by_difficulty, { 易: 1, 中: 1 })
+    assert.deepEqual(table.by_literacy, { 时空观念: 1.5, 史料实证: 0.5 })
+    assert.deepEqual(table.levels, [])
+    assert.ok(checks.some(item => item.kind === 'no_point' && item.message.includes('第 2 题')))
 })

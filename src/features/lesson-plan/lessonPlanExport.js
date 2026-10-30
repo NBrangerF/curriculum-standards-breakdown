@@ -149,15 +149,17 @@ export function downloadUnitWord(plan) {
 const share = (part, whole) => (whole ? `${Math.round((part / whole) * 100)}%` : '—')
 const fmt = value => (Number.isInteger(value) ? String(value) : value.toFixed(1))
 
+// shares are of 分值, or of 题数 when the paper gives no scores
+export const testShare = (table, value) => share(value || 0, table.weight_total)
+
 export function testRows(report) {
     const { table } = report
-    const whole = table.score
     return table.rows.map(row => ({
         code: row.code || '未对应',
         text: row.text,
         questions: row.questions.join('、') || '—',
-        score: whole ? fmt(row.score) : `${row.questions.length} 题`,
-        share: whole ? share(row.score, whole) : share(row.questions.length, report.read.questions.length),
+        score: table.unit === 'score' ? fmt(row.score) : `${fmt(row.score)} 题`,
+        share: testShare(table, row.score),
         levels: table.levels.map(level => row.by_level[level]?.join('、') || '')
     }))
 }

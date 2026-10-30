@@ -626,6 +626,9 @@ export type TestQuestion = { no: string, quote: string, score: number, type: str
 export type ReadTest = { questions: TestQuestion[], beyond: Array<{ no: string, quote: string, limit: string }>, total: number, dropped: number }
 export type TestRow = { code: string | null, text: string, questions: string[], score: number, by_level: Record<string, string[]> }
 export type TestTable = {
+    // shares are of 分值, or of 题数 when the paper gives no scores
+    unit: 'score' | 'count'
+    weight_total: number
     literacy: string[]
     levels: string[]
     level_source: string | null
@@ -642,7 +645,7 @@ const testInstructions = (levels: (typeof TEST_LEVELS)[string] | undefined) => `
 1. 按试卷原有的题号逐题整理；大题下有小题的按小题整理，题号写成「3(1)」。最多 40 题。只整理试卷里有的题，不补题、不改题。
 2. quote：逐字抄录这道题题干开头的 8–30 个字，一个字也不改。
 3. score：这道题的分值，试卷没写就填 0。type：题型（选择题、填空题、判断题、计算题、解答题、作图题、实验题、材料题、阅读题、写作、口语等）。
-4. points：这道题考查的要点编码，只能从「依据」里选，最多 2 个；对不上任何要点就留空数组，不要硬凑。
+4. points：这道题考查的要点编码，只能从「依据」里选，最多 2 个。要点原文必须写到了这道题考的知识或技能本身；只是都属于「解决问题」「运用知识」这类通用能力不算对上（比如求长方体体积的题，不能对到「运用分数解决问题」）。对不上任何要点就留空数组，不要硬凑。
 5. literacy：这道题主要考查的素养，只能从「素养维度」里选 1–2 个。
 ${levels ? `6. level：按下面的层次定义判断这道题要求学生达到的层次，只能填 ${levels.levels.map(item => `「${item}」`).join('')} 之一。${levels.defs}` : '6. level：填空字符串。'}
 7. difficulty：按这个年级学生的一般水平估计，填「易」「中」「难」。
@@ -708,9 +711,15 @@ const listNos = (nos: string[]) => (nos.length > 6 ? `${nos.slice(0, 6).join('�
 export function checkTest(read: ReadTest, testText: string, input: DraftInput): { table: TestTable, checks: PlanCheck[] } {
     const levelInfo = TEST_LEVELS[input.lesson.subject_slug]
     const levels = levelInfo?.levels || []
+    const scored = read.questions.some(item => item.score > 0)
+    const weight = (question: TestQuestion) => (scored ? question.score : 1)
     const tally = (pick: (question: TestQuestion) => string[]) => {
         const out: Record<string, number> = {}
-        for (const question of read.questions) for (const key of pick(question)) out[key] = (out[key] || 0) + question.score
+        for (const question of read.questions) {
+            const keys = pick(question)
+            // a question on two 素养 counts half on each
+            for (const key of keys) out[key] = (out[key] || 0) + weight(question) / keys.length
+        }
         return out
     }
     const rowFor = (code: string | null, text: string, questions: TestQuestion[]): TestRow => ({
@@ -718,14 +727,17 @@ export function checkTest(read: ReadTest, testText: string, input: DraftInput): 
         text,
         questions: questions.map(item => item.no),
         // a question on two 要点 counts half its score on each
-        score: questions.reduce((sum, item) => sum + (item.points.length > 1 ? item.score / 2 : item.score), 0),
+        score: questions.reduce((sum, item) => sum + weight(item) / Math.max(1, item.points.length), 0),
         by_level: Object.fromEntries(levels.map(level => [level, questions.filter(item => item.level === level).map(item => item.no)]))
     })
     const rows = input.indicators.map(item => rowFor(item.code, item.text, read.questions.filter(question => question.points.includes(item.code))))
     const unmatched = read.questions.filter(question => !question.points.length)
     if (unmatched.length) rows.push(rowFor(null, '没有对上所选要点', unmatched))
     const score = read.questions.reduce((sum, item) => sum + item.score, 0)
+    const weightTotal = read.questions.reduce((sum, item) => sum + weight(item), 0)
     const table: TestTable = {
+        unit: scored ? 'score' : 'count',
+        weight_total: weightTotal,
         literacy: testLiteracy(input),
         levels,
         level_source: levelInfo?.source || null,
@@ -769,7 +781,7 @@ export function checkTest(read: ReadTest, testText: string, input: DraftInput): 
     for (const row of untested) checks.push({ level: 'warn', kind: 'untested_point', message: `要点 ${row.code} 没有题目考到。`, code: row.code || undefined, quote: row.text })
     if (read.total && score && Math.abs(read.total - score) > 0.5) checks.push({ level: 'warn', kind: 'score_total', message: `各题分值合计 ${score} 分，和试卷写的总分 ${read.total} 分不一致（可能有题没标分值，或没读到）。` })
     if (!score) checks.push({ level: 'warn', kind: 'score_total', message: '试卷没有标分值，细目表按题数统计。' })
-    const weigh = (part: Record<string, number>, key: string) => (score ? percent(part[key] || 0, score) : percent(read.questions.filter(item => item.level === key || item.difficulty === key).length, read.questions.length))
+    const weigh = (part: Record<string, number>, key: string) => percent(part[key] || 0, weightTotal)
     if (levels.length && weigh(table.by_level, levels[0]) > 60) checks.push({ level: 'warn', kind: 'level_low', message: `「${levels[0]}」层次的题占 ${weigh(table.by_level, levels[0])}%，${levels.slice(-2).join('、')}层次的题偏少。` })
     for (const key of DIFFICULTY) {
         if (weigh(table.by_difficulty, key) > 80) checks.push({ level: 'warn', kind: 'difficulty', message: `「${key}」题占 ${weigh(table.by_difficulty, key)}%，难度结构偏单一（物理课标：容易题、中档题、难题的比例设置合理）。` })
