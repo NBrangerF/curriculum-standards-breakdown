@@ -203,3 +203,36 @@ RULES.science = {
         return { area: SC_DOMAIN[concept], unit: concept, role: 'item', ...(e.stage === '8-4' ? { stage: '3-4' } : {}) }
     }
 }
+
+const PE_AREAS = { 基本运动技能: 'BM', 体能: 'PF', 健康教育: 'HE', 专项运动技能: 'SS' }
+const PE_LEVEL = { 一: '1-2', 二: '3-4', 三: '5-6', 四: '7-9' }
+// 体育与健康：单元是水平 × 内容部分（专项运动技能再按运动类别）。扫描件没有识别出水平，按每段开头的
+// 「达到水平×目标要求」恢复。要点是学业要求的编号条目（第一阶段审阅时体育的锚点层就是学业要求）；
+// 基本运动技能、体能、健康教育的内容要求原文附在标准下；专项运动技能的内容要求是多栏表格，扫描件各栏交错，
+// 不收录，页面提示看 PDF。跨学科主题学习是活动示例，放学段概览。标准句由 kebiao 概括。
+RULES.pe = {
+    areas: PE_AREAS,
+    split: 'items',
+    itemSection: '学业要求',
+    title: u => (u.area === '专项运动技能' ? `${u.unit}（${PE_LEVEL_NAME[u.stage]}）` : `${u.unit}（${PE_LEVEL_NAME[u.stage]}）`),
+    prepare: lines => {
+        const out = new Map()
+        const stageOf = new Map()
+        for (const e of lines) {
+            if (e.part !== '课程内容') continue
+            const t = e.topic || []
+            if (!PE_AREAS[t[0]]) continue
+            const key = t.join('>')
+            const m = e.text.match(/达到水平([一二三四])目标要求/u)
+            if (m) { stageOf.set(key, PE_LEVEL[m[1]]); continue }
+            const stage = stageOf.get(key)
+            if (!stage) continue
+            const unit = t[0] === '专项运动技能' ? t[1] : t[0]
+            if (!unit) continue
+            const role = e.section === '学业要求' ? 'item' : e.section === '内容要求' ? (t[0] === '专项运动技能' ? 'other' : 'req') : null
+            if (role) out.set(e.id, { area: t[0], unit, role, stage })
+        }
+        return out
+    }
+}
+const PE_LEVEL_NAME = { '1-2': '水平一 · 1–2 年级', '3-4': '水平二 · 3–4 年级', '5-6': '水平三 · 5–6 年级', '7-9': '水平四 · 7–9 年级' }
