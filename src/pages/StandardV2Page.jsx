@@ -6,6 +6,7 @@ import { PageLoading, ErrorState, CopyLinkButton } from '../components/StateComp
 import FavoriteButton from '../components/FavoriteButton'
 import ShareStandardButton from '../features/share/ShareStandardButton'
 import StandardTextbookLinks from '../features/textbooks/StandardTextbookLinks'
+import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
 import { v2StandardMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import styles from './StandardV2Page.module.css'
@@ -49,7 +50,11 @@ function Indicator({ item, edition, dimmed, targeted }) {
                     <ul>{item.examples.map(example => <li key={example.from}>{example.text}<small>原 {example.from}</small></li>)}</ul>
                 </details>
             ) : null}
-            {item.legacy_codes.length ? <p className={styles.legacy}>原编码 {item.legacy_codes.join(' · ')}</p> : null}
+            {item.legacy_codes.length ? (
+                <p className={styles.legacy}>
+                    原编码 {item.legacy_codes.map((old, k) => <span key={old}>{k ? ' · ' : ''}<Link to={`/standards/${old}/v1`} title="查看 2022 年版拆解时的旧条目">{old}</Link></span>)}
+                </p>
+            ) : null}
         </li>
     )
 }
@@ -71,7 +76,7 @@ function OfficialList({ title, items, id }) {
     )
 }
 
-function LearningResources({ ids }) {
+function LearningResources({ ids, legacyCodes }) {
     const [resources, setResources] = useState(null)
     useEffect(() => {
         let cancelled = false
@@ -86,13 +91,21 @@ function LearningResources({ ids }) {
         <section className={styles.block} id="standard-resources">
             <h2>学习资源</h2>
             <ul className={styles.resourceList}>
-                {resources.map(resource => (
-                    <li key={resource.id}>
-                        <Link to={`/learning-resources/${resource.id}`}>{resource.title_zh}</Link>
-                        <span>{resource.provider}</span>
-                        {resource.rationale_zh ? <p>{resource.rationale_zh}</p> : null}
-                    </li>
-                ))}
+                {resources.map(resource => {
+                    // why it fits: the note written for the old record it was filed under
+                    const rationale = (resource.standards || []).find(item => legacyCodes.includes(item.code))?.rationale_zh
+                    return (
+                        <li key={resource.id}>
+                            <Link to={`/learning-resources/${resource.id}`}>{resource.title_zh}</Link>
+                            <span>{resource.provider}</span>
+                            {rationale ? <p>{rationale}</p> : null}
+                            <div className={styles.resourceFoot}>
+                                <ResourceBadges resource={resource} />
+                                <OpenOriginalLink resource={resource} />
+                            </div>
+                        </li>
+                    )
+                })}
             </ul>
         </section>
     )
@@ -250,7 +263,7 @@ export default function StandardV2Page() {
                 <section className={styles.block} id="standard-textbooks">
                     <StandardTextbookLinks standardCode={standard.code} />
                 </section>
-                <LearningResources ids={standard.learning_resource_ids || []} />
+                <LearningResources ids={standard.learning_resource_ids || []} legacyCodes={standard.legacy_codes || []} />
 
                 <nav className={styles.neighbours} aria-label="同学段的标准">
                     {neighbours.prev ? <Link to={`/standards/${neighbours.prev.code}`} rel="prev"><small>上一条</small>{neighbours.prev.level2}</Link> : <span />}

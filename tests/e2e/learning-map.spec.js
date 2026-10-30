@@ -8,7 +8,7 @@ const learningMapURL = state => {
         view: 'learning-map',
         ...state
     })
-    return `/standards/${standardCode}?${params}`
+    return `/standards/${standardCode}/v1?${params}`
 }
 
 async function expectFocusedPoint(page, label) {
@@ -202,15 +202,15 @@ test.describe('学习脉络端到端用户流', () => {
         const fixtureOptions = { fixture: 'diamond', standardCode, selectedPointId: 'kp:d' }
 
         await installLearningMapFixtureRoutes(page, fixtureOptions)
-        await page.goto(`/standards/${standardCode}?ui-v2=0&learning-map=0&view=learning-map`)
+        await page.goto(`/standards/${standardCode}/v1?ui-v2=0&learning-map=0&view=learning-map`)
         await expect(page.locator('[data-kb-route="standard"]')).toHaveAttribute('data-learning-map-version', 'legacy')
         await expect(page.locator('[data-kb-feature="learning-map"]')).toHaveCount(0)
 
-        await page.goto(`/standards/${standardCode}?ui-v2=0&learning-map=1&view=learning-map`)
+        await page.goto(`/standards/${standardCode}/v1?ui-v2=0&learning-map=1&view=learning-map`)
         await expect(page.locator('[data-kb-route="standard"]')).toHaveAttribute('data-learning-map-version', 'legacy')
         await expect(page.locator('[data-kb-feature="learning-map"]')).toHaveCount(0)
 
-        await page.goto(`/standards/${standardCode}?ui-v2=1&learning-map=0&view=learning-map`)
+        await page.goto(`/standards/${standardCode}/v1?ui-v2=1&learning-map=0&view=learning-map`)
         await expect(page.locator('[data-kb-route="standard"]')).toHaveAttribute('data-learning-map-version', 'legacy', { timeout: 20_000 })
         await expect(page.locator('[data-kb-feature="learning-map"]')).toHaveCount(0)
 

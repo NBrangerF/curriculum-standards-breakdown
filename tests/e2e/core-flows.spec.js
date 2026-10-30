@@ -50,7 +50,7 @@ test('home sky keeps subject and skill entries reachable', async ({ page }) => {
     await expect(page.getByRole('heading', { level: 1, name: /kebiao 课标星图/ })).toBeAttached()
 
     const math = page.locator('#subjects-section + ul').getByRole('link', { name: /数学/ })
-    await expect(math).toContainText('164')
+    await expect(math).toContainText('230')
     await math.click()
     await expect(page).toHaveURL(/\/subjects\/math$/)
     await expect(page.getByRole('heading', { level: 1, name: '数学' })).toBeVisible()
@@ -96,10 +96,10 @@ test('the command palette searches every standard and opens a result', async ({ 
     await page.keyboard.press('ControlOrMeta+k')
     const palette = page.getByRole('dialog', { name: '搜索课程标准' })
     await expect(palette).toBeVisible()
-    await palette.getByRole('combobox').fill('MA-D2-AL-005')
-    await expect(palette.getByRole('option').first()).toContainText('MA-D2-AL-005')
+    await palette.getByRole('combobox').fill('MA-S2-NA-02.1')
+    await expect(palette.getByRole('option').first()).toContainText('MA-S2-NA-02.1')
     await page.keyboard.press('Enter')
-    await expect(page).toHaveURL(/\/standards\/MA-D2-AL-005$/)
+    await expect(page).toHaveURL(/\/standards\/MA-S2-NA-02#MA-S2-NA-02\.1$/)
 })
 
 test('constraint feedback uses a dismissable non-blocking toast', async ({ page }) => {
@@ -204,7 +204,7 @@ test('skill detail graph preserves its locked skill in browser history', async (
 })
 
 test('standard detail locates the same standard in its real graph', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003')
+    await page.goto('/standards/MA-D2-GE-003/v1')
     await expect(page.getByRole('button', { name: 'MA-D2-GE-003 复制编码' })).toBeVisible()
     await page.getByRole('button', { name: '在图谱中定位' }).click()
 
@@ -216,7 +216,7 @@ test('standard detail locates the same standard in its real graph', async ({ pag
 })
 
 test('standard sequence links reveal a data-backed preview on keyboard focus', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003')
+    await page.goto('/standards/MA-D2-GE-003/v1')
     const previous = page.getByRole('link', { name: '← MA-D1-GE-001' })
     await previous.scrollIntoViewIfNeeded()
     await previous.focus()
@@ -231,7 +231,7 @@ test('standard sequence links reveal a data-backed preview on keyboard focus', a
 })
 
 test('favorite collection popover dismisses with Escape and restores focus', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003')
+    await page.goto('/standards/MA-D2-GE-003/v1')
     const trigger = page.getByRole('button', { name: '选择 MA-D2-GE-003 所属清单' })
     await trigger.click()
     await expect(page.getByRole('dialog', { name: 'MA-D2-GE-003 所属清单' })).toBeVisible()
@@ -273,16 +273,19 @@ test('collection detail removes a standard with a reversible toast', async ({ pa
     await seedCollection(page)
     await page.goto('/collections/qa-collection')
     await expect(page.getByRole('heading', { level: 1, name: '几何单元研究' })).toBeVisible()
-    const removeButton = page.getByRole('button', { name: '从清单移除 MA-D2-GE-003' })
+    // the saved old code MA-D2-GE-003 has moved to the v2 standard MA-S2-GG-01
+    const removeButton = page.getByRole('button', { name: '从清单移除 MA-S2-GG-01' })
     await removeButton.click()
-    await expect(page.getByRole('status')).toContainText('已从清单移除 MA-D2-GE-003')
+    await expect(page.getByRole('status')).toContainText('已从清单移除 MA-S2-GG-01')
     await page.getByRole('button', { name: '撤销' }).click()
-    await expect(page.getByRole('button', { name: '从清单移除 MA-D2-GE-003' })).toBeVisible()
+    await expect(page.getByRole('button', { name: '从清单移除 MA-S2-GG-01' })).toBeVisible()
 })
 
 test('collection workspace batch selection deletes and restores complete local records', async ({ page }) => {
     await seedCollectionWorkspace(page)
     await page.goto('/collections')
+    // saved old codes move to their v2 standards on first load
+    await page.waitForFunction(() => !localStorage.getItem('curriculum-collections').includes('MA-D2-GE'))
     await page.getByRole('button', { name: '选择清单' }).click()
 
     const toolbar = page.locator('[data-kb-component="collection-selection-toolbar"]')
@@ -307,8 +310,8 @@ test('collection workspace batch selection deletes and restores complete local r
     await expect(page.getByRole('heading', { name: '几何单元研究' })).toBeVisible()
     await expect(page.getByRole('heading', { name: '评价证据清单' })).toBeVisible()
     const afterUndo = await page.evaluate(() => JSON.parse(localStorage.getItem('curriculum-collections')))
-    expect(afterUndo.collections['geometry-research'].standardCodes).toEqual(['MA-D2-GE-003'])
-    expect(afterUndo.collections['assessment-notes'].standardCodes).toEqual(['MA-D2-GE-002', 'MA-D2-GE-004'])
+    expect(afterUndo.collections['geometry-research'].standardCodes).toEqual(['MA-S2-GG-01'])
+    expect(afterUndo.collections['assessment-notes'].standardCodes).toEqual(['MA-S2-GG-01'])
 })
 
 test('glossary search and category filter retain an explicit result count', async ({ page }) => {
@@ -377,7 +380,7 @@ test('search comparison results expose a quick preview without changing link sem
 })
 
 test('standard reading navigation follows anchored sections with one accessible active location', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003')
+    await page.goto('/standards/MA-D2-GE-003/v1')
     const readingNav = page.getByRole('navigation', { name: '本页目录' })
     const skillsLink = readingNav.getByRole('link', { name: '相关能力' })
     const contentLink = readingNav.getByRole('link', { name: '教学线索' })

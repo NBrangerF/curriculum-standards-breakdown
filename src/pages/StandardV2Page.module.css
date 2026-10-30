@@ -379,6 +379,17 @@ a.badge:focus-visible {
     overflow-wrap: anywhere;
 }
 
+.legacy a {
+    color: inherit;
+    text-decoration-color: var(--kb-line-strong);
+    text-underline-offset: 2px;
+}
+
+.legacy a:hover,
+.legacy a:focus-visible {
+    color: var(--kb-gold);
+}
+
 .officialList {
     display: grid;
     gap: 0.9rem;
@@ -418,6 +429,14 @@ a.badge:focus-visible {
     color: var(--kb-mist);
     font-size: 0.86rem;
     line-height: 1.7;
+}
+
+.resourceFoot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: 0.5rem;
 }
 
 .neighbours {

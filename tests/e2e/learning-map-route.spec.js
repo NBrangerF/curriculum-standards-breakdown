@@ -81,7 +81,7 @@ async function tabTo(page, target, { maxTabs = 48 } = {}) {
 }
 
 test('standard learning map keeps evidence, focus and history aligned', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003?learning-map=1&view=learning-map&selectedNode=kp:d&contextPath=topic:math,kp:d&prerequisiteDepth=1&unlockDepth=1&necessity=required,recommended')
+    await page.goto('/standards/MA-D2-GE-003/v1?learning-map=1&view=learning-map&selectedNode=kp:d&contextPath=topic:math,kp:d&prerequisiteDepth=1&unlockDepth=1&necessity=required,recommended')
 
     await expect(page.getByRole('heading', { name: '先掌握什么，接下来解锁什么' })).toBeVisible({ timeout: 20_000 })
     const prerequisites = page.getByRole('region', { name: '需要先掌握' })
@@ -131,7 +131,7 @@ test('standard learning map keeps evidence, focus and history aligned', async ({
 
 test('learning map uses the semantic decision path on a 390px viewport', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 })
-    await page.goto('/standards/MA-D2-GE-003?learning-map=1&view=learning-map&selectedNode=kp:d&contextPath=topic:math,kp:d')
+    await page.goto('/standards/MA-D2-GE-003/v1?learning-map=1&view=learning-map&selectedNode=kp:d&contextPath=topic:math,kp:d')
 
     const semanticPath = page.getByRole('region', { name: '学习脉络的可访问关系列表' })
     await expect(semanticPath).toBeVisible()
@@ -142,7 +142,7 @@ test('learning map uses the semantic decision path on a 390px viewport', async (
 })
 
 test('keyboard search selects a knowledge point and updates its semantic location', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003?learning-map=1&view=learning-map&selectedNode=kp:d&contextPath=topic:math,kp:d')
+    await page.goto('/standards/MA-D2-GE-003/v1?learning-map=1&view=learning-map&selectedNode=kp:d&contextPath=topic:math,kp:d')
 
     const search = page.getByRole('region', { name: '搜索知识点' })
     const input = search.getByRole('searchbox', { name: '搜索知识点' })
@@ -161,7 +161,7 @@ test('keyboard search selects a knowledge point and updates its semantic locatio
 })
 
 test('taxonomy keyboard entry and exit preserve the semantic task path before selecting a point', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003?learning-map=1&view=learning-map&selectedNode=kp:d&contextPath=topic:math,kp:d')
+    await page.goto('/standards/MA-D2-GE-003/v1?learning-map=1&view=learning-map&selectedNode=kp:d&contextPath=topic:math,kp:d')
 
     const taxonomy = page.getByRole('group', { name: 'Miller Columns 分类导航' })
     const root = taxonomy.getByRole('button', { name: '分类 数学' })
@@ -187,7 +187,7 @@ test('taxonomy keyboard entry and exit preserve the semantic task path before se
 test('keyboard context switching preserves reviewed prerequisite and unlock decisions across taxonomy locations', async ({ page }) => {
     await page.unroute('**/data/knowledge_graph/**')
     await installFixtureRoute(page, multiParentFixture)
-    await page.goto('/standards/MA-D2-GE-003?learning-map=1&view=learning-map&selectedNode=kp:shared&contextPath=topic:math:geometry,kp:shared')
+    await page.goto('/standards/MA-D2-GE-003/v1?learning-map=1&view=learning-map&selectedNode=kp:shared&contextPath=topic:math:geometry,kp:shared')
 
     const location = page.getByRole('navigation', { name: '知识分类路径' })
     await expect(location).toHaveText(/图形与几何.*共享知识点/)

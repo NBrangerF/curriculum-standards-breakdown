@@ -23,6 +23,7 @@ import { SkyProvider } from './features/starmap/SkyProvider.jsx'
 import './App.css'
 
 const SubjectPage = lazy(() => import('./pages/SubjectPage'))
+const StandardDetailPage = lazy(() => import('./pages/StandardDetailPage'))
 const CollectionsPage = lazy(() => import('./pages/CollectionsPage'))
 const GlossaryPage = lazy(() => import('./pages/GlossaryPage'))
 const FeedbackPage = lazy(() => import('./pages/FeedbackPage'))
@@ -83,6 +84,7 @@ function App() {
                     <Route path="/alignment-workbench" element={route('alignmentWorkbench', lazyPage(<AlignmentWorkbenchPage />, '正在打开对齐工作台'))} />
                     <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />
                     <Route path="/standards/:code" element={route('standard', <StandardRoute />)} />
+                    <Route path="/standards/:code/v1" element={route('standard', lazyPage(<StandardDetailPage />, '正在打开旧条目'))} />
                     <Route
                         path="/collections"
                         element={route('collections', lazyPage(<CollectionsPage />, '正在打开清单'))}

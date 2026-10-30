@@ -301,7 +301,7 @@ test('standard page links back to the exact textbook node, evidence and standard
         })
     }))
 
-    await page.goto(`/standards/${STANDARD_CODE}`)
+    await page.goto(`/standards/${STANDARD_CODE}/v1`)
     const link = page.getByRole('link', { name: '定位原文与课标 →' })
     await expect(link).toHaveCount(1)
     await expect(link).toHaveAttribute('href', `/textbooks/${EDITION_ID}/read?page=3&node=lesson_1&alignment=alignment_1&panel=standards`)

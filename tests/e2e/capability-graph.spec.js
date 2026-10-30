@@ -121,7 +121,7 @@ test('standard detail distinguishes verified graph evidence from machine candida
         body: JSON.stringify({ data: textbookLinksFixture() })
     }))
 
-    await page.goto(`/standards/${STANDARD_CODE}`)
+    await page.goto(`/standards/${STANDARD_CODE}/v1`)
 
     await expect(page.getByRole('heading', { name: '可教学能力图谱' })).toBeVisible()
     await expect(page.getByText('辨认关键结构', { exact: true })).toBeVisible()
@@ -152,7 +152,7 @@ test('standard text renders before a slow capability sidecar finishes', async ({
         await route.fulfill({ contentType: 'application/json', body: JSON.stringify(graph) })
     })
 
-    await page.goto(`/standards/${STANDARD_CODE}`)
+    await page.goto(`/standards/${STANDARD_CODE}/v1`)
     await expect(page.getByRole('heading', { name: /看图说话/ })).toBeVisible()
     await expect(page.getByText('课标正文已就绪，正在加载能力图谱…')).toBeVisible()
 
@@ -172,7 +172,7 @@ test('stale capability sidecar is rejected without hiding the standard', async (
         body: JSON.stringify(graph)
     }))
 
-    await page.goto(`/standards/${STANDARD_CODE}`)
+    await page.goto(`/standards/${STANDARD_CODE}/v1`)
     await expect(page.getByRole('heading', { name: /看图说话/ })).toBeVisible()
     await expect(page.getByText(/能力图谱暂时无法加载/)).toBeVisible()
     await expect(page.getByText('辨认关键结构', { exact: true })).toHaveCount(0)

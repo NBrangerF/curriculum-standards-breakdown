@@ -67,7 +67,7 @@ test('route flags are independent and a query override wins', async ({ page }) =
 })
 
 test('standard rollback keeps reading and collection actions but removes graph enhancement', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003?ui-v2=0')
+    await page.goto('/standards/MA-D2-GE-003/v1?ui-v2=0')
     await expect(page.locator('[data-ui-route="standard"]')).toHaveAttribute('data-ui-version', 'legacy')
     await expect(page.getByRole('heading', { level: 1, name: '会根据角的特征对三角形分类' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'MA-D2-GE-003 复制编码' })).toBeVisible()
@@ -76,7 +76,7 @@ test('standard rollback keeps reading and collection actions but removes graph e
 })
 
 test('learning-map public preview is explicit and never claims expert approval', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003?view=learning-map')
+    await page.goto('/standards/MA-D2-GE-003/v1?view=learning-map')
     await expect(page.getByRole('note')).toContainText('公开预览')
     await expect(page.getByRole('note')).toContainText('不代表课程专家确认的认知先修关系')
     await expect(page.getByRole('heading', { name: '可能需要先了解，可能继续通往' })).toBeVisible()
@@ -85,7 +85,7 @@ test('learning-map public preview is explicit and never claims expert approval',
 })
 
 test('public preview keeps relationship evidence open while canonicalizing a minimal URL', async ({ page }) => {
-    await page.goto('/standards/CN-D2-CM-004?view=learning-map')
+    await page.goto('/standards/CN-D2-CM-004/v1?view=learning-map')
     const map = page.locator('[data-kb-feature="learning-map"]')
     await expect(map.locator('[data-kb-learning-map-publication="public_preview"]')).toBeVisible()
     const evidenceButtons = map.getByRole('button', { name: /关系依据$/ })
@@ -100,7 +100,7 @@ test('public preview keeps relationship evidence open while canonicalizing a min
 test('all nine subjects load their own local Learning Map bundle', async ({ page }) => {
     test.setTimeout(120_000)
     for (const [subject, standardCode] of learningMapSubjectSamples) {
-        await page.goto(`/standards/${standardCode}?view=learning-map`)
+        await page.goto(`/standards/${standardCode}/v1?view=learning-map`)
         const map = page.locator('[data-kb-feature="learning-map"]')
         await expect(map.getByRole('note'), `${subject} should show preview semantics`).toContainText('公开预览')
         await expect(
@@ -112,7 +112,7 @@ test('all nine subjects load their own local Learning Map bundle', async ({ page
 })
 
 test('learning-map stays unavailable when the outer UI route is rolled back', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003?ui-v2=0&learning-map=1&view=learning-map')
+    await page.goto('/standards/MA-D2-GE-003/v1?ui-v2=0&learning-map=1&view=learning-map')
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
     await expect(page.getByRole('heading', { name: '学习脉络暂时无法加载' })).toHaveCount(0)
 })

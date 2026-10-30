@@ -1,5 +1,5 @@
 import { lazy, Suspense, useState, useEffect, useMemo, useRef, useCallback } from 'react'
-import { useParams, Link, useSearchParams } from 'react-router-dom'
+import { useParams, Link, useLocation, useSearchParams } from 'react-router-dom'
 import { AnimatePresence, m } from 'motion/react'
 import {
     loadStandardByCode,
@@ -27,6 +27,7 @@ import { runViewTransition } from '../utils/viewTransition.js'
 import { buildStandardGraphModel } from '../graph/adapters/standardGraphAdapter'
 import { getDisplayTitle, standardMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
+import { resolveLegacyCode } from '../data/v2Data.js'
 import styles from './StandardDetailPage.module.css'
 
 const LearningMapRoute = lazy(() => import('../features/learning-map/LearningMapRoute.jsx'))
@@ -300,6 +301,10 @@ function ReadingNavLink({ sectionId, activeSection, children }) {
 function StandardDetailPage() {
     const { enabled: uiV2Enabled } = useUiV2()
     const { code } = useParams()
+    const { pathname } = useLocation()
+    // /standards/<old code>/v1 keeps the 2022 拆解 record readable after the move to v2 standards
+    const archived = pathname.endsWith('/v1')
+    const [movedTo, setMovedTo] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
@@ -321,7 +326,19 @@ function StandardDetailPage() {
         () => (standard ? buildStandardGraphModel(standard, { skills }) : null),
         [standard, skills]
     )
-    usePageMeta(standard ? standardMeta(standard) : null)
+    usePageMeta(standard ? { ...standardMeta(standard), ...(movedTo ? { path: movedTo.split('#')[0] } : {}) } : null)
+
+    useEffect(() => {
+        if (!archived) return undefined
+        let cancelled = false
+        resolveLegacyCode(code).then(path => { if (!cancelled) setMovedTo(path) }).catch(() => {})
+        // the archive page is for readers; search engines get the new standard page
+        const robots = document.createElement('meta')
+        robots.name = 'robots'
+        robots.content = 'noindex'
+        document.head.append(robots)
+        return () => { cancelled = true; robots.remove() }
+    }, [archived, code])
 
     useEffect(() => {
         let cancelled = false
@@ -536,6 +553,15 @@ function StandardDetailPage() {
                     </nav>
                 </div>
             </div>
+
+            {archived ? (
+                <div className="container">
+                    <p className={styles['grade-split-notice']} data-kb-archive-notice="v1">
+                        这是 kebiao 按 2022 年版课标拆解的旧条目，内容保留供参考。按 2025 修订版重建后，它已并入
+                        {movedTo ? <> <Link to={movedTo.startsWith('/standards/') ? `${movedTo.split('#')[0]}?from=${encodeURIComponent(code)}${movedTo.includes('#') ? `#${movedTo.split('#')[1]}` : ''}` : movedTo}>{movedTo.startsWith('/standards/') ? `新标准 ${movedTo.slice('/standards/'.length).replace('#', ' · 要点 ')}` : '学科概览'}</Link></> : ' 新的标准'}。
+                    </p>
+                </div>
+            ) : null}
 
             {/* Header */}
             <section className={styles['standard-header']} style={{ '--subject-color': subjectColor }}>

@@ -13,7 +13,7 @@ const routes = [
     ['skills', '/skills'],
     ['skillDetail', '/skills/TS1'],
     ['subject', '/subjects/math'],
-    ['standard', '/standards/MA-D2-GE-003'],
+    ['standard', '/standards/MA-S2-GG-01'],
     ['search', '/search'],
     ['smartSearch', '/smart-search'],
     ['alignmentWorkbench', '/alignment-workbench'],
@@ -44,7 +44,7 @@ const waitForMotionToSettle = page => page.evaluate(async () => {
 const learningMapRoute = ({ selectedNode = 'kp:d', contextPath } = {}) => {
     const params = new URLSearchParams({ 'learning-map': '1', view: 'learning-map', selectedNode })
     if (contextPath) params.set('contextPath', contextPath)
-    return `/standards/MA-D2-GE-003?${params}`
+    return `/standards/MA-D2-GE-003/v1?${params}`
 }
 
 for (const [name, route] of routes) {
@@ -180,7 +180,7 @@ test('mobile comparison ownership labels have no critical or serious WCAG violat
 })
 
 test('favorite collection popover has no critical or serious WCAG violations', async ({ page }) => {
-    await page.goto('/standards/MA-D2-GE-003')
+    await page.goto('/standards/MA-D2-GE-003/v1')
     await page.getByRole('button', { name: '选择 MA-D2-GE-003 所属清单' }).click()
     await expect(page.getByRole('dialog', { name: 'MA-D2-GE-003 所属清单' })).toBeVisible()
     const results = await new AxeBuilder({ page })

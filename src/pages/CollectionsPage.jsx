@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { migrateSavedCodes } from '../data/v2Data.js'
 import { Link, useNavigate } from 'react-router-dom'
 import { AnimatePresence, m } from 'motion/react'
 import {
@@ -21,6 +22,8 @@ import { WarningCircleIcon } from '@phosphor-icons/react/dist/csr/WarningCircle'
 import { XIcon } from '@phosphor-icons/react/dist/csr/X'
 import {
     getCollectionList,
+    getCollections,
+    saveCollections,
     createCollection,
     deleteCollections,
     restoreCollections,
@@ -47,6 +50,8 @@ function CollectionsPage() {
 
     useEffect(() => {
         refreshCollections()
+        // lists saved before the 2025 rebuild hold old codes; show them once they point at the new standards
+        migrateSavedCodes({ getCollections, saveCollections }).then(changed => { if (changed) refreshCollections() }).catch(() => {})
     }, [])
 
     const standardCount = useMemo(

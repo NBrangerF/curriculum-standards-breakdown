@@ -21,7 +21,7 @@ const routes = inventory.routes.map(route => route.path)
 const learningMapRoute = ({ selectedNode = 'kp:d', contextPath } = {}) => {
     const params = new URLSearchParams({ 'learning-map': '1', view: 'learning-map', selectedNode })
     if (contextPath) params.set('contextPath', contextPath)
-    return `/standards/MA-D2-GE-003?${params}`
+    return `/standards/MA-D2-GE-003/v1?${params}`
 }
 
 test.beforeEach(async ({ page }) => {
@@ -122,7 +122,7 @@ test('learning map keeps location, taxonomy, semantic relations, graph and inspe
 
 test('learning map uses the available ultrawide canvas without shrinking reading content', async ({ page }) => {
     await page.setViewportSize({ width: 2560, height: 1440 })
-    await page.goto('/standards/CN-D2-CM-004?view=learning-map')
+    await page.goto('/standards/CN-D2-CM-004/v1?view=learning-map')
     const map = page.locator('[data-kb-feature="learning-map"]')
     await expect(map.locator('[data-kb-learning-map-publication="public_preview"]')).toBeVisible({ timeout: 20_000 })
 
