@@ -775,6 +775,43 @@ export async function readTest(testText: string, input: DraftInput, options: Str
     return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
 }
 
+// A whole paper (期末卷, 30–45 items) is more than one call writes in time. Long papers are cut at question
+// boundaries into parts of about 1,800 characters, read side by side, then merged.
+const QUESTION_START = /^\s*(?:[一二三四五六七八九十]+、|\d+\s*[.．、])/u
+export function splitTest(text: string, partChars = 1800, maxParts = 4): string[] {
+    if (text.length <= partChars * 1.3) return [text]
+    const parts: string[] = []
+    let current: string[] = []
+    let size = 0
+    for (const line of text.split('\n')) {
+        if (size >= partChars && QUESTION_START.test(line) && parts.length < maxParts - 1) {
+            parts.push(current.join('\n'))
+            current = []
+            size = 0
+        }
+        current.push(line)
+        size += line.length + 1
+    }
+    if (current.length) parts.push(current.join('\n'))
+    return parts.filter(part => part.trim())
+}
+
+export function mergeReads(reads: ReadTest[]): ReadTest {
+    const seen = new Set<string>()
+    const questions = reads.flatMap(read => read.questions).filter(item => {
+        const key = `${item.no}|${item.quote}`
+        if (seen.has(key)) return false
+        seen.add(key)
+        return true
+    })
+    return {
+        questions,
+        beyond: reads.flatMap(read => read.beyond),
+        total: Math.max(0, ...reads.map(read => read.total)),
+        dropped: reads.reduce((sum, read) => sum + read.dropped, 0)
+    }
+}
+
 const percent = (part: number, whole: number) => (whole ? Math.round((part / whole) * 100) : 0)
 const listNos = (nos: string[]) => (nos.length > 6 ? `${nos.slice(0, 6).join('、')} 等 ${nos.length} 题` : nos.join('、'))
 

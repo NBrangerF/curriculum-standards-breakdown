@@ -9,7 +9,7 @@ import type { FileCurriculumRepository } from '@curriculum/core'
 import { redactSensitiveText } from './ai-privacy.js'
 import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate } from './search-judge.js'
 import type { ApiBindings } from './http.js'
-import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftTalk, draftTrial, draftUnit, rankPoints, readTest, checkTest, sanitiseProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
+import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftTalk, draftTrial, draftUnit, rankPoints, readTest, checkTest, splitTest, mergeReads, sanitiseProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
 
 type Deps = {
@@ -448,18 +448,28 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         if ('error' in resolved) return deps.apiError(c, 422, 'validation_error', String(resolved.error))
         const { input, evidence } = resolved
         const testText = redactSensitiveText(parsed.data.test_text)
-        const run = await readTest(testText.text, input)
-        c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: testText.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
-        if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `check_${run.status}`, run.status === 'disabled' ? 'AI 核验暂不可用。' : 'AI 这次没有读完这份试卷。请再试一次，或分两次贴入。')
-        const { table, checks } = checkTest(run.output, testText.text, input)
+        // a long paper is read in parts, side by side
+        const parts = splitTest(testText.text)
+        const runs = await Promise.all(parts.map(part => readTest(part, input)))
+        const done = runs.filter(run => run.output)
+        const first = runs[0]
+        const sum = (key: 'input_tokens' | 'output_tokens' | 'total_tokens') => runs.reduce((total, run) => total + (run.usage?.[key] || 0), 0)
+        const latency = Math.max(...runs.map(run => run.latency_ms))
+        c.set('aiMetrics', { feature: 'lesson_plan', used: done.length > 0, status: done.length === runs.length ? 'ok' : first.status, model: first.model, protocol: 'chat_completions', latency_ms: latency, redaction_count: testText.redaction_count, input_tokens: sum('input_tokens'), output_tokens: sum('output_tokens'), total_tokens: sum('total_tokens') })
+        if (!done.length) return deps.apiError(c, first.status === 'disabled' ? 503 : 502, `check_${first.status}`, first.status === 'disabled' ? 'AI 核验暂不可用。' : 'AI 这次没有读完这份试卷。请再试一次，或分两次贴入。')
+        const read = mergeReads(done.map(run => run.output!))
+        const { table, checks: found } = checkTest(read, testText.text, input)
+        const checks = done.length < runs.length ? found.filter(item => item.kind !== 'aligned') : found
+        if (done.length < runs.length) checks.unshift({ level: 'warn', kind: 'reader_partial', message: `这份试卷分 ${runs.length} 段读，有 ${runs.length - done.length} 段 AI 没读完，细目表只含读到的题。可以再试一次，或把没读到的部分单独贴入。` })
         return deps.ok(c, version as never, {
-            read: run.output,
+            read,
             table,
             checks,
             evidence,
+            parts: runs.length,
             privacy: { redacted: testText.redacted, redaction_count: testText.redaction_count },
-            model: run.model,
-            latency_ms: run.latency_ms
+            model: first.model,
+            latency_ms: latency
         })
     })
 

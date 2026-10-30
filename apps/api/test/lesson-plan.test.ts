@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
-import { checkPlan, checkTest, fitHours, fitMinutes, limitsOf, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
+import { checkPlan, checkTest, fitHours, fitMinutes, limitsOf, splitTest, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
 
 const publicDataRoot = resolve(process.cwd(), '../../public/data')
 const app = createApp(new FileCurriculumRepository(publicDataRoot))
@@ -475,4 +475,39 @@ test('unit lessons that miss the unit hours by up to four are fitted on the less
     assert.deepEqual(fitHours([lesson('分数的意义', 2), lesson('约分', 3), lesson('整理和复习', 1)], 7).map(item => item.hours), [2, 4, 1])
     assert.deepEqual(fitHours([lesson('分数的意义', 2), lesson('约分', 3)], 3).map(item => item.hours), [2, 1])
     assert.deepEqual(fitHours([lesson('分数的意义', 2), lesson('约分', 3)], 12).map(item => item.hours), [2, 3])
+})
+
+test('a long paper is cut at question boundaries; a short one stays whole', () => {
+    const short = '1. 第一题。\n2. 第二题。'
+    assert.deepEqual(splitTest(short), [short])
+    const lines = Array.from({ length: 60 }, (_, k) => `${k + 1}. ${'这是一道比较长的题目，'.repeat(6)}（2 分）`)
+    const parts = splitTest(lines.join('\n'))
+    assert.ok(parts.length >= 2 && parts.length <= 4)
+    // every part starts at a question, and nothing is lost
+    assert.ok(parts.slice(1).every(part => /^\d+\./u.test(part)))
+    assert.equal(parts.join('\n'), lines.join('\n'))
+})
+
+test('核验我的试卷: a long paper is read in parts and the questions are merged', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    let calls = 0
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        calls += 1
+        const user = String(JSON.parse(String(init?.body)).messages[1].content)
+        const paper = user.slice(user.indexOf('老师的试卷：'))
+        const numbers = [...paper.matchAll(/\n(\d+)\. (这是第 \d+ 题)/gu)]
+        const content = { questions: numbers.map(([, no, quote]) => ({ no, quote, score: 2, type: '选择题', points: [LIMITED], literacy: [], level: '理解', difficulty: '中' })), beyond: [], total: 100 }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 100, completion_tokens: 100, total_tokens: 200 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const test_text = Array.from({ length: 50 }, (_, k) => `${k + 1}. 这是第 ${k + 1} 题，${'题干内容比较长，'.repeat(5)}（2 分）`).join('\n')
+    const response = await app.request('/api/v1/lesson-plans/check-test', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': '203.0.113.82' }, body: JSON.stringify({ lesson: { title: '分数的意义和性质', subject_slug: 'math', grade: 5 }, indicator_codes: [LIMITED], test_text }) })
+    assert.equal(response.status, 200)
+    const { data } = await json(response)
+    assert.ok(data.parts >= 2)
+    assert.equal(calls, data.parts)
+    // the first question of each part is preceded by a newline only in the full paper, so parts after the first find all theirs
+    assert.ok(data.read.questions.length >= 45)
+    assert.equal(data.table.score, data.read.questions.length * 2)
 })
