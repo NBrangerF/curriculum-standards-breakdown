@@ -156,7 +156,7 @@ export default function LearningResourceLibraryPage() {
             <PageHero
                 kicker="学习资源 · 精选开放资源目录"
                 title="学习资源"
-                lede="从全球开放教育资源中挑出适合义务教育课堂的条目，逐条核对许可、写好中文简介、标注对应课标。点击即跳转原站，本站不转载正文。"
+                lede="先是国内可直接访问的官方平台和按课标整理的清单；国家中小学智慧教育平台的同步课挂在每条课标和每个教材单元上。下面是从全球开放教育资源中挑出、适合义务教育课堂的条目，逐条核对许可、写好中文简介、标注对应课标。点击即跳转原站，本站不转载正文。"
                 stats={[
                     { value: catalog.counts.resources, label: '项精选资源' },
                     { value: catalog.counts.standards, label: '条课标有对应' },
