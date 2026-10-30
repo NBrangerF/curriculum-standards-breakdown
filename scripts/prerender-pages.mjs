@@ -57,6 +57,7 @@ const platforms = readJson('learning-resources/platforms.json').platforms
 const glossary = readJson('glossary.json')
 const concepts = readJson('concepts.json')
 const interdisciplinary = readJson('interdisciplinary.json')
+const experiments = readJson('experiments.json')
 const CARD_VERSION = cardVersion(readJson('data_version.json').data_version)
 const cardUrl = path => `${SITE_URL}/cards/${path}.png?v=${CARD_VERSION}`
 
@@ -351,6 +352,16 @@ ${interdisciplinary.groups.map(group => section(`${group.subject}：${group.titl
 ${section('写进内容要求的跨学科学习', list(interdisciplinary.standards.map(item => `${link(`/standards/${item.code}`, `${item.subject} · ${item.title}（${item.stage_label}）`)} <span class="kbp-code">${esc(item.code)}</span>`)))}`, { jsonLd: [breadcrumbs(crumbs)] })
 }
 
+function experimentsPage() {
+    const crumbs = [['首页', '/'], ['必做实验清单', '/experiments']]
+    const stage = { '1-2': '1–2 年级', '3-4': '3–4 年级', '5-6': '5–6 年级', '7-9': '7–9 年级' }
+    add(STATIC_PAGE_META['/experiments'], `${crumbNav(crumbs)}
+<h1>课标规定的必做实验和探究实践</h1>
+<p class="kbp-lede">${esc(STATIC_PAGE_META['/experiments'].description)}</p>
+${experiments.science.stages.map(item => section(`科学 · ${stage[item.stage]}`, `<ol>${item.items.map(entry => `<li>${esc(entry.text)} <span class="kbp-note">修订版第 ${entry.page} 页</span></li>`).join('')}</ol>`)).join('')}
+${experiments.groups.flatMap(group => group.standards.map(standard => section(`${group.subject_slug === 'physics' ? '物理' : '化学'} · ${standard.title}`, `<ol>${standard.items.map(entry => `<li>${esc(entry.text)} ${link(`/standards/${standard.code}#${entry.code}`, entry.code)}</li>`).join('')}</ol>`))).join('')}`, { jsonLd: [breadcrumbs(crumbs)] })
+}
+
 function staticPages() {
     const terms = glossary.terms || []
     add(STATIC_PAGE_META['/glossary'], `<h1>术语表</h1>${terms.map(term => `<section><h2>${esc(term.term)}</h2><p>${esc(term.definition)}</p></section>`).join('')}`)
@@ -368,6 +379,7 @@ textbookPages()
 learningResourcePages()
 conceptPages()
 interdisciplinaryPage()
+experimentsPage()
 staticPages()
 
 // ---------- render ----------

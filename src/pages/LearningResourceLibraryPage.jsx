@@ -92,6 +92,7 @@ function PlatformList() {
     return (
         <section className={`${kb.wrap} ${styles.platforms}`} aria-labelledby="lr-platforms-title">
             <h2 id="lr-platforms-title" className={styles.resultsTitle}>国内官方平台 <small>{platforms.length} 个，直接访问</small></h2>
+            <p className={styles.listsNote}>按课标整理的清单：<Link to="/experiments">必做实验清单</Link>（科学、物理、化学）· <Link to="/interdisciplinary">跨学科主题库</Link>（课标给出的 37 个主题）</p>
             <ul className={styles.platformGrid}>
                 {platforms.map(platform => {
                     const subjects = [...new Set(platform.match.flatMap(rule => rule.subjects))]

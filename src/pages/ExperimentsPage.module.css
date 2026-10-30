@@ -1,0 +1,92 @@
+/* 必做实验清单; the page frame comes from ConceptsPage.module.css */
+.note {
+    max-width: 62ch;
+    margin: 0.9rem 0 0;
+    color: var(--kb-dim);
+    font-size: 0.88rem;
+    line-height: 1.8;
+}
+
+.tabs {
+    display: inline-flex;
+    margin-top: 1.4rem;
+    padding: 3px;
+    border: 1px solid var(--kb-line);
+    border-radius: var(--radius-full, 999px);
+}
+
+.tabs button {
+    min-height: 2.3rem;
+    padding: 0 1rem;
+    border: 0;
+    border-radius: var(--radius-full, 999px);
+    background: transparent;
+    color: var(--kb-mist);
+    font: inherit;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.tabs button[aria-selected='true'] {
+    background: var(--kb-accent-soft);
+    color: var(--kb-moon);
+}
+
+.count {
+    margin-left: 0.6rem;
+    color: var(--kb-dim);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 400;
+}
+
+.list {
+    display: grid;
+    gap: 0;
+    max-width: 78ch;
+    margin: 0;
+    padding-left: 1.6em;
+    border-top: 1px solid var(--kb-line);
+}
+
+.item {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--kb-line);
+    color: var(--kb-mist);
+}
+
+.item::marker {
+    color: var(--kb-gold);
+    font-family: var(--font-num);
+}
+
+.text {
+    display: block;
+    color: var(--kb-moon);
+    line-height: 1.7;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.9rem;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.links a {
+    color: var(--kb-gold);
+    text-decoration: none;
+}
+
+.links a:hover,
+.links a:focus-visible {
+    text-decoration: underline;
+}
+
+.source {
+    color: var(--kb-dim);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+}

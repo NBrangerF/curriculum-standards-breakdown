@@ -239,3 +239,17 @@ test('跨学科主题库: a subject and grade show its own themes and other subj
     await expect(page.getByRole('heading', { name: '争做小劳模' })).toBeVisible()
     await expect(page.getByRole('heading', { name: '小小特种兵' })).toHaveCount(0)
 })
+
+test('必做实验清单 lists the 课标 experiments with pages, matching 同步课 and AI 备课 links', async ({ page }) => {
+    await page.goto('/experiments?subject=chemistry')
+    await expect(page.getByRole('heading', { name: '课标规定的必做实验和探究实践' })).toBeVisible()
+    const salt = page.getByRole('listitem').filter({ hasText: '粗盐中难溶性杂质的去除' })
+    await expect(salt.getByText(/CH-S4-SI-06\.1 · 修订版第 18 页/)).toBeVisible()
+    await expect(salt.getByRole('link', { name: /同步课：化学9年级下册/ })).toHaveAttribute('href', /basic\.smartedu\.cn/)
+    await expect(salt.getByRole('link', { name: '用 AI 备课设计这节课' })).toHaveAttribute('href', /codes=CH-S4-SI-06\.1/)
+    await expect(page.getByText('跨学科实践活动（原则上从学习主题5中选择')).toHaveCount(0)
+    await page.getByRole('tab', { name: '科学' }).click()
+    await expect(page.getByRole('heading', { name: /科学 · 5–6 年级/ })).toBeVisible()
+    // corrected against the PDF: the scan read 「材质子」
+    await expect(page.getByText('观察热传导现象，如比较不同材质勺子的导热能力')).toBeVisible()
+})
