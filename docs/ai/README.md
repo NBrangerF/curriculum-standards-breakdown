@@ -4,8 +4,8 @@ kebiao 给 AI 提供三个入口，都免费、只读、无需登录：
 
 | 入口 | 地址 | 给谁用 |
 | --- | --- | --- |
-| MCP 服务器 | `https://www.kebiao.org/mcp` | Claude、Cursor、Cherry Studio、VS Code 等支持 MCP 的客户端 |
-| 插件 OpenAPI | `https://www.kebiao.org/api/v1/plugin/openapi.yaml` | 扣子（Coze）、腾讯元器等智能体平台 |
+| MCP 服务器 | `https://www.kebiao.org/mcp` | Claude、Cursor、Cherry Studio、VS Code 等客户端；扣子、元器、ModelScope 也能直接接 |
+| 插件 OpenAPI | `https://www.kebiao.org/api/v1/plugin/openapi.yaml` | 接不了 MCP 时的备用：扣子、元器的 API 插件，文心智能体等 |
 | llms.txt | `https://www.kebiao.org/llms.txt` | 会读网站说明的 AI 和爬虫 |
 
 两套接口背后是同一组工具（`apps/api/src/ai-tools.ts`），回答内容一致：
@@ -63,24 +63,35 @@ curl -s https://www.kebiao.org/mcp -H 'content-type: application/json' -H 'accep
 
 ## 二、扣子（Coze）插件
 
-需要你的扣子账号（coze.cn）。
+需要你的扣子账号（coze.cn）。插件和智能体在「扣子开发平台」（旧版）里管理；如果打开的是「扣子编程」新版首页，点右上角「回到旧版」。
 
-1. 工作空间 → 资源库 → 新建 → 插件 → 选「云侧插件 - 基于已有服务创建」里的**导入**（或在插件页右上角点「导入」）。
-2. 选「URL 和原始数据」，填 `https://www.kebiao.org/api/v1/plugin/openapi.yaml`，下一步。
-3. 插件名称「kebiao 课标」，图标用 `https://www.kebiao.org/apple-touch-icon.png`；授权方式选「不需要授权」。
-4. 导入后会出现 7 个工具。逐个点「调试」，例如 `search_standards` 填 `query=分数的大小比较`，看到 `answer` 有内容就点「完成」。
-5. 全部调试通过后点「发布」。想让别人也能搜到，再在插件详情里「上架到商店」。
+**创建插件（推荐 MCP，填一个地址就行）**
 
-**做一个「课标助手」智能体**：新建智能体 → 人设与回复逻辑粘贴下面的提示词 → 技能 → 插件里添加「kebiao 课标」的全部工具 → 开场白和预置问题用下面的示例 → 发布到扣子商店（以及你想要的渠道，如豆包、飞书、微信公众号）。
+1. 顶部选工作空间 → 左侧「资源库」→ 右上角「+资源」→「插件」。
+2. 类型选 **MCP**。插件名称「kebiao 课标」，一句话介绍和描述用第六节的文案，图标上传 `public/apple-touch-icon.png`；插件 URL 填 `https://www.kebiao.org/mcp`，授权方式选「不需要授权」。
+3. 确认后扣子会自动同步 8 个工具。试运行 `search_standards`，`query` 填「分数的大小比较」，返回里有编码和要点原文就算通过。
+4. 右上角「发布」。问到是否收集个人信息时选不收集：这些工具不需要用户的任何个人信息。
+
+**备用：导入 OpenAPI**（MCP 类型不可用时）：同一入口点右上角「导入」→「URL 和原始数据」→ 填 `https://www.kebiao.org/api/v1/plugin/openapi.yaml` → 授权方式「不需要授权」。导入的 7 个工具默认没启用：逐个打开「启用」，点「调试」通过后再「发布」。
+
+**上架插件商店**：资源库里找到插件点「上架插件」（或左侧「更多 → 社区 → 插件市场 → 上架插件」），填描述、使用说明和分类后提交。扣子插件商店和企业插件商店只能选一个，选扣子插件商店。插件以后有改动，先在插件页重新发布，再到插件市场的详情页点「提交更新」。
+
+**做一个「课标助手」智能体**：新建智能体 → 人设与回复逻辑粘贴第四节的提示词 → 技能 → 插件里添加「kebiao 课标」的全部工具 → 开场白和预置问题用第四节的示例 → 发布。渠道可选扣子商店、飞书、微信（客服、服务号、订阅号）、抖音和微信小程序、API。每次发布先过扣子审核，再过各渠道审核。
 
 ## 三、腾讯元器插件
 
-需要你的元器账号（yuanqi.tencent.com）。
+需要你的元器账号（yuanqi.tencent.com）。元器里能被别人找到的是智能体；插件给你自己的智能体用。
 
-1. 插件 → 创建插件 → 选「导入 API」或「通过 OpenAPI 创建」，粘贴 `https://www.kebiao.org/api/v1/plugin/openapi.yaml` 的内容（元器要求粘贴原文时，先在浏览器打开这个地址复制全文）。
-2. 服务地址 `https://www.kebiao.org`，鉴权选「无需鉴权」。
-3. 逐个工具测试后提交审核。
-4. 新建智能体，提示词用下面的「课标助手」，挂上这个插件，发布到元器和微信（公众号、小程序、QQ）。
+**接入插件**，两种方式按要做的智能体选：
+
+- **MCP 插件**（Multi-Agent 模式和工作流里能用）：插件广场 →「接入MCP插件」→ 填名称「kebiao 课标」和描述，URL 填 `https://www.kebiao.org/mcp` → 保存。
+- **API 插件**（单 Agent 模式也能用）：插件广场 →「创建插件」→ 填名称、描述、图标，授权方式选「无需授权」→ 添加工具时按 OpenAPI 导入（见元器帮助中心「OpenAPI、Swagger、Postman 协议的使用说明」），内容用 `https://www.kebiao.org/api/v1/plugin/openapi.yaml` 的全文 →「解析为工具」→「去校验」试运行。校验通过才能保存。
+
+**做智能体并发布**：新建智能体，提示词用第四节的「课标助手」，挂上插件，点发布。
+
+- 发布后默认先上「腾讯元器」渠道。这一步不可撤销，但可以用开放方式限制谁能看到。
+- 还可以发布到公众号/服务号、微信客服、企业微信、应用宝、小米应用商店、荣耀 YOYO，或发布成 API。
+- 元宝：发布通路里已经没有元宝选项。元器的智能体仍会出现在元宝的「我的 → 智能体」里，但暂时不进元宝应用广场（元器 2025-12 公告）。
 
 ---
 
@@ -115,12 +126,52 @@ curl -s https://www.kebiao.org/mcp -H 'content-type: application/json' -H 'accep
 
 ---
 
-## 五、上架文案（ModelScope MCP 广场、mcp.so 等）
+## 五、MCP 目录
 
-需要你的账号，由你提交。
+都需要你的账号，由你提交。文案用第六节。
+
+**ModelScope 魔搭 MCP 广场**（modelscope.cn/mcp）
+
+1. MCP 广场右上角「创建」→ 左上角切到「自定义创建」。「从 GitHub 快速创建」只认 README 里的本地（STDIO）配置，我们是远程地址，用不了。
+2. 英文名填 `kebiao`（服务 ID 会是「你的用户名/kebiao」），显示名「kebiao 课标」，公开，托管类型选「可托管部署」，上传图标。
+3. 服务配置选 StreamableHttp，粘贴下面这段（JSON 里不能有注释）：
+
+   ```json
+   {"mcpServers":{"kebiao":{"type":"streamable_http","url":"https://www.kebiao.org/mcp"}}}
+   ```
+
+4. 创建后魔搭会通过它的代理连一次、列出工具。通过后标上「可部署」「已托管」，Cherry Studio、Kimi Playground、通义灵码这些接了魔搭的客户端就能直接用。
+
+**官方 MCP Registry**（registry.modelcontextprotocol.io）
+
+`docs/ai/server.json` 已经写好，名称是 `io.github.NBrangerF/kebiao`。在仓库根目录运行：
+
+```bash
+brew install mcp-publisher
+```
+
+```bash
+mcp-publisher login github
+```
+
+```bash
+mcp-publisher publish docs/ai/server.json
+```
+
+- 登录时按提示在浏览器里用 NBrangerF 账号授权。
+- 不审核，发布即上线。Registry 目前是预览版，可能重置数据。
+- 很多 MCP 目录会定期从这里同步。
+- 以后改了服务，把 `version` 加一再发布。
+
+**Smithery**（smithery.ai）：打开 smithery.ai/new，填 `https://www.kebiao.org/mcp`，按提示完成。Smithery 会扫描工具列表生成页面，调用经它的网关转发。
+
+**mcp.so**：用网站上的提交入口，填名称、地址和介绍。
+
+## 六、上架文案
 
 - **名称**：kebiao 课标 / kebiao-curriculum-standards
 - **一句话介绍**：中国义务教育课程标准（2022年版2025年修订）的检索与查证：14 门学科，要点逐字取自课标原文并标明页码。
+- **英文一句话**（英文目录用，100 字符内）：Search and cite China's compulsory-education curriculum standards (2022, rev. 2025), 14 subjects.
 - **介绍**：kebiao 把义务教育 14 门学科的课程标准整理成「标准 → 要点」两层：每条标准对应一个学段的一个内容单元，要点逐字取自课标原文并标明页码，旧版编码可以跳到新标准。MCP 服务器提供 8 个只读工具：检索课标、查看标准、列出标准、学段目标、标准对应的教材、从教材章节找课标、2025 修订对照。适合备课、写教案、做单元设计时查依据。
 - **连接方式**：Streamable HTTP，`https://www.kebiao.org/mcp`，无需 API Key
 - **标签**：教育、课程标准、K12、中文、备课
@@ -132,6 +183,6 @@ curl -s https://www.kebiao.org/mcp -H 'content-type: application/json' -H 'accep
 ## 维护
 
 - 工具定义：`apps/api/src/ai-tools.ts`；MCP 协议：`apps/api/src/mcp.ts`；插件路由：`apps/api/src/app.ts`（`/api/v1/plugin/*`）。
-- 改了工具参数，要同步改 `docs/api/plugin-openapi.yaml`，并在扣子、元器里重新导入。
+- 改了工具参数，要同步改 `docs/api/plugin-openapi.yaml`，并在扣子、元器里重新导入或重新同步；`docs/ai/server.json` 的 `version` 加一后重新发布到 Registry。
 - `find_textbook_chapter` 读 `public/data/v2/textbook_chapters.json`，由 `scripts/build-public-v2.mjs` 生成；教材目录缓存在 `data/v2/textbook_contents.json`（`node scripts/v2/cache_textbook_contents.mjs`，需要教材盘）。
 - `public/llms.txt` 也由 `scripts/build-public-v2.mjs` 按当前条数生成。

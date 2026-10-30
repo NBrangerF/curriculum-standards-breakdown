@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.NBrangerF/kebiao",
+  "title": "kebiao 课标",
+  "description": "Search and cite China's compulsory-education curriculum standards (2022, rev. 2025), 14 subjects.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.kebiao.org",
+  "repository": {
+    "url": "https://github.com/NBrangerF/curriculum-standards-breakdown",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://www.kebiao.org/apple-touch-icon.png",
+      "mimeType": "image/png",
+      "sizes": ["180x180"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.kebiao.org/mcp"
+    }
+  ]
+}
