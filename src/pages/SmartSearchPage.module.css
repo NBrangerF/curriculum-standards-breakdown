@@ -192,3 +192,23 @@
     .go:hover:not(:disabled) { transform: none; }
     .progress li[data-state='active']::after { animation: none; }
 }
+
+/* 教材里在哪教 */
+.taughtIn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.8rem;
+    align-items: baseline;
+    margin: 0.5rem 0 0;
+    font-size: 0.82rem;
+}
+
+.taughtIn span {
+    color: var(--kb-dim);
+}
+
+.taughtIn a {
+    color: var(--kb-gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}

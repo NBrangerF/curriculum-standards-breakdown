@@ -55,6 +55,31 @@ function SearchProgress() {
     )
 }
 
+// 「教材里在哪教」 for a result: the textbook units tied to the standard (build_national_lessons.mjs), one file per subject
+const unitFiles = new Map()
+function loadUnits(prefix) {
+    if (!unitFiles.has(prefix)) unitFiles.set(prefix, fetch(`/data/v2/national-lessons/${prefix}.json`).then(response => (response.ok ? response.json() : null)).then(data => data?.units || {}).catch(() => ({})))
+    return unitFiles.get(prefix)
+}
+function TaughtIn({ code }) {
+    const [units, setUnits] = useState([])
+    useEffect(() => {
+        let active = true
+        const standardCode = String(code || '').replace(/\.\d+$/u, '')
+        if (!/^[A-Z]{2}-S\d/u.test(standardCode)) return undefined
+        loadUnits(standardCode.slice(0, 2)).then(all => { if (active) setUnits(all[standardCode] || []) })
+        return () => { active = false }
+    }, [code])
+    if (!units.length) return null
+    return (
+        <p className={styles.taughtIn}>
+            <span>教材里在哪教</span>
+            {units.slice(0, 2).map(([edition, textbook, unit, unitId]) => <Link key={`${edition}-${unit}`} to={unitId ? `/textbook-units/${unitId}` : `/textbooks/${edition}`}>{textbook} · {unit.replace(/\s+/gu, ' ')}</Link>)}
+            {units.length > 2 ? <Link to={`/standards/${String(code).replace(/\.\d+$/u, '')}#standard-textbook-units`}>等 {units.length} 个单元</Link> : null}
+        </p>
+    )
+}
+
 function ResultItem({ item, rank, saved, onSave, onPreview }) {
     const standard = item.standard || {}
     const open = () => onPreview(item, rank)
@@ -86,6 +111,7 @@ function ResultItem({ item, rank, saved, onSave, onPreview }) {
                     ))}
                 </dl>
             ) : null}
+            <TaughtIn code={item.code} />
             <div className={styles.resultActions}>
                 <button type="button" className={styles.textButton} aria-haspopup="dialog" onClick={open}>查看标准与来源</button>
                 <button type="button" className={styles.saveButton} onClick={() => onSave(item.code)} disabled={saved}>{saved ? '已加入清单' : '加入清单'}</button>

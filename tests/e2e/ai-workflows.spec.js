@@ -345,3 +345,12 @@ test('alignment workbench counts only teacher-accepted candidates', async ({ pag
     await expect(page.getByRole('heading', { name: '候选标准' })).toHaveCount(0)
     await expect(page.getByText('旧候选已失效')).toBeVisible()
 })
+
+test('smart search results say which textbook units teach the standard', async ({ page }) => {
+    const history = { ...candidate, code: 'HI-S4-MC-02', standard: { ...candidate.standard, code: 'HI-S4-MC-02', subject: '历史', subject_slug: 'history', grade: '7–9 年级', standard_title: '辛亥革命与中华民国的建立' }, matched_fields: [] }
+    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(searchResponse('辛亥革命', { results: [history] })) }))
+    await page.goto('/smart-search?q=辛亥革命')
+    const result = page.locator('[data-search-result]').first()
+    await expect(result.getByText('教材里在哪教')).toBeVisible()
+    await expect(result.getByRole('link', { name: /历史8年级上册 · 第三单元/ })).toHaveAttribute('href', /\/textbook-units\//)
+})
