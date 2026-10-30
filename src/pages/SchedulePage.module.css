@@ -1,0 +1,168 @@
+/* 学期教学进度表; the page frame comes from ConceptsPage.module.css */
+.pickers,
+.settings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.4rem;
+}
+
+.settings {
+    margin-top: 0;
+}
+
+.pickers label,
+.settings label {
+    display: grid;
+    gap: 0.3rem;
+    color: var(--kb-dim);
+    font-size: 0.8rem;
+}
+
+.pickers select,
+.settings input {
+    min-width: 8rem;
+    min-height: 2.6rem;
+    padding: 0 0.75rem;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md, 12px);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--kb-moon);
+    font: inherit;
+    font-size: 0.95rem;
+}
+
+.pickers select {
+    min-width: 14rem;
+    max-width: 100%;
+}
+
+.settings input[type='number'] {
+    width: 6rem;
+    min-width: 0;
+}
+
+.fit,
+.over {
+    margin: 1rem 0 0;
+    font-size: 0.92rem;
+}
+
+.fit {
+    color: var(--kb-mist);
+}
+
+.over {
+    color: var(--color-warning);
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    margin: 1.4rem 0 0.8rem;
+}
+
+.actions h2 {
+    flex: 1 1 100%;
+    margin: 0;
+    color: var(--kb-moon);
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    font-weight: 900;
+}
+
+.tableWrap {
+    overflow-x: auto;
+}
+
+.tableWrap:focus-visible {
+    outline: 2px solid var(--kb-gold);
+    outline-offset: 2px;
+}
+
+.tableWrap table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.tableWrap th,
+.tableWrap td {
+    padding: 0.55rem 0.65rem;
+    border-bottom: 1px solid var(--kb-line);
+    color: var(--kb-mist);
+    text-align: left;
+    vertical-align: top;
+}
+
+.tableWrap th {
+    color: var(--kb-dim);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.tableWrap td input {
+    width: 4.2rem;
+    min-height: 2.2rem;
+    padding: 0 0.5rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--kb-moon);
+    font: inherit;
+}
+
+.week {
+    color: var(--kb-moon) !important;
+    white-space: nowrap;
+}
+
+.week small {
+    display: block;
+    color: var(--kb-dim);
+    font-size: 0.74rem;
+}
+
+.unit {
+    min-width: 8rem;
+    color: var(--kb-moon) !important;
+    font-weight: 600;
+}
+
+.lessons {
+    min-width: 16rem;
+    line-height: 1.7;
+}
+
+.points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.points a {
+    color: var(--kb-gold);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    white-space: nowrap;
+}
+
+tr[data-over='true'] .week {
+    color: var(--color-warning) !important;
+}
+
+.review td {
+    color: var(--kb-dim);
+}
+
+.error {
+    color: var(--color-error);
+}
+
+.empty {
+    margin-top: 2rem;
+    color: var(--kb-dim);
+}

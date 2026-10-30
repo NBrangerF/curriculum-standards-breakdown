@@ -278,3 +278,18 @@ test('教资课标速记 lists each 课标\'s 课程理念 with pages and lets a
     await page.goto('/concepts/subjects/english')
     await expect(page.getByText('注重“教—学—评”一体化设计')).toBeVisible()
 })
+
+test('学期进度表 lays a textbook\'s units over the weeks, warns when hours run over, and keeps edits', async ({ page }) => {
+    await page.goto('/schedule?subject=%E5%8E%86%E5%8F%B2&edition=ed_2860489fc83ddeb6cec5')
+    await expect(page.getByRole('heading', { name: /历史8年级上册 教学进度表/ })).toBeVisible()
+    // 第二次鸦片战争 is its own lesson, not merged into 鸦片战争
+    const first = page.getByRole('row').filter({ hasText: '第一单元' })
+    await expect(first.getByText('鸦片战争、第二次鸦片战争、太平天国运动')).toBeVisible()
+    await expect(page.getByRole('status')).toContainText('还有')
+    await page.getByLabel('每周课时').fill('1')
+    await expect(page.getByRole('status')).toContainText('超出')
+    await first.getByRole('spinbutton').fill('6')
+    await page.reload()
+    await expect(page.getByRole('row').filter({ hasText: '第一单元' }).getByRole('spinbutton')).toHaveValue('6')
+    await expect(page.getByLabel('每周课时')).toHaveValue('1')
+})

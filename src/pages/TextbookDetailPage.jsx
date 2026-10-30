@@ -109,6 +109,7 @@ export default function TextbookDetailPage() {
                         <div className={styles.actions}>
                             <Link className="btn btn-primary" to={`/textbooks/${book.edition_id}/read`}><BookOpenTextIcon size={18} aria-hidden="true" /> 开始阅读</Link>
                             {book.toc[0]?.pdf_page && <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/read?page=${book.toc[0].pdf_page}`}>从第一章开始</Link>}
+                            <Link className="btn btn-secondary" to={`/schedule?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>排学期进度表</Link>
                         </div>
                     </div>
                     <dl className={styles.facts}>

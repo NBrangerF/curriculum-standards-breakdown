@@ -377,6 +377,7 @@ function staticPages() {
     add(STATIC_PAGE_META['/api'], `<h1>开放 API</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/api'].description)}</p><p>${link('/api/v1/docs', '查看 API 文档')}</p>`)
     add(STATIC_PAGE_META['/contact'], `<h1>联系我们</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/contact'].description)}</p>`)
     add(STATIC_PAGE_META['/lesson-plan'], `<h1>AI 备课：从教材的一课起草有课标依据的教案</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/lesson-plan'].description)}</p><p>AI 只按你勾选的课标要点写，每条目标标出依据编码；写完后逐条核验：有没有超出课标写明的限定，目标有没有对应的教学环节和评价任务。可复制、下载 Word、打印。</p><p>还可以贴入自己的教案逐条核验，或贴入单元测试卷、作业：AI 逐题读出考查的要点、素养、层次和难度，程序编成多维细目表，并查超出课标限定的题、没有考到的要点和分值比例。</p>`)
+    add(STATIC_PAGE_META['/schedule'], `<h1>学期教学进度表</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/schedule'].description)}</p>`)
     add(STATIC_PAGE_META['/smart-search'], `<h1>智能检索</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/smart-search'].description)}</p>`)
 }
 
