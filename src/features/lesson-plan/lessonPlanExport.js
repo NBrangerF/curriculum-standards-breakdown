@@ -425,3 +425,37 @@ export function downloadSkeletonWord(context, selected) {
     link.remove()
     setTimeout(() => URL.revokeObjectURL(url), 2000)
 }
+
+// ---------- 表现性任务量规: the unit task's criteria as rows, three levels each; the top level is the criterion as
+// drafted, the two below are for the teacher to write as visible behaviour (no AI) ----------
+export function rubricHtml(plan) {
+    const { unit, lesson } = plan
+    const task = unit.performance_task
+    const title = unit.title || lesson.title
+    const rows = task.criteria.map((criterion, index) => `<tr><td class="dim-col">${index + 1}. ${esc(criterion)}</td><td>${esc(criterion)}</td><td class="blank"></td><td class="blank"></td></tr>`).join('')
+    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(task.title)}评价量规</title><style>
+body{font-family:"SimSun","Songti SC",serif;font-size:11pt;line-height:1.6;margin:1.8cm}h1{font-size:16pt;text-align:center;margin:0 0 4pt}
+.meta{text-align:center;color:#444;margin:0 0 8pt}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:4pt 5pt;vertical-align:top;font-size:10pt}th{background:#eee}
+.dim-col{width:22%}.blank{height:44pt;width:26%}.hint{color:#666;font-size:9.5pt}.foot{color:#666;font-size:9pt;margin-top:12pt}
+</style></head><body>
+<h1>表现性任务「${esc(task.title)}」评价量规</h1>
+<p class="meta">《${esc(title)}》单元</p>
+<p><b>任务情境：</b>${esc(task.scenario)}</p>
+<p><b>学生交出：</b>${esc(task.product)}</p>
+<p class="hint">「达到」一栏是单元设计里写的评价标准。请把「基本达到」「尚未达到」写成看得见的表现（学生做了什么、缺了什么），不要只写「较好」「一般」。可以先发给学生，让他们对照着做、对照着自评。</p>
+<table><tr><th>评价维度</th><th>达到</th><th>基本达到</th><th>尚未达到</th></tr>${rows}</table>
+<p class="foot">量规由 AI 起草的单元设计生成（kebiao.org），请结合学生作品修改后使用。</p>
+</body></html>`
+}
+
+export function downloadRubricWord(plan) {
+    const blob = new Blob(['﻿', rubricHtml(plan)], { type: 'application/msword' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${plan.unit.performance_task.title.replace(/[\\/:*?"<>|]/gu, '')}-评价量规.doc`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    setTimeout(() => URL.revokeObjectURL(url), 2000)
+}

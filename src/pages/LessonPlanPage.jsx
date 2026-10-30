@@ -8,7 +8,7 @@ import { XCircleIcon } from '@phosphor-icons/react/dist/csr/XCircle'
 import { postApi } from '../data/api'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
-import { downloadObservationWord, downloadReflectionWord, downloadReportWord, downloadSkeletonWord, downloadScriptWord, downloadTestWord, downloadWord, downloadUnitWord, planToText, reportToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
+import { downloadObservationWord, downloadReflectionWord, downloadReportWord, downloadRubricWord, downloadSkeletonWord, downloadScriptWord, downloadTestWord, downloadWord, downloadUnitWord, planToText, reportToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
@@ -796,6 +796,7 @@ function UnitDocument({ plan, edition, subject, onCopy, copied }) {
                 <button type="button" className="btn btn-secondary" onClick={onCopy}>{copied ? '已复制' : '复制全文'}</button>
                 <button type="button" className="btn btn-secondary" onClick={() => { downloadUnitWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'unit' }) }}>下载 Word</button>
                 <button type="button" className="btn btn-ghost" onClick={() => { trackUmamiEvent('lesson_plan_export', { format: 'print', kind: 'unit' }); window.print() }}>打印</button>
+                {unit.performance_task?.criteria?.length ? <button type="button" className="btn btn-ghost" title="表现性任务的评价标准排成三级量规，可以先发给学生" onClick={() => { downloadRubricWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'rubric', kind: 'unit' }) }}>评价量规</button> : null}
             </div>
             <header className={styles.docHead}>
                 <h2 id="lp-unit-title">单元整体设计：{unit.title || lesson.title}</h2>

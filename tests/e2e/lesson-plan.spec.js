@@ -239,6 +239,13 @@ test('单元整体设计: a whole textbook unit is planned over its own lessons,
     expect(frameText).toContain('七、表现性任务（单元评价，先定证据）')
     await page.getByRole('button', { name: /起草单元设计/ }).click()
     await expect(page.getByText('同一个数可以有多种等值的分数表示')).toBeVisible()
+    const rubric = page.waitForEvent('download')
+    await page.getByRole('button', { name: '评价量规' }).click()
+    const rubricFile = await rubric
+    expect(rubricFile.suggestedFilename()).toBe('班级分饼会-评价量规.doc')
+    const rubricText = await (await import('node:fs/promises')).readFile(await rubricFile.path(), 'utf8')
+    expect(rubricText).toContain('表现性任务「班级分饼会」评价量规')
+    expect(rubricText).toContain('<td>用分数表示</td>')
     await expect(page.getByRole('heading', { name: /表现性任务：班级分饼会/ })).toBeVisible()
     await expect(page.getByRole('link', { name: '起草这一课的教案 →' }).nth(1)).toHaveAttribute('href', /lesson=L1/)
     expect(sent.step).toBe('unit')
