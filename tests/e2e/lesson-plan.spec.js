@@ -327,6 +327,9 @@ test('a standard page lists the textbook units that teach it', async ({ page }) 
     const section = page.locator('#standard-textbook-units')
     await expect(section.getByRole('heading', { name: '教材里在哪教' })).toBeVisible()
     await expect(section.getByRole('link', { name: /历史8年级上册 · 第三单元/ })).toHaveAttribute('href', /\/textbook-units\/tcu_/)
+    // a wrong unit can be reported with the standard and its units filled in
+    await section.getByRole('link', { name: '告诉我们' }).click()
+    await expect(page.getByLabel(/关联条目代码/)).toHaveValue('HI-S4-MC-02')
 })
 
 test('a standard page copies its 要点 as a prompt for the teacher\'s own AI', async ({ page }) => {

@@ -141,7 +141,7 @@ function NationalLessons({ code }) {
                         </li>
                     ))}
                 </ul>
-                <p className={styles.blockNote}>按国家平台的单元目录列出，都待核验。点开是 kebiao 教材馆里的这一单元，可以接着备课。</p>
+                <p className={styles.blockNote}>按国家平台的单元目录列出，都待核验。点开是 kebiao 教材馆里的这一单元，可以接着备课。哪一条对不上，<Link to={`/feedback?code=${code}&title=${encodeURIComponent('「教材里在哪教」有误')}&message=${encodeURIComponent(`标准 ${code} 的教材单元：\n${units.map(([, textbook, unit]) => `${textbook} · ${unit}`).join('\n')}\n\n哪一条不对，应该是：`)}`}>告诉我们</Link>。</p>
             </section>
         ) : null}
         <section className={styles.block} id="standard-national-lessons">

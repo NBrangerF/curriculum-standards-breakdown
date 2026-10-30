@@ -157,7 +157,7 @@ export default function TextbookDetailPage() {
                                             <Link className={styles.unitLink} to={`/textbook-units/${entry.entry_id}`}>关联页</Link>
                                         </div>
                                         {aiPoints.get(entry.entry_id)?.length ? (
-                                            <p className={styles.aiPoints}><span>AI 按单元判断的要点</span>{aiPoints.get(entry.entry_id).slice(0, 3).map(code => <Link key={code} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`}>{code}</Link>)}</p>
+                                            <p className={styles.aiPoints}><span>AI 按单元判断的要点</span>{aiPoints.get(entry.entry_id).slice(0, 3).map(code => <Link key={code} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`}>{code}</Link>)}<Link className={styles.report} to={`/feedback?code=${aiPoints.get(entry.entry_id)[0]}&title=${encodeURIComponent('教材单元的课标要点有误')}&message=${encodeURIComponent(`${book.title} · ${entry.title}\nAI 判断的要点：${aiPoints.get(entry.entry_id).slice(0, 3).join('、')}\n\n哪一条不对，应该是：`)}`}>报错</Link></p>
                                         ) : null}
                                     </li>
                                 ))}

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft'
 import { CheckCircleIcon } from '@phosphor-icons/react/dist/csr/CheckCircle'
 import { CircleNotchIcon } from '@phosphor-icons/react/dist/csr/CircleNotch'
@@ -46,12 +46,14 @@ function validateFeedback(formData) {
 function FeedbackPage() {
     const formRef = useRef(null)
     const successHeadingRef = useRef(null)
+    // 「报错」 links next to AI judgements (standard pages, textbook 目录) say what is being reported
+    const [params] = useSearchParams()
     const [formData, setFormData] = useState({
         type: 'error',
-        title: '',
-        message: '',
+        title: (params.get('title') || '').slice(0, 80),
+        message: (params.get('message') || '').slice(0, 600),
         pageLink: '',
-        relatedCode: '',
+        relatedCode: (params.get('code') || '').slice(0, 40),
         contactEmail: '',
         website: ''
     })
