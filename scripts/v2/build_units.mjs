@@ -261,7 +261,7 @@ function buildMath() {
         }
     })
     if (problems.length) console.log('problems:\n  ' + problems.join('\n  '))
-    return { standards, theme_requirements: themeRequirements, skipped_source_ids: skipped }
+    return { standards, theme_requirements: themeRequirements }
 }
 
 
