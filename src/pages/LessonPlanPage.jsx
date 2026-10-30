@@ -38,7 +38,7 @@ function writeStored(value) {
     try { window.localStorage.setItem(STORE_KEY, JSON.stringify(value)) } catch { /* private mode */ }
 }
 
-const viaLabel = { aligned: '教材页码对齐（机器）', search: '按课题检索', ai: 'AI 推荐' }
+const viaLabel = { aligned: '教材页码对齐（机器）', search: '按课题检索', ai: 'AI 推荐', seed: '你从标准页选的' }
 
 export default function LessonPlanPage() {
     usePageMeta(STATIC_PAGE_META['/lesson-plan'])
@@ -122,6 +122,7 @@ export default function LessonPlanPage() {
         : unitId ? `unit_id=${unitId}`
             : freeMode && topic.trim().length >= 2 && subject ? `subject=${encodeURIComponent(TOPIC_SUBJECTS.find(([name]) => name === subject)?.[1] || subjectSlugOf(books, subject))}&grade=${grade || ''}&topic=${encodeURIComponent(topic.trim())}`
                 : ''
+    const seedCodes = params.get('codes') || ''
     // a hint belongs to one lesson
     if (hintFor !== contextQuery) {
         setHintFor(contextQuery)
@@ -136,11 +137,12 @@ export default function LessonPlanPage() {
         setSelected(new Set())
         if (!contextQuery) return
         let active = true
-        getJson(`/api/v1/lesson-plans/context?${contextQuery}`)
+        // a standard page sends its own code along so it is among the candidates
+        getJson(`/api/v1/lesson-plans/context?${contextQuery}${seedCodes ? `&seed=${encodeURIComponent(seedCodes)}` : ''}`)
             .then(data => { if (active) { setBase(data); setContext(data) } })
             .catch(errorValue => active && setContextError(errorValue.message))
         return () => { active = false }
-    }, [contextQuery])
+    }, [contextQuery, seedCodes])
 
     // 2. the AI search reads the 要点 and ticks the closest ones; a teacher's hint reruns only this step
     useEffect(() => {
@@ -160,7 +162,7 @@ export default function LessonPlanPage() {
             const reasons = Object.fromEntries(results.filter(item => item.checked_by_ai).map(item => [item.code, item.relevance_reason]))
             const missing = direct.map(item => item.code).filter(code => !base.standards.some(standard => standard.code === code))
             if (missing.length) {
-                const more = await getJson(`/api/v1/lesson-plans/context?${contextQuery}&codes=${missing.join(',')}`)
+                const more = await getJson(`/api/v1/lesson-plans/context?${contextQuery}&codes=${missing.join(',')}${seedCodes ? `&seed=${encodeURIComponent(seedCodes)}` : ''}`)
                 if (run !== runRef.current) return
                 setContext(more)
             }

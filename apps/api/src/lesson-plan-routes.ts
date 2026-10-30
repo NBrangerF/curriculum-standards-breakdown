@@ -231,6 +231,13 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         // Machine alignments and shared words can mislead (「分数的基本性质」 shares 基本性质 with 「等式的基本性质」), so
         // nothing is ticked here; the page asks the AI search to read the 要点 and the teacher confirms.
         for (const standard of standards) standard.suggested = []
+        // the standard a teacher came from (标准页 「用这条起草教案」) goes first
+        const seed = (c.req.query('seed') || '').trim().replace(/\.\d+$/u, '')
+        if (seed) {
+            const at = standards.findIndex(existing => existing.code === seed)
+            const standard = at >= 0 ? standards.splice(at, 1)[0] : await planStandard(seed)
+            if (standard) standards.unshift({ ...standard, via: 'seed', suggested: [] })
+        }
         // standards the page's AI search found, added after the aligned ones
         for (const code of (c.req.query('codes') || '').split(',').map(item => item.trim().replace(/\.\d+$/u, '')).filter(Boolean).slice(0, 6)) {
             if (standards.some(existing => existing.code === code)) continue

@@ -264,7 +264,7 @@ export default function StandardV2Page() {
                         <code className={styles.code}>{standard.code}</code>
                         <Link to={`/subjects/${slug}`} className={styles.badge}>{subject.subject}</Link>
                         <span className={styles.badge}>{stage?.label || `${standard.stage} 年级`}</span>
-                        <span className={styles.badge}>{standard.theme ? `${standard.level1} · ${standard.theme}` : standard.level1}</span>
+                        <Link to={`/concepts/subjects/${slug}`} className={styles.badge} title={`看${subject.subject}课标的骨架`}>{standard.theme ? `${standard.level1} · ${standard.theme}` : standard.level1}</Link>
                     </div>
                     <h1 className={styles.title}>{standard.level2}</h1>
                     <p className={styles.statement}>{standard.statement}</p>
@@ -277,6 +277,7 @@ export default function StandardV2Page() {
                         <FavoriteButton code={standard.code} showLabel={true} size="large" />
                         <CopyLinkButton url={shareURL} />
                         <ShareStandardButton code={standard.code} title={standard.level2} />
+                        <Link className={styles.badge} to={`/lesson-plan?mode=topic&subject=${encodeURIComponent(slug === 'arts' ? '艺术（音乐、美术等）' : subject.subject)}&grade=${(standard.grades || [])[0] || ''}&topic=${encodeURIComponent(standard.level2)}&codes=${standard.code}`}>用这条起草教案</Link>
                     </div>
                 </header>
 
