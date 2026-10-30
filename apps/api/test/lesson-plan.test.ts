@@ -397,7 +397,7 @@ test('试讲稿: a drafted plan becomes a spoken 10-minute 试讲 with 答辩, c
         assert.match(String(body.messages[1].content), /环节「探究」/)
         const content = {
             stages: [
-                { name: '导入', minutes: 1, text: '同学们，看这三张纸……（模拟学生回答：涂色部分一样大。）' },
+                { name: '导入', minutes: 1, text: '同学们，看这三张纸……（问题：一样大吗？）（模拟 student：涂色部分一样大。）' },
                 { name: '探究', minutes: 6, text: '（板书：分数的基本性质）请大家折一折。' },
                 { name: '小结', minutes: 2, text: '今天我们学了……' },
                 { name: '', minutes: 1, text: '没有名字的环节不要' }
@@ -414,6 +414,7 @@ test('试讲稿: a drafted plan becomes a spoken 10-minute 试讲 with 答辩, c
     assert.equal(response.status, 200)
     const { data } = await json(response)
     assert.deepEqual(data.trial.stages.map((item: any) => item.name), ['导入', '探究', '小结'])
+    assert.equal(data.trial.stages[0].text, '同学们，看这三张纸……（模拟学生回答：涂色部分一样大。）')
     assert.equal(data.trial.minutes, 9)
     assert.equal(data.trial.board.length, 2)
     assert.ok(data.trial.defense[0].answer.includes(LIMITED))

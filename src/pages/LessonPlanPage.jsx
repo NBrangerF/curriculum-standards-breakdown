@@ -796,7 +796,7 @@ function TrialScriptView({ trial, title }) {
     const [copied, setCopied] = useState(false)
     const text = [`《${title}》试讲稿（约 ${trial.minutes} 分钟）`, ...trial.stages.flatMap(item => [`【${item.name}】约 ${item.minutes} 分钟`, item.text]), trial.board.length ? `板书\n${trial.board.join('\n')}` : '', '答辩', ...trial.defense.flatMap((item, index) => [`${index + 1}. ${item.question}`, item.answer])].filter(Boolean).join('\n\n')
     // （模拟学生回答：……） and （板书：……） stand out from what the teacher says
-    const cues = line => line.split(/(（(?:模拟学生回答|板书)[：:][^）]*）)/u).map((part, index) => (index % 2 ? <span key={index} className={styles.cue}>{part}</span> : part))
+    const cues = line => line.split(/(（(?:模拟[^：:）]{0,10}|板书)[：:][^）]*）)/u).map((part, index) => (index % 2 ? <span key={index} className={styles.cue}>{part}</span> : part))
     return (
         <article className={styles.doc} aria-labelledby="lp-trial-title">
             <div className={styles.docActions}>

@@ -582,7 +582,7 @@ export type TrialScript = { stages: Array<{ name: string, minutes: number, text:
 const TRIAL_INSTRUCTIONS = `你是指导师范生备考教师资格证面试的教研员。把一份写好的教案改写成 10 分钟的试讲稿，并准备答辩。试讲是在没有学生的考场里对评委模拟上课。
 规则：
 1. 只用教案和「依据」里已有的内容和活动，不新增教案里没有的活动、材料或结论，不编造教材内容。时间不够时压缩各环节，但保留评价和小结。
-2. stages：按教案的环节顺序写，每个环节写 name、minutes（各环节合计 8–10 分钟）和 text。text 是教师在课堂上说的原话：第一人称，口语化，面向「同学们」。需要学生回答的地方，先写出问题，再用「（模拟学生回答：……）」写一句典型的学生回答，接着写教师的反馈；需要写板书的地方用「（板书：……）」标出。不要写「教师活动」「设计意图」之类的说明。
+2. stages：按教案的环节顺序写，每个环节写 name、minutes（各环节合计 8–10 分钟）和 text。text 是教师在课堂上说的原话：第一人称，口语化，面向「同学们」。需要学生回答的地方，先写出问题，再用「（模拟学生回答：……）」写一句典型的学生回答，接着写教师的反馈；需要写板书的地方用「（板书：……）」标出。不要另加「（问题：……）」，也不要写「教师活动」「设计意图」之类的说明。
 3. board：试讲结束时黑板上的完整板书，3–8 行，和 text 里写的板书一致。
 4. defense：3 个评委可能追问的答辩题和参考回答。问题围绕本课的教学目标、重难点怎么突破、环节为什么这样设计、对应的课标要求；每个回答 80–150 字，引用课标时写出要点编码，只能用「依据」里的编码。
 必须只返回一个 JSON 对象：{"stages":[{"name":"导入","minutes":1,"text":"…"}],"board":["…"],"defense":[{"question":"…","answer":"…"}]}`
@@ -601,7 +601,9 @@ export async function draftTrial(input: DraftInput, frame: Frame, process: Proce
             const stages = (Array.isArray(raw.stages) ? raw.stages : []).slice(0, 8).map(item => {
                 const record = (item || {}) as Record<string, unknown>
                 const minutes = Math.round(Number(record.minutes))
-                return { name: str(record.name, 20), minutes: Number.isFinite(minutes) && minutes > 0 && minutes <= 10 ? minutes : 1, text: keepCodes(String(record.text || ''), codes).trim().slice(0, 1500) }
+                // 「（模拟 student：…）」 leaked once; 「（问题：…）」 repeats the question just asked
+                const text = keepCodes(String(record.text || ''), codes).replace(/（模拟\s*student\s*[：:]/giu, '（模拟学生回答：').replace(/（问题[：:][^）]*）/gu, '').trim().slice(0, 1500)
+                return { name: str(record.name, 20), minutes: Number.isFinite(minutes) && minutes > 0 && minutes <= 10 ? minutes : 1, text }
             }).filter(item => item.name && item.text)
             const defense = (Array.isArray(raw.defense) ? raw.defense : []).slice(0, 4).map(item => {
                 const record = (item || {}) as Record<string, unknown>

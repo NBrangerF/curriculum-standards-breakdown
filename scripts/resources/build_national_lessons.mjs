@@ -34,8 +34,9 @@ export function buildNationalLessons() {
         if (!rowsByEdition.has(row[0])) rowsByEdition.set(row[0], [])
         rowsByEdition.get(row[0]).push(row)
     }
-    // AI 按单元判断 (pick_unit_standards.mjs): when the AI read a unit against the standards, its 直接对应 picks
-    // replace the page alignment for that unit's lessons
+    // AI 按单元判断 (pick_unit_standards.mjs): when the AI read a unit against the standards, its first four 直接对应
+    // picks (ranked when there were more) replace the page alignment for that unit's lessons. 语文 units come back
+    // with ten or more 直接对应; four keeps a standard's list to the units that teach it most.
     const picksFile = path.join(SOURCE, 'unit_picks.json')
     const unitPicks = existsSync(picksFile) ? JSON.parse(readFileSync(picksFile, 'utf8')).editions : {}
     const byStandard = new Map()
@@ -93,7 +94,7 @@ export function buildNationalLessons() {
         }
         writeFileSync(path.join(OUT, `${record.edition_id}.json`), `${JSON.stringify(out)}\n`)
         const rows = (rowsByEdition.get(record.edition_id) || []).filter(row => Number.isInteger(row[3])).sort((a, b) => a[3] - b[3])
-        const aiOf = new Map(sorted.map(lesson => [lesson.id, (unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([, grade, point]) => grade === 2 && point).map(([, , point]) => point)]))
+        const aiOf = new Map(sorted.map(lesson => [lesson.id, (unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([, grade, point]) => grade === 2 && point).slice(0, 4).map(([, , point]) => point)]))
         for (const lesson of lessons) {
             const ai = aiOf.get(lesson.id) || []
             if (ai.length) {
