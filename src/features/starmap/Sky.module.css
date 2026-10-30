@@ -60,3 +60,10 @@
     opacity: 0;
     transition: opacity 0.5s var(--kb-ease);
 }
+
+/* the night sky stays on screen; paper gets plain white */
+@media print {
+    .sky {
+        display: none;
+    }
+}

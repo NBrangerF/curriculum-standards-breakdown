@@ -251,6 +251,42 @@
     }
 }
 
+/* Printing (教资课标速记, 必做实验清单, 进度表, 复习地图…): dark ink on white paper, without the site header and footer */
+@media print {
+    :root {
+        color-scheme: light;
+        --kb-canvas: #fff;
+        --kb-surface: #fff;
+        --kb-surface-muted: #fff;
+        --kb-night: #fff;
+        --kb-night-glass: #fff;
+        --kb-ink: #111;
+        --kb-ink-muted: #333;
+        --kb-moon: #111;
+        --kb-mist: #333;
+        --kb-dim: #555;
+        --kb-gold: #6b4a10;
+        --kb-accent: #6b4a10;
+        --kb-accent-soft: transparent;
+        --kb-line: #bbb;
+        --kb-line-strong: #888;
+        --text-primary: #111;
+        --text-secondary: #333;
+        --text-tertiary: #555;
+    }
+
+    body {
+        background: #fff !important;
+        color: #111;
+    }
+
+    [data-kb-shell='header'],
+    [data-kb-shell='footer'],
+    .skip-link {
+        display: none !important;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     :root {
         --duration-fast: 0ms;
