@@ -1,0 +1,304 @@
+// Routes for the AI 教案 page:
+//   GET  /api/v1/lesson-plans/context  — no model call: the lesson, the 课标 standards and 要点 it maps to (aligned by
+//        textbook page, or found by its title), the subject's skeleton note and 国家平台 同步课 for the same lesson.
+//   POST /api/v1/lesson-plans/draft    — one model call per step ('frame', then 'process'), checked against the 要点.
+import { readFile } from 'fs/promises'
+import type { Context, Hono } from 'hono'
+import { z } from 'zod'
+import type { FileCurriculumRepository } from '@curriculum/core'
+import { redactSensitiveText } from './ai-privacy.js'
+import type { ApiBindings } from './http.js'
+import { checkPlan, draftFrame, draftProcess, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
+import type { V2Store } from './v2-store.js'
+
+type Deps = {
+    repository: FileCurriculumRepository
+    textbookRepository: { getUnit(id: string): Promise<Record<string, unknown> | null>, get(id: string): Promise<unknown> }
+    v2: V2Store
+    dataRoot: string
+    parseJson: (c: Context<ApiBindings>) => Promise<unknown>
+    ok: (c: Context<ApiBindings>, version: never, data: unknown, extra?: Record<string, unknown>) => Response
+    apiError: (c: Context<ApiBindings>, status: number, code: string, message: string, details?: unknown) => Response
+}
+
+type NationalLesson = { id: string, title: string, chapters: string[], pdf_page: number | null, unit_id: string | null, materials: string[], hours: number }
+type NationalFile = { edition_id: string, platform_title: string, confidence: string, lessons: NationalLesson[] }
+type ConceptsFile = { subjects: Array<SubjectNote & { slug: string, name: string, terms: string[] }>, terms: Array<{ id: string, term: string }> }
+
+const LESSON_URL = (id: string) => `https://basic.smartedu.cn/syncClassroom/classActivity?activityId=${id}`
+const BAND_OF_GRADE = (grade: number) => (grade <= 2 ? 'H1' : grade <= 4 ? 'H2' : grade <= 6 ? 'H3' : 'H4')
+const v2Slug = (slug: string) => (['art', 'music'].includes(slug) ? 'arts' : slug)
+const cleanTitle = (title: string) => title.replace(/^(?:第[一二三四五六七八九十百零\d]+(?:单元|章|节|课)|课题\s*\d+|\d+(?:\.\d+)*\*?)\s*/u, '').trim()
+
+export const DraftRequestSchema = z.object({
+    step: z.enum(['frame', 'process']),
+    lesson: z.object({
+        title: z.string().trim().min(1).max(60),
+        unit_title: z.string().trim().max(60).optional(),
+        textbook_title: z.string().trim().max(40).optional(),
+        edition_name: z.string().trim().max(40).optional(),
+        subject_slug: z.string().trim().max(20),
+        grade: z.number().int().min(1).max(9).nullable().optional(),
+        pages: z.string().trim().max(30).optional()
+    }),
+    indicator_codes: z.array(z.string().trim().max(24)).min(1).max(10),
+    period_minutes: z.number().int().min(20).max(90).default(40),
+    lesson_index: z.number().int().min(1).max(30).default(1),
+    lesson_count: z.number().int().min(1).max(30).default(1),
+    class_notes: z.string().max(800).default(''),
+    teacher_notes: z.string().max(1000).default(''),
+    frame: z.unknown().optional()
+})
+
+export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
+    const { repository, textbookRepository, v2 } = deps
+    const files = new Map<string, Promise<unknown>>()
+    const readData = <T>(file: string): Promise<T | null> => {
+        if (!files.has(file)) files.set(file, readFile(`${deps.dataRoot}/${file}`, 'utf8').then(text => JSON.parse(text)).catch(() => null))
+        return files.get(file) as Promise<T | null>
+    }
+    const nationalFile = (edition: string) => (/^ed_[0-9a-f]+$/u.test(edition) ? readData<NationalFile>(`textbooks/national-lessons/${edition}.json`) : Promise.resolve(null))
+
+    async function subjectNote(slug: string) {
+        const concepts = await readData<ConceptsFile>('concepts.json')
+        const subject = concepts?.subjects.find(item => item.slug === slug)
+        if (!subject) return null
+        return {
+            name: subject.name,
+            organized_by: subject.organized_by,
+            unit_hint: subject.unit_hint,
+            core_literacy: subject.core_literacy,
+            terms: subject.terms.map(id => ({ id, term: concepts?.terms.find(term => term.id === id)?.term || id }))
+        }
+    }
+
+    // A standard as the page and the prompt need it: 标准句, every 要点 with pages, 学业要求, 教学提示, 表现示例.
+    async function planStandard(code: string): Promise<PlanStandard | null> {
+        const found = await v2.find(code)
+        if (!found) return null
+        const { standard, subject } = found
+        const stage = subject.stages.find(item => item.stage === standard.stage)
+        const texts = (list: unknown) => (Array.isArray(list) ? list : []).map(item => (typeof item === 'string' ? item : String((item as { text?: string })?.text || ''))).filter(Boolean)
+        return {
+            code: standard.code,
+            title: String(standard.title || ''),
+            subject: subject.subject,
+            subject_slug: subject.subject_slug,
+            stage_label: stage?.label || standard.stage,
+            level1: standard.level1,
+            level2: standard.level2,
+            statement: standard.statement || '',
+            statement_source: String(standard.statement_source || ''),
+            indicators: (standard.indicators || []).map(item => ({ code: item.code, text: item.text, pages: item.pages || [] })),
+            requirements: texts(standard.requirements),
+            guidance: texts(standard.guidance),
+            examples: [...texts(standard.examples), ...(standard.indicators || []).flatMap(item => texts(item.examples))].slice(0, 6)
+        }
+    }
+
+    // Codes a textbook unit or page is aligned to: v2 links for the five new subjects, the chapter index (page alignments
+    // carried over from the old records), and old unit alignments moved to their v2 standard.
+    async function alignedCodes(unitId: string | null, edition: string | null, pdfPage: number | null) {
+        const codes: Array<{ code: string, indicator: string | null }> = []
+        const push = (value: string) => {
+            const code = value.replace(/\.\d+$/u, '')
+            const indicator = /\.\d+$/u.test(value) ? value : null
+            const existing = codes.find(item => item.code === code)
+            if (!existing) codes.push({ code, indicator })
+            else if (!existing.indicator && indicator) existing.indicator = indicator
+        }
+        if (unitId) {
+            for (const item of (await v2.textbookLinks()).units[unitId] || []) push(item.indicator || item.code)
+            const chapters = await v2.textbookChapters()
+            for (const row of chapters.chapters) if (row[4] === unitId) row[5].forEach(push)
+            const unit = await textbookRepository.getUnit(unitId)
+            for (const alignment of (Array.isArray(unit?.alignments) ? unit.alignments : []) as Array<Record<string, unknown>>) {
+                const old = String(alignment.standard_code || alignment.code || '')
+                const moved = old ? await v2.movedTo(old) : null
+                if (moved?.startsWith('/standards/')) push(moved.slice('/standards/'.length).split('#').pop() || '')
+            }
+        }
+        if (!codes.length && edition && pdfPage) {
+            const rows = (await v2.textbookChapters()).chapters.filter(row => row[0] === edition && Number.isInteger(row[3]) && row[3] <= pdfPage && row[5].length)
+            rows.sort((a, b) => (b[3] as number) - (a[3] as number))
+            rows[0]?.[5].forEach(push)
+        }
+        return codes.filter(item => item.code)
+    }
+
+    app.get('/api/v1/lesson-plans/context', async c => {
+        const version = await repository.loadDataVersion()
+        const unitId = c.req.query('unit_id') || null
+        let edition = c.req.query('edition_id') || null
+        const lessonId = c.req.query('lesson_id') || null
+        let subjectSlug = c.req.query('subject') || ''
+        let grade = Number(c.req.query('grade')) || null
+        let title = (c.req.query('topic') || '').trim().slice(0, 60)
+        let unitTitle = ''
+        let pdfPage: number | null = null
+        let printedPage = ''
+        let textbookTitle = ''
+        let editionName = ''
+        let linkedUnit = unitId
+
+        if (unitId) {
+            const unit = await textbookRepository.getUnit(unitId)
+            if (!unit) return deps.apiError(c, 404, 'not_found', '未找到教材单元。')
+            edition = String(unit.edition_id)
+            // stored titles can be bare numbers (「第一课」); the 目录 re-read for v2 has the full one
+            const indexed = (await v2.textbookChapters()).chapters.find(row => row[4] === unitId)?.[1] || ''
+            const stored = String(unit.title || '')
+            title = cleanTitle(indexed.length > stored.length ? indexed : stored) || stored
+            subjectSlug = v2Slug(String(unit.subject_slug || ''))
+            grade = Number(unit.grade) || null
+            pdfPage = Number(unit.pdf_page) || null
+            printedPage = String(unit.printed_page || '')
+            textbookTitle = String(unit.textbook_title || '')
+        }
+        let national: NationalFile | null = edition ? await nationalFile(edition) : null
+        let chosen: NationalLesson | null = null
+        if (lessonId && national) {
+            chosen = national.lessons.find(item => item.id === lessonId) || null
+            if (!chosen) return deps.apiError(c, 404, 'not_found', '未找到这一课。')
+            title = chosen.title
+            unitTitle = chosen.chapters[0] || ''
+            pdfPage = chosen.pdf_page
+            linkedUnit = linkedUnit || chosen.unit_id
+        }
+        if (edition) {
+            const book = await textbookRepository.get(edition) as Record<string, unknown> | null
+            if (book) {
+                textbookTitle = textbookTitle || String(book.title || '')
+                editionName = String(book.edition_name || '')
+                subjectSlug = subjectSlug || v2Slug(String(book.subject_slug || ''))
+                grade = grade || Number(book.grade) || null
+            }
+        }
+        if (!title) return deps.apiError(c, 422, 'validation_error', '请选择教材里的一课，或写下课题。')
+
+        const aligned = await alignedCodes(linkedUnit, edition, pdfPage)
+        const standards: Array<PlanStandard & { via: string, suggested: string[] }> = []
+        for (const item of aligned.slice(0, 6)) {
+            const standard = await planStandard(item.code)
+            if (!standard || standards.some(existing => existing.code === standard.code)) continue
+            if (subjectSlug && standard.subject_slug !== subjectSlug) continue
+            standards.push({ ...standard, via: 'aligned', suggested: item.indicator ? [item.indicator] : [] })
+        }
+        if (!standards.length && subjectSlug) {
+            const query = [title, unitTitle].filter(Boolean).join(' ')
+            const response = await repository.smartSearchStandards({ query, subjects: [subjectSlug], ...(grade ? { grade_bands: [BAND_OF_GRADE(grade)] } : {}), limit: 5 })
+            for (const result of response.results.slice(0, 4)) {
+                const standard = await planStandard(result.code.replace(/\.\d+$/u, ''))
+                if (standard && !standards.some(existing => existing.code === standard.code)) standards.push({ ...standard, via: 'search', suggested: [] })
+            }
+        }
+        // Machine alignments and shared words can mislead (「分数的基本性质」 shares 基本性质 with 「等式的基本性质」), so
+        // nothing is ticked here; the page asks the AI search to read the 要点 and the teacher confirms.
+        for (const standard of standards) standard.suggested = []
+        // standards the page's AI search found, added after the aligned ones
+        for (const code of (c.req.query('codes') || '').split(',').map(item => item.trim().replace(/\.\d+$/u, '')).filter(Boolean).slice(0, 6)) {
+            if (standards.some(existing => existing.code === code)) continue
+            const standard = await planStandard(code)
+            if (standard) standards.push({ ...standard, via: 'ai', suggested: [] })
+        }
+
+        // the same lesson (and its neighbours in the chapter) on 国家中小学智慧教育平台
+        let nationalLessons: Array<NationalLesson & { url: string }> = []
+        if (national) {
+            const key = cleanTitle(title).replace(/\s+/gu, '')
+            const same = chosen || national.lessons.find(item => cleanTitle(item.title).replace(/\s+/gu, '') === key) || null
+            const chapter = same?.chapters[0] || null
+            // the lesson itself first, then lessons on the same section, then the rest of its unit
+            const section = same?.chapters.at(-1) || null
+            const rank = (item: NationalLesson) => (item === same ? 0 : section && item.chapters.at(-1) === section ? 1 : 2)
+            const picks = national.lessons.filter(item => item === same || (chapter && item.chapters[0] === chapter) || (linkedUnit && item.unit_id === linkedUnit))
+            nationalLessons = picks.map((item, index) => ({ item, index })).sort((a, b) => rank(a.item) - rank(b.item) || a.index - b.index).slice(0, 8).map(({ item }) => ({ ...item, url: LESSON_URL(item.id) }))
+        }
+        if (!national) national = null
+
+        return deps.ok(c, version as never, {
+            lesson: {
+                title,
+                unit_title: unitTitle,
+                textbook_title: textbookTitle,
+                edition_id: edition,
+                edition_name: editionName,
+                unit_id: linkedUnit,
+                lesson_id: chosen?.id || null,
+                subject_slug: subjectSlug,
+                grade,
+                pdf_page: pdfPage,
+                printed_page: printedPage
+            },
+            standards,
+            subject_note: subjectSlug ? await subjectNote(subjectSlug) : null,
+            national_lessons: nationalLessons,
+            national_confidence: national?.confidence || null
+        })
+    })
+
+    // The 国家平台 lesson list for one textbook, for the 「选一课」 picker.
+    app.get('/api/v1/lesson-plans/textbooks/:edition_id/lessons', async c => {
+        const version = await repository.loadDataVersion()
+        const national = await nationalFile(c.req.param('edition_id'))
+        if (!national) return deps.ok(c, version as never, { lessons: [], platform_title: null, confidence: null })
+        return deps.ok(c, version as never, {
+            platform_title: national.platform_title,
+            confidence: national.confidence,
+            lessons: national.lessons.map(item => ({ id: item.id, title: item.title, chapters: item.chapters, pdf_page: item.pdf_page, materials: item.materials, url: LESSON_URL(item.id) }))
+        })
+    })
+
+    app.post('/api/v1/lesson-plans/draft', async c => {
+        const version = await repository.loadDataVersion()
+        const parsed = DraftRequestSchema.safeParse(await deps.parseJson(c))
+        if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请求参数校验失败。', parsed.error.issues)
+        const body = parsed.data
+        // 要点 text always comes from kebiao's data, never from the request
+        const standards: PlanStandard[] = []
+        const indicators: PlanIndicator[] = []
+        for (const code of [...new Set(body.indicator_codes)]) {
+            const standardCode = code.replace(/\.\d+$/u, '')
+            let standard = standards.find(item => item.code === standardCode) || null
+            if (!standard) {
+                standard = await planStandard(standardCode)
+                if (!standard) return deps.apiError(c, 422, 'validation_error', `找不到要点 ${code}。`)
+                standards.push(standard)
+            }
+            const picked = /\.\d+$/u.test(code) ? standard.indicators.filter(item => item.code === code) : standard.indicators
+            if (!picked.length) return deps.apiError(c, 422, 'validation_error', `找不到要点 ${code}。`)
+            for (const item of picked) indicators.push({ code: item.code, text: item.text, pages: item.pages, standard_code: standard.code, standard_title: standard.title, stage_label: standard.stage_label })
+        }
+        const classNotes = redactSensitiveText(body.class_notes)
+        const teacherNotes = redactSensitiveText(body.teacher_notes)
+        const note = await subjectNote(body.lesson.subject_slug)
+        const lesson: PlanLesson = { ...body.lesson, subject: note?.name || standards[0]?.subject || '', grade: body.lesson.grade ?? null }
+        const input: DraftInput = {
+            lesson,
+            standards,
+            indicators: indicators.slice(0, 12),
+            subjectNote: note,
+            periodMinutes: body.period_minutes,
+            lessonIndex: Math.min(body.lesson_index, body.lesson_count),
+            lessonCount: body.lesson_count,
+            classNotes: classNotes.text.trim(),
+            teacherNotes: teacherNotes.text.trim()
+        }
+        const privacy = { redacted: classNotes.redacted || teacherNotes.redacted, redaction_count: classNotes.redaction_count + teacherNotes.redaction_count }
+        const evidence = input.indicators.map(item => ({ code: item.code, text: item.text, pages: item.pages, standard_code: item.standard_code, standard_title: item.standard_title, stage_label: item.stage_label }))
+
+        if (body.step === 'frame') {
+            const run = await draftFrame(input)
+            c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
+            if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `draft_${run.status}`, run.status === 'disabled' ? 'AI 起草暂不可用。' : run.status === 'timeout' ? 'AI 这次写得太久，没有完成。请再试一次。' : 'AI 这次没有写出可用的草稿。请再试一次。')
+            return deps.ok(c, version as never, { step: 'frame', frame: run.output, checks: checkPlan(run.output, null, input), evidence, privacy, model: run.model, latency_ms: run.latency_ms })
+        }
+
+        const frame = sanitiseFrame(body.frame, new Set(input.indicators.map(item => item.code)))
+        if (!frame) return deps.apiError(c, 422, 'validation_error', '缺少第一步生成的目标与评价。')
+        const run = await draftProcess(input, frame)
+        c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
+        if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `draft_${run.status}`, run.status === 'disabled' ? 'AI 起草暂不可用。' : run.status === 'timeout' ? 'AI 这次写得太久，没有完成。请再试一次。' : 'AI 这次没有写出可用的教学过程。请再试一次。')
+        return deps.ok(c, version as never, { step: 'process', frame, process: run.output, checks: checkPlan(frame, run.output, input), evidence, privacy, model: run.model, latency_ms: run.latency_ms })
+    })
+}

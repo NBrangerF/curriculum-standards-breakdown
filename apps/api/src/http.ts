@@ -14,7 +14,7 @@ export type ApiBindings = {
 }
 
 export interface AiMetrics {
-    feature: 'query_interpretation' | 'plan_parsing'
+    feature: 'query_interpretation' | 'plan_parsing' | 'lesson_plan'
     used: boolean
     status: string
     model: string | null
@@ -61,7 +61,8 @@ const TOOL_TIER_LIMITS: Record<AccessTier, number> = {
 
 const AI_ROUTES = new Set([
     '/api/v1/standards/semantic-search',
-    '/api/v1/plans/parse'
+    '/api/v1/plans/parse',
+    '/api/v1/lesson-plans/draft'
 ])
 
 const TIER_ORDER: Record<AccessTier, number> = {

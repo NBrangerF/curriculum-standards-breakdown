@@ -54,6 +54,7 @@ import { ToolInputError, findTool, type ToolContext } from './ai-tools.js'
 import { handleMcp } from './mcp.js'
 import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate, type JudgeResult } from './search-judge.js'
 import { resolvePluginOpenApiPath } from './config.js'
+import { registerLessonPlanRoutes } from './lesson-plan-routes.js'
 
 const DEVELOPMENT_API_ROUTES = [
     '/api/v1/standards/:code/evidence',
@@ -175,6 +176,8 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     async function parseJson(c: Context<ApiBindings>) {
         return c.req.json().catch(() => null)
     }
+
+    registerLessonPlanRoutes(app, { repository, textbookRepository, v2, dataRoot: resolveDataRoot(), parseJson, ok: ok as never, apiError: apiError as never })
 
     async function resolveStandardOrError(c: Context<ApiBindings>, code: string) {
         const resolved = await repository.resolveStandard(code)

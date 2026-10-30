@@ -350,7 +350,7 @@ export async function runStructuredLlm<T>(
     const fetchImpl = options.fetchImpl || fetch
     const controller = new AbortController()
     const timeoutMs = typeof options.timeoutMs === 'number' && Number.isInteger(options.timeoutMs)
-        ? Math.max(500, Math.min(20000, options.timeoutMs))
+        ? Math.max(500, Math.min(50000, options.timeoutMs))
         : config.timeoutMs
     const timeout = setTimeout(() => controller.abort(), timeoutMs)
     const protocols: LlmProtocol[] = config.style === 'auto'

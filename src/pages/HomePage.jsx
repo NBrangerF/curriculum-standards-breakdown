@@ -203,6 +203,12 @@ function HomePage() {
                             <button className={styles.go} type="submit" data-kb-telemetry-task="search_start">AI 检索</button>
                         </form>
                         <p className={styles.match} aria-live="polite">{results == null ? '' : `${results.length ? `${results.length} 颗亮起` : '星图里没有字面匹配'} · 回车用 AI 检索`}</p>
+                        <p className={styles.entryLabel} id="tasks-section">备课从教材开始</p>
+                        <ul className={styles.tasks} aria-labelledby="tasks-section">
+                            <li><Link to="/lesson-plan"><b>AI 备课</b><span>选教材里的一课，起草有课标依据的教案</span></Link></li>
+                            <li><Link to="/textbooks"><b>教材馆</b><span>按教材目录找对应的课标和同步课</span></Link></li>
+                            <li><Link to="/concepts"><b>概念词典</b><span>大概念、大单元、任务群，课标原文怎么说</span></Link></li>
+                        </ul>
                         <p className={styles.entryLabel} id="subjects-section">从学科进入</p>
                         <ul className={styles.srail} aria-labelledby="subjects-section">
                             {(K ? K.subjects : []).map((s, k) => (

@@ -559,3 +559,41 @@
     .track,
     .cue i { animation: none; }
 }
+
+/* 备课 entry points under the search: a teacher starts from a textbook lesson */
+.tasks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 8px;
+    margin: 8px 0 18px;
+    padding: 0;
+    list-style: none;
+}
+
+.tasks a {
+    display: grid;
+    gap: 2px;
+    height: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--kb-line);
+    border-radius: 14px;
+    background: rgba(9, 11, 16, 0.6);
+    color: var(--kb-mist);
+    text-decoration: none;
+    transition: border-color 0.2s var(--kb-ease);
+}
+
+.tasks a:hover,
+.tasks a:focus-visible {
+    border-color: var(--kb-gold);
+}
+
+.tasks b {
+    color: var(--kb-moon);
+    font-size: 15px;
+}
+
+.tasks span {
+    font-size: 12.5px;
+    line-height: 1.55;
+}

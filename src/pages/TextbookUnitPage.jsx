@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft'
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/csr/ArrowRight'
+import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/csr/ArrowUpRight'
 import { PageLoading, ErrorState, EmptyState } from '../components/StateComponents'
 import { textbookUnitMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
@@ -64,10 +65,58 @@ function TextbookUnitResources({ resources }) {
     )
 }
 
+const MATERIAL_ORDER = ['视频课程', '课件', '教学设计', '学习任务单', '课后练习']
+
+// What a teacher needs first on a textbook page: the new 课标 要点 for this lesson, the free 同步课 on
+// 国家中小学智慧教育平台, and a way to start a lesson plan from here.
+function PrepPanel({ unit, book, prep }) {
+    const standards = prep?.standards || []
+    const national = prep?.national_lessons || []
+    const planUrl = `/lesson-plan?subject=${encodeURIComponent(book.subject || unit.subject || '')}&edition=${unit.edition_id}&unit=${encodeURIComponent(unit.entry_id)}`
+    return (
+        <section className={styles.prep} aria-labelledby="unit-prep-heading">
+            <div className={styles.prepHead}>
+                <h2 id="unit-prep-heading">备这一课</h2>
+                <Link className="btn btn-primary" to={planUrl}>用 AI 起草这一课的教案 <ArrowRightIcon size={16} aria-hidden="true" /></Link>
+            </div>
+            <div className={styles.prepGrid}>
+                <div>
+                    <h3>新版课标里对应的要点</h3>
+                    {standards.length ? (
+                        <ul className={styles.prepStandards}>
+                            {standards.slice(0, 4).map(item => (
+                                <li key={item.code}>
+                                    <Link to={`/standards/${item.code}`}><code>{item.code}</code>{item.title}</Link>
+                                    <span>{item.via === 'search' ? '按课题检索，仅供参考' : '按教材页码机器对齐，待核验'} · {item.indicators.length} 条要点</span>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : <p className={styles.prepEmpty}>{prep ? '还没有对齐到新版课标。可以用 AI 起草教案时让 AI 帮你找。' : '正在查找…'}</p>}
+                </div>
+                <div>
+                    <h3>国家平台上的同步课</h3>
+                    {national.length ? (
+                        <ul className={styles.prepNational}>
+                            {national.slice(0, 5).map(item => (
+                                <li key={item.id}>
+                                    <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title} <ArrowUpRightIcon size={13} aria-hidden="true" /></a>
+                                    {item.materials.length ? <span>{MATERIAL_ORDER.filter(name => item.materials.includes(name)).join(' · ')}</span> : null}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : <p className={styles.prepEmpty}>{prep ? '国家中小学智慧教育平台上没有找到这一课的同步课。' : '正在查找…'}</p>}
+                    {national.length ? <p className={styles.prepEmpty}>免费，观看需登录平台账号。{prep?.national_confidence === 'edition' ? '平台这一册的版本可能和这本不同。' : ''}</p> : null}
+                </div>
+            </div>
+        </section>
+    )
+}
+
 export default function TextbookUnitPage() {
     const { unitId } = useParams()
     const [unit, setUnit] = useState(null)
     const [book, setBook] = useState(null)
+    const [prep, setPrep] = useState(null)
     usePageMeta(unit && book ? textbookUnitMeta(unit, book) : null)
     const [error, setError] = useState('')
     useEffect(() => {
@@ -85,6 +134,15 @@ export default function TextbookUnitPage() {
             .catch(errorValue => active && setError(errorValue.message))
         return () => { active = false }
     }, [unitId])
+    useEffect(() => {
+        let active = true
+        setPrep(null)
+        fetch(`/api/v1/lesson-plans/context?unit_id=${encodeURIComponent(unitId)}`)
+            .then(response => (response.ok ? response.json() : null))
+            .then(payload => active && setPrep(payload?.data || { standards: [], national_lessons: [] }))
+            .catch(() => active && setPrep({ standards: [], national_lessons: [] }))
+        return () => { active = false }
+    }, [unitId])
     if (error) return <ErrorState title="单元加载失败" message={error} />
     if (!unit || !book) return <PageLoading message="正在整理单元关联" />
     return (
@@ -96,6 +154,7 @@ export default function TextbookUnitPage() {
                 <p>{unit.printed_page ? `印刷页 ${unit.printed_page} · ` : ''}PDF {unit.pdf_page}{unit.end_pdf_page && unit.end_pdf_page !== unit.pdf_page ? `–${unit.end_pdf_page}` : ''}</p>
                 <Link className="btn btn-primary" to={`/textbooks/${unit.edition_id}/read?page=${unit.pdf_page}&node=${encodeURIComponent(unit.entry_id)}&panel=standards`}>打开原书与课标 <ArrowRightIcon size={16} aria-hidden="true" /></Link>
             </header>
+            <PrepPanel unit={unit} book={book} prep={prep} />
             <div className={styles.grid}>
                 <section>
                     {unit.standards_v2?.length ? (
