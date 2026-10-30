@@ -315,3 +315,49 @@ test('pick: a 要点 past the eighth reaches the AI, two codes in one field keep
     assert.equal(data.ranked, true)
     assert.deepEqual(data.picks.slice(0, 4).map((item: any) => item.point), ['MA-S4-GG-03.10', 'MA-S4-GG-07.1', 'MA-S4-GG-02.3', 'MA-S4-GG-01.2'])
 })
+
+test('核验我的试卷: questions become a 多维细目表; 超标, made-up and unmatched questions are reported', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const prompts: string[] = []
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body))
+        assert.match(String(body.messages[0].content), /多维细目表/)
+        assert.match(String(body.messages[0].content), /了解：从具体实例中知道/)
+        prompts.push(String(body.messages[1].content))
+        const content = {
+            questions: [
+                { no: '1', quote: '把下面的分数化成最简分数', score: 20, type: '计算题', points: [LIMITED], literacy: ['运算能力', '会用数学的眼光观察现实世界'], level: '掌握', difficulty: '易' },
+                { no: '2', quote: '把循环小数 0.333… 化成分数', score: 10, type: '填空题', points: [LIMITED], literacy: ['数感'], level: '运用', difficulty: '难' },
+                { no: '3', quote: '这道题试卷里没有', score: 10, type: '选择题', points: [LIMITED], literacy: [], level: '了解', difficulty: '中' },
+                { no: '4', quote: '小明有 3 个苹果', score: 10, type: '解答题', points: ['MA-S9-ZZ-01.1'], literacy: ['应用意识'], level: '运用', difficulty: '中' }
+            ],
+            beyond: [{ no: '2', quote: '把循环小数 0.333… 化成分数', limit: '不包括将循环小数转化成分数' }],
+            total: 100
+        }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 300, total_tokens: 1200 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const test_text = '五年级数学单元测试（满分 100 分）\n1. 把下面的分数化成最简分数。（20 分）\n2. 把循环小数 0.333… 化成分数。（10 分）\n4. 小明有 3 个苹果，吃了一半，还剩几个？（10 分）'
+    const response = await app.request('/api/v1/lesson-plans/check-test', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ lesson: { title: '分数的意义和性质', subject_slug: 'math', grade: 5 }, indicator_codes: [LIMITED], test_text }) })
+    assert.equal(response.status, 200)
+    assert.equal(response.headers.get('x-ratelimit-policy'), 'ai-per-minute')
+    const { data } = await json(response)
+    assert.match(prompts[0], /素养维度：数感、量感/)
+    // the made-up question is dropped, the one on no picked 要点 is its own row
+    assert.equal(data.read.dropped, 1)
+    assert.deepEqual(data.read.questions.map((item: any) => item.no), ['1', '2', '4'])
+    assert.deepEqual(data.read.questions[0].literacy, ['运算能力'])
+    assert.deepEqual(data.table.levels, ['了解', '理解', '掌握', '运用'])
+    assert.deepEqual(data.table.rows.map((row: any) => [row.code, row.questions]), [[LIMITED, ['1', '2']], [null, ['4']]])
+    assert.equal(data.table.score, 40)
+    assert.deepEqual(data.table.rows[0].by_level['运用'], ['2'])
+    const kinds = data.checks.map((item: any) => item.kind)
+    // the program finds 循环小数 in question 2; the reader's finding of the same thing is not added twice
+    const beyond = data.checks.filter((item: any) => item.kind === 'beyond_standard')
+    assert.equal(beyond.length, 1)
+    assert.match(beyond[0].message, /第 2 题/)
+    assert.ok(kinds.includes('no_point'))
+    assert.ok(kinds.includes('score_total'))
+    assert.ok(kinds.includes('reader_dropped'))
+})

@@ -9,7 +9,7 @@ import type { FileCurriculumRepository } from '@curriculum/core'
 import { redactSensitiveText } from './ai-privacy.js'
 import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate } from './search-judge.js'
 import type { ApiBindings } from './http.js'
-import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftTalk, draftUnit, rankPoints, sanitiseProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
+import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftTalk, draftUnit, rankPoints, readTest, checkTest, sanitiseProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
 
 type Deps = {
@@ -82,6 +82,7 @@ export const PickRequestSchema = z.object({
     lessons: z.array(z.string().trim().max(60)).max(20).default([])
 })
 export const CheckRequestSchema = BaseRequestSchema.extend({ plan_text: z.string().trim().min(30).max(8000) })
+export const TestRequestSchema = BaseRequestSchema.extend({ test_text: z.string().trim().min(30).max(10000) })
 
 export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
     const { repository, textbookRepository, v2 } = deps
@@ -407,6 +408,31 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         })
     })
 
+    // 核验我的试卷: the AI reads each question (题号、题干开头、分值、题型、要点、素养、层次、难度); the program builds the
+    // 多维细目表 and runs the checks: 课标 limits, questions on no picked 要点, 要点 no question tests, totals, balance.
+    app.post('/api/v1/lesson-plans/check-test', async c => {
+        const version = await repository.loadDataVersion()
+        const parsed = TestRequestSchema.safeParse(await deps.parseJson(c))
+        if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请贴入至少 30 个字的试卷或作业，并勾选它考查的课标要点。', parsed.error.issues)
+        const resolved = await resolveInput(parsed.data)
+        if ('error' in resolved) return deps.apiError(c, 422, 'validation_error', String(resolved.error))
+        const { input, evidence } = resolved
+        const testText = redactSensitiveText(parsed.data.test_text)
+        const run = await readTest(testText.text, input)
+        c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: testText.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
+        if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `check_${run.status}`, run.status === 'disabled' ? 'AI 核验暂不可用。' : 'AI 这次没有读完这份试卷。请再试一次，或分两次贴入。')
+        const { table, checks } = checkTest(run.output, testText.text, input)
+        return deps.ok(c, version as never, {
+            read: run.output,
+            table,
+            checks,
+            evidence,
+            privacy: { redacted: testText.redacted, redaction_count: testText.redaction_count },
+            model: run.model,
+            latency_ms: run.latency_ms
+        })
+    })
+
     // The AI reads every standard of the lesson's subject at its grade (at most ~33) and says which 要点 the lesson
     // teaches. Retrieval by words misses lessons whose topic word is not in the 课标 (「河流」, 「My friends」).
     app.post('/api/v1/lesson-plans/pick', async c => {
@@ -442,7 +468,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         let rankTokens = { input_tokens: 0, output_tokens: 0, total_tokens: 0 }
         if (direct.length > keep) {
             const texts = new Map(candidates.flatMap(item => item.indicators).map(item => [item.code, item.text]))
-            const rank = await rankPoints(query, direct.map(item => ({ code: item.point as string, text: texts.get(item.point as string) || '' })), keep)
+            const rank = await rankPoints(query, direct.map(item => ({ code: item.point as string, text: texts.get(item.point as string) || '', reason: item.reason })), keep)
             if (rank.usage) rankTokens = rank.usage
             if (rank.output) {
                 const order = rank.output

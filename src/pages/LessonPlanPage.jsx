@@ -8,7 +8,7 @@ import { XCircleIcon } from '@phosphor-icons/react/dist/csr/XCircle'
 import { postApi } from '../data/api'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
-import { downloadWord, downloadUnitWord, planToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
+import { downloadTestWord, downloadWord, downloadUnitWord, planToText, testRows, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
@@ -54,6 +54,9 @@ export default function LessonPlanPage() {
     const [task, setTask] = useState('draft')
     const [ownPlan, setOwnPlan] = useState('')
     const [report, setReport] = useState(null)
+    const [ownTest, setOwnTest] = useState('')
+    const [testReport, setTestReport] = useState(null)
+    const [testing, setTesting] = useState(false)
     const [unitPlan, setUnitPlan] = useState(null)
     const [talk, setTalk] = useState(null)
     const [talking, setTalking] = useState(false)
@@ -325,6 +328,28 @@ export default function LessonPlanPage() {
         }
     }
 
+    // 核验我的试卷: the AI reads each question; the program builds the 多维细目表 and checks it against the 课标
+    async function checkTest() {
+        if (!context || !selected.size || selected.size > 10 || ownTest.trim().length < 30) return
+        setError('')
+        setTestReport(null)
+        setTesting(true)
+        const lesson = context.lesson
+        try {
+            const payload = await postApi('/api/v1/lesson-plans/check-test', {
+                lesson: { title: lesson.title.slice(0, 60), ...(lesson.unit_title ? { unit_title: lesson.unit_title.slice(0, 60) } : {}), subject_slug: lesson.subject_slug, grade: lesson.grade || null, ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}) },
+                indicator_codes: [...selected],
+                test_text: ownTest.trim()
+            })
+            setTestReport({ ...payload.data, title: lesson.title })
+            trackUmamiEvent('test_checked', { subject: lesson.subject_slug, questions: payload.data.read.questions.length, risks: payload.data.checks.filter(item => item.level === 'risk').length })
+        } catch (errorValue) {
+            setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
+        } finally {
+            setTesting(false)
+        }
+    }
+
     async function copy() {
         try {
             await navigator.clipboard.writeText(planToText(plan))
@@ -345,7 +370,7 @@ export default function LessonPlanPage() {
                 <p className={styles.kicker}>AI 备课 · 有据可查</p>
                 <h1 className={styles.title}>从教材的一课，起草一份有课标依据的教案</h1>
                 <p className={styles.lede}>
-                    选你下周要教的一课，确认它对应的课标要点，再说说班级情况。AI 只按你勾选的要点写，每条目标都标出依据；写完后程序会逐条核对：有没有超出课标的限定、目标有没有对应的活动和评价。整个过程约一分钟。
+                    选你下周要教的一课，确认它对应的课标要点，再说说班级情况。AI 只按你勾选的要点写，每条目标都标出依据；写完后程序会逐条核对：有没有超出课标的限定、目标有没有对应的活动和评价。整个过程约一分钟。也可以贴入自己的教案、试卷或作业：教案逐条核验，试卷编成多维细目表并查超标和漏考。
                 </p>
                 {stored && !plan ? (
                     <button type="button" className={styles.restore} onClick={() => setPlan(stored)}>打开上次的草稿：{stored.frame?.title || stored.lesson?.title}</button>
@@ -490,7 +515,12 @@ export default function LessonPlanPage() {
             {context ? (
                 isUnit ? (
                     <section className={styles.step} aria-labelledby="lp-unit">
-                        <h2 id="lp-unit"><span>3</span>单元整体设计</h2>
+                        <h2 id="lp-unit"><span>3</span>{task === 'test' ? '贴入单元测试卷' : '单元整体设计'}</h2>
+                        <div className={styles.modeSwitch} role="tablist" aria-label="要做什么">
+                            <button type="button" role="tab" aria-selected={task !== 'test'} onClick={() => setTask('draft')}>单元整体设计</button>
+                            <button type="button" role="tab" aria-selected={task === 'test'} onClick={() => setTask('test')}>核验单元测试卷</button>
+                        </div>
+                        {task === 'test' ? <TestInput value={ownTest} onChange={setOwnTest} onRun={checkTest} running={testing} selectedCount={selectedCount} error={error} unit /> : <>
                         <p className={styles.small}>按逆向设计的顺序：先写单元大概念、基本问题和单元目标，再定评价证据（含一个表现性任务），最后把课时排进教材这个单元的 {context.unit_lessons.length} 节课里。</p>
                         <div className={styles.settings}>
                             <label><span>单元总课时</span>
@@ -519,14 +549,17 @@ export default function LessonPlanPage() {
                             {!selectedCount ? <span className={styles.small}>先在上面勾选这个单元依据的要点。</span> : null}
                         </div>
                         {error ? <p className={styles.error} role="alert">{error}</p> : null}
+                        </>}
                     </section>
                 ) : (
                 <section className={styles.step} aria-labelledby="lp-class">
-                    <h2 id="lp-class"><span>3</span>{task === 'draft' ? <>说说你的情况<small>（可不填）</small></> : '贴入你的教案'}</h2>
+                    <h2 id="lp-class"><span>3</span>{task === 'draft' ? <>说说你的情况<small>（可不填）</small></> : task === 'test' ? '贴入试卷或作业' : '贴入你的教案'}</h2>
                     <div className={styles.modeSwitch} role="tablist" aria-label="要做什么">
                         <button type="button" role="tab" aria-selected={task === 'draft'} onClick={() => setTask('draft')}>起草新教案</button>
                         <button type="button" role="tab" aria-selected={task === 'check'} onClick={() => setTask('check')}>核验我的教案</button>
+                        <button type="button" role="tab" aria-selected={task === 'test'} onClick={() => setTask('test')}>核验试卷·作业</button>
                     </div>
+                    {task === 'test' ? <TestInput value={ownTest} onChange={setOwnTest} onRun={checkTest} running={testing} selectedCount={selectedCount} error={error} /> : null}
                     {task === 'check' ? (
                         <>
                             <label className={styles.textarea}>
@@ -592,6 +625,7 @@ export default function LessonPlanPage() {
 
             {unitPlan && isUnit ? <UnitDocument plan={unitPlan} edition={edition} subject={subject} onCopy={async () => { try { await navigator.clipboard.writeText(unitToText(unitPlan)); setCopied(true) } catch { setCopied(false) } }} copied={copied} /> : null}
             {report && task === 'check' && !isUnit ? <CheckReport report={report} /> : null}
+            {testReport && task === 'test' ? <TestReport report={testReport} /> : null}
             {plan && !isUnit ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} onTalk={makeTalk} talking={talking} /> : null}
             {talk && plan && !isUnit ? <TalkScriptView talk={talk} title={plan.frame?.title || plan.lesson.title} /> : null}
         </div>
@@ -759,6 +793,117 @@ function CheckList({ checks }) {
                 return <li key={`${item.kind}-${index}`} data-level={item.level}><Icon size={16} aria-hidden="true" /><span>{item.message}{item.quote ? <small>「{item.quote}」</small> : null}</span></li>
             })}
         </ul>
+    )
+}
+
+function TestInput({ value, onChange, onRun, running, selectedCount, error, unit = false }) {
+    const tooMany = selectedCount > 10
+    return (
+        <>
+            <p className={styles.small}>AI 逐题读出题号、分值、题型，判断每道题考哪条要点、哪项素养和难度；程序据此编出多维细目表，并查超标、漏考和没对上要点的题。物理、化学、生物学、历史课标都要求命题时编制多维细目表（<Link to="/concepts/test-blueprint">课标原文怎么说</Link>）。</p>
+            <label className={styles.textarea}>
+                <span>{unit ? '单元测试卷全文' : '试卷或作业全文'}（带题号；有分值更好）</span>
+                <textarea rows={12} maxLength={10000} value={value} onChange={event => onChange(event.target.value)} placeholder={'例如：\n一、填空题（每空 2 分，共 20 分）\n1. 把 6/8 化成最简分数是（ ）。\n……\n请删去学生姓名等个人信息。图片题请用文字简述。'} />
+            </label>
+            <div className={styles.go}>
+                <button type="button" className="btn btn-primary" disabled={running || !selectedCount || tooMany || value.trim().length < 30} onClick={onRun}>
+                    {running ? 'AI 正在逐题读（约 30–50 秒）…' : `对照选定的 ${selectedCount} 条要点编细目表`}
+                </button>
+                {!selectedCount ? <span className={styles.small}>先在上面勾选这份试卷考查的要点。</span> : tooMany ? <span className={styles.small}>一次最多对照 10 条要点，请去掉一些。</span> : null}
+            </div>
+            {error ? <p className={styles.error} role="alert">{error}</p> : null}
+        </>
+    )
+}
+
+function TestReport({ report }) {
+    const { read, table, checks, evidence } = report
+    const [copied, setCopied] = useState(false)
+    const risks = checks.filter(item => item.level === 'risk').length
+    const warns = checks.filter(item => item.level === 'warn').length
+    const rows = testRows(report)
+    const whole = table.score
+    const byCount = key => read.questions.filter(item => item.level === key || item.difficulty === key).length
+    const shareOf = (scores, key) => (whole ? `${Math.round(((scores[key] || 0) / whole) * 100)}%` : `${byCount(key)} 题`)
+    const untested = table.literacy.filter(item => !table.by_literacy[item])
+    async function copy() {
+        try {
+            await navigator.clipboard.writeText(testToText(report))
+            setCopied(true)
+            trackUmamiEvent('lesson_plan_export', { format: 'copy', kind: 'test' })
+        } catch {
+            setCopied(false)
+        }
+    }
+    return (
+        <article className={styles.doc} aria-labelledby="lp-test-title">
+            <div className={styles.docActions}>
+                <span className={styles.aiBadge}>AI 逐题读取 + 程序统计核验</span>
+                <button type="button" className="btn btn-secondary" onClick={copy}>{copied ? '已复制' : '复制细目表'}</button>
+                <button type="button" className="btn btn-secondary" onClick={() => { downloadTestWord(report); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'test' }) }}>下载 Word</button>
+            </div>
+            <header className={styles.docHead}>
+                <h2 id="lp-test-title">多维细目表：{report.title}</h2>
+                <p>{read.questions.length} 道题{whole ? ` · 共 ${whole} 分` : ''} · {risks ? `${risks} 处需要修改` : '没有必须修改的地方'}{warns ? ` · ${warns} 处建议` : ''}</p>
+            </header>
+            <section className={styles.checks} aria-label="核验结果">
+                <h3>发现</h3>
+                <CheckList checks={checks} />
+            </section>
+            <section>
+                <h3>内容 × {table.levels.length ? '层次' : '题目'}</h3>
+                <div className={styles.tableWrap}>
+                    <table>
+                        <thead><tr><th>要点</th><th>题号</th><th>{whole ? '分值' : '题数'}</th>{table.levels.map(level => <th key={level}>{level}</th>)}<th>占比</th></tr></thead>
+                        <tbody>
+                            {rows.map(row => (
+                                <tr key={row.code} data-empty={row.questions === '—' ? 'true' : undefined}>
+                                    <td><code>{row.code}</code> {row.text.length > 40 ? `${row.text.slice(0, 40)}…` : row.text}</td>
+                                    <td>{row.questions}</td>
+                                    <td className={styles.tight}>{row.score}</td>
+                                    {row.levels.map((nos, index) => <td key={table.levels[index]}>{nos}</td>)}
+                                    <td className={styles.tight}>{row.share}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                        {table.levels.length ? <tfoot><tr><th>合计</th><td>{read.questions.length} 题</td><td>{whole || read.questions.length}</td>{table.levels.map(level => <td key={level}>{shareOf(table.by_level, level)}</td>)}<td>100%</td></tr></tfoot> : null}
+                    </table>
+                </div>
+                {table.level_source ? <p className={styles.small}>层次依据：{table.level_source}。其他学科课标没有统一规定认知层次，细目表只列难度。</p> : null}
+            </section>
+            <section>
+                <h3>结构</h3>
+                <dl className={styles.testMix}>
+                    <div><dt>难度</dt><dd>{['易', '中', '难'].map(key => `${key} ${shareOf(table.by_difficulty, key)}`).join(' · ')}</dd></div>
+                    <div><dt>题型</dt><dd>{Object.entries(table.by_type).map(([key, value]) => `${key} ${whole ? `${value} 分` : ''}`.trim()).join(' · ') || '—'}</dd></div>
+                    <div><dt>素养</dt><dd>{Object.entries(table.by_literacy).map(([key]) => `${key} ${shareOf(table.by_literacy, key)}`).join(' · ') || '—'}{untested.length ? <small>没有考到：{untested.join('、')}</small> : null}</dd></div>
+                </dl>
+            </section>
+            <section>
+                <h3>逐题</h3>
+                <div className={styles.tableWrap}>
+                    <table>
+                        <thead><tr><th>题号</th><th>题干开头</th><th>题型</th><th>分值</th><th>要点</th><th>素养</th>{table.levels.length ? <th>层次</th> : null}<th>难度</th></tr></thead>
+                        <tbody>
+                            {read.questions.map(item => (
+                                <tr key={`${item.no}-${item.quote}`}>
+                                    <td className={styles.tight}>{item.no}</td><td>{item.quote}</td><td className={styles.tight}>{item.type}</td><td className={styles.tight}>{item.score || ''}</td>
+                                    <td>{item.points.length ? item.points.map(code => <code key={code}>{code}</code>) : <em>未对应</em>}</td>
+                                    <td>{item.literacy.join('、')}</td>{table.levels.length ? <td className={styles.tight}>{item.level}</td> : null}<td className={styles.tight}>{item.difficulty}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <h3>依据的课标原文</h3>
+                <ul className={styles.evidence}>
+                    {evidence.map(item => <li key={item.code}><Link to={`/standards/${item.standard_code}#${item.code}`} target="_blank" rel="noopener"><code>{item.code}</code></Link>{item.text}<small>修订版第 {item.pages.join('、')} 页</small></li>)}
+                </ul>
+            </section>
+            <p className={styles.docFoot}>AI 只负责逐题读出题号、分值、题型，并判断每道题对应的要点、素养、层次和难度；AI 抄录的题干必须能在你贴的原文里找到，否则不计入。超标、漏考、分值合计和结构比例由程序对照课标原文统计。难度是 AI 按一般学生水平的估计，请结合本班实际调整。</p>
+        </article>
     )
 }
 

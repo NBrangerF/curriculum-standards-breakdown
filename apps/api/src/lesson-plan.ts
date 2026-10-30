@@ -574,20 +574,20 @@ export async function draftTalk(input: DraftInput, frame: Frame, process: Proces
 // ---------- 要点排序 ----------
 // The search judge grades each standard on its own, in batches, so four or five can all come back 「直接对应」 with no order
 // between them. When there are more than the page ticks, one short call reads just those 要点 side by side and orders them.
-const RANK_INSTRUCTIONS = `你是中小学教研员。下面是一节课（或一个单元）和若干条都与它直接对应的课标要点原文。
-选出这节课最核心、最需要落实的要点，按重要性从高到低排序，最多保留指定的条数。
-优先选内容上和本课课题具体对应的要点；对很多课都适用的通用要求排在后面。只用给出的编码，不得编造。
-必须只返回一个 JSON 对象：{"order":["编码",…]}`
+const RANK_INSTRUCTIONS = `你是中小学教研员。下面是一节课（或一个单元）和若干条都与它直接对应的课标要点原文，每条附有初步判断的理由。
+先用几个字写出这节课是什么（kind，如「一首古诗」「一篇说明文」「一种计算方法」「一个实验」「一首民歌」），再按这节课最核心、最需要落实的程度从高到低排序（order），最多保留指定的条数。
+优先选内容上专门针对这类课的要点（如古诗对应「诵读诗文」，实验对应「实验探究」）；对很多课都适用的通用要求排在后面。只用给出的编码，不得编造。
+必须只返回一个 JSON 对象：{"kind":"…","order":["编码",…]}`
 
-export async function rankPoints(request: string, points: Array<{ code: string, text: string }>, keep: number, options: StructuredLlmOptions = {}): Promise<DraftResult<string[]>> {
+export async function rankPoints(request: string, points: Array<{ code: string, text: string, reason?: string }>, keep: number, options: StructuredLlmOptions = {}): Promise<DraftResult<string[]>> {
     const codes = new Set(points.map(item => item.code))
-    const prompt = [`本课：${request}`, `最多保留 ${keep} 条。`, '要点：', ...points.map(item => `${item.code}：${item.text}`)].join('\n')
+    const prompt = [`本课：${request}`, `最多保留 ${keep} 条。`, '要点：', ...points.map(item => `${item.code}：${item.text}${item.reason ? `（初判：${item.reason}）` : ''}`)].join('\n')
     const adapter: StructuredLlmAdapter<string[]> = {
         name: 'kebiao_rank_points',
         schema: { type: 'object' },
         instructions: RANK_INSTRUCTIONS,
         chatInstructions: RANK_INSTRUCTIONS,
-        maxCompletionTokens: 400,
+        maxCompletionTokens: 600,
         validate(value) {
             const raw = (value || {}) as Record<string, unknown>
             const order = [...new Set((Array.isArray(raw.order) ? raw.order : []).map(item => String(item).trim()).filter(item => codes.has(item)))].slice(0, keep)
@@ -596,4 +596,185 @@ export async function rankPoints(request: string, points: Array<{ code: string, 
     }
     const run = await runStructuredLlm(prompt, adapter, { ...options, timeoutMs: options.timeoutMs ?? 15000 })
     return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
+
+// ---------- 核验我的试卷: a 多维细目表 and 超标 checks for a pasted test or homework ----------
+// 物理 p51, 化学 p52, 生物学 p46 and 历史 p66 ask for a 多维细目表 (内容、核心素养、题型、分值、难度). Only 数学 (附录 2)
+// and 科学 (附录 2) define levels for 结果目标, so only those two get a 层次 column.
+export const TEST_LEVELS: Record<string, { levels: string[], source: string, defs: string }> = {
+    math: {
+        levels: ['了解', '理解', '掌握', '运用'],
+        source: '数学课标附录 2「有关行为动词的分类」（修订版第 185 页）',
+        defs: '了解：从具体实例中知道或举例说明对象的有关特征；根据对象的特征，从具体情境中辨认或举例说明对象。理解：描述对象的由来、内涵和特征，阐述此对象与相关对象之间的区别和联系。掌握：多角度理解和表征数学对象的本质，把对象用于新的情境。运用：基于数学对象和对象之间的关系，选择或创造适当的方法解决问题。'
+    },
+    science: {
+        levels: ['一级水平', '二级水平', '三级水平'],
+        source: '科学课标附录 2「课程内容中使用的行为动词」（修订版第 144 页）',
+        defs: '认知性目标动词。一级水平：知道、举例说出、说出、描述、识别、列举、了解。二级水平：比较、举例说明、说明、概述、解释、认识、理解。三级水平：区别、辨析、判断、分析、阐明、分类、应用、预测、评价。'
+    }
+}
+const DIFFICULTY = ['易', '中', '难']
+// 数学 core literacy is 「三会」; a test is analysed by its 主要表现 (修订版第 10 页), which differ for 小学 and 初中
+const MATH_PRIMARY = ['数感', '量感', '符号意识', '运算能力', '几何直观', '空间观念', '推理意识', '数据意识', '模型意识', '应用意识', '创新意识']
+const MATH_JUNIOR = ['抽象能力', '运算能力', '几何直观', '空间观念', '推理能力', '数据观念', '模型观念', '应用意识', '创新意识']
+export function testLiteracy(input: Pick<DraftInput, 'lesson' | 'subjectNote'>) {
+    if (input.lesson.subject_slug === 'math') return (input.lesson.grade || 0) >= 7 ? MATH_JUNIOR : MATH_PRIMARY
+    return input.subjectNote?.core_literacy || []
+}
+
+export type TestQuestion = { no: string, quote: string, score: number, type: string, points: string[], literacy: string[], level: string, difficulty: string }
+export type ReadTest = { questions: TestQuestion[], beyond: Array<{ no: string, quote: string, limit: string }>, total: number, dropped: number }
+export type TestRow = { code: string | null, text: string, questions: string[], score: number, by_level: Record<string, string[]> }
+export type TestTable = {
+    literacy: string[]
+    levels: string[]
+    level_source: string | null
+    rows: TestRow[]
+    score: number
+    by_level: Record<string, number>
+    by_difficulty: Record<string, number>
+    by_type: Record<string, number>
+    by_literacy: Record<string, number>
+}
+
+const testInstructions = (levels: (typeof TEST_LEVELS)[string] | undefined) => `你是中小学教研员，帮老师分析一份试卷或一份作业，编多维细目表，并对照「依据」里的课标要点。
+规则：
+1. 按试卷原有的题号逐题整理；大题下有小题的按小题整理，题号写成「3(1)」。最多 40 题。只整理试卷里有的题，不补题、不改题。
+2. quote：逐字抄录这道题题干开头的 8–30 个字，一个字也不改。
+3. score：这道题的分值，试卷没写就填 0。type：题型（选择题、填空题、判断题、计算题、解答题、作图题、实验题、材料题、阅读题、写作、口语等）。
+4. points：这道题考查的要点编码，只能从「依据」里选，最多 2 个；对不上任何要点就留空数组，不要硬凑。
+5. literacy：这道题主要考查的素养，只能从「素养维度」里选 1–2 个。
+${levels ? `6. level：按下面的层次定义判断这道题要求学生达到的层次，只能填 ${levels.levels.map(item => `「${item}」`).join('')} 之一。${levels.defs}` : '6. level：填空字符串。'}
+7. difficulty：按这个年级学生的一般水平估计，填「易」「中」「难」。
+8. beyond：试题里超出依据要点写明的限定（「不包括……」「不要求……」等）的内容。no 填题号，quote 逐字抄录试题原文片段，limit 逐字抄录要点里的限定原文；没有就返回空数组。注意换了说法的情况，比如「0.3（3 循环）化成分数」就是循环小数化成分数。
+9. total：试卷写明的总分，没写填 0。
+必须只返回一个 JSON 对象：{"questions":[{"no":"1","quote":"…","score":2,"type":"选择题","points":["…"],"literacy":["…"],"level":"…","difficulty":"易"}],"beyond":[{"no":"5","quote":"…","limit":"…"}],"total":100}`
+
+const squash = (text: string) => text.replace(/[\s（）()“”"'‘’、，,。；;：:．.！!？?—\-_［］[\]【】]/gu, '')
+
+function validateTest(value: unknown, testText: string, codes: Set<string>, literacy: string[], levels: string[]): ReadTest | null {
+    if (!value || typeof value !== 'object') return null
+    const raw = value as Record<string, unknown>
+    const text = squash(testText)
+    let dropped = 0
+    const questions: TestQuestion[] = []
+    for (const item of (Array.isArray(raw.questions) ? raw.questions : []).slice(0, 40)) {
+        const record = (item || {}) as Record<string, unknown>
+        const quote = str(record.quote, 60)
+        // a question the reader made up, or rewrote, is not in the teacher's text
+        if (squash(quote).length < 4 || !text.includes(squash(quote))) { dropped += 1; continue }
+        const score = Number(record.score)
+        questions.push({
+            no: str(record.no, 12) || String(questions.length + 1),
+            quote,
+            score: Number.isFinite(score) && score > 0 && score <= 100 ? Math.round(score * 2) / 2 : 0,
+            type: str(record.type, 10),
+            points: ids(record.points, codes).slice(0, 2),
+            literacy: [...new Set(strList(record.literacy, 3, 12).filter(item => literacy.includes(item)))].slice(0, 2),
+            level: levels.includes(str(record.level, 8)) ? str(record.level, 8) : '',
+            difficulty: DIFFICULTY.includes(str(record.difficulty, 2)) ? str(record.difficulty, 2) : ''
+        })
+    }
+    if (!questions.length) return null
+    const beyond = (Array.isArray(raw.beyond) ? raw.beyond : []).slice(0, 8).map(item => {
+        const record = (item || {}) as Record<string, unknown>
+        return { no: str(record.no, 12), quote: str(record.quote, 120), limit: str(record.limit, 120) }
+    }).filter(item => item.quote && item.limit)
+    const total = Number(raw.total)
+    return { questions, beyond, total: Number.isFinite(total) && total > 0 && total <= 300 ? Math.round(total) : 0, dropped }
+}
+
+export async function readTest(testText: string, input: DraftInput, options: StructuredLlmOptions = {}): Promise<DraftResult<ReadTest>> {
+    const codes = new Set(input.indicators.map(item => item.code))
+    const literacy = testLiteracy(input)
+    const levels = TEST_LEVELS[input.lesson.subject_slug]
+    const prompt = [lessonBlock(input), basisBlock(input), `素养维度：${literacy.join('、')}`, `老师的试卷：\n${testText}`].join('\n\n')
+    const instructions = testInstructions(levels)
+    const adapter: StructuredLlmAdapter<ReadTest> = {
+        name: 'kebiao_test_read',
+        schema: { type: 'object' },
+        instructions,
+        chatInstructions: instructions,
+        maxCompletionTokens: 5000,
+        validate: value => validateTest(value, testText, codes, literacy, levels?.levels || [])
+    }
+    const run = await runStructuredLlm(prompt, adapter, { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
+    return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
+
+const percent = (part: number, whole: number) => (whole ? Math.round((part / whole) * 100) : 0)
+const listNos = (nos: string[]) => (nos.length > 6 ? `${nos.slice(0, 6).join('、')} 等 ${nos.length} 题` : nos.join('、'))
+
+export function checkTest(read: ReadTest, testText: string, input: DraftInput): { table: TestTable, checks: PlanCheck[] } {
+    const levelInfo = TEST_LEVELS[input.lesson.subject_slug]
+    const levels = levelInfo?.levels || []
+    const tally = (pick: (question: TestQuestion) => string[]) => {
+        const out: Record<string, number> = {}
+        for (const question of read.questions) for (const key of pick(question)) out[key] = (out[key] || 0) + question.score
+        return out
+    }
+    const rowFor = (code: string | null, text: string, questions: TestQuestion[]): TestRow => ({
+        code,
+        text,
+        questions: questions.map(item => item.no),
+        // a question on two 要点 counts half its score on each
+        score: questions.reduce((sum, item) => sum + (item.points.length > 1 ? item.score / 2 : item.score), 0),
+        by_level: Object.fromEntries(levels.map(level => [level, questions.filter(item => item.level === level).map(item => item.no)]))
+    })
+    const rows = input.indicators.map(item => rowFor(item.code, item.text, read.questions.filter(question => question.points.includes(item.code))))
+    const unmatched = read.questions.filter(question => !question.points.length)
+    if (unmatched.length) rows.push(rowFor(null, '没有对上所选要点', unmatched))
+    const score = read.questions.reduce((sum, item) => sum + item.score, 0)
+    const table: TestTable = {
+        literacy: testLiteracy(input),
+        levels,
+        level_source: levelInfo?.source || null,
+        rows,
+        score,
+        by_level: tally(question => (question.level ? [question.level] : [])),
+        by_difficulty: tally(question => (question.difficulty ? [question.difficulty] : [])),
+        by_type: tally(question => (question.type ? [question.type] : [])),
+        by_literacy: tally(question => question.literacy)
+    }
+
+    const checks: PlanCheck[] = []
+    // which question a position in the pasted text belongs to: the last question that starts before it
+    const plain = testText
+    const starts = read.questions.map(question => ({ no: question.no, at: plain.indexOf(question.quote) })).filter(item => item.at >= 0).sort((a, b) => a.at - b.at)
+    const questionAt = (at: number) => [...starts].reverse().find(item => item.at <= at)?.no
+    const seen = new Set<string>()
+    const found: Array<{ source: string, nos: string[] }> = []
+    const sources = [...input.indicators.map(item => item.text), ...input.standards.flatMap(item => [...item.requirements, ...item.guidance])]
+    for (const limit of limitsOf(sources)) {
+        if (seen.has(limit.key)) continue
+        seen.add(limit.key)
+        const hits = [...plain.matchAll(new RegExp(limit.key.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&'), 'gu'))].map(match => match.index ?? 0)
+            .filter(at => !/(不|除|未|无需|勿|免|非)[^，。；、,"]{0,6}$/u.test(plain.slice(Math.max(0, at - 8), at)))
+        if (hits.length) {
+            const nos = [...new Set(hits.map(questionAt).filter(Boolean))] as string[]
+            found.push({ source: squash(limit.source), nos })
+            checks.push({ level: 'risk', kind: 'beyond_standard', message: `${nos.length ? `第 ${listNos(nos)} 题` : '试卷里'}出现了「${limit.key}」，而课标写明${limit.phrase}，可能超标，请核对。`, quote: limit.source })
+        }
+    }
+    const text = squash(testText)
+    const limits = input.indicators.map(item => squash(item.text))
+    for (const item of read.beyond) {
+        if (!text.includes(squash(item.quote)) || !limits.some(source => source.includes(squash(item.limit)))) continue
+        // the program already flagged this limit in this question by its words
+        if (found.some(entry => entry.source.includes(squash(item.limit)) && (!item.no || entry.nos.includes(item.no)))) continue
+        checks.push({ level: 'risk', kind: 'beyond_standard', message: `${item.no ? `第 ${item.no} 题` : '试卷里'}「${item.quote}」超出了课标的限定：${item.limit}。`, quote: item.limit })
+    }
+    if (unmatched.length) checks.push({ level: 'warn', kind: 'no_point', message: `第 ${listNos(unmatched.map(item => item.no))} 题没有对上所选要点：可能考的是本单元以外的内容，也可能超出了所选要点，请核对；如果是漏选了要点，回到第 2 步补勾。` })
+    const untested = rows.filter(row => row.code && !row.questions.length)
+    for (const row of untested) checks.push({ level: 'warn', kind: 'untested_point', message: `要点 ${row.code} 没有题目考到。`, code: row.code || undefined, quote: row.text })
+    if (read.total && score && Math.abs(read.total - score) > 0.5) checks.push({ level: 'warn', kind: 'score_total', message: `各题分值合计 ${score} 分，和试卷写的总分 ${read.total} 分不一致（可能有题没标分值，或没读到）。` })
+    if (!score) checks.push({ level: 'warn', kind: 'score_total', message: '试卷没有标分值，细目表按题数统计。' })
+    const weigh = (part: Record<string, number>, key: string) => (score ? percent(part[key] || 0, score) : percent(read.questions.filter(item => item.level === key || item.difficulty === key).length, read.questions.length))
+    if (levels.length && weigh(table.by_level, levels[0]) > 60) checks.push({ level: 'warn', kind: 'level_low', message: `「${levels[0]}」层次的题占 ${weigh(table.by_level, levels[0])}%，${levels.slice(-2).join('、')}层次的题偏少。` })
+    for (const key of DIFFICULTY) {
+        if (weigh(table.by_difficulty, key) > 80) checks.push({ level: 'warn', kind: 'difficulty', message: `「${key}」题占 ${weigh(table.by_difficulty, key)}%，难度结构偏单一（物理课标：容易题、中档题、难题的比例设置合理）。` })
+    }
+    if (read.dropped) checks.push({ level: 'warn', kind: 'reader_dropped', message: `有 ${read.dropped} 道题 AI 抄录的题干和原文对不上，没有计入细目表。` })
+    if (!checks.length) checks.push({ level: 'ok', kind: 'aligned', message: '每道题都对上了所选要点，每条要点都有题目考到，没有发现超出课标限定的内容。' })
+    return { table, checks }
 }

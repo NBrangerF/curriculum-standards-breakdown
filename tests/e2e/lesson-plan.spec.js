@@ -181,3 +181,36 @@ test('单元整体设计: a whole textbook unit is planned over its own lessons,
     expect(sent.unit_lessons).toEqual(['分数的意义', '分数的基本性质'])
     expect(sent.unit_hours).toBe(4)
 })
+
+test('核验单元测试卷: a pasted test becomes a 多维细目表 with the 超标 question named', async ({ page }) => {
+    const unitContext = { ...context, lesson: { ...lesson, title: '分数的意义和性质', unit_title: '4 分数的意义和性质', lesson_id: null }, unit_lessons: [{ id: 'L0', title: '分数的意义', section: null, pdf_page: 50, hours: 2 }, { id: 'L1', title: '分数的基本性质', section: null, pdf_page: 62, hours: 2 }] }
+    await page.route('**/api/v1/lesson-plans/textbooks/*/lessons', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ platform_title: '小学数学人教版五年级下册', confidence: 'text', lessons: [{ id: 'L0', title: '分数的意义', chapters: ['4 分数的意义和性质'], pdf_page: 50, materials: [], url: '' }, { id: 'L1', title: '分数的基本性质', chapters: ['4 分数的意义和性质'], pdf_page: 62, materials: [], url: '' }] })) }))
+    await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(unitContext)) }))
+    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [{ code: 'MA-S3-NA-01', grade: 2, reason: '分数', point: 'MA-S3-NA-01.3' }] })) }))
+    let sent = null
+    await page.route('**/api/v1/lesson-plans/check-test', route => {
+        sent = route.request().postDataJSON()
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({
+            read: { questions: [
+                { no: '1', quote: '把 6/8 化成最简分数', score: 20, type: '填空题', points: ['MA-S3-NA-01.3'], literacy: ['运算能力'], level: '掌握', difficulty: '易' },
+                { no: '2', quote: '把循环小数 0.333… 化成分数', score: 10, type: '填空题', points: ['MA-S3-NA-01.3'], literacy: ['数感'], level: '运用', difficulty: '难' }
+            ], beyond: [], total: 30, dropped: 0 },
+            table: { literacy: ['数感', '运算能力', '推理意识'], levels: ['了解', '理解', '掌握', '运用'], level_source: '数学课标附录 2「有关行为动词的分类」（修订版第 185 页）', rows: [{ code: 'MA-S3-NA-01.3', text: '能比较两个分数的大小', questions: ['1', '2'], score: 30, by_level: { 了解: [], 理解: [], 掌握: ['1'], 运用: ['2'] } }], score: 30, by_level: { 掌握: 20, 运用: 10 }, by_difficulty: { 易: 20, 难: 10 }, by_type: { 填空题: 30 }, by_literacy: { 运算能力: 20, 数感: 10 } },
+            checks: [{ level: 'risk', kind: 'beyond_standard', message: '第 2 题出现了「循环小数」，而课标写明不包括将循环小数转化成分数，可能超标，请核对。' }],
+            evidence,
+            privacy: { redacted: false },
+            model: 'gpt-5-mini'
+        })) })
+    })
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&chapter=${encodeURIComponent('4 分数的意义和性质')}`)
+    await expect(page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })).toBeChecked()
+    await page.getByRole('tab', { name: '核验单元测试卷' }).click()
+    await page.getByLabel(/单元测试卷全文/).fill('一、填空题（共 30 分）\n1. 把 6/8 化成最简分数。（20 分）\n2. 把循环小数 0.333… 化成分数。（10 分）')
+    await page.getByRole('button', { name: /对照选定的 1 条要点编细目表/ }).click()
+    await expect(page.getByRole('heading', { name: /多维细目表：分数的意义和性质/ })).toBeVisible()
+    await expect(page.getByText(/第 2 题出现了「循环小数」/)).toBeVisible()
+    await expect(page.getByRole('columnheader', { name: '运用' }).first()).toBeVisible()
+    await expect(page.getByText(/没有考到：推理意识/)).toBeVisible()
+    expect(sent.indicator_codes).toEqual(['MA-S3-NA-01.3'])
+    expect(sent.lesson).toMatchObject({ title: '分数的意义和性质', subject_slug: 'math' })
+})

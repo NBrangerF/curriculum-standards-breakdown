@@ -144,3 +144,66 @@ export function downloadUnitWord(plan) {
     link.remove()
     setTimeout(() => URL.revokeObjectURL(url), 2000)
 }
+
+// ---------- 多维细目表 ----------
+const share = (part, whole) => (whole ? `${Math.round((part / whole) * 100)}%` : '—')
+const fmt = value => (Number.isInteger(value) ? String(value) : value.toFixed(1))
+
+export function testRows(report) {
+    const { table } = report
+    const whole = table.score
+    return table.rows.map(row => ({
+        code: row.code || '未对应',
+        text: row.text,
+        questions: row.questions.join('、') || '—',
+        score: whole ? fmt(row.score) : `${row.questions.length} 题`,
+        share: whole ? share(row.score, whole) : share(row.questions.length, report.read.questions.length),
+        levels: table.levels.map(level => row.by_level[level]?.join('、') || '')
+    }))
+}
+
+export function testToText(report) {
+    const { read, table, checks, title } = report
+    const out = [`多维细目表：${title}`, `${read.questions.length} 道题${table.score ? ` · 共 ${fmt(table.score)} 分` : ''}`, '']
+    out.push(['要点', '题号', '分值', ...table.levels, '占比'].join('\t'))
+    for (const row of testRows(report)) out.push([`${row.code} ${row.text.slice(0, 30)}`, row.questions, row.score, ...row.levels, row.share].join('\t'))
+    out.push('', '逐题')
+    out.push(['题号', '题干', '题型', '分值', '要点', '素养', ...(table.levels.length ? ['层次'] : []), '难度'].join('\t'))
+    for (const item of read.questions) out.push([item.no, item.quote, item.type, item.score || '', item.points.join('、'), item.literacy.join('、'), ...(table.levels.length ? [item.level] : []), item.difficulty].join('\t'))
+    out.push('', '核验发现')
+    for (const item of checks) out.push(`· ${item.message}`)
+    if (table.level_source) out.push('', `层次依据：${table.level_source}`)
+    out.push('', '细目表由 AI 逐题读取、程序统计和核验（kebiao.org），请以课标原文为准。')
+    return out.join('\n')
+}
+
+export function downloadTestWord(report) {
+    const { read, table, checks, title } = report
+    const head = cells => `<tr>${cells.map(cell => `<th>${esc(cell)}</th>`).join('')}</tr>`
+    const row = cells => `<tr>${cells.map(cell => `<td>${esc(cell)}</td>`).join('')}</tr>`
+    const body = [
+        `<h1>多维细目表：${esc(title)}</h1>`,
+        `<p class="meta">${read.questions.length} 道题${table.score ? ` · 共 ${esc(fmt(table.score))} 分` : ''}</p>`,
+        '<h2>一、内容 × 层次</h2>',
+        `<table>${head(['要点', '题号', '分值', ...table.levels, '占比'])}${testRows(report).map(item => row([`${item.code} ${item.text}`, item.questions, item.score, ...item.levels, item.share])).join('')}</table>`,
+        table.level_source ? `<p class="page">层次依据：${esc(table.level_source)}</p>` : '',
+        '<h2>二、逐题</h2>',
+        `<table>${head(['题号', '题干', '题型', '分值', '要点', '素养', ...(table.levels.length ? ['层次'] : []), '难度'])}${read.questions.map(item => row([item.no, item.quote, item.type, item.score || '', item.points.join('、'), item.literacy.join('、'), ...(table.levels.length ? [item.level] : []), item.difficulty])).join('')}</table>`,
+        '<h2>三、核验发现</h2>',
+        `<ul>${checks.map(item => `<li>${esc(item.message)}</li>`).join('')}</ul>`,
+        '<p class="foot">细目表由 AI 逐题读取、程序统计和核验（kebiao.org），依据《义务教育课程标准（2022年版2025年修订）》，请以课标原文为准。</p>'
+    ].join('\n')
+    const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title><style>
+body{font-family:"SimSun","Songti SC",serif;font-size:12pt;line-height:1.6;margin:2cm}h1{font-size:16pt;text-align:center}h2{font-size:13pt;margin:14pt 0 4pt}
+.meta{text-align:center;color:#444}.page,.foot{color:#666;font-size:9.5pt}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:3pt 5pt;vertical-align:top;font-size:10pt}th{background:#eee}
+</style></head><body>${body}</body></html>`
+    const blob = new Blob(['﻿', html], { type: 'application/msword' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${String(title || '试卷').replace(/[\\/:*?"<>|]/gu, '')}-多维细目表.doc`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    setTimeout(() => URL.revokeObjectURL(url), 2000)
+}

@@ -740,3 +740,52 @@
         color: #000;
     }
 }
+
+/* 多维细目表 */
+.doc th,
+.doc .tight {
+    white-space: nowrap;
+}
+
+.doc tr[data-empty='true'] td {
+    color: #8a3b12;
+}
+
+.doc tfoot th,
+.doc tfoot td {
+    background: rgba(37, 34, 28, 0.04);
+    font-weight: 600;
+}
+
+.doc td code {
+    color: #6b4a10;
+    font-size: 0.78rem;
+    white-space: nowrap;
+}
+
+.testMix {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+}
+
+.testMix div {
+    display: grid;
+    grid-template-columns: 3.5em 1fr;
+    gap: 0.6rem;
+}
+
+.testMix dt {
+    color: var(--kb-paper-mute);
+    font-size: 0.85rem;
+}
+
+.testMix dd {
+    margin: 0;
+}
+
+.testMix small {
+    display: block;
+    margin-top: 0.2rem;
+    color: #8a3b12;
+}

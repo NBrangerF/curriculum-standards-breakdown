@@ -28,6 +28,7 @@ const EVENT_PROPERTIES = Object.freeze({
     lesson_plan_drafted: ['subject', 'indicators', 'risks'],
     unit_plan_drafted: ['subject', 'lessons'],
     lesson_plan_checked: ['subject', 'risks'],
+    test_checked: ['subject', 'questions', 'risks'],
     lesson_plan_export: ['format', 'kind']
 })
 

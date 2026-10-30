@@ -182,7 +182,7 @@ export function subjectSkeletonMeta(subject) {
 }
 
 export const STATIC_PAGE_META = {
-    '/lesson-plan': page('AI 备课：从教材的一课起草有课标依据的教案', '选教材里的一课，确认对应的课标要点，AI 起草教学目标、重难点、评价任务和教学过程，每条目标标出课标依据，并自动核验超标和目标—活动—评价是否一致。', '/lesson-plan'),
+    '/lesson-plan': page('AI 备课：从教材的一课起草有课标依据的教案', '选教材里的一课，确认对应的课标要点，AI 起草教学目标、重难点、评价任务和教学过程，每条目标标出课标依据，并自动核验超标和目标—活动—评价是否一致；也能把试卷、作业编成多维细目表，查超标和漏考。', '/lesson-plan'),
     '/glossary': page('术语表', '课标、学段、领域、可迁移技能等 kebiao 常用概念的解释与示例。', '/glossary'),
     '/api': page('开放 API', '用 REST API 查询义务教育课程标准、可迁移技能和教材对照，可接入备课工具、智能体和 MCP。', '/api'),
     '/contact': page('联系我们', '反馈 kebiao 的数据问题、提出合作或接入需求。', '/contact'),
