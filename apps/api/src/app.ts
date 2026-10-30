@@ -88,8 +88,24 @@ export interface CurriculumAppOptions {
     learningResourceRepository?: FileLearningResourceRepository
 }
 
-// How many retrieved candidates the model reads for a search.
+// How many retrieved candidates the model reads for a search, chosen from the best JUDGE_FETCH.
 const JUDGE_POOL = 36
+const JUDGE_FETCH = 120
+
+// A broad question matches many subjects; the model reads the best few of each subject before more of any one,
+// so one subject full of the same word does not crowd out the others. Retrieval order is kept.
+function diversePool(results: SmartSearchResult[], size: number) {
+    const bySubject = new Map<string, SmartSearchResult[]>()
+    for (const item of results) {
+        const subject = String((item.standard as Record<string, unknown>).subject_slug || '')
+        bySubject.set(subject, [...(bySubject.get(subject) || []), item])
+    }
+    const picked = new Set<SmartSearchResult>()
+    for (let round = 0; picked.size < Math.min(size, results.length); round += 1) {
+        for (const list of bySubject.values()) if (list[round] && picked.size < size) picked.add(list[round])
+    }
+    return results.filter(item => picked.has(item))
+}
 
 // The model's verdicts become the result: 2 → 直接对应, 1 → 相关, 0 → left out with its reason dropped. A candidate a
 // failed batch never read keeps its word-match label and comes after the checked ones of the same kind.
@@ -709,12 +725,12 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         const shown = parsed.data.limit ?? 24
         // The model call starts first; loading and the rule-based retrieval run while it is in flight.
         const interpretationRequest = interpretSearchQueryWithLlm(privacy.text, { cache: queryInterpretationCache })
-        const deterministicRequest = repository.smartSearchStandards({ ...parsed.data, limit: JUDGE_POOL })
+        const deterministicRequest = repository.smartSearchStandards({ ...parsed.data, limit: JUDGE_FETCH })
         const [interpretation, deterministic] = await Promise.all([interpretationRequest, deterministicRequest])
         const aiInterpretation = interpretation.interpretation
         // With the model's reading of the question, its topic words replace the parsed ones and its wider phrasings may
         // bring in candidates; the check below reads every candidate before it is shown. Without it the rule-based result stands.
-        const pool = aiInterpretation
+        const retrieved = aiInterpretation
             ? await repository.smartSearchStandards({
                 ...parsed.data,
                 inferred_subjects: aiInterpretation.subjects,
@@ -724,12 +740,13 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
                 query_expansion_terms: aiInterpretation.expanded_terms,
                 prefer_inferred_terms: true,
                 loose_expansion: true,
-                limit: JUDGE_POOL
+                limit: JUDGE_FETCH
             })
             : deterministic
         // only after the model read the question: if it failed or timed out there, a second call would most likely
         // do the same and double the wait
-        const checkable = interpretation.status === 'ok' && pool.results.length > 0
+        const checkable = interpretation.status === 'ok' && retrieved.results.length > 0
+        const pool = checkable ? { ...retrieved, results: diversePool(retrieved.results, JUDGE_POOL) } : retrieved
         const candidates = checkable ? await judgeCandidates(pool.results) : []
         const judge = checkable
             ? await judgeSearchCandidates(privacy.text, aiInterpretation?.intent_summary || pool.understanding_summary, candidates, { cache: searchJudgeCache })
