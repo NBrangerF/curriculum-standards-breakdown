@@ -208,6 +208,7 @@ function HomePage() {
                             <li><Link to="/lesson-plan"><b>AI 备课</b><span>选教材里的一课，起草有课标依据的教案</span></Link></li>
                             <li><Link to="/textbooks"><b>教材馆</b><span>按教材目录找对应的课标和同步课</span></Link></li>
                             <li><Link to="/concepts"><b>概念词典</b><span>大概念、大单元、任务群，课标原文怎么说</span></Link></li>
+                            <li><Link to="/interdisciplinary"><b>跨学科主题</b><span>课标给出的主题，按学科和年级找</span></Link></li>
                         </ul>
                         <p className={styles.entryLabel} id="subjects-section">从学科进入</p>
                         <ul className={styles.srail} aria-labelledby="subjects-section">

@@ -45,6 +45,7 @@ const ConceptsPage = lazy(() => import('./pages/ConceptsPage'))
 const ConceptDetailPage = lazy(() => import('./pages/ConceptDetailPage'))
 const SubjectSkeletonPage = lazy(() => import('./pages/SubjectSkeletonPage'))
 const LessonPlanPage = lazy(() => import('./pages/LessonPlanPage'))
+const InterdisciplinaryPage = lazy(() => import('./pages/InterdisciplinaryPage'))
 
 // v2 codes (MA-S1-NA-01, MA-S1-NA-01.3) open the standard; old codes move to where their record now lives.
 function StandardRoute() {
@@ -88,6 +89,7 @@ function App() {
                     <Route path="/alignment-workbench" element={route('alignmentWorkbench', lazyPage(<AlignmentWorkbenchPage />, '正在打开对齐工作台'))} />
                     <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />
                     <Route path="/lesson-plan" element={route('lessonPlan', lazyPage(<LessonPlanPage />, '正在打开 AI 备课'))} />
+                    <Route path="/interdisciplinary" element={route('interdisciplinary', lazyPage(<InterdisciplinaryPage />, '正在打开跨学科主题库'))} />
                     <Route path="/concepts" element={route('concepts', lazyPage(<ConceptsPage />, '正在打开概念词典'))} />
                     <Route path="/concepts/subjects/:slug" element={route('subjectSkeleton', lazyPage(<SubjectSkeletonPage />, '正在整理学科骨架'))} />
                     <Route path="/concepts/:termId" element={route('concept', lazyPage(<ConceptDetailPage />, '正在打开概念'))} />

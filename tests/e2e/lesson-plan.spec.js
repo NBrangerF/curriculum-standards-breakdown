@@ -214,3 +214,20 @@ test('核验单元测试卷: a pasted test becomes a 多维细目表 with the �
     expect(sent.indicator_codes).toEqual(['MA-S3-NA-01.3'])
     expect(sent.lesson).toMatchObject({ title: '分数的意义和性质', subject_slug: 'math' })
 })
+
+test('跨学科主题库: a subject and grade show its own themes and other subjects\' themes that draw on it', async ({ page }) => {
+    await page.goto('/interdisciplinary?subject=chinese&grade=8')
+    await expect(page.getByRole('heading', { name: '跨学科主题学习，课标里给了哪些主题' })).toBeVisible()
+    await expect(page.getByText('原则上，各门课程用不少于10%的课时设计跨学科主题学习。')).toBeVisible()
+    // 语文's own 跨学科学习 standard for 7–9 年级, and 历史 themes that name 语文
+    await expect(page.getByRole('heading', { name: '语文课标里的跨学科学习' })).toBeVisible()
+    await expect(page.getByRole('link', { name: '跨学科学习' })).toHaveAttribute('href', '/standards/CN-S4-TG-06')
+    await expect(page.getByRole('heading', { name: '其他学科的主题里，要用到语文的' })).toBeVisible()
+    const hero = page.getByRole('listitem').filter({ has: page.getByRole('heading', { name: '中华英雄谱' }) })
+    await expect(hero.getByText('历史课标 · 修订版第 44 页')).toBeVisible()
+    await expect(hero.getByRole('link', { name: '用 AI 备课设计这个主题' })).toHaveAttribute('href', /\/lesson-plan\?mode=topic&subject=%E5%8E%86%E5%8F%B2&grade=8&topic=/)
+    // 体育与健康 themes are by 水平; 3 年级 shows 水平二 only
+    await page.goto('/interdisciplinary?subject=pe&grade=3')
+    await expect(page.getByRole('heading', { name: '争做小劳模' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: '小小特种兵' })).toHaveCount(0)
+})

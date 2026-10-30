@@ -16,7 +16,7 @@ export const normalise = text => text
     .replace(/教[一—]学[一—]评/gu, '教—学—评')
     .replace(/[“”"]/gu, '"')
 
-function pagesOf(slug) {
+export function pagesOf(slug) {
     const file = path.join(OCR_DIR, `${slug}.ocr.txt`)
     if (!existsSync(file)) return null
     const parts = readFileSync(file, 'utf8').split(/\[\[PAGE (\d+)\]\]/u)
@@ -74,7 +74,7 @@ export function checkTerms(terms = JSON.parse(readFileSync(path.join(ROOT, 'data
     return { errors, warnings }
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
     const { errors, warnings } = checkTerms()
     for (const warning of warnings) console.warn(`warning: ${warning}`)
     for (const error of errors) console.error(`error: ${error}`)

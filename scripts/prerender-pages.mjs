@@ -56,6 +56,7 @@ const learningResources = readJson('learning-resources/catalog/index.json').reso
 const platforms = readJson('learning-resources/platforms.json').platforms
 const glossary = readJson('glossary.json')
 const concepts = readJson('concepts.json')
+const interdisciplinary = readJson('interdisciplinary.json')
 const CARD_VERSION = cardVersion(readJson('data_version.json').data_version)
 const cardUrl = path => `${SITE_URL}/cards/${path}.png?v=${CARD_VERSION}`
 
@@ -339,6 +340,17 @@ ${subject.groups.map(group => section(group.name, list(group.children.map(child 
     }
 }
 
+function interdisciplinaryPage() {
+    const crumbs = [['首页', '/'], ['跨学科主题库', '/interdisciplinary']]
+    const grades = list => (list.length > 1 ? `${list[0]}–${list.at(-1)} 年级` : `${list[0]} 年级`)
+    add(STATIC_PAGE_META['/interdisciplinary'], `${crumbNav(crumbs)}
+<p class="kbp-kicker">跨学科主题库 · ${interdisciplinary.theme_count} 个主题</p>
+<h1>跨学科主题学习，课标里给了哪些主题</h1>
+<blockquote>${esc(interdisciplinary.basis.text)}</blockquote><p class="kbp-note">义务教育课程方案（2022年版2025年修订）第 ${interdisciplinary.basis.pages.join('、')} 页</p>
+${interdisciplinary.groups.map(group => section(`${group.subject}：${group.title}`, list(group.themes.map(theme => `<strong>${esc(theme.name)}</strong>（${esc(theme.level ? `${theme.group} · ${theme.level}，` : '')}${grades(theme.grades)}${theme.with.length ? `；结合${esc(theme.with.join('、'))}` : ''}）<br><span class="kbp-note">${esc(theme.quote)}（修订版第 ${theme.pages.join('、')} 页）</span>`)))).join('')}
+${section('写进内容要求的跨学科学习', list(interdisciplinary.standards.map(item => `${link(`/standards/${item.code}`, `${item.subject} · ${item.title}（${item.stage_label}）`)} <span class="kbp-code">${esc(item.code)}</span>`)))}`, { jsonLd: [breadcrumbs(crumbs)] })
+}
+
 function staticPages() {
     const terms = glossary.terms || []
     add(STATIC_PAGE_META['/glossary'], `<h1>术语表</h1>${terms.map(term => `<section><h2>${esc(term.term)}</h2><p>${esc(term.definition)}</p></section>`).join('')}`)
@@ -355,6 +367,7 @@ skillPages()
 textbookPages()
 learningResourcePages()
 conceptPages()
+interdisciplinaryPage()
 staticPages()
 
 // ---------- render ----------
