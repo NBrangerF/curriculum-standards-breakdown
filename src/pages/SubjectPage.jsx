@@ -5,7 +5,7 @@ import { useUiV2 } from '../components/RouteUiBoundary.jsx'
 import { mergeGraphStateIntoURL, parseGraphStateFromURL } from '../data/query.js'
 import { runViewTransition } from '../utils/viewTransition.js'
 import { useSky, useSkyView, useStarmap } from '../features/starmap/SkyProvider.jsx'
-import { BAND_LABEL, CN_DIGIT, F, SKILL_SHORT, STAGE_RANGE, stageName } from '../features/starmap/starmapData.js'
+import { BAND_LABEL, C, CN_DIGIT, F, SKILL_SHORT, starHref, stageName } from '../features/starmap/starmapData.js'
 import Ignite from '../features/starmap/Ignite.jsx'
 import { useCountUp } from '../features/starmap/motionHooks.js'
 import { compareHref } from '../features/starmap/compareLinks.js'
@@ -45,67 +45,29 @@ function RailButton({ color, name, count, onClick, onEnter, onLeave, disabled, t
     )
 }
 
-/** Stage × domain table: four stages side by side, one row per domain, hover a standard to see its chain. */
-function StageTable({ K, s, jr, setJr, focus, setFocus, ts, query, tableRef, onMeasure }) {
-    const { revealTo } = useSky()
+/** Stage × domain table: the subject's stages side by side, one row per domain, one entry per standard (a constellation of 要点). */
+function StageTable({ K, s, focus, setFocus, ts, query, tableRef, onMeasure }) {
+    const { revealTo, engineRef } = useSky()
     const sub = K.subjects[s]
-    const list = K.bySubject[s]
-    const S = K.S
-    const items = useRef(new Map())
-    const pathRef = useRef(null)
+    const cons = K.consBySubject[s]
+    const bands = sub.stages.map(st => st.band)
     const [active, setActive] = useState(-1)
-    const inCol = useCallback((i, b) => (b < 3 ? S[i][F.BAND] === b : S[i][F.BAND] === jr), [S, jr])
-    const shown = useMemo(() => new Set(list.filter(i => S[i][F.BAND] < 3 || S[i][F.BAND] === jr)), [list, S, jr])
 
     const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean)
     const filtering = ts >= 0 || terms.length > 0
-    const lit = useCallback(i => (ts < 0 || S[i][F.SKILL] === ts) && terms.every(t => K.haystack[i].includes(t)), [S, ts, terms, K])
+    const lit = useCallback(c => K.starsOf(c).some(i => (ts < 0 || K.S[i][F.SKILL] === ts) && terms.every(t => K.haystack[i].includes(t))), [K, ts, terms])
 
-    const relation = useMemo(() => {
-        if (active < 0) return { rel: new Set(), edges: [] }
-        const rel = new Set()
-        const edges = []
-        const walk = key => { const q = [active], seen = new Set([active]); while (q.length) { const x = q.shift(); for (const y of S[x][key]) { if (seen.has(y) || !shown.has(y)) continue; seen.add(y); rel.add(y); edges.push(key === F.NEXT ? [x, y] : [y, x]); q.push(y) } } }
-        walk(F.PREV); walk(F.NEXT)
-        return { rel, edges }
-    }, [active, S, shown])
-
-    const drawLines = useCallback(animate => {
-        const path = pathRef.current
-        const grid = tableRef.current
-        if (!path || !grid) return
-        if (!relation.edges.length) { path.setAttribute('d', ''); return }
-        const gr = grid.getBoundingClientRect()
-        const pt = i => {
-            const b = items.current.get(i)
-            if (!b) return null
-            const r = b.getBoundingClientRect(), d = b.firstChild.getBoundingClientRect()
-            return { l: d.left - gr.left - 4, r: r.right - gr.left - 6, y: d.top + d.height / 2 - gr.top }
-        }
-        let d = ''
-        for (const [x, y] of relation.edges) {
-            const A = pt(x), B = pt(y)
-            if (!A || !B || Math.abs(A.l - B.l) < 4) continue
-            const [p, q] = A.l < B.l ? [A, B] : [B, A]
-            const x1 = p.r, x2 = q.l, dx = Math.max(20, (x2 - x1) * 0.5)
-            d += `M${x1.toFixed(1)} ${p.y.toFixed(1)}C${(x1 + dx).toFixed(1)} ${p.y.toFixed(1)} ${(x2 - dx).toFixed(1)} ${q.y.toFixed(1)} ${x2.toFixed(1)} ${q.y.toFixed(1)}`
-        }
-        path.setAttribute('d', d)
-        path.classList.remove(styles.draw)
-        if (animate) void path.getBoundingClientRect()
-        path.classList.add(styles.draw)
-    }, [relation, tableRef])
-    useLayoutEffect(() => { drawLines(true) }, [drawLines])
-    useEffect(() => { setActive(-1) }, [s, jr])
+    // hovering a standard lights its constellation in the sky
+    useEffect(() => {
+        engineRef.current?.setChartHighlight(active >= 0 ? { list: K.starsOf(active) } : {})
+    }, [active, K, engineRef])
+    useEffect(() => () => engineRef.current?.setChartHighlight({}), [engineRef])
+    useEffect(() => { setActive(-1) }, [s])
     useLayoutEffect(() => { onMeasure() })
 
-    const status = active >= 0
-        ? (relation.rel.size ? [...relation.rel, active].sort((x, y) => S[x][F.BAND] - S[y][F.BAND] || x - y).map(x => S[x][F.CODE]).join(' → ') : `${S[active][F.CODE]} · 无前后条目`)
-        : null
-
-    const cols = [0, 1, 2, 3].map(b => ({ b, n: list.filter(i => inCol(i, b)).length }))
+    const status = active >= 0 ? `${K.cons[active][C.CODE]} · ${K.cons[active][C.NAME]} · ${K.cons[active][C.COUNT]} 条要点` : null
+    const cols = bands.map(b => ({ b, stage: sub.stages.find(st => st.band === b), n: cons.filter(c => K.cons[c][C.BAND] === b).length }))
     const widths = cols.map(({ b }) => (focus < 0 ? '1fr' : focus === b ? '2.4fr' : '0.75fr'))
-    items.current = new Map()
 
     return (
         <>
@@ -114,65 +76,52 @@ function StageTable({ K, s, jr, setJr, focus, setFocus, ts, query, tableRef, onM
                 <div
                     ref={tableRef}
                     className={`${styles.mx} ${focus >= 0 ? styles.focusing : ''} ${active >= 0 ? styles.chain : ''} ${filtering ? styles.filtering : ''}`}
-                    style={{ '--c0': widths[0], '--c1': widths[1], '--c2': widths[2], '--c3': widths[3] }}
+                    style={{ '--mx-cols': widths.join(' '), '--mx-n': cols.length }}
                     onPointerLeave={() => setActive(-1)}
                     onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setActive(-1) }}
-                    onTransitionEnd={event => { if (event.target === event.currentTarget) { onMeasure(); drawLines(false) } }}
+                    onTransitionEnd={event => { if (event.target === event.currentTarget) onMeasure() }}
                 >
-                    <svg className={styles.lines} aria-hidden="true"><path ref={pathRef} pathLength="1" /></svg>
-                    {cols.map(({ b, n }) => (
-                        <div key={`h${b}`} className={`${styles.hd} ${focus === b ? styles.wide : ''}`} data-b={b}>
+                    {cols.map(({ b, stage, n }) => (
+                        <div key={`h${b}`} id={stage.code} className={`${styles.hd} ${focus === b ? styles.wide : ''}`} data-b={b}>
                             <button type="button" aria-pressed={focus === b} onClick={() => setFocus(focus === b ? -1 : b)}>
-                                <small>{stageName(s, b)}</small>
-                                <b>{STAGE_RANGE[b]}</b>
-                                {b === 3 ? <span className={styles.gap}>与 5–6 年级未连线</span> : null}
+                                <small>{stageName(K, s, b)}</small>
+                                <b>{stage.range}</b>
                             </button>
-                            {b === 3 ? (
-                                <div className={styles.tabs}>
-                                    {[3, 4, 5].map(g => <button key={g} type="button" aria-pressed={g === jr} aria-label={BAND_LABEL[g]} onClick={() => setJr(g)}>{'七八九'[g - 3]}</button>)}
-                                </div>
-                            ) : null}
                             <span className={styles.n}>{n}</span>
                         </div>
                     ))}
                     {sub.domains.map((name, d) => {
-                        const dl = list.filter(i => S[i][F.DOMAIN] === d)
+                        const dl = cons.filter(c => K.cons[c][C.DOMAIN] === d)
                         return [
                             <div key={`d${d}`} id={`dom-${d}`} className={styles.dom}>
                                 <div><b>{name}</b><span>{dl.length}</span></div>
                             </div>,
-                            ...[0, 1, 2, 3].map(b => {
-                                const cell = dl.filter(i => inCol(i, b))
-                                let lastSub = null
+                            ...bands.map(b => {
+                                const cell = dl.filter(c => K.cons[c][C.BAND] === b)
                                 return (
-                                    <div key={`c${d}-${b}`} className={`${styles.cell} ${b === 3 ? styles.b3 : ''} ${focus === b ? styles.wide : ''}`}>
+                                    <div key={`c${d}-${b}`} className={`${styles.cell} ${focus === b ? styles.wide : ''}`}>
                                         {!cell.length ? <p className={styles.nil}>·</p> : (
                                             <ol>
-                                                {cell.flatMap(i => {
-                                                    const out = []
-                                                    const sd = sub.subs[S[i][F.SUB]]
-                                                    if (sd && sd !== name && sd !== lastSub) out.push(<li key={`g-${i}`} className={styles.grp}>{sd}</li>)
-                                                    lastSub = sd
-                                                    const code = S[i][F.CODE]
-                                                    const to = `/standards/${encodeURIComponent(code)}`
-                                                    out.push(
-                                                        <li key={code}>
+                                                {cell.map(c => {
+                                                    const row = K.cons[c]
+                                                    const to = `/standards/${encodeURIComponent(row[C.CODE])}`
+                                                    return (
+                                                        <li key={row[C.CODE]}>
                                                             <Link
-                                                                ref={el => { if (el) items.current.set(i, el) }}
                                                                 to={to}
-                                                                data-star={i}
-                                                                className={`${styles.mi} ${i === active ? styles.on : ''} ${relation.rel.has(i) ? styles.rel : ''} ${filtering && lit(i) ? styles.lit : ''}`}
-                                                                onPointerEnter={() => setActive(i)}
-                                                                onFocus={() => setActive(i)}
+                                                                data-star={row[C.FIRST]}
+                                                                className={`${styles.mi} ${c === active ? styles.on : ''} ${filtering && lit(c) ? styles.lit : ''}`}
+                                                                onPointerEnter={() => setActive(c)}
+                                                                onFocus={() => setActive(c)}
                                                                 onClick={event => { event.preventDefault(); const r = event.currentTarget.getBoundingClientRect(); revealTo(to, r.left + 12, r.top + 16) }}
                                                             >
                                                                 <i className={styles.dot} data-dot aria-hidden="true" />
-                                                                <code>{code}</code>
-                                                                <span>{S[i][F.TEXT]}</span>
+                                                                <code>{row[C.CODE]} · {row[C.COUNT]} 条要点</code>
+                                                                <strong>{row[C.NAME]}</strong>
+                                                                <span>{row[C.TEXT]}</span>
                                                             </Link>
                                                         </li>
                                                     )
-                                                    return out
                                                 })}
                                             </ol>
                                         )}
@@ -196,7 +145,6 @@ function SubjectPage() {
     const heroRef = useRef(null)
     const copyRef = useRef(null)
     const tableRef = useRef(null)
-    const [jr, setJr] = useState(3)
     const [focus, setFocus] = useState(-1)
     const [ts, setTs] = useState(-1)
     const [query, setQuery] = useState('')
@@ -207,16 +155,16 @@ function SubjectPage() {
     const graphView = uiV2Enabled && graphState.view === 'graph'
     const s = K ? K.slugIndex.get(slug) : undefined
     const subjectInfo = s == null ? null : K.subjects[s]
-    usePageMeta(subjectInfo ? subjectMeta({ subject: subjectInfo.name, subject_slug: slug }, { standardCount: subjectInfo.count }) : null)
+    usePageMeta(subjectInfo ? subjectMeta({ subject: subjectInfo.name, subject_slug: slug }, { standardCount: subjectInfo.standards, indicatorCount: subjectInfo.count }) : null)
 
-    useEffect(() => { setJr(3); setFocus(-1); setTs(-1); setQuery('') }, [slug])
+    useEffect(() => { setFocus(-1); setTs(-1); setQuery('') }, [slug])
 
     const skyConfig = useMemo(() => (s == null ? null : {
         subject: s,
         get heroEl() { return heroRef.current },
         get copyEl() { return copyRef.current },
         get tableEl() { return tableRef.current },
-        onStarClick: (i, x, y) => revealTo(`/standards/${encodeURIComponent(K.S[i][F.CODE])}`, x, y),
+        onStarClick: (i, x, y) => revealTo(starHref(K.S[i][F.CODE]), x, y),
         onSector: d => jumpDomain(d)
     }), [s, K, revealTo])
     useSkyView('subject', skyConfig, `${slug}:${graphView ? 'graph' : 'table'}`)
@@ -271,7 +219,7 @@ function SubjectPage() {
         setFocus(b)
         document.getElementById('s-table')?.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth', block: 'start' })
         if (window.innerWidth < 900 && tableRef.current) {
-            const hd = tableRef.current.querySelectorAll('[data-b]')[b]
+            const hd = tableRef.current.querySelector(`[data-b="${b}"]`)
             if (hd) tableRef.current.parentElement.scrollTo({ left: hd.offsetLeft, behavior: reduceMotion() ? 'auto' : 'smooth' })
         }
     }
@@ -289,8 +237,9 @@ function SubjectPage() {
 
     const sub = K.subjects[s]
     const list = K.bySubject[s]
-    const firstBand = Math.min(...list.map(i => K.S[i][F.BAND]))
-    const years = 9 - firstBand * 2
+    const firstGrade = Number(sub.stages[0]?.range.match(/\d/u)?.[0] || 1)
+    const years = 10 - firstGrade
+    const stageCount = sub.stages.length
     const next = (s + 1) % K.subjects.length
     const hl = (opts = {}) => () => engineRef.current?.setChartHighlight(opts)
     const terms = query.trim()
@@ -305,8 +254,8 @@ function SubjectPage() {
                         <Ignite key={slug} as="h1" id="s-title" className={styles.title} text={sub.name} step={90} delay={380} style={{ '--len': [...sub.name].length, '--glow': sub.color }} />
                         <p className={styles.pig}><i aria-hidden="true" /><span>{sub.colorName}</span></p>
                         <div className={styles.stats}>
-                            <Stat value={list.length} label="条" />
-                            <Stat value={sub.domains.length} label="个领域" />
+                            <Stat value={sub.standards} label="条标准" />
+                            <Stat value={list.length} label="条要点" />
                             <Stat value={years} label="个年级" />
                         </div>
                         <p className={styles.entryLabel} id="s-dom-label">从领域进入</p>
@@ -318,9 +267,10 @@ function SubjectPage() {
                         </ul>
                         <p className={styles.entryLabel} id="s-band-label">从学段进入</p>
                         <ul className={`${styles.srail} ${styles.four}`} aria-labelledby="s-band-label">
-                            {STAGE_RANGE.map((label, b) => {
-                                const bl = list.filter(i => Math.min(K.S[i][F.BAND], 3) === b)
-                                return <RailButton key={label} color={sub.color} name={label} count={bl.length} disabled={!bl.length} onClick={() => focusStage(b)} onEnter={hl({ ring: b, list: bl })} onLeave={hl({})} />
+                            {sub.stages.map(stage => {
+                                const b = stage.band
+                                const bl = list.filter(i => K.S[i][F.BAND] === b)
+                                return <RailButton key={stage.code} color={sub.color} name={stage.range} title={stage.label} count={bl.length} disabled={!bl.length} onClick={() => focusStage(b)} onEnter={hl({ ring: b, list: bl })} onLeave={hl({})} />
                             })}
                         </ul>
                         <p className={styles.cue}><i aria-hidden="true" />向下 · 展开</p>
@@ -332,7 +282,7 @@ function SubjectPage() {
                 <div className={styles.wrap}>
                     <div className={styles.head}>
                         <div>
-                            <p className={styles.kicker}>{sub.name} · 一科 × 四学段</p>
+                            <p className={styles.kicker}>{sub.name} · 一科 × {CN_DIGIT[stageCount]}学段 · 一条标准 = 一个星座</p>
                             <Ignite key={`y${years}`} as="h2" mode="scrub" id="s-table-title" className={styles.h2} text={`${CN_DIGIT[years]}年`} />
                         </div>
                         <div className={styles.tools}>
@@ -379,10 +329,10 @@ function SubjectPage() {
                                 </div>
                             </div>
                             <p className={styles.summary}>
-                                {ts >= 0 || terms ? `${ts >= 0 ? `${K.skills[ts][0]} ${K.skills[ts][1]} · ` : ''}${terms ? `「${terms}」 · ` : ''}${litCount} 条亮起` : `${sub.name} · ${list.length} 条`}
+                                {ts >= 0 || terms ? `${ts >= 0 ? `${K.skills[ts][0]} ${K.skills[ts][1]} · ` : ''}${terms ? `「${terms}」 · ` : ''}${litCount} 条要点亮起` : `${sub.name} · ${sub.standards} 条标准 · ${list.length} 条要点（课标原文）`}
                                 {ts >= 0 ? <Link className={styles.more} to={compareHref({ mode: 'C', skill: K.skills[ts][0] })}>{K.skills[ts][0]} · 跨学科看 →</Link> : null}
                             </p>
-                            <StageTable K={K} s={s} jr={jr} setJr={setJr} focus={focus} setFocus={setFocus} ts={ts} query={query} tableRef={tableRef} onMeasure={measure} />
+                            <StageTable K={K} s={s} focus={focus} setFocus={setFocus} ts={ts} query={query} tableRef={tableRef} onMeasure={measure} />
                         </>
                     )}
                 </div>
@@ -399,23 +349,24 @@ function SubjectPage() {
                     <ul className={styles.peerList}>
                         {K.subjects.map((other, k) => {
                             const bl = K.bySubject[k].filter(i => K.S[i][F.BAND] === peerBand)
+                            const cl = K.consBySubject[k].filter(c => K.cons[c][C.BAND] === peerBand)
                             const body = (
                                 <>
-                                    <span className={styles.pd} aria-hidden="true">{bl.map((i, j) => <i key={i} style={{ '--k': j }} />)}</span>
-                                    <b>{bl.length}</b>
+                                    <span className={styles.pd} aria-hidden="true">{cl.map((c, j) => <i key={c} style={{ '--k': j }} />)}</span>
+                                    <b>{cl.length}</b>
                                     <span>{other.name}</span>
                                 </>
                             )
                             return (
                                 <li key={other.slug}>
                                     {k === s
-                                        ? <span className={styles.peer} style={{ '--c': other.color }} aria-current="true" aria-label={`${other.name} · ${BAND_LABEL[peerBand]} · ${bl.length} 条（本科）`}>{body}</span>
+                                        ? <span className={styles.peer} style={{ '--c': other.color }} aria-current="true" aria-label={`${other.name} · ${BAND_LABEL[peerBand]} · ${cl.length} 条标准（本科）`}>{body}</span>
                                         : (
                                             <Link
                                                 className={styles.peer}
                                                 style={{ '--c': other.color }}
                                                 to={compareHref({ mode: 'B', band: peerBand, subjects: [sub.slug, other.slug] })}
-                                                aria-label={`${other.name} · ${BAND_LABEL[peerBand]} · ${bl.length} 条，与${sub.name}并排看`}
+                                                aria-label={`${other.name} · ${BAND_LABEL[peerBand]} · ${cl.length} 条标准，与${sub.name}并排看`}
                                                 onPointerEnter={hl({ list: bl })}
                                                 onPointerLeave={hl({})}
                                             >{body}</Link>

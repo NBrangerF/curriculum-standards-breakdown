@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useParams } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import Header from './components/Header'
@@ -8,7 +8,9 @@ import HomePage from './pages/HomePage'
 import SkillsOverviewPage from './pages/SkillsOverviewPage'
 import SkillDetailPage from './pages/SkillDetailPage'
 import SearchResultsPage from './pages/SearchResultsPage'
-import StandardDetailPage from './pages/StandardDetailPage'
+import StandardV2Page from './pages/StandardV2Page'
+import LegacyStandardRedirect from './pages/LegacyStandardRedirect'
+import { isV2Code } from './data/v2Data.js'
 import NotFoundPage from './pages/NotFoundPage'
 import RouteUiBoundary from './components/RouteUiBoundary'
 import { PageLoading } from './components/StateComponents'
@@ -37,6 +39,12 @@ const TextbookResourceReaderPage = lazy(() => import('./pages/TextbookResourceRe
 const TextbookUnitPage = lazy(() => import('./pages/TextbookUnitPage'))
 const LearningResourceLibraryPage = lazy(() => import('./pages/LearningResourceLibraryPage'))
 const LearningResourceDetailPage = lazy(() => import('./pages/LearningResourceDetailPage'))
+
+// v2 codes (MA-S1-NA-01, MA-S1-NA-01.3) open the standard; old codes move to where their record now lives.
+function StandardRoute() {
+    const { code } = useParams()
+    return isV2Code(code) ? <StandardV2Page /> : <LegacyStandardRedirect code={code} />
+}
 
 function lazyPage(element, message) {
     return <Suspense fallback={<PageLoading message={message} />}>{element}</Suspense>
@@ -71,7 +79,7 @@ function App() {
                     <Route path="/smart-search" element={route('smartSearch', lazyPage(<SmartSearchPage />, '正在打开智能检索'))} />
                     <Route path="/alignment-workbench" element={route('alignmentWorkbench', lazyPage(<AlignmentWorkbenchPage />, '正在打开对齐工作台'))} />
                     <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />
-                    <Route path="/standards/:code" element={route('standard', <StandardDetailPage />)} />
+                    <Route path="/standards/:code" element={route('standard', <StandardRoute />)} />
                     <Route
                         path="/collections"
                         element={route('collections', lazyPage(<CollectionsPage />, '正在打开清单'))}

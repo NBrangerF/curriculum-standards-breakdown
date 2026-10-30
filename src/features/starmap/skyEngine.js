@@ -1,7 +1,7 @@
 // One night sky behind every page. Pages claim a view ("home", "subject"); everything else gets a still,
 // dim sky. Switching views blends each star from where it was to its new place, so a subject's stars fly
 // out of the home glyph into the subject chart.
-import { F, SUBJECT_SHORT, SKILL_SHORT } from './starmapData.js'
+import { F, C, SUBJECT_SHORT, SKILL_SHORT, BAND_LABEL } from './starmapData.js'
 
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v)
 const smooth = (a, b, v) => { const t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t) }
@@ -116,51 +116,47 @@ export function createSkyEngine(canvas, tipEl) {
     }
 
     function computeOneSubj() {
-        const r = region(), kA = mobile ? 3 : 5, kB = mobile ? 3 : 4
-        const counts = new Array(6).fill(0)
+        const r = region(), counts = new Array(4).fill(0)
         for (const i of BY_SUBJ[FOCUS_SUBJ]) counts[S[i][F.BAND]]++
-        const rowsA = Math.max(...counts.slice(0, 3).map(c => Math.ceil(c / kA)))
-        const rowsB = Math.max(...counts.slice(3).map(c => Math.ceil(c / kB)))
-        const gapA = mobile ? 2.2 : 3.2, gapB = 1.2
-        const cols = kA * 3 + kB * 3 + gapA * 3 + gapB * 2
-        const sp = Math.min(r.w / cols, (r.h * 0.58) / Math.max(rowsA, rowsB, 1), mobile ? 16 : 28)
+        // the 7–9 column holds the most 要点, so it gets more columns of stars
+        const ks = counts.map(c => Math.max(mobile ? 3 : 5, Math.ceil(Math.sqrt(c * (mobile ? 0.5 : 0.8)))))
+        const rows = Math.max(...counts.map((c, b) => Math.ceil(c / ks[b])), 1)
+        const gap = mobile ? 2.2 : 3.2
+        const cols = ks.reduce((x, y) => x + y, 0) + gap * 3
+        const sp = Math.min(r.w / cols, (r.h * 0.58) / rows, mobile ? 16 : 28)
         let x0 = r.x + (r.w - cols * sp) / 2
         const starts = [], centers = []
-        for (let b = 0; b < 6; b++) { const k = b < 3 ? kA : kB; starts.push(x0); centers.push(x0 + ((k - 1) * sp) / 2); x0 += k * sp + (b <= 2 ? gapA : gapB) * sp }
+        for (let b = 0; b < 4; b++) { starts.push(x0); centers.push(x0 + ((ks[b] - 1) * sp) / 2); x0 += (ks[b] + gap) * sp }
         const bottom = r.y + r.h * 0.8
-        const seen = new Array(6).fill(0)
+        const seen = new Array(4).fill(0)
         for (let i = 0; i < N; i++) {
             if (S[i][F.SUBJ] !== FOCUS_SUBJ) { T.oneSubj[i * 2] = T.sky[i * 2]; T.oneSubj[i * 2 + 1] = T.sky[i * 2 + 1]; F1[i] = 0; continue }
-            const b = S[i][F.BAND], k = b < 3 ? kA : kB, j = seen[b]++
+            const b = S[i][F.BAND], k = ks[b], j = seen[b]++
             F1[i] = 1
             T.oneSubj[i * 2] = starts[b] + (j % k) * sp
             T.oneSubj[i * 2 + 1] = bottom - Math.floor(j / k) * sp
         }
-        const jx = (centers[3] + centers[5]) / 2
-        LBL.oneSubj = [
-            { x: centers[0], y: bottom + 38, text: '1–2 年级' }, { x: centers[1], y: bottom + 38, text: '3–4 年级' }, { x: centers[2], y: bottom + 38, text: '5–6 年级' },
-            { x: jx, y: bottom + 38, text: '7–9 年级' },
-            { x: centers[3], y: bottom + 18, text: '七', small: true }, { x: centers[4], y: bottom + 18, text: '八', small: true }, { x: centers[5], y: bottom + 18, text: '九', small: true }
-        ]
+        LBL.oneSubj = BAND_LABEL.map((text, b) => ({ x: centers[b], y: bottom + 38, text }))
     }
 
     function computeOneBand() {
         const r = region(), k = mobile ? 2 : 3
-        const counts = new Array(9).fill(0)
+        const counts = new Array(K.subjects.length).fill(0)
         for (let i = 0; i < N; i++) if (S[i][F.BAND] === FOCUS_BAND) counts[S[i][F.SUBJ]]++
+        const shown = counts.map((c, s) => (c ? s : -1)).filter(s => s >= 0), colOf = s => shown.indexOf(s)
         const maxRows = Math.ceil(Math.max(...counts) / k)
-        const colW = r.w / 9
+        const colW = r.w / Math.max(1, shown.length)
         const sp = Math.min((colW * 0.72) / k, (r.h * 0.62) / Math.max(maxRows, 1), mobile ? 14 : 24)
         const bottom = r.y + r.h * 0.82
-        const seen = new Array(9).fill(0)
+        const seen = new Array(K.subjects.length).fill(0)
         for (let i = 0; i < N; i++) {
             if (S[i][F.BAND] !== FOCUS_BAND) { T.oneBand[i * 2] = T.sky[i * 2]; T.oneBand[i * 2 + 1] = T.sky[i * 2 + 1]; F2[i] = 0; continue }
-            const s = S[i][F.SUBJ], j = seen[s]++, cx = r.x + colW * (s + 0.5)
+            const s = S[i][F.SUBJ], j = seen[s]++, cx = r.x + colW * (colOf(s) + 0.5)
             F2[i] = 1
             T.oneBand[i * 2] = cx + ((j % k) - (k - 1) / 2) * sp
             T.oneBand[i * 2 + 1] = bottom - Math.floor(j / k) * sp
         }
-        LBL.oneBand = K.subjects.map((s, si) => ({ x: r.x + colW * (si + 0.5), y: bottom + 26, text: mobile ? SUBJECT_SHORT[si] : s.name, top: bottom - Math.ceil(counts[si] / k) * sp - 16, num: String(counts[si]), color: s.color }))
+        LBL.oneBand = shown.map(si => ({ x: r.x + colW * (colOf(si) + 0.5), y: bottom + 26, text: mobile || shown.length > 9 ? SUBJECT_SHORT[si] : K.subjects[si].name, top: bottom - Math.ceil(counts[si] / k) * sp - 16, num: String(counts[si]), color: K.subjects[si].color }))
     }
 
     function computeSkills() {
@@ -184,23 +180,22 @@ export function createSkyEngine(canvas, tipEl) {
         for (let i = 0; i < N; i++) {
             const s = S[i][F.SUBJ], t = subjRank[i]
             const rad = 0.08 + 0.92 * Math.pow(t, 0.8) + (RB[i] - 0.5) * 0.07
-            const a = (s * Math.PI * 2) / 9 + t * 2.7 + (RA[i] - 0.5) * 0.42 + spin * (1.3 - rad * 0.6)
+            const a = (s * Math.PI * 2) / K.subjects.length + t * 2.7 + (RA[i] - 0.5) * 0.42 + spin * (1.3 - rad * 0.6)
             gal[i * 2] = cx + Math.cos(a) * rad * R
             gal[i * 2 + 1] = cy + Math.sin(a) * rad * R * 0.5 + (RC[i] - 0.5) * 0.08 * R
             galDepth[i] = Math.sin(a)
         }
     }
 
-    /* ---------- layouts: subject chart (sectors = 领域, rings = 学段, outer ring split 七/八/九) ---------- */
+    /* ---------- layouts: subject chart (sectors = 领域, rings = 学段, a standard's 要点 linked as a constellation) ---------- */
     function computePlan(s) {
         const E = CHART_E, list = BY_SUBJ[s], D = K.subjects[s].domains.length
         const spN = (W < 900 ? 9 : 11.5) / chart.R
         const cells = Array.from({ length: D }, () => [[], [], [], []])
-        const gs = new Set()
-        for (const i of list) { const b = S[i][F.BAND], d = S[i][F.DOMAIN]; if (b < 3) cells[d][b].push(i); else if (!gs.has(K.group[i])) { gs.add(K.group[i]); cells[d][3].push(K.group[i]) } }
+        for (const i of list) cells[S[i][F.DOMAIN]][S[i][F.BAND]].push(i)
         const mid = b => (E[b] + E[b + 1]) / 2
         const maxRows = b => Math.max(1, Math.floor((E[b + 1] - E[b]) / spN))
-        const need = cells.map(c => Math.max(...c.map((x, b) => (x.length * spN) / mid(b) / (b < 3 ? maxRows(b) : 1))))
+        const need = cells.map(c => Math.max(...c.map((x, b) => (x.length * spN) / mid(b) / maxRows(b))))
         const seam = 0.34, gap = 0.045, avail = Math.PI * 2 - seam - gap * D
         const tot = need.reduce((x, y) => x + y, 0) || 1
         let spans = need.map(x => Math.max(avail * 0.06, (avail * x) / tot))
@@ -214,7 +209,7 @@ export function createSkyEngine(canvas, tipEl) {
             a = a1 + gap
             chart.sect.push({ a0, a1, name: K.subjects[s].domains[d], count: list.filter(i => S[i][F.DOMAIN] === d).length })
             const pad = Math.min(0.02, (a1 - a0) * 0.08), inner = a1 - a0 - 2 * pad
-            for (let b = 0; b < 3; b++) {
+            for (let b = 0; b < 4; b++) {
                 const raw = cells[d][b], n = raw.length
                 if (!n) continue
                 // order each ring by where its predecessors sit so progression links run outward
@@ -230,8 +225,6 @@ export function createSkyEngine(canvas, tipEl) {
                     theta.set(i, th)
                 })
             }
-            const gl = cells[d][3], m = gl.length
-            gl.forEach((g, j) => { const th = a0 + pad + ((j + 0.5) / m) * inner; K.groups[g].forEach((i, k) => { if (i >= 0) { PT[i] = th; PR[i] = E[3] + ((k + 0.5) / 3) * (E[4] - E[3]) } }) })
         }
         chart.links = []
         for (const i of list) for (const j of S[i][F.NEXT]) if (S[j][F.SUBJ] === s) chart.links.push(i, j)
@@ -271,8 +264,8 @@ export function createSkyEngine(canvas, tipEl) {
         BUL.fill(-1)
         for (const i of BY_SUBJ[subj.subject]) {
             let k = slotOf.get(i)
-            // the grades not on show merge into the one that is
-            if (k == null && S[i][F.BAND] >= 3) { for (const mate of K.groups[K.group[i]]) { if (mate >= 0 && slotOf.has(mate)) { k = slotOf.get(mate); break } } }
+            // the table lists standards: every 要点 of a constellation flies to its standard's row
+            if (k == null) k = slotOf.get(K.cons[S[i][F.CON]]?.[C.FIRST])
             if (k != null) { BUL[i] = k; HD[i] = clamp(OFF[k * 2 + 1] / span, 0, 1) * 0.35 }
         }
     }
@@ -307,7 +300,7 @@ export function createSkyEngine(canvas, tipEl) {
         const BAD_TITLE = /^(能)?(在|根据|结合|通过|熟悉|围绕|按照|针对|基于|面对|对于|借助)|(中|下|时|后|上|里|需要|过程中|情境)$/
         POOL = K.subjects.map(() => [])
         for (let i = 0; i < N; i++) { const t = S[i][F.TITLE]; if (t.length >= 7 && t.length <= 20 && !BAD_TITLE.test(t) && !/[A-Za-z]{3}/.test(t)) POOL[S[i][F.SUBJ]].push(i) }
-        nowIdx = K.codeIndex.get('MA-D2-AL-005') ?? 0
+        nowIdx = K.codeIndex.get('MA-S2-NA-01.2') ?? 0
         layout()
         // start from the still sky so the first claimed view can fly in from it
         fin.set(T.sky)
@@ -422,9 +415,10 @@ export function createSkyEngine(canvas, tipEl) {
             tipEl.textContent = ''
             const head = document.createElement('div')
             head.dataset.part = 'meta'
-            head.append(document.createElement('i'), `${s[F.CODE]} · ${['1–2 年级', '3–4 年级', '5–6 年级', '七年级', '八年级', '九年级'][s[F.BAND]]}`)
+            const stage = K.subjects[s[F.SUBJ]].stages?.find(st => st.band === s[F.BAND])
+            head.append(document.createElement('i'), `${s[F.CODE]} · ${stage?.range || BAND_LABEL[s[F.BAND]]}`)
             const body = document.createElement('div')
-            body.textContent = s[F.TITLE]
+            body.textContent = `${K.cons[s[F.CON]]?.[C.NAME] || ''}｜${s[F.TITLE]}`
             tipEl.append(head, body)
         }
         tipEl.hidden = false
@@ -467,8 +461,8 @@ export function createSkyEngine(canvas, tipEl) {
         home?.onNow?.(i)
     }
     function nextNow() {
-        for (let k = 0; k < 9; k++) {
-            nowSubj = (nowSubj + 1) % 9
+        for (let k = 0; k < K.subjects.length; k++) {
+            nowSubj = (nowSubj + 1) % K.subjects.length
             const p = POOL[nowSubj]
             if (p.length) { setNow(p[Math.floor(Math.random() * p.length)]); return }
         }
@@ -590,13 +584,9 @@ export function createSkyEngine(canvas, tipEl) {
         if (hs >= 0 && g.sect[hs]) { const sc = g.sect[hs]; ctx.beginPath(); ctx.arc(cx, cy, R * 1.03, sc.a0 + g.rot, sc.a1 + g.rot); ctx.arc(cx, cy, R * E[0], sc.a1 + g.rot, sc.a0 + g.rot, true); ctx.closePath(); ctx.fillStyle = hexA(col, 0.09 * fade); ctx.fill() }
         if (g.hlRing >= 0) { const b = g.hlRing; ctx.beginPath(); ctx.arc(cx, cy, R * E[b + 1], 0, Math.PI * 2); ctx.arc(cx, cy, R * E[b], Math.PI * 2, 0, true); ctx.fillStyle = hexA(col, 0.08 * fade); ctx.fill() }
         for (let b = 0; b <= 4; b++) {
-            ctx.setLineDash(b === 3 ? [2, 5] : [])
-            ctx.strokeStyle = b === 3 ? `rgba(233,200,135,${0.45 * fade})` : `rgba(222,228,238,${(b === 4 ? 0.24 : 0.12) * fade})`
+            ctx.strokeStyle = `rgba(222,228,238,${(b === 4 ? 0.24 : 0.12) * fade})`
             ctx.beginPath(); ctx.arc(cx, cy, R * E[b], A0, A0 + sweep); ctx.stroke()
         }
-        ctx.setLineDash([])
-        ctx.strokeStyle = `rgba(222,228,238,${0.06 * fade})`
-        for (const f of [1 / 3, 2 / 3]) { ctx.beginPath(); ctx.arc(cx, cy, R * (E[3] + f * (E[4] - E[3])), A0, A0 + sweep); ctx.stroke() }
         ctx.strokeStyle = `rgba(222,228,238,${0.3 * fade})`
         ctx.beginPath()
         for (let k = 0; k < 180; k++) {
@@ -664,9 +654,8 @@ export function createSkyEngine(canvas, tipEl) {
         ctx.globalAlpha = fade
         const ca = Math.cos(A0), sa = Math.sin(A0)
         ctx.font = `500 ${small ? 9 : 10.5}px "IBM Plex Mono", monospace`; ctx.fillStyle = '#858E9C'
-        ;['1–2', '3–4', '5–6'].forEach((t, b) => { const r = (R * (E[b] + E[b + 1])) / 2; ctx.fillText(t, g.cx + ca * r, g.cy + sa * r) })
-        ctx.font = `500 ${small ? 9 : 10.5}px "PingFang SC", sans-serif`; ctx.fillStyle = 'rgba(233,200,135,0.85)'
-        ;['七', '八', '九'].forEach((t, k) => { const r = R * (E[3] + ((k + 0.5) / 3) * (E[4] - E[3])); ctx.fillText(t, g.cx + ca * r, g.cy + sa * r) })
+        // each ring is one of the subject's own stages (艺术 3–5, 6–7, 8–9; 英语 from 3–4)
+        for (const st of K.subjects[g.s].stages || []) { const b = st.band, r = (R * (E[b] + E[b + 1])) / 2; ctx.fillText(st.range.replace(' 年级', ''), g.cx + ca * r, g.cy + sa * r) }
         ctx.globalAlpha = 1
     }
 

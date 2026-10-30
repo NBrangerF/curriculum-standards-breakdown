@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSky } from './SkyProvider.jsx'
-import { BAND_LABEL, F, searchStarmap } from './starmapData.js'
+import { C, F, searchStarmap, starHref, stageRange } from './starmapData.js'
 import styles from './CommandPalette.module.css'
 
 function Mark({ text, query }) {
@@ -44,7 +44,7 @@ export default function CommandPalette({ open, onClose, initialQuery = '' }) {
         const i = shown[k]
         if (i == null || !K) return
         onClose()
-        navigate(`/standards/${encodeURIComponent(K.S[i][F.CODE])}`)
+        navigate(starHref(K.S[i][F.CODE]))
     }, [shown, K, onClose, navigate])
 
     useEffect(() => {
@@ -100,7 +100,7 @@ export default function CommandPalette({ open, onClose, initialQuery = '' }) {
                             >
                                 <i aria-hidden="true" />
                                 <span className={styles.title}><Mark text={s[F.TITLE]} query={q} /></span>
-                                <span className={styles.meta}>{s[F.CODE]} · {K.subjects[s[F.SUBJ]].name} · {BAND_LABEL[s[F.BAND]]}</span>
+                                <span className={styles.meta}>{s[F.CODE]} · {K.subjects[s[F.SUBJ]].name} · {stageRange(K, s[F.SUBJ], s[F.BAND])} · {K.cons[s[F.CON]][C.NAME]}</span>
                             </li>
                         )
                     })}

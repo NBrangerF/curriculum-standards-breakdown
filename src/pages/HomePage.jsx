@@ -1,7 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useSky, useSkyView, useStarmap } from '../features/starmap/SkyProvider.jsx'
-import { BAND_LABEL, F, SKILL_SHORT, searchStarmap } from '../features/starmap/starmapData.js'
+import { C, F, SKILL_SHORT, searchStarmap, starHref, stageRange } from '../features/starmap/starmapData.js'
 import Ignite from '../features/starmap/Ignite.jsx'
 import FlapCode from '../features/starmap/FlapCode.jsx'
 import { COMPARE_DEFAULT } from '../features/starmap/compareLinks.js'
@@ -11,20 +11,21 @@ import styles from './HomePage.module.css'
 
 const CompareWindow = lazy(() => import('../features/starmap/CompareWindow.jsx'))
 
+// One 要点 (a star) of the standard 数量关系 (3–4 年级), and the same unit in the stages before and after it.
 const FEATURE = {
-    code: 'MA-D2-AL-005',
-    meta: '数学 · 3–4 年级 · 数与代数',
+    code: 'MA-S2-NA-02.1',
+    meta: '数学 · 3–4 年级 · 数与代数 · 数量关系',
     title: '在简单的实际情境中，运用四则混合运算解决问题',
-    page: 29,
+    page: 25,
     official: '能在简单的实际情境中，运用四则混合运算解决问题，能选择合适的单位通过估算解决实际问题，形成初步的应用意识。',
-    rail: [['MA-D1-AL-003', '1–2 年级'], ['MA-D2-AL-005', '3–4 年级', true], ['MA-D3-AL-005', '5–6 年级'], ['MA-D3-AL-008', '5–6 年级']],
+    rail: [['MA-S1-NA-02', '1–2 年级'], ['MA-S2-NA-02.1', '3–4 年级', true], ['MA-S3-NA-02', '5–6 年级'], ['MA-S4-NA-04', '7–9 年级']],
     book: { edition: '人教版 · 数学 4 年级上册', unit: '第 6 单元 除数是两位数的除法', no: '10', text: '刘叔叔带 900 元去买大米，买了 12 袋同一种大米，剩 60 元。每袋大米的价钱是多少？', page: 86 }
 }
 const CAPTIONS = [
-    { step: '壹 · 全貌', title: '九门学科\n九种颜色' },
+    { step: '壹 · 全貌', title: '十四门学科\n十四种颜色' },
     { step: '贰 · 一科 × 多学段', title: '一门学科\n九个年级' },
-    { step: '叁 · 多科 × 一学段', title: '一个学段\n九门学科' },
-    { step: '肆 · 可迁移能力', title: '七种能力\n散在九科' },
+    { step: '叁 · 多科 × 一学段', title: '一个学段\n各科并排' },
+    { step: '肆 · 可迁移能力', title: '七种能力\n散在各科' },
     { step: '伍 · 检索', title: '找你要的\n那一颗' }
 ]
 
@@ -66,7 +67,7 @@ function NowBlock({ K, idx, codeRef, dotRef }) {
         <div className={styles.now} style={{ '--c': color }} aria-hidden="true" data-kb-live="now-star">
             <p className={styles.nowMeta}>
                 <i ref={dotRef} />
-                <span>{s ? `${K.subjects[s[F.SUBJ]].name} · ${BAND_LABEL[s[F.BAND]]}` : '数学 · 3–4 年级'}</span>
+                <span>{s ? `${K.subjects[s[F.SUBJ]].name} · ${stageRange(K, s[F.SUBJ], s[F.BAND])} · ${K.cons[s[F.CON]][C.NAME]}` : '数学 · 3–4 年级'}</span>
                 <code ref={setCode} />
             </p>
             <Ignite key={code} as="p" className={styles.nowText} text={s ? s[F.TITLE] : FEATURE.title} step={30} />
@@ -110,7 +111,7 @@ function River({ K }) {
                     <div className={styles.track} data-track>
                         {[0, 1].flatMap(rep => pick.map(i => {
                             const s = K.S[i]
-                            const to = `/standards/${encodeURIComponent(s[F.CODE])}`
+                            const to = starHref(s[F.CODE])
                             return (
                                 <Link
                                     key={`${rep}-${s[F.CODE]}`}
@@ -143,7 +144,7 @@ function HomePage() {
     const [nowIdx, setNowIdx] = useState(-1)
     const [query, setQuery] = useState('')
     const [cmp, setCmp] = useState(COMPARE_DEFAULT)
-    const count = useCountUp(2025, 2200)
+    const count = useCountUp(K ? K.N : 2520, 2200)
     const [searchParams] = useSearchParams()
     const searchKey = searchParams.toString()
 
@@ -166,7 +167,7 @@ function HomePage() {
         get nowCodeEl() { return codeRef.current },
         get nowDotEl() { return dotRef.current },
         onNow: i => setNowIdx(i),
-        onStarClick: (i, x, y) => { if (K) revealTo(`/standards/${encodeURIComponent(K.S[i][F.CODE])}`, x, y) }
+        onStarClick: (i, x, y) => { if (K) revealTo(starHref(K.S[i][F.CODE]), x, y) }
     }), [K, revealTo])
     useSkyView('home', K ? homeConfig : null, K ? 'ready' : 'waiting')
 
@@ -189,7 +190,7 @@ function HomePage() {
                 <div className={styles.wrap}>
                     <div className={styles.heroCopy}>
                         <h1 className="sr-only" id="hero-title">kebiao 课标星图：义务教育课程标准的结构化索引</h1>
-                        <p className={styles.kicker}>义务教育课程标准 · 2022 · 共 <span className={styles.count}>{count.toLocaleString('en-US')}</span> 条</p>
+                        <p className={styles.kicker}>义务教育课程标准 · 2022年版2025年修订 · {K ? `${K.cons.length} 条标准 · ` : ''}<span className={styles.count}>{count.toLocaleString('en-US')}</span> 条要点</p>
                         <NowBlock K={K} idx={nowIdx < 0 ? 0 : nowIdx} codeRef={codeRef} dotRef={dotRef} />
                         <form className={styles.search} role="search" onSubmit={event => { event.preventDefault(); openPalette(query) }}>
                             <label className="sr-only" htmlFor="hero-q">搜索课程标准</label>
@@ -265,11 +266,11 @@ function HomePage() {
                                     {k > 0 && k < 3 ? <span className={styles.arrow} aria-hidden="true">→</span> : null}
                                     {here
                                         ? <span className={`${styles.hop} ${styles.here}`}><code>{code}</code><small>{band}</small></span>
-                                        : <Link className={styles.hop} to={`/standards/${code}`}><code>{code}</code><small>{band}</small></Link>}
+                                        : <Link className={styles.hop} to={starHref(code)}><code>{code}</code><small>{band}</small></Link>}
                                 </span>
                             ))}
                         </div>
-                        <Link className={styles.cta} to={`/standards/${FEATURE.code}`}>展开
+                        <Link className={styles.cta} to={starHref(FEATURE.code)}>展开
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg>
                         </Link>
                     </div>
@@ -288,7 +289,7 @@ function HomePage() {
             <section className={styles.end} aria-labelledby="end-title">
                 <div className={styles.wrap}>
                     <Ignite as="h2" mode="scrub" className={styles.big} id="end-title" text="从一条开始。" />
-                    <button className={styles.cta} type="button" onClick={() => openPalette('')}>搜索全部 2,025 条 <kbd>⌘K</kbd></button>
+                    <button className={styles.cta} type="button" onClick={() => openPalette('')}>搜索全部 {(K ? K.N : 2520).toLocaleString('en-US')} 条要点 <kbd>⌘K</kbd></button>
                 </div>
             </section>
         </div>

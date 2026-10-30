@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSky } from './SkyProvider.jsx'
-import { BAND_LABEL, F, SKILL_SHORT } from './starmapData.js'
+import { BAND_LABEL, C, F, SKILL_SHORT, starHref, stageRange } from './starmapData.js'
 import styles from './CompareWindow.module.css'
 
 const MODES = [['A', '一科 × 多学段'], ['B', '多科 × 一学段'], ['C', '一种能力 × 多学科']]
@@ -19,7 +19,7 @@ function Row({ label, children }) {
 }
 
 /**
- * Three side-by-side windows over the same 2,025 standards:
+ * Three side-by-side windows over the same 要点 (one star each; a standard's 要点 form a constellation):
  * one subject across stages, several subjects in one stage, one transferable skill across subjects.
  */
 export default function CompareWindow({ K, state, setState, heading }) {
@@ -36,7 +36,7 @@ export default function CompareWindow({ K, state, setState, heading }) {
         const S = K.S
         if (state.mode === 'A') {
             const s = state.subj
-            const list = [0, 1, 2, state.jr].map(b => ({ b, label: b >= 3 ? '7–9 年级' : BAND_LABEL[b], color: K.subjects[s].color, jr: b >= 3, list: K.bySubject[s].filter(i => S[i][F.BAND] === b && (state.dom < 0 || S[i][F.DOMAIN] === state.dom)) }))
+            const list = [0, 1, 2, 3].filter(b => K.subjects[s].stages.some(st => st.band === b)).map(b => ({ b, label: stageRange(K, s, b), color: K.subjects[s].color, group: i => K.cons[S[i][F.CON]][C.NAME], list: K.bySubject[s].filter(i => S[i][F.BAND] === b && (state.dom < 0 || S[i][F.DOMAIN] === state.dom)) }))
             return { cols: list, base: `${K.subjects[s].name} · ${state.dom < 0 ? '全部领域' : K.subjects[s].domains[state.dom]} · ${list.reduce((n, c) => n + c.list.length, 0)} 条` }
         }
         if (state.mode === 'B') {
@@ -60,8 +60,8 @@ export default function CompareWindow({ K, state, setState, heading }) {
         if (state.mode === 'A') {
             const walk = key => { const q = [active], seen = new Set([active]); while (q.length) { const x = q.shift(); for (const y of S[x][key]) { if (seen.has(y) || !shown.has(y)) continue; seen.add(y); rel.add(y); edges.push(key === F.NEXT ? [x, y] : [y, x]); q.push(y) } } }
             walk(F.PREV); walk(F.NEXT)
-            const chain = [...rel, active].sort((x, y) => S[x][F.BAND] - S[y][F.BAND] || x - y).map(x => S[x][F.CODE])
-            status = rel.size ? chain.join(' → ') : `${S[active][F.CODE]} · 无前后条目`
+            const con = K.cons[S[active][F.CON]]
+            status = `${con[C.CODE]} ${con[C.NAME]} · ${con[C.COUNT]} 条要点`
         } else if (state.mode === 'B') {
             const ts = S[active][F.SKILL]
             if (ts >= 0) shown.forEach(j => { if (j !== active && S[j][F.SKILL] === ts) rel.add(j) })
@@ -166,31 +166,26 @@ export default function CompareWindow({ K, state, setState, heading }) {
                                 <div key={`${state.mode}-${c.label}-${k}`} className={styles.col} style={{ '--c': c.color, '--k': k }}>
                                     <header>
                                         <b>{c.label}</b>
-                                        {c.jr ? (
-                                            <div className={styles.tabs}>
-                                                {[3, 4, 5].map(g => <button key={g} type="button" aria-pressed={g === state.jr} aria-label={BAND_LABEL[g]} onClick={() => set({ jr: g })}>{'七八九'[g - 3]}</button>)}
-                                            </div>
-                                        ) : null}
                                         <span className={styles.n}>{c.list.length}</span>
                                     </header>
                                     <div className={styles.dots} aria-hidden="true">{c.list.map(i => <i key={i} />)}</div>
                                     <ol className={styles.items} onScroll={() => drawLines(false)}>
-                                        {!c.list.length ? <li className={styles.emptyCol}>这一格没有标准</li> : null}
+                                        {!c.list.length ? <li className={styles.emptyCol}>这一格没有要点</li> : null}
                                         {c.list.flatMap(i => {
                                             const out = []
-                                            if (c.group) { const g = c.group(i); if (g !== lastGroup) { lastGroup = g; out.push(<li key={`g-${g}`} className={styles.grp}>{g}</li>) } }
+                                            if (c.group) { const g = c.group(i); if (g !== lastGroup) { lastGroup = g; out.push(<li key={`g-${g}-${i}`} className={styles.grp}>{g}</li>) } }
                                             const s = S[i]
                                             const cls = `${styles.it} ${i === active ? styles.on : ''} ${relation.rel.has(i) ? styles.rel : ''}`
                                             out.push(
                                                 <li key={s[F.CODE]}>
                                                     <Link
                                                         ref={el => { if (el) items.current.set(i, el) }}
-                                                        to={`/standards/${encodeURIComponent(s[F.CODE])}`}
+                                                        to={starHref(s[F.CODE])}
                                                         className={cls}
                                                         style={{ '--c': K.subjects[s[F.SUBJ]].color }}
                                                         onPointerEnter={() => setActive(i)}
                                                         onFocus={() => setActive(i)}
-                                                        onClick={event => { event.preventDefault(); const r = event.currentTarget.getBoundingClientRect(); revealTo(`/standards/${encodeURIComponent(s[F.CODE])}`, r.left + r.width / 2, r.top + r.height / 2) }}
+                                                        onClick={event => { event.preventDefault(); const r = event.currentTarget.getBoundingClientRect(); revealTo(starHref(s[F.CODE]), r.left + r.width / 2, r.top + r.height / 2) }}
                                                     >
                                                         <code>{s[F.CODE]}</code>
                                                         <span>{s[F.TEXT]}</span>

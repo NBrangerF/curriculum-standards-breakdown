@@ -151,7 +151,7 @@
     --ho: 0;
     position: relative;
     display: grid;
-    grid-template-columns: var(--c0) var(--c1) var(--c2) var(--c3);
+    grid-template-columns: var(--mx-cols, var(--c0) var(--c1) var(--c2) var(--c3));
     column-gap: 14px;
     transition: grid-template-columns 0.6s var(--kb-ease);
 }
@@ -221,7 +221,8 @@
 .mi:hover { color: var(--kb-moon); }
 .dot { grid-row: 1 / span 2; align-self: start; width: 7px; height: 7px; margin-top: 7px; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px var(--c); opacity: var(--ho); }
 .mi code { color: var(--kb-dim); font-family: var(--font-mono); font-size: 11.5px; }
-.mi span { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.mi strong { grid-column: 2; color: var(--kb-moon); font-family: var(--font-display); font-size: 15px; font-weight: 700; line-height: 1.45; }
+.mi span { display: -webkit-box; grid-column: 2; overflow: hidden; color: var(--kb-mist); font-size: 13px; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
 .mi:hover, .mi.on { border-color: var(--c); background: rgba(255, 255, 255, 0.05); }
 .mi.rel { border-color: rgba(233, 200, 135, 0.7); background: rgba(233, 200, 135, 0.07); }
 .chain .mi:not(.on, .rel) { opacity: 0.3; }
@@ -232,7 +233,7 @@
 /* Peers */
 .peers .wrap { padding-block: clamp(110px, 14vw, 190px) 0; }
 .peerTabs { margin-top: 22px; }
-.peerList { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+.peerList { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
 
 .peer {
     display: flex;
@@ -307,7 +308,7 @@ a.peer:hover, a.peer:focus-visible { border-color: var(--c); background: rgba(25
     .copy { max-width: none; }
     .title { font-size: min(96px, calc((100vw - 32px) / var(--len, 2))); }
     .mxScroll { overflow-x: auto; scroll-snap-type: x proximity; }
-    .mx { grid-template-columns: repeat(4, 78vw); column-gap: 12px; transition: none; }
+    .mx { grid-template-columns: repeat(var(--mx-n, 4), 78vw); column-gap: 12px; transition: none; }
     .hd { position: static; scroll-snap-align: start; }
     .focusing .cell:not(.wide) .mi span { -webkit-line-clamp: 3; }
     .peerList { grid-template-columns: repeat(3, minmax(0, 1fr)); }

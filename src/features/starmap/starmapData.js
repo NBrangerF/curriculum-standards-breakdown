@@ -1,16 +1,31 @@
 // Compact star-map dataset shared by the sky, the subject chart and the command palette.
-// Row layout: [code, subject, band, domain, skill|-1, title, text, hasOfficialText, prev[], next[], subdomain]
-export const F = Object.freeze({ CODE: 0, SUBJ: 1, BAND: 2, DOMAIN: 3, SKILL: 4, TITLE: 5, TEXT: 6, OFFICIAL: 7, PREV: 8, NEXT: 9, SUB: 10 })
+// One star per 要点; the 要点 of one standard form a constellation (prev/next run inside the standard).
+// Star row:          [code, subject, band, domain, skill|-1, title, text, official, prev[], next[], sub, constellation]
+// Constellation row: [code, subject, band, domain, sub, name, statement, firstStar, starCount]
+export const F = Object.freeze({ CODE: 0, SUBJ: 1, BAND: 2, DOMAIN: 3, SKILL: 4, TITLE: 5, TEXT: 6, OFFICIAL: 7, PREV: 8, NEXT: 9, SUB: 10, CON: 11 })
+export const C = Object.freeze({ CODE: 0, SUBJ: 1, BAND: 2, DOMAIN: 3, SUB: 4, NAME: 5, TEXT: 6, FIRST: 7, COUNT: 8 })
 
-export const SUBJECT_SHORT = ['道法', '语文', '数学', '英语', '科学', '信息', '体育', '艺术', '劳动']
-export const BAND_LABEL = ['1–2 年级', '3–4 年级', '5–6 年级', '七年级', '八年级', '九年级']
-export const STAGE_RANGE = ['1–2 年级', '3–4 年级', '5–6 年级', '7–9 年级']
+export const SUBJECT_SHORT = ['道法', '语文', '数学', '英语', '历史', '地理', '科学', '物理', '化学', '生物', '信息', '体育', '艺术', '劳动']
+// The four-stage frame every subject sits in; a subject's own stage names come from K.subjects[s].stages.
+export const BAND_LABEL = ['1–2 年级', '3–4 年级', '5–6 年级', '7–9 年级']
+export const STAGE_RANGE = BAND_LABEL
 export const SKILL_SHORT = ['批判性思维', '创新创造', '自主学习', '协作', '沟通表达', '数字素养', '全球公民']
 export const CN_DIGIT = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九']
 
-export function stageName(subject, stage) {
-    const names = subject === 6 ? ['水平一', '水平二', '水平三', '水平四'] : ['第一学段', '第二学段', '第三学段', '第四学段']
-    return names[stage]
+const stageOf = (K, s, band) => K?.subjects[s]?.stages?.find(st => st.band === band)
+// 第一学段 / 水平一 / 一级 … for a subject's band, or '' where the subject has no such stage.
+export function stageName(K, s, band) {
+    return stageOf(K, s, band)?.label.replace(/（.*$/u, '') || ''
+}
+// The grades a subject's band covers (艺术 band 1 is 3–5 年级).
+export function stageRange(K, s, band) {
+    return stageOf(K, s, band)?.range || BAND_LABEL[band]
+}
+
+// A star opens its standard at the 要点; a constellation opens the standard.
+export function starHref(code) {
+    const standard = String(code).replace(/\.\d+$/u, '')
+    return standard === code ? `/standards/${encodeURIComponent(code)}` : `/standards/${encodeURIComponent(standard)}#${encodeURIComponent(code)}`
 }
 
 let pending = null
@@ -27,32 +42,14 @@ function derive(raw) {
         bySubject[row[F.SUBJ]].push(i)
         if (row[F.SKILL] >= 0) bySkill[row[F.SKILL]].push(i)
     }
-    // 7–9 triplets: one 第四学段 requirement split into 七/八/九 and chained G7→G8→G9.
-    const group = new Int32Array(N).fill(-1)
-    const groups = []
-    for (let i = 0; i < N; i++) {
-        if (S[i][F.BAND] < 3 || group[i] >= 0 || S[i][F.PREV].some(j => S[j][F.SUBJ] === S[i][F.SUBJ] && S[j][F.BAND] >= 3)) continue
-        const g = [-1, -1, -1]
-        let x = i
-        while (x != null && x >= 0 && g[S[x][F.BAND] - 3] < 0 && group[x] < 0) {
-            g[S[x][F.BAND] - 3] = x
-            group[x] = groups.length
-            const from = x
-            x = S[from][F.NEXT].find(j => S[j][F.SUBJ] === S[from][F.SUBJ] && S[j][F.BAND] === S[from][F.BAND] + 1)
-        }
-        groups.push(g)
-    }
-    for (let i = 0; i < N; i++) {
-        if (S[i][F.BAND] >= 3 && group[i] < 0) {
-            const g = [-1, -1, -1]
-            g[S[i][F.BAND] - 3] = i
-            group[i] = groups.length
-            groups.push(g)
-        }
-    }
-    const haystack = S.map(row => `${row[F.CODE]} ${row[F.TITLE]} ${row[F.TEXT]} ${raw.subjects[row[F.SUBJ]].name} ${raw.subjects[row[F.SUBJ]].domains[row[F.DOMAIN]]}`.toLowerCase())
+    const cons = raw.constellations || []
+    const consBySubject = Array.from({ length: raw.subjects.length }, () => [])
+    cons.forEach((row, c) => { consBySubject[row[C.SUBJ]].push(c); codeIndex.set(row[C.CODE], row[C.FIRST]) })
+    // The stars of a constellation, in order.
+    const starsOf = c => Array.from({ length: cons[c][C.COUNT] }, (_, k) => cons[c][C.FIRST] + k)
+    const haystack = S.map(row => `${row[F.CODE]} ${cons[row[F.CON]]?.[C.NAME] || ''} ${row[F.TEXT]} ${raw.subjects[row[F.SUBJ]].name} ${raw.subjects[row[F.SUBJ]].domains[row[F.DOMAIN]]}`.toLowerCase())
     const slugIndex = new Map(raw.subjects.map((subject, k) => [subject.slug, k]))
-    return { ...raw, S, N, bySubject, bySkill, codeIndex, group, groups, haystack, slugIndex }
+    return { ...raw, S, N, cons, consBySubject, starsOf, bySubject, bySkill, codeIndex, haystack, slugIndex }
 }
 
 export function loadStarmap() {

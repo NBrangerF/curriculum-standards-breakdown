@@ -63,12 +63,12 @@ export function homeMeta({ standardCount, subjectCount } = {}) {
     }
 }
 
-export function subjectMeta(subject, { standardCount, shortDescription } = {}) {
+export function subjectMeta(subject, { standardCount, indicatorCount, shortDescription } = {}) {
     const name = subject?.subject || subject?.subject_cn || ''
-    const count = standardCount ? `${standardCount} 条` : ''
+    const counts = standardCount ? `${standardCount} 条标准${indicatorCount ? `、${indicatorCount} 条要点` : ''}` : ''
     return page(
-        `义务教育${name}课程标准（2022年版）${count ? ` · ${count}逐条拆解` : ''}`,
-        `${shortDescription || ''} 按学段和领域浏览${name}全部${count}课标，每条附原文与教学建议。`,
+        `义务教育${name}课程标准（2022年版2025年修订）${counts ? ` · ${counts}` : ''}`,
+        `${shortDescription || ''} 按学段和领域浏览${name}课标：每条标准对应一个学段的一个内容单元，要点逐字取自课标原文，附页码与修订对照。`,
         `/subjects/${subject?.subject_slug}`
     )
 }
@@ -80,6 +80,20 @@ export function standardMeta(standard) {
     return page(
         `${title} · ${standard.subject}${grade} · ${standard.code}`,
         `${standard.subject}课程标准（2022年版）${grade} · ${standard.domain}｜${standard.code}：${standard.standard}`,
+        `/standards/${standard.code}`
+    )
+}
+
+// v2 standard: one 学段 × one content unit, with its 要点 (课标原文) on the page.
+export const V2_STANDARDS_DOC = '义务教育课程标准（2022年版2025年修订）'
+export function v2StageLabel(standard, subject) {
+    return subject?.stages?.find(stage => stage.stage_code === standard.stage_code)?.label || `${String(standard.stage).replace('-', '–')} 年级`
+}
+export function v2StandardMeta(standard, subject) {
+    const stage = v2StageLabel(standard, subject)
+    return page(
+        `${standard.level2} · ${subject.subject}${stage} · ${standard.code}`,
+        `${subject.subject}课程标准${stage} · ${standard.level1}｜${standard.code}：${standard.statement} 共 ${standard.indicators.length} 条要点，逐字取自课标原文。`,
         `/standards/${standard.code}`
     )
 }
