@@ -29,6 +29,7 @@ const concepts = readJson('concepts.json')
 entries.push(['/concepts', standardsDate])
 entries.push(['/interdisciplinary', standardsDate])
 entries.push(['/experiments', standardsDate])
+entries.push(['/teacher-exam', standardsDate])
 for (const term of concepts.terms) entries.push([`/concepts/${term.id}`, standardsDate])
 for (const subject of concepts.subjects) entries.push([`/concepts/subjects/${subject.slug}`, standardsDate])
 

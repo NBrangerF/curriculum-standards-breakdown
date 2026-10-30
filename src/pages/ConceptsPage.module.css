@@ -514,3 +514,91 @@
 .callout a {
     color: var(--kb-gold);
 }
+
+/* 课程理念 with a self-test */
+.ideas ol {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding-left: 1.4em;
+    color: var(--kb-moon);
+    line-height: 1.75;
+}
+
+.ideas li::marker {
+    color: var(--subject-color);
+    font-family: var(--font-num);
+}
+
+.ideaCover {
+    padding: 0.15rem 0.7rem;
+    border: 1px dashed var(--kb-line-strong);
+    border-radius: var(--radius-md, 12px);
+    background: transparent;
+    color: var(--kb-dim);
+    font: inherit;
+    font-size: 0.88rem;
+    cursor: pointer;
+}
+
+.ideaToggle {
+    margin-left: 0.8rem;
+    padding: 0.1rem 0.7rem;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: var(--radius-full, 999px);
+    background: transparent;
+    color: var(--kb-gold);
+    font: inherit;
+    cursor: pointer;
+}
+
+.examNav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1.4rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.examNav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.2rem;
+    padding: 0 0.8rem;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: var(--radius-full, 999px);
+    color: var(--kb-moon);
+    font-size: 0.88rem;
+    text-decoration: none;
+}
+
+.examSubject {
+    padding-top: clamp(1.75rem, 4vw, 2.5rem);
+    scroll-margin-top: 80px;
+}
+
+.examSubject h2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: baseline;
+    margin: 0 0 0.6rem;
+    color: var(--kb-moon);
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 900;
+}
+
+.examSubject h2 a {
+    color: var(--kb-gold);
+    font-family: var(--font-body, inherit);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.examSubject h3 {
+    margin: 1rem 0 0.4rem;
+    color: var(--kb-mist);
+    font-size: 0.92rem;
+}

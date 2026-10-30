@@ -66,6 +66,10 @@ export function checkTerms(terms = JSON.parse(readFileSync(path.join(ROOT, 'data
         if (!pages) { warnings.push(`${where}: no scan text, quote not checked`); continue }
         const text = subject.quote.pages.map(page => pages.get(page) || '').join('')
         if (!normalise(text).includes(normalise(subject.quote.text))) errors.push(`${where}: quote not found on p${subject.quote.pages.join('–')}`)
+        // 课程理念: numbered headings, a long one wrapping onto the next line
+        const ideasText = normalise((subject.ideas?.pages || []).map(page => pages.get(page) || '').join(''))
+        for (const item of subject.ideas?.items || []) if (!ideasText.includes(normalise(item))) errors.push(`${where}: 课程理念 「${item}」 not on p${subject.ideas.pages.join('–')}`)
+        if (!subject.ideas?.items?.length) errors.push(`${where}: no 课程理念`)
         const scan = normalise([...pages.values()].join(''))
         for (const name of subject.core_literacy) if (!subject.slug.startsWith('math') && !scan.includes(normalise(name))) errors.push(`${where}: core literacy ${name} not in the scan`)
     }

@@ -56,7 +56,7 @@ export default function ConceptsPage() {
             <section className={styles.block} aria-labelledby="concept-path">
                 <div className={styles.blockHead}>
                     <h2 id="concept-path">师范生、新教师：先读这六页</h2>
-                    <p>按这个顺序读，能把一本课标的来龙去脉理清楚，教资笔试、面试说课和第一次写教案都用得上。</p>
+                    <p>按这个顺序读，能把一本课标的来龙去脉理清楚，教资笔试、面试说课和第一次写教案都用得上。备考时再看 <Link to="/teacher-exam">教资课标速记</Link>：14 门课的核心素养和课程理念，可以遮住自测。</p>
                 </div>
                 <ol className={styles.path}>
                     {READING_PATH.map(([id, why]) => {

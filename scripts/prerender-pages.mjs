@@ -336,6 +336,7 @@ ${section('在 kebiao 里看真实条目', list([...term.examples, ...term.menti
 <p class="kbp-lede">${esc(subject.organized_by)}</p>
 <p>核心素养：${esc(subject.core_literacy.join('、'))}</p>
 ${section('课标原文', `<blockquote>${esc(subject.quote.text)}</blockquote><p class="kbp-note">修订版 PDF 第 ${subject.quote.pages.join('–')} 页</p>`)}
+${subject.ideas ? section('课程理念', `<ol>${subject.ideas.items.map(item => `<li>${esc(item)}</li>`).join('')}</ol><p class="kbp-note">修订版 PDF 第 ${subject.ideas.pages[0]}–${subject.ideas.pages.at(-1)} 页</p>`) : ''}
 ${section('备课时的抓手', paras(subject.unit_hint))}
 ${subject.groups.map(group => section(group.name, list(group.children.map(child => `${esc(child.name)}：${child.standards.map(([code, stage]) => link(`/standards/${code}`, `${stage.replace('-', '–')} 年级`)).join('、')}`)))).join('')}`, { jsonLd: [breadcrumbs(subjectCrumbs)] })
     }
@@ -362,6 +363,14 @@ ${experiments.science.stages.map(item => section(`科学 · ${stage[item.stage]}
 ${experiments.groups.flatMap(group => group.standards.map(standard => section(`${group.subject_slug === 'physics' ? '物理' : '化学'} · ${standard.title}`, `<ol>${standard.items.map(entry => `<li>${esc(entry.text)} ${link(`/standards/${standard.code}#${entry.code}`, entry.code)}</li>`).join('')}</ol>`))).join('')}`, { jsonLd: [breadcrumbs(crumbs)] })
 }
 
+function teacherExamPage() {
+    const crumbs = [['首页', '/'], ['教资课标速记', '/teacher-exam']]
+    add(STATIC_PAGE_META['/teacher-exam'], `${crumbNav(crumbs)}
+<h1>每门课的核心素养和课程理念</h1>
+<p class="kbp-lede">${esc(STATIC_PAGE_META['/teacher-exam'].description)}</p>
+${concepts.subjects.filter(subject => subject.ideas).map(subject => section(subject.name, `<p>核心素养：${esc(subject.core_literacy.join('、'))}</p><p>课程理念（修订版 PDF 第 ${subject.ideas.pages[0]}–${subject.ideas.pages.at(-1)} 页）：</p><ol>${subject.ideas.items.map(item => `<li>${esc(item)}</li>`).join('')}</ol><p>${link(`/concepts/subjects/${subject.slug}`, `${subject.name}课标的骨架`)}</p>`)).join('')}`, { jsonLd: [breadcrumbs(crumbs)] })
+}
+
 function staticPages() {
     const terms = glossary.terms || []
     add(STATIC_PAGE_META['/glossary'], `<h1>术语表</h1>${terms.map(term => `<section><h2>${esc(term.term)}</h2><p>${esc(term.definition)}</p></section>`).join('')}`)
@@ -380,6 +389,7 @@ learningResourcePages()
 conceptPages()
 interdisciplinaryPage()
 experimentsPage()
+teacherExamPage()
 staticPages()
 
 // ---------- render ----------

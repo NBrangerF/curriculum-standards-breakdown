@@ -6,6 +6,7 @@ import { PageLoading, ErrorState } from '../components/StateComponents'
 import { subjectSkeletonMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { loadConcepts } from '../features/concepts/conceptsData'
+import IdeasList from '../features/concepts/IdeasList'
 import NotFoundPage from './NotFoundPage'
 import styles from './ConceptsPage.module.css'
 
@@ -45,6 +46,14 @@ export default function SubjectSkeletonPage() {
                 <blockquote className={styles.single}>{subject.quote.text}</blockquote>
                 <p className={styles.quoteSource}>{subject.name} · 修订版 PDF 第 {subject.quote.pages.join('–')} 页</p>
             </section>
+
+            {subject.ideas ? (
+                <section className={styles.section} aria-labelledby="skeleton-ideas">
+                    <h2 id="skeleton-ideas">课程理念</h2>
+                    <IdeasList subject={subject} />
+                    <p className={styles.small}>教资笔试和面试答辩常考。14 门课放在一页的速记版：<Link to="/teacher-exam">教资课标速记</Link>。</p>
+                </section>
+            ) : null}
 
             <section className={styles.section} aria-labelledby="skeleton-hint">
                 <h2 id="skeleton-hint">备课时的抓手</h2>

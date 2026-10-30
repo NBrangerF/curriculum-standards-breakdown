@@ -263,3 +263,18 @@ test('AI 备课 keeps recent drafts in this browser, including one saved under t
     await page.getByRole('button', { name: /分数的基本性质.*10 月 20 日/ }).click()
     await expect(page.getByRole('heading', { name: '二、教学目标' })).toBeVisible()
 })
+
+test('教资课标速记 lists each 课标\'s 课程理念 with pages and lets a student cover and recall them', async ({ page }) => {
+    await page.goto('/teacher-exam')
+    await expect(page.getByRole('heading', { name: '每门课的核心素养和课程理念' })).toBeVisible()
+    const math = page.locator('#exam-math')
+    await expect(math.getByText('确立核心素养导向的课程目标')).toBeVisible()
+    await expect(math.getByText(/修订版 PDF 第 5–7 页/)).toBeVisible()
+    await math.getByRole('button', { name: '遮住自测' }).click()
+    await expect(math.getByText('确立核心素养导向的课程目标')).toHaveCount(0)
+    await math.getByRole('button', { name: /第 1 条：先自己说，再点开/ }).click()
+    await expect(math.getByText('确立核心素养导向的课程目标')).toBeVisible()
+    await expect(math.getByRole('button', { name: /第 2 条/ })).toBeVisible()
+    await page.goto('/concepts/subjects/english')
+    await expect(page.getByText('注重“教—学—评”一体化设计')).toBeVisible()
+})
