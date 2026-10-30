@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
-import { checkPlan, checkTest, limitsOf, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
+import { checkPlan, checkTest, fitMinutes, limitsOf, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
 
 const publicDataRoot = resolve(process.cwd(), '../../public/data')
 const app = createApp(new FileCurriculumRepository(publicDataRoot))
@@ -457,4 +457,15 @@ test('pick: a 历史 lesson is judged only against its volume\'s period', async 
     const history = JSON.parse(await readFile(resolve(publicDataRoot, 'v2/by_subject/history.json'), 'utf8'))
     const modern = history.standards.filter((item: any) => item.level1 === '中国近代史').map((item: any) => item.code).sort()
     assert.deepEqual([...new Set(seen)].sort(), modern)
+})
+
+test('stages that miss the period by up to ten minutes are fitted on the longest stage', () => {
+    const stage = (name: string, minutes: number) => ({ name, minutes, teacher: '', students: '', purpose: '', objective_ids: [], assessment_ids: [] })
+    const over = [stage('导入', 5), stage('新授', 20), stage('练习', 15), stage('小结', 5)]
+    assert.deepEqual(fitMinutes(over, 40).map(item => item.minutes), [5, 15, 15, 5])
+    const under = [stage('导入', 5), stage('新授', 20), stage('小结', 5)]
+    assert.deepEqual(fitMinutes(under, 40).map(item => item.minutes), [5, 30, 5])
+    // too far off, or a stage with no time: left for the timing check
+    assert.deepEqual(fitMinutes([stage('导入', 5), stage('新授', 50)], 40).map(item => item.minutes), [5, 50])
+    assert.deepEqual(fitMinutes([stage('导入', 0), stage('新授', 30)], 40).map(item => item.minutes), [0, 30])
 })

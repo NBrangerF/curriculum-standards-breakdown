@@ -330,7 +330,19 @@ export async function draftProcess(input: DraftInput, frame: Frame, options: Str
     ].filter(Boolean).join('\n')
     const prompt = [lessonBlock(input), basisBlock(input), framed, teacherBlock(input)].filter(Boolean).join('\n\n')
     const run = await runStructuredLlm(prompt, processAdapter(frame), { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
+    if (run.output) fitMinutes(run.output.stages, input.periodMinutes)
     return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
+
+// The model's stages sometimes add up to 45 of 40 minutes. A gap of up to ten minutes is taken from (or given to) the
+// longest stage, keeping every stage at two minutes or more; a larger gap is left for the timing check to report.
+export function fitMinutes(stages: Stage[], period: number) {
+    const total = stages.reduce((sum, stage) => sum + stage.minutes, 0)
+    const gap = period - total
+    if (!gap || Math.abs(gap) > 10 || stages.some(stage => !stage.minutes)) return stages
+    const longest = stages.reduce((best, stage) => (stage.minutes > best.minutes ? stage : best), stages[0])
+    if (longest.minutes + gap >= 2) longest.minutes += gap
+    return stages
 }
 
 // ---------- 核验我的教案: read a teacher's own (or another AI's) plan, then run the same checks ----------
