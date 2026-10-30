@@ -37,6 +37,10 @@ export function buildNationalLessons() {
     // AI 按单元判断 (pick_unit_standards.mjs): when the AI read a unit against the standards, its first four 直接对应
     // picks (ranked when there were more) replace the page alignment for that unit's lessons. 语文 units come back
     // with ten or more 直接对应; four keeps a standard's list to the units that teach it most.
+    // 统编版 历史 covers one period per volume (same table as HISTORY_SCOPE in apps/api/src/lesson-plan-routes.ts)
+    const HISTORY_SCOPE = { 历史7年级上册: ['中国古代史'], 历史7年级下册: ['中国古代史'], 历史8年级上册: ['中国近代史'], 历史8年级下册: ['中国现代史'], 历史9年级上册: ['世界古代史', '世界近代史'], 历史9年级下册: ['世界近代史', '世界现代史'] }
+    const historyLevel = new Map(JSON.parse(readFileSync(path.join(ROOT, 'data/v2/by_subject/history.json'), 'utf8')).standards.map(item => [item.code, item.level1]))
+    const inScope = (textbook, code) => !HISTORY_SCOPE[textbook] || HISTORY_SCOPE[textbook].includes(historyLevel.get(code))
     const picksFile = path.join(SOURCE, 'unit_picks.json')
     const unitPicks = existsSync(picksFile) ? JSON.parse(readFileSync(picksFile, 'utf8')).editions : {}
     const byStandard = new Map()
@@ -73,7 +77,7 @@ export function buildNationalLessons() {
         // the platform lists lessons by upload; show them in the book's chapter order
         const position = lesson => order.get(lesson.chapter_path.at(-1)) ?? Number.MAX_SAFE_INTEGER
         const sorted = record.lessons.map((lesson, index) => ({ lesson, index })).sort((a, b) => position(a.lesson) - position(b.lesson) || a.index - b.index).map(item => item.lesson)
-        const aiOf = new Map(sorted.map(lesson => [lesson.id, (unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([, grade, point]) => grade === 2 && point).slice(0, 4).map(([, , point]) => point)]))
+        const aiOf = new Map(sorted.map(lesson => [lesson.id, (unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([code, grade, point]) => grade === 2 && point && inScope(record.textbook_title, code)).slice(0, 4).map(([, , point]) => point)]))
         const lessons = sorted.map(lesson => ({
             id: lesson.id,
             title: lesson.title,

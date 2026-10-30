@@ -28,6 +28,16 @@ type ConceptsFile = { subjects: Array<SubjectNote & { slug: string, name: string
 
 const LESSON_URL = (id: string) => `https://basic.smartedu.cn/syncClassroom/classActivity?activityId=${id}`
 const BAND_OF_GRADE = (grade: number) => (grade <= 2 ? 'H1' : grade <= 4 ? 'H2' : grade <= 6 ? 'H3' : 'H4')
+// 统编版 历史 covers one period per volume; 7–9 年级 history standards span all six, and the AI otherwise pairs
+// 「近代经济」 in 八上 with 世界近代史. (Same table in scripts/resources/build_national_lessons.mjs.)
+export const HISTORY_SCOPE: Record<string, string[]> = {
+    '历史7年级上册': ['中国古代史'],
+    '历史7年级下册': ['中国古代史'],
+    '历史8年级上册': ['中国近代史'],
+    '历史8年级下册': ['中国现代史'],
+    '历史9年级上册': ['世界古代史', '世界近代史'],
+    '历史9年级下册': ['世界近代史', '世界现代史']
+}
 const v2Slug = (slug: string) => (['art', 'music'].includes(slug) ? 'arts' : slug)
 const cleanTitle = (title: string) => title.replace(/^(?:第[一二三四五六七八九十百零\d]+(?:单元|章|节|课)|课题\s*\d+|\d+(?:\.\d+)*\*?)\s*/u, '').trim()
 
@@ -463,7 +473,11 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         const subject = await v2.subject(lesson.subject_slug)
         if (!subject) return deps.apiError(c, 422, 'validation_error', '未知学科。')
         const grade = lesson.grade ?? null
-        const pool = subject.standards.filter(item => !grade || !Array.isArray(item.grades) || !item.grades.length || item.grades.includes(grade)).slice(0, 36)
+        const scope = lesson.subject_slug === 'history' ? HISTORY_SCOPE[String(lesson.textbook_title || '').replace(/\s+/gu, '')] : undefined
+        const pool = subject.standards
+            .filter(item => !grade || !Array.isArray(item.grades) || !item.grades.length || item.grades.includes(grade))
+            .filter(item => !scope || scope.includes(String(item.level1 || '')))
+            .slice(0, 36)
         const candidates: JudgeCandidate[] = pool.map(standard => ({
             code: standard.code,
             subject: subject.subject,

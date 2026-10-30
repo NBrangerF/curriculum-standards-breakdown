@@ -438,3 +438,23 @@ test('lesson-plan context puts the AI 按单元判断 要点 of the lesson\'s un
     assert.equal(data.standards[0].code, found.lesson.ai_points[0].replace(/\.\d+$/u, ''))
     assert.ok(data.standards.every((item: any) => item.suggested.length === 0))
 })
+
+test('pick: a 历史 lesson is judged only against its volume\'s period', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const seen: string[] = []
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body))
+        const codes = [...String(body.messages[1].content).matchAll(/【([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2})】/gu)].map(match => match[1])
+        seen.push(...codes)
+        const content = { judgements: codes.map(code => ({ code, grade: 0, reason: '不相关', point: '' })) }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 10, completion_tokens: 10, total_tokens: 20 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    // its own client address: this file's AI calls use up one address's per-minute budget
+    const response = await app.request('/api/v1/lesson-plans/pick', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': '203.0.113.81' }, body: JSON.stringify({ lesson: { title: '近代经济、社会生活与教育文化事业的发展（测试）', textbook_title: '历史8年级上册', subject_slug: 'history', grade: 8 } }) })
+    assert.equal(response.status, 200)
+    const history = JSON.parse(await readFile(resolve(publicDataRoot, 'v2/by_subject/history.json'), 'utf8'))
+    const modern = history.standards.filter((item: any) => item.level1 === '中国近代史').map((item: any) => item.code).sort()
+    assert.deepEqual([...new Set(seen)].sort(), modern)
+})
