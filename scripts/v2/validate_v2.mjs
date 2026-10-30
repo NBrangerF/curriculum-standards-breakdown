@@ -21,6 +21,7 @@ const ruled = (slug, catalog) => {
     return e => { const u = prepared ? prepared.get(e.id) : (e.part === '课程内容' ? RULES[slug].unitOf(e) : null); return Boolean(u && ['item', 'req', 'activity', 'example'].includes(u.role) && !(RULES[slug].activityNote && RULES[slug].activityNote.test(e.text))) }
 }
 const COVERAGE = {
+    english: e => e.part === '课程内容' && e.section === '内容要求' && (/^\d+\s*[.．]$/u.test(e.marker || '') || /^\+/u.test(e.text)),
     chinese: e => (e.part === '课程目标' && ['识字与写字', '阅读与鉴赏', '表达与交流', '梳理与探究'].includes(e.section)) || (e.part === '课程内容' && e.section !== '教学提示' && /^（\d+）$/u.test(e.marker || '')),
     labor: e => e.part === '课程内容' && ['内容要求', '素养表现'].includes(e.section),
     math: e => e.part === '课程内容' && (e.section === '学业要求' || (e.stage === '7-9' && e.section === '内容要求'))
@@ -71,6 +72,8 @@ for (const slug of slugs) {
             claim(ind.code)
             if (ind.code !== `${s.code}.${i + 1}`) errors.push(`${ind.code}: expected ${s.code}.${i + 1}`)
             if (!ind.pages?.length) errors.push(`${ind.code}: no page`)
+            // 要点 rebuilt from an OCR table (英语学段目标) have pages but no catalogue lines to compare with.
+            if (ind.rebuilt === 'table') { if (!ind.pages?.length) errors.push(`${ind.code}: no page`); return }
             if (!ind.source_ids?.length) { errors.push(`${ind.code}: no source lines`); return }
             ind.source_ids.forEach(id => used.add(id));
             (ind.official_example_ids || []).forEach(id => used.add(id))
@@ -79,7 +82,7 @@ for (const slug of slugs) {
             if (d < 0.95) errors.push(`${ind.code}: text differs from its source lines (${d.toFixed(2)})`)
             if (SUSPECT.test(ind.text.replace(FORMULA, ''))) warnings.push(`${ind.code}: suspicious characters — ${ind.text.slice(0, 40)}`)
             const status = ind.check?.status
-            if (status && status !== 'verified' && !isReviewed(ind.text)) warnings.push(`${ind.code}: ${status}, not yet checked against the PDF`)
+            if (status && !['verified', 'table'].includes(status) && !isReviewed(ind.text)) warnings.push(`${ind.code}: ${status}, not yet checked against the PDF`)
             if (s.stage === '7-9' && slug !== 'labor' && ind.grades) {
                 if (ind.grades.some(g => g < 7 || g > 9)) errors.push(`${ind.code}: grade outside 7–9`)
                 if (ind.grades.length < 3 && !ind.grade_basis) errors.push(`${ind.code}: grade without textbook basis`)

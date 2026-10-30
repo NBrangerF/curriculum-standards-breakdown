@@ -10,6 +10,7 @@
 //   ocr_doubt — the two scans disagree on single characters; needs a look at the PDF (docs/data/v2/ocr-fixes/)
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { RULES } from './subject_rules.mjs'
+import { englishGoals } from './english_goals.mjs'
 import { SUBJECT_NAMES, SUBJECT_PREFIX, STAGES, stageCode, gradesOf, loadCatalog, revisionIndex, joinBroken, tidy, loadOcrFixes, applyFixes, splitSentences, readTsv, paragraphs, strip, grams, recall } from './lib.mjs'
 
 const slug = process.argv[2]
@@ -566,7 +567,109 @@ function buildChinese() {
     return { standards, skipped_source_ids: skipped }
 }
 
-const BUILDERS = { labor: buildLabor, math: buildMath, chinese: buildChinese, ...Object.fromEntries(Object.keys(RULES).map(k => [k, buildGeneric])) }
+// 英语（沿用现有结构，docs/STANDARDS_METHOD_V2.md §4）：一级是核心素养。两类标准都用课标原文。
+//   学段目标：核心素养 × 分项 × 级别（一级 3–4、二级 5–6、三级 7–9）是一条标准，标准句是表格里的原句，各分句是要点；
+//   这张表在扫描件里各栏交错，按行框位置重建（scripts/v2/english_goals.mjs），页面提示以 PDF 为准。
+//   内容要求：级别 × 内容要素是一条标准，要点是编号条目；要素归到核心素养是 kebiao 的判断（EN_ELEMENT_LITERACY）。
+//   级别取自各表按级别重新编号的条目；语用知识表第一组、学习策略表、语言技能三级各年级表按扫描件结构单独处理。
+const EN_ELEMENT_LITERACY = { 主题: '文化意识', 语篇: '语言能力', 语言知识: '语言能力', 文化知识: '文化意识', 语言技能: '语言能力', 学习策略: '学习能力' }
+const EN_ELEMENT_CODE = { 主题: 'TH', 语篇: 'TX', 语言知识: 'LK', 文化知识: 'CK', 语言技能: 'LS', 学习策略: 'ST' }
+const EN_GOAL_CODE = { 语言能力: 'LC', 文化意识: 'CA', 思维品质: 'TQ', 学习能力: 'LA' }
+const EN_LEVEL = { '3-4': '一级', '5-6': '二级', '7-9': '三级' }
+// 学习策略表的级别（每级四类策略，扫描件没有逐条标级别）：按段落号划分。语用知识表第一组没有识别出「一级」。
+const EN_PARA_STAGE = [[283, 284, '3-4'], [436, 458, '3-4'], [459, 480, '5-6'], [481, 520, '7-9']]
+function buildEnglish(goalsFn) {
+    const problems = []
+    const skipped = []
+    const all = loadCatalog('2025r', 'english').map(e => ({ ...e, text: e.text.replace(/［\d］[^［]*$/u, '').trim() })).filter(e => e.text)
+    const make = (p, extra = {}) => {
+        const text = applyFixes(tidy(p.text), fixes, fixesUsed).replace(/^\+?\s*\d+\s*[.．]\s*/u, '').replace(/^\+/u, '')
+        return { text, pages: p.pages, source_ids: p.ids, check: check(p.ids), ...extra }
+    }
+    const standards = []
+    const counters = new Map()
+    const nextCode = (sc, abbr) => { const k = `${sc}|${abbr}`; counters.set(k, (counters.get(k) || 0) + 1); return `EN-${sc}-${abbr}-${String(counters.get(k)).padStart(2, '0')}` }
+    // 学段目标.
+    const { cells, problems: gp } = goalsFn()
+    problems.push(...gp)
+    all.filter(e => e.part === '课程目标' && e.section === '学段目标' && e.page >= 9 && e.page <= 14 && !/^(学段目标是|义务教育英语课程分为|各学段目标之间|基于核心素养)/u.test(e.text)).forEach(e => skipped.push({ id: e.id, why: 'rebuilt from the OCR table' }))
+    const order = ['3-4', '5-6', '7-9']
+    const literacies = Object.keys(EN_GOAL_CODE)
+    cells.sort((a, b) => order.indexOf(a.stage) - order.indexOf(b.stage) || literacies.indexOf(a.literacy) - literacies.indexOf(b.literacy))
+    const goalStandards = cells.map(c => {
+        const sc = stageCode('english', c.stage)
+        const code = nextCode(sc, EN_GOAL_CODE[c.literacy])
+        const text = applyFixes(c.text, fixes, fixesUsed)
+        const clauses = text.split(/(?<=[；。])/u).map(x => x.trim()).filter(x => x.replace(/[；。]/gu, '').length > 2)
+        const rebuilt = { status: 'table', note: '学段目标表格按扫描件行框重建，以 PDF 为准' }
+        return {
+            code, subject: '英语', subject_slug: 'english', stage: c.stage, stage_code: sc, grades: gradesOf(c.stage), level1: c.literacy, level2: c.item,
+            title: `${c.literacy} · ${c.item}（${EN_LEVEL[c.stage]} · ${c.stage.replace('-', '–')} 年级）`,
+            statement: text, statement_source: 'official', statement_section: '学段目标', statement_pages: c.pages, statement_source_ids: [], statement_check: rebuilt,
+            indicators: clauses.map((t, i) => ({ code: `${code}.${i + 1}`, text: t, section: '学段目标', pages: c.pages, source_ids: [], check: rebuilt, rebuilt: 'table', ...(c.stage === '7-9' ? { grades: [7, 8, 9], grade_basis: null } : {}) })),
+            guidance: []
+        }
+    })
+    // 内容要求.
+    const lines = all.filter(e => e.part === '课程内容' && e.section === '内容要求' && EN_ELEMENT_LITERACY[(e.topic || [])[0]])
+    let table = null
+    const items = []
+    for (const e of lines) {
+        const title = e.text.match(/^表\s*(\d+)\s*(\S*?)内容要求/u)
+        if (title) { table = { n: +title[1], sub: /知识$/u.test(title[2]) && title[2] !== '文化知识' ? title[2] : null }; continue }
+        // Row labels of the tables (主题群, 策略类型) sit between items without a number or punctuation.
+        if (!/^\d+\s*[.．]$/u.test(e.marker || '') && !/^\+/u.test(e.text) && !/[。；，、：）]/u.test(e.text) && e.text.length <= 10) { skipped.push({ id: e.id, why: 'table row label' }); continue }
+        const ovr = EN_PARA_STAGE.find(([a, b]) => e.para >= a && e.para <= b && ((e.topic || [])[0] === '学习策略' || a === 283))
+        items.push({ ...e, stage: ovr ? ovr[2] : (e.stage === '7-9+' ? '7-9' : e.stage), element: e.topic[0], sub: table?.sub || null, plus: /^\+/u.test(e.text) || e.stage === '7-9+' })
+    }
+    const marked = e => /^\d+\s*[.．]$/u.test(e.marker || '') || /^\+/u.test(e.text)
+    const paras = paragraphs(items.filter(e => e.stage), e => `${e.stage}|${e.element}`).filter(p => {
+        const first = items.find(x => x.id === p.ids[0])
+        if (marked(first)) return true
+        skipped.push(...p.ids.map(id => ({ id, why: 'element introduction or row label' })))
+        return false
+    })
+    // 语言技能三级分七、八、九年级三张表，每张表理解性、表达性技能各编一次号。
+    const skillRestarts = []
+    const units = new Map()
+    for (const p of paras) {
+        const first = items.find(x => x.id === p.ids[0])
+        const key = `${p.stage}|${first.element}`
+        if (!units.has(key)) units.set(key, { stage: p.stage, element: first.element, paras: [] })
+        let grades = null
+        if (first.element === '语言技能' && p.stage === '7-9') {
+            if (/^1\s*[.．]$/u.test(first.marker || '')) skillRestarts.push(p.ids[0])
+            grades = [7 + Math.min(2, Math.floor((skillRestarts.length - 1) / 2))]
+        }
+        units.get(key).paras.push({ ...p, sub: first.sub, plus: first.plus, grades })
+    }
+    const elementOrder = Object.keys(EN_ELEMENT_LITERACY)
+    const contentUnits = [...units.values()].sort((a, b) => order.indexOf(a.stage) - order.indexOf(b.stage) || elementOrder.indexOf(a.element) - elementOrder.indexOf(b.element))
+    const summaries = new Map(readTsv('docs/data/v2/summaries/english.tsv').map(([stage, unit, text]) => [`${stage}|${unit}`, text]))
+    const contentStandards = contentUnits.map(u => {
+        const sc = stageCode('english', u.stage)
+        const code = nextCode(sc, EN_ELEMENT_CODE[u.element])
+        const summary = summaries.get(`${u.stage}|${u.element}`)
+        if (!summary) problems.push(`no statement: ${u.stage} ${u.element}`)
+        return {
+            code, subject: '英语', subject_slug: 'english', stage: u.stage, stage_code: sc, grades: gradesOf(u.stage), level1: EN_ELEMENT_LITERACY[u.element], level2: u.element,
+            title: `${u.element}（${EN_LEVEL[u.stage]} · ${u.stage.replace('-', '–')} 年级）`,
+            statement: summary || '', statement_source: summary ? 'kebiao_summary' : 'missing', statement_section: null, statement_pages: [], statement_source_ids: [], statement_check: null,
+            indicators: u.paras.map((p, i) => ({
+                code: `${code}.${i + 1}`, ...make(p), section: '内容要求',
+                ...(p.sub ? { label: p.sub } : {}), ...(p.plus ? { optional: true, label: `${p.sub ? p.sub + ' · ' : ''}${EN_LEVEL[u.stage]}+（学有余力）` } : {}),
+                ...(u.stage === '7-9' ? (p.grades ? { grades: p.grades, grade_basis: '课标原文：语言技能三级按年级列表' } : { grades: [7, 8, 9], grade_basis: null }) : {})
+            })),
+            guidance: []
+        }
+    })
+    standards.push(...goalStandards, ...contentStandards)
+    standards.sort((a, b) => order.indexOf(a.stage) - order.indexOf(b.stage))
+    if (problems.length) console.log('problems:\n  ' + problems.join('\n  '))
+    return { standards, skipped_source_ids: skipped }
+}
+
+const BUILDERS = { labor: buildLabor, math: buildMath, chinese: buildChinese, english: () => buildEnglish(englishGoals), ...Object.fromEntries(Object.keys(RULES).map(k => [k, buildGeneric])) }
 if (!BUILDERS[slug]) throw new Error(`no unit rules for ${slug} yet`)
 const { standards, ...extra } = BUILDERS[slug]()
 mkdirSync('generated/v2/units', { recursive: true })

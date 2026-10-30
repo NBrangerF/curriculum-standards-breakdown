@@ -28,7 +28,7 @@ for (const s of units.standards) {
     ]
     for (const it of all) {
         if (reviewed.some(r => it.text.includes(r))) continue
-        const doubtful = it.check && it.check.status !== 'verified'
+        const doubtful = it.check && !['verified', 'table'].includes(it.check.status)
         const odd = SUSPECT.test(it.text.replace(FORMULA, ''))
         if (!doubtful && !odd) continue
         const probes = []

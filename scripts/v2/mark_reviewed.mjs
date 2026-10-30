@@ -22,7 +22,7 @@ for (const s of units.standards) {
     ]
     for (const it of all) {
         if (except.has(it.code) || reviewed.some(r => it.text.includes(r))) continue
-        if ((it.check && it.check.status !== 'verified') || SUSPECT.test(it.text.replace(FORMULA, ''))) { appendFileSync(file, `${it.text}\t${note}\n`); reviewed.push(it.text); n += 1 }
+        if ((it.check && !['verified', 'table'].includes(it.check.status)) || SUSPECT.test(it.text.replace(FORMULA, ''))) { appendFileSync(file, `${it.text}\t${note}\n`); reviewed.push(it.text); n += 1 }
     }
 }
 console.log(`${slug}: ${n} sentences recorded as checked`)
