@@ -102,6 +102,7 @@
     color: var(--kb-mist);
     font: inherit;
     font-size: 0.9rem;
+    white-space: nowrap;
     cursor: pointer;
 }
 
@@ -809,4 +810,9 @@
 
 .defense p {
     margin: 0.25rem 0 0;
+}
+
+.tableWrap:focus-visible {
+    outline: 2px solid var(--kb-gold);
+    outline-offset: 2px;
 }

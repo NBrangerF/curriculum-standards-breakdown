@@ -560,9 +560,9 @@ export default function LessonPlanPage() {
                 <section className={styles.step} aria-labelledby="lp-class">
                     <h2 id="lp-class"><span>3</span>{task === 'draft' ? <>说说你的情况<small>（可不填）</small></> : task === 'test' ? '贴入试卷或作业' : '贴入你的教案'}</h2>
                     <div className={styles.modeSwitch} role="tablist" aria-label="要做什么">
-                        <button type="button" role="tab" aria-selected={task === 'draft'} onClick={() => setTask('draft')}>起草新教案</button>
-                        <button type="button" role="tab" aria-selected={task === 'check'} onClick={() => setTask('check')}>核验我的教案</button>
-                        <button type="button" role="tab" aria-selected={task === 'test'} onClick={() => setTask('test')}>核验试卷·作业</button>
+                        <button type="button" role="tab" aria-selected={task === 'draft'} onClick={() => setTask('draft')}>起草教案</button>
+                        <button type="button" role="tab" aria-selected={task === 'check'} onClick={() => setTask('check')}>核验教案</button>
+                        <button type="button" role="tab" aria-selected={task === 'test'} onClick={() => setTask('test')}>核验试卷</button>
                     </div>
                     {task === 'test' ? <TestInput value={ownTest} onChange={setOwnTest} onRun={checkTest} running={testing} selectedCount={selectedCount} error={error} /> : null}
                     {task === 'check' ? (
@@ -737,7 +737,7 @@ function UnitDocument({ plan, edition, subject, onCopy, copied }) {
             ) : null}
             <section>
                 <h3>五、评价任务</h3>
-                <div className={styles.tableWrap}>
+                <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="评价任务表（可左右滑动）">
                     <table>
                         <thead><tr><th>评价任务</th><th>证据</th><th>达成标准</th><th>对应目标</th></tr></thead>
                         <tbody>{unit.assessments.map(item => <tr key={item.id}><td>{item.task}</td><td>{item.evidence}</td><td>{item.criteria}</td><td>{item.objective_ids.map(no).join('、')}</td></tr>)}</tbody>
@@ -887,7 +887,7 @@ function TestReport({ report }) {
             </section>
             <section>
                 <h3>内容 × {table.levels.length ? '层次' : '题目'}</h3>
-                <div className={styles.tableWrap}>
+                <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="细目表（可左右滑动）">
                     <table>
                         <thead><tr><th>要点</th><th>题号</th><th>{table.unit === 'score' ? '分值' : '题数'}</th>{table.levels.map(level => <th key={level}>{level}</th>)}<th>占比</th></tr></thead>
                         <tbody>
@@ -917,7 +917,7 @@ function TestReport({ report }) {
             </section>
             <section>
                 <h3>逐题</h3>
-                <div className={styles.tableWrap}>
+                <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="逐题分析表（可左右滑动）">
                     <table>
                         <thead><tr><th>题号</th><th>题干开头</th><th>题型</th><th>分值</th><th>要点</th><th>素养</th>{table.levels.length ? <th>层次</th> : null}<th>难度</th></tr></thead>
                         <tbody>
@@ -1054,7 +1054,7 @@ function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
                     </section>
                     <section>
                         <h3>五、评价任务</h3>
-                        <div className={styles.tableWrap}>
+                        <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="评价任务表（可左右滑动）">
                             <table>
                                 <thead><tr><th>评价任务</th><th>证据</th><th>达成标准</th><th>对应目标</th></tr></thead>
                                 <tbody>

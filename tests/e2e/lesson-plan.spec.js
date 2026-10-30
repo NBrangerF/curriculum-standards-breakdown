@@ -132,7 +132,7 @@ test('核验我的教案 reads a pasted plan and shows what to fix', async ({ pa
     })
     await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&lesson=L1`)
     await expect(page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })).toBeChecked()
-    await page.getByRole('tab', { name: '核验我的教案' }).click()
+    await page.getByRole('tab', { name: '核验教案' }).click()
     await page.getByPlaceholder(/把教案贴在这里/).fill('教学目标：1. 理解分数的基本性质；2. 培养核心素养。拓展：循环小数化分数。')
     await page.getByRole('button', { name: /对照选定的 1 条要点核验/ }).click()
     await expect(page.getByRole('heading', { name: /核验报告/ })).toBeVisible()

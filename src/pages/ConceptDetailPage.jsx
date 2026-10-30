@@ -77,7 +77,7 @@ export default function ConceptDetailPage() {
                 <h2 id="concept-use">备课时怎么用</h2>
                 <p className={styles.prose}>{term.how_to_use}</p>
                 {term.id === 'interdisciplinary' ? <p className={styles.callout}>课标给出的跨学科主题，按学科和年级整理在<Link to="/interdisciplinary">跨学科主题库</Link>，每个主题都能直接交给 AI 备课。</p> : null}
-                {term.id === 'test-blueprint' ? <p className={styles.callout}>把试卷或作业贴进 <Link to="/lesson-plan">AI 备课</Link>的「核验试卷·作业」：AI 逐题读出细目表，程序查超标、漏考和比例。</p> : null}
+                {term.id === 'test-blueprint' ? <p className={styles.callout}>把试卷或作业贴进 <Link to="/lesson-plan">AI 备课</Link>的「核验试卷」：AI 逐题读出细目表，程序查超标、漏考和比例。</p> : null}
             </section>
 
             {term.misreadings.length ? (
