@@ -360,3 +360,12 @@ test('a textbook\'s table of contents shows the 要点 the AI judged each unit t
     await expect(points).toBeVisible()
     await expect(page.getByRole('link', { name: /^HI-S4-MC-0\d\.\d+$/ }).first()).toHaveAttribute('href', /\/standards\/HI-S4-MC-0\d#HI-S4-MC-0\d\.\d+/)
 })
+
+test('上手指南 lists the weekly workflows with a way into each', async ({ page }) => {
+    await page.goto('/guide')
+    await expect(page.getByRole('heading', { name: '五分钟学会用 kebiao 备课' })).toBeVisible()
+    await expect(page.locator('#guide-test').getByRole('heading', { name: '出卷或布置作业前，编一张多维细目表' })).toBeVisible()
+    await expect(page.locator('#guide-term').getByRole('link', { name: '打开学期进度表' })).toHaveAttribute('href', '/schedule')
+    await page.goto('/')
+    await expect(page.getByRole('link', { name: '五分钟上手指南' })).toHaveAttribute('href', '/guide')
+})

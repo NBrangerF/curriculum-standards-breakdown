@@ -1,0 +1,81 @@
+/* 上手指南; the page frame comes from ConceptsPage.module.css */
+.jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1.4rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.jump a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.2rem;
+    padding: 0 0.8rem;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: var(--radius-full, 999px);
+    color: var(--kb-moon);
+    font-size: 0.86rem;
+    text-decoration: none;
+}
+
+.jump a:hover,
+.jump a:focus-visible {
+    border-color: var(--kb-gold);
+}
+
+.flows {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: 14px;
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.flow {
+    display: grid;
+    gap: 0.6rem;
+    align-content: start;
+    padding: 1.1rem 1.2rem 1.2rem;
+    border: 1px solid var(--kb-line);
+    border-radius: var(--radius-lg, 16px);
+    background: rgba(255, 255, 255, 0.02);
+    scroll-margin-top: 80px;
+    break-inside: avoid;
+}
+
+.flow h2 {
+    margin: 0;
+    color: var(--kb-moon);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.flow :global(.btn) {
+    justify-self: start;
+}
+
+.who {
+    margin: 0;
+    color: var(--kb-gold);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+}
+
+.steps {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding-left: 1.3em;
+    color: var(--kb-mist);
+    font-size: 0.92rem;
+    line-height: 1.75;
+}
+
+.steps li::marker {
+    color: var(--kb-gold);
+}

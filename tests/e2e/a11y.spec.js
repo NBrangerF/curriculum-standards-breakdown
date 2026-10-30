@@ -30,7 +30,8 @@ const routes = [
     ['experiments', '/experiments'],
     ['teacherExam', '/teacher-exam'],
     ['schedule', '/schedule?subject=%E5%8E%86%E5%8F%B2&edition=ed_2860489fc83ddeb6cec5'],
-    ['reviewMap', '/review?subject=history']
+    ['reviewMap', '/review?subject=history'],
+    ['guide', '/guide']
 ]
 
 const summarizeViolations = violations => violations.map(violation => ({
