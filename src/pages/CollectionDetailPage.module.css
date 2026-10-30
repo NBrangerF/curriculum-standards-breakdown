@@ -81,6 +81,9 @@
 }
 
 @media (max-width: 640px) {
+    /* the remove button sits above its card, so the card keeps the full width */
+    .standardItem { display: grid; padding-right: 0; }
+    .standardItem > button { position: static; order: -1; justify-self: end; margin-bottom: 6px; }
     .titleBlock h1 { font-size: clamp(2.8rem, 15vw, 4.5rem); }
     .side dl { grid-template-columns: 1fr; }
     .side dl > div { display: flex; align-items: baseline; justify-content: space-between; border-right: 0; border-bottom: 1px solid var(--collection-line); }

@@ -122,6 +122,12 @@ function subjectPage(subject) {
         const domains = [...new Set(inStage.map(standard => standard.level1))]
         return `<section id="${esc(stage.stage_code)}"><h2>${esc(stage.label)}</h2>${domains.map(domain => `<h3>${esc(domain)}</h3>${list(inStage.filter(standard => standard.level1 === domain).map(standard => `${link(`/standards/${standard.code}`, standard.level2)} <span class="kbp-code">${esc(standard.code)} · ${standard.indicators.length} 条要点</span>`))}`).join('')}</section>`
     }).join('')
+    // 学段目标 (体育: 水平目标), rebuilt from the 课标 by scripts/v2/stage_goals.mjs
+    const goalWord = subject.subject_slug === 'pe' ? '水平目标' : '学段目标'
+    const goals = subject.stages.map(stage => {
+        const groups = (subject.stage_overview.stage_goals || []).filter(g => g.stage === stage.stage)
+        return groups.length ? `<h3>${esc(stage.label)}</h3>${groups.map(g => `${g.group ? `<h4>${esc(g.group)}</h4>` : ''}${list(g.items.map(item => `${esc(item.text)} <span class="kbp-note">第 ${item.pages.join('、')} 页</span>`))}`).join('')}` : ''
+    }).join('')
     const crumbs = [['首页', '/'], [`${subject.subject}课程标准`, `/subjects/${subject.subject_slug}`]]
     add(meta, `${crumbNav(crumbs)}
 <p class="kbp-kicker">${V2_STANDARDS_DOC}</p>
@@ -129,6 +135,7 @@ function subjectPage(subject) {
 <p class="kbp-lede">${esc(info.short_description || '')}</p>
 <p class="kbp-note">共 ${subject.standards.length} 条标准、${indicatorCount} 条要点，按学段和领域排列。每条标准对应一个学段的一个内容单元；要点逐字取自课标原文。</p>
 ${stages}
+${goals ? section(`${goalWord}（课标原文）`, goals + (subject.stage_overview.stage_notes || []).map(note => `<p class="kbp-note">${esc(note.text)}</p>`).join('')) : ''}
 <p class="kbp-note">${esc(subject.source_note)}</p>`, { jsonLd: [breadcrumbs(crumbs)], image: cardUrl(`subject/${subject.subject_slug}`) })
 }
 

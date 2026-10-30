@@ -111,7 +111,14 @@ for (const slug of ordered) {
         source_note: data.source_note,
         stages,
         stage_overview: {
-            stage_goals: overview.stage_goals.filter(g => g.text.length >= 8),
+            // 学段目标 rebuilt by scripts/v2/stage_goals.mjs: per stage, grouped by 核心素养 / 学科 where the 课标 groups them
+            stage_goals: (overview.stage_goals || []).map(g => ({
+                stage: g.stage,
+                stage_code: stages.find(st => st.stage === g.stage)?.stage_code || null,
+                group: g.group || null,
+                items: g.items.map(it => ({ text: it.text, pages: it.pages, check: { status: it.check?.status || 'verified' } }))
+            })),
+            stage_notes: (overview.stage_notes || []).map(n => ({ text: n.text, pages: n.pages })),
             theme_requirements: overview.theme_requirements.map(t => ({ stage: t.stage, level1: t.level1 || null, theme: t.theme || null, text: t.text, pages: t.pages || [] })),
             kept_from_v1: overview.kept_from_v1.map(k => ({ legacy_code: k.legacy_code, stage: k.stage, text: k.text }))
         },

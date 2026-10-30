@@ -10,6 +10,7 @@ import Ignite from '../features/starmap/Ignite.jsx'
 import { useCountUp } from '../features/starmap/motionHooks.js'
 import { compareHref } from '../features/starmap/compareLinks.js'
 import { subjectMeta } from '../seo/pageMeta.js'
+import { loadV2Subject } from '../data/v2Data.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import styles from './SubjectPage.module.css'
 
@@ -133,6 +134,60 @@ function StageTable({ K, s, focus, setFocus, ts, query, tableRef, onMeasure }) {
                 </div>
             </div>
         </>
+    )
+}
+
+/** 学段目标 (体育: 水平目标): the 课标's goals for each stage, grouped by 核心素养 or 学科 where the 课标 groups them. */
+function StageGoals({ slug, color }) {
+    const [overview, setOverview] = useState(null)
+    const [stage, setStage] = useState(null)
+    useEffect(() => {
+        let cancelled = false
+        setOverview(null)
+        setStage(null)
+        loadV2Subject(slug)
+            .then(subject => { if (!cancelled) setOverview({ stages: subject.stages, ...subject.stage_overview }) })
+            .catch(() => {})
+        return () => { cancelled = true }
+    }, [slug])
+    const goals = overview?.stage_goals || []
+    if (!goals.length) return null
+    const stages = overview.stages.filter(st => goals.some(g => g.stage === st.stage))
+    const current = stage || stages[0]?.stage
+    const shown = goals.filter(g => g.stage === current)
+    const table = goals.some(g => g.items.some(it => it.check.status === 'table'))
+    const word = slug === 'pe' ? '水平目标' : '学段目标'
+    return (
+        <section className={styles.goals} style={{ '--c': color }} aria-labelledby="s-goals-title">
+            <div className={styles.wrap}>
+                <div className={styles.head}>
+                    <div>
+                        <p className={styles.kicker}>课程目标 · 课标原文</p>
+                        <Ignite as="h2" mode="scrub" id="s-goals-title" className={styles.h2} text={word} />
+                    </div>
+                    <div className={styles.seg} role="group" aria-label={word}>
+                        {stages.map(st => <button key={st.stage} type="button" aria-pressed={st.stage === current} onClick={() => setStage(st.stage)}>{st.label.replace(/（.*$/u, '')}<small> {st.stage.replace('-', '–')}</small></button>)}
+                    </div>
+                </div>
+                <div className={styles.goalGroups}>
+                    {shown.map((g, k) => (
+                        <div key={`${g.stage}-${g.group || k}`} className={styles.goalGroup}>
+                            {g.group ? <h3>{g.group}</h3> : null}
+                            <ol>
+                                {g.items.map(item => (
+                                    <li key={item.text}>
+                                        {item.text}
+                                        <small>第 {item.pages.join('、')} 页{item.check.status === 'revised' ? ' · 2025 修订' : ''}</small>
+                                    </li>
+                                ))}
+                            </ol>
+                        </div>
+                    ))}
+                </div>
+                {(overview.stage_notes || []).map(note => <p key={note.text} className={styles.goalNote}>{note.text}</p>)}
+                <p className={styles.goalNote}>页码为修订版扫描件页码。{table ? '表格中的目标按扫描件逐格重建，以官方 PDF 为准。' : ''}</p>
+            </div>
+        </section>
     )
 }
 
@@ -337,6 +392,8 @@ function SubjectPage() {
                     )}
                 </div>
             </section>
+
+            <StageGoals slug={slug} color={sub.color} />
 
             <section className={styles.peers} aria-labelledby="s-peers-title">
                 <div className={styles.wrap}>
