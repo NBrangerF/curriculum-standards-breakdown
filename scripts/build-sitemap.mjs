@@ -31,6 +31,7 @@ entries.push(['/interdisciplinary', standardsDate])
 entries.push(['/experiments', standardsDate])
 entries.push(['/teacher-exam', standardsDate])
 entries.push(['/schedule', standardsDate])
+entries.push(['/review', standardsDate])
 for (const term of concepts.terms) entries.push([`/concepts/${term.id}`, standardsDate])
 for (const subject of concepts.subjects) entries.push([`/concepts/subjects/${subject.slug}`, standardsDate])
 

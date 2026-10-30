@@ -49,6 +49,7 @@ const InterdisciplinaryPage = lazy(() => import('./pages/InterdisciplinaryPage')
 const ExperimentsPage = lazy(() => import('./pages/ExperimentsPage'))
 const TeacherExamPage = lazy(() => import('./pages/TeacherExamPage'))
 const SchedulePage = lazy(() => import('./pages/SchedulePage'))
+const ReviewMapPage = lazy(() => import('./pages/ReviewMapPage'))
 
 // v2 codes (MA-S1-NA-01, MA-S1-NA-01.3) open the standard; old codes move to where their record now lives.
 function StandardRoute() {
@@ -92,6 +93,7 @@ function App() {
                     <Route path="/alignment-workbench" element={route('alignmentWorkbench', lazyPage(<AlignmentWorkbenchPage />, '正在打开对齐工作台'))} />
                     <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />
                     <Route path="/lesson-plan" element={route('lessonPlan', lazyPage(<LessonPlanPage />, '正在打开 AI 备课'))} />
+                    <Route path="/review" element={route('reviewMap', lazyPage(<ReviewMapPage />, '正在打开中考复习地图'))} />
                     <Route path="/schedule" element={route('schedule', lazyPage(<SchedulePage />, '正在打开学期进度表'))} />
                     <Route path="/teacher-exam" element={route('teacherExam', lazyPage(<TeacherExamPage />, '正在打开教资课标速记'))} />
                     <Route path="/experiments" element={route('experiments', lazyPage(<ExperimentsPage />, '正在打开必做实验清单'))} />

@@ -319,3 +319,12 @@ test('a standard page copies its 要点 as a prompt for the teacher\'s own AI', 
     expect(prompt).toContain('不包括将循环小数转化成分数')
     expect(prompt).toContain('kebiao.org/standards/MA-S3-NA-01')
 })
+
+test('中考复习地图 lists a subject\'s junior standards with the textbook units of each grade', async ({ page }) => {
+    await page.goto('/review?subject=history')
+    await expect(page.getByRole('heading', { name: /按课标复习/ })).toBeVisible()
+    const modern = page.getByRole('region', { name: /中国近代史：课标与三年教材/ })
+    await expect(modern.getByRole('link', { name: /^8上 · 第三单元/ }).first()).toBeVisible()
+    await page.getByRole('tab', { name: '物理' }).click()
+    await expect(page.getByText('学业要求（课标原文').first()).toBeVisible()
+})

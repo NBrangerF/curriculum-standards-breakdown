@@ -1,0 +1,127 @@
+/* 中考复习地图; the page frame comes from ConceptsPage.module.css */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.4rem;
+}
+
+.tabs button {
+    min-height: 2.3rem;
+    padding: 0 0.9rem;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: var(--radius-full, 999px);
+    background: transparent;
+    color: var(--kb-mist);
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.tabs button[aria-selected='true'] {
+    border-color: var(--kb-gold);
+    background: var(--kb-accent-soft);
+    color: var(--kb-moon);
+}
+
+.summary {
+    max-width: 72ch;
+    margin: 1.5rem 0 0;
+    color: var(--kb-mist);
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+.requirements {
+    max-width: 78ch;
+    margin: 0 0 1rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--kb-line);
+    border-radius: var(--radius-md, 12px);
+    color: var(--kb-mist);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.requirements summary {
+    color: var(--kb-gold);
+    cursor: pointer;
+}
+
+.requirements p {
+    margin: 0.6rem 0 0;
+}
+
+.requirements small {
+    margin-left: 0.5rem;
+    color: var(--kb-dim);
+    font-size: 0.76rem;
+}
+
+.tableWrap {
+    overflow-x: auto;
+}
+
+.tableWrap:focus-visible {
+    outline: 2px solid var(--kb-gold);
+    outline-offset: 2px;
+}
+
+.tableWrap table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+}
+
+.tableWrap th,
+.tableWrap td {
+    padding: 0.55rem 0.65rem;
+    border-bottom: 1px solid var(--kb-line);
+    color: var(--kb-mist);
+    text-align: left;
+    vertical-align: top;
+}
+
+.tableWrap th {
+    color: var(--kb-dim);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.standard {
+    min-width: 12rem;
+}
+
+.standard a {
+    color: var(--kb-moon);
+    font-weight: 600;
+    text-decoration-color: rgba(233, 200, 135, 0.45);
+    text-underline-offset: 3px;
+}
+
+.standard code {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--kb-dim);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+}
+
+.unit {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--kb-gold);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.unit:hover,
+.unit:focus-visible {
+    text-decoration: underline;
+}
+
+.none {
+    color: var(--kb-dim);
+}

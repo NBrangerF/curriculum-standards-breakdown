@@ -2,17 +2,21 @@
 // of the 国家平台 同步课 teaches, so a standard page can list the 同步课 of every unit the AI tied to it, not only
 // the units whose pages were aligned by machine. One request per unit, spaced under the 10-a-minute AI limit;
 // results are saved after each unit, so a rerun resumes. Writes data/textbooks/smartedu/unit_picks.json.
-//   node scripts/resources/pick_unit_standards.mjs [--base https://www.kebiao.org] [--limit N]
+//   node scripts/resources/pick_unit_standards.mjs [--base https://www.kebiao.org] [--limit N] [--gap ms]
+//   A second worker can run from the other end into its own file, then merge:
+//   node scripts/resources/pick_unit_standards.mjs --reverse --out <file>   …   --merge <file>
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const SOURCE = path.join(ROOT, 'data/textbooks/smartedu')
-const OUT = path.join(SOURCE, 'unit_picks.json')
+const MAIN = path.join(SOURCE, 'unit_picks.json')
 const arg = name => { const at = process.argv.indexOf(name); return at > 0 ? process.argv[at + 1] : null }
 const BASE = arg('--base') || 'https://www.kebiao.org'
 const LIMIT = Number(arg('--limit')) || Infinity
+const OUT = arg('--out') ? path.resolve(arg('--out')) : MAIN
+const REVERSE = process.argv.includes('--reverse')
 const GAP_MS = Number(arg('--gap')) || 1500
 const HOUR = /[（(]第[一二三四五六七八九十\d]+课时[）)]\s*$/u
 
@@ -33,8 +37,25 @@ async function pick(body) {
     return null
 }
 
+// --merge <file>: fold a second worker's results into the main file (the main file wins)
+if (arg('--merge')) {
+    const extra = JSON.parse(readFileSync(path.resolve(arg('--merge')), 'utf8'))
+    const main = JSON.parse(readFileSync(MAIN, 'utf8'))
+    let added = 0
+    for (const [edition, entry] of Object.entries(extra.editions)) {
+        const target = (main.editions[edition] ??= { textbook_title: entry.textbook_title, units: {} })
+        for (const [node, unit] of Object.entries(entry.units)) if (!target.units[node]) { target.units[node] = unit; added += 1 }
+    }
+    writeFileSync(MAIN, `${JSON.stringify(main, null, 1)}\n`)
+    console.log(`merged ${added} units`)
+    process.exit(0)
+}
+// units the other worker (the main file) already has
+const doneElsewhere = (edition, node) => OUT !== MAIN && existsSync(MAIN) && Boolean(JSON.parse(readFileSync(MAIN, 'utf8')).editions[edition]?.units[node])
+
 let done = 0
-for (const file of readdirSync(SOURCE).filter(name => name.startsWith('ed_')).sort()) {
+const files = readdirSync(SOURCE).filter(name => name.startsWith('ed_')).sort()
+for (const file of REVERSE ? files.reverse() : files) {
     const record = JSON.parse(readFileSync(path.join(SOURCE, file), 'utf8'))
     const book = books.get(record.edition_id)
     if (!book) continue
@@ -49,7 +70,7 @@ for (const file of readdirSync(SOURCE).filter(name => name.startsWith('ed_')).so
         if (!units.get(top).includes(title)) units.get(top).push(title)
     }
     for (const [nodeId, lessonTitles] of units) {
-        if (entry.units[nodeId] || done >= LIMIT) continue
+        if (entry.units[nodeId] || done >= LIMIT || doneElsewhere(record.edition_id, nodeId)) continue
         const unitTitle = (titles.get(nodeId) || lessonTitles[0]).slice(0, 60)
         // a flat tree (美术, 音乐) has each lesson as its own top node
         const single = lessonTitles.length === 1 && lessonTitles[0] === unitTitle
