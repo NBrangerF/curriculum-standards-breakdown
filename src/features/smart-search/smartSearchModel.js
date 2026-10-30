@@ -6,11 +6,12 @@ export const EXAMPLES = [
 
 export const SUBJECT_LABELS = {
     chinese: '语文', math: '数学', english: '英语', science: '科学', morality_law: '道德与法治',
-    pe: '体育与健康', arts: '艺术', labor: '劳动', it: '信息科技', history: '历史', geography: '地理'
+    pe: '体育与健康', arts: '艺术', labor: '劳动', it: '信息科技', history: '历史', geography: '地理',
+    physics: '物理', chemistry: '化学', biology: '生物学'
 }
 
 export const GRADE_LABELS = {
-    H1: '1–2 年级', H2: '3–4 年级', H3: '5–6 年级', H4G7: '七年级', H4G8: '八年级', H4G9: '九年级'
+    H1: '1–2 年级', H2: '3–4 年级', H3: '5–6 年级', H4: '7–9 年级', H4G7: '七年级', H4G8: '八年级', H4G9: '九年级'
 }
 
 export const FIELD_LABELS = {

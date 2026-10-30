@@ -503,3 +503,12 @@ test('Learning Map restores a deterministic taxonomy context and honest coverage
     assert.equal(context.coverage.incoming, 'reviewed')
     assert.equal(context.coverage.outgoing, 'reviewed')
 })
+
+test('smart search parser reads 非语言类 as excluding 语文 and 英语 and keeps connectives out of the topic', () => {
+    for (const query of ['跟阅读有关的\n但是非语言类的', '跟阅读有关的 但是非语文或者英语学科']) {
+        const parsed = parseSmartSearchQuery(query)
+        assert.deepEqual(parsed.excluded_subjects.sort(), ['chinese', 'english'])
+        assert.deepEqual(parsed.core_terms, ['阅读'])
+    }
+    assert.deepEqual(parseSmartSearchQuery('理科里跟模型有关的').subjects, ['math', 'science', 'physics', 'chemistry', 'biology'])
+})

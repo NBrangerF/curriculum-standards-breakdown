@@ -29,6 +29,14 @@ const SUBJECT_ALIASES: Record<string, string[]> = {
     it: ['信息科技', '信息技术', 'it']
 }
 
+// Words for several subjects at once: "非语言类" excludes 语文 and 英语.
+const SUBJECT_GROUPS: Record<string, { aliases: string[], subjects: string[] }> = {
+    language: { aliases: ['语言类', '语言学科', '语言科目', '语言课'], subjects: ['chinese', 'english'] },
+    stem: { aliases: ['理科', '理工科'], subjects: ['math', 'science', 'physics', 'chemistry', 'biology'] },
+    humanities: { aliases: ['文科'], subjects: ['chinese', 'english', 'morality_law', 'history', 'geography'] },
+    arts_pe: { aliases: ['艺体', '音体美'], subjects: ['arts', 'pe'] }
+}
+
 // These names follow the current public skills taxonomy. They are query hints only;
 // an inferred skill is never written back to the canonical standard data.
 const SKILL_ALIASES: Record<string, string[]> = {
@@ -67,7 +75,9 @@ const QUERY_SCAFFOLDING = [
     '忽略所有规则', '所有规则', '请帮我', '帮我', '查找', '寻找', '检索', '看看', '列出', '忽略', '返回', '相关的', '有关的', '相关', '有关',
     '适合', '培养', '能够', '可以', '需要', '想要', '涉及', '围绕', '方面', '内容', '活动', '任务',
     '学科', '课程', '课标', '标准', '教学', '学习', '要求', '目标', '能力', '理解', '掌握', '中的', '中', '里的',
-    '里', '关于', '跟', '以及', '并且', '并用', '并', '与', '和', '通过', '进行', '用于', '的'
+    '里', '关于', '跟', '以及', '并且', '并用', '并', '与', '和', '通过', '进行', '用于',
+    // connectives and question words: "但是非语文或者英语学科" leaves no topic behind
+    '但是', '可是', '不过', '或者', '还是', '而且', '或是', '哪些', '什么', '有哪些', '有没有', '一下', '的'
 ].sort((left, right) => right.length - left.length)
 const SEARCH_FIELDS: Array<[string, number]> = [
     ['standard', 1],
@@ -130,7 +140,8 @@ function stripQueryScaffolding(value: string): string {
     let semantic = value.toLowerCase()
     semantic = semantic.replace(/\b[a-z]{2,8}(?:-[a-z0-9]{1,12}){2,}\b/giu, ' ')
     for (const [pattern] of GRADE_PATTERNS) semantic = replaceGlobally(semantic, pattern)
-    const aliases = unique(Object.values(SUBJECT_ALIASES).flat()).sort((left, right) => right.length - left.length)
+    const aliases = unique([...Object.values(SUBJECT_ALIASES).flat(), ...Object.values(SUBJECT_GROUPS).flatMap(group => group.aliases)])
+        .sort((left, right) => right.length - left.length)
     for (const alias of aliases) {
         const escaped = escapeRegExp(alias)
         const pattern = /^[a-z]+$/iu.test(alias)
@@ -183,7 +194,13 @@ function detectSubjectIntent(text: string) {
         if (matches.some(alias => isExcludedAlias(text, alias))) excluded.push(subject)
         else included.push(subject)
     }
-    return { included: unique(included), excluded: unique(excluded) }
+    for (const group of Object.values(SUBJECT_GROUPS)) {
+        const matches = group.aliases.filter(alias => text.includes(alias))
+        if (!matches.length) continue
+        if (matches.some(alias => isExcludedAlias(text, alias))) excluded.push(...group.subjects)
+        else included.push(...group.subjects.filter(subject => !excluded.includes(subject)))
+    }
+    return { included: unique(included).filter(subject => !excluded.includes(subject)), excluded: unique(excluded) }
 }
 
 function fieldTrust(record: StandardRecord, field: string) {
@@ -269,12 +286,13 @@ function mergeFilters(request: SmartSearchRequest, parsed: ReturnType<typeof par
 
 function humanizeConstraints(filters: ReturnType<typeof mergeFilters>['filters'], coreTerms: string[]) {
     const gradeLabels: Record<string, string> = {
-        H1: '小学 1–2 年级', H2: '小学 3–4 年级', H3: '小学 5–6 年级',
+        H1: '小学 1–2 年级', H2: '小学 3–4 年级', H3: '小学 5–6 年级', H4: '初中 7–9 年级',
         H4G7: '七年级', H4G8: '八年级', H4G9: '九年级'
     }
     const subjectLabels: Record<string, string> = {
         chinese: '语文', math: '数学', english: '英语', science: '科学', morality_law: '道德与法治',
-        pe: '体育与健康', arts: '艺术', labor: '劳动', it: '信息科技', history: '历史', geography: '地理'
+        pe: '体育与健康', arts: '艺术', labor: '劳动', it: '信息科技', history: '历史', geography: '地理',
+        physics: '物理', chemistry: '化学', biology: '生物学'
     }
     const parts: string[] = []
     if (filters.grade_bands.length) parts.push(filters.grade_bands.map(value => gradeLabels[value] || value).join('、'))
@@ -444,6 +462,17 @@ function parsedSkillOverlap(terms: string[], recordSkills: string[]): number {
     return inferred.length ? inferred.filter(code => recordSkills.includes(code)).length / inferred.length : 0
 }
 
+/** What the word-match search found against how many it shows. */
+export function coverageNoteFor(relevant: number, limit: number) {
+    return !relevant
+        ? '当前公开可检索字段中没有发现具备主题证据的候选；系统没有用仅满足筛选条件的低相关记录补足结果。'
+        : relevant < limit
+            ? `当前公开可检索字段仅发现 ${relevant} 条具备主题证据的候选；系统没有用低相关记录补足 ${limit} 条。`
+            : relevant > limit
+                ? `共发现 ${relevant} 条具备主题证据的候选，当前展示相关性最高的 ${limit} 条。`
+                : `共发现 ${relevant} 条具备主题证据的候选。`
+}
+
 export function smartSearchStandards(
     standards: StandardRecord[],
     request: SmartSearchRequest
@@ -461,12 +490,14 @@ export function smartSearchStandards(
         : unique((request.inferred_core_terms || []).flatMap(extractCoreTerms))
     const coreTerms = dropIgnoredTopics(rankingProfile === 'plan_alignment_v1'
         ? planAlignmentTokens(request.query)
-        : unique([...parsedQuery.core_terms, ...inferredCoreTerms]).slice(0, 24), ignored.core_terms)
+        : request.prefer_inferred_terms && inferredCoreTerms.length
+            ? inferredCoreTerms.slice(0, 24)
+            : unique([...parsedQuery.core_terms, ...inferredCoreTerms]).slice(0, 24), ignored.core_terms)
     const expansionTerms = rankingProfile === 'plan_alignment_v1'
         ? unique((request.query_expansion_terms || []).flatMap(planAlignmentTokens)).slice(0, 80)
         : unique((request.query_expansion_terms || []).flatMap(extractCoreTerms))
             .filter(term => !coreTerms.includes(term))
-            .filter(term => sharesTopicAnchor(term, coreTerms))
+            .filter(term => request.loose_expansion || sharesTopicAnchor(term, coreTerms))
             .slice(0, 60)
     const { filters: mergedFilters, warnings, conflicts } = mergeFilters(request, parsedQuery)
     const filters = {
@@ -493,13 +524,7 @@ export function smartSearchStandards(
             match_strength: result.match_strength as SmartSearchResult['match_strength']
         }))
     const omittedLowRelevance = Math.max(0, candidates.length - relevant.length)
-    const coverageNote = !relevant.length
-        ? '当前公开可检索字段中没有发现具备主题证据的候选；系统没有用仅满足筛选条件的低相关记录补足结果。'
-        : relevant.length < limit
-            ? `当前公开可检索字段仅发现 ${relevant.length} 条具备主题证据的候选；系统没有用低相关记录补足 ${limit} 条。`
-            : relevant.length > limit
-                ? `共发现 ${relevant.length} 条具备主题证据的候选，当前展示相关性最高的 ${limit} 条。`
-                : `共发现 ${relevant.length} 条具备主题证据的候选。`
+    const coverageNote = coverageNoteFor(relevant.length, limit)
 
     if (!results.length) warnings.push('没有候选同时满足硬筛选与主题证据要求；可尝试改写核心概念或放宽学段。')
     return {

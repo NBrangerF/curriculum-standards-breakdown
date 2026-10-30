@@ -1,5 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { useSky, useSkyView, useStarmap } from '../features/starmap/SkyProvider.jsx'
 import { C, F, SKILL_SHORT, searchStarmap, starHref, stageRange } from '../features/starmap/starmapData.js'
 import Ignite from '../features/starmap/Ignite.jsx'
@@ -146,6 +146,7 @@ function HomePage() {
     const [cmp, setCmp] = useState(COMPARE_DEFAULT)
     const count = useCountUp(K ? K.N : 2520, 2200)
     const [searchParams] = useSearchParams()
+    const navigate = useNavigate()
     const searchKey = searchParams.toString()
 
     // /?mode=B&bands=H2&subjects=math,science#compare opens the compare window on that view
@@ -192,15 +193,16 @@ function HomePage() {
                         <h1 className="sr-only" id="hero-title">kebiao 课标星图：义务教育课程标准的结构化索引</h1>
                         <p className={styles.kicker}>义务教育课程标准 · 2022年版2025年修订 · {K ? `${K.cons.length} 条标准 · ` : ''}<span className={styles.count}>{count.toLocaleString('en-US')}</span> 条要点</p>
                         <NowBlock K={K} idx={nowIdx < 0 ? 0 : nowIdx} codeRef={codeRef} dotRef={dotRef} />
-                        <form className={styles.search} role="search" onSubmit={event => { event.preventDefault(); openPalette(query) }}>
-                            <label className="sr-only" htmlFor="hero-q">搜索课程标准</label>
+                        {/* typing lights the matching stars; submitting asks AI search */}
+                        <form className={styles.search} role="search" onSubmit={event => { event.preventDefault(); if (query.trim().length >= 2) navigate(`/smart-search?q=${encodeURIComponent(query.trim())}`) }}>
+                            <label className="sr-only" htmlFor="hero-q">用一句话 AI 检索课程标准</label>
                             <div className={styles.field}>
                                 <SearchIcon />
-                                <input id="hero-q" type="search" autoComplete="off" placeholder="搜一条课标，如：合作" value={query} onChange={event => setQuery(event.target.value)} />
+                                <input id="hero-q" type="search" autoComplete="off" placeholder="用一句话找课标，如：三年级科学里讲植物生长的" value={query} onChange={event => setQuery(event.target.value)} />
                             </div>
-                            <button className={styles.go} type="submit" data-kb-telemetry-task="search_start">检索</button>
+                            <button className={styles.go} type="submit" data-kb-telemetry-task="search_start">AI 检索</button>
                         </form>
-                        <p className={styles.match} aria-live="polite">{results == null ? '' : results.length ? `${results.length} 颗亮起 · 回车看列表` : '没有匹配'}</p>
+                        <p className={styles.match} aria-live="polite">{results == null ? '' : `${results.length ? `${results.length} 颗亮起` : '星图里没有字面匹配'} · 回车用 AI 检索`}</p>
                         <p className={styles.entryLabel} id="subjects-section">从学科进入</p>
                         <ul className={styles.srail} aria-labelledby="subjects-section">
                             {(K ? K.subjects : []).map((s, k) => (

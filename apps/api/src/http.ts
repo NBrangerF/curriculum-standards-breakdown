@@ -24,6 +24,8 @@ export interface AiMetrics {
     input_tokens: number
     output_tokens: number
     total_tokens: number
+    judge_status?: string
+    judge_latency_ms?: number
 }
 
 const TIER_LIMITS: Record<AccessTier, number> = {

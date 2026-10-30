@@ -100,6 +100,7 @@
 
 .progress li > span { width: 2ch; color: inherit; font-family: var(--font-num); font-size: 20px; font-style: italic; }
 .progress li[data-state='done'] { color: var(--kb-mist); }
+.progress li.progressNote { border-bottom: 0; color: var(--kb-dim); font-size: 13px; }
 .progress li[data-state='active'] { color: var(--kb-moon); }
 .progress li[data-state='active'] > span { color: var(--kb-gold); }
 .progress li[data-state='done']::after { width: 10px; height: 5px; margin: 0 2px 4px auto; border-bottom: 1.5px solid var(--kb-gold); border-left: 1.5px solid var(--kb-gold); content: ''; transform: rotate(-45deg); }
@@ -145,6 +146,7 @@
 .resultTitle button:focus-visible { border-radius: 4px; outline: 2px solid var(--kb-gold); outline-offset: 4px; }
 
 .reason { max-width: 68ch; margin: 0; color: var(--kb-mist); font-size: 14.5px; line-height: 1.8; }
+.aiTag { margin-right: 8px; padding: 1px 6px; border: 1px solid var(--kb-line-strong); border-radius: 4px; color: var(--kb-gold); font-size: 11.5px; letter-spacing: 0.08em; vertical-align: 1px; }
 
 .evidence { display: grid; gap: 10px; margin: 4px 0 0; }
 .evidence > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 14px; padding-top: 10px; border-top: 1px dashed var(--kb-line); }

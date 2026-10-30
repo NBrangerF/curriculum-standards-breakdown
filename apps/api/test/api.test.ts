@@ -16,6 +16,7 @@ import {
     type QueryInterpretationCache
 } from '../src/llm.js'
 import { redactSensitiveText } from '../src/ai-privacy.js'
+import { judgeSearchCandidates } from '../src/search-judge.js'
 import { parsePlanWithLlm } from '../src/plan-llm.js'
 import vercelHandler from '../../../api/v1/[...path].js'
 
@@ -248,9 +249,9 @@ function hangUntilAborted(onSignal?: (signal: AbortSignal | undefined) => void):
     })
 }
 
-test('LLM query interpreter aborts after about 4 s and caps longer configured budgets', async t => {
+test('LLM query interpreter aborts after about 10 s and keeps configured budgets between 6 and 15 s', async t => {
     t.mock.timers.enable({ apis: ['setTimeout'] })
-    for (const [env, budget] of [[{}, 4000], [{ KEBIAO_LLM_QUERY_TIMEOUT_MS: '60000' }, 5000]] as const) {
+    for (const [env, budget] of [[{}, 10000], [{ KEBIAO_LLM_QUERY_TIMEOUT_MS: '60000' }, 15000], [{ KEBIAO_LLM_QUERY_TIMEOUT_MS: '4000' }, 6000]] as const) {
         let signal: AbortSignal | undefined
         const pending = interpretSearchQueryWithLlm('科学观察', {
             env: { KEBIAO_LLM_API_KEY: 'test-secret', ...env },
@@ -1183,7 +1184,7 @@ function tracedSearchApp(events: string[]) {
     return createApp(repository)
 }
 
-test('semantic search retrieves while the model runs, re-ranks once, then serves the cached interpretation', async () => {
+test('semantic search retrieves while the model runs, re-ranks once, checks the candidates, then serves the cached interpretation', async () => {
     const events: string[] = []
     const searchApp = tracedSearchApp(events)
     const query = '第一学段，除了语文学科之外，跟阅读相关的课标'
@@ -1210,7 +1211,8 @@ test('semantic search retrieves while the model runs, re-ranks once, then serves
             body: JSON.stringify({ query: text })
         })
         const first = await json(await send(query))
-        assert.deepEqual(events, ['llm:start', 'retrieval', 'llm:end', 'rerank'])
+        // the second model call is the relevance check (this stand-in answers it in the wrong shape, so the ranking stands)
+        assert.deepEqual(events, ['llm:start', 'retrieval', 'llm:end', 'rerank', 'llm:start', 'llm:end'])
         assert.equal(first.data.query_interpretation.status, 'ok')
         assert.equal(first.data.query_interpretation.cached, false)
         assert.deepEqual(first.data.applied_filters.excluded_subjects, ['chinese'])
@@ -1218,7 +1220,7 @@ test('semantic search retrieves while the model runs, re-ranks once, then serves
 
         events.length = 0
         const second = await json(await send(` ${query} `))
-        assert.deepEqual(events, ['retrieval', 'rerank'])
+        assert.deepEqual(events, ['retrieval', 'rerank', 'llm:start', 'llm:end'])
         assert.equal(second.data.query_interpretation.cached, true)
         assert.deepEqual(second.data.results.map((item: any) => item.code), first.data.results.map((item: any) => item.code))
     })
@@ -1228,9 +1230,9 @@ test('semantic search returns rule-based results with a soft warning when the mo
     const events: string[] = []
     const searchApp = tracedSearchApp(events)
     const query = '三四年级科学中，适合培养证据推理的观察活动'
-    const expected = await new FileCurriculumRepository(publicDataRoot).smartSearchStandards({ query })
+    const expected = await new FileCurriculumRepository(publicDataRoot).smartSearchStandards({ query, limit: 24 })
     const llm = hangUntilAborted(() => events.push('llm:start'))
-    await withLiveLlm(llm, { KEBIAO_LLM_QUERY_TIMEOUT_MS: '1000' }, async () => {
+    await withLiveLlm(llm, { KEBIAO_LLM_QUERY_TIMEOUT_MS: '6000' }, async () => {
         const response = await searchApp.request('/api/v1/standards/semantic-search', {
             method: 'POST',
             headers: { 'content-type': 'application/json', 'x-forwarded-for': 'smart-search-timeout-test' },
@@ -1241,7 +1243,8 @@ test('semantic search returns rule-based results with a soft warning when the mo
         assert.deepEqual(events, ['llm:start', 'retrieval'])
         assert.equal(body.data.query_interpretation.status, 'timeout')
         assert.equal(body.meta.query_interpreter, 'deterministic_fallback')
-        assert.ok(body.meta.latency_ms < 2500)
+        // no relevance check after a timeout, so the wait is the question budget alone
+        assert.ok(body.meta.latency_ms < 7500)
         assert.ok(body.data.warnings.some((warning: string) => warning.includes('AI 查询理解暂不可用')))
         assert.deepEqual(body.data.results.map((item: any) => item.code), expected.results.map(item => item.code))
     })
@@ -1704,4 +1707,56 @@ test('MCP and plugin routes get the larger tools rate budget', async () => {
     const response = await publicApp.request('/api/v1/plugin/subjects', { headers: { 'x-forwarded-for': '203.0.113.77' } })
     assert.equal(response.headers.get('x-ratelimit-policy'), 'tools-per-minute')
     assert.equal(response.headers.get('x-ratelimit-limit'), '300')
+})
+
+// A stand-in model: reads the question (查询理解器) or grades candidates (核对员) the way the prompts ask.
+function fakeModel(verdict: (code: string, index: number) => { grade: number, reason: string, point: string }, calls: string[] = []): typeof fetch {
+    return async (_input, init) => {
+        const body = JSON.parse(String(init?.body))
+        const system = String(body.messages[0].content)
+        const user = String(body.messages[1].content)
+        calls.push(system.includes('核对员') ? 'judge' : 'interpret')
+        const content = system.includes('核对员')
+            ? { judgements: [...user.matchAll(/【([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2})】/gu)].map(([, code], index) => ({ code, ...verdict(code, index) })).concat([{ code: 'XX-S9-ZZ-99', grade: 2, reason: '编造', point: '' }]) }
+            : { subjects: [], excluded_subjects: ['chinese', 'english'], grade_bands: [], skills: [], core_terms: ['阅读'], expanded_terms: ['读图', '史料'], constraint_evidence: [{ kind: 'excluded_subject', value: 'chinese', evidence_span: '非语言类' }, { kind: 'excluded_subject', value: 'english', evidence_span: '非语言类' }], ambiguities: [], clarification_question: '', intent_summary: '语言学科以外与阅读有关的标准', warnings: [] }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 100, completion_tokens: 50, total_tokens: 150 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    }
+}
+
+test('search judge grades candidates in parallel batches and ignores codes it was not given', async () => {
+    const candidates = Array.from({ length: 12 }, (_, k) => ({ code: `MA-S3-NA-${String(k + 1).padStart(2, '0')}`, subject: '数学', stage: '5–6 年级', title: `标准${k}`, statement: '……', indicators: [{ code: `MA-S3-NA-${String(k + 1).padStart(2, '0')}.1`, text: '……' }] }))
+    const calls: string[] = []
+    const result = await judgeSearchCandidates('分数', '', candidates, {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        fetchImpl: fakeModel((code, index) => ({ grade: index % 3, reason: '理由', point: index === 0 ? `${code}.1` : 'MA-S1-XX-01.1' }), calls)
+    })
+    assert.equal(calls.length, 2)
+    assert.equal(result.status, 'ok')
+    assert.equal(result.judgements.size, 12)
+    assert.equal(result.judgements.has('XX-S9-ZZ-99'), false)
+    assert.equal(result.judgements.get('MA-S3-NA-01')?.point, 'MA-S3-NA-01.1')
+    // a 要点 of another standard is not accepted as the closest 要点
+    assert.equal(result.judgements.get('MA-S3-NA-02')?.point, null)
+    assert.equal(result.usage?.total_tokens, 300)
+})
+
+test('smart search drops what the model judges off-topic and shows its reasons', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const calls: string[] = []
+    t.mock.method(globalThis, 'fetch', fakeModel((code, index) => ({ grade: index === 0 ? 2 : index === 1 ? 1 : 0, reason: index === 0 ? '要求阅读材料并提取信息' : '可作参考', point: `${code}.1` }), calls))
+    const response = await publicApp.request('/api/v1/standards/semantic-search', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ query: '跟阅读有关的 但是非语言类的（测试）' }) })
+    assert.equal(response.status, 200)
+    const { data } = await json(response)
+    assert.ok(calls.includes('interpret') && calls.includes('judge'))
+    assert.ok(data.results.length >= 1)
+    assert.ok(data.results.every((item: any) => !item.code.startsWith('CN-') && !item.code.startsWith('EN-')))
+    assert.equal(data.results[0].checked_by_ai, true)
+    assert.equal(data.results[0].match_strength, 'direct')
+    assert.equal(data.results[0].relevance_reason, '要求阅读材料并提取信息')
+    assert.equal(data.results[0].matched_point.code, `${data.results[0].code}.1`)
+    assert.ok(data.relevance_check.dropped > 0)
+    assert.equal(data.relevance_summary.direct, data.results.filter((item: any) => item.match_strength === 'direct').length)
+    assert.match(data.coverage_note, /AI 逐条读了/)
 })

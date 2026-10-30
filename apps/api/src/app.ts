@@ -16,13 +16,16 @@ import {
     StandardSearchRequestSchema,
     SmartSearchRequestSchema,
     SMART_SEARCH_RELEVANCE_VERSION,
+    coverageNoteFor,
     WeeklyScheduleRequestSchema,
     projectStandard
 } from '../../../packages/curriculum-core/src/index.js'
 import type {
     LearningResourceFormat,
     LearningResourceOpenLevel,
-    LearningResourceStage
+    LearningResourceStage,
+    SmartSearchResponse,
+    SmartSearchResult
 } from '../../../packages/curriculum-core/src/index.js'
 import {
     apiAccessMiddleware,
@@ -49,6 +52,7 @@ import { TextbookAssetService } from './textbook-assets.js'
 import { createV2Store, v2TextbookItem } from './v2-store.js'
 import { ToolInputError, findTool, type ToolContext } from './ai-tools.js'
 import { handleMcp } from './mcp.js'
+import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate, type JudgeResult } from './search-judge.js'
 import { resolvePluginOpenApiPath } from './config.js'
 
 const DEVELOPMENT_API_ROUTES = [
@@ -84,12 +88,63 @@ export interface CurriculumAppOptions {
     learningResourceRepository?: FileLearningResourceRepository
 }
 
+// How many retrieved candidates the model reads for a search.
+const JUDGE_POOL = 36
+
+// The model's verdicts become the result: 2 → 直接对应, 1 → 相关, 0 → left out with its reason dropped. A candidate a
+// failed batch never read keeps its word-match label and comes after the checked ones of the same kind.
+function applyJudgements(pool: SmartSearchResponse, judge: JudgeResult | null, shown: number, candidates: JudgeCandidate[]): SmartSearchResponse {
+    if (!judge?.used) return { ...pool, results: pool.results.slice(0, shown), coverage_note: coverageNoteFor(pool.relevant_candidates, shown) }
+    const texts = new Map(candidates.flatMap(candidate => candidate.indicators.map(item => [item.code, item.text] as const)))
+    const rank = (item: SmartSearchResult) => (item.match_strength === 'direct' ? 0 : 2) + (item.checked_by_ai ? 0 : 1)
+    const kept = pool.results.flatMap((item): SmartSearchResult[] => {
+        const verdict = judge.judgements.get(item.code)
+        if (!verdict) return [item]
+        if (verdict.grade === 0) return []
+        return [{
+            ...item,
+            match_strength: verdict.grade === 2 ? 'direct' : 'supporting',
+            relevance_reason: verdict.reason || item.relevance_reason,
+            checked_by_ai: true,
+            matched_point: verdict.point && texts.has(verdict.point) ? { code: verdict.point, text: texts.get(verdict.point)! } : null
+        }]
+    }).sort((left, right) => rank(left) - rank(right))
+    const dropped = pool.results.length - kept.length
+    const direct = kept.filter(item => item.match_strength === 'direct').length
+    const unread = Math.max(0, pool.relevant_candidates - pool.results.length)
+    return {
+        ...pool,
+        results: kept.slice(0, shown),
+        relevant_candidates: kept.length,
+        omitted_low_relevance: pool.omitted_low_relevance + dropped,
+        relevance_summary: { direct, supporting: kept.length - direct },
+        coverage_note: `AI 逐条读了 ${pool.results.length} 条候选的要点原文：${direct} 条直接对应，${kept.length - direct} 条相关，${dropped} 条不切题，已略去。${kept.length > shown ? `下面列出前 ${shown} 条。` : ''}${unread ? `另有 ${unread} 条字面相近、排在后面的候选没有读。` : ''}`,
+        relevance_check: { status: judge.status, model: judge.model, latency_ms: judge.latency_ms, read: judge.judgements.size, kept: kept.length, dropped }
+    }
+}
+
 export function createApp(repository: FileCurriculumRepository, options: CurriculumAppOptions = {}) {
     const app = new Hono<ApiBindings>()
     const textbookRepository = options.textbookRepository || new FileTextbookRepository(resolveDataRoot())
     const textbookAssetService = options.textbookAssetService || new TextbookAssetService()
     const learningResourceRepository = options.learningResourceRepository || new FileLearningResourceRepository(resolveDataRoot())
     const v2 = createV2Store(resolveDataRoot())
+    // A search candidate as the model reads it: 标准句 and 要点 原文, the 要点 holding the matched words first.
+    const judgeCandidates = (results: SmartSearchResult[]) => Promise.all(results.map(async (item): Promise<JudgeCandidate> => {
+        const found = await v2.find(item.code)
+        const record = item.standard as Record<string, unknown>
+        if (!found) return { code: item.code, subject: String(record.subject || ''), stage: String(record.grade || ''), title: String(record.standard_title || ''), statement: String(record.standard || ''), indicators: [] }
+        const { standard, subject } = found
+        const hits = (text: string) => Number(item.matched_concepts.some(term => text.includes(term)))
+        return {
+            code: item.code,
+            subject: subject.subject,
+            stage: subject.stages.find(stage => stage.stage_code === standard.stage_code)?.label || standard.stage,
+            title: standard.level2,
+            statement: standard.statement,
+            indicators: [...standard.indicators].sort((left, right) => hits(right.text) - hits(left.text)).map(point => ({ code: point.code, text: point.text }))
+        }
+    }))
 
     app.use('*', requestIdMiddleware)
     app.use('*', securityHeadersMiddleware)
@@ -651,10 +706,35 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
             return apiError(c, 422, 'validation_error', '筛选条件不在当前公开数据契约中。', filterErrors)
         }
         const privacy = redactSensitiveText(parsed.data.query)
+        const shown = parsed.data.limit ?? 24
         // The model call starts first; loading and the rule-based retrieval run while it is in flight.
         const interpretationRequest = interpretSearchQueryWithLlm(privacy.text, { cache: queryInterpretationCache })
-        const deterministicRequest = repository.smartSearchStandards(parsed.data)
+        const deterministicRequest = repository.smartSearchStandards({ ...parsed.data, limit: JUDGE_POOL })
         const [interpretation, deterministic] = await Promise.all([interpretationRequest, deterministicRequest])
+        const aiInterpretation = interpretation.interpretation
+        // With the model's reading of the question, its topic words replace the parsed ones and its wider phrasings may
+        // bring in candidates; the check below reads every candidate before it is shown. Without it the rule-based result stands.
+        const pool = aiInterpretation
+            ? await repository.smartSearchStandards({
+                ...parsed.data,
+                inferred_subjects: aiInterpretation.subjects,
+                inferred_excluded_subjects: aiInterpretation.excluded_subjects,
+                inferred_grade_bands: aiInterpretation.grade_bands,
+                inferred_core_terms: aiInterpretation.core_terms,
+                query_expansion_terms: aiInterpretation.expanded_terms,
+                prefer_inferred_terms: true,
+                loose_expansion: true,
+                limit: JUDGE_POOL
+            })
+            : deterministic
+        // only after the model read the question: if it failed or timed out there, a second call would most likely
+        // do the same and double the wait
+        const checkable = interpretation.status === 'ok' && pool.results.length > 0
+        const candidates = checkable ? await judgeCandidates(pool.results) : []
+        const judge = checkable
+            ? await judgeSearchCandidates(privacy.text, aiInterpretation?.intent_summary || pool.understanding_summary, candidates, { cache: searchJudgeCache })
+            : null
+        const result = applyJudgements(pool, judge, shown, candidates)
         c.set('aiMetrics', {
             feature: 'query_interpretation',
             used: interpretation.used,
@@ -663,22 +743,11 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
             protocol: interpretation.protocol,
             latency_ms: interpretation.latency_ms,
             redaction_count: privacy.redaction_count,
-            input_tokens: interpretation.usage?.input_tokens || 0,
-            output_tokens: interpretation.usage?.output_tokens || 0,
-            total_tokens: interpretation.usage?.total_tokens || 0
+            input_tokens: (interpretation.usage?.input_tokens || 0) + (judge?.usage?.input_tokens || 0),
+            output_tokens: (interpretation.usage?.output_tokens || 0) + (judge?.usage?.output_tokens || 0),
+            total_tokens: (interpretation.usage?.total_tokens || 0) + (judge?.usage?.total_tokens || 0),
+            ...(judge ? { judge_status: judge.status, judge_latency_ms: judge.latency_ms } : {})
         })
-        const aiInterpretation = interpretation.interpretation
-        // One re-rank over the already loaded standards; on timeout or error the rule-based result stands.
-        const result = aiInterpretation
-            ? await repository.smartSearchStandards({
-                ...parsed.data,
-                inferred_subjects: aiInterpretation.subjects,
-                inferred_excluded_subjects: aiInterpretation.excluded_subjects,
-                inferred_grade_bands: aiInterpretation.grade_bands,
-                inferred_core_terms: aiInterpretation.core_terms,
-                query_expansion_terms: aiInterpretation.expanded_terms
-            })
-            : deterministic
         const ambiguities = aiInterpretation?.ambiguities || []
         const clarificationQuestion = aiInterpretation?.clarification_question || ''
         if (ambiguities.length && clarificationQuestion) {

@@ -29,11 +29,12 @@ import {
 } from '../observability/umamiTelemetry.js'
 import styles from './SmartSearchPage.module.css'
 
-// Retrieval finishes well under a second; after that the request is waiting on the model, capped at about 4 s.
+// The model reads the question (3–5 s), retrieval takes well under a second, then the model reads every candidate's
+// 要点 (5–10 s more); a search usually takes 10–20 s in all.
 const STAGES = [
-    { label: '读出学段、学科和排除条件', at: 0 },
-    { label: '在全部课标中检索有主题证据的条目', at: 250 },
-    { label: 'AI 核对你的意思，最多约 4 秒', at: 900 }
+    { label: 'AI 读懂你的问题：学段、学科、要排除的、主题', at: 0 },
+    { label: '在全部课标中找出候选', at: 4000 },
+    { label: 'AI 逐条读候选的要点原文，判断是否切题', at: 5000 }
 ]
 
 function SearchProgress() {
@@ -49,6 +50,7 @@ function SearchProgress() {
                     <span>{String(index + 1).padStart(2, '0')}</span>{item.label}
                 </li>
             ))}
+            <li className={styles.progressNote}>通常需要 10–20 秒</li>
         </ol>
     )
 }
@@ -66,8 +68,15 @@ function ResultItem({ item, rank, saved, onSave, onPreview }) {
             <h3 className={styles.resultTitle}>
                 <button type="button" aria-haspopup="dialog" onClick={open}>{standard.standard_title || standard.standard}</button>
             </h3>
-            <p className={styles.reason}>{item.relevance_reason || item.rationale}</p>
-            {item.matched_fields?.length ? (
+            <p className={styles.reason}>{item.checked_by_ai ? <span className={styles.aiTag}>AI 判断</span> : null}{item.relevance_reason || item.rationale}</p>
+            {item.matched_point ? (
+                <dl className={styles.evidence}>
+                    <div>
+                        <dt>最相关的要点<span>{item.matched_point.code}</span></dt>
+                        <dd><Marked text={item.matched_point.text} terms={item.matched_concepts || []} /></dd>
+                    </div>
+                </dl>
+            ) : item.matched_fields?.length ? (
                 <dl className={styles.evidence}>
                     {item.matched_fields.map(field => (
                         <div key={field.field}>
@@ -259,7 +268,8 @@ function SmartSearchPage() {
     const directCount = relevance.direct ?? directResults.length
     const supportingCount = relevance.supporting ?? supportingResults.length
     const totalRelevant = result?.relevant_candidates ?? directCount + supportingCount
-    const modelMissed = result && !interpretation.used && interpretation.status && interpretation.status !== 'disabled'
+    const checked = Boolean(result?.relevance_check)
+    const modelMissed = result && !checked && interpretation.status && interpretation.status !== 'disabled'
     const visibleWarnings = (result?.warnings || []).filter(warning => !warning.includes('AI 查询理解暂不可用') && !warning.includes('可识别个人信息'))
     const friendly = error ? friendlySearchError(error) : null
 
@@ -268,7 +278,7 @@ function SmartSearchPage() {
             <PageHero
                 kicker="AI 检索 · 用一句话描述"
                 title={'用教学语言\n查找课程标准'}
-                lede={<>说出学段、学科、要排除的学科和主题。系统先按你的原话检索，AI 只补充有原文依据的条件。已有教学计划，可以去 <Link to="/alignment-workbench">课程对齐工作台</Link>。</>}
+                lede={<>说出学段、学科、要排除的学科和主题。AI 先读懂你的问题，再逐条读候选课标的要点原文，判断是否切题；通常需要 10–20 秒。已有教学计划，可以去 <Link to="/alignment-workbench">课程对齐工作台</Link>。</>}
             >
                 <form className={styles.form} role="search" onSubmit={event => { event.preventDefault(); submit(query) }}>
                     <label className={kb.label} htmlFor="smart-query">描述你的教学目标或使用情境</label>
@@ -326,13 +336,13 @@ function SmartSearchPage() {
                                         <ul className={kb.stats}>
                                             <Stat value={totalRelevant} label="条相关" />
                                             <Stat value={directCount} label="直接对应" />
-                                            <Stat value={supportingCount} label="教学延伸" />
+                                            <Stat value={supportingCount} label={checked ? '相关' : '教学延伸'} />
                                         </ul>
                                         <Chip small className={styles.batch} onClick={saveDirectResults} disabled={!directResults.length || directResults.every(item => saved.has(item.code))}>批量加入直接结果</Chip>
                                     </div>
 
                                     {batchMessage ? <p className={styles.note} role="status">{batchMessage}</p> : null}
-                                    {modelMissed ? <p className={styles.note}>AI 这次没能及时理解，下面是按你的原话检索的结果。</p> : null}
+                                    {modelMissed ? <p className={styles.note}>AI 这次没能及时核对，下面是按你的原话做字面匹配的结果，相关性需要你自己判断。</p> : null}
                                     {interpretation.privacy?.redacted ? <p className={styles.note}>发送到模型服务前已自动移除 {interpretation.privacy.redaction_count} 处可识别信息；原始查询不会写入 API 指标。</p> : null}
                                     {result.coverage_note ? <p className={styles.coverage}>{result.coverage_note}</p> : null}
                                     {visibleWarnings.map(warning => <p className={styles.note} key={warning}>{warning}</p>)}
@@ -349,9 +359,9 @@ function SmartSearchPage() {
                                     {supportingResults.length ? (
                                         <details className={styles.supporting}>
                                             <summary>
-                                                <span className={kb.kicker}>贰 · 教学延伸</span>
-                                                <strong>{supportingCount} 条教学情境延伸</strong>
-                                                <span className={styles.summaryNote}>只在情境、实践建议或教学提示中出现相关表达</span>
+                                                <span className={kb.kicker}>{checked ? '贰 · 相关' : '贰 · 教学延伸'}</span>
+                                                <strong>{checked ? `${supportingCount} 条相关，可作参考` : `${supportingCount} 条教学情境延伸`}</strong>
+                                                <span className={styles.summaryNote}>{checked ? 'AI 判断为相关、但不是直接对应' : '只在情境、实践建议或教学提示中出现相关表达'}</span>
                                             </summary>
                                             <ol className={kb.list}>
                                                 {supportingResults.map((item, index) => <ResultItem key={item.code} item={item} rank={directResults.length + index + 1} saved={saved.has(item.code)} onSave={save} onPreview={openPreview} />)}

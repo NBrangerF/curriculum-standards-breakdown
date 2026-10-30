@@ -169,8 +169,52 @@ test('smart search discloses privacy redaction and deterministic fallback', asyn
     await page.goto('/smart-search')
     await page.getByLabel('描述你的教学目标或使用情境').fill('教师姓名：测试用户 观察植物')
     await page.getByRole('button', { name: '检索', exact: true }).click()
-    await expect(page.getByText('AI 这次没能及时理解，下面是按你的原话检索的结果。')).toBeVisible()
+    await expect(page.getByText('AI 这次没能及时核对，下面是按你的原话做字面匹配的结果，相关性需要你自己判断。')).toBeVisible()
     await expect(page.getByText(/发送到模型服务前已自动移除 1 处/)).toBeVisible()
+})
+
+test('smart search shows the AI relevance check: its reason and the closest 要点', async ({ page }) => {
+    const checkedItem = { ...candidate, checked_by_ai: true, relevance_reason: '要求阅读科普材料获取信息', matched_point: { code: 'SC-S2-LS-01.2', text: '阅读简单的科普读物，说出植物生长需要的条件。' } }
+    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify(envelope({
+            query: '科学里跟阅读有关的',
+            parsed_query: { subjects: ['science'], grade_bands: [], skills: [], core_terms: ['阅读'] },
+            applied_filters: { subjects: ['science'], excluded_subjects: [], grade_bands: [], skills: [] },
+            query_plan: { version: 'nlq-v2', normalized_query: '科学里跟阅读有关的', topics: [{ value: '阅读', source: 'explicit_text', confidence: 1 }], resolved_constraints: { subjects: ['science'], excluded_subjects: [], grade_bands: [], domains: [], skills: [] }, conflicts: [], ambiguities: [], needs_clarification: false, clarification_question: null },
+            understanding_summary: '我理解你要查找学科为科学，主题为阅读的课程标准。',
+            results: [checkedItem, { ...checkedItem, code: 'SC-S2-LS-02', match_strength: 'supporting', relevance_reason: '涉及观察记录，可作参考', matched_point: null, standard: { ...candidate.standard, code: 'SC-S2-LS-02', standard_title: '观察记录' } }],
+            total_candidates: 40,
+            relevant_candidates: 2,
+            omitted_low_relevance: 38,
+            relevance_summary: { direct: 1, supporting: 1 },
+            coverage_note: 'AI 逐条读了 5 条候选的要点原文：1 条直接对应，1 条相关，3 条不切题，已略去。',
+            relevance_version: 'topic-evidence-v1',
+            retrieval_version: 'trusted-hybrid-v1',
+            semantic_provider: 'none',
+            query_interpretation: { used: true, status: 'ok', privacy: { redacted: false, redaction_count: 0, categories: [] } },
+            relevance_check: { status: 'ok', model: 'test', latency_ms: 10, read: 5, kept: 2, dropped: 3 },
+            warnings: []
+        }))
+    }))
+    await page.goto('/smart-search?q=%E7%A7%91%E5%AD%A6%E9%87%8C%E8%B7%9F%E9%98%85%E8%AF%BB%E6%9C%89%E5%85%B3%E7%9A%84')
+    const direct = page.locator('[data-search-result="direct"]')
+    await expect(direct.getByText('AI 判断')).toBeVisible()
+    await expect(direct.getByText('要求阅读科普材料获取信息')).toBeVisible()
+    await expect(direct.getByText('最相关的要点')).toBeVisible()
+    await expect(direct.getByText('SC-S2-LS-01.2')).toBeVisible()
+    await expect(page.getByText('1 条相关，可作参考', { exact: true })).toBeVisible()
+    await expect(page.getByText(/AI 逐条读了 5 条候选/)).toBeVisible()
+    await expect(page.getByText(/没能及时核对/)).toHaveCount(0)
+})
+
+test('the home page search box opens AI search with the typed question', async ({ page }) => {
+    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(searchResponse('三年级科学里讲植物生长的')) }))
+    await page.goto('/')
+    await page.getByLabel('用一句话 AI 检索课程标准').fill('三年级科学里讲植物生长的')
+    await page.getByRole('button', { name: 'AI 检索', exact: true }).click()
+    await expect(page).toHaveURL(/\/smart-search\?q=%E4%B8%89%E5%B9%B4%E7%BA%A7/)
+    await expect(page.getByLabel('描述你的教学目标或使用情境')).toHaveValue('三年级科学里讲植物生长的')
 })
 
 function searchResponse(query, overrides = {}) {

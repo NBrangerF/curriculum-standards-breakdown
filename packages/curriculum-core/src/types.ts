@@ -388,6 +388,10 @@ export interface SmartSearchRequest extends StandardFilters {
     inferred_subjects?: string[]
     inferred_excluded_subjects?: string[]
     inferred_grade_bands?: string[]
+    /** Use the model's topic terms instead of the words parsed from the query (when the model gave any). */
+    prefer_inferred_terms?: boolean
+    /** Keep expansion terms that do not contain a topic term; a later relevance check filters what they bring in. */
+    loose_expansion?: boolean
     ignored_constraints?: SmartSearchIgnoredConstraints
     include?: Fieldset[]
     limit?: number
@@ -433,6 +437,10 @@ export interface SmartSearchResult {
     rationale: string
     requires_human_review: true
     standard: JsonObject
+    /** Set when the model read this candidate: its verdict replaced the word-match label and reason. */
+    checked_by_ai?: boolean
+    /** The 要点 the model found closest to the request. */
+    matched_point?: { code: string, text: string } | null
 }
 
 export interface SmartSearchQueryPlanConflict extends JsonObject {
@@ -485,6 +493,8 @@ export interface SmartSearchResponse extends JsonObject {
     retrieval_version: 'trusted-hybrid-v1'
     semantic_provider: 'none'
     query_interpretation?: JsonObject
+    /** The model's check of each candidate against the request (apps/api/src/search-judge.ts). */
+    relevance_check?: JsonObject
     warnings: string[]
 }
 

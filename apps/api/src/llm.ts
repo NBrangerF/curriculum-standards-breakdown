@@ -83,7 +83,7 @@ const OUTPUT_SCHEMA = {
     type: 'object',
     additionalProperties: false,
     properties: {
-        subjects: { type: 'array', items: { type: 'string', enum: SUBJECTS }, maxItems: 3 },
+        subjects: { type: 'array', items: { type: 'string', enum: SUBJECTS }, maxItems: 6 },
         excluded_subjects: { type: 'array', items: { type: 'string', enum: SUBJECTS }, maxItems: 9 },
         grade_bands: { type: 'array', items: { type: 'string', enum: GRADE_BANDS }, maxItems: 3 },
         skills: { type: 'array', items: { type: 'string', enum: SKILLS }, maxItems: 4 },
@@ -113,13 +113,15 @@ const OUTPUT_SCHEMA = {
 
 const INSTRUCTIONS = `你是 kebiao 的课程标准查询理解器。只分析用户查询，不回答问题，也不生成课程标准编码或课程事实。
 	返回严格符合给定 JSON Schema 的对象。core_terms 只填写用户真正要查找的核心主题概念，例如查询“除了语文之外跟阅读相关”时填写“阅读”，不得填写学科、学段、课标、相关、要求、目标、能力、教学、学习等筛选词或泛词。
-	expanded_terms 只能填写 core_terms 的紧密同义词或可验证的相邻表达；不得复述整段查询，不得用“理解、要求、目标、能力”等泛词补足数量。无法可靠提取核心主题时返回空数组。
+	expanded_terms 填写课标原文里表达同一主题时可能用到的具体说法，可以不含核心词，例如“阅读”在各学科里可写“读图、史料、科普读物、获取信息、说明书”；不得复述整段查询，不得用“理解、要求、目标、能力”等泛词补足数量。无法可靠提取核心主题时返回空数组。
 	subjects 表示用户明确要求包含的学科；excluded_subjects 表示“除了语文”“排除数学”“非英语”等明确排除的学科，同一学科不得同时出现在二者中。
+	学科类别要展开成具体学科：语言类=chinese、english；理科=math、science、physics、chemistry、biology；文科=chinese、english、morality_law、history、geography；艺体=arts、pe。“非语言类”“语言类以外”“不要语言学科”表示排除 chinese 和 english，evidence_span 填“非语言类”这类原文片段。
+	“但是”“或者”“有关的”等连接词和否定词不是主题，不得写进 core_terms。
 	学段映射必须严格使用：H1=第一学段=1-2年级=G1-2；H2=第二学段=3-4年级=G3-4；H3=第三学段=5-6年级=G5-6；H4=第四学段=7-9年级=七年级/八年级/九年级/初中。
 	grade_bands、skills 只在用户意图明确时填写。无法可靠判断时返回空数组。
 	每个 subjects、excluded_subjects、grade_bands 值都必须在 constraint_evidence 中提供 kind、value 和用户原文中逐字存在的 evidence_span；没有原文证据时不得输出该约束。
 	如果用户表达真的存在歧义，把原因写入 ambiguities，并只提出一个简短 clarification_question；不要猜测。没有歧义时返回空数组和空字符串。
-	输出务必简短：intent_summary 不超过 30 个汉字；expanded_terms 最多 4 个；evidence_span 只截取最短的原文片段；warnings 没有必要时返回空数组。`
+	输出务必简短：intent_summary 不超过 30 个汉字；expanded_terms 最多 8 个；evidence_span 只截取最短的原文片段；warnings 没有必要时返回空数组。`
 
 const CHAT_JSON_INSTRUCTIONS = `${INSTRUCTIONS}
 	必须只返回一个 JSON 对象，并完整包含以下字段：subjects、excluded_subjects、grade_bands、skills、core_terms、expanded_terms、constraint_evidence、ambiguities、clarification_question、intent_summary、warnings。
@@ -166,7 +168,7 @@ function uniqueStrings(value: unknown, allowed?: readonly string[], limit = 12, 
 function validateInterpretation(value: unknown): LlmQueryInterpretation | null {
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null
     const record = value as Record<string, unknown>
-    const subjects = uniqueStrings(record.subjects, SUBJECTS, 3)
+    const subjects = uniqueStrings(record.subjects, SUBJECTS, 6)
     const excludedSubjects = uniqueStrings(record.excluded_subjects, SUBJECTS, 9)
         .filter(subject => !subjects.includes(subject))
     const gradeBands = uniqueStrings(record.grade_bands, GRADE_BANDS, 3)
@@ -432,10 +434,11 @@ const QUERY_INTERPRETATION_ADAPTER: StructuredLlmAdapter<LlmQueryInterpretation>
     validate: validateInterpretation
 }
 
-// Search results never wait on the model for long: retrieval runs alongside it and stands on its own.
+// Understanding the question is worth waiting for (the model often takes 3–5 s); retrieval runs alongside it and
+// stands on its own if the model never answers.
 function readQueryTimeoutMs(env: NodeJS.ProcessEnv): number {
     const parsed = Number(env.KEBIAO_LLM_QUERY_TIMEOUT_MS)
-    return Number.isInteger(parsed) ? Math.max(1000, Math.min(5000, parsed)) : 4000
+    return Number.isInteger(parsed) ? Math.max(6000, Math.min(15000, parsed)) : 10000
 }
 
 /** Changes whenever the prompt or schema changes, so cached interpretations never outlive the prompt that made them. */
