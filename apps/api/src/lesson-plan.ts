@@ -131,9 +131,10 @@ export function checkPlan(frame: Frame, process: Process | null, input: Pick<Dra
     for (const limit of limitsOf(sources)) {
         if (seen.has(limit.key)) continue
         seen.add(limit.key)
-        const mentioned = planText.split(limit.key).length - 1
-        const inLimitItself = planText.includes(limit.phrase)
-        if (mentioned > 0 && !inLimitItself) {
+        // 「（不涉及循环小数转换）」 restates the limit; only a mention without a negation just before it counts
+        const positions = [...planText.matchAll(new RegExp(limit.key.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&'), 'gu'))].map(match => match.index ?? 0)
+        const asserted = positions.some(at => !/(不|除|未|无需|勿|免|非)[^，。；、,"]{0,6}$/u.test(planText.slice(Math.max(0, at - 8), at)))
+        if (asserted) {
             checks.push({ level: 'risk', kind: 'beyond_standard', message: `教案里出现了「${limit.key}」，而课标写明${limit.phrase}，可能超标，请核对。`, quote: limit.source })
         }
     }
@@ -145,7 +146,7 @@ export function checkPlan(frame: Frame, process: Process | null, input: Pick<Dra
 const SHARED_RULES = `规则：
 1. 只能以「依据」里列出的课标要点为依据。目标的 basis 只能填这些要点编码，不得编造编码，也不得引用依据以外的课标。
 2. 要点原文里写明「不包括」「不要求」「不涉及」的内容，教案里不得出现。
-3. 内容要符合老师给出的教材和年级，不要超出这个年级学生的认知水平，也不要提前教后面学段的内容。
+3. 内容要符合老师给出的教材和年级，不要超出这个年级学生的认知水平，也不要提前教后面学段的内容。要点往往覆盖整个单元，只写和本课课题直接相关的部分；属于本单元其他课时的内容不要写进本课目标。
 4. 活动要在普通教室条件下可行；器材写常见的；涉及实验、工具、运动的写安全要求。
 5. 用简洁的中文，面向教师；不要写空话套话（如「全面提升核心素养」）。
 6. 不写任何学生的姓名或个人信息。`
@@ -166,7 +167,7 @@ ${SHARED_RULES}
 const PROCESS_INSTRUCTIONS = `你是经验丰富的中小学教研员。老师已经定好了这节课的目标和评价任务（见「已定的目标与评价」），请写教学过程和作业。
 ${SHARED_RULES}
 写法要求：
-- stages：3–7 个环节，按上课顺序。每个环节写 name（环节名）、minutes（分钟，整数）、teacher（教师活动，具体到要问的关键问题或要做的示范）、students（学生活动，具体到学生做什么、产出什么）、purpose（设计意图，一句话）、objective_ids（这个环节推进哪些目标）、assessment_ids（这个环节完成哪些评价任务，可为空）。所有环节分钟数合计必须等于一节课的时长。每条目标至少在一个环节里推进；每个评价任务都要安排在某个环节。
+- stages：3–7 个环节，按上课顺序。每个环节的 objective_ids 都要填（导入、小结等环节也填它服务的目标），不能留空。每个环节写 name（环节名）、minutes（分钟，整数）、teacher（教师活动，具体到要问的关键问题或要做的示范）、students（学生活动，具体到学生做什么、产出什么）、purpose（设计意图，一句话）、objective_ids（这个环节推进哪些目标）、assessment_ids（这个环节完成哪些评价任务，可为空）。所有环节分钟数合计必须等于一节课的时长。每条目标至少在一个环节里推进；每个评价任务都要安排在某个环节。
 - 环节里要有学生自己动手、动脑完成的部分，不要整节课都是教师讲授。
 - homework：1–3 条，level 填「基础」「拓展」或「实践」，与目标对应，总量适度。
 - board：板书设计，3–8 行，体现本课结构。
@@ -268,6 +269,11 @@ function validateProcess(value: unknown, frame: Frame): Process | null {
         }
     }).filter(item => item.name && (item.teacher || item.students))
     if (!stages.length) return null
+    // a stage that runs an assessment also works on the objectives that assessment checks
+    for (const stage of stages) {
+        const viaAssessment = frame.assessments.filter(item => stage.assessment_ids.includes(item.id)).flatMap(item => item.objective_ids)
+        stage.objective_ids = [...new Set([...stage.objective_ids, ...viaAssessment])]
+    }
     return {
         stages,
         homework: (Array.isArray(raw.homework) ? raw.homework : []).slice(0, 3).map(item => ({ level: str((item as Record<string, unknown>)?.level, 6) || '基础', task: str((item as Record<string, unknown>)?.task, 240) })).filter(item => item.task),

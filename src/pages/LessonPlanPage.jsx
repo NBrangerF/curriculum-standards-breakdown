@@ -45,6 +45,7 @@ export default function LessonPlanPage() {
     const [params, setParams] = useSearchParams()
     const [books, setBooks] = useState([])
     const [lessons, setLessons] = useState(null)
+    const [base, setBase] = useState(null)
     const [context, setContext] = useState(null)
     const [contextError, setContextError] = useState('')
     const [ai, setAi] = useState({ status: 'idle', reasons: {} })
@@ -54,6 +55,8 @@ export default function LessonPlanPage() {
     const [ownPlan, setOwnPlan] = useState('')
     const [report, setReport] = useState(null)
     const [checking, setChecking] = useState(false)
+    const [hint, setHint] = useState('')
+    const [hintFor, setHintFor] = useState('')
     const [plan, setPlan] = useState(null)
     const [step, setStep] = useState('')
     const [error, setError] = useState('')
@@ -115,44 +118,53 @@ export default function LessonPlanPage() {
         : unitId ? `unit_id=${unitId}`
             : freeMode && topic.trim().length >= 2 && subject ? `subject=${encodeURIComponent(TOPIC_SUBJECTS.find(([name]) => name === subject)?.[1] || subjectSlugOf(books, subject))}&grade=${grade || ''}&topic=${encodeURIComponent(topic.trim())}`
                 : ''
+    // a hint belongs to one lesson
+    if (hintFor !== contextQuery) {
+        setHintFor(contextQuery)
+        if (hint) setHint('')
+    }
+    // 1. the lesson's 课标 context
     useEffect(() => {
+        setBase(null)
         setContext(null)
         setContextError('')
         setAi({ status: 'idle', reasons: {} })
         setSelected(new Set())
         if (!contextQuery) return
-        const run = ++runRef.current
-        getJson(`/api/v1/lesson-plans/context?${contextQuery}`).then(async data => {
-            if (run !== runRef.current) return
-            setContext(data)
-            setAi({ status: 'loading', reasons: {} })
-            const lesson = data.lesson
-            const query = [lesson.textbook_title, lesson.unit_title, lesson.title].filter(Boolean).join(' ')
-            try {
-                const payload = await postApi('/api/v1/standards/semantic-search', {
-                    query: query.slice(0, 200),
-                    ...(lesson.subject_slug ? { subjects: [lesson.subject_slug] } : {}),
-                    ...(lesson.grade ? { grade_bands: [BAND(lesson.grade)] } : {}),
-                    limit: 8
-                })
-                if (run !== runRef.current) return
-                const results = payload.data?.results || []
-                const direct = results.filter(item => item.match_strength === 'direct' && item.checked_by_ai && item.matched_point?.code).slice(0, 3)
-                const reasons = Object.fromEntries(results.filter(item => item.checked_by_ai).map(item => [item.code, item.relevance_reason]))
-                const missing = direct.map(item => item.code).filter(code => !data.standards.some(standard => standard.code === code))
-                if (missing.length) {
-                    const more = await getJson(`/api/v1/lesson-plans/context?${contextQuery}&codes=${missing.join(',')}`)
-                    if (run !== runRef.current) return
-                    setContext(more)
-                }
-                setSelected(new Set(direct.map(item => item.matched_point.code)))
-                const checked = results.some(item => item.checked_by_ai)
-                setAi({ status: !checked ? 'failed' : direct.length ? 'ok' : 'none', reasons })
-            } catch {
-                if (run === runRef.current) setAi({ status: 'failed', reasons: {} })
-            }
-        }).catch(errorValue => run === runRef.current && setContextError(errorValue.message))
+        let active = true
+        getJson(`/api/v1/lesson-plans/context?${contextQuery}`)
+            .then(data => { if (active) { setBase(data); setContext(data) } })
+            .catch(errorValue => active && setContextError(errorValue.message))
+        return () => { active = false }
     }, [contextQuery])
+
+    // 2. the AI search reads the 要点 and ticks the closest ones; a teacher's hint reruns only this step
+    useEffect(() => {
+        if (!base) return
+        const run = ++runRef.current
+        setAi({ status: 'loading', reasons: {} })
+        const lesson = base.lesson
+        postApi('/api/v1/standards/semantic-search', {
+            query: searchQuery(lesson, base.subject_note?.name, hint),
+            ...(lesson.subject_slug ? { subjects: [lesson.subject_slug] } : {}),
+            ...(lesson.grade ? { grade_bands: [BAND(lesson.grade)] } : {}),
+            limit: 8
+        }).then(async payload => {
+            if (run !== runRef.current) return
+            const results = payload.data?.results || []
+            const direct = results.filter(item => item.match_strength === 'direct' && item.checked_by_ai && item.matched_point?.code).slice(0, 3)
+            const reasons = Object.fromEntries(results.filter(item => item.checked_by_ai).map(item => [item.code, item.relevance_reason]))
+            const missing = direct.map(item => item.code).filter(code => !base.standards.some(standard => standard.code === code))
+            if (missing.length) {
+                const more = await getJson(`/api/v1/lesson-plans/context?${contextQuery}&codes=${missing.join(',')}`)
+                if (run !== runRef.current) return
+                setContext(more)
+            }
+            setSelected(new Set(direct.map(item => item.matched_point.code)))
+            const checked = results.some(item => item.checked_by_ai)
+            setAi({ status: !checked ? 'failed' : direct.length ? 'ok' : 'none', reasons })
+        }).catch(() => { if (run === runRef.current) setAi({ status: 'failed', reasons: {} }) })
+    }, [base, hint]) // contextQuery changes always replace base first
 
     const toggle = code => setSelected(current => {
         const next = new Set(current)
@@ -325,6 +337,8 @@ export default function LessonPlanPage() {
                                     : ai.status === 'failed' ? 'AI 这次没能读完要点。请读下面候选的原文，自己勾选：机器对齐和字面匹配可能出错，比如会把「分数的基本性质」对到「等式的基本性质」。' : ''}
                     </p>
 
+                    {ai.status !== 'loading' ? <HintInput key={contextQuery} onSubmit={setHint} current={hint} /> : null}
+
                     <ul className={styles.standards}>
                         {context.standards.map(standard => (
                             <li key={standard.code} className={styles.standard}>
@@ -452,9 +466,32 @@ export default function LessonPlanPage() {
     )
 }
 
+// A text title alone (「落花生」) tells the AI little; 语文 and 英语 lessons are asked about as texts to read and discuss.
+function searchQuery(lesson, subjectName, hint) {
+    const grade = lesson.grade ? `${lesson.grade}年级` : ''
+    const title = String(lesson.title || '').replace(/^\d+\*?\s*/u, '')
+    const base = ['chinese', 'english'].includes(lesson.subject_slug)
+        ? `${grade}${subjectName || ''}课文《${title}》的阅读与表达教学`
+        : [lesson.textbook_title, lesson.unit_title, lesson.title].filter(Boolean).join(' ')
+    return [base, hint].filter(Boolean).join('，').slice(0, 200)
+}
+
 function subjectSlugOf(books, subject) {
     const slug = books.find(book => book.subject === subject)?.subject_slug || ''
     return ['art', 'music'].includes(slug) ? 'arts' : slug
+}
+
+function HintInput({ onSubmit, current }) {
+    const [text, setText] = useState(current)
+    return (
+        <form className={styles.hint} onSubmit={event => { event.preventDefault(); onSubmit(text.trim()) }}>
+            <label htmlFor="lp-hint">没找准？补一句这节课主要教什么，让 AI 重新找</label>
+            <span className={styles.topicRow}>
+                <input id="lp-hint" type="text" maxLength={80} value={text} onChange={event => setText(event.target.value)} placeholder="例如：借物喻人，体会作者借助具体事物表达道理" />
+                <button type="submit" className="btn btn-secondary" disabled={!text.trim() || text.trim() === current}>重新找</button>
+            </span>
+        </form>
+    )
 }
 
 function TopicInput({ value, onCommit }) {

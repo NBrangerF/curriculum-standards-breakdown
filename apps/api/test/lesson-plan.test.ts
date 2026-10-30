@@ -179,3 +179,11 @@ test('核验我的教案: a pasted plan is read into objectives and checked agai
     assert.ok(data.checks.every((item: any) => !/目标 O\d/.test(item.message)))
     assert.match(prompts[0], /老师的教案：/)
 })
+
+test('a plan that restates the limit (「不涉及循环小数」) is not flagged; stages inherit objectives from their assessments', () => {
+    const indicators = [{ code: LIMITED, text: '会进行小数和分数的转化（不包括将循环小数转化成分数）', pages: [31], standard_code: 'MA-S3-NA-01', standard_title: '数与运算', stage_label: '5–6 年级' }]
+    const restated = frame({ objectives: [{ id: 'O1', text: '学生能把 0.5 写成分数（不涉及循环小数转换）', basis: [LIMITED], kind: '能做' }, ...frame().objectives.slice(1)] })
+    assert.ok(!checkPlan(restated, planProcess, { indicators, standards: [], periodMinutes: 40 }).some(item => item.kind === 'beyond_standard'))
+    const mentioned = frame({ objectives: [{ id: 'O1', text: '学生能把循环小数化成分数', basis: [LIMITED], kind: '能做' }, ...frame().objectives.slice(1)] })
+    assert.ok(checkPlan(mentioned, planProcess, { indicators, standards: [], periodMinutes: 40 }).some(item => item.kind === 'beyond_standard'))
+})

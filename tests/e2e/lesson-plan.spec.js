@@ -126,3 +126,22 @@ test('核验我的教案 reads a pasted plan and shows what to fix', async ({ pa
     await expect(page.getByText('没有对应的要点')).toBeVisible()
     expect(sent.indicator_codes).toEqual(['MA-S3-NA-01.3'])
 })
+
+test('a 语文 lesson is searched as a text, and the teacher hint reruns only the AI search', async ({ page }) => {
+    const queries = []
+    let contextCalls = 0
+    const cnContext = { ...context, lesson: { ...lesson, title: '2 落花生', unit_title: '第一单元', textbook_title: '语文5年级上册', subject_slug: 'chinese', grade: 5 }, subject_note: { ...context.subject_note, name: '语文' } }
+    await page.route('**/api/v1/lesson-plans/context?*', route => { contextCalls += 1; return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(cnContext)) }) })
+    await page.route('**/api/v1/standards/semantic-search', route => {
+        queries.push(route.request().postDataJSON().query)
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ results: [] })) })
+    })
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('语文')}&edition=ed_9d4028e2ab482520d0aa&lesson=L2`)
+    await expect(page.getByLabel(/让 AI 重新找/)).toBeVisible()
+    expect(queries.at(-1)).toBe('5年级语文课文《落花生》的阅读与表达教学')
+    const before = contextCalls
+    await page.getByLabel(/让 AI 重新找/).fill('借物喻人')
+    await page.getByRole('button', { name: '重新找' }).click()
+    await expect.poll(() => queries.at(-1)).toBe('5年级语文课文《落花生》的阅读与表达教学，借物喻人')
+    expect(contextCalls).toBe(before)
+})
