@@ -4,10 +4,11 @@
 export const SITE_URL = 'https://www.kebiao.org'
 export const SITE_NAME = 'kebiao 课标'
 export const STANDARDS_DOC = '义务教育课程标准（2022年版）'
+export const V2_STANDARDS_DOC = '义务教育课程标准（2022年版2025年修订）'
 
 // Share-card URLs carry a version that changes with the data or the card design
 // (bump CARD_DESIGN after changing apps/cards/src/render.ts), so caches pick up new images.
-export const CARD_DESIGN = 'c2'
+export const CARD_DESIGN = 'c3'
 export function cardVersion(dataVersion) {
     let hash = 2166136261
     for (const char of `${dataVersion}:${CARD_DESIGN}`) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619)
@@ -54,11 +55,11 @@ function page(title, description, path) {
     return { title: `${title} | ${SITE_NAME}`, description: clip(description), path }
 }
 
-export function homeMeta({ standardCount, subjectCount } = {}) {
-    const counts = standardCount ? `收录 ${subjectCount} 门学科 ${standardCount} 条课标，` : ''
+export function homeMeta({ standardCount, indicatorCount, subjectCount } = {}) {
+    const counts = standardCount ? `收录 ${subjectCount} 门学科 ${standardCount} 条标准${indicatorCount ? `、${indicatorCount} 条要点` : ''}，` : ''
     return {
         title: `${SITE_NAME} · 中国义务教育课程标准结构化索引`,
-        description: clip(`${STANDARDS_DOC}逐条拆解：${counts}每条附原文、情境、实践示例、教学提示、评价证据和对应教材，可按学科、学段、领域查找和引用。`),
+        description: clip(`${V2_STANDARDS_DOC}逐条拆解：${counts}要点逐字取自课标原文并标明页码，可按学科、学段、领域查找和引用，附对应教材与学习资源。`),
         path: '/'
     }
 }
@@ -85,7 +86,6 @@ export function standardMeta(standard) {
 }
 
 // v2 standard: one 学段 × one content unit, with its 要点 (课标原文) on the page.
-export const V2_STANDARDS_DOC = '义务教育课程标准（2022年版2025年修订）'
 export function v2StageLabel(standard, subject) {
     return subject?.stages?.find(stage => stage.stage_code === standard.stage_code)?.label || `${String(standard.stage).replace('-', '–')} 年级`
 }

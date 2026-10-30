@@ -74,6 +74,37 @@ function publicOpenApiDocument(source: string) {
         .join('\n')
 }
 
+// v2 standards (标准 → 要点), published by scripts/build-public-v2.mjs into <data root>/v2.
+// MA-S1-NA-01 is a standard and MA-S1-NA-01.3 one of its 要点; old (v1) codes keep their records and say where they moved.
+const V2_CODE = /^[A-Z]{2}-S\d-[A-Z]{2,3}-\d{2}(?:\.\d+)?$/u
+type V2Standard = Record<string, unknown> & { code: string, legacy_codes?: string[], indicators: Array<{ code: string }> }
+type V2Subject = { subject_slug: string, subject: string, source_version: string, source_note: string, standards: V2Standard[] }
+
+function createV2Store(dataRoot: string) {
+    const read = async <T>(path: string): Promise<T | null> => {
+        try { return JSON.parse(await readFile(`${dataRoot}/v2/${path}`, 'utf8')) as T } catch { return null }
+    }
+    let manifest: Promise<{ subjects: Array<{ subject_slug: string, prefix: string }> } | null> | null = null
+    let legacy: Promise<Record<string, string> | null> | null = null
+    const subjects = new Map<string, Promise<V2Subject | null>>()
+    return {
+        async find(code: string) {
+            if (!V2_CODE.test(code)) return null
+            manifest ??= read('manifest.json')
+            const entry = (await manifest)?.subjects.find(item => item.prefix === code.slice(0, 2))
+            if (!entry) return null
+            if (!subjects.has(entry.subject_slug)) subjects.set(entry.subject_slug, read<V2Subject>(`by_subject/${entry.subject_slug}.json`))
+            const subject = await subjects.get(entry.subject_slug)!
+            const standard = subject?.standards.find(item => item.code === code.replace(/\.\d+$/u, ''))
+            return standard && subject ? { standard, subject } : null
+        },
+        async movedTo(code: string) {
+            legacy ??= read('legacy_codes.json')
+            return (await legacy)?.[code] || null
+        }
+    }
+}
+
 export interface CurriculumAppOptions {
     textbookRepository?: FileTextbookRepository
     textbookAssetService?: TextbookAssetService
@@ -85,6 +116,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     const textbookRepository = options.textbookRepository || new FileTextbookRepository(resolveDataRoot())
     const textbookAssetService = options.textbookAssetService || new TextbookAssetService()
     const learningResourceRepository = options.learningResourceRepository || new FileLearningResourceRepository(resolveDataRoot())
+    const v2 = createV2Store(resolveDataRoot())
 
     app.use('*', requestIdMiddleware)
     app.use('*', securityHeadersMiddleware)
@@ -237,6 +269,18 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
 
     app.get('/api/v1/standards/:code/learning-resources', async c => {
         const version = await repository.loadDataVersion()
+        const found = await v2.find(c.req.param('code'))
+        if (found) {
+            // a v2 standard gathers the resources filed under the old codes that joined it
+            const seen = new Set<string>()
+            const resources = []
+            for (const old of found.standard.legacy_codes || []) {
+                for (const resource of (await learningResourceRepository.getForStandard(old)).resources) {
+                    if (!seen.has(resource.id)) { seen.add(resource.id); resources.push(resource) }
+                }
+            }
+            return ok(c, version, { schema_version: 2, standard_code: found.standard.code, resources }, { total: resources.length })
+        }
         const standardResult = await resolveStandardOrError(c, c.req.param('code'))
         if (standardResult.response) return standardResult.response
         const result = await learningResourceRepository.getForStandard(standardResult.resolved!.record!.code)
@@ -367,6 +411,18 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
 
     app.get('/api/v1/standards/:code/textbooks', async c => {
         const version = await repository.loadDataVersion()
+        const found = await v2.find(c.req.param('code'))
+        if (found) {
+            const seen = new Set<string>()
+            const textbooks = []
+            for (const old of found.standard.legacy_codes || []) {
+                for (const item of await textbookRepository.getTextbooksForStandard(old)) {
+                    const key = String(item.alignment_id || item.scope_id || `${item.edition_id}:${item.node_id || item.unit_id || ''}:${item.pdf_page || ''}`)
+                    if (!seen.has(key)) { seen.add(key); textbooks.push({ ...item, via_legacy_code: old }) }
+                }
+            }
+            return ok(c, version, textbooks, { total: textbooks.length })
+        }
         const lookup = await resolveStandardOrError(c, c.req.param('code'))
         if (lookup.response) return lookup.response
         const code = lookup.resolved!.record!.code
@@ -535,13 +591,25 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         const include = parseInclude(c.req.query('include') || null) as never
         const blocked = ensureFieldsetAccess(c, include)
         if (blocked) return blocked
+        const found = await v2.find(code)
+        if (found) {
+            const { standard, subject } = found
+            return ok(c, version, { ...standard, subject: subject.subject, subject_slug: subject.subject_slug, source_version: subject.source_version, source_note: subject.source_note }, {
+                schema: 'v2',
+                ...(code !== standard.code ? { indicator: code } : {})
+            })
+        }
         const lookup = await resolveStandardOrError(c, code)
         if (lookup.response) return lookup.response
+        const movedTo = await v2.movedTo(lookup.resolved!.record!.code)
         return ok(
             c,
             version,
             projectStandard(lookup.resolved!.record!, include),
-            lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {}
+            {
+                ...(lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {}),
+                ...(movedTo ? { moved_to: movedTo } : {})
+            }
         )
     })
 

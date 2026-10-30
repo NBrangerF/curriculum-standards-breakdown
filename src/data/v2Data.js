@@ -74,3 +74,46 @@ export const gradesLabel = grades => {
         ? `${sorted[0]}–${sorted.at(-1)} 年级`
         : `${sorted.join('、')} 年级`
 }
+
+// A v2 standard in the record shape the list cards, collection stats and print page read.
+const LIST_BAND = { 1: 'H1', 3: 'H2', 5: 'H3', 6: 'H3', 7: 'H4', 8: 'H4' }
+export function asListRecord(standard, subject) {
+    return {
+        code: standard.code,
+        subject: subject.subject,
+        subject_slug: subject.subject_slug,
+        domain: standard.level1,
+        subdomain: standard.level2,
+        display_subcategory: standard.level2,
+        standard_title: standard.level2,
+        standard: standard.statement,
+        grade_band: LIST_BAND[standard.grades[0]] || 'H4',
+        grade_range: standard.stage,
+        ts_primary: [],
+        ts_secondary: [],
+        indicators: standard.indicators
+    }
+}
+
+// Saved lists from before the move hold old codes: swap each for the standard it joined (once per browser).
+const OLD_CODE = /-\d{3}$/u
+export async function migrateSavedCodes({ getCollections, saveCollections }) {
+    const data = getCollections()
+    const lists = Object.values(data.collections || {})
+    if (!lists.some(list => (list.standardCodes || []).some(code => OLD_CODE.test(code)))) return false
+    const map = await loadLegacyCodes()
+    let changed = false
+    for (const list of lists) {
+        const next = []
+        for (const code of list.standardCodes || []) {
+            const target = OLD_CODE.test(code) ? map[code] : null
+            // codes that moved to a subject overview (no standard of their own) stay as they are
+            const moved = target?.startsWith('/standards/') ? target.slice('/standards/'.length).split('#')[0] : code
+            if (moved !== code) changed = true
+            if (!next.includes(moved)) next.push(moved)
+        }
+        list.standardCodes = next
+    }
+    if (changed) saveCollections(data)
+    return changed
+}

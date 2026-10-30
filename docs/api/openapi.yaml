@@ -551,7 +551,7 @@ paths:
       tags: [课程标准]
       operationId: getStandard
       summary: 按 code 获取单条课程标准
-      description: 获取一条课程标准的结构化详情。`code` 必须精确且区分大小写；旧编码仅在唯一映射时兼容，并会在 `meta.resolved_from` 标明。匿名请求返回 `public` 字段；通过 `include` 请求受限字段集时需要对应权限的 API Key。
+      description: 获取一条课程标准的结构化详情。`code` 必须精确且区分大小写。2025 修订版重建的标准用新编码（如 `MA-S2-NA-02`，要点为 `MA-S2-NA-02.1`），返回整条标准及其要点、页码、修订状态和出处，`meta.schema` 为 `v2`，按要点编码请求时 `meta.indicator` 标明该要点。旧编码（如 `MA-D2-AL-005`）仍返回原记录，并在 `meta.moved_to` 给出它在新结构中的位置；`/textbooks` 与 `/learning-resources` 子接口同样接受新编码，汇总其包含的旧记录的关联。旧编码仅在唯一映射时兼容，并会在 `meta.resolved_from` 标明。匿名请求返回 `public` 字段；通过 `include` 请求受限字段集时需要对应权限的 API Key。
       security:
         - ApiKeyAuth: []
         - {}
@@ -1068,7 +1068,7 @@ components:
       name: code
       in: path
       required: true
-      description: 全局唯一的四段课程标准 code，格式为 `{SUBJECT}-{STAGE_OR_GRADE}-{DOMAIN}-{SEQ}`，例如 `SC-D2-SC-010`。查询时必须精确且区分大小写；旧编码仅在唯一映射时兼容。
+      description: 全局唯一的四段课程标准 code，格式为 `{SUBJECT}-{STAGE_OR_GRADE}-{DOMAIN}-{SEQ}`。2025 修订版的标准如 `SC-S2-PM-01`（学段 S1–S4，两位序号），其要点在末尾加 `.n`；旧编码如 `SC-D2-SC-010` 仍可查询。查询时必须精确且区分大小写；旧编码仅在唯一映射时兼容。
       schema:
         type: string
         example: SC-D2-SC-010

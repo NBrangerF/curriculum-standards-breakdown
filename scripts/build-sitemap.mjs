@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Writes dist/sitemap.xml from the public data that the built site serves.
-import { readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const SITE = 'https://www.kebiao.org'
@@ -15,10 +15,12 @@ const resources = readJson('learning-resources/catalog/index.json')
 const resourcesDate = day(resources.updated_at)
 
 const entries = [['/'], ['/skills'], ['/smart-search'], ['/textbooks', textbooksDate], ['/learning-resources', resourcesDate], ['/glossary'], ['/api'], ['/contact']]
-for (const subject of readJson('manifest.json').subjects) entries.push([`/subjects/${subject.subject_slug}`, standardsDate])
+const v2 = readJson('v2/manifest.json')
+for (const subject of v2.subjects) entries.push([`/subjects/${subject.subject_slug}`, standardsDate])
 for (const skill of readJson('skills_meta.json').competencies || []) entries.push([`/skills/${skill.code}`])
-for (const file of readdirSync(join(DATA, 'by_subject')).filter(name => name.endsWith('.json')).sort()) {
-    for (const standard of readJson(`by_subject/${file}`).standards) entries.push([`/standards/${standard.code}`, standardsDate])
+// v2 standards only: old codes answer with a 301 to these pages.
+for (const subject of v2.subjects) {
+    for (const standard of readJson(subject.file).standards) entries.push([`/standards/${standard.code}`, standardsDate])
 }
 for (const textbook of readJson('textbooks/index.json').items) entries.push([`/textbooks/${textbook.edition_id}`, textbooksDate])
 for (const unit of units.items) entries.push([`/textbook-units/${unit.entry_id}`, textbooksDate])

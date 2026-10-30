@@ -11,7 +11,7 @@ const png = (body: Uint8Array) => new Response(new Uint8Array(body), { headers: 
 const notFound = () => new Response('Not found', { status: 404, headers: { 'cache-control': 'public, max-age=300, s-maxage=300' } })
 
 async function respond(path: string) {
-    const standardMatch = path.match(/^s\/([A-Za-z0-9-]+)(\/poster)?\.png$/u)
+    const standardMatch = path.match(/^s\/([A-Za-z0-9.-]+)(\/poster)?\.png$/u)
     if (standardMatch) {
         const standard = findStandard(standardMatch[1])
         if (!standard) return notFound()
@@ -21,11 +21,11 @@ async function respond(path: string) {
     if (subjectMatch) {
         const subject = subjectInfo(subjectMatch[1])
         if (!subject) return notFound()
-        return png(await siteCard(`义务教育${subject.subject}课程标准`, `2022年版 · ${subject.record_count} 条逐条拆解 · 原文、教学提示与对应教材`, subject.subject_slug, subject.color))
+        return png(await siteCard(`义务教育${subject.subject}课程标准`, `2022年版2025年修订 · ${subject.standard_count} 条标准 ${subject.indicator_count} 条要点 · 课标原文与对应教材`, subject.subject_slug, subject.color))
     }
     if (path === 'site.png') {
         const stats = siteStats()
-        return png(await siteCard('让每一句「符合课标」都有据可查', `义务教育课程标准（2022年版）逐条拆解 · ${stats.subjects} 门学科 ${stats.standards.toLocaleString('en-US')} 条`))
+        return png(await siteCard('让每一句「符合课标」都有据可查', `义务教育课程标准（2022年版2025年修订）· ${stats.subjects} 门学科 ${stats.standards} 条标准 ${stats.indicators.toLocaleString('en-US')} 条要点`))
     }
     return notFound()
 }

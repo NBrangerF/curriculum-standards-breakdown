@@ -7,7 +7,7 @@ import { join } from 'node:path'
 import satori from 'satori'
 import { Resvg } from '@resvg/resvg-js'
 import QRCode from 'qrcode'
-import { SITE_URL, clip, getDisplayTitle, gradeLabel } from '../../../src/seo/pageMeta.js'
+import { SITE_URL, clip, getDisplayTitle, gradeLabel, v2StageLabel } from '../../../src/seo/pageMeta.js'
 import { LOGO_VIEWBOX, logoSvg } from '../../../src/brand/logo.js'
 
 const ROOT = process.cwd()
@@ -28,17 +28,71 @@ const image = (src: string, size: number, style: Style = {}): Node => ({ type: '
 
 // ---------- data ----------
 const readJson = (path: string) => JSON.parse(readFileSync(join(DATA, path), 'utf8'))
-type Standard = { code: string, subject: string, subject_slug: string, domain: string, grade_band: string, standard: string, standard_title?: string, official_text?: string, teaching_tip?: string, context?: string }
-let codeIndex: Record<string, string> | null = null
-const subjectFiles = new Map<string, Standard[]>()
-let subjectColors: Map<string, string> | null = null
+type V1Standard = { code: string, subject: string, subject_slug: string, domain: string, grade_band: string, standard: string, standard_title?: string, official_text?: string, teaching_tip?: string, context?: string }
+type V2Item = { text: string }
+type V2Standard = { code: string, stage: string, stage_code: string, level1: string, level2: string, statement: string, statement_source: string, indicators: V2Item[] }
+type V2Subject = { subject_slug: string, subject: string, stages: Array<{ stage_code: string, label: string }>, standards: V2Standard[] }
+type V2ManifestSubject = { subject_slug: string, subject: string, prefix: string, file: string, standard_count: number, indicator_count: number }
+// What a card shows, whichever edition the code comes from.
+export type CardStandard = { code: string, subject_slug: string, title: string, kicker: string, body: string, bodyNote: string, doc: string, tip: { label: string, value: string } | null }
 
-export function findStandard(code: string): Standard | null {
+let codeIndex: Record<string, string> | null = null
+const subjectFiles = new Map<string, V1Standard[]>()
+const v2Files = new Map<string, V2Subject>()
+let subjectColors: Map<string, string> | null = null
+const v2Manifest = () => readJson('v2/manifest.json').subjects as V2ManifestSubject[]
+// The card fonts have no emoji, which would render as empty boxes.
+const plain = (value = '') => value.replace(/\p{Extended_Pictographic}\uFE0F?/gu, '')
+
+function v2Card(code: string): CardStandard | null {
+    const entry = v2Manifest().find(item => item.prefix === code.slice(0, 2))
+    if (!entry) return null
+    if (!v2Files.has(entry.subject_slug)) v2Files.set(entry.subject_slug, readJson(entry.file) as V2Subject)
+    const subject = v2Files.get(entry.subject_slug)!
+    const standard = subject.standards.find(item => item.code === code)
+    if (!standard) return null
+    const official = standard.statement_source === 'official'
+    return {
+        code,
+        subject_slug: subject.subject_slug,
+        title: plain(standard.level2),
+        kicker: [subject.subject, v2StageLabel(standard, subject), standard.level1].join(' · '),
+        body: plain(standard.statement),
+        bodyNote: official ? '课标原文' : 'kebiao 用课标原词概括',
+        doc: `义务教育${subject.subject}课程标准（2022年版2025年修订）`,
+        tip: standard.indicators[0] ? { label: `要点 · ${standard.indicators.length} 条（课标原文）`, value: clip(plain(standard.indicators[0].text), 92) } : null
+    }
+}
+
+// A takeaway for an old record's poster: the teaching tip, or else the "学习意义" note.
+function takeaway(standard: V1Standard) {
+    if (standard.teaching_tip) return { label: '教学提示', value: clip(plain(standard.teaching_tip), 92) }
+    const meaning = String(standard.context || '').match(/【学习意义】([^\n]+)/u)?.[1]
+    return meaning ? { label: '学习意义', value: clip(plain(meaning), 92) } : null
+}
+
+function v1Card(code: string): CardStandard | null {
     codeIndex ??= readJson('indexes/code_to_subject.json') as Record<string, string>
     const slug = codeIndex[code]
     if (!slug) return null
     if (!subjectFiles.has(slug)) subjectFiles.set(slug, readJson(`by_subject/${slug}.json`).standards)
-    return subjectFiles.get(slug)!.find(standard => standard.code === code) || null
+    const standard = subjectFiles.get(slug)!.find(item => item.code === code)
+    if (!standard) return null
+    return {
+        code,
+        subject_slug: standard.subject_slug,
+        title: plain(getDisplayTitle(standard.standard, standard.standard_title)),
+        kicker: [standard.subject, gradeLabel(standard), standard.domain].filter(Boolean).join(' · '),
+        body: plain(standard.official_text || standard.standard),
+        bodyNote: '课标原文',
+        doc: `义务教育${standard.subject}课程标准（2022年版）`,
+        tip: takeaway(standard)
+    }
+}
+
+// v2 standards (MA-S1-NA-01) first; old codes still render for links shared before the move.
+export function findStandard(code: string): CardStandard | null {
+    return /^[A-Z]{2}-S\d-/u.test(code) ? v2Card(code) : v1Card(code)
 }
 
 function subjectColor(slug: string) {
@@ -156,14 +210,8 @@ function qrDataUri(url: string, pixels: number) {
 }
 
 // ---------- cards ----------
-// The card fonts have no emoji, which would render as empty boxes.
-const plain = (value = '') => value.replace(/\p{Extended_Pictographic}\uFE0F?/gu, '')
-
-function standardParts(standard: Standard) {
-    const title = plain(getDisplayTitle(standard.standard, standard.standard_title))
-    const kicker = [standard.subject, gradeLabel(standard), standard.domain].filter(Boolean).join(' · ')
-    const body = plain(standard.official_text || standard.standard)
-    return { title, kicker, body, accent: subjectColor(standard.subject_slug), doc: `义务教育${standard.subject}课程标准（2022年版）` }
+function standardParts(standard: CardStandard) {
+    return { title: standard.title, kicker: standard.kicker, body: standard.body, accent: subjectColor(standard.subject_slug), doc: standard.doc }
 }
 
 // The part of the standard after its short title, so the card does not repeat itself.
@@ -171,14 +219,7 @@ function remainder(body: string, title: string) {
     return body.startsWith(title) ? body.slice(title.length).replace(/^[，；。、,\s]+/u, '') : body
 }
 
-// A takeaway for the poster: the teaching tip, or else the "学习意义" note.
-function takeaway(standard: Standard) {
-    if (standard.teaching_tip) return { label: '教学提示', value: clip(plain(standard.teaching_tip), 92) }
-    const meaning = String(standard.context || '').match(/【学习意义】([^\n]+)/u)?.[1]
-    return meaning ? { label: '学习意义', value: clip(plain(meaning), 92) } : null
-}
-
-export async function standardOgCard(standard: Standard) {
+export async function standardOgCard(standard: CardStandard) {
     const { title, kicker, body, accent, doc } = standardParts(standard)
     const bodyText = clip(remainder(body, title), 64)
     const W = 1200
@@ -200,15 +241,15 @@ export async function standardOgCard(standard: Standard) {
     return toPng(node, W, H, `${title}${kicker}${bodyText}${doc}`)
 }
 
-export async function standardPoster(standard: Standard) {
+export async function standardPoster(standard: CardStandard) {
     const { title, kicker, body, accent, doc } = standardParts(standard)
     const bodyText = clip(body, 120)
-    const tip = takeaway(standard)
+    const tip = standard.tip
     const url = `${SITE_URL}/standards/${standard.code}`
     const W = 1080
     const H = 1440
     const hint = '长按识别二维码'
-    const hint2 = '查看拆解、教学提示与对应教材'
+    const hint2 = '查看全部要点、课标页码与对应教材'
     const node = backdrop(W, H, accent, `${standard.code}-poster`, [
         el('div', { position: 'absolute', left: 0, top: 0, width: W, height: H, padding: '88px 88px 80px', flexDirection: 'column', justifyContent: 'space-between' },
             el('div', { flexDirection: 'column', gap: 64 },
@@ -218,7 +259,7 @@ export async function standardPoster(standard: Standard) {
                     text({ fontSize: titleSize(title, [96, 80, 68]), fontWeight: 900, lineHeight: 1.22, color: C.ink }, title),
                     el('div', { flexDirection: 'column', gap: 14, borderLeft: `3px solid ${C.gold}`, paddingLeft: 28, marginTop: 12 },
                         text({ fontSize: 34, lineHeight: 1.65, color: C.ink }, bodyText),
-                        text({ fontSize: 24, color: C.dim }, `课标原文 · ${doc}`)),
+                        text({ fontSize: 24, color: C.dim }, `${standard.bodyNote} · ${doc}`)),
                     ...(tip ? [el('div', { flexDirection: 'column', gap: 12, marginTop: 20 },
                         text({ fontFamily: 'Mono', fontSize: 22, color: C.gold, letterSpacing: 2 }, tip.label),
                         text({ fontSize: 30, lineHeight: 1.65, color: C.mist }, tip.value))] : []))),
@@ -229,7 +270,7 @@ export async function standardPoster(standard: Standard) {
                     text({ fontSize: 26, color: C.mist }, hint2)),
                 image(qrDataUri(url, 232), 232, { borderRadius: 14 })))
     ])
-    return toPng(node, W, H, `${title}${kicker}${bodyText}${doc}课标原文${hint}${hint2}${tip ? tip.label + tip.value : ''}`)
+    return toPng(node, W, H, `${title}${kicker}${bodyText}${doc}${standard.bodyNote}${hint}${hint2}${tip ? tip.label + tip.value : ''}`)
 }
 
 export async function siteCard(heading: string, sub: string, seed = 'site', accent = C.gold) {
@@ -246,15 +287,12 @@ export async function siteCard(heading: string, sub: string, seed = 'site', acce
     return toPng(node, W, H, `${heading}${sub}`)
 }
 
-type ManifestSubject = { subject_slug: string, subject: string, record_count: number }
-const manifestSubjects = () => readJson('manifest.json').subjects as ManifestSubject[]
-
 export function subjectInfo(slug: string) {
-    const subject = manifestSubjects().find(item => item.subject_slug === slug)
+    const subject = v2Manifest().find(item => item.subject_slug === slug)
     return subject ? { ...subject, color: subjectColor(slug) } : null
 }
 
 export function siteStats() {
-    const subjects = manifestSubjects()
-    return { subjects: subjects.length, standards: subjects.reduce((sum, item) => sum + item.record_count, 0) }
+    const subjects = v2Manifest()
+    return { subjects: subjects.length, standards: subjects.reduce((sum, item) => sum + item.standard_count, 0), indicators: subjects.reduce((sum, item) => sum + item.indicator_count, 0) }
 }

@@ -15,6 +15,8 @@ import {
     updateCollection
 } from '../data/collections'
 import { GRADE_BANDS, loadManifest, loadStandardByCode, SKILL_COLORS } from '../data/dataLoader'
+import { asListRecord, isV2Code, loadV2Standard, migrateSavedCodes } from '../data/v2Data.js'
+import { getCollections, saveCollections } from '../data/collections'
 import StandardCard from '../components/StandardCard'
 import { ErrorState, LoadingState } from '../components/StateComponents'
 import { Toast } from '../ui/primitives/Toast'
@@ -38,10 +40,15 @@ function CollectionDetailPage() {
             setError(null)
             try {
                 await loadManifest()
+                await migrateSavedCodes({ getCollections, saveCollections }).catch(() => false)
                 const currentCollection = getCollection(id)
                 if (!currentCollection) throw new Error('清单未找到')
                 const loadedStandards = (await Promise.all(
-                    currentCollection.standardCodes.map(code => loadStandardByCode(code))
+                    currentCollection.standardCodes.map(async code => {
+                        if (!isV2Code(code)) return loadStandardByCode(code)
+                        const found = await loadV2Standard(code)
+                        return found ? asListRecord(found.standard, found.subject) : null
+                    })
                 )).filter(Boolean)
                 if (cancelled) return
                 setCollection(currentCollection)

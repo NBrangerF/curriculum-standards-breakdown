@@ -5,8 +5,8 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import {
-    SITE_URL, SITE_NAME, cardVersion, getDisplayTitle, gradeLabel, clip,
-    homeMeta, subjectMeta, standardMeta, skillsOverviewMeta, skillMeta, textbooksMeta, textbookMeta,
+    SITE_URL, SITE_NAME, cardVersion, getDisplayTitle, clip, V2_STANDARDS_DOC, v2StageLabel, v2StandardMeta,
+    homeMeta, subjectMeta, skillsOverviewMeta, skillMeta, textbooksMeta, textbookMeta,
     textbookUnitMeta, learningResourcesMeta, learningResourceMeta, STATIC_PAGE_META
 } from '../src/seo/pageMeta.js'
 import { logoSvg } from '../src/brand/logo.js'
@@ -53,14 +53,28 @@ const units = readJson('textbooks/units.json').items
 const standardsToTextbooks = readJson('textbooks/standards-to-textbooks.json')
 const learningResources = readJson('learning-resources/catalog/index.json').resources
 const glossary = readJson('glossary.json')
-const GRADE_ORDER = ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9']
 const CARD_VERSION = cardVersion(readJson('data_version.json').data_version)
 const cardUrl = path => `${SITE_URL}/cards/${path}.png?v=${CARD_VERSION}`
 
+// v2 standards (标准 → 要点): every old code now lives on one of these pages, usually at a 要点 anchor.
+const v2Manifest = readJson('v2/manifest.json')
+const v2Subjects = v2Manifest.subjects.map(entry => readJson(entry.file))
+const v2ByCode = new Map(v2Subjects.flatMap(subject => subject.standards.map(standard => [standard.code, { standard, subject }])))
+const legacyCodes = readJson('v2/legacy_codes.json')
+const subjectHeader = subject => ({ subject_slug: subject.subject_slug, subject: subject.subject, source_note: subject.source_note, stages: subject.stages })
+
 const standardTitle = standard => getDisplayTitle(standard.standard, standard.standard_title)
+// Links to an old code point where it lives now, named by the v2 standard (and 要点) it joined.
 const standardLink = code => {
-    const standard = standardsByCode.get(code)
-    return standard ? `${link(`/standards/${code}`, standardTitle(standard))} <span class="kbp-code">${esc(code)} · ${esc(standard.subject)}${esc(gradeLabel(standard))}</span>` : esc(code)
+    const target = legacyCodes[code]
+    const old = standardsByCode.get(code)
+    if (!target) return old ? esc(standardTitle(old)) : esc(code)
+    if (!target.startsWith('/standards/')) return `${link(target, old ? standardTitle(old) : code)} <span class="kbp-code">${esc(code)}</span>`
+    const [path, anchor] = target.split('#')
+    const found = v2ByCode.get(path.slice('/standards/'.length))
+    if (!found) return esc(code)
+    const { standard, subject } = found
+    return `${link(target, `${standard.level2}（${subject.subject}${v2StageLabel(standard, subject)}）`)} <span class="kbp-code">${esc(anchor || standard.code)}</span>`
 }
 const breadcrumbs = items => ({
     '@context': 'https://schema.org',
@@ -74,13 +88,12 @@ const pages = []
 const add = (meta, main, extra = {}) => pages.push({ ...meta, main, ...extra })
 
 function homePage() {
-    const total = subjects.reduce((sum, subject) => sum + subject.record_count, 0)
-    const meta = homeMeta({ standardCount: total, subjectCount: subjects.length })
+    const meta = homeMeta({ standardCount: v2Manifest.totals.standards, indicatorCount: v2Manifest.totals.indicators, subjectCount: v2Manifest.totals.subjects })
     const main = `
-<p class="kbp-kicker">义务教育课程标准（2022年版）· 结构化索引</p>
+<p class="kbp-kicker">${V2_STANDARDS_DOC} · 结构化索引</p>
 <h1>让每一句「符合课标」都有据可查</h1>
 <p class="kbp-lede">${esc(meta.description)}</p>
-${section('按学科浏览', list(subjects.map(subject => `${link(`/subjects/${subject.subject_slug}`, `${subject.subject}课程标准`)} <span class="kbp-code">${subject.record_count} 条</span>`)))}
+${section('按学科浏览', list(v2Manifest.subjects.map(subject => `${link(`/subjects/${subject.subject_slug}`, `${subject.subject}课程标准`)} <span class="kbp-code">${subject.standard_count} 条标准 · ${subject.indicator_count} 条要点</span>`)))}
 ${section('从教材找课标', `<p>${link('/textbooks', `教材馆：${textbooks.length} 册教材`)}，按单元查看对应的课程标准。</p>`)}
 ${section('更多入口', list([
         `${link('/smart-search', '智能检索')}：用一句话描述教学内容，找到相关课标`,
@@ -101,66 +114,59 @@ ${section('更多入口', list([
 }
 
 function subjectPage(subject) {
-    const standards = standardsBySubject.get(subject.subject_slug)
     const info = subjectsMeta.get(subject.subject_slug) || {}
-    const meta = subjectMeta(subject, { standardCount: standards.length, shortDescription: info.short_description })
-    const bands = GRADE_ORDER.filter(band => standards.some(standard => standard.grade_band === band)).map(band => {
-        const inBand = standards.filter(standard => standard.grade_band === band)
-        const domains = [...new Set(inBand.map(standard => standard.domain))]
-        return `<section><h2>${esc(gradeLabel({ grade_band: band }))}</h2>${domains.map(domain => `<h3>${esc(domain)}</h3>${list(inBand.filter(standard => standard.domain === domain).map(standard => `${link(`/standards/${standard.code}`, standardTitle(standard))} <span class="kbp-code">${esc(standard.code)}</span>`))}`).join('')}</section>`
+    const indicatorCount = subject.standards.reduce((n, standard) => n + standard.indicators.length, 0)
+    const meta = subjectMeta(subject, { standardCount: subject.standards.length, indicatorCount, shortDescription: info.short_description })
+    const stages = subject.stages.map(stage => {
+        const inStage = subject.standards.filter(standard => standard.stage_code === stage.stage_code)
+        const domains = [...new Set(inStage.map(standard => standard.level1))]
+        return `<section id="${esc(stage.stage_code)}"><h2>${esc(stage.label)}</h2>${domains.map(domain => `<h3>${esc(domain)}</h3>${list(inStage.filter(standard => standard.level1 === domain).map(standard => `${link(`/standards/${standard.code}`, standard.level2)} <span class="kbp-code">${esc(standard.code)} · ${standard.indicators.length} 条要点</span>`))}`).join('')}</section>`
     }).join('')
     const crumbs = [['首页', '/'], [`${subject.subject}课程标准`, `/subjects/${subject.subject_slug}`]]
     add(meta, `${crumbNav(crumbs)}
-<p class="kbp-kicker">义务教育课程标准（2022年版）</p>
+<p class="kbp-kicker">${V2_STANDARDS_DOC}</p>
 <h1>${esc(subject.subject)}课程标准</h1>
 <p class="kbp-lede">${esc(info.short_description || '')}</p>
-${info.structure_notes ? `<p>${esc(info.structure_notes)}</p>` : ''}
-<p class="kbp-note">共 ${standards.length} 条课标，按学段和领域排列。</p>
-${bands}`, { jsonLd: [breadcrumbs(crumbs)], image: cardUrl(`subject/${subject.subject_slug}`) })
+<p class="kbp-note">共 ${subject.standards.length} 条标准、${indicatorCount} 条要点，按学段和领域排列。每条标准对应一个学段的一个内容单元；要点逐字取自课标原文。</p>
+${stages}
+<p class="kbp-note">${esc(subject.source_note)}</p>`, { jsonLd: [breadcrumbs(crumbs)], image: cardUrl(`subject/${subject.subject_slug}`) })
 }
 
-function standardPage(standard) {
-    const meta = standardMeta(standard)
-    const title = standardTitle(standard)
-    const grade = gradeLabel(standard)
-    const crumbs = [['首页', '/'], [`${standard.subject}课程标准`, `/subjects/${standard.subject_slug}`], [title, `/standards/${standard.code}`]]
-    const skills = [...new Set([...(standard.ts_primary || []), ...(standard.ts_secondary || [])])]
-        .filter(code => skillNames.has(code))
-        .map(code => `${link(`/skills/${code.split('.')[0]}`, skillNames.get(code))} <span class="kbp-code">${esc(code)}</span>`)
+const pagesNote = pages => (pages?.length ? `课标第 ${pages.join('、')} 页` : '')
+function standardPage({ standard, subject }) {
+    const meta = v2StandardMeta(standard, subject)
+    const stage = v2StageLabel(standard, subject)
+    const crumbs = [['首页', '/'], [`${subject.subject}课程标准`, `/subjects/${subject.subject_slug}`], [standard.level2, `/standards/${standard.code}`]]
+    const indicators = standard.indicators.map(item => `<li id="${esc(item.code)}"><p><span class="kbp-code">${esc(item.code)}${item.grades?.length ? ` · ${item.grades.join('、')} 年级` : ''}</span><br>${esc(item.text)}</p>${item.official_examples ? `<p class="kbp-note">${esc(item.official_examples)}</p>` : ''}<p class="kbp-note">${esc(['课标原文', item.section, pagesNote(item.pages)].filter(Boolean).join(' · '))}${item.check?.status === 'revised' ? ` · 2025 修订（2022 年版：${esc(item.check.text_2022 || '无此句')}）` : ''}</p>${item.examples.length ? `<p class="kbp-note">表现示例（kebiao 整理）：</p>${list(item.examples.map(example => esc(example.text)))}` : ''}</li>`).join('')
+    const official = items => list(items.map(item => `${esc(item.text)} <span class="kbp-note">${esc(pagesNote(item.pages))}</span>`))
     const pageEvidence = new Map()
-    for (const item of standardsToTextbooks.items[standard.code] || []) {
-        if (item.unit_id && !pageEvidence.has(item.unit_id)) {
-            const page = item.printed_page ? `，第 ${item.printed_page} 页` : ''
-            pageEvidence.set(item.unit_id, `${link(`/textbook-units/${item.unit_id}`, `${item.textbook_title} · ${item.unit_title || item.node_title || '相关页'}`)}<span class="kbp-note">${esc(page)}${item.review_status === 'approved' ? '' : ' · 机器对齐，待核验'}</span>`)
+    for (const code of standard.legacy_codes) {
+        for (const item of standardsToTextbooks.items[code] || []) {
+            if (item.unit_id && !pageEvidence.has(item.unit_id)) {
+                const page = item.printed_page ? `，第 ${item.printed_page} 页` : ''
+                pageEvidence.set(item.unit_id, `${link(`/textbook-units/${item.unit_id}`, `${item.textbook_title} · ${item.unit_title || item.node_title || '相关页'}`)}<span class="kbp-note">${esc(page)}${item.review_status === 'approved' ? '' : ' · 机器对齐，待核验'}</span>`)
+            }
         }
     }
-    const scopeBooks = [...new Set((standardsToTextbooks.scopes[standard.code] || []).map(scope => scope.edition_id))]
-        .filter(id => textbooksById.has(id)).slice(0, 8)
-        .map(id => link(`/textbooks/${id}`, `${textbooksById.get(id).edition_name}${textbooksById.get(id).title}`))
-    const neighbours = [
-        ...splitCodes(standard.previous_code).map(code => `前一阶段：${standardLink(code)}`),
-        ...splitCodes(standard.next_code).map(code => `后一阶段：${standardLink(code)}`)
-    ]
-    const siblings = standardsBySubject.get(standard.subject_slug)
-        .filter(other => other.code !== standard.code && other.grade_band === standard.grade_band && other.domain === standard.domain)
-        .slice(0, 10).map(other => standardLink(other.code))
-    const official = standard.official_text || standard.standard
+    const siblings = subject.standards
+        .filter(other => other.code !== standard.code && other.stage_code === standard.stage_code && other.level1 === standard.level1)
+        .slice(0, 12).map(other => `${link(`/standards/${other.code}`, other.level2)} <span class="kbp-code">${esc(other.code)}</span>`)
+    const statementNote = standard.statement_source === 'official'
+        ? ['标准句为课标原文', standard.statement_section, pagesNote(standard.statement_pages)].filter(Boolean).join(' · ')
+        : '标准句为 kebiao 整理，用课标原词概括本单元；原文见下列要点。'
     const main = `${crumbNav(crumbs)}
-<p class="kbp-kicker">${esc([standard.subject, grade, standard.domain, standard.display_subcategory].filter(Boolean).join(' · '))}</p>
-<h1>${esc(title)}</h1>
-<p class="kbp-code">课标编码 ${esc(standard.code)}</p>
-${section('课标原文', `<blockquote>${esc(official)}</blockquote><p class="kbp-note">出处：《义务教育${esc(standard.subject)}课程标准（2022年版）》</p>`)}
-${standard.standard && standard.standard !== official ? section('拆解后的要求', `<p>${esc(standard.standard)}</p>`) : ''}
-${section('情境与学习意义', paras(standard.context))}
-${section('实践示例', paras(standard.practice))}
-${section('教学提示', paras(standard.teaching_tip))}
-${section('评价证据', paras(standard.assessment_evidence_type))}
-${section('可迁移技能', list(skills))}
-${section('对应教材', list([...pageEvidence.values()]) + (scopeBooks.length ? `<p class="kbp-note">同学段相关教材：</p>${list(scopeBooks)}` : ''))}
-${section('前后衔接', list(neighbours))}
-${section(`同领域的其他课标（${standard.domain}）`, list(siblings))}
-<p class="kbp-note">拆解、情境、实践和教学提示由 kebiao 整理，部分为机器生成，引用时请以课标原文为准。</p>`
-    const preloadCodes = [standard.code, ...splitCodes(standard.previous_code), ...splitCodes(standard.next_code)]
+<p class="kbp-kicker">${esc([subject.subject, stage, standard.level1, standard.theme].filter(Boolean).join(' · '))}</p>
+<h1>${esc(standard.level2)}</h1>
+<p class="kbp-code">标准编码 ${esc(standard.code)}</p>
+<blockquote>${esc(standard.statement)}</blockquote>
+<p class="kbp-note">${esc(statementNote)}</p>
+${section(`要点（${standard.indicators.length} 条，课标原文）`, `<ol>${indicators}</ol>`)}
+${section('学业要求', official(standard.requirements))}
+${section('教学提示', official(standard.guidance))}
+${standard.examples.length ? section('表现示例（kebiao 整理）', list(standard.examples.map(example => esc(example.text)))) : ''}
+${section('对应教材', list([...pageEvidence.values()]))}
+${section(`同学段同领域的其他标准（${standard.level1}）`, list(siblings))}
+<p class="kbp-note">${esc(subject.source_note)}</p>`
     add(meta, main, {
         type: 'article',
         image: cardUrl(`s/${standard.code}`),
@@ -168,13 +174,13 @@ ${section(`同领域的其他课标（${standard.domain}）`, list(siblings))}
             '@context': 'https://schema.org',
             '@type': 'DefinedTerm',
             '@id': `${SITE_URL}/standards/${standard.code}`,
-            name: title,
+            name: standard.level2,
             termCode: standard.code,
-            description: clip(official, 300),
+            description: clip(standard.statement, 300),
             url: `${SITE_URL}/standards/${standard.code}`,
-            inDefinedTermSet: { '@type': 'DefinedTermSet', name: `义务教育${standard.subject}课程标准（2022年版）`, url: `${SITE_URL}/subjects/${standard.subject_slug}` }
+            inDefinedTermSet: { '@type': 'DefinedTermSet', name: `义务教育${subject.subject}课程标准（2022年版2025年修订）`, url: `${SITE_URL}/subjects/${subject.subject_slug}` }
         }],
-        preload: { standards: preloadCodes.map(code => standardsByCode.get(code)).filter(Boolean) }
+        preload: { standards: [{ ...standard, _subject: subjectHeader(subject) }] }
     })
 }
 
@@ -278,8 +284,8 @@ function staticPages() {
 }
 
 homePage()
-subjects.forEach(subjectPage)
-for (const standards of standardsBySubject.values()) standards.forEach(standardPage)
+v2Subjects.forEach(subjectPage)
+for (const entry of v2ByCode.values()) standardPage(entry)
 skillPages()
 textbookPages()
 learningResourcePages()
@@ -310,8 +316,8 @@ const STYLE = `<style id="kbp-style">
 .kbp-foot .kbp-wrap{padding-top:16px;padding-bottom:0;border-top:1px solid var(--kb-line,rgba(222,228,238,.14))}
 </style>`
 
-const NAV = [...subjects.map(subject => link(`/subjects/${subject.subject_slug}`, subject.subject)), link('/textbooks', '教材馆'), link('/skills', '可迁移技能'), link('/smart-search', '智能检索')].join('')
-const FOOTER = '<footer class="kbp-foot"><div class="kbp-wrap"><p>课标原文来自教育部《义务教育课程标准（2022年版）》。kebiao 是独立的开放索引，与教育部无隶属关系。</p></div></footer>'
+const NAV = [...v2Subjects.map(subject => link(`/subjects/${subject.subject_slug}`, subject.subject)), link('/textbooks', '教材馆'), link('/skills', '可迁移技能'), link('/smart-search', '智能检索')].join('')
+const FOOTER = '<footer class="kbp-foot"><div class="kbp-wrap"><p>课标原文来自教育部《义务教育课程标准（2022年版）》及其 2025 年日常修订版。kebiao 是独立的开放索引，与教育部无隶属关系。</p></div></footer>'
 
 function render(page) {
     const url = SITE_URL + encodeURI(page.path)

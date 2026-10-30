@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, useParams } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
@@ -10,7 +10,8 @@ import SkillDetailPage from './pages/SkillDetailPage'
 import SearchResultsPage from './pages/SearchResultsPage'
 import StandardV2Page from './pages/StandardV2Page'
 import LegacyStandardRedirect from './pages/LegacyStandardRedirect'
-import { isV2Code } from './data/v2Data.js'
+import { isV2Code, migrateSavedCodes } from './data/v2Data.js'
+import { getCollections, saveCollections } from './data/collections'
 import NotFoundPage from './pages/NotFoundPage'
 import RouteUiBoundary from './components/RouteUiBoundary'
 import { PageLoading } from './components/StateComponents'
@@ -55,6 +56,8 @@ function App() {
     const analyticsEnabled = import.meta.env.VITE_ENABLE_ANALYTICS === 'true'
     const speedInsightsEnabled = import.meta.env.VITE_ENABLE_SPEED_INSIGHTS === 'true'
     const umamiEnabled = isKebiaoProductionHost()
+    // saved lists made before the 2025 rebuild hold old codes; move them to the new standards
+    useEffect(() => { migrateSavedCodes({ getCollections, saveCollections }).catch(() => {}) }, [])
 
     return (
         <SkyProvider>

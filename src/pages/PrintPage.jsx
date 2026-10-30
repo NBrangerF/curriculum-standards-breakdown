@@ -5,6 +5,7 @@ import { PrinterIcon } from '@phosphor-icons/react/dist/csr/Printer'
 import { SlidersHorizontalIcon } from '@phosphor-icons/react/dist/csr/SlidersHorizontal'
 import { getCollection } from '../data/collections'
 import { GRADE_BANDS, loadStandardByCode } from '../data/dataLoader'
+import { asListRecord, isV2Code, loadV2Standard } from '../data/v2Data.js'
 import { EmptyState, ErrorState, LoadingState } from '../components/StateComponents'
 import styles from './PrintPage.module.css'
 
@@ -44,7 +45,11 @@ function PrintPage() {
                     nextTitle = `${codes.length} 条课程标准`
                 }
 
-                const loaded = (await Promise.all(codes.map(code => loadStandardByCode(code)))).filter(Boolean)
+                const loaded = (await Promise.all(codes.map(async code => {
+                    if (!isV2Code(code)) return loadStandardByCode(code)
+                    const found = await loadV2Standard(code)
+                    return found ? asListRecord(found.standard, found.subject) : null
+                }))).filter(Boolean)
                 if (cancelled) return
                 setTitle(nextTitle)
                 setStandards(loaded)
