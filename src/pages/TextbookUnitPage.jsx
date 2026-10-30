@@ -93,7 +93,7 @@ function PrepPanel({ unit, book, prep }) {
                             {standards.slice(0, 4).map(item => (
                                 <li key={item.code}>
                                     <Link to={`/standards/${item.code}`}><code>{item.code}</code>{item.title}</Link>
-                                    <span>{item.via === 'search' ? '按课题检索，仅供参考' : '按教材页码机器对齐，待核验'} · {item.indicators.length} 条要点</span>
+                                    <span>{item.via === 'search' ? '按课题检索，仅供参考' : item.via === 'ai_unit' ? 'AI 按教材单元判断，待核验' : '按教材页码机器对齐，待核验'} · {item.indicators.length} 条要点</span>
                                 </li>
                             ))}
                         </ul>

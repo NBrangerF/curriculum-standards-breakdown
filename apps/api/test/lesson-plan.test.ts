@@ -420,3 +420,21 @@ test('试讲稿: a drafted plan becomes a spoken 10-minute 试讲 with 答辩, c
     assert.ok(data.trial.defense[0].answer.includes(LIMITED))
     assert.ok(!data.trial.defense[0].answer.includes('MA-S1-ZZ-99'))
 })
+
+test('lesson-plan context puts the AI 按单元判断 要点 of the lesson\'s unit first', async () => {
+    const { readdir } = await import('node:fs/promises')
+    const dir = resolve(publicDataRoot, 'textbooks/national-lessons')
+    let found: { edition: string, lesson: any } | null = null
+    for (const file of (await readdir(dir)).filter(name => name.startsWith('ed_')).sort()) {
+        const record = JSON.parse(await readFile(resolve(dir, file), 'utf8'))
+        const lesson = record.lessons.find((item: any) => item.ai_points?.length)
+        if (lesson) { found = { edition: record.edition_id, lesson }; break }
+    }
+    assert.ok(found, 'some lesson carries AI unit picks')
+    const response = await app.request(`/api/v1/lesson-plans/context?edition_id=${found.edition}&lesson_id=${found.lesson.id}`)
+    assert.equal(response.status, 200)
+    const { data } = await json(response)
+    assert.equal(data.standards[0].via, 'ai_unit')
+    assert.equal(data.standards[0].code, found.lesson.ai_points[0].replace(/\.\d+$/u, ''))
+    assert.ok(data.standards.every((item: any) => item.suggested.length === 0))
+})

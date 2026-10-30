@@ -38,7 +38,7 @@ function writeStored(value) {
     try { window.localStorage.setItem(STORE_KEY, JSON.stringify(value)) } catch { /* private mode */ }
 }
 
-const viaLabel = { aligned: '教材页码对齐（机器）', search: '按课题检索', ai: 'AI 推荐', seed: '你从标准页选的' }
+const viaLabel = { aligned: '教材页码对齐（机器）', ai_unit: 'AI 按单元判断', search: '按课题检索', ai: 'AI 推荐', seed: '你从标准页选的' }
 
 export default function LessonPlanPage() {
     usePageMeta(STATIC_PAGE_META['/lesson-plan'])

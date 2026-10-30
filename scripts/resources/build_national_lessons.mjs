@@ -73,6 +73,7 @@ export function buildNationalLessons() {
         // the platform lists lessons by upload; show them in the book's chapter order
         const position = lesson => order.get(lesson.chapter_path.at(-1)) ?? Number.MAX_SAFE_INTEGER
         const sorted = record.lessons.map((lesson, index) => ({ lesson, index })).sort((a, b) => position(a.lesson) - position(b.lesson) || a.index - b.index).map(item => item.lesson)
+        const aiOf = new Map(sorted.map(lesson => [lesson.id, (unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([, grade, point]) => grade === 2 && point).slice(0, 4).map(([, , point]) => point)]))
         const lessons = sorted.map(lesson => ({
             id: lesson.id,
             title: lesson.title,
@@ -80,7 +81,8 @@ export function buildNationalLessons() {
             pdf_page: lesson.pdf_page || null,
             unit_id: unitOf(lesson),
             materials: lesson.materials.filter(name => MATERIALS.includes(name)),
-            hours: lesson.hours
+            hours: lesson.hours,
+            ...(aiOf.get(lesson.id)?.length ? { ai_points: aiOf.get(lesson.id) } : {})
         }))
         lessonTotal += lessons.length
         const out = {
@@ -94,7 +96,6 @@ export function buildNationalLessons() {
         }
         writeFileSync(path.join(OUT, `${record.edition_id}.json`), `${JSON.stringify(out)}\n`)
         const rows = (rowsByEdition.get(record.edition_id) || []).filter(row => Number.isInteger(row[3])).sort((a, b) => a[3] - b[3])
-        const aiOf = new Map(sorted.map(lesson => [lesson.id, (unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([, grade, point]) => grade === 2 && point).slice(0, 4).map(([, , point]) => point)]))
         for (const lesson of lessons) {
             const ai = aiOf.get(lesson.id) || []
             if (ai.length) {

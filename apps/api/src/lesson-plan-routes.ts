@@ -22,7 +22,7 @@ type Deps = {
     apiError: (c: Context<ApiBindings>, status: number, code: string, message: string, details?: unknown) => Response
 }
 
-type NationalLesson = { id: string, title: string, chapters: string[], pdf_page: number | null, unit_id: string | null, materials: string[], hours: number }
+type NationalLesson = { id: string, title: string, chapters: string[], pdf_page: number | null, unit_id: string | null, materials: string[], hours: number, ai_points?: string[] }
 type NationalFile = { edition_id: string, platform_title: string, confidence: string, lessons: NationalLesson[] }
 type ConceptsFile = { subjects: Array<SubjectNote & { slug: string, name: string, terms: string[] }>, terms: Array<{ id: string, term: string }> }
 
@@ -228,6 +228,16 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             }
         }
         const standards: Array<PlanStandard & { via: string, suggested: string[] }> = []
+        // AI 按单元判断 (scripts/resources/pick_unit_standards.mjs): the 直接对应 要点 the AI found for the platform unit
+        // these lessons sit in. It read the standards' text, so it goes before the page alignment.
+        const scope = chosen ? [chosen] : unitLessons.length ? unitLessons : national && linkedUnit ? national.lessons.filter(item => item.unit_id === linkedUnit) : []
+        for (const point of [...new Set(scope.flatMap(item => item.ai_points || []))]) {
+            if (standards.length >= (unitLessons.length ? 6 : 4)) break
+            const standard = await planStandard(point.replace(/\.\d+$/u, ''))
+            if (!standard || standards.some(existing => existing.code === standard.code)) continue
+            if (subjectSlug && standard.subject_slug !== subjectSlug) continue
+            standards.push({ ...standard, via: 'ai_unit', suggested: [] })
+        }
         for (const item of aligned.slice(0, unitLessons.length ? 8 : 6)) {
             const standard = await planStandard(item.code)
             if (!standard || standards.some(existing => existing.code === standard.code)) continue
