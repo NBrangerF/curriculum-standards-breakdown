@@ -449,3 +449,16 @@ test('项目式学习 quotes the 课标 and tells it apart from 跨学科主题�
     await page.goto('/concepts/subjects/math')
     await expect(page.getByRole('link', { name: /项目式学习/ }).first()).toHaveAttribute('href', '/concepts/project-learning')
 })
+
+test('四个评价 quotes the 课程方案 and the subjects, and the long name fits a phone', async ({ page }) => {
+    await page.goto('/concepts/four-evaluations')
+    await expect(page.getByRole('heading', { level: 1, name: /增值评价/ })).toBeVisible()
+    await expect(page.getByText(/改进结果评价，强化过程评价，探索增值评价，健全综合评价/).first()).toBeVisible()
+    await expect(page.getByText(/关注学生个体的进步幅度/).first()).toBeVisible()
+    await page.setViewportSize({ width: 390, height: 844 })
+    for (const path of ['/concepts', '/concepts/four-evaluations']) {
+        await page.goto(path)
+        await expect(page.locator('main h1')).toBeVisible()
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true)
+    }
+})
