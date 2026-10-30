@@ -91,6 +91,28 @@ function OfficialList({ title, items, id }) {
 const NATIONAL_URL = id => `https://basic.smartedu.cn/syncClassroom/classActivity?activityId=${id}`
 
 // 国家中小学智慧教育平台 同步课 for the textbook chapters this standard is aligned to.
+// The standard's 要点, verbatim with pages, as a prompt for the AI a teacher already uses (豆包、DeepSeek、元宝)
+function CopyPromptButton({ standard, subjectName }) {
+    const [copied, setCopied] = useState(false)
+    const text = [
+        `请你作为${subjectName}教研员，依据下面这条课程标准，为（年级、教材、课题）写一份 40 分钟的教案。先告诉我这节课只落实其中哪几条要点。`,
+        '',
+        `${standard.code} ${standard.level2}（《义务教育课程标准（2022年版2025年修订）》）`,
+        standard.statement,
+        ...(standard.indicators || []).map(item => `- ${item.code}：${item.text}${item.pages?.length ? `（修订版第 ${item.pages.join('、')} 页）` : ''}`),
+        '',
+        '要求：教学目标以「学生能」开头并注明依据的要点编码；先写评价任务再写教学过程；要点里写明「不包括」「不要求」的内容不要出现；不要编造课标编码或原文。',
+        `来源：kebiao.org/standards/${standard.code}`
+    ].join('\n')
+    async function copy() {
+        try {
+            await navigator.clipboard.writeText(text)
+            setCopied(true)
+        } catch { setCopied(false) }
+    }
+    return <button type="button" className={styles.badge} onClick={copy} title="复制这条标准的要点原文和写法要求，贴给豆包、DeepSeek 等">{copied ? '已复制提示词' : '复制成提示词'}</button>
+}
+
 function NationalLessons({ code }) {
     const [data, setData] = useState(null)
     useEffect(() => {
@@ -296,6 +318,7 @@ export default function StandardV2Page() {
                         <CopyLinkButton url={shareURL} />
                         <ShareStandardButton code={standard.code} title={standard.level2} />
                         <Link className={styles.badge} to={`/lesson-plan?mode=topic&subject=${encodeURIComponent(slug === 'arts' ? '艺术（音乐、美术等）' : subject.subject)}&grade=${(standard.grades || [])[0] || ''}&topic=${encodeURIComponent(standard.level2)}&codes=${standard.code}`}>用这条起草教案</Link>
+                        <CopyPromptButton standard={standard} subjectName={subject.subject} />
                     </div>
                 </header>
 

@@ -86,8 +86,17 @@
     text-decoration: none;
 }
 
+button.badge {
+    background: transparent;
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
 a.badge:hover,
-a.badge:focus-visible {
+a.badge:focus-visible,
+button.badge:hover,
+button.badge:focus-visible {
     border-color: var(--subject-color);
     color: var(--kb-moon);
 }
