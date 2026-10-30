@@ -147,3 +147,13 @@ RULES.biology = {
     title: u => `${u.unit}（${u.stage.replace('-', '–')} 年级）`,
     prepare: (lines, h) => outline(lines, h, { slug: 'biology', sections: ['内容要求'], unitRe: /^\d\.\d$/u, itemRe: /^\d\.\d\.\d$|^（\d+）$/u, otherText: /^概念\s*\d/u, gluedAs: 'heading', headingName: 'line', exampleRe: null })
 }
+
+const HI_AREAS = { 中国古代史: 'AC', 中国近代史: 'MC', 中国现代史: 'CC', 世界古代史: 'AW', 世界近代史: 'MW', 世界现代史: 'CW' }
+// 历史：单元是时期（1.3 秦汉时期……）；要点是每个「通过了解……知道……」分句；学业要求按板块写，放学段概览；
+// 标准句由 kebiao 概括；年级按统编教材的板块。跨学科主题学习是教师用的活动设计示例，放学段概览，不作标准。
+RULES.history = {
+    areas: HI_AREAS,
+    split: 'clauses',
+    stageRequirement: e => e.part === '课程内容' && e.section === '学业要求' && Boolean(HI_AREAS[(e.topic || [])[0]]),
+    prepare: (lines, h) => outline(lines, h, { slug: 'history', sections: ['内容要求'], themeOf: e => (HI_AREAS[(e.topic || [])[0]] ? e.topic[0] : null), unitRe: /^\d\.\d$/u })
+}
