@@ -278,10 +278,11 @@ function buildGeneric() {
     const summaries = new Map(readTsv(`docs/data/v2/summaries/${slug}.tsv`).map(([stage, unit, text]) => [`${stage}|${unit}`, text]))
     const gradeRules = readTsv(`docs/data/v2/grades/${slug}.tsv`).map(([unit, pattern, grade, basis]) => ({ unit, any: pattern === '*', re: pattern === '*' ? null : new RegExp(pattern, 'u'), grades: grade.split(/[,，、]/u).map(Number), basis }))
     const byId = new Map()
-    const lines = loadCatalog('2025r', slug)
+    const rawLines = loadCatalog('2025r', slug)
         .filter(e => e.stage)
         .map(e => ({ ...e, text: e.text.replace(/［\d］[^［]*$/u, '').trim() }))
         .filter(e => e.text)
+    const lines = rawLines
         .filter(e => { const head = `${e.marker || ''}${e.text}`.match(/^（\d+）?\s*(.*)$/u); return !(head && /^（\d/u.test(`${e.marker || ''}${e.text}`) && !/[。；，]/u.test(head[1]) && head[1].length <= 12) })
     lines.forEach(e => byId.set(e.id, e))
     const clean = text => {
@@ -310,7 +311,8 @@ function buildGeneric() {
     const headings = new Map()
     const intros = new Map()
     const reachedContent = new Set()
-    const prepared = cfg.prepare ? cfg.prepare(lines, { readTsv, strip }) : null
+    // Outline rules see the heading lines too (rawLines), which the line filter above drops.
+    const prepared = cfg.prepare ? cfg.prepare(rawLines, { readTsv, strip }) : null
     for (const e0 of lines) {
         let e = e0
         const base = prepared ? prepared.get(e.id) || null : cfg.unitOf(e)

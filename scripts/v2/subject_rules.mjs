@@ -157,3 +157,28 @@ RULES.history = {
     stageRequirement: e => e.part === '课程内容' && e.section === '学业要求' && Boolean(HI_AREAS[(e.topic || [])[0]]),
     prepare: (lines, h) => outline(lines, h, { slug: 'history', sections: ['内容要求'], themeOf: e => (HI_AREAS[(e.topic || [])[0]] ? e.topic[0] : null), unitRe: /^\d\.\d$/u })
 }
+
+const GE_AREAS = { 认识全球: 'GL', 认识区域: 'RE', 地理工具与地理实践: 'TP' }
+// 地理：单元是二级主题（地球在宇宙中、认识国家……）；有「（1）陆地和海洋」这类小标题的，按小标题再分。要点是「•」条目；
+// 「说明：」之后是选学说明，不作要点；学业要求放学段概览；标准句由 kebiao 概括。跨学科主题学习是原则和案例，放学段概览。
+RULES.geography = {
+    areas: GE_AREAS,
+    split: 'items',
+    stageRequirement: e => e.part === '课程内容' && e.section === '学业要求' && Boolean(GE_AREAS[(e.topic || [])[0]]),
+    prepare: lines => {
+        const out = new Map()
+        let key = null, sub = null, mode = 'item'
+        for (const e of lines) {
+            const t = e.topic || []
+            if (e.part !== '课程内容' || e.section !== '内容要求' || !GE_AREAS[t[0]] || !t[1]) continue
+            const k = t.join('>')
+            if (k !== key) { key = k; sub = null; mode = 'item' }
+            const unit = { area: t[0], theme: t[1] }
+            if (/^（\d+）$/u.test(e.marker || '') && !/[。；，]/u.test(e.text) && e.text.length <= 12 && mode === 'item') { sub = e.text.trim(); out.set(e.id, { ...unit, unit: sub, role: 'heading' }); continue }
+            if (/^说明[：:]?$/u.test(e.text.trim())) mode = 'other'
+            // Circled numbers mark page notes ("① 青藏高原被称为“第三极”。").
+            out.set(e.id, { ...unit, unit: sub || t[1], role: /^[①-⑳]$/u.test(e.marker || '') ? 'other' : mode })
+        }
+        return out
+    }
+}
