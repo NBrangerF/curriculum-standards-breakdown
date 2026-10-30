@@ -8,7 +8,7 @@ import { XCircleIcon } from '@phosphor-icons/react/dist/csr/XCircle'
 import { postApi } from '../data/api'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
-import { downloadReportWord, downloadScriptWord, downloadTestWord, downloadWord, downloadUnitWord, planToText, reportToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
+import { downloadObservationWord, downloadReportWord, downloadScriptWord, downloadTestWord, downloadWord, downloadUnitWord, planToText, reportToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
@@ -1070,6 +1070,7 @@ function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
                         <button type="button" className="btn btn-ghost" onClick={() => { trackUmamiEvent('lesson_plan_export', { format: 'print', kind: 'lesson' }); window.print() }}>打印</button>
                         {onTalk ? <button type="button" className="btn btn-secondary" onClick={() => onTalk('talk')} disabled={Boolean(talking)}>{talking === 'talk' ? '正在写说课稿…' : '生成说课稿'}</button> : null}
                         {onTalk ? <button type="button" className="btn btn-secondary" onClick={() => onTalk('trial')} disabled={Boolean(talking)}>{talking === 'trial' ? '正在写试讲稿…' : '试讲稿 + 答辩'}</button> : null}
+                        <button type="button" className="btn btn-ghost" title="按这份教案的目标、评价和环节生成，供听课、评课、磨课时填写" onClick={() => { downloadObservationWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'observation', kind: 'lesson' }) }}>听课观察表</button>
                     </>
                 ) : null}
             </div>

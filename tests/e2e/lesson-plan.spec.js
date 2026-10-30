@@ -83,6 +83,13 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     await expect(page.getByText('每条目标都有课标要点依据、教学环节和评价任务')).toBeVisible()
     await expect(page.getByRole('button', { name: '下载 Word' })).toBeVisible()
     expect(drafts.map(item => item.step)).toEqual(['frame', 'process'])
+    const sheet = page.waitForEvent('download')
+    await page.getByRole('button', { name: '听课观察表' }).click()
+    const sheetFile = await sheet
+    expect(sheetFile.suggestedFilename()).toBe('分数的基本性质-听课观察表.doc')
+    const sheetText = await (await import('node:fs/promises')).readFile(await sheetFile.path(), 'utf8')
+    expect(sheetText).toContain('一、目标达成：每条目标看什么证据')
+    expect(sheetText).toContain('MA-S3-NA-01.3')
     await page.getByRole('button', { name: '生成说课稿' }).click()
     await expect(page.getByRole('heading', { name: '《分数的基本性质》说课稿' })).toBeVisible()
     await expect(page.getByText('本课依据 MA-S3-NA-01.3。')).toBeVisible()

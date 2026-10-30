@@ -258,3 +258,48 @@ export function downloadScriptWord(title, sections, fileName) {
     link.remove()
     setTimeout(() => URL.revokeObjectURL(url), 2000)
 }
+
+// ---------- 听课观察表: built from the plan itself (no AI), for 听评课, 公开课 and 磨课 ----------
+export function observationHtml(plan) {
+    const { lesson, frame, process, evidence, meta } = plan
+    const title = frame?.title || lesson.title
+    const box = '□达到<br>□部分<br>□未达到'
+    const assessmentsOf = id => (frame?.assessments || []).filter(item => item.objective_ids.includes(id))
+    const goalRows = (frame?.objectives || []).map((item, index) => {
+        const found = assessmentsOf(item.id)
+        return `<tr><td>${index + 1}. ${esc(item.text)}</td><td class="code">${item.basis.map(esc).join('<br>')}</td><td>${esc(found.map(entry => entry.evidence || entry.task).join('；') || '（教案没有写评价证据）')}</td><td>${esc(found.map(entry => entry.criteria).filter(Boolean).join('；'))}</td><td class="tick">${box}</td><td class="blank"></td></tr>`
+    }).join('')
+    const stageRows = (process?.stages || []).map((stage, index) => `<tr><td>${index + 1}. ${esc(stage.name)}<br><span class="dim">计划 ${esc(stage.minutes)} 分钟</span></td><td>${esc(stage.students)}</td><td>${esc(stage.objective_ids.map(id => `目标 ${id.replace('O', '')}`).join('、'))}</td><td class="blank"></td><td class="short"></td></tr>`).join('')
+    const points = (evidence || []).map(item => `<li>□ ${esc(item.code)}　${esc(item.text)}（修订版第 ${esc(item.pages.join('、'))} 页）</li>`).join('')
+    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}听课观察表</title><style>
+body{font-family:"SimSun","Songti SC",serif;font-size:11pt;line-height:1.6;margin:1.6cm}h1{font-size:16pt;text-align:center;margin:0 0 4pt}h2{font-size:12.5pt;margin:12pt 0 4pt}
+.meta{text-align:center;color:#444;margin:0 0 6pt}.fill{margin:0 0 8pt}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:4pt 5pt;vertical-align:top;font-size:10pt}th{background:#eee}
+.tick,.code{white-space:nowrap}.code{font-size:9pt}.blank{width:24%;height:42pt}.box{border:1px solid #999;height:54pt;margin:2pt 0 8pt}.short{width:9%}.dim{color:#666;font-size:9pt}ul{padding-left:1em}li{list-style:none;margin:2pt 0}.foot{color:#666;font-size:9pt;margin-top:12pt}
+</style></head><body>
+<h1>《${esc(title)}》听课观察表</h1>
+<p class="meta">${esc([lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', meta ? `${meta.period_minutes} 分钟` : ''].filter(Boolean).join(' · '))}</p>
+<p class="fill">授课教师：＿＿＿＿＿　听课人：＿＿＿＿＿　日期：＿＿＿＿＿　班级：＿＿＿＿＿</p>
+<h2>一、目标达成：每条目标看什么证据</h2>
+<table><tr><th>教学目标</th><th>课标要点</th><th>看什么（评价证据）</th><th>达成标准</th><th>达成情况</th><th>观察记录</th></tr>${goalRows}</table>
+<h2>二、教学环节：学生在做什么</h2>
+<table><tr><th>环节</th><th>学生应该做的</th><th>推进的目标</th><th>观察记录（学生的表现、问题）</th><th>实际用时</th></tr>${stageRows}</table>
+<h2>三、整体评价</h2>
+<p>教—学—评一致性：□一致　□基本一致　□不一致　　学生主体活动时间约＿＿分钟</p>
+<p>课标要点落实：</p><ul>${points}</ul>
+<p>主要优点：</p><div class="box"></div>
+<p>改进建议：</p><div class="box"></div>
+<p class="foot">观察表由教案的目标、评价任务和教学过程生成（kebiao.org），课标要点依据《义务教育课程标准（2022年版2025年修订）》。</p>
+</body></html>`
+}
+
+export function downloadObservationWord(plan) {
+    const blob = new Blob(['\ufeff', observationHtml(plan)], { type: 'application/msword' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${(plan.frame?.title || plan.lesson.title || '教案').replace(/[\\/:*?"<>|]/gu, '')}-听课观察表.doc`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    setTimeout(() => URL.revokeObjectURL(url), 2000)
+}
