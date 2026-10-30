@@ -327,7 +327,7 @@ export async function draftProcess(input: DraftInput, frame: Frame, options: Str
 }
 
 // ---------- 核验我的教案: read a teacher's own (or another AI's) plan, then run the same checks ----------
-export type ReadPlan = { frame: Frame, process: Process | null, notes: Array<{ objective_id: string, note: string }> }
+export type ReadPlan = { frame: Frame, process: Process | null, notes: Array<{ objective_id: string, note: string }>, beyond: Array<{ quote: string, limit: string }> }
 
 const READ_INSTRUCTIONS = `你是中小学教研员。老师贴来一份教案（可能是自己写的，也可能是 AI 写的），请把它整理成结构，并对照「依据」里的课标要点。
 规则：
@@ -336,7 +336,8 @@ const READ_INSTRUCTIONS = `你是中小学教研员。老师贴来一份教案�
 3. assessments：教案里的评价、检测、练习反馈等，task 抄录要点，objective_refs 填它检验的目标序号（从 1 开始）。
 4. stages：教学过程的各环节，name、minutes（教案没写就填 0）、objective_refs 填这个环节推进的目标序号。
 5. period_minutes：教案写明的一节课时长，没写填 0。
-必须只返回一个 JSON 对象：{"title":"…","objectives":[{"text":"…","basis":["…"],"note":""}],"assessments":[{"task":"…","objective_refs":[1]}],"stages":[{"name":"…","minutes":5,"objective_refs":[1]}],"period_minutes":40}`
+6. beyond：教案里超出依据要点写明的限定（「不包括……」「不要求……」等）的内容。quote 逐字抄录教案原文片段，limit 逐字抄录要点里的限定原文；没有就返回空数组。注意换了说法的情况，比如「0.3（3 循环）化成分数」就是循环小数化成分数。
+必须只返回一个 JSON 对象：{"title":"…","objectives":[{"text":"…","basis":["…"],"note":""}],"assessments":[{"task":"…","objective_refs":[1]}],"stages":[{"name":"…","minutes":5,"objective_refs":[1]}],"period_minutes":40,"beyond":[{"quote":"…","limit":"…"}]}`
 
 function validateRead(value: unknown, codes: Set<string>): ReadPlan | null {
     if (!value || typeof value !== 'object') return null
@@ -367,7 +368,8 @@ function validateRead(value: unknown, codes: Set<string>): ReadPlan | null {
     }).filter(item => item.name)
     const frame: Frame = { title: str(raw.title, 60), core_understanding: '', objectives, key_points: [], difficult_points: [], learner_analysis: '', prior_knowledge: [], misconceptions: [], keywords: [], assessments }
     const period = Math.round(Number(raw.period_minutes))
-    return { frame, process: stages.length ? { stages, homework: [], board: [], materials: [], safety: [] } : null, notes, ...(period > 0 ? { period } : {}) } as ReadPlan
+    const beyond = (Array.isArray(raw.beyond) ? raw.beyond : []).slice(0, 5).map(item => ({ quote: str((item as Record<string, unknown>)?.quote, 120), limit: str((item as Record<string, unknown>)?.limit, 120) })).filter(item => item.quote && item.limit)
+    return { frame, process: stages.length ? { stages, homework: [], board: [], materials: [], safety: [] } : null, notes, beyond, ...(period > 0 ? { period } : {}) } as ReadPlan
 }
 
 export async function readTeacherPlan(planText: string, input: DraftInput, options: StructuredLlmOptions = {}): Promise<DraftResult<ReadPlan>> {
@@ -393,7 +395,17 @@ export function checkTeacherPlan(read: ReadPlan & { period?: number }, planText:
         const objective = read.frame.objectives.find(entry => entry.id === item.objective_id)
         return { level: 'warn' as const, kind: 'reader_note', message: `目标 ${item.objective_id.replace('O', '')}：${item.note}`, quote: objective?.text }
     })
-    const all = [...checks.filter(item => item.kind !== 'aligned'), ...notes]
+    // the reader's 超标 findings count only when both quotes are real: the plan's words and the 要点's limit
+    const squash = (text: string) => text.replace(/[\s（）()“”"'、，,。；;：:]/gu, '')
+    const plan = squash(planText)
+    const limits = input.indicators.map(item => squash(item.text))
+    const flagged = checks.filter(item => item.kind === 'beyond_standard').map(item => squash(item.quote || ''))
+    const beyond = read.beyond
+        .filter(item => plan.includes(squash(item.quote)) && limits.some(text => text.includes(squash(item.limit))))
+        .map(item => ({ level: 'risk' as const, kind: 'beyond_standard', message: `「${item.quote}」超出了课标的限定：${item.limit}。`, quote: item.limit }))
+        // the program already flagged this limit by its words
+        .filter(item => !flagged.some(source => source.includes(squash(item.quote || ''))))
+    const all = [...checks.filter(item => item.kind !== 'aligned'), ...beyond, ...notes]
     return all.length ? all.map(item => ({ ...item, message: item.message.replace(/目标 O(\d+)/gu, '目标 $1') })) : checks
 }
 

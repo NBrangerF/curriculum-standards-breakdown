@@ -162,7 +162,12 @@ test('核验我的教案: a pasted plan is read into objectives and checked agai
             ],
             assessments: [{ task: '课堂提问', objective_refs: [1] }],
             stages: [{ name: '新授', minutes: 25, objective_refs: [1] }, { name: '拓展', minutes: 15, objective_refs: [1] }],
-            period_minutes: 40
+            period_minutes: 40,
+            beyond: [
+                { quote: '把 0.3 循环小数化成分数', limit: '不包括将循环小数转化成分数' },
+                { quote: '这句教案里没有', limit: '不包括将循环小数转化成分数' },
+                { quote: '新授 25 分钟', limit: '这句要点里没有' }
+            ]
         }
         return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 300, total_tokens: 1200 } }), { status: 200, headers: { 'content-type': 'application/json' } })
     })
@@ -177,6 +182,9 @@ test('核验我的教案: a pasted plan is read into objectives and checked agai
     assert.ok(kinds.includes('no_basis'))
     assert.ok(kinds.includes('reader_note'))
     assert.ok(data.checks.every((item: any) => !/目标 O\d/.test(item.message)))
+    // invented quotes from the reader are dropped: only one 超标 finding survives (the program's own or the reader's)
+    assert.equal(data.checks.filter((item: any) => item.kind === 'beyond_standard').length, 1)
+    assert.ok(data.checks.every((item: any) => !String(item.message).includes('这句教案里没有') && !String(item.message).includes('这句要点里没有')))
     assert.match(prompts[0], /老师的教案：/)
 })
 
