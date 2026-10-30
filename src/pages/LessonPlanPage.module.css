@@ -879,3 +879,29 @@
     text-underline-offset: 3px;
     cursor: pointer;
 }
+
+/* 常用学情 */
+.quickNotes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: -0.4rem 0 0.9rem;
+}
+
+.quickNotes button {
+    min-height: 2rem;
+    padding: 0 0.7rem;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: var(--radius-full, 999px);
+    background: transparent;
+    color: var(--kb-mist);
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.quickNotes button:hover,
+.quickNotes button:focus-visible {
+    border-color: var(--kb-gold);
+    color: var(--kb-moon);
+}

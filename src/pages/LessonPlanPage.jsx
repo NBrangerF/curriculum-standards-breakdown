@@ -79,6 +79,9 @@ const draftDate = value => {
     return Number.isNaN(date.getTime()) ? '' : `${date.getMonth() + 1} 月 ${date.getDate()} 日`
 }
 
+// common 学情 a teacher can add with one tap; the AI reads them like typed notes
+const CLASS_NOTES = ['基础较好，能主动提问', '两极分化明显', '前置知识掌握不牢', '表达说理较弱', '小组合作习惯较好', '注意力容易分散', '大班额（50 人以上）']
+
 const viaLabel = { aligned: '教材页码对齐（机器）', ai_unit: 'AI 按单元判断', search: '按课题检索', ai: 'AI 推荐', seed: '你从标准页选的' }
 
 export default function LessonPlanPage() {
@@ -656,6 +659,11 @@ export default function LessonPlanPage() {
                         <span>学情</span>
                         <textarea rows={3} maxLength={800} value={settings.classNotes} onChange={event => setSettings({ ...settings, classNotes: event.target.value })} placeholder="班级整体情况，例如：学生已会用画图表示分数，但说理不清；部分学生计算慢。请不要写学生姓名。" />
                     </label>
+                    <p className={styles.quickNotes} aria-label="常用学情，点一下加入">
+                        {CLASS_NOTES.map(note => (
+                            <button key={note} type="button" onClick={() => setSettings({ ...settings, classNotes: settings.classNotes.includes(note) ? settings.classNotes : [settings.classNotes.trim(), note].filter(Boolean).join('；').slice(0, 800) })}>{note}</button>
+                        ))}
+                    </p>
                     <label className={styles.textarea}>
                         <span>你的想法</span>
                         <textarea rows={3} maxLength={1000} value={settings.teacherNotes} onChange={event => setSettings({ ...settings, teacherNotes: event.target.value })} placeholder="例如：想用折纸活动导入；重点练习说理；学校没有多媒体。" />

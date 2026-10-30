@@ -76,6 +76,8 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     expect(prompt).toContain('MA-S3-NA-01.3：')
     expect(prompt).toContain('「分数的基本性质」')
     expect(prompt).toContain('不要编造课标编码')
+    await page.getByRole('button', { name: '两极分化明显' }).click()
+    await expect(page.getByPlaceholder(/班级整体情况/)).toHaveValue('两极分化明显')
     await page.getByPlaceholder(/班级整体情况/).fill('学生会画图表示分数')
     await page.getByRole('button', { name: /按选定的 1 条要点起草教案/ }).click()
     await expect(page.getByRole('heading', { name: '二、教学目标' })).toBeVisible()
