@@ -8,7 +8,7 @@ import { XCircleIcon } from '@phosphor-icons/react/dist/csr/XCircle'
 import { postApi } from '../data/api'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
-import { downloadObservationWord, downloadReflectionWord, downloadReportWord, downloadScriptWord, downloadTestWord, downloadWord, downloadUnitWord, planToText, reportToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
+import { downloadObservationWord, downloadReflectionWord, downloadReportWord, downloadSkeletonWord, downloadScriptWord, downloadTestWord, downloadWord, downloadUnitWord, planToText, reportToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
@@ -32,7 +32,7 @@ const STEPS = [
 // another AI, and the plan back here to check.
 function aiError(errorValue, drafting = false) {
     if (errorValue.status === 429) return '用得太频繁了，请一分钟后再试。'
-    if (drafting && errorValue.status >= 500) return `${errorValue.message} 也可以先点上面的「复制成提示词」，把勾好的要点带到豆包、DeepSeek 里写，写完回来「核验教案」。`
+    if (drafting && errorValue.status >= 500) return `${errorValue.message} 也可以先点上面的「复制成提示词」，把勾好的要点带到豆包、DeepSeek 里写；或「下载教案框架」自己写。写完回来「核验教案」。`
     return errorValue.message
 }
 
@@ -960,7 +960,8 @@ function PromptCopy({ context, selected, isUnit }) {
     return (
         <div className={styles.promptCopy}>
             <button type="button" className="btn btn-secondary" onClick={copy}>{copied ? '已复制，去粘贴吧' : '复制成提示词'}</button>
-            <span>习惯用豆包、DeepSeek、元宝写教案？把勾好的 {points.length} 条要点原文和写法要求一起复制过去。写完可以回来「核验教案」。</span>
+            {!isUnit ? <button type="button" className="btn btn-ghost" onClick={() => { downloadSkeletonWord(context, selected); trackUmamiEvent('lesson_plan_export', { format: 'skeleton', kind: 'lesson' }) }}>下载教案框架</button> : null}
+            <span>习惯用豆包、DeepSeek、元宝写教案？把勾好的 {points.length} 条要点原文和写法要求一起复制过去。{!isUnit ? '或下载一份教案框架（课标依据已填好），按学校的格式自己写。' : ''}写完可以回来「核验教案」。</span>
         </div>
     )
 }

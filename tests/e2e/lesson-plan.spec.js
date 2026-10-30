@@ -418,6 +418,16 @@ test('when the AI cannot draft, the error points the teacher to the prompt copy'
     await expect(page.getByRole('alert')).toContainText('AI 这次没有写完')
     await expect(page.getByRole('alert')).toContainText('复制成提示词')
     await expect(page.getByRole('button', { name: '复制成提示词' })).toBeVisible()
+    // the 教案框架 needs no AI: the ticked 要点 verbatim, the sections left for the teacher
+    const skeleton = page.waitForEvent('download')
+    await page.getByRole('button', { name: '下载教案框架' }).click()
+    const skeletonFile = await skeleton
+    expect(skeletonFile.suggestedFilename()).toBe('分数的基本性质-教案框架.doc')
+    const skeletonText = await (await import('node:fs/promises')).readFile(await skeletonFile.path(), 'utf8')
+    expect(skeletonText).toContain('能用直观的方式表示分数和小数')
+    expect(skeletonText).toContain('修订版第 31 页')
+    expect(skeletonText).toContain('六、评价任务（先定证据，再设计活动）')
+    expect(skeletonText).not.toContain('等式的基本性质')
 })
 
 test('项目式学习 quotes the 课标 and tells it apart from 跨学科主题学习', async ({ page }) => {
