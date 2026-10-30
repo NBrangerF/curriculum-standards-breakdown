@@ -80,7 +80,7 @@ function headingOf(text, ctx, slug) {
     if (stage) return { kind: 'stage', ...stage }
     let m = clean.match(/^【(.{2,8})】$/u)
     if (m && SECTIONS.includes(m[1])) return { kind: 'section', value: m[1], scope: 'block' }
-    m = clean.match(/^(?:\d\.)?(内容要求|学业要求|教学提示|素养表现|学习内容|活动建议)$/u)
+    m = clean.match(/^(?:\d[.．，,])?(内容要求|学业要求|教学提示|素养表现|学习内容|活动建议)$/u)
     if (m) return { kind: 'section', value: m[1], scope: 'block' }
     m = clean.match(/^（[一二三四五]）(学段要求|学段目标|学业质量描述|学业质量内涵|核心素养内涵|总目标|内容要求|教学提示)$/u)
     if (m) return { kind: 'section', value: m[1], scope: 'chapter' }
@@ -91,14 +91,14 @@ function headingOf(text, ctx, slug) {
         if (m) return { kind: 'topic', level: 2, value: `学习任务${m[1]}：${m[2]}` }
         m = clean.match(/^（([一二三四五六七八九十]+)）(.{2,22})$/u)
         if (m && !/学段/u.test(m[2])) return { kind: 'topic', level: 1, value: m[2] }
-        m = clean.match(/^(\d{1,2})\.([^\d（(，。；].{1,15})$/u)
+        m = clean.match(/^(\d{1,2})[.．，,]([^\d（(，。；].{1,15})$/u)
         if (m && !/[。；，：]$/u.test(clean) && !SECTIONS.includes(m[2])) return { kind: 'topic', level: 2, value: m[2] }
     }
     return null
 }
 
 // Item markers that start a new paragraph.
-const ITEM = /^((?:（\d{1,2}）)|(?:\(\d{1,2}\))|(?:\d{1,2}\.\d{1,2}(?:\.\d{1,2})?(?=\s*[^\d]))|(?:\d{1,2}\.(?!\d))|[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳]|[•●·▪◆])\s*/u
+const ITEM = /^((?:（\d{1,2}）)|(?:\(\d{1,2}\))|(?:\d{1,2}\.\d{1,2}(?:\.\d{1,2})?(?=\s*[^\d]))|(?:\d{1,2}[.．](?!\d))|[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳]|[•●·▪◆])\s*/u
 // Inline section labels, as in 劳动: "内容要求：…" "素养表现：…".
 const INLINE = /^(内容要求|素养表现|活动建议|学业要求|教学提示)[：:]\s*/u
 
@@ -313,7 +313,8 @@ function sentences(text) {
         if (merged.length && /^（[^）]{1,30}）[。；]?$/u.test(item)) merged[merged.length - 1] += item
         else merged.push(item)
     }
-    return merged.filter(item => item.replace(/[\s。；，、]/gu, '').length >= 4)
+    // Drop stray marks, but keep short fragments that end or start a page mid-sentence (「能确」「型；」).
+    return merged.filter(item => item.replace(/[\s。；，、]/gu, '').length >= 2 || /^[\u4e00-\u9fff][。；]$/u.test(item.trim()))
 }
 
 const subjects = Object.keys(SUBJECTS).filter(slug => !args.subjects.length || args.subjects.includes(slug))
