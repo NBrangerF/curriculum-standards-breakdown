@@ -162,6 +162,13 @@
     - **报错入口**：标准页「教材里在哪教」和教材目录里的 AI 要点旁边有报错链接，会自动带上编码和单元。这是赌注 C（越用越可信）的第一步。
     - **打印**：全站打印改为白底深色字，因为师范生会打印教资速记，兼任老师会打印实验清单。
 
+13. **AI 用不了的时候**（2026-10-31 清晨加。04:40 起线上 AI 全部超时）
+    - **选要点**：如果实时判断失败，就先勾上此前按单元离线判断的要点，并提示老师按这一课增删，而不是一条都不勾。
+    - **起草**：报错时指向「复制成提示词」和「下载教案框架 / 单元设计框架」。框架是 Word，课标依据逐字填好，按「目标 → 评价任务 → 教学过程」留空；单元版的课时安排填好了单元里的真实课题。很多老师按学校格式自己写，本来就只需要课标这一部分。
+    - **课后反思表**：从教案的目标、评价证据和预设难点生成，先写证据再写感受。和听课观察表一样，不调用 AI。
+    - **核验整张试卷**：试卷按题号拆成每段不超过 12 题，几段同时读。超时的主要原因是回答长度：每道题回答一行，34 题、1,700 字的卷子一次就会超时。这一项还没有在线上实测。
+    - **概念词典新增两条**：项目式学习（和跨学科主题学习、劳动课的「劳动项目」分开讲）；结果评价、过程评价、增值评价、综合评价（课程方案的四个动词）。
+
 ## 来源
 
 - 修订版各科课标 OCR 全文：`generated/sources/ocr/2025r/`（页码为 PDF 页）
@@ -179,4 +186,6 @@
 - 国内 AI 备课产品：https://www.cctime.com/html/2025-4-28/1708196.htm ；https://zhuanlan.zhihu.com/p/1996950523602044626
 - 单元学历案六要素：https://www.sohu.com/a/886983635_650698
 - 测验蓝图：美国 NAEP 评估框架 https://www.nagb.gov/naep-frameworks/mathematics.html ；布鲁姆分类（修订版）https://cft.vanderbilt.edu/guides-sub-pages/blooms-taxonomy/
+- 项目式学习的设计要素：PBLWorks Gold Standard PBL https://www.pblworks.org/what-is-pbl/gold-standard-project-design
+- 为了学习的评价：Assessment Reform Group, *Assessment for Learning: 10 Principles*（2002）；增值评价对照：英格兰 Progress 8（学校层面的进步度量）
 - 国家中小学智慧教育平台同步课目录接口：`https://s-file-1.ykt.cbern.com.cn/zxx/ndrs/national_lesson/teachingmaterials/version/data_version.json`
