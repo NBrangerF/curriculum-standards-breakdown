@@ -211,6 +211,7 @@ function HomePage() {
                             <li><Link to="/interdisciplinary"><b>跨学科主题</b><span>课标给出的主题，按学科和年级找</span></Link></li>
                             <li><Link to="/schedule"><b>学期进度表</b><span>把一本教材排进每一周，附课标要点</span></Link></li>
                         </ul>
+                        <p className={styles.studentLinks}>师范生：<Link to="/concepts#concept-path">先读这六页</Link> · <Link to="/teacher-exam">教资课标速记</Link> · <Link to="/lesson-plan">起草教案后生成说课稿、试讲稿</Link> · 兼任科学：<Link to="/experiments">必做实验清单</Link></p>
                         <p className={styles.entryLabel} id="subjects-section">从学科进入</p>
                         <ul className={styles.srail} aria-labelledby="subjects-section">
                             {(K ? K.subjects : []).map((s, k) => (
