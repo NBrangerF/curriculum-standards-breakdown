@@ -187,3 +187,40 @@ test('a plan that restates the limit (「不涉及循环小数」) is not flagge
     const mentioned = frame({ objectives: [{ id: 'O1', text: '学生能把循环小数化成分数', basis: [LIMITED], kind: '能做' }, ...frame().objectives.slice(1)] })
     assert.ok(checkPlan(mentioned, planProcess, { indicators, standards: [], periodMinutes: 40 }).some(item => item.kind === 'beyond_standard'))
 })
+
+test('单元整体设计: a textbook unit is planned over its own lessons and checked', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const prompts: string[] = []
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body))
+        assert.match(String(body.messages[0].content), /单元整体教学设计/)
+        prompts.push(String(body.messages[1].content))
+        const content = {
+            title: '分数的意义和性质',
+            big_idea: '分数表示整体与部分的关系，同一个数可以有多种等值的分数表示',
+            essential_questions: ['什么时候两个分数一样大？'],
+            objectives: [{ id: 'O1', text: '学生能用图和语言说明分数的意义', basis: [LIMITED], kind: '理解' }, { id: 'O2', text: '学生能运用分数的基本性质约分和通分', basis: [LIMITED], kind: '能做' }],
+            performance_task: { title: '班级分饼会', scenario: '为班级聚会设计公平分配方案', product: '分配方案和说明', criteria: ['用分数表示每人所得'] },
+            assessments: [{ id: 'A1', objective_ids: ['O1', 'O2'], task: '分配方案', evidence: '方案', criteria: '正确' }],
+            lessons: [
+                { title: '分数的意义', hours: 2, focus: '理解单位1', objective_ids: ['O1'], assessment_ids: [] },
+                { title: '分数的基本性质、约分', hours: 3, focus: '等值分数', objective_ids: ['O2'], assessment_ids: ['A1'] },
+                { title: '循环小数探秘', hours: 1, focus: '编出来的课', objective_ids: [], assessment_ids: [] }
+            ],
+            prior_knowledge: ['分数的初步认识'],
+            connections: '承接三年级分数的初步认识'
+        }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 600, total_tokens: 1500 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const response = await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ step: 'unit', lesson: { title: '分数的意义和性质', subject_slug: 'math', grade: 5 }, indicator_codes: [LIMITED], unit_lessons: ['分数的意义', '分数的基本性质', '约分', '通分'], unit_hours: 5 }) })
+    assert.equal(response.status, 200)
+    const { data } = await json(response)
+    // a lesson that is not in the textbook list is dropped
+    assert.deepEqual(data.unit.lessons.map((item: any) => item.title), ['分数的意义', '分数的基本性质、约分'])
+    assert.equal(data.unit.performance_task.title, '班级分饼会')
+    assert.ok(data.checks.some((item: any) => item.kind === 'aligned'))
+    assert.match(prompts[0], /1\. 分数的意义\n2\. 分数的基本性质/)
+    assert.match(prompts[0], /单元总课时：5/)
+})

@@ -100,3 +100,47 @@ export function downloadWord(plan) {
     link.remove()
     setTimeout(() => URL.revokeObjectURL(url), 2000)
 }
+
+// ---------- 单元整体设计 ----------
+function unitLines(plan) {
+    const { unit, lesson, evidence, hours } = plan
+    const out = [`单元整体设计：${unit.title || lesson.title}`]
+    out.push([lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', `共 ${hours} 课时`].filter(Boolean).join(' · '))
+    out.push('', '一、课标依据（义务教育课程标准 2022年版2025年修订）')
+    for (const item of evidence || []) out.push(`${item.code}　${item.text}（修订版第 ${item.pages.join('、')} 页）`)
+    out.push('', `二、单元大概念：${unit.big_idea}`)
+    if (unit.essential_questions.length) out.push(`基本问题：${unit.essential_questions.join(' / ')}`)
+    out.push('', '三、单元目标')
+    unit.objectives.forEach((item, index) => out.push(`${index + 1}. ${item.text}（依据：${item.basis.join('、')}）`))
+    if (unit.performance_task) {
+        out.push('', `四、表现性任务：${unit.performance_task.title}`)
+        out.push(`情境：${unit.performance_task.scenario}`, `作品：${unit.performance_task.product}`, `评价标准：${unit.performance_task.criteria.join('；')}`)
+    }
+    out.push('', '五、评价任务')
+    unit.assessments.forEach(item => out.push(`${item.id}（目标 ${item.objective_ids.map(id => id.replace('O', '')).join('、')}）${item.task}　证据：${item.evidence}　标准：${item.criteria}`))
+    out.push('', '六、课时安排')
+    unit.lessons.forEach((item, index) => out.push(`${index + 1}. ${item.title}（${item.hours} 课时）：${item.focus}`))
+    if (unit.prior_knowledge.length) out.push('', `前置知识：${unit.prior_knowledge.join('；')}`)
+    if (unit.connections) out.push(`前后联系：${unit.connections}`)
+    out.push('', '本单元设计由 AI 依据 kebiao.org 收录的课标要点起草，请结合教材和班级实际修改后使用。')
+    return out
+}
+
+export function unitToText(plan) {
+    return unitLines(plan).join('\n')
+}
+
+export function downloadUnitWord(plan) {
+    const lines = unitLines(plan)
+    const body = lines.map((line, index) => (index === 0 ? `<h1>${esc(line)}</h1>` : /^[一二三四五六七]、/u.test(line) ? `<h2>${esc(line)}</h2>` : line ? `<p>${esc(line)}</p>` : '')).join('\n')
+    const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(lines[0])}</title><style>body{font-family:"SimSun","Songti SC",serif;font-size:12pt;line-height:1.7;margin:2cm}h1{font-size:18pt;text-align:center}h2{font-size:13pt;margin:14pt 0 4pt}</style></head><body>${body}</body></html>`
+    const blob = new Blob(['﻿', html], { type: 'application/msword' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${(plan.unit.title || plan.lesson.title || '单元').replace(/[\\/:*?"<>|]/gu, '')}-单元整体设计.doc`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    setTimeout(() => URL.revokeObjectURL(url), 2000)
+}

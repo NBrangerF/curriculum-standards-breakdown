@@ -7,7 +7,7 @@ import { WarningIcon } from '@phosphor-icons/react/dist/csr/Warning'
 import { XCircleIcon } from '@phosphor-icons/react/dist/csr/XCircle'
 import { postApi } from '../data/api'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
-import { downloadWord, planToText } from '../features/lesson-plan/lessonPlanExport'
+import { downloadWord, downloadUnitWord, planToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
@@ -54,6 +54,8 @@ export default function LessonPlanPage() {
     const [task, setTask] = useState('draft')
     const [ownPlan, setOwnPlan] = useState('')
     const [report, setReport] = useState(null)
+    const [unitPlan, setUnitPlan] = useState(null)
+    const [unitHours, setUnitHours] = useState(0)
     const [checking, setChecking] = useState(false)
     const [hint, setHint] = useState('')
     const [hintFor, setHintFor] = useState('')
@@ -67,6 +69,7 @@ export default function LessonPlanPage() {
     const subject = params.get('subject') || ''
     const edition = params.get('edition') || ''
     const lessonId = params.get('lesson') || ''
+    const chapter = params.get('chapter') || ''
     const unitId = params.get('unit') || ''
     const topic = params.get('topic') || ''
     const grade = Number(params.get('grade')) || null
@@ -114,7 +117,8 @@ export default function LessonPlanPage() {
     }, [lessons])
 
     // the lesson's 课标 context, then the AI search that ticks the closest 要点
-    const contextQuery = lessonId && edition ? `edition_id=${edition}&lesson_id=${lessonId}`
+    const contextQuery = chapter && edition ? `edition_id=${edition}&chapter=${encodeURIComponent(chapter)}`
+        : lessonId && edition ? `edition_id=${edition}&lesson_id=${lessonId}`
         : unitId ? `unit_id=${unitId}`
             : freeMode && topic.trim().length >= 2 && subject ? `subject=${encodeURIComponent(TOPIC_SUBJECTS.find(([name]) => name === subject)?.[1] || subjectSlugOf(books, subject))}&grade=${grade || ''}&topic=${encodeURIComponent(topic.trim())}`
                 : ''
@@ -145,14 +149,14 @@ export default function LessonPlanPage() {
         setAi({ status: 'loading', reasons: {} })
         const lesson = base.lesson
         postApi('/api/v1/standards/semantic-search', {
-            query: searchQuery(lesson, base.subject_note?.name, hint),
+            query: searchQuery(lesson, base.subject_note?.name, hint, base.unit_lessons),
             ...(lesson.subject_slug ? { subjects: [lesson.subject_slug] } : {}),
             ...(lesson.grade ? { grade_bands: [BAND(lesson.grade)] } : {}),
             limit: 8
         }).then(async payload => {
             if (run !== runRef.current) return
             const results = payload.data?.results || []
-            const direct = results.filter(item => item.match_strength === 'direct' && item.checked_by_ai && item.matched_point?.code).slice(0, 3)
+            const direct = results.filter(item => item.match_strength === 'direct' && item.checked_by_ai && item.matched_point?.code).slice(0, base.unit_lessons?.length ? 5 : 3)
             const reasons = Object.fromEntries(results.filter(item => item.checked_by_ai).map(item => [item.code, item.relevance_reason]))
             const missing = direct.map(item => item.code).filter(code => !base.standards.some(standard => standard.code === code))
             if (missing.length) {
@@ -216,6 +220,34 @@ export default function LessonPlanPage() {
         }
     }
 
+    async function generateUnit() {
+        if (!context || !selected.size) return
+        setError('')
+        setCopied(false)
+        setUnitPlan(null)
+        const lesson = context.lesson
+        const lessons = context.unit_lessons || []
+        const hours = unitHours || defaultUnitHours(lessons)
+        try {
+            setStep('unit')
+            const payload = (await postApi('/api/v1/lesson-plans/draft', {
+                step: 'unit',
+                lesson: { title: lesson.title.slice(0, 60), unit_title: (lesson.unit_title || '').slice(0, 60), ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}), ...(lesson.edition_name ? { edition_name: lesson.edition_name } : {}), subject_slug: lesson.subject_slug, grade: lesson.grade || null },
+                indicator_codes: [...selected],
+                period_minutes: settings.period,
+                class_notes: settings.classNotes,
+                teacher_notes: settings.teacherNotes,
+                unit_lessons: lessons.map(item => item.title.slice(0, 60)).slice(0, 40),
+                unit_hours: hours
+            })).data
+            setUnitPlan({ ...payload, lesson: { ...lesson, subject_name: context.subject_note?.name || subject }, unit_lessons: lessons, hours })
+            setStep('done')
+        } catch (errorValue) {
+            setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
+            setStep('')
+        }
+    }
+
     async function checkOwn() {
         if (!context || !selected.size || ownPlan.trim().length < 30) return
         setError('')
@@ -247,6 +279,7 @@ export default function LessonPlanPage() {
     }
 
     const busy = step === 'frame' || step === 'process' || step === 'check'
+    const isUnit = Boolean(context?.unit_lessons?.length)
     const selectedCount = selected.size
 
     return (
@@ -301,10 +334,15 @@ export default function LessonPlanPage() {
                             </label>
                             <label className={styles.wide}>
                                 <span>哪一课</span>
-                                <select value={lessonId} disabled={!edition || !lessons} onChange={event => update({ lesson: event.target.value, unit: null })}>
-                                    <option value="">{!edition ? '先选教材' : !lessons ? '正在读取目录…' : lessonGroups.length ? '选择一课' : '这册暂无课时目录，请改用「直接写课题」'}</option>
+                                <select value={chapter ? `chapter::${chapter}` : lessonId} disabled={!edition || !lessons} onChange={event => {
+                                    const value = event.target.value
+                                    if (value.startsWith('chapter::')) update({ chapter: value.slice('chapter::'.length), lesson: null, unit: null })
+                                    else update({ lesson: value, chapter: null, unit: null })
+                                }}>
+                                    <option value="">{!edition ? '先选教材' : !lessons ? '正在读取目录…' : lessonGroups.length ? '选择一课，或整个单元' : '这册暂无课时目录，请改用「直接写课题」'}</option>
                                     {lessonGroups.map(group => (
                                         <optgroup key={group.name} label={group.name}>
+                                            {group.name !== '其他' ? <option value={`chapter::${group.name}`}>◆ 整个单元：单元整体设计</option> : null}
                                             {group.items.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}
                                         </optgroup>
                                     ))}
@@ -392,6 +430,39 @@ export default function LessonPlanPage() {
             ) : null}
 
             {context ? (
+                isUnit ? (
+                    <section className={styles.step} aria-labelledby="lp-unit">
+                        <h2 id="lp-unit"><span>3</span>单元整体设计</h2>
+                        <p className={styles.small}>按逆向设计的顺序：先写单元大概念、基本问题和单元目标，再定评价证据（含一个表现性任务），最后把课时排进教材这个单元的 {context.unit_lessons.length} 节课里。</p>
+                        <div className={styles.settings}>
+                            <label><span>单元总课时</span>
+                                <select value={unitHours || defaultUnitHours(context.unit_lessons)} onChange={event => setUnitHours(Number(event.target.value))}>
+                                    {Array.from({ length: 30 }, (_, k) => k + 1).map(value => <option key={value} value={value}>{value} 课时</option>)}
+                                </select>
+                            </label>
+                            <label><span>每课时</span>
+                                <select value={settings.period} onChange={event => setSettings({ ...settings, period: Number(event.target.value) })}>
+                                    {[35, 40, 45].map(value => <option key={value} value={value}>{value} 分钟</option>)}
+                                </select>
+                            </label>
+                        </div>
+                        <label className={styles.textarea}>
+                            <span>学情</span>
+                            <textarea rows={3} maxLength={800} value={settings.classNotes} onChange={event => setSettings({ ...settings, classNotes: event.target.value })} placeholder="班级整体情况。请不要写学生姓名。" />
+                        </label>
+                        <label className={styles.textarea}>
+                            <span>你的想法</span>
+                            <textarea rows={3} maxLength={1000} value={settings.teacherNotes} onChange={event => setSettings({ ...settings, teacherNotes: event.target.value })} placeholder="例如：想用一个贯穿单元的真实任务；某两课想合并；学校的实践条件。" />
+                        </label>
+                        <div className={styles.go}>
+                            <button type="button" className="btn btn-primary" disabled={step === 'unit' || !selectedCount} onClick={generateUnit}>
+                                {step === 'unit' ? 'AI 正在做单元设计（约 30–50 秒）…' : `按选定的 ${selectedCount} 条要点起草单元设计`}
+                            </button>
+                            {!selectedCount ? <span className={styles.small}>先在上面勾选这个单元依据的要点。</span> : null}
+                        </div>
+                        {error ? <p className={styles.error} role="alert">{error}</p> : null}
+                    </section>
+                ) : (
                 <section className={styles.step} aria-labelledby="lp-class">
                     <h2 id="lp-class"><span>3</span>{task === 'draft' ? <>说说你的情况<small>（可不填）</small></> : '贴入你的教案'}</h2>
                     <div className={styles.modeSwitch} role="tablist" aria-label="要做什么">
@@ -458,23 +529,30 @@ export default function LessonPlanPage() {
                     {error ? <p className={styles.error} role="alert">{error}</p> : null}
                     </> : null}
                 </section>
+                )
             ) : null}
 
-            {report && task === 'check' ? <CheckReport report={report} /> : null}
-            {plan ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} /> : null}
+            {unitPlan && isUnit ? <UnitDocument plan={unitPlan} edition={edition} subject={subject} onCopy={async () => { try { await navigator.clipboard.writeText(unitToText(unitPlan)); setCopied(true) } catch { setCopied(false) } }} copied={copied} /> : null}
+            {report && task === 'check' && !isUnit ? <CheckReport report={report} /> : null}
+            {plan && !isUnit ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} /> : null}
         </div>
     )
 }
 
 // A text title alone (「落花生」) tells the AI little; 语文 and 英语 lessons are asked about as texts to read and discuss.
-function searchQuery(lesson, subjectName, hint) {
+function searchQuery(lesson, subjectName, hint, unitLessons) {
     const grade = lesson.grade ? `${lesson.grade}年级` : ''
     const title = String(lesson.title || '').replace(/^\d+\*?\s*/u, '')
-    const base = ['chinese', 'english'].includes(lesson.subject_slug)
+    const names = (unitLessons || []).map(item => item.title.replace(/^\d+\*?\s*/u, '')).slice(0, 8).join('、')
+    const base = unitLessons?.length
+        ? `${grade}${subjectName || ''}${lesson.textbook_title ? `（${lesson.textbook_title}）` : ''}单元「${title}」，包括：${names}`
+        : ['chinese', 'english'].includes(lesson.subject_slug)
         ? `${grade}${subjectName || ''}课文《${title}》的阅读与表达教学`
         : [lesson.textbook_title, lesson.unit_title, lesson.title].filter(Boolean).join(' ')
     return [base, hint].filter(Boolean).join('，').slice(0, 200)
 }
+
+const defaultUnitHours = lessons => Math.min(30, Math.max(1, (lessons || []).reduce((sum, item) => sum + (item.hours || 1), 0)))
 
 function subjectSlugOf(books, subject) {
     const slug = books.find(book => book.subject === subject)?.subject_slug || ''
@@ -506,6 +584,93 @@ function TopicInput({ value, onCommit }) {
 }
 
 const CHECK_ICON = { ok: CheckCircleIcon, warn: WarningIcon, risk: XCircleIcon }
+
+function UnitDocument({ plan, edition, subject, onCopy, copied }) {
+    const { unit, lesson, evidence, checks, unit_lessons: lessons, hours } = plan
+    const no = id => id.replace('O', '')
+    // a unit row may join several textbook lessons (「分数的基本性质、约分」); each opens its own lesson plan
+    const lessonLink = title => {
+        const first = title.split(/[、，,]/u)[0].trim()
+        const match = lessons.find(item => item.title === first) || lessons.find(item => item.title.includes(first) || first.includes(item.title))
+        return match ? `/lesson-plan?subject=${encodeURIComponent(subject)}&edition=${edition}&lesson=${match.id}` : null
+    }
+    return (
+        <article className={styles.doc} aria-labelledby="lp-unit-title">
+            <div className={styles.docActions}>
+                <span className={styles.aiBadge}>AI 起草 · 需老师修改</span>
+                <button type="button" className="btn btn-secondary" onClick={onCopy}>{copied ? '已复制' : '复制全文'}</button>
+                <button type="button" className="btn btn-secondary" onClick={() => downloadUnitWord(plan)}>下载 Word</button>
+                <button type="button" className="btn btn-ghost" onClick={() => window.print()}>打印</button>
+            </div>
+            <header className={styles.docHead}>
+                <h2 id="lp-unit-title">单元整体设计：{unit.title || lesson.title}</h2>
+                <p>{[lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', `共 ${hours} 课时`].filter(Boolean).join(' · ')}</p>
+            </header>
+            <section className={styles.checks} aria-label="核验">
+                <h3>核验</h3>
+                <CheckList checks={checks} />
+            </section>
+            <section>
+                <h3>一、课标依据</h3>
+                <ul className={styles.evidence}>
+                    {evidence.map(item => <li key={item.code}><Link to={`/standards/${item.standard_code}#${item.code}`} target="_blank" rel="noopener"><code>{item.code}</code></Link>{item.text}<small>修订版第 {item.pages.join('、')} 页</small></li>)}
+                </ul>
+            </section>
+            <section>
+                <h3>二、单元大概念与基本问题</h3>
+                <p className={styles.core}><b>大概念</b>{unit.big_idea}</p>
+                {unit.essential_questions.length ? <ul>{unit.essential_questions.map(item => <li key={item}>{item}</li>)}</ul> : null}
+                <p className={styles.small}>什么是大概念、基本问题？见 <Link to="/concepts/big-ideas" target="_blank" rel="noopener">概念词典 · 大概念</Link>、<Link to="/concepts/backward-design" target="_blank" rel="noopener">逆向设计</Link>。</p>
+            </section>
+            <section>
+                <h3>三、单元目标</h3>
+                <ol className={styles.objectives}>
+                    {unit.objectives.map(item => <li key={item.id}><span>{item.text}</span><span className={styles.basis}><em>{item.kind}</em>{item.basis.map(code => <code key={code}>{code}</code>)}</span></li>)}
+                </ol>
+            </section>
+            {unit.performance_task ? (
+                <section>
+                    <h3>四、表现性任务：{unit.performance_task.title}</h3>
+                    <p><b>情境：</b>{unit.performance_task.scenario}</p>
+                    <p><b>学生交出：</b>{unit.performance_task.product}</p>
+                    {unit.performance_task.criteria.length ? <ul>{unit.performance_task.criteria.map(item => <li key={item}>{item}</li>)}</ul> : null}
+                </section>
+            ) : null}
+            <section>
+                <h3>五、评价任务</h3>
+                <div className={styles.tableWrap}>
+                    <table>
+                        <thead><tr><th>评价任务</th><th>证据</th><th>达成标准</th><th>对应目标</th></tr></thead>
+                        <tbody>{unit.assessments.map(item => <tr key={item.id}><td>{item.task}</td><td>{item.evidence}</td><td>{item.criteria}</td><td>{item.objective_ids.map(no).join('、')}</td></tr>)}</tbody>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <h3>六、课时安排（按教材顺序）</h3>
+                <ol className={styles.stages}>
+                    {unit.lessons.map((item, index) => {
+                        const href = lessonLink(item.title)
+                        return (
+                            <li key={`${item.title}-${index}`}>
+                                <div className={styles.stageHead}><b>{item.title}</b><span>{item.hours} 课时</span>{item.objective_ids.length ? <span>目标 {item.objective_ids.map(no).join('、')}</span> : null}{item.assessment_ids.length ? <span>评价 {item.assessment_ids.join('、')}</span> : null}</div>
+                                <p>{item.focus}</p>
+                                {href ? <Link to={href}>起草这一课的教案 →</Link> : null}
+                            </li>
+                        )
+                    })}
+                </ol>
+            </section>
+            {unit.prior_knowledge.length || unit.connections ? (
+                <section>
+                    <h3>七、前置知识与前后联系</h3>
+                    {unit.prior_knowledge.length ? <p><b>前置知识：</b>{unit.prior_knowledge.join('；')}</p> : null}
+                    {unit.connections ? <p><b>前后联系：</b>{unit.connections}</p> : null}
+                </section>
+            ) : null}
+            <p className={styles.docFoot}>本单元设计由 AI{plan.model ? `（${plan.model}）` : ''}依据 kebiao.org 收录的《义务教育课程标准（2022年版2025年修订）》要点起草，课时安排用的是国家平台上这册教材的课目。请结合教材和班级实际修改后使用。</p>
+        </article>
+    )
+}
 
 function CheckList({ checks }) {
     return (

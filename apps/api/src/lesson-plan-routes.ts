@@ -8,7 +8,7 @@ import { z } from 'zod'
 import type { FileCurriculumRepository } from '@curriculum/core'
 import { redactSensitiveText } from './ai-privacy.js'
 import type { ApiBindings } from './http.js'
-import { checkPlan, checkTeacherPlan, draftFrame, draftProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
+import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftUnit, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
 
 type Deps = {
@@ -47,7 +47,27 @@ const BaseRequestSchema = z.object({
     class_notes: z.string().max(800).default(''),
     teacher_notes: z.string().max(1000).default('')
 })
-export const DraftRequestSchema = BaseRequestSchema.extend({ step: z.enum(['frame', 'process']), frame: z.unknown().optional() })
+const HOUR = /[（(]第([一二三四五六七八九十\d]+)课时[）)]\s*$/u
+const HOUR_NUMBERS: Record<string, number> = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9, 十: 10 }
+function canonicalLessons(lessons: NationalLesson[]) {
+    const out: Array<{ id: string, title: string, section: string | null, pdf_page: number | null, hours: number }> = []
+    for (const lesson of lessons) {
+        const hour = lesson.title.match(HOUR)?.[1]
+        const title = lesson.title.replace(HOUR, '').replace(/^[^_]{2,20}_/u, '').replace(/^第[一二三四五六七八九十]+单元[-—\s]+/u, '').trim() || lesson.title
+        const found = out.find(item => item.title === title)
+        const hours = Math.max(lesson.hours || 1, hour ? HOUR_NUMBERS[hour] || Number(hour) || 1 : 1)
+        if (found) found.hours = Math.max(found.hours, hours)
+        else out.push({ id: lesson.id, title, section: lesson.chapters.at(-1) || null, pdf_page: lesson.pdf_page, hours })
+    }
+    return out
+}
+
+export const DraftRequestSchema = BaseRequestSchema.extend({
+    step: z.enum(['frame', 'process', 'unit']),
+    frame: z.unknown().optional(),
+    unit_lessons: z.array(z.string().trim().min(1).max(60)).max(40).default([]),
+    unit_hours: z.number().int().min(1).max(60).optional()
+})
 export const CheckRequestSchema = BaseRequestSchema.extend({ plan_text: z.string().trim().min(30).max(8000) })
 
 export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
@@ -131,6 +151,8 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         const unitId = c.req.query('unit_id') || null
         let edition = c.req.query('edition_id') || null
         const lessonId = c.req.query('lesson_id') || null
+        // a whole textbook unit (the platform's top-level chapter) for 单元整体设计
+        const chapterName = (c.req.query('chapter') || '').trim().slice(0, 60) || null
         let subjectSlug = c.req.query('subject') || ''
         let grade = Number(c.req.query('grade')) || null
         let title = (c.req.query('topic') || '').trim().slice(0, 60)
@@ -165,6 +187,14 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             pdfPage = chosen.pdf_page
             linkedUnit = linkedUnit || chosen.unit_id
         }
+        let unitLessons: NationalLesson[] = []
+        if (chapterName && national) {
+            unitLessons = national.lessons.filter(item => item.chapters[0] === chapterName)
+            if (!unitLessons.length) return deps.apiError(c, 404, 'not_found', '未找到这一单元。')
+            title = cleanTitle(chapterName) || chapterName
+            unitTitle = chapterName
+            pdfPage = unitLessons.find(item => item.pdf_page)?.pdf_page ?? null
+        }
         if (edition) {
             const book = await textbookRepository.get(edition) as Record<string, unknown> | null
             if (book) {
@@ -177,8 +207,14 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         if (!title) return deps.apiError(c, 422, 'validation_error', '请选择教材里的一课，或写下课题。')
 
         const aligned = await alignedCodes(linkedUnit, edition, pdfPage)
+        // a unit: every lesson's aligned standards, in lesson order
+        for (const lesson of unitLessons) {
+            for (const item of await alignedCodes(lesson.unit_id, edition, lesson.pdf_page)) {
+                if (!aligned.some(existing => existing.code === item.code)) aligned.push(item)
+            }
+        }
         const standards: Array<PlanStandard & { via: string, suggested: string[] }> = []
-        for (const item of aligned.slice(0, 6)) {
+        for (const item of aligned.slice(0, unitLessons.length ? 8 : 6)) {
             const standard = await planStandard(item.code)
             if (!standard || standards.some(existing => existing.code === standard.code)) continue
             if (subjectSlug && standard.subject_slug !== subjectSlug) continue
@@ -211,7 +247,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             // the lesson itself first, then lessons on the same section, then the rest of its unit
             const section = same?.chapters.at(-1) || null
             const rank = (item: NationalLesson) => (item === same ? 0 : section && item.chapters.at(-1) === section ? 1 : 2)
-            const picks = national.lessons.filter(item => item === same || (chapter && item.chapters[0] === chapter) || (linkedUnit && item.unit_id === linkedUnit))
+            const picks = national.lessons.filter(item => item === same || (chapter && item.chapters[0] === chapter) || (chapterName && item.chapters[0] === chapterName) || (linkedUnit && item.unit_id === linkedUnit))
             nationalLessons = picks.map((item, index) => ({ item, index })).sort((a, b) => rank(a.item) - rank(b.item) || a.index - b.index).slice(0, 8).map(({ item }) => ({ ...item, url: LESSON_URL(item.id) }))
         }
         if (!national) national = null
@@ -233,7 +269,9 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             standards,
             subject_note: subjectSlug ? await subjectNote(subjectSlug) : null,
             national_lessons: nationalLessons,
-            national_confidence: national?.confidence || null
+            national_confidence: national?.confidence || null,
+            // for a unit: its lessons in textbook order, each once (the platform has 「约分（第一课时）」, 「分数的意义和性质_约分」 …)
+            unit_lessons: canonicalLessons(unitLessons)
         })
     })
 
@@ -293,6 +331,14 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         const resolved = await resolveInput(body)
         if ('error' in resolved) return deps.apiError(c, 422, 'validation_error', String(resolved.error))
         const { input, privacy, evidence } = resolved
+
+        if (body.step === 'unit') {
+            const hours = body.unit_hours || Math.max(1, body.unit_lessons.length)
+            const run = await draftUnit(input, body.unit_lessons, hours)
+            c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
+            if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `draft_${run.status}`, run.status === 'disabled' ? 'AI 起草暂不可用。' : run.status === 'timeout' ? 'AI 这次写得太久，没有完成。请再试一次。' : 'AI 这次没有写出可用的单元设计。请再试一次。')
+            return deps.ok(c, version as never, { step: 'unit', unit: run.output, checks: checkUnit(run.output, input, hours), evidence, privacy, model: run.model, latency_ms: run.latency_ms })
+        }
 
         if (body.step === 'frame') {
             const run = await draftFrame(input)

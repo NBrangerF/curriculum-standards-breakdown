@@ -396,3 +396,106 @@ export function checkTeacherPlan(read: ReadPlan & { period?: number }, planText:
     const all = [...checks.filter(item => item.kind !== 'aligned'), ...notes]
     return all.length ? all.map(item => ({ ...item, message: item.message.replace(/目标 O(\d+)/gu, '目标 $1') })) : checks
 }
+
+// ---------- 单元整体设计: a textbook unit, backward-designed, laid out over the textbook's own lessons ----------
+export type UnitLesson = { title: string, hours: number, focus: string, objective_ids: string[], assessment_ids: string[] }
+export type UnitPlan = {
+    title: string
+    big_idea: string
+    essential_questions: string[]
+    objectives: Objective[]
+    performance_task: { title: string, scenario: string, product: string, criteria: string[] } | null
+    assessments: Assessment[]
+    lessons: UnitLesson[]
+    prior_knowledge: string[]
+    connections: string
+}
+
+const UNIT_INSTRUCTIONS = `你是经验丰富的中小学教研员，帮老师做一个教材单元的单元整体教学设计。按「逆向设计」的顺序：先定单元要达成的理解和目标，再定评价证据（含一个表现性任务），最后把课时排进教材原有的课里。
+${SHARED_RULES}
+写法要求：
+- big_idea：一句话写出单元大概念，即学完本单元学生应形成的可迁移的理解。要写成完整的判断句，不要只写话题或知识点名称（不要写「分数」，要写「分数的大小……」这样的句子）。
+- essential_questions：2–3 个开放的基本问题，能引发思考、贯穿整个单元，不能用一个事实回答。
+- objectives：3–5 条单元目标，每条以「学生能」开头，写清条件、行为和程度；kind 填「知道」「理解」或「能做」；basis 填依据的要点编码（至少 1 个，只能从「依据」里选）。
+- performance_task：一个贯穿或收束单元的表现性任务：title（任务名），scenario（真实情境和学生的角色，一两句），product（学生交出的作品或表现），criteria（2–4 条评价标准）。
+- assessments：2–5 个评价任务（含表现性任务和课时中的小评价），每条目标至少被一个任务覆盖；objective_ids 填覆盖的目标，task、evidence、criteria 同前。
+- lessons：按「教材里的课」的顺序安排课时。title 必须用教材里的课名（可以把几节合成一行，用「、」连接课名）；hours 是课时数；focus 写这几节课在单元里推进什么（一句话）；objective_ids、assessment_ids 填它推进的目标和完成的评价。所有 hours 合计等于单元总课时。每条目标至少在一行里推进。
+- prior_knowledge：1–4 条学生学本单元前应已具备的。
+- connections：一句话说明本单元和前后学段或前后单元的联系。
+必须只返回一个 JSON 对象：{"title":"…","big_idea":"…","essential_questions":["…"],"objectives":[{"id":"O1","text":"…","basis":["…"],"kind":"…"}],"performance_task":{"title":"…","scenario":"…","product":"…","criteria":["…"]},"assessments":[{"id":"A1","objective_ids":["O1"],"task":"…","evidence":"…","criteria":"…"}],"lessons":[{"title":"…","hours":2,"focus":"…","objective_ids":["O1"],"assessment_ids":[]}],"prior_knowledge":["…"],"connections":"…"}`
+
+function validateUnit(value: unknown, codes: Set<string>, lessonTitles: string[]): UnitPlan | null {
+    const frame = validateFrame(value, codes)
+    if (!frame) return null
+    const raw = value as Record<string, unknown>
+    const objectiveIds = new Set(frame.objectives.map(item => item.id))
+    const assessmentIds = new Set(frame.assessments.map(item => item.id))
+    const task = (raw.performance_task || null) as Record<string, unknown> | null
+    const known = (title: string) => title.split(/[、，,]/u).map(part => part.trim()).filter(Boolean).every(part => lessonTitles.some(name => name.includes(part) || part.includes(name)))
+    const lessons: UnitLesson[] = (Array.isArray(raw.lessons) ? raw.lessons : []).slice(0, 24).map(item => {
+        const record = (item || {}) as Record<string, unknown>
+        const hours = Math.round(Number(record.hours))
+        return {
+            title: str(record.title, 80),
+            hours: Number.isFinite(hours) && hours > 0 && hours < 20 ? hours : 1,
+            focus: str(record.focus, 160),
+            objective_ids: ids(record.objective_ids, objectiveIds),
+            assessment_ids: ids(record.assessment_ids, assessmentIds)
+        }
+    }).filter(item => item.title && (!lessonTitles.length || known(item.title)))
+    if (!lessons.length) return null
+    for (const lesson of lessons) {
+        const viaAssessment = frame.assessments.filter(item => lesson.assessment_ids.includes(item.id)).flatMap(item => item.objective_ids)
+        lesson.objective_ids = [...new Set([...lesson.objective_ids, ...viaAssessment])]
+    }
+    return {
+        title: frame.title,
+        big_idea: str(raw.big_idea, 200),
+        essential_questions: strList(raw.essential_questions, 3, 120),
+        objectives: frame.objectives,
+        performance_task: task && str(task.title, 40) ? { title: str(task.title, 40), scenario: str(task.scenario, 240), product: str(task.product, 160), criteria: strList(task.criteria, 4, 120) } : null,
+        assessments: frame.assessments,
+        lessons,
+        prior_knowledge: strList(raw.prior_knowledge, 4),
+        connections: str(raw.connections, 200)
+    }
+}
+
+export async function draftUnit(input: DraftInput, lessonTitles: string[], totalHours: number, options: StructuredLlmOptions = {}): Promise<DraftResult<UnitPlan>> {
+    const codes = new Set(input.indicators.map(item => item.code))
+    const lessonsBlock = lessonTitles.length
+        ? `教材里本单元的课（按顺序）：\n${lessonTitles.map((title, index) => `${index + 1}. ${title}`).join('\n')}`
+        : '教材课目未知：请按内容自行划分课时，课名写内容主题。'
+    const prompt = [
+        lessonBlock(input).replace(/课时：.*\n?/u, ''),
+        `单元总课时：${totalHours}`,
+        basisBlock(input),
+        lessonsBlock,
+        teacherBlock(input)
+    ].filter(Boolean).join('\n\n')
+    const adapter: StructuredLlmAdapter<UnitPlan> = {
+        name: 'kebiao_unit_plan',
+        schema: { type: 'object' },
+        instructions: UNIT_INSTRUCTIONS,
+        chatInstructions: UNIT_INSTRUCTIONS,
+        maxCompletionTokens: 4000,
+        validate: value => validateUnit(value, codes, lessonTitles)
+    }
+    const run = await runStructuredLlm(prompt, adapter, { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
+    return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
+
+// the unit's checks: the lesson checks with lessons standing in for stages, plus the unit's own
+export function checkUnit(unit: UnitPlan, input: DraftInput, totalHours: number): PlanCheck[] {
+    const frame: Frame = { title: unit.title, core_understanding: unit.big_idea, objectives: unit.objectives, key_points: [], difficult_points: [], learner_analysis: '', prior_knowledge: unit.prior_knowledge, misconceptions: [], keywords: [], assessments: unit.assessments }
+    const process: Process = { stages: unit.lessons.map(item => ({ name: item.title, minutes: 0, teacher: item.focus, students: '', purpose: '', objective_ids: item.objective_ids, assessment_ids: item.assessment_ids })), homework: [], board: [], materials: [], safety: [] }
+    const checks = checkPlan(frame, process, input, { planText: JSON.stringify(unit) })
+        .filter(item => item.kind !== 'timing' && item.kind !== 'aligned')
+        .map(item => ({ ...item, message: item.message.replace('在教学过程里没有对应的环节', '没有排进任何课时') }))
+    const hours = unit.lessons.reduce((sum, item) => sum + item.hours, 0)
+    if (hours !== totalHours) checks.push({ level: 'warn', kind: 'timing', message: `课时合计 ${hours} 节，和你定的单元 ${totalHours} 课时不一致。` })
+    if (!unit.big_idea) checks.push({ level: 'warn', kind: 'no_big_idea', message: '没有写出单元大概念。' })
+    if (!unit.performance_task) checks.push({ level: 'warn', kind: 'no_performance_task', message: '没有表现性任务，单元评价只剩纸笔或零散提问。' })
+    if (!checks.length) checks.push({ level: 'ok', kind: 'aligned', message: '每条单元目标都有课标要点依据、评价任务，并排进了具体课时；课时合计与设定一致。' })
+    return checks
+}

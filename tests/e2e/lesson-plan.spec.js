@@ -145,3 +145,32 @@ test('a 语文 lesson is searched as a text, and the teacher hint reruns only th
     await expect.poll(() => queries.at(-1)).toBe('5年级语文课文《落花生》的阅读与表达教学，借物喻人')
     expect(contextCalls).toBe(before)
 })
+
+test('单元整体设计: a whole textbook unit is planned over its own lessons, each linking to a lesson plan', async ({ page }) => {
+    const unitContext = { ...context, lesson: { ...lesson, title: '分数的意义和性质', unit_title: '4 分数的意义和性质', lesson_id: null }, unit_lessons: [{ id: 'L0', title: '分数的意义', section: null, pdf_page: 50, hours: 2 }, { id: 'L1', title: '分数的基本性质', section: null, pdf_page: 62, hours: 2 }] }
+    await page.route('**/api/v1/lesson-plans/textbooks/*/lessons', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ platform_title: '小学数学人教版五年级下册', confidence: 'text', lessons: [{ id: 'L0', title: '分数的意义', chapters: ['4 分数的意义和性质'], pdf_page: 50, materials: [], url: '' }, { id: 'L1', title: '分数的基本性质', chapters: ['4 分数的意义和性质'], pdf_page: 62, materials: [], url: '' }] })) }))
+    await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(unitContext)) }))
+    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ results: [{ code: 'MA-S3-NA-01', match_strength: 'direct', checked_by_ai: true, relevance_reason: '分数', matched_point: { code: 'MA-S3-NA-01.3', text: '' } }] })) }))
+    let sent = null
+    await page.route('**/api/v1/lesson-plans/draft', route => {
+        sent = route.request().postDataJSON()
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ step: 'unit', unit: {
+            title: '分数的意义和性质', big_idea: '同一个数可以有多种等值的分数表示', essential_questions: ['什么时候两个分数一样大？'],
+            objectives: [{ id: 'O1', text: '学生能说明分数的意义', basis: ['MA-S3-NA-01.3'], kind: '理解' }],
+            performance_task: { title: '班级分饼会', scenario: '设计公平分配方案', product: '方案', criteria: ['用分数表示'] },
+            assessments: [{ id: 'A1', objective_ids: ['O1'], task: '分配方案', evidence: '方案', criteria: '正确' }],
+            lessons: [{ title: '分数的意义', hours: 2, focus: '理解单位1', objective_ids: ['O1'], assessment_ids: [] }, { title: '分数的基本性质', hours: 2, focus: '等值分数', objective_ids: ['O1'], assessment_ids: ['A1'] }],
+            prior_knowledge: [], connections: ''
+        }, checks: [{ level: 'ok', kind: 'aligned', message: '每条单元目标都有课标要点依据、评价任务，并排进了具体课时；课时合计与设定一致。' }], evidence, privacy: { redacted: false }, model: 'gpt-5-mini' })) })
+    })
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&chapter=${encodeURIComponent('4 分数的意义和性质')}`)
+    await expect(page.getByRole('heading', { name: /单元整体设计/ }).first()).toBeVisible()
+    await expect(page.getByRole('combobox').nth(2)).toHaveValue('chapter::4 分数的意义和性质')
+    await page.getByRole('button', { name: /起草单元设计/ }).click()
+    await expect(page.getByText('同一个数可以有多种等值的分数表示')).toBeVisible()
+    await expect(page.getByRole('heading', { name: /表现性任务：班级分饼会/ })).toBeVisible()
+    await expect(page.getByRole('link', { name: '起草这一课的教案 →' }).nth(1)).toHaveAttribute('href', /lesson=L1/)
+    expect(sent.step).toBe('unit')
+    expect(sent.unit_lessons).toEqual(['分数的意义', '分数的基本性质'])
+    expect(sent.unit_hours).toBe(4)
+})
