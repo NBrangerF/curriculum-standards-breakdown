@@ -21,6 +21,7 @@ const ruled = (slug, catalog) => {
     return e => { const u = prepared ? prepared.get(e.id) : (e.part === '课程内容' ? RULES[slug].unitOf(e) : null); return Boolean(u && ['item', 'req', 'activity', 'example'].includes(u.role) && !(RULES[slug].activityNote && RULES[slug].activityNote.test(e.text))) }
 }
 const COVERAGE = {
+    chinese: e => (e.part === '课程目标' && ['识字与写字', '阅读与鉴赏', '表达与交流', '梳理与探究'].includes(e.section)) || (e.part === '课程内容' && e.section !== '教学提示' && /^（\d+）$/u.test(e.marker || '')),
     labor: e => e.part === '课程内容' && ['内容要求', '素养表现'].includes(e.section),
     math: e => e.part === '课程内容' && (e.section === '学业要求' || (e.stage === '7-9' && e.section === '内容要求'))
 }

@@ -10,7 +10,7 @@
 //   ocr_doubt — the two scans disagree on single characters; needs a look at the PDF (docs/data/v2/ocr-fixes/)
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { RULES } from './subject_rules.mjs'
-import { SUBJECT_NAMES, SUBJECT_PREFIX, STAGES, stageCode, gradesOf, loadCatalog, revisionIndex, joinBroken, tidy, loadOcrFixes, applyFixes, splitSentences, readTsv, paragraphs, strip } from './lib.mjs'
+import { SUBJECT_NAMES, SUBJECT_PREFIX, STAGES, stageCode, gradesOf, loadCatalog, revisionIndex, joinBroken, tidy, loadOcrFixes, applyFixes, splitSentences, readTsv, paragraphs, strip, grams, recall } from './lib.mjs'
 
 const slug = process.argv[2]
 if (!SUBJECT_NAMES[slug]) throw new Error('usage: build_units.mjs <slug>')
@@ -479,7 +479,94 @@ function buildGeneric() {
     return { standards, theme_requirements: themeRequirements, skipped_source_ids: skipped }
 }
 
-const BUILDERS = { labor: buildLabor, math: buildMath, ...Object.fromEntries(Object.keys(RULES).map(k => [k, buildGeneric])) }
+
+// 语文（沿用现有结构，docs/STANDARDS_METHOD_V2.md §4）：一级是语文实践，两类标准都用课标原文。
+//   学段要求：每条编号条目是一条标准（原句），条目里的各句是要点；二级记作「学段要求」。
+//   学习任务群：学段 × 任务群是一条标准，标准句是任务群说明的首句（「本学习任务群旨在……」），要点是本学段的学习内容条目；
+//   一级按任务群的主要语文实践归（kebiao 判断，见 CN_GROUP_PRACTICE）。
+// 学习内容和学段要求条目之间不是一一对应，不硬挂。
+const CN_PRACTICE = { 识字与写字: 'LW', 阅读与鉴赏: 'RA', 表达与交流: 'EC', 梳理与探究: 'IN' }
+const CN_GROUP_PRACTICE = { 语言文字积累与梳理: '识字与写字', 实用性阅读与交流: '表达与交流', 文学阅读与创意表达: '阅读与鉴赏', 思辨性阅读与表达: '表达与交流', 整本书阅读: '阅读与鉴赏', 跨学科学习: '梳理与探究' }
+function buildChinese() {
+    const problems = []
+    const skipped = []
+    const all = loadCatalog('2025r', 'chinese').map(e => ({ ...e, text: e.text.replace(/［\d］[^［]*$/u, '').trim() })).filter(e => e.text)
+    const make = (p, extra = {}) => {
+        const text = applyFixes(tidy(p.text), fixes, fixesUsed).replace(/（\s*例\s*\d+\s*）/gu, '').replace(/^（\d{1,2}\s*）?/u, '')
+        return { text, pages: p.pages, source_ids: p.ids, check: check(p.ids), ...extra }
+    }
+    const units = []
+    // 学段要求.
+    const goalLines = all.filter(e => e.part === '课程目标' && e.stage && CN_PRACTICE[e.section])
+    for (const p of paragraphs(goalLines, e => `${e.stage}|${e.section}`)) {
+        const last = units[units.length - 1]
+        if (/^\d+\.$/u.test(p.marker)) units.push({ kind: 'goal', stage: p.stage, practice: p.section, n: +p.marker.replace('.', ''), ...p })
+        else if (last && last.kind === 'goal' && last.stage === p.stage && last.practice === p.section && !/^在落实以上要求/u.test(p.text)) {
+            last.text += p.text; last.ids.push(...p.ids); p.pages.forEach(x => { if (!last.pages.includes(x)) last.pages.push(x) })
+        } else skipped.push(...p.ids.map(id => ({ id, why: 'stage note' })))
+    }
+    // 学习任务群.
+    let group = null
+    let inIntro = false
+    const groupIntro = new Map()
+    const items = []
+    for (const e of all.filter(e => e.part === '课程内容')) {
+        const name = Object.keys(CN_GROUP_PRACTICE).find(n => e.text.startsWith(n) && /本学习任务群/u.test(e.text.slice(n.length, n.length + 8)))
+        if (name) { group = name; inIntro = true; groupIntro.set(name, [{ ...e, text: e.text.slice(name.length) }]); skipped.push({ id: e.id, why: 'task group introduction' }); continue }
+        if (!group) continue
+        // The introduction runs until the first numbered 学习内容 item.
+        if (inIntro && !/^（\d+）$/u.test(e.marker || '')) { groupIntro.get(group).push(e); skipped.push({ id: e.id, why: 'task group introduction' }); continue }
+        inIntro = false
+        if (e.section === '教学提示' || !e.stage) continue
+        items.push({ ...e, group })
+    }
+    const byGroupStage = new Map()
+    for (const p of paragraphs(items, e => `${e.stage}|${e.group}`)) {
+        const g = items.find(x => x.id === p.ids[0]).group
+        const k = `${p.stage}|${g}`
+        if (!byGroupStage.has(k)) byGroupStage.set(k, { kind: 'group', stage: p.stage, group: g, practice: CN_GROUP_PRACTICE[g], paras: [] })
+        byGroupStage.get(k).paras.push(p)
+    }
+    units.push(...byGroupStage.values())
+    const order = Object.keys(STAGES.default)
+    const groupOrder = Object.keys(CN_GROUP_PRACTICE)
+    units.sort((a, b) => order.indexOf(a.stage) - order.indexOf(b.stage) || (a.kind === b.kind ? 0 : a.kind === 'goal' ? -1 : 1) || (a.kind === 'goal' ? Object.keys(CN_PRACTICE).indexOf(a.practice) - Object.keys(CN_PRACTICE).indexOf(b.practice) || a.n - b.n : groupOrder.indexOf(a.group) - groupOrder.indexOf(b.group)))
+    const counters = new Map()
+    const junior = st => (st === '7-9' ? { grades: [7, 8, 9], grade_basis: null } : {})
+    const standards = units.map(u => {
+        const sc = stageCode('chinese', u.stage)
+        const abbr = u.kind === 'goal' ? CN_PRACTICE[u.practice] : 'TG'
+        const ck = `${sc}|${abbr}`
+        counters.set(ck, (counters.get(ck) || 0) + 1)
+        const code = `CN-${sc}-${abbr}-${String(counters.get(ck)).padStart(2, '0')}`
+        const base = { code, subject: '语文', subject_slug: 'chinese', stage: u.stage, stage_code: sc, grades: gradesOf(u.stage), level1: u.practice }
+        if (u.kind === 'goal') {
+            const st = make(u)
+            return {
+                ...base, level2: '学段要求', title: `${u.practice} · 学段要求 ${u.n}（${u.stage.replace('-', '–')} 年级）`,
+                statement: st.text, statement_source: 'official', statement_section: `学段要求 · ${u.practice}`,
+                statement_pages: u.pages, statement_source_ids: u.ids, statement_check: st.check,
+                indicators: splitSentences(st.text).map((t, i) => ({ code: `${code}.${i + 1}`, text: t, section: '学段要求', pages: u.pages, source_ids: u.ids, check: st.check, ...junior(u.stage) })),
+                guidance: []
+            }
+        }
+        const intro = groupIntro.get(u.group) || []
+        const introText = intro.map(e => e.text).join('')
+        const st = make({ text: `${introText.split('。')[0]}。`, ids: intro.map(e => e.id), pages: [...new Set(intro.map(e => e.page))] })
+        if (!intro.length) problems.push(`no introduction for ${u.group}`)
+        return {
+            ...base, level2: u.group, title: `${u.group}（${u.stage.replace('-', '–')} 年级）`,
+            statement: st.text, statement_source: 'official', statement_section: '学习任务群说明',
+            statement_pages: st.pages, statement_source_ids: st.source_ids, statement_check: st.check,
+            indicators: u.paras.map((p, i) => ({ code: `${code}.${i + 1}`, ...make(p), section: '学习内容', ...junior(u.stage) })),
+            guidance: []
+        }
+    })
+    if (problems.length) console.log('problems:\n  ' + problems.join('\n  '))
+    return { standards, skipped_source_ids: skipped }
+}
+
+const BUILDERS = { labor: buildLabor, math: buildMath, chinese: buildChinese, ...Object.fromEntries(Object.keys(RULES).map(k => [k, buildGeneric])) }
 if (!BUILDERS[slug]) throw new Error(`no unit rules for ${slug} yet`)
 const { standards, ...extra } = BUILDERS[slug]()
 mkdirSync('generated/v2/units', { recursive: true })
