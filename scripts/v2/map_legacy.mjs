@@ -41,7 +41,22 @@ for (const r of legacy) {
         legacyMap.push({ code: r.code, kind: 'overview', to: `/subjects/${slug}`, stage_code: stageCode(slug, stage), reason: v.reason })
         continue
     }
-    const std = findStandard(stage, unit)
+    // Old records filed by 核心素养 or another dimension name no v2 unit: take the stage's standard whose
+    // official text (statement, 要点, 学业要求) best covers the old text.
+    let std = findStandard(stage, unit)
+    if (!std) {
+        const og = grams(r.standard)
+        const quotes0 = [...String(v.reason).matchAll(/「([^」]{3,})」/gu)].map(m => m[1])
+        let top = null
+        for (const cand of standards.filter(x => x.stage === stage)) {
+            const pieces = [cand.statement, ...cand.indicators.map(i => i.text + (i.official_examples || '')), ...(cand.requirements || []).map(q => q.text)]
+            const quoted = quotes0.length ? Math.max(0, ...pieces.flatMap(t => quotes0.map(q => recall(grams(q), grams(t))))) : 0
+            const clauseScore = Math.max(0, ...pieces.flatMap(t => t.split(/[，、；：。]/u).filter(c => c.length >= 3).map(c => recall(grams(c), og))))
+            const score = Math.max(quoted >= 0.8 ? 1 + quoted : 0, recall(og, grams(pieces.join(''))), clauseScore * 0.9)
+            if (!top || score > top.score) top = { cand, score }
+        }
+        if (top && top.score >= 0.3) std = top.cand
+    }
     if (v.verdict === 'remove' || v.verdict === 'merge') {
         legacyMap.push({ code: r.code, kind: v.verdict === 'merge' ? 'merged' : 'removed', to: std ? std.code : `/subjects/${slug}`, reason: v.reason })
         continue
@@ -71,7 +86,7 @@ for (const r of legacy) {
         return top?.ind.code
     }).filter(Boolean))
     const spans = landing.size >= 2 && !(best && best.score > 1)
-    const home = !spans && best && best.score >= Math.max(0.3, statementScore) ? best.ind : null
+    const home = !spans && best && best.score >= Math.max(0.35, statementScore) ? best.ind : null
     // The user's wording becomes a 表现示例 when it adds something to the official text; an old record that only
     // restates official clauses (e.g. a junior clause filed under the wrong grade) just joins the indicator.
     const official = grams([std.statement, ...std.indicators.map(i => i.text + (i.official_examples || '')), ...(std.requirements || []).map(q => q.text)].join(''))
@@ -102,5 +117,5 @@ writeFileSync(`data/v2/stage_overview/${slug}.json`, `${JSON.stringify({ subject
 const kinds = {}
 legacyMap.forEach(m => { kinds[m.kind] = (kinds[m.kind] || 0) + 1 })
 const examples = standards.reduce((n, s) => n + s.examples.length + s.indicators.reduce((k, i) => k + i.examples.length, 0), 0)
-console.log(`${slug}: ${legacy.length} old records → ${JSON.stringify(kinds)}; ${examples} examples; weak matches ${legacyMap.filter(m => m.kind === 'indicator' && m.match < 0.35).length}`)
+console.log(`${slug}: ${legacy.length} old records → ${JSON.stringify(kinds)}; ${examples} examples; weak matches ${legacyMap.filter(m => m.kind === 'indicator' && m.match < 0.4).length}`)
 if (problems.length) console.log('problems:\n  ' + problems.join('\n  '))

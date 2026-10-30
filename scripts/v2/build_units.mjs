@@ -9,7 +9,8 @@
 //   revised   — changed by the 2025 revision; the 2022 text is kept for comparison
 //   ocr_doubt — the two scans disagree on single characters; needs a look at the PDF (docs/data/v2/ocr-fixes/)
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { SUBJECT_NAMES, SUBJECT_PREFIX, stageCode, gradesOf, loadCatalog, revisionIndex, joinBroken, tidy, loadOcrFixes, applyFixes, splitSentences, readTsv, paragraphs, strip } from './lib.mjs'
+import { RULES } from './subject_rules.mjs'
+import { SUBJECT_NAMES, SUBJECT_PREFIX, STAGES, stageCode, gradesOf, loadCatalog, revisionIndex, joinBroken, tidy, loadOcrFixes, applyFixes, splitSentences, readTsv, paragraphs, strip } from './lib.mjs'
 
 const slug = process.argv[2]
 if (!SUBJECT_NAMES[slug]) throw new Error('usage: build_units.mjs <slug>')
@@ -263,7 +264,158 @@ function buildMath() {
     return { standards, theme_requirements: themeRequirements }
 }
 
-const BUILDERS = { labor: buildLabor, math: buildMath }
+
+// Shared builder for the subjects that follow one shape: a unit (学段 × 模块/主题) has numbered 内容要求 items and a
+// 学业要求 passage. Each subject's rules live in scripts/v2/subject_rules.mjs:
+//   unitOf(e)  → { area, unit, theme?, role } for a catalogue line, or null. role: item (要点), req (学业要求, shown
+//                under the standard), intro (module introduction, may hold the statement), activity (one 要点 per
+//                topic, e.g. 跨学科主题), statement (lines that state the standard)
+//   split      → 'items' (one 要点 per numbered item) or 'sentences' (unnumbered prose, one 要点 per sentence)
+//   statement  → { from: 'intro', start: /regex/ } | { from: 'statement' } | summary (docs/data/v2/summaries/<slug>.tsv)
+function buildGeneric() {
+    const cfg = RULES[slug]
+    const problems = []
+    const summaries = new Map(readTsv(`docs/data/v2/summaries/${slug}.tsv`).map(([stage, unit, text]) => [`${stage}|${unit}`, text]))
+    const gradeRules = readTsv(`docs/data/v2/grades/${slug}.tsv`).map(([unit, pattern, grade, basis]) => ({ unit, any: pattern === '*', re: pattern === '*' ? null : new RegExp(pattern, 'u'), grades: grade.split(/[,，、]/u).map(Number), basis }))
+    const byId = new Map()
+    const lines = loadCatalog('2025r', slug)
+        .filter(e => e.stage)
+        .map(e => ({ ...e, text: e.text.replace(/［\d］[^［]*$/u, '').trim() }))
+        .filter(e => e.text)
+        .filter(e => { const head = `${e.marker || ''}${e.text}`.match(/^（\d+）?\s*(.*)$/u); return !(head && /^（\d/u.test(`${e.marker || ''}${e.text}`) && !/[。；，]/u.test(head[1]) && head[1].length <= 12) })
+    lines.forEach(e => byId.set(e.id, e))
+    const clean = text => {
+        const refs = []
+        const t = applyFixes(tidy(text), fixes, fixesUsed)
+            .replace(/（\s*例\s*(\d+)(?:\s*[和至]\s*例\s*(\d+))?\s*）/gu, (m, a, b) => { refs.push(+a); if (b) refs.push(+b); return '' })
+            .replace(/^(?:1\d|20|[1-9])(?=[一-鿿*])/u, '').replace(/^（\d{1,2}\s*）?/u, '').replace(/^\d{1,2}）/u, '')
+        return { text: t, example_refs: refs }
+    }
+    const make = (p, extra = {}) => {
+        const { text, example_refs } = clean(p.text)
+        return { text, pages: p.pages, source_ids: p.ids, check: check(p.ids), ...(example_refs.length ? { example_refs } : {}), ...extra }
+    }
+    // Items the source catalogue filed under the wrong unit (docs/data/v2/units/<slug>-moves.tsv): every line of
+    // the paragraph that starts with the given text goes to the named unit.
+    const moved = new Map()
+    for (const [stage, start, to] of readTsv(`docs/data/v2/units/${slug}-moves.tsv`)) {
+        const first = lines.find(e => e.stage === stage && strip(e.text).startsWith(strip(start)))
+        if (!first) { problems.push(`move: no line starts with 「${start}」 in ${stage}`); continue }
+        lines.filter(e => e.stage === stage && e.para === first.para).forEach(e => moved.set(e.id, to))
+    }
+    // Units in source order.
+    const units = new Map()
+    for (const e of lines) {
+        const base = cfg.unitOf(e)
+        const u = base && moved.has(e.id) ? { ...base, area: moved.get(e.id), unit: moved.get(e.id) } : base
+        if (!u) continue
+        const key = `${e.stage}|${u.unit}`
+        if (!units.has(key)) units.set(key, { stage: e.stage, area: u.area, unit: u.unit, theme: u.theme, lines: [] })
+        units.get(key).lines.push({ ...e, role: u.role, group: u.group || null })
+    }
+    const paraKey = e => `${e.stage}|${e.section}|${e.role}|${e.group || ''}`
+    const sentenceUnits = paras => {
+        const out = []
+        for (const p of paras) {
+            let group = null
+            for (const id of p.ids) {
+                const e = byId.get(id)
+                if (!group) { group = { text: '', ids: [], pages: [], para: p.para, tail: false }; out.push(group) }
+                group.text += e.text
+                group.ids.push(id)
+                if (!group.pages.includes(e.page)) group.pages.push(e.page)
+                if (/[。！？]$/u.test(e.text)) group = null
+            }
+        }
+        // A closing clause on 素养 ("形成……。") stays with the sentence before it.
+        const merged = []
+        for (const g of out) {
+            const prev = merged[merged.length - 1]
+            if (prev && prev.para === g.para && /^(形成|发展|进一步发展|逐步形成|初步形成|提高|提升|增强|培养)/u.test(g.text)) Object.assign(prev, { text: prev.text + g.text, ids: [...prev.ids, ...g.ids], pages: [...new Set([...prev.pages, ...g.pages])] })
+            else merged.push(g)
+        }
+        return merged
+    }
+    const gradesFor = (unit, text) => {
+        const rules = gradeRules.filter(r => r.unit === unit || r.unit === '*')
+        let hits = rules.filter(r => r.re && r.re.test(text))
+        if (!hits.length) hits = rules.filter(r => r.any && r.unit === unit)
+        if (!hits.length) hits = rules.filter(r => r.any && r.unit === '*')
+        if (!hits.length) return { grades: [7, 8, 9], grade_basis: null }
+        return { grades: [...new Set(hits.flatMap(r => r.grades))].sort(), grade_basis: [...new Set(hits.map(r => r.basis))].join('；') }
+    }
+    const stageReq = cfg.stageRequirement ? lines.filter(cfg.stageRequirement) : []
+    const built = []
+    for (const u of units.values()) {
+        const role = r => u.lines.filter(e => e.role === r)
+        const itemParas = paragraphs(role('item'), paraKey)
+        let indicators = (cfg.split === 'sentences' ? sentenceUnits(itemParas) : itemParas).map(p => make(p))
+        // Activities: one 要点 per named topic (its name is the label).
+        const acts = new Map()
+        for (const e of role('activity')) { if (!acts.has(e.group)) acts.set(e.group, []); acts.get(e.group).push(e) }
+        for (const [name, es] of acts) {
+            const keep = es.filter(e => !(cfg.activityNote && cfg.activityNote.test(e.text)))
+            if (!keep.length) continue
+            indicators.push(make({ text: keep.map(e => e.text).join(''), ids: keep.map(e => e.id), pages: [...new Set(keep.map(e => e.page))] }, { label: name }))
+        }
+        if (cfg.dropIndicator) indicators = indicators.filter(i => !cfg.dropIndicator.test(i.text))
+        const requirements = paragraphs(role('req'), paraKey).map(p => make(p))
+        // Statement.
+        let statement = null
+        const sc = cfg.statement || {}
+        if (sc.from === 'intro') {
+            const intro = role('intro')
+            const start = intro.findIndex(e => sc.start.test(e.text))
+            if (start >= 0) {
+                const picked = []
+                for (let i = start; i < intro.length; i += 1) { picked.push(intro[i]); if (/。$/u.test(intro[i].text)) break }
+                statement = { ...make({ text: picked.map(e => e.text).join(''), ids: picked.map(e => e.id), pages: [...new Set(picked.map(e => e.page))] }), source: 'official', section: sc.section || '模块说明' }
+            }
+        } else if (sc.from === 'statement') {
+            const st = role('statement')
+            if (st.length) {
+                const first = sentenceUnits(paragraphs(st, paraKey))[0]
+                statement = { ...make(first), source: 'official', section: sc.section || st[0].section }
+            }
+        }
+        if (!statement) {
+            const summary = summaries.get(`${u.stage}|${u.unit}`)
+            statement = summary ? { text: summary, source: 'kebiao_summary' } : { text: '', source: 'missing' }
+            if (!summary) problems.push(`no statement: ${u.stage} ${u.unit}`)
+        }
+        if (u.stage === '7-9' && cfg.junior !== 'none') indicators = indicators.map(i => ({ ...i, ...gradesFor(u.unit, i.text), ...(i.text.startsWith('*') ? { optional: true } : {}) }))
+        if (!indicators.length) problems.push(`no 要点: ${u.stage} ${u.unit}`)
+        built.push({ ...u, statement, indicators, requirements })
+    }
+    const areaOrder = Object.keys(cfg.areas)
+    const stageOrder = Object.keys(STAGES[slug] || STAGES.default)
+    built.sort((a, b) => stageOrder.indexOf(a.stage) - stageOrder.indexOf(b.stage) || areaOrder.indexOf(a.area) - areaOrder.indexOf(b.area))
+    const counters = new Map()
+    const standards = built.filter(u => u.indicators.length).map(u => {
+        const sc = stageCode(slug, u.stage)
+        if (!cfg.areas[u.area]) problems.push(`no code for area ${u.area}`)
+        const ck = `${sc}|${u.area}`
+        counters.set(ck, (counters.get(ck) || 0) + 1)
+        const code = `${SUBJECT_PREFIX[slug]}-${sc}-${cfg.areas[u.area]}-${String(counters.get(ck)).padStart(2, '0')}`
+        const st = u.statement
+        return {
+            code, subject: SUBJECT_NAMES[slug], subject_slug: slug, stage: u.stage, stage_code: sc, grades: gradesOf(u.stage),
+            level1: u.area, ...(u.theme && u.theme !== u.unit ? { theme: u.theme } : {}), level2: u.unit,
+            title: `${u.unit}（${u.stage.replace('-', '–')} 年级）`,
+            statement: st.text, statement_source: st.source, statement_section: st.section || null,
+            statement_pages: st.pages || [], statement_source_ids: st.source_ids || [], statement_check: st.check || null,
+            indicators: u.indicators.map((ind, i) => ({ code: `${code}.${i + 1}`, section: cfg.itemSection || '内容要求', ...ind })),
+            ...(u.requirements.length ? { requirements: u.requirements } : {}),
+            guidance: []
+        }
+    })
+    // Stage-wide 学业要求 go to the stage overview.
+    const themeRequirements = paragraphs(stageReq.map(e => ({ ...e, role: 'stage' })), e => e.stage).filter(p => !(cfg.dropStageRequirement && cfg.dropStageRequirement.test(p.text))).map(p => ({ stage: p.stage, level1: null, theme: '本学段学业要求', ...make(p) }))
+    if (problems.length) console.log('problems:\n  ' + problems.join('\n  '))
+    return { standards, theme_requirements: themeRequirements }
+}
+
+const BUILDERS = { labor: buildLabor, math: buildMath, ...Object.fromEntries(Object.keys(RULES).map(k => [k, buildGeneric])) }
 if (!BUILDERS[slug]) throw new Error(`no unit rules for ${slug} yet`)
 const { standards, ...extra } = BUILDERS[slug]()
 mkdirSync('generated/v2/units', { recursive: true })

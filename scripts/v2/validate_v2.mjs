@@ -10,14 +10,17 @@
 //   review     — revised / OCR-doubt sentences not yet listed in docs/data/v2/reviewed/<slug>.tsv (warning)
 //   wording    — kebiao summaries use the subject's own words (bigram recall ≥ 0.9, warning)
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { RULES } from './subject_rules.mjs'
 import { SUBJECT_PREFIX, STAGES, loadCatalog, loadOcrFixes, applyFixes, tidy, grams, recall, dice, readTsv } from './lib.mjs'
 
 // Which catalogue clauses each subject promises to cover (docs/STANDARDS_METHOD_V2.md §2).
+// Subjects on the shared builder promise every line their rules give a 要点, 学业要求 or activity role.
+const ruled = slug => RULES[slug] && (e => { const u = e.part === '课程内容' || RULES[slug].anyPart ? RULES[slug].unitOf(e) : null; return Boolean(u && ['item', 'req', 'activity'].includes(u.role) && !(RULES[slug].activityNote && RULES[slug].activityNote.test(e.text))) })
 const COVERAGE = {
-    labor: e => ['内容要求', '素养表现'].includes(e.section),
-    math: e => e.section === '学业要求' || (e.stage === '7-9' && e.section === '内容要求')
+    labor: e => e.part === '课程内容' && ['内容要求', '素养表现'].includes(e.section),
+    math: e => e.part === '课程内容' && (e.section === '学业要求' || (e.stage === '7-9' && e.section === '内容要求'))
 }
-const SUSPECT = /[A-Za-z%"”［］�]/u
+const SUSPECT = /[A-Za-z%"”［］�•]/u
 const FORMULA = /y=k\/x|y=kx\+b|y=kx|y\/x=k|y=a\(x−h\)²\+k|\(a[+±−]b\)[^，]*|sinA|cosA|tanA|k[≠＞＜]0|“[^”]*”/gu
 
 const slugs = process.argv.slice(2).length ? process.argv.slice(2) : readdirSync('data/v2/by_subject').map(f => f.replace(/\.json$/u, ''))
@@ -84,10 +87,10 @@ for (const slug of slugs) {
     for (const q of overview.theme_requirements || []) q.source_ids.forEach(id => used.add(id))
 
     // Coverage of the official clauses.
-    const promised = COVERAGE[slug]
+    const promised = COVERAGE[slug] || ruled(slug)
     if (!promised) warnings.push('no coverage rule for this subject')
     else {
-        const missing = catalog.filter(e => e.part === '课程内容' && e.stage && promised(e) && !used.has(e.id))
+        const missing = catalog.filter(e => e.stage && promised(e) && !used.has(e.id))
             .filter(e => !/^［\d］/u.test(e.text) && !/^（\d+）?[^。；，]{0,12}$/u.test(`${e.marker || ''}${e.text}`))
         for (const e of missing) errors.push(`uncovered ${e.id} p${e.page} ${e.section}: ${e.text.slice(0, 40)}`)
     }
