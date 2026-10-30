@@ -17,7 +17,7 @@ const reviewed = readTsv(`docs/data/v2/reviewed/${slug}.tsv`).map(([t]) => t)
 const hunksById = new Map()
 for (const h of JSON.parse(readFileSync(`generated/revision_diff/${slug}.json`, 'utf8')).hunks) for (const id of h.b?.entry_ids || []) { if (!hunksById.has(id)) hunksById.set(id, []); hunksById.get(id).push(h) }
 const SUSPECT = /[A-Za-z%"”［］�•]/u
-const FORMULA = /pH|DNA|一二•九|\d+%|y=k\/x|y=kx\+b|y=kx|sinA|cosA|tanA|k[≠＞＜]0|“[^”]*”/gu
+const FORMULA = /pH|DNA|X射线|[HCNOPSKI]、|I等|Na|Al|Si|Cl|Ca|Fe|Cu|Ag|一二•九|\d+%|y=k\/x|y=kx\+b|y=kx|sinA|cosA|tanA|k[≠＞＜]0|“[^”]*”/gu
 
 const items = []
 for (const s of units.standards) {

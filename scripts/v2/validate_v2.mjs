@@ -25,7 +25,7 @@ const COVERAGE = {
     math: e => e.part === '课程内容' && (e.section === '学业要求' || (e.stage === '7-9' && e.section === '内容要求'))
 }
 const SUSPECT = /[A-Za-z%"”［］�•]/u
-const FORMULA = /pH|DNA|一二•九|\d+%|y=k\/x|y=kx\+b|y=kx|y\/x=k|y=a\(x−h\)²\+k|\(a[+±−]b\)[^，]*|sinA|cosA|tanA|k[≠＞＜]0|“[^”]*”/gu
+const FORMULA = /pH|DNA|X射线|[HCNOPSKI]、|I等|Na|Al|Si|Cl|Ca|Fe|Cu|Ag|一二•九|\d+%|y=k\/x|y=kx\+b|y=kx|y\/x=k|y=a\(x−h\)²\+k|\(a[+±−]b\)[^，]*|sinA|cosA|tanA|k[≠＞＜]0|“[^”]*”/gu
 
 const slugs = process.argv.slice(2).length ? process.argv.slice(2) : readdirSync('data/v2/by_subject').map(f => f.replace(/\.json$/u, ''))
 let errorCount = 0

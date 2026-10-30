@@ -289,7 +289,7 @@ function buildGeneric() {
         const refs = []
         const t = applyFixes(tidy(text), fixes, fixesUsed)
             .replace(/（\s*例\s*(\d+)(?:\s*[和至]\s*例\s*(\d+))?\s*）/gu, (m, a, b) => { refs.push(+a); if (b) refs.push(+b); return '' })
-            .replace(/^(?:1\d|20|[1-9])(?=[一-鿿*])/u, '').replace(/^（\d{1,2}\s*）?/u, '').replace(/^\d{1,2}）/u, '')
+            .replace(/^(?:1\d|20|[0-9])(?=[一-鿿*])/u, '').replace(/^[@©D](?=[一-鿿])/u, '').replace(/^（\d{1,2}\s*）?/u, '').replace(/^\d{1,2}）/u, '')
         return { text: t, example_refs: refs }
     }
     const make = (p, extra = {}) => {

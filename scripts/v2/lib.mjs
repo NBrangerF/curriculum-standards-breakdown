@@ -95,13 +95,14 @@ export const readTsv = file => existsSync(file) ? readFileSync(file, 'utf8').spl
 // Rebuild paragraphs from catalogue lines: lines of one paragraph are joined, and so are paragraphs
 // broken at a page or column end (the previous one does not end a sentence and the next has no item marker).
 // OCR reads ⑩⑪⑫ as "10" "1" "12" and "（3）" as "（3 ", so a leading number counts as a marker.
-const MARKED = /^(?:1\d|20|[1-9])(?=[\u4e00-\u9fff*])|^（\d/u
+const MARKED = /^(?:1\d|20|[0-9])(?=[\u4e00-\u9fff*])|^[@©D](?=[\u4e00-\u9fff])|^（\d/u
 export function paragraphs(entries, key) {
     const out = []
     for (const e of entries) {
         const last = out[out.length - 1]
         const marked = Boolean(e.marker) || MARKED.test(e.text)
-        if (last && last.key === key(e) && (last.para === e.para || (!marked && !/[。！？]$/u.test(last.text)))) {
+        // A numbered item opens a new paragraph even inside one layout paragraph ("……过程。10说出……").
+        if (last && last.key === key(e) && ((last.para === e.para && !(marked && /[。！？]$/u.test(last.text))) || (!marked && !/[。！？]$/u.test(last.text)))) {
             last.text += e.text
             last.ids.push(e.id)
             if (!last.pages.includes(e.page)) last.pages.push(e.page)
