@@ -124,9 +124,17 @@ function variantScore(book, title) {
 const GENERATIONS = path.join(ROOT, 'data/textbooks/library-state/generations')
 const registry = `${GENERATIONS}/${readdirSync(GENERATIONS).sort().pop()}/asset_registry.lock.jsonl`
 const squash = text => String(text || '').replace(/[\s·•、，,。．.：:！!？?“”"'（）()《》\-—–]/gu, '').toLowerCase()
+// Scanned books with no text layer: their opening pages, read by Vision OCR into generated/smartedu/toc-ocr/<edition>.txt
+// (scripts/grade7_9/vision_ocr.swift on pages 2–14), carry the 目录.
+const TOC_OCR = path.join(CACHE, 'toc-ocr')
 function bookPages(editionId) {
-    try { return (pagesFor(registry, editionId) || []).map(page => ({ pdf_page: page.pdf_page, text: squash(page.text) })) } catch { return [] }
+    let pages = []
+    try { pages = (pagesFor(registry, editionId) || []).map(page => ({ pdf_page: page.pdf_page, text: squash(page.text) })) } catch { pages = [] }
+    if (pages.some(page => page.text)) return pages
+    const file = path.join(TOC_OCR, `${editionId}.txt`)
+    return existsSync(file) ? [{ pdf_page: null, text: squash(readFileSync(file, 'utf8')), ocr: true }] : pages
 }
+const NUMBERED = /^第[一二三四五六七八九十百\d]+(?:单元|章|课)/u
 // the first page after the 目录 whose opening lines carry the title: where that lesson starts in our PDF
 function startPage(pages, title) {
     const key = normaliseTitle(title)
@@ -148,20 +156,39 @@ for (const book of books) {
     const ours = unitTitles.get(book.edition_id) || new Set()
     const pages = bookPages(book.edition_id)
     const bookText = pages.map(page => page.text).join('')
-    let best = null
+    const fromOcr = pages.length === 1 && pages[0].ocr
+    const trees = []
     for (const candidate of candidates) {
         const tree = await getJson(`${BASE}/trees/${candidate.id}.json`, `tree-${candidate.id}.json`)
-        if (!tree) continue
-        const nodes = flattenTree(tree)
+        if (tree) trees.push({ candidate, tree, nodes: flattenTree(tree) })
+    }
+    let best = null
+    let runnerUp = 0
+    const scored = []
+    for (const { candidate, tree, nodes } of trees) {
         const titled = nodes.map(node => normaliseTitle(node.title)).filter(key => key.length >= 3)
         const overlap = bookText
             ? titled.filter(key => bookText.includes(key)).length
             : nodes.filter(node => ours.has(normaliseTitle(node.title))).length
         const variant = variantScore(book, candidate.title)
-        const score = overlap / Math.max(1, bookText ? titled.length : Math.min(nodes.length, ours.size)) + variant * 0.2
-        if (!best || score > best.score) best = { candidate, tree, nodes, overlap, score, variant, tie: false }
-        else if (score === best.score) best.tie = true
+        // from the OCR'd 目录: old and new editions share lesson names but not chapter numbers (「第五章中国的地理差异」)
+        const numbered = fromOcr ? nodes.map(node => squash(node.title)).filter(key => NUMBERED.test(key) && key.length >= 5).filter(key => bookText.includes(key)).length : 0
+        const score = fromOcr ? numbered * 10 + overlap : overlap / Math.max(1, bookText ? titled.length : Math.min(nodes.length, ours.size)) + variant * 0.2
+        scored.push({ candidate, tree, nodes, titled: titled.length, overlap, score, variant, tie: false })
+        if (!best || score > best.score) { runnerUp = best ? Math.max(runnerUp, best.score) : runnerUp; best = { candidate, tree, nodes, titled: titled.length, overlap, score, variant, tie: false } }
+        else {
+            runnerUp = Math.max(runnerUp, score)
+            if (score === best.score) best.tie = true
+        }
     }
+    // a new edition the platform has only begun (one or two titled nodes) wins on ratio alone (语文4上: 1/1 against 54/56);
+    // prefer a full tree that shares at least three titles with the book
+    if (best && best.titled < 3) {
+        const full = scored.filter(item => item.titled >= 3 && item.overlap >= 3).sort((a, b) => b.overlap - a.overlap)[0]
+        if (full) best = full
+    }
+    // OCR'd books must win clearly: at least five titles (or numbered chapters) and twice the next edition's score
+    if (fromOcr && best && !(best.score >= 5 && best.overlap >= 5 && best.score >= 2 * runnerUp)) best = null
     // one candidate with the same subject, edition, grade, volume and editor is the book even when our 目录 is too sparse to compare
     const sole = best && best.variant >= 0 && (candidates.length === 1 || (best.overlap === 0 && !best.tie && best.variant > 0))
     if (!best || best.variant < 0 || (best.overlap < 2 && !sole) || (bookText && best.tie && best.overlap < 3)) {
@@ -184,12 +211,12 @@ for (const book of books) {
         textbook_title: book.title,
         platform_textbook_id: best.candidate.id,
         platform_title: best.candidate.title,
-        match: { title_hits: best.overlap, method: bookText ? 'book_text' : 'toc', score: Math.round(best.score * 100) / 100, candidates: candidates.length },
+        match: { title_hits: best.overlap, method: fromOcr ? 'toc_ocr' : bookText ? 'book_text' : 'toc', score: Math.round(best.score * 100) / 100, candidates: candidates.length },
         tree: slimTree(best.tree),
         lessons
     }
     writeFileSync(path.join(OUT, `${book.edition_id}.json`), `${JSON.stringify(record, null, 1)}\n`)
-    index.editions[book.edition_id] = { status: 'matched', platform_textbook_id: best.candidate.id, platform_title: best.candidate.title, lessons: lessons.length, title_hits: best.overlap, method: bookText ? 'book_text' : 'toc', pages_found: lessons.filter(item => item.pdf_page).length }
+    index.editions[book.edition_id] = { status: 'matched', platform_textbook_id: best.candidate.id, platform_title: best.candidate.title, lessons: lessons.length, title_hits: best.overlap, method: fromOcr ? 'toc_ocr' : bookText ? 'book_text' : 'toc', pages_found: lessons.filter(item => item.pdf_page).length }
     console.log(`  ✓ ${book.title} → ${best.candidate.title}: ${lessons.length} lessons, overlap ${best.overlap}`)
 }
 if (!only) writeFileSync(path.join(OUT, 'index.json'), `${JSON.stringify(index, null, 1)}\n`)
