@@ -6,6 +6,7 @@ import { CheckCircleIcon } from '@phosphor-icons/react/dist/csr/CheckCircle'
 import { WarningIcon } from '@phosphor-icons/react/dist/csr/Warning'
 import { XCircleIcon } from '@phosphor-icons/react/dist/csr/XCircle'
 import { postApi } from '../data/api'
+import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
 import { downloadWord, downloadUnitWord, planToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
@@ -166,7 +167,19 @@ export default function LessonPlanPage() {
                 if (run !== runRef.current) return
                 setContext(more)
             }
-            setSelected(new Set(direct.map(item => item.matched_point.code)))
+            const picked = new Set(direct.map(item => item.matched_point.code))
+            // a unit spans several 要点: within the standards the AI confirmed, also tick those that share words with the unit's lesson titles
+            if (base.unit_lessons?.length) {
+                const titles = base.unit_lessons.map(item => item.title)
+                for (const code of direct.map(item => item.code)) {
+                    const standard = (missing.length ? null : base.standards.find(item => item.code === code)) || base.standards.find(item => item.code === code)
+                    for (const indicator of standard?.indicators || []) {
+                        if (picked.size >= 8) break
+                        if (titles.some(title => sharedPairs(title, indicator.text) >= 2)) picked.add(indicator.code)
+                    }
+                }
+            }
+            setSelected(picked)
             const checked = results.some(item => item.checked_by_ai)
             setAi({ status: !checked ? 'failed' : direct.length ? 'ok' : 'none', reasons })
         }).catch(() => { if (run === runRef.current) setAi({ status: 'failed', reasons: {} }) })
@@ -216,6 +229,7 @@ export default function LessonPlanPage() {
             setPlan(done)
             writeStored(done)
             setStep('done')
+            trackUmamiEvent('lesson_plan_drafted', { subject: lesson.subject_slug, indicators: selected.size, risks: second.checks.filter(item => item.level === 'risk').length })
         } catch (errorValue) {
             setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
             setStep('')
@@ -244,6 +258,7 @@ export default function LessonPlanPage() {
             })).data
             setUnitPlan({ ...payload, lesson: { ...lesson, subject_name: context.subject_note?.name || subject }, unit_lessons: lessons, hours })
             setStep('done')
+            trackUmamiEvent('unit_plan_drafted', { subject: lesson.subject_slug, lessons: lessons.length })
         } catch (errorValue) {
             setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
             setStep('')
@@ -264,6 +279,7 @@ export default function LessonPlanPage() {
                 plan_text: ownPlan.trim()
             })
             setReport(payload.data)
+            trackUmamiEvent('lesson_plan_checked', { subject: lesson.subject_slug, risks: payload.data.checks.filter(item => item.level === 'risk').length })
         } catch (errorValue) {
             setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
         } finally {
@@ -275,6 +291,7 @@ export default function LessonPlanPage() {
         try {
             await navigator.clipboard.writeText(planToText(plan))
             setCopied(true)
+            trackUmamiEvent('lesson_plan_export', { format: 'copy', kind: 'lesson' })
         } catch {
             setCopied(false)
         }
@@ -554,6 +571,19 @@ function searchQuery(lesson, subjectName, hint, unitLessons) {
     return [base, hint].filter(Boolean).join('，').slice(0, 200)
 }
 
+// how many two-character pieces two texts share (「百家争鸣」 and 「“百家争鸣”局面的产生」 share three)
+function sharedPairs(a, b) {
+    // pairs with function words or 「时期」 match almost anything
+    const pairs = text => {
+        const chars = [...String(text).replace(/[^\p{Script=Han}A-Za-z0-9]/gu, '')]
+        return new Set(chars.slice(0, -1).map((char, index) => char + chars[index + 1]).filter(pair => !/[的和与及等这一了是在]/u.test(pair) && pair !== '时期'))
+    }
+    const left = pairs(a)
+    let shared = 0
+    for (const pair of pairs(b)) if (left.has(pair)) shared += 1
+    return shared
+}
+
 const defaultUnitHours = lessons => Math.min(30, Math.max(1, (lessons || []).reduce((sum, item) => sum + (item.hours || 1), 0)))
 
 function subjectSlugOf(books, subject) {
@@ -601,8 +631,8 @@ function UnitDocument({ plan, edition, subject, onCopy, copied }) {
             <div className={styles.docActions}>
                 <span className={styles.aiBadge}>AI 起草 · 需老师修改</span>
                 <button type="button" className="btn btn-secondary" onClick={onCopy}>{copied ? '已复制' : '复制全文'}</button>
-                <button type="button" className="btn btn-secondary" onClick={() => downloadUnitWord(plan)}>下载 Word</button>
-                <button type="button" className="btn btn-ghost" onClick={() => window.print()}>打印</button>
+                <button type="button" className="btn btn-secondary" onClick={() => { downloadUnitWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'unit' }) }}>下载 Word</button>
+                <button type="button" className="btn btn-ghost" onClick={() => { trackUmamiEvent('lesson_plan_export', { format: 'print', kind: 'unit' }); window.print() }}>打印</button>
             </div>
             <header className={styles.docHead}>
                 <h2 id="lp-unit-title">单元整体设计：{unit.title || lesson.title}</h2>
@@ -732,8 +762,8 @@ function PlanDocument({ plan, done, onCopy, copied }) {
                 {done ? (
                     <>
                         <button type="button" className="btn btn-secondary" onClick={onCopy}>{copied ? '已复制' : '复制全文'}</button>
-                        <button type="button" className="btn btn-secondary" onClick={() => downloadWord(plan)}>下载 Word</button>
-                        <button type="button" className="btn btn-ghost" onClick={() => window.print()}>打印</button>
+                        <button type="button" className="btn btn-secondary" onClick={() => { downloadWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'lesson' }) }}>下载 Word</button>
+                        <button type="button" className="btn btn-ghost" onClick={() => { trackUmamiEvent('lesson_plan_export', { format: 'print', kind: 'lesson' }); window.print() }}>打印</button>
                     </>
                 ) : null}
             </div>

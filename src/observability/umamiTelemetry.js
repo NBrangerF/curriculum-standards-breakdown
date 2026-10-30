@@ -23,7 +23,12 @@ const EVENT_PROPERTIES = Object.freeze({
     standard_code_copy: ['standard_code'],
     share_open: ['standard_code'],
     share_poster_save: ['standard_code'],
-    share_link_copy: ['standard_code']
+    share_link_copy: ['standard_code'],
+    // AI 备课: drafts, checks and plans taken away (copy, Word, print) also cite 课标 codes
+    lesson_plan_drafted: ['subject', 'indicators', 'risks'],
+    unit_plan_drafted: ['subject', 'lessons'],
+    lesson_plan_checked: ['subject', 'risks'],
+    lesson_plan_export: ['format', 'kind']
 })
 
 export const UMAMI_EVENTS = Object.freeze(Object.keys(EVENT_PROPERTIES))

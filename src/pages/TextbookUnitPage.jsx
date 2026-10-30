@@ -72,12 +72,17 @@ const MATERIAL_ORDER = ['视频课程', '课件', '教学设计', '学习任务�
 function PrepPanel({ unit, book, prep }) {
     const standards = prep?.standards || []
     const national = prep?.national_lessons || []
+    // the 国家平台 unit this lesson sits in, for 单元整体设计
+    const chapter = national.find(item => item.chapters?.[0])?.chapters[0] || null
     const planUrl = `/lesson-plan?subject=${encodeURIComponent(book.subject || unit.subject || '')}&edition=${unit.edition_id}&unit=${encodeURIComponent(unit.entry_id)}`
     return (
         <section className={styles.prep} aria-labelledby="unit-prep-heading">
             <div className={styles.prepHead}>
                 <h2 id="unit-prep-heading">备这一课</h2>
-                <Link className="btn btn-primary" to={planUrl}>用 AI 起草这一课的教案 <ArrowRightIcon size={16} aria-hidden="true" /></Link>
+                <span className={styles.prepActions}>
+                    <Link className="btn btn-primary" to={planUrl}>用 AI 起草这一课的教案 <ArrowRightIcon size={16} aria-hidden="true" /></Link>
+                    {chapter ? <Link className="btn btn-secondary" to={`/lesson-plan?subject=${encodeURIComponent(book.subject || unit.subject || '')}&edition=${unit.edition_id}&chapter=${encodeURIComponent(chapter)}`}>做「{chapter.replace(/^\d+\s*/u, '')}」的单元整体设计</Link> : null}
+                </span>
             </div>
             <div className={styles.prepGrid}>
                 <div>
