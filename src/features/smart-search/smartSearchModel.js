@@ -15,6 +15,9 @@ export const GRADE_LABELS = {
 
 export const FIELD_LABELS = {
     standard: '标准正文',
+    indicators_text: '要点（课标原文）',
+    requirements_text: '学业要求（课标原文）',
+    examples_text: '表现示例（kebiao 整理）',
     standard_title: '标题',
     domain: '领域',
     subdomain: '子领域',

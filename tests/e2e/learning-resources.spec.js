@@ -72,7 +72,8 @@ test('detail page shows summary, usage, aligned standards and licence without in
     expect(await blockingViolations(page)).toEqual([])
 
     await standardLink.click()
-    await expect(page).toHaveURL(/\/standards\/SC-H4G7-SC-030/)
+    // the old code opens the 2025 standard it joined
+    await expect(page).toHaveURL(/\/standards\/SC-S4-[A-Z]+-\d+\?from=SC-H4G7-SC-030/)
     const section = page.locator('#standard-resources')
     await expect(section.getByRole('link', { name: '密度', exact: true })).toBeVisible()
     await expect(section.getByRole('link', { name: /打开原站/ }).first()).toHaveAttribute('target', '_blank')

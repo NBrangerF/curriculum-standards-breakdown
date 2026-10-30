@@ -147,16 +147,17 @@ test('LLM query interpreter falls back to Chat Completions and rejects malformed
     assert.equal(malformed.status, 'invalid_response')
     assert.equal(malformed.used, false)
 
-    const filteredEnum = await interpretSearchQueryWithLlm('历史课程', {
+    // 日语 is not one of the published subjects, so the model's value is dropped with a warning
+    const filteredEnum = await interpretSearchQueryWithLlm('日语课程', {
         env: { KEBIAO_LLM_API_KEY: 'test-secret', KEBIAO_LLM_API_STYLE: 'responses' },
         fetchImpl: async () => Response.json({ output_text: JSON.stringify({
-            subjects: ['history'],
+            subjects: ['japanese'],
             excluded_subjects: [],
             grade_bands: [],
             skills: [],
-            core_terms: ['历史'],
-            expanded_terms: ['历史课程'],
-            intent_summary: '历史课程',
+            core_terms: ['日语'],
+            expanded_terms: ['日语课程'],
+            intent_summary: '日语课程',
             warnings: []
         }) })
     })
@@ -1259,7 +1260,8 @@ test('semantic search drops constraints the reader removed', async () => {
 
     const relaxed = await send({ query, ignored_constraints: { subjects: ['math'], core_terms: ['数据分析'] } })
     assert.deepEqual(relaxed.data.applied_filters.subjects, [])
-    assert.deepEqual(relaxed.data.applied_filters.grade_bands, ['H4G7'])
+    // 七年级 sits in the 2025 standards' single 7–9 学段
+    assert.deepEqual(relaxed.data.applied_filters.grade_bands, ['H4'])
     assert.deepEqual(base.data.parsed_query.core_terms, ['数据分析', '数据', '分析', '表达'])
     assert.deepEqual(relaxed.data.parsed_query.core_terms, ['表达'])
     assert.deepEqual(relaxed.data.query_plan.ignored_constraints.subjects, ['math'])

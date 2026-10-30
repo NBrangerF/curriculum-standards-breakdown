@@ -49,6 +49,47 @@ const CAPABILITY_GRAPH_FIELDS = [
     'forward_connections'
 ] as const
 
+type V2Manifest = { subjects: Array<{ subject_slug: string, file: string }> }
+type V2Item = { code?: string, text: string, examples?: Array<{ text: string }> }
+type V2Standard = {
+    code: string, stage: string, stage_code: string, grades: number[], level1: string, level2: string, theme?: string,
+    statement: string, statement_source: string, indicators: V2Item[], requirements?: V2Item[], examples?: Array<{ text: string }>,
+    ts_primary?: string[], ts_secondary?: string[]
+}
+type V2SubjectPayload = { subject_slug: string, subject: string, stages?: Array<{ stage_code: string, label: string }>, standards: V2Standard[] }
+const V2_BAND: Record<number, string> = { 1: 'H1', 3: 'H2', 5: 'H3', 6: 'H3', 7: 'H4', 8: 'H4' }
+const official = { provenance: 'official', review_status: 'source_checked', confidence: 0.95 }
+
+function v2SearchRecord(standard: V2Standard, subject: V2SubjectPayload): StandardRecord {
+    const examples = [...(standard.examples || []), ...standard.indicators.flatMap(item => item.examples || [])]
+    return {
+        code: standard.code,
+        subject: subject.subject,
+        subject_slug: subject.subject_slug,
+        domain: standard.level1,
+        subdomain: standard.level2,
+        display_subcategory: standard.theme || standard.level2,
+        standard_title: standard.level2,
+        standard: standard.statement,
+        indicators_text: standard.indicators.map(item => item.text).join('\n'),
+        requirements_text: (standard.requirements || []).map(item => item.text).join('\n'),
+        examples_text: examples.map(item => item.text).join('\n'),
+        grade_band: V2_BAND[standard.grades[0]] || 'H4',
+        grade_range: standard.stage,
+        stage_label: subject.stages?.find(stage => stage.stage_code === standard.stage_code)?.label || standard.stage,
+        ts_primary: standard.ts_primary || [],
+        ts_secondary: standard.ts_secondary || [],
+        provenance: { provenance: standard.statement_source === 'official' ? 'official' : 'editorial' },
+        field_provenance: {
+            standard: standard.statement_source === 'official' ? official : { provenance: 'editorial', review_status: 'source_checked', confidence: 0.8 },
+            indicators_text: official,
+            requirements_text: official,
+            examples_text: { provenance: 'editorial', review_status: 'unreviewed', confidence: 0.6 }
+        },
+        schema: 'v2'
+    } as unknown as StandardRecord
+}
+
 export class FileCurriculumRepository {
     private manifest?: Manifest
     private dataVersion?: DataVersion
@@ -62,6 +103,8 @@ export class FileCurriculumRepository {
     private allStandards?: StandardRecord[]
     private standardResolver?: ReturnType<typeof createStandardResolver>
     private capabilityGraphs = new Map<string, JsonObject>()
+    private v2SearchRecords = new Map<string, StandardRecord[]>()
+    private v2Manifest?: V2Manifest | null
 
     constructor(private readonly dataRoot: string) {}
 
@@ -119,6 +162,8 @@ export class FileCurriculumRepository {
 
     async loadSubjectStandards(subjectSlug: string): Promise<StandardRecord[]> {
         if (!isKnownSubjectSlug(subjectSlug)) return []
+        // the five junior subjects added in 2025 have v2 standards only
+        if (!(await this.loadManifest()).subjects.some(subject => subject.subject_slug === subjectSlug)) return []
         if (this.subjectStandards.has(subjectSlug)) return this.subjectStandards.get(subjectSlug) || []
         const payload = await this.readJson<SubjectPayload>(`by_subject/${subjectSlug}.json`)
         const standards = payload.standards || []
@@ -304,8 +349,26 @@ export class FileCurriculumRepository {
 
     async smartSearchStandards(request: SmartSearchRequest): Promise<SmartSearchResponse> {
         const subjects = request.subjects?.length ? request.subjects : undefined
-        const all = await this.loadAllStandards(subjects)
+        // Search the 2025 standards (标准 + 要点) when they are published; older data roots fall back to v1 records.
+        const all = (await this.loadV2SearchRecords(subjects)) || await this.loadAllStandards(subjects)
         return smartSearchStandards(all, request)
+    }
+
+    /** The v2 standards as search records: 标准句, 要点 and 学业要求 (课标原文) and 表现示例 (kebiao 整理). */
+    async loadV2SearchRecords(subjects?: string[]): Promise<StandardRecord[] | null> {
+        if (this.v2Manifest === undefined) {
+            try { this.v2Manifest = await this.readJson<V2Manifest>('v2/manifest.json') } catch { this.v2Manifest = null }
+        }
+        if (!this.v2Manifest) return null
+        const targets = this.v2Manifest.subjects.filter(subject => !subjects?.length || subjects.includes(subject.subject_slug))
+        const groups = await Promise.all(targets.map(async subject => {
+            if (!this.v2SearchRecords.has(subject.subject_slug)) {
+                const payload = await this.readJson<V2SubjectPayload>(subject.file)
+                this.v2SearchRecords.set(subject.subject_slug, payload.standards.map(standard => v2SearchRecord(standard, payload)))
+            }
+            return this.v2SearchRecords.get(subject.subject_slug) || []
+        }))
+        return groups.flat()
     }
 
     async getProgressionForCode(code: string, include?: Fieldset[]): Promise<JsonObject | null> {

@@ -151,7 +151,9 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
     // Display public-facing subcategory, not the H4G standard title/topic.
     const primaryLabel = display_subcategory || subdomain || domain || ''
     const secondaryLabel = domain && primaryLabel !== domain ? domain : ''
-    const quickPreviewText = context || teaching_tip || practice || assessment_evidence_type
+    // 2025 standards preview their first 要点 (课标原文); old records their teaching notes
+    const indicatorPreview = (standard.indicators || []).slice(0, 2).map(item => item.text).join(' ')
+    const quickPreviewText = indicatorPreview || context || teaching_tip || practice || assessment_evidence_type
     const standardTextLink = (
         <Link to={`/standards/${code}`} className={styles['standard-text-link']}>
             <p className={styles['standard-text']}>
@@ -196,7 +198,7 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
                             '--band-bg': gradeBandInfo.bgColor
                         }}
                     >
-                        {gradeBandInfo.label || grade_band}
+                        {standard.stage_label || gradeBandInfo.label || grade_band}
                     </span>
 
                     {/* Favorite - primary (always visible) */}
@@ -278,7 +280,7 @@ function StandardCard({ standard, highlightKeyword = '', highlightTerm = '', qui
                         placement="top-start"
                         content={(
                             <span className={styles['standard-quick-preview']} data-kb-standard-quick-preview={code}>
-                                <span>教学线索 · {code}</span>
+                                <span>{indicatorPreview ? `要点 · 课标原文 · ${code}` : `教学线索 · ${code}`}</span>
                                 <strong>{quickPreviewText}</strong>
                                 {uniqueTSCodes.length > 0 ? <small>关联能力 {uniqueTSCodes.join(' · ')}</small> : null}
                             </span>

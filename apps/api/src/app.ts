@@ -79,6 +79,29 @@ function publicOpenApiDocument(source: string) {
 const V2_CODE = /^[A-Z]{2}-S\d-[A-Z]{2,3}-\d{2}(?:\.\d+)?$/u
 type V2Standard = Record<string, unknown> & { code: string, legacy_codes?: string[], indicators: Array<{ code: string }> }
 type V2Subject = { subject_slug: string, subject: string, source_version: string, source_note: string, standards: V2Standard[] }
+type V2TextbookLink = { edition_id: string, textbook_title: string, entry_id: string | null, unit_id: string | null, title: string | null, printed_page: number | null, pdf_page: number | null, indicator: string | null, method: string, score: number }
+type V2TextbookLinks = { standards: Record<string, V2TextbookLink[]>, units: Record<string, Array<{ code: string, indicator: string | null, title?: string }>> }
+const LINK_METHOD: Record<string, string> = { grade_basis: '要点年级依据所指的章节', toc_title: '目录标题与标准文字相符', grade_basis_volume: '要点年级依据所指的分册' }
+
+// A v2 textbook link in the shape the standard page's textbook list reads.
+function v2TextbookItem(code: string, link: V2TextbookLink) {
+    return {
+        alignment_id: `v2_${code}_${link.entry_id || link.edition_id}`,
+        ...(link.entry_id ? {} : { scope_id: `v2_scope_${code}_${link.edition_id}` }),
+        edition_id: link.edition_id,
+        textbook_title: link.textbook_title,
+        unit_id: link.unit_id,
+        unit_title: link.title,
+        node_title: link.title,
+        printed_page: link.printed_page,
+        pdf_page: link.pdf_page,
+        relation_type: link.entry_id ? 'teaches' : 'contextualizes',
+        review_status: 'machine_checked',
+        alignment_method: 'v2_textbook_links',
+        rationale: `${LINK_METHOD[link.method] || '机器对齐'}；机器生成，待核验。`,
+        via_indicator: link.indicator
+    }
+}
 
 function createV2Store(dataRoot: string) {
     const read = async <T>(path: string): Promise<T | null> => {
@@ -86,6 +109,7 @@ function createV2Store(dataRoot: string) {
     }
     let manifest: Promise<{ subjects: Array<{ subject_slug: string, prefix: string }> } | null> | null = null
     let legacy: Promise<Record<string, string> | null> | null = null
+    let links: Promise<V2TextbookLinks | null> | null = null
     const subjects = new Map<string, Promise<V2Subject | null>>()
     return {
         async find(code: string) {
@@ -101,6 +125,10 @@ function createV2Store(dataRoot: string) {
         async movedTo(code: string) {
             legacy ??= read('legacy_codes.json')
             return (await legacy)?.[code] || null
+        },
+        async textbookLinks() {
+            links ??= read<V2TextbookLinks>('textbook_links.json')
+            return (await links) || { standards: {}, units: {} }
         }
     }
 }
@@ -390,7 +418,8 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         const version = await repository.loadDataVersion()
         const unit = await textbookRepository.getUnit(c.req.param('unit_id'))
         if (!unit) return apiError(c, 404, 'not_found', '未找到教材单元。')
-        return ok(c, version, unit)
+        const standardsV2 = (await v2.textbookLinks()).units[c.req.param('unit_id')] || []
+        return ok(c, version, standardsV2.length ? { ...unit, standards_v2: standardsV2 } : unit)
     })
 
     app.get('/api/v1/units/:unit_id/standards', async c => {
@@ -421,6 +450,8 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
                     if (!seen.has(key)) { seen.add(key); textbooks.push({ ...item, via_legacy_code: old }) }
                 }
             }
+            // the junior subjects added in 2025 link to their own textbooks directly
+            for (const link of (await v2.textbookLinks()).standards[found.standard.code] || []) textbooks.push(v2TextbookItem(found.standard.code, link))
             return ok(c, version, textbooks, { total: textbooks.length })
         }
         const lookup = await resolveStandardOrError(c, c.req.param('code'))

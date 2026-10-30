@@ -61,6 +61,8 @@ const v2Manifest = readJson('v2/manifest.json')
 const v2Subjects = v2Manifest.subjects.map(entry => readJson(entry.file))
 const v2ByCode = new Map(v2Subjects.flatMap(subject => subject.standards.map(standard => [standard.code, { standard, subject }])))
 const legacyCodes = readJson('v2/legacy_codes.json')
+const v2TextbookLinks = readJson('v2/textbook_links.json')
+const NEW_SUBJECTS = new Set(['history', 'geography', 'physics', 'chemistry', 'biology'])
 const subjectHeader = subject => ({ subject_slug: subject.subject_slug, subject: subject.subject, source_note: subject.source_note, stages: subject.stages })
 
 const standardTitle = standard => getDisplayTitle(standard.standard, standard.standard_title)
@@ -155,6 +157,13 @@ function standardPage({ standard, subject }) {
             }
         }
     }
+    // the junior subjects added in 2025 link to their own textbooks (machine-made, 待核验)
+    for (const l of v2TextbookLinks.standards[standard.code] || []) {
+        const key = l.entry_id || l.edition_id
+        if (pageEvidence.has(key)) continue
+        const target = l.unit_id ? `/textbook-units/${l.unit_id}` : `/textbooks/${l.edition_id}`
+        pageEvidence.set(key, `${link(target, `${l.textbook_title}${l.title ? ` · ${l.title}` : '（整册）'}`)}<span class="kbp-note">${l.printed_page ? `，第 ${l.printed_page} 页` : ''} · 机器对齐，待核验</span>`)
+    }
     const siblings = subject.standards
         .filter(other => other.code !== standard.code && other.stage_code === standard.stage_code && other.level1 === standard.level1)
         .slice(0, 12).map(other => `${link(`/standards/${other.code}`, other.level2)} <span class="kbp-code">${esc(other.code)}</span>`)
@@ -248,7 +257,13 @@ ${section('对应的课程标准', list(aligned))}`, {
         const unitCrumbs = [...crumbs, [book.title, `/textbooks/${book.edition_id}`], [unit.title, `/textbook-units/${unit.entry_id}`]]
         const aligned = []
         const seen = new Set()
-        for (const item of unit.alignments || []) {
+        for (const item of v2TextbookLinks.units[unit.entry_id] || []) {
+            const found = v2ByCode.get(item.code)
+            if (!found || seen.has(item.code)) continue
+            seen.add(item.code)
+            aligned.push(`${link(`/standards/${item.code}${item.indicator ? `#${item.indicator}` : ''}`, `${found.standard.level2}（${found.subject.subject}${v2StageLabel(found.standard, found.subject)}）`)} <span class="kbp-note">${esc(item.indicator || item.code)} · 机器对齐，待核验</span>`)
+        }
+        for (const item of NEW_SUBJECTS.has(book.subject_slug) && aligned.length ? [] : unit.alignments || []) {
             if (seen.has(item.standard_code) || !standardsByCode.has(item.standard_code)) continue
             seen.add(item.standard_code)
             aligned.push(`${standardLink(item.standard_code)}${item.review_status === 'approved' ? '' : ' <span class="kbp-note">机器对齐，待核验</span>'}`)

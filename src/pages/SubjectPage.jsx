@@ -17,6 +17,8 @@ import styles from './SubjectPage.module.css'
 const SkillsGraphWorkspace = lazy(() => import('../features/graph/SkillsGraphWorkspace.jsx'))
 const GRAPH_RELATION_TYPES = Object.freeze(['contains', 'progression', 'skill_alignment'])
 const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+// The relationship graph is built from the old (2022) records, which only these subjects have.
+const GRAPH_SUBJECTS = new Set(['chinese', 'math', 'english', 'science', 'morality_law', 'it', 'pe', 'arts', 'labor'])
 
 function Stat({ value, label }) {
     const n = useCountUp(value)
@@ -207,7 +209,7 @@ function SubjectPage() {
 
     const searchKey = searchParams.toString()
     const graphState = useMemo(() => parseGraphStateFromURL(new URLSearchParams(searchKey)), [searchKey])
-    const graphView = uiV2Enabled && graphState.view === 'graph'
+    const graphView = uiV2Enabled && GRAPH_SUBJECTS.has(slug) && graphState.view === 'graph'
     const s = K ? K.slugIndex.get(slug) : undefined
     const subjectInfo = s == null ? null : K.subjects[s]
     usePageMeta(subjectInfo ? subjectMeta({ subject: subjectInfo.name, subject_slug: slug }, { standardCount: subjectInfo.standards, indicatorCount: subjectInfo.count }) : null)
@@ -341,7 +343,7 @@ function SubjectPage() {
                             <Ignite key={`y${years}`} as="h2" mode="scrub" id="s-table-title" className={styles.h2} text={`${CN_DIGIT[years]}年`} />
                         </div>
                         <div className={styles.tools}>
-                            {uiV2Enabled ? (
+                            {uiV2Enabled && GRAPH_SUBJECTS.has(slug) ? (
                                 <div className={styles.seg} role="group" aria-label="视图">
                                     <button type="button" aria-pressed={!graphView} onClick={() => setViewMode('table')}>对照表</button>
                                     <button type="button" aria-pressed={graphView} onClick={() => setViewMode('graph')} data-kb-telemetry-task="graph_open">关系图谱</button>

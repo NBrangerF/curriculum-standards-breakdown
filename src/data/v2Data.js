@@ -89,10 +89,28 @@ export function asListRecord(standard, subject) {
         standard: standard.statement,
         grade_band: LIST_BAND[standard.grades[0]] || 'H4',
         grade_range: standard.stage,
-        ts_primary: [],
-        ts_secondary: [],
+        stage_label: subject.stages?.find(st => st.stage_code === standard.stage_code)?.label || null,
+        ts_primary: standard.ts_primary || [],
+        ts_secondary: standard.ts_secondary || [],
         indicators: standard.indicators
     }
+}
+
+// The four 学段 the list pages filter by (a subject's own stage sits by its first grade: 艺术 3–5 年级 is H2).
+export const V2_BANDS = ['H1', 'H2', 'H3', 'H4']
+// Old links name 七/八/九年级 (H4G7–9); they now mean the 7–9 学段.
+export const toV2Band = band => (String(band).toUpperCase().startsWith('H4') ? 'H4' : String(band).toUpperCase())
+
+// Subjects in the shape the list pages read (subject_slug, subject, record_count).
+export async function loadV2Subjects() {
+    const manifest = await loadV2Manifest()
+    return manifest.subjects.map(s => ({ subject: s.subject, subject_slug: s.subject_slug, record_count: s.standard_count, indicator_count: s.indicator_count, stages: s.stages }))
+}
+
+// Every standard of the given subjects as list records.
+export async function loadV2ListStandards(slugs) {
+    const subjects = await Promise.all(slugs.map(slug => loadV2Subject(slug).catch(() => null)))
+    return subjects.filter(Boolean).flatMap(subject => subject.standards.map(standard => asListRecord(standard, subject)))
 }
 
 // Saved lists from before the move hold old codes: swap each for the standard it joined (once per browser).

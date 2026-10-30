@@ -41,6 +41,13 @@ const resourcesByOldCode = new Map(existsSync(RESOURCES_DIR)
     ? readdirSync(RESOURCES_DIR).filter(f => f.endsWith('.json')).map(f => [f.replace(/\.json$/u, ''), readJson(join(RESOURCES_DIR, f)).resources.map(r => r.id)])
     : [])
 
+// Transferable-skill candidates (TS…) were tagged on the old records; a standard carries those of the records that joined it.
+const oldSkills = new Map()
+for (const f of existsSync('public/data/by_subject') ? readdirSync('public/data/by_subject').filter(n => n.endsWith('.json')) : []) {
+    for (const r of readJson(join('public/data/by_subject', f)).standards || []) oldSkills.set(r.code, { primary: r.ts_primary || [], secondary: r.ts_secondary || [] })
+}
+const skillsOf = (codes, key) => [...new Set(codes.flatMap(code => oldSkills.get(code)?.[key] || []))].sort()
+
 function publicStandard(s, oldCodes) {
     return {
         code: s.code,
@@ -74,6 +81,8 @@ function publicStandard(s, oldCodes) {
         examples: s.examples.map(example),
         // Every old code that now opens this standard (on a 要点 or on the standard itself).
         legacy_codes: oldCodes,
+        ts_primary: skillsOf(oldCodes, 'primary'),
+        ts_secondary: skillsOf(oldCodes, 'secondary').filter(code => !skillsOf(oldCodes, 'primary').includes(code)),
         learning_resource_ids: [...new Set(oldCodes.flatMap(code => resourcesByOldCode.get(code) || []))]
     }
 }
@@ -137,6 +146,21 @@ for (const slug of ordered) {
 }
 
 writeFileSync(join(OUT, 'legacy_codes.json'), `${JSON.stringify(legacyCodes)}\n`)
+
+// Textbook links for the five junior subjects added in 2025 (scripts/v2/align_textbooks.mjs; machine-made, 待核验):
+// standard → chapters/lessons, and each TOC entry → the standards that link to it.
+const LINKS = join(SOURCE, 'textbook_links')
+const textbookLinks = { method: 'v2-textbook-links-1', standards: {}, units: {} }
+if (existsSync(LINKS)) {
+    const titleOf = new Map(subjects.flatMap(subj => readJson(join('public/data', subj.file)).standards.map(st => [st.code, st.level2])))
+    for (const f of readdirSync(LINKS).filter(n => n.endsWith('.json') && n !== 'contents.json')) {
+        for (const [code, links] of Object.entries(readJson(join(LINKS, f)).links)) {
+            textbookLinks.standards[code] = links
+            for (const l of links) if (l.entry_id) (textbookLinks.units[l.entry_id] ||= []).push({ code, indicator: l.indicator, title: titleOf.get(code) })
+        }
+    }
+}
+writeFileSync(join(OUT, 'textbook_links.json'), `${JSON.stringify(textbookLinks)}\n`)
 const totals = {
     subjects: subjects.length,
     standards: subjects.reduce((n, s) => n + s.standard_count, 0),

@@ -20,6 +20,9 @@ const SUBJECT_ALIASES: Record<string, string[]> = {
     morality_law: ['道德与法治', '道法', 'morality', 'law'],
     history: ['历史', 'history'],
     geography: ['地理', 'geography'],
+    physics: ['物理', 'physics'],
+    chemistry: ['化学', 'chemistry'],
+    biology: ['生物学', '初中生物', '生物课', 'biology'],
     pe: ['体育与健康', '体育', 'pe'],
     arts: ['艺术', '美术', '音乐', '舞蹈', '戏剧', '影视', 'art'],
     labor: ['劳动', '劳动教育', 'labor'],
@@ -42,10 +45,13 @@ const GRADE_PATTERNS: Array<[RegExp, string]> = [
     [/(?:一|1)\s*[-—至到]\s*(?:二|2)年级|一二年级|第一学段|G\s*1\s*[-—至到]\s*2|(?:小学)?(?:一|二|1|2)年级/iu, 'H1'],
     [/(?:三|3)\s*[-—至到]\s*(?:四|4)年级|三四年级|第二学段|G\s*3\s*[-—至到]\s*4|(?:小学)?(?:三|四|3|4)年级/iu, 'H2'],
     [/(?:五|5)\s*[-—至到]\s*(?:六|6)年级|五六年级|第三学段|G\s*5\s*[-—至到]\s*6|(?:小学)?(?:五|六|5|6)年级/iu, 'H3'],
-    [/(?:七|7)年级|初一|H4G7/i, 'H4G7'],
-    [/(?:八|8)年级|初二|H4G8/i, 'H4G8'],
-    [/(?:九|9)年级|初三|H4G9/i, 'H4G9']
+    // The 2025 standards set one 7–9 学段; a grade inside it filters to that 学段.
+    [/(?:七|八|九|7|8|9)年级|初[一二三中]|第四学段|H4(?:G[789])?/i, 'H4']
 ]
+
+// A filter on the 7–9 学段 (H4) also matches old per-grade records (H4G7–9), and the other way round.
+const bandMatches = (bands: string[], recordBand: string) => bands.some(band => band === recordBand
+    || (band === 'H4' && recordBand.startsWith('H4')) || (recordBand === 'H4' && band.startsWith('H4')))
 
 const TOPIC_STOP_WORDS = new Set([
     '学生', '学习', '课程', '标准', '课标', '教学', '相关', '有关', '要求', '目标', '能力',
@@ -65,6 +71,10 @@ const QUERY_SCAFFOLDING = [
 ].sort((left, right) => right.length - left.length)
 const SEARCH_FIELDS: Array<[string, number]> = [
     ['standard', 1],
+    // v2 standards: the 要点 and 学业要求 are 课标原文; 表现示例 are kebiao's
+    ['indicators_text', 1],
+    ['requirements_text', 0.8],
+    ['examples_text', 0.5],
     ['standard_title', 0.92],
     ['domain', 0.78],
     ['subdomain', 0.76],
@@ -74,7 +84,7 @@ const SEARCH_FIELDS: Array<[string, number]> = [
     ['teaching_tip', 0.46],
     ['assessment_evidence_type', 0.42]
 ]
-const PRIMARY_TOPIC_FIELDS = new Set(['standard', 'standard_title', 'domain', 'subdomain', 'display_subcategory'])
+const PRIMARY_TOPIC_FIELDS = new Set(['standard', 'indicators_text', 'requirements_text', 'standard_title', 'domain', 'subdomain', 'display_subcategory'])
 
 function unique<T>(items: T[]): T[] {
     return [...new Set(items)]
@@ -284,7 +294,7 @@ function mainSkills(record: StandardRecord): string[] {
 function matchesHardFilters(record: StandardRecord, filters: ReturnType<typeof mergeFilters>['filters']): boolean {
     if (filters.subjects.length && !filters.subjects.includes(String(record.subject_slug))) return false
     if (filters.excluded_subjects.includes(String(record.subject_slug))) return false
-    if (filters.grade_bands.length && !filters.grade_bands.includes(String(record.grade_band))) return false
+    if (filters.grade_bands.length && !bandMatches(filters.grade_bands, String(record.grade_band))) return false
     if (filters.domains.length && !filters.domains.includes(String(record.domain))) return false
     if (filters.skills.length && !filters.skills.some(skill => mainSkills(record).includes(skill))) return false
     return true
@@ -337,7 +347,13 @@ function scoreRecord(
             matched_terms: unique(matched),
             matched_core_terms: unique(matchedCore),
             matched_expansion_terms: unique(matchedExpansion),
-            excerpt: String(value).slice(0, 180),
+            // the part of the field around the first match, so a long field (all 要点) shows the matching 要点
+            excerpt: (() => {
+                const text = String(value)
+                const at = Math.max(0, text.toLowerCase().indexOf(matched[0]) - 40)
+                const start = at > 0 ? Math.max(0, text.lastIndexOf('\n', at) + 1) : 0
+                return `${start > 0 ? '…' : ''}${text.slice(start, start + 180)}`
+            })(),
             provenance: trust.provenance,
             review_status: trust.review_status,
             confidence: trust.confidence,
@@ -348,7 +364,7 @@ function scoreRecord(
     const lexical = availableWeight ? Math.min(1, weightedOverlap / Math.min(2.4, availableWeight)) : 0
     const structuralSignals = [
         filters.subjects.length ? filters.subjects.includes(String(record.subject_slug)) : null,
-        filters.grade_bands.length ? filters.grade_bands.includes(String(record.grade_band)) : null,
+        filters.grade_bands.length ? bandMatches(filters.grade_bands, String(record.grade_band)) : null,
         filters.domains.length ? filters.domains.includes(String(record.domain)) : null
     ].filter(value => value !== null)
     const structural = structuralSignals.length ? structuralSignals.filter(Boolean).length / structuralSignals.length : 0.35

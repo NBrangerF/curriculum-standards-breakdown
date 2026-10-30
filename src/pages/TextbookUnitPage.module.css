@@ -30,3 +30,9 @@
     .resourceDetails div { grid-template-columns: 1fr; gap: .15rem; }
     .resourceLink { width: 100%; justify-content: space-between; }
 }
+
+.v2List { display: grid; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+.v2List a { display: grid; gap: 2px; padding: 10px 12px; border: 1px solid var(--kb-line); border-radius: 12px; color: var(--kb-moon); text-decoration: none; }
+.v2List a:hover, .v2List a:focus-visible { border-color: var(--kb-gold); }
+.v2List code { color: var(--kb-gold); font-family: var(--font-mono); font-size: 12px; }
+.v2Note { margin: 10px 0 24px; color: var(--kb-dim); font-size: 13px; }

@@ -3,15 +3,12 @@ import { useSearchParams, Link, useNavigate } from 'react-router-dom'
 import { ChartBarIcon } from '@phosphor-icons/react/dist/csr/ChartBar'
 import { WarningCircleIcon } from '@phosphor-icons/react/dist/csr/WarningCircle'
 import {
-    loadManifest,
-    loadMultipleSubjectStandards,
     loadSkillsMeta,
-    getSubjectsFromManifest,
     getSkillsMeta,
     filterStandards,
-    GRADE_BANDS,
-    getSelectableGradeBands
+    GRADE_BANDS
 } from '../data/dataLoader'
+import { loadV2ListStandards, loadV2Subjects, toV2Band, V2_BANDS } from '../data/v2Data.js'
 import { QUERY_PARAMS, buildShareableURL } from '../data/query'
 import {
     toggleSkill,
@@ -41,7 +38,7 @@ function parseFiltersFromURL(searchParams) {
 
     return ensureSafeFilters({
         subjects: urlSubjects?.split(',').filter(Boolean) || [],
-        gradeBands: sortGradeBands(urlBands?.split(',').map(b => b.toUpperCase()).filter(Boolean) || []),
+        gradeBands: sortGradeBands([...new Set(urlBands?.split(',').filter(Boolean).map(toV2Band) || [])]),
         skills: urlSkills?.split(',').map(s => s.toUpperCase()).filter(Boolean) || []
     })
 }
@@ -105,9 +102,9 @@ function SearchResultsPage() {
     // ============================================
 
     useEffect(() => {
-        Promise.all([loadManifest(), loadSkillsMeta()])
-            .then(() => {
-                setSubjects(getSubjectsFromManifest())
+        Promise.all([loadV2Subjects(), loadSkillsMeta()])
+            .then(([v2Subjects]) => {
+                setSubjects(v2Subjects)
                 setSkills(getSkillsMeta())
                 setLoading(false)
             })
@@ -124,7 +121,7 @@ function SearchResultsPage() {
         if (safeApplied.subjects.length === 0) return
 
         setStandardsLoading(true)
-        loadMultipleSubjectStandards(safeApplied.subjects)
+        loadV2ListStandards(safeApplied.subjects)
             .then(standards => {
                 setAllStandards(standards || [])
                 setStandardsLoading(false)
@@ -308,7 +305,7 @@ function SearchResultsPage() {
 
     const safeApplied = ensureSafeFilters(appliedFilters)
     const shareableURL = buildShareableURL(appliedFilters, '/search')
-    const gradeBandsList = getSelectableGradeBands()
+    const gradeBandsList = V2_BANDS.map(band => [band, GRADE_BANDS[band]])
 
     // ============================================
     // RENDER GUARDS

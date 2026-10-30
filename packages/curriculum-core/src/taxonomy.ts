@@ -1,4 +1,5 @@
-export const GRADE_BAND_CODES = ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9'] as const
+// H4 is the 7–9 学段 of the 2025 standards; H4G7–9 are the old per-grade records.
+export const GRADE_BAND_CODES = ['H1', 'H2', 'H3', 'H4', 'H4G7', 'H4G8', 'H4G9'] as const
 export const SKILL_CODES = ['TS1', 'TS2', 'TS3', 'TS4', 'TS5', 'TS6', 'TS7'] as const
 
 export const SUBJECT_TAXONOMY = {
@@ -44,6 +45,27 @@ export const SUBJECT_TAXONOMY = {
     science: {
         code: 'SC',
         domains: { '科学观念': 'SC', '科学思维': 'TH', '探究实践': 'PR', '态度责任': 'AR' }
+    },
+    // Junior subjects added with the 2025 revision (v2 standards only).
+    history: {
+        code: 'HI',
+        domains: { '中国古代史': 'AC', '中国近代史': 'MC', '中国现代史': 'CC', '世界古代史': 'AW', '世界近代史': 'MW', '世界现代史': 'CW' }
+    },
+    geography: {
+        code: 'GE',
+        domains: { '认识全球': 'GL', '认识区域': 'RE', '地理工具与地理实践': 'TP' }
+    },
+    physics: {
+        code: 'PH',
+        domains: { '物质': 'MA', '运动和相互作用': 'MI', '能量': 'EN', '实验探究': 'EX', '跨学科实践': 'XP' }
+    },
+    chemistry: {
+        code: 'CH',
+        domains: { '科学探究与化学实验': 'SI', '物质的性质与应用': 'PR', '物质的组成与结构': 'CO', '物质的化学变化': 'RE', '化学与社会•跨学科实践': 'SO' }
+    },
+    biology: {
+        code: 'BI',
+        domains: { '生物体的结构层次': 'ST', '生物的多样性': 'DI', '生物与环境': 'EN', '植物的生活': 'PL', '人体生理与健康': 'HU', '遗传与进化': 'GE', '生物学与社会•跨学科实践': 'XP' }
     }
 } as const
 

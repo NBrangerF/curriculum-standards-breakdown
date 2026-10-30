@@ -2,14 +2,12 @@ import { lazy, Suspense, useCallback, useState, useEffect, useMemo } from 'react
 import { useParams, useSearchParams, Link } from 'react-router-dom'
 import {
     loadSkillsMeta,
-    loadManifest,
-    loadMultipleSubjectStandards,
     getSkillByCode,
-    getSubjectsFromManifest,
     filterStandards,
     SKILL_COLORS
 } from '../data/dataLoader'
 import GradeBandTabs from '../components/GradeBandTabs'
+import { loadV2ListStandards, loadV2Subjects, V2_BANDS } from '../data/v2Data.js'
 import StandardCard from '../components/StandardCard'
 import { PageHero } from '../components/kb'
 import { LoadingState, PageLoading, ErrorState, EmptyState, ResultStats, CopyLinkButton } from '../components/StateComponents'
@@ -44,11 +42,11 @@ function SkillDetailPage() {
     // Initial load - skill meta and manifest
     useEffect(() => {
         setLoading(true)
-        Promise.all([loadSkillsMeta(), loadManifest()])
-            .then(() => {
+        Promise.all([loadSkillsMeta(), loadV2Subjects()])
+            .then(([, v2Subjects]) => {
                 const foundSkill = getSkillByCode(code)
                 setSkill(foundSkill)
-                setSubjects(getSubjectsFromManifest())
+                setSubjects(v2Subjects)
                 setLoading(false)
             })
             .catch(err => {
@@ -66,7 +64,7 @@ function SkillDetailPage() {
             : subjects.map(s => s.subject_slug)
 
         setStandardsLoading(true)
-        loadMultipleSubjectStandards(slugsToLoad)
+        loadV2ListStandards(slugsToLoad)
             .then(standards => {
                 setAllStandards(standards)
                 setStandardsLoading(false)
@@ -286,6 +284,7 @@ function SkillDetailPage() {
                             <GradeBandTabs
                                 selected={selectedBands}
                                 onChange={setSelectedBands}
+                                availableBands={V2_BANDS}
                             />
                         </div>
 

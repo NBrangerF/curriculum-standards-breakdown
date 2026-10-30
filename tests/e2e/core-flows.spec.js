@@ -374,7 +374,7 @@ test('search comparison results expose a quick preview without changing link sem
     await resultLink.hover()
     const preview = page.locator('[data-kb-standard-quick-preview]').first()
     await expect(preview).toBeVisible()
-    await expect(preview).toContainText('教学线索')
+    await expect(preview).toContainText('要点 · 课标原文')
     await expect(preview.locator('strong')).not.toBeEmpty()
     await expect(resultLink).toHaveAccessibleName(accessibleName.trim())
 })

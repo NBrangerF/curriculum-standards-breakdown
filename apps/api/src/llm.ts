@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto'
 
-const SUBJECTS = ['chinese', 'math', 'english', 'science', 'morality_law', 'pe', 'arts', 'labor', 'it'] as const
-const GRADE_BANDS = ['H1', 'H2', 'H3', 'H4G7', 'H4G8', 'H4G9'] as const
+const SUBJECTS = ['chinese', 'math', 'english', 'morality_law', 'history', 'geography', 'science', 'physics', 'chemistry', 'biology', 'it', 'pe', 'arts', 'labor'] as const
+const GRADE_BANDS = ['H1', 'H2', 'H3', 'H4'] as const
 const SKILLS = ['TS1', 'TS2', 'TS3', 'TS4', 'TS5', 'TS6', 'TS7'] as const
 
 export type LlmProtocol = 'responses' | 'chat_completions'
@@ -115,7 +115,7 @@ const INSTRUCTIONS = `你是 kebiao 的课程标准查询理解器。只分析�
 	返回严格符合给定 JSON Schema 的对象。core_terms 只填写用户真正要查找的核心主题概念，例如查询“除了语文之外跟阅读相关”时填写“阅读”，不得填写学科、学段、课标、相关、要求、目标、能力、教学、学习等筛选词或泛词。
 	expanded_terms 只能填写 core_terms 的紧密同义词或可验证的相邻表达；不得复述整段查询，不得用“理解、要求、目标、能力”等泛词补足数量。无法可靠提取核心主题时返回空数组。
 	subjects 表示用户明确要求包含的学科；excluded_subjects 表示“除了语文”“排除数学”“非英语”等明确排除的学科，同一学科不得同时出现在二者中。
-	学段映射必须严格使用：H1=第一学段=1-2年级=G1-2；H2=第二学段=3-4年级=G3-4；H3=第三学段=5-6年级=G5-6；H4G7=七年级=G7；H4G8=八年级=G8；H4G9=九年级=G9。
+	学段映射必须严格使用：H1=第一学段=1-2年级=G1-2；H2=第二学段=3-4年级=G3-4；H3=第三学段=5-6年级=G5-6；H4=第四学段=7-9年级=七年级/八年级/九年级/初中。
 	grade_bands、skills 只在用户意图明确时填写。无法可靠判断时返回空数组。
 	每个 subjects、excluded_subjects、grade_bands 值都必须在 constraint_evidence 中提供 kind、value 和用户原文中逐字存在的 evidence_span；没有原文证据时不得输出该约束。
 	如果用户表达真的存在歧义，把原因写入 ambiguities，并只提出一个简短 clarification_question；不要猜测。没有歧义时返回空数组和空字符串。

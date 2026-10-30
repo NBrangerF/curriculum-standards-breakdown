@@ -7,6 +7,9 @@ import { textbookUnitMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import TextbookAlignmentCard from '../features/textbooks/TextbookAlignmentCard'
 import { loadTextbookDetail, loadTextbookUnit } from '../features/textbooks/textbookApi'
+
+// Subjects added with the 2025 revision: their chapters link to their own standards, not to 科学 / 道法 ones.
+const NEW_SUBJECTS = new Set(['history', 'geography', 'physics', 'chemistry', 'biology'])
 import styles from './TextbookUnitPage.module.css'
 
 const RESOURCE_TYPE_LABELS = {
@@ -94,7 +97,22 @@ export default function TextbookUnitPage() {
                 <Link className="btn btn-primary" to={`/textbooks/${unit.edition_id}/read?page=${unit.pdf_page}&node=${encodeURIComponent(unit.entry_id)}&panel=standards`}>打开原书与课标 <ArrowRightIcon size={16} aria-hidden="true" /></Link>
             </header>
             <div className={styles.grid}>
-                <section><h2>对应课程标准</h2>{unit.alignments.length ? <div className={styles.list}>{unit.alignments.map(item => <TextbookAlignmentCard key={item.alignment_id} book={book} alignment={item} fallbackPage={unit.pdf_page} />)}</div> : <EmptyState title="暂无可靠的单元级关联" message="该条目尚未生成满足页内证据约束的具体关系。" />}</section>
+                <section>
+                    {unit.standards_v2?.length ? (
+                        <>
+                            <h2>对应课程标准（2025 修订版）</h2>
+                            <ul className={styles.v2List}>
+                                {unit.standards_v2.map(item => (
+                                    <li key={item.code}>
+                                        <Link to={`/standards/${item.code}${item.indicator ? `#${item.indicator}` : ''}`}><code>{item.indicator || item.code}</code>{item.title}</Link>
+                                    </li>
+                                ))}
+                            </ul>
+                            <p className={styles.v2Note}>按目录标题和要点的年级依据由机器对齐，待核验。</p>
+                        </>
+                    ) : null}
+                    {unit.standards_v2?.length && NEW_SUBJECTS.has(unit.subject_slug) ? null : <>
+                    <h2>对应课程标准</h2>{unit.alignments.length ? <div className={styles.list}>{unit.alignments.map(item => <TextbookAlignmentCard key={item.alignment_id} book={book} alignment={item} fallbackPage={unit.pdf_page} />)}</div> : <EmptyState title="暂无可靠的单元级关联" message="该条目尚未生成满足页内证据约束的具体关系。" />}</>}</section>
                 <aside className={styles.resourcePanel} aria-labelledby="unit-resource-heading"><h2 id="unit-resource-heading">教师用书与辅助材料</h2><TextbookUnitResources resources={unit.related_resources} /></aside>
             </div>
         </div>
