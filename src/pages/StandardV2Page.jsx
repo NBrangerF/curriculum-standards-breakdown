@@ -104,18 +104,19 @@ function NationalLessons({ code }) {
     }, [code])
     const lessons = data?.standards?.[code] || []
     if (!lessons.length) return null
+    const byAi = lessons.some(item => item[6] === 1)
     return (
         <section className={styles.block} id="standard-national-lessons">
             <h2>国家平台同步课</h2>
             <ul className={styles.resourceList}>
-                {lessons.map(([, id, title, textbook, materials]) => (
+                {lessons.map(([, id, title, textbook, materials, , viaAi]) => (
                     <li key={id}>
                         <a href={NATIONAL_URL(id)} target="_blank" rel="noopener noreferrer">{title} ↗</a>
-                        <span>{textbook}{materials.length ? ` · ${materials.map(index => data.materials[index]).join(' · ')}` : ''}</span>
+                        <span>{textbook}{materials.length ? ` · ${materials.map(index => data.materials[index]).join(' · ')}` : ''}{viaAi === 1 ? ' · AI 按单元判断' : ''}</span>
                     </li>
                 ))}
             </ul>
-            <p className={styles.blockNote}>按教材页码与课标的机器对应列出，待核验。国家中小学智慧教育平台免费提供，观看需登录平台账号。</p>
+            <p className={styles.blockNote}>{byAi ? '标「AI 按单元判断」的，是 AI 读了教材单元的课名和本学段全部课标后判断为直接对应的；其余按教材页码与课标的机器对应列出。都待核验。' : '按教材页码与课标的机器对应列出，待核验。'}国家中小学智慧教育平台免费提供，观看需登录平台账号。</p>
         </section>
     )
 }

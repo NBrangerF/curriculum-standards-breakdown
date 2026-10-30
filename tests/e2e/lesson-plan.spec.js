@@ -202,9 +202,10 @@ test('核验单元测试卷: a pasted test becomes a 多维细目表 with the �
             model: 'gpt-5-mini'
         })) })
     })
-    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&chapter=${encodeURIComponent('4 分数的意义和性质')}`)
+    // the textbook unit page links here with task=test
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&chapter=${encodeURIComponent('4 分数的意义和性质')}&task=test`)
     await expect(page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })).toBeChecked()
-    await page.getByRole('tab', { name: '核验单元测试卷' }).click()
+    await expect(page.getByRole('tab', { name: '核验单元测试卷' })).toHaveAttribute('aria-selected', 'true')
     await page.getByLabel(/单元测试卷全文/).fill('一、填空题（共 30 分）\n1. 把 6/8 化成最简分数。（20 分）\n2. 把循环小数 0.333… 化成分数。（10 分）')
     await page.getByRole('button', { name: /对照选定的 1 条要点编细目表/ }).click()
     await expect(page.getByRole('heading', { name: /多维细目表：分数的意义和性质/ })).toBeVisible()

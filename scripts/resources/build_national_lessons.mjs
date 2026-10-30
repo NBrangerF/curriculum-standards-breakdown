@@ -34,6 +34,10 @@ export function buildNationalLessons() {
         if (!rowsByEdition.has(row[0])) rowsByEdition.set(row[0], [])
         rowsByEdition.get(row[0]).push(row)
     }
+    // AI 按单元判断 (pick_unit_standards.mjs): when the AI read a unit against the standards, its 直接对应 picks
+    // replace the page alignment for that unit's lessons
+    const picksFile = path.join(SOURCE, 'unit_picks.json')
+    const unitPicks = existsSync(picksFile) ? JSON.parse(readFileSync(picksFile, 'utf8')).editions : {}
     const byStandard = new Map()
     const linkLesson = (codes, entry) => {
         for (const code of new Set(codes.map(value => value.replace(/\.\d+$/u, '')))) {
@@ -89,7 +93,13 @@ export function buildNationalLessons() {
         }
         writeFileSync(path.join(OUT, `${record.edition_id}.json`), `${JSON.stringify(out)}\n`)
         const rows = (rowsByEdition.get(record.edition_id) || []).filter(row => Number.isInteger(row[3])).sort((a, b) => a[3] - b[3])
+        const aiOf = new Map(sorted.map(lesson => [lesson.id, (unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([, grade, point]) => grade === 2 && point).map(([, , point]) => point)]))
         for (const lesson of lessons) {
+            const ai = aiOf.get(lesson.id) || []
+            if (ai.length) {
+                linkLesson(ai, [record.edition_id, lesson.id, lesson.title, record.textbook_title, MATERIALS.filter(name => lesson.materials.includes(name)).map(name => MATERIALS.indexOf(name)), confidence === 'text' ? 1 : 0, 1])
+                continue
+            }
             const codes = []
             if (lesson.unit_id) {
                 for (const item of v2Links.units[lesson.unit_id] || []) codes.push(item.code)
@@ -101,7 +111,7 @@ export function buildNationalLessons() {
                 const next = rows.find(item => item[3] > (row?.[3] ?? Infinity))
                 if (row && (!next || lesson.pdf_page < next[3])) codes.push(...row[5])
             }
-            if (codes.length) linkLesson(codes, [record.edition_id, lesson.id, lesson.title, record.textbook_title, MATERIALS.filter(name => lesson.materials.includes(name)).map(name => MATERIALS.indexOf(name)), confidence === 'text' ? 1 : 0])
+            if (codes.length) linkLesson(codes, [record.edition_id, lesson.id, lesson.title, record.textbook_title, MATERIALS.filter(name => lesson.materials.includes(name)).map(name => MATERIALS.indexOf(name)), confidence === 'text' ? 1 : 0, 0])
         }
         index.editions[record.edition_id] = { platform_title: record.platform_title, lessons: lessons.length, confidence, units_linked: lessons.filter(item => item.unit_id).length }
     }
@@ -111,13 +121,19 @@ export function buildNationalLessons() {
     for (const [code, list] of byStandard) {
         const prefix = code.slice(0, 2)
         list.sort((a, b) => b[4].length - a[4].length)
-        ;(bySubject[prefix] ??= {})[code] = list.slice(0, 8)
+        // at most 3 from one textbook, so a standard shows lessons from several grades and editions
+        const perBook = new Map()
+        const kept = list.filter(item => {
+            perBook.set(item[3], (perBook.get(item[3]) || 0) + 1)
+            return perBook.get(item[3]) <= 3
+        })
+        ;(bySubject[prefix] ??= {})[code] = kept.slice(0, 8)
     }
     const subjectOut = path.join(ROOT, 'public/data/v2/national-lessons')
     rmSync(subjectOut, { recursive: true, force: true })
     mkdirSync(subjectOut, { recursive: true })
     for (const [prefix, standards] of Object.entries(bySubject)) {
-        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched'], standards })}\n`)
+        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards })}\n`)
     }
     return { editions: Object.keys(index.editions).length, lessons: lessonTotal, standards: byStandard.size }
 }

@@ -82,6 +82,7 @@ function PrepPanel({ unit, book, prep }) {
                 <span className={styles.prepActions}>
                     <Link className="btn btn-primary" to={planUrl}>用 AI 起草这一课的教案 <ArrowRightIcon size={16} aria-hidden="true" /></Link>
                     {chapter ? <Link className="btn btn-secondary" to={`/lesson-plan?subject=${encodeURIComponent(book.subject || unit.subject || '')}&edition=${unit.edition_id}&chapter=${encodeURIComponent(chapter)}`}>做「{chapter.replace(/^\d+\s*/u, '')}」的单元整体设计</Link> : null}
+                    {chapter ? <Link className="btn btn-secondary" to={`/lesson-plan?subject=${encodeURIComponent(book.subject || unit.subject || '')}&edition=${unit.edition_id}&chapter=${encodeURIComponent(chapter)}&task=test`}>核验这个单元的测试卷</Link> : null}
                 </span>
             </div>
             <div className={styles.prepGrid}>
