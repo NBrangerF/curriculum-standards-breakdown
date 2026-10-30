@@ -243,3 +243,18 @@ export function downloadReportWord(report) {
     link.remove()
     setTimeout(() => URL.revokeObjectURL(url), 2000)
 }
+
+// ---------- 说课稿 / 试讲稿: a heading per section, paragraphs as written ----------
+export function downloadScriptWord(title, sections, fileName) {
+    const body = [`<h1>${esc(title)}</h1>`, ...sections.flatMap(({ heading, text }) => [`<h2>${esc(heading)}</h2>`, ...String(text).split(/\n+/u).filter(Boolean).map(line => `<p>${esc(line)}</p>`)])].join('\n')
+    const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title><style>body{font-family:"SimSun","Songti SC",serif;font-size:12pt;line-height:1.8;margin:2cm}h1{font-size:16pt;text-align:center}h2{font-size:13pt;margin:14pt 0 4pt}p{text-indent:2em;margin:0 0 6pt}</style></head><body>${body}<p style="color:#666;font-size:9pt;text-indent:0">由 AI 根据教案改写（kebiao.org），请结合自己的理解修改后使用。</p></body></html>`
+    const blob = new Blob(['\ufeff', html], { type: 'application/msword' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${String(fileName).replace(/[\\/:*?"<>|《》]/gu, '')}.doc`
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+    setTimeout(() => URL.revokeObjectURL(url), 2000)
+}
