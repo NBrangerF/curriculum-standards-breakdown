@@ -77,6 +77,7 @@ export default function ConceptDetailPage() {
                 <h2 id="concept-use">备课时怎么用</h2>
                 <p className={styles.prose}>{term.how_to_use}</p>
                 {term.id === 'interdisciplinary' ? <p className={styles.callout}>课标给出的跨学科主题，按学科和年级整理在<Link to="/interdisciplinary">跨学科主题库</Link>，每个主题都能直接交给 AI 备课。</p> : null}
+                {['unit-design', 'big-unit'].includes(term.id) ? <p className={styles.callout}>从教材出发做一次：在 <Link to="/lesson-plan">AI 备课</Link>选好教材后，在「哪一课」里选「◆ 整个单元」，AI 会按这个单元在教材里的课时，起草大概念、基本问题、表现性任务和课时安排。想先看整学期，用<Link to="/schedule">学期进度表</Link>，每个单元都能直接打开单元设计。</p> : null}
                 {term.id === 'test-blueprint' ? <p className={styles.callout}>把试卷或作业贴进 <Link to="/lesson-plan">AI 备课</Link>的「核验试卷」：AI 逐题读出细目表，程序查超标、漏考和比例。</p> : null}
             </section>
 
