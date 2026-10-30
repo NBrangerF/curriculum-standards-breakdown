@@ -28,6 +28,14 @@ const STEPS = [
     { key: 'check', label: '对照课标逐条核验', hint: '编码、超标、目标—活动—评价' }
 ]
 
+// When the AI is slow or down, a teacher drafting a plan still has a way on: the ticked 要点 as a prompt for
+// another AI, and the plan back here to check.
+function aiError(errorValue, drafting = false) {
+    if (errorValue.status === 429) return '用得太频繁了，请一分钟后再试。'
+    if (drafting && errorValue.status >= 500) return `${errorValue.message} 也可以先点上面的「复制成提示词」，把勾好的要点带到豆包、DeepSeek 里写，写完回来「核验教案」。`
+    return errorValue.message
+}
+
 async function getJson(url) {
     const response = await fetch(url)
     const payload = await response.json().catch(() => null)
@@ -312,7 +320,7 @@ export default function LessonPlanPage() {
             setStep('done')
             trackUmamiEvent('lesson_plan_drafted', { subject: lesson.subject_slug, indicators: selected.size, risks: second.checks.filter(item => item.level === 'risk').length })
         } catch (errorValue) {
-            setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
+            setError(aiError(errorValue, true))
             setStep('')
         }
     }
@@ -341,7 +349,7 @@ export default function LessonPlanPage() {
             setStep('done')
             trackUmamiEvent('unit_plan_drafted', { subject: lesson.subject_slug, lessons: lessons.length })
         } catch (errorValue) {
-            setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
+            setError(aiError(errorValue, true))
             setStep('')
         }
     }
@@ -365,7 +373,7 @@ export default function LessonPlanPage() {
             else setTalk(payload.talk)
             trackUmamiEvent('lesson_plan_export', { format: step, kind: 'lesson' })
         } catch (errorValue) {
-            setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
+            setError(aiError(errorValue))
         } finally {
             setTalking('')
         }
@@ -387,7 +395,7 @@ export default function LessonPlanPage() {
             setReport(payload.data)
             trackUmamiEvent('lesson_plan_checked', { subject: lesson.subject_slug, risks: payload.data.checks.filter(item => item.level === 'risk').length })
         } catch (errorValue) {
-            setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
+            setError(aiError(errorValue))
         } finally {
             setChecking(false)
         }
@@ -409,7 +417,7 @@ export default function LessonPlanPage() {
             setTestReport({ ...payload.data, title: lesson.title })
             trackUmamiEvent('test_checked', { subject: lesson.subject_slug, questions: payload.data.read.questions.length, risks: payload.data.checks.filter(item => item.level === 'risk').length })
         } catch (errorValue) {
-            setError(errorValue.status === 429 ? '用得太频繁了，请一分钟后再试。' : errorValue.message)
+            setError(aiError(errorValue))
         } finally {
             setTesting(false)
         }

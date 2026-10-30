@@ -382,7 +382,19 @@ test('a textbook page lists its 国家平台 units with 要点 and a way into ea
 test('AI 备课 opens on the textbook a teacher picked last time', async ({ page }) => {
     await page.route('**/api/v1/lesson-plans/textbooks/*/lessons', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ platform_title: '小学数学人教版五年级下册', confidence: 'text', lessons: [{ id: 'L1', title: '分数的基本性质', chapters: ['4 分数的意义和性质'], pdf_page: 62, materials: [], url: '' }] })) }))
     await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e`)
-    await expect(page).toHaveURL(/edition=ed_1bb9d396d4d884aee79e/)
+    await expect.poll(() => page.evaluate(() => window.localStorage.getItem('kebiao.lessonPlan.lastBook'))).toContain('ed_1bb9d396d4d884aee79e')
     await page.goto('/lesson-plan')
     await expect(page).toHaveURL(/subject=%E6%95%B0%E5%AD%A6&edition=ed_1bb9d396d4d884aee79e/)
+})
+
+test('when the AI cannot draft, the error points the teacher to the prompt copy', async ({ page }) => {
+    await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(context)) }))
+    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [{ code: 'MA-S3-NA-01', grade: 2, reason: '比较分数大小', point: 'MA-S3-NA-01.3' }] })) }))
+    await page.route('**/api/v1/lesson-plans/draft', route => route.fulfill({ status: 502, contentType: 'application/json', body: JSON.stringify({ error: { code: 'draft_timeout', message: 'AI 这次没有写完。请再试一次。', details: [] } }) }))
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&lesson=L1`)
+    await expect(page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })).toBeChecked()
+    await page.getByRole('button', { name: /按选定的 1 条要点起草教案/ }).click()
+    await expect(page.getByRole('alert')).toContainText('AI 这次没有写完')
+    await expect(page.getByRole('alert')).toContainText('复制成提示词')
+    await expect(page.getByRole('button', { name: '复制成提示词' })).toBeVisible()
 })
