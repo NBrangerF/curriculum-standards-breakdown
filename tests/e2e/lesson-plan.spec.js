@@ -334,6 +334,7 @@ test('教资课标速记 lists each 课标\'s 课程理念 with pages and lets a
     await math.getByRole('button', { name: /第 1 条：先自己说，再点开/ }).click()
     await expect(math.getByText('确立核心素养导向的课程目标')).toBeVisible()
     await expect(math.getByRole('button', { name: /第 2 条/ })).toBeVisible()
+    await expect(page.getByRole('link', { name: '结果评价、过程评价、增值评价、综合评价' })).toHaveAttribute('href', '/concepts/four-evaluations')
     await page.goto('/concepts/subjects/english')
     await expect(page.getByText('注重“教—学—评”一体化设计')).toBeVisible()
 })

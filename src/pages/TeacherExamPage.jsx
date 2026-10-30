@@ -44,6 +44,7 @@ export default function TeacherExamPage() {
                 </section>
             ))}
             <p className={styles.footnote}>想弄清课程理念、核心素养这些词在一本课标里的位置，先读<Link to="/concepts/standard-document">一本课标怎么读</Link>。说课和试讲可以用 <Link to="/lesson-plan">AI 备课</Link>起草教案后一键生成。</p>
+            <p className={styles.footnote}>教学设计和评价的常用概念，课标原文怎么说：<Link to="/concepts/learning-objective">学习目标怎么写</Link>、<Link to="/concepts/action-verbs">行为动词与目标层次</Link>、<Link to="/concepts/teach-learn-assess">教—学—评一致性</Link>、<Link to="/concepts/performance-assessment">表现性评价</Link>、<Link to="/concepts/four-evaluations">结果评价、过程评价、增值评价、综合评价</Link>、<Link to="/concepts/project-learning">项目式学习</Link>。</p>
         </div>
     )
 }
