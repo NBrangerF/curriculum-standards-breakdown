@@ -137,7 +137,8 @@ function Understanding({ view, base, ignored, onToggle }) {
                         <div>
                             <dt>AI 联想</dt>
                             <dd>
-                                {expanded.map(term => effective.includes(term)
+                                {/* a phrase counts as used when it or a word split from it ranked results */}
+                                {expanded.map(term => effective.some(piece => String(term).toLowerCase().includes(piece))
                                     ? <span key={term}>{term}</span>
                                     : <span key={term} className={styles.unused} title="不含核心主题，未参与排序">{term}</span>)}
                             </dd>
