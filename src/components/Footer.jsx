@@ -1,4 +1,5 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom'
+import KebiaoLogo from './KebiaoLogo.jsx'
 import styles from './Footer.module.css'
 
 /**
@@ -41,9 +42,8 @@ function Footer() {
                 <div className={`container ${styles.grid}`}>
                     {/* Column 1: Brand & Description */}
                     <div className={`${styles.column} ${styles.brand}`}>
-                        <div className={styles.logo}>
-                            <span className={styles.seal} aria-hidden="true">课标</span>
-                            <span className={styles.logoText}>kebiao</span>
+                        <div className={styles.logo} role="img" aria-label="kebiao 课标">
+                            <KebiaoLogo className={styles.mark} />
                         </div>
                         <p className={styles.tagline}>
                             中国课程标准的结构化索引与智能引擎

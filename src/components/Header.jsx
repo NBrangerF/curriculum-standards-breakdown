@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence, m } from 'motion/react'
 import { useSky } from '../features/starmap/SkyProvider.jsx'
+import KebiaoLogo from './KebiaoLogo.jsx'
 import styles from './Header.module.css'
 
 const NAV_ITEMS = [
@@ -66,8 +67,7 @@ function Header() {
             <div className={`container ${styles.container}`}>
                 {/* Brand */}
                 <Link to="/" className={styles.logo} aria-label="kebiao 首页">
-                    <span className={styles.seal} aria-hidden="true">课标</span>
-                    <span className={styles.title}>kebiao</span>
+                    <KebiaoLogo className={styles.mark} />
                 </Link>
 
                 {/* Desktop Nav */}

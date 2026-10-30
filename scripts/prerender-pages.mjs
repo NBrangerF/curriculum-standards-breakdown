@@ -9,6 +9,7 @@ import {
     homeMeta, subjectMeta, standardMeta, skillsOverviewMeta, skillMeta, textbooksMeta, textbookMeta,
     textbookUnitMeta, learningResourcesMeta, learningResourceMeta, STATIC_PAGE_META
 } from '../src/seo/pageMeta.js'
+import { logoSvg } from '../src/brand/logo.js'
 
 const DIST = 'dist'
 const DATA = 'public/data'
@@ -285,12 +286,13 @@ learningResourcePages()
 staticPages()
 
 // ---------- render ----------
+const LOGO = logoSvg({ attrs: 'aria-hidden="true" focusable="false"' })
 const STYLE = `<style id="kbp-style">
 .kbp{color:var(--kb-ink,#eceff4);font-family:var(--font-body,system-ui,sans-serif);line-height:1.8}
 .kbp a{color:inherit;text-decoration-color:rgba(233,200,135,.5);text-underline-offset:3px}
 .kbp-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;padding:16px max(16px,4vw);border-bottom:1px solid var(--kb-line,rgba(222,228,238,.14))}
-.kbp-brand{font-family:var(--font-display,serif);font-size:20px;font-weight:900;text-decoration:none}
-.kbp-brand span{margin-left:6px;font-weight:400;color:var(--kb-mist,#aab2bf)}
+.kbp-brand{display:block;align-self:center;line-height:0}
+.kbp-brand svg{display:block;height:28px;width:auto;aspect-ratio:332.8/102}
 .kbp-head nav{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px;color:var(--kb-mist,#aab2bf)}
 .kbp-head nav a{text-decoration:none}
 .kbp-wrap{max-width:860px;margin:0 auto;padding:32px max(16px,4vw) 48px}
@@ -329,7 +331,7 @@ function render(page) {
         ...(page.jsonLd || []).map(item => `<script type="application/ld+json">${scriptJson(item)}</script>`),
         STYLE
     ].join('\n  ')
-    const body = `<div id="root"><div class="kbp" data-prerender="${esc(page.path)}"><header class="kbp-head"><a class="kbp-brand" href="/">kebiao<span>课标</span></a><nav aria-label="主要栏目">${NAV}</nav></header><main data-prerender-main><div class="kbp-wrap">${page.main}</div></main>${FOOTER}</div></div>${page.preload ? `\n  <script type="application/json" id="kb-preload">${scriptJson(page.preload)}</script>` : ''}`
+    const body = `<div id="root"><div class="kbp" data-prerender="${esc(page.path)}"><header class="kbp-head"><a class="kbp-brand" href="/" aria-label="kebiao 课标 首页">${LOGO}</a><nav aria-label="主要栏目">${NAV}</nav></header><main data-prerender-main><div class="kbp-wrap">${page.main}</div></main>${FOOTER}</div></div>${page.preload ? `\n  <script type="application/json" id="kb-preload">${scriptJson(page.preload)}</script>` : ''}`
     return shell
         .replace(/<title>[^<]*<\/title>/u, () => `<title>${esc(page.title)}</title>`)
         .replace(/<meta name="description" content="[^"]*" \/>/u, () => `<meta name="description" content="${esc(page.description)}" />\n  ${headTags}`)

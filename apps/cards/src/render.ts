@@ -8,6 +8,7 @@ import satori from 'satori'
 import { Resvg } from '@resvg/resvg-js'
 import QRCode from 'qrcode'
 import { SITE_URL, clip, getDisplayTitle, gradeLabel } from '../../../src/seo/pageMeta.js'
+import { LOGO_VIEWBOX, logoSvg } from '../../../src/brand/logo.js'
 
 const ROOT = process.cwd()
 const DATA = join(ROOT, 'public/data')
@@ -114,10 +115,11 @@ function starField(seed: string, width: number, height: number, accent: string):
     })
 }
 
-function brand(size: number) {
-    return el('div', { alignItems: 'center', gap: size * 0.4 },
-        el('div', { width: size, height: size, border: `2px solid ${C.gold}`, borderRadius: 6, alignItems: 'center', justifyContent: 'center', color: C.gold, fontWeight: 900, fontSize: size * 0.42 }, '课标'),
-        text({ fontFamily: 'Mono', fontSize: size * 0.5, color: C.ink, letterSpacing: 1 }, 'kebiao'))
+// The 合文 logo with the kebiao wordmark, `height` pixels tall.
+const LOGO_URI = `data:image/svg+xml;base64,${Buffer.from(logoSvg({ ink: C.ink })).toString('base64')}`
+const [, , logoWidth, logoHeight] = LOGO_VIEWBOX.split(' ').map(Number)
+function brand(height: number): Node {
+    return { type: 'img', props: { src: LOGO_URI, width: Math.round((height * logoWidth) / logoHeight), height, style: {} } }
 }
 
 function backdrop(width: number, height: number, accent: string, seed: string, children: Node[]): Node {
@@ -184,7 +186,7 @@ export async function standardOgCard(standard: Standard) {
     const node = backdrop(W, H, accent, standard.code, [
         el('div', { position: 'absolute', left: 0, top: 0, width: W, height: H, padding: '56px 72px', flexDirection: 'column', justifyContent: 'space-between' },
             el('div', { justifyContent: 'space-between', alignItems: 'center' },
-                brand(44),
+                brand(52),
                 text({ fontSize: 24, color: C.mist }, kicker)),
             el('div', { flexDirection: 'column', gap: 22 },
                 text({ fontSize: titleSize(title, [76, 62, 52]), fontWeight: 900, lineHeight: 1.25, color: C.ink }, title),
@@ -195,7 +197,7 @@ export async function standardOgCard(standard: Standard) {
                     text({ fontFamily: 'Mono', fontSize: 26, color: C.gold, letterSpacing: 1 }, standard.code)),
                 text({ fontSize: 22, color: C.dim }, doc)))
     ])
-    return toPng(node, W, H, `${title}${kicker}${bodyText}${doc}课标`)
+    return toPng(node, W, H, `${title}${kicker}${bodyText}${doc}`)
 }
 
 export async function standardPoster(standard: Standard) {
@@ -210,7 +212,7 @@ export async function standardPoster(standard: Standard) {
     const node = backdrop(W, H, accent, `${standard.code}-poster`, [
         el('div', { position: 'absolute', left: 0, top: 0, width: W, height: H, padding: '88px 88px 80px', flexDirection: 'column', justifyContent: 'space-between' },
             el('div', { flexDirection: 'column', gap: 64 },
-                brand(56),
+                brand(64),
                 el('div', { flexDirection: 'column', gap: 28 },
                     text({ fontSize: 30, color: accent }, kicker),
                     text({ fontSize: titleSize(title, [96, 80, 68]), fontWeight: 900, lineHeight: 1.22, color: C.ink }, title),
@@ -235,13 +237,13 @@ export async function siteCard(heading: string, sub: string, seed = 'site', acce
     const H = 630
     const node = backdrop(W, H, accent, seed, [
         el('div', { position: 'absolute', left: 0, top: 0, width: W, height: H, padding: '64px 72px', flexDirection: 'column', justifyContent: 'space-between' },
-            brand(48),
+            brand(60),
             el('div', { flexDirection: 'column', gap: 24 },
                 text({ fontSize: titleSize(heading, [80, 64, 54]), fontWeight: 900, lineHeight: 1.25 }, heading),
                 text({ fontSize: 30, lineHeight: 1.6, color: C.mist }, sub)),
             text({ fontFamily: 'Mono', fontSize: 24, color: C.gold }, 'www.kebiao.org'))
     ])
-    return toPng(node, W, H, `${heading}${sub}课标`)
+    return toPng(node, W, H, `${heading}${sub}`)
 }
 
 type ManifestSubject = { subject_slug: string, subject: string, record_count: number }

@@ -7,7 +7,7 @@ export const STANDARDS_DOC = '义务教育课程标准（2022年版）'
 
 // Share-card URLs carry a version that changes with the data or the card design
 // (bump CARD_DESIGN after changing apps/cards/src/render.ts), so caches pick up new images.
-export const CARD_DESIGN = 'c1'
+export const CARD_DESIGN = 'c2'
 export function cardVersion(dataVersion) {
     let hash = 2166136261
     for (const char of `${dataVersion}:${CARD_DESIGN}`) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619)
