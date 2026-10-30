@@ -49,6 +49,15 @@ const samplePlan = title => [
     '评价：课堂提问。'
 ].join('\n')
 
+// a short homework in any subject, so a teacher can see a 多维细目表 before pasting their own paper
+const sampleTest = title => [
+    `《${title}》课后作业（共 20 分）`,
+    '1. 写出本课的三个关键词，并各用一句话解释。（4 分）',
+    '2. 判断：本课学到的结论在什么情况下不成立？举一个例子说明。（4 分）',
+    '3. 用本课学到的方法，解决一个生活中的问题，写出思考过程。（6 分）',
+    '4. 拓展：查找资料，就本课内容写一份不超过 200 字的小报告。（6 分）'
+].join('\n')
+
 function readStored() {
     try {
         const history = JSON.parse(window.localStorage.getItem(STORE_KEY) || '[]')
@@ -567,7 +576,7 @@ export default function LessonPlanPage() {
                             <button type="button" role="tab" aria-selected={task !== 'test'} onClick={() => setTask('draft')}>单元整体设计</button>
                             <button type="button" role="tab" aria-selected={task === 'test'} onClick={() => setTask('test')}>核验单元测试卷</button>
                         </div>
-                        {task === 'test' ? <TestInput value={ownTest} onChange={setOwnTest} onRun={checkTest} running={testing} selectedCount={selectedCount} error={error} unit /> : <>
+                        {task === 'test' ? <TestInput value={ownTest} onChange={setOwnTest} onRun={checkTest} running={testing} selectedCount={selectedCount} error={error} unit title={context.lesson.title} /> : <>
                         <p className={styles.small}>按逆向设计的顺序：先写单元大概念、基本问题和单元目标，再定评价证据（含一个表现性任务），最后把课时排进教材这个单元的 {context.unit_lessons.length} 节课里。</p>
                         <div className={styles.settings}>
                             <label><span>单元总课时</span>
@@ -606,7 +615,7 @@ export default function LessonPlanPage() {
                         <button type="button" role="tab" aria-selected={task === 'check'} onClick={() => setTask('check')}>核验教案</button>
                         <button type="button" role="tab" aria-selected={task === 'test'} onClick={() => setTask('test')}>核验试卷</button>
                     </div>
-                    {task === 'test' ? <TestInput value={ownTest} onChange={setOwnTest} onRun={checkTest} running={testing} selectedCount={selectedCount} error={error} /> : null}
+                    {task === 'test' ? <TestInput value={ownTest} onChange={setOwnTest} onRun={checkTest} running={testing} selectedCount={selectedCount} error={error} title={context.lesson.title} /> : null}
                     {task === 'check' ? (
                         <>
                             <label className={styles.textarea}>
@@ -914,7 +923,7 @@ function PromptCopy({ context, selected, isUnit }) {
     )
 }
 
-function TestInput({ value, onChange, onRun, running, selectedCount, error, unit = false }) {
+function TestInput({ value, onChange, onRun, running, selectedCount, error, unit = false, title = '' }) {
     const tooMany = selectedCount > 10
     return (
         <>
@@ -923,6 +932,7 @@ function TestInput({ value, onChange, onRun, running, selectedCount, error, unit
                 <span>{unit ? '单元测试卷全文' : '试卷或作业全文'}（带题号；有分值更好）</span>
                 <textarea rows={12} maxLength={10000} value={value} onChange={event => onChange(event.target.value)} placeholder={'例如：\n一、填空题（每空 2 分，共 20 分）\n1. 把 6/8 化成最简分数是（ ）。\n……\n请删去学生姓名等个人信息。图片题请用文字简述。'} />
             </label>
+            {!value.trim() && title ? <button type="button" className={styles.sample} onClick={() => onChange(sampleTest(title))}>手边没有试卷？先用一份示例作业试试，看细目表长什么样</button> : null}
             <div className={styles.go}>
                 <button type="button" className="btn btn-primary" disabled={running || !selectedCount || tooMany || value.trim().length < 30} onClick={onRun}>
                     {running ? 'AI 正在逐题读（约 30–50 秒）…' : `对照选定的 ${selectedCount} 条要点编细目表`}
