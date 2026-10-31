@@ -1,0 +1,214 @@
+/* 教材在左，课标在右: lessons, the 要点 they teach, and gold lines between them */
+.map { display: grid; gap: 20px; }
+
+.fig {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 300px) minmax(64px, 150px) minmax(0, 1fr);
+    align-items: start;
+}
+
+.wires {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.wires path { fill: none; transition: stroke 0.2s, stroke-width 0.2s, opacity 0.2s, stroke-dashoffset 0.9s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.wires :global(.T) { stroke: rgba(233, 200, 135, 0.42); stroke-width: 1.4; }
+.wires :global(.P) { stroke: rgba(222, 228, 238, 0.24); stroke-width: 1.2; stroke-dasharray: 4 4; }
+.focused .wires path { opacity: 0.35; }
+.focused .wires path.hot { opacity: 1; }
+.wires path.hot:global(.T) { stroke: var(--kb-gold); stroke-width: 2.4; filter: drop-shadow(0 0 4px rgba(233, 200, 135, 0.8)); }
+.wires path.hot:global(.P) { stroke: rgba(222, 228, 238, 0.8); stroke-width: 1.6; }
+
+.lessons {
+    grid-column: 1;
+    display: grid;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lessons button {
+    display: flex;
+    width: 100%;
+    min-height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    background: none;
+    color: var(--kb-mist);
+    font: inherit;
+    font-size: 15px;
+    line-height: 1.45;
+    text-align: left;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.lessons button small { flex: none; color: var(--kb-dim); font-family: var(--font-mono); font-size: 11px; }
+.lessons button:hover,
+.lessonLit button { background: var(--kb-surface-muted); color: var(--kb-moon); }
+.lessons button[aria-pressed='true'] { border-color: rgba(233, 200, 135, 0.55); background: var(--kb-surface-muted); color: var(--kb-moon); font-weight: 600; }
+
+.inline,
+.inlineNone,
+.inlineDetail { display: none; }
+
+.points {
+    grid-column: 3;
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 2px 0 0;
+    list-style: none;
+}
+
+.points li {
+    display: grid;
+    grid-template-columns: 12px minmax(0, 1fr);
+    gap: 10px;
+    padding: 6px 0;
+    color: var(--kb-mist);
+    font-size: 14.5px;
+    line-height: 1.6;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.points i {
+    width: 8px;
+    height: 8px;
+    margin-top: 7px;
+    border-radius: 50%;
+    background: #e3e7ee;
+    box-shadow: 0 0 8px rgba(227, 231, 238, 0.55);
+}
+
+.points a { color: inherit; text-decoration: none; }
+.points a:hover { color: var(--kb-moon); text-decoration: underline; text-decoration-color: var(--kb-link-line); }
+.points code { color: var(--kb-dim); font-family: var(--font-mono); font-size: 11px; white-space: nowrap; }
+
+.focused .points li { opacity: 0.45; }
+.focused .points li.pointT,
+.focused .points li.pointP { opacity: 1; color: var(--kb-moon); }
+.pointT i { width: 10px; height: 10px; margin-top: 6px; background: var(--kb-gold); box-shadow: 0 0 12px var(--kb-gold); }
+.pointP i { border: 1.5px solid rgba(222, 228, 238, 0.7); background: transparent; box-shadow: none; }
+
+/* the picked lesson */
+.detail {
+    display: grid;
+    gap: 14px;
+    padding: 20px 22px;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: 16px;
+    background: var(--kb-surface-muted);
+}
+
+.detailHead h4 { margin: 0; color: var(--kb-moon); font-family: var(--font-body); font-size: 19px; font-weight: 600; }
+.detailHead p { margin: 2px 0 0; color: var(--kb-dim); font-size: 13px; }
+
+.rows { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.rows li { display: grid; gap: 6px; }
+.rowHead { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; }
+
+.tagT,
+.tagP {
+    display: inline-flex;
+    height: 22px;
+    align-items: center;
+    padding: 0 8px;
+    border: 1px solid rgba(233, 200, 135, 0.6);
+    border-radius: 6px;
+    color: var(--kb-gold);
+    font-size: 12px;
+}
+
+.tagP { border-color: var(--kb-line-strong); color: var(--kb-dim); }
+.code { color: var(--kb-dim); font-family: var(--font-mono); font-size: 12px; }
+.pointText { margin: 0; color: var(--kb-moon); font-size: 15px; line-height: 1.7; }
+
+/* 教材原话 on paper: the textbook's own words, never the 课标's */
+.paper {
+    position: relative;
+    justify-self: start;
+    margin: 0;
+    padding: 7px 12px 7px 15px;
+    border-radius: 3px 9px 9px 3px;
+    background: var(--kb-paper);
+    box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.6);
+    color: var(--kb-paper-ink);
+    font-family: var(--font-display);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    border-radius: 3px 0 0 3px;
+    background: var(--c, var(--kb-gold));
+}
+
+.paper small { margin-left: 8px; color: var(--kb-paper-mute); font-family: var(--font-mono); font-size: 11px; white-space: nowrap; }
+
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.actions :global(.btn) { min-height: 42px; }
+.report { margin-left: 6px; color: var(--kb-dim); font-size: 13.5px; }
+.hint { margin: 0; color: var(--kb-dim); font-size: 13.5px; }
+
+/* phones: no lines; each lesson lists what it teaches */
+@media (max-width: 720px) {
+    .fig { grid-template-columns: minmax(0, 1fr); }
+    .wires,
+    .points { display: none; }
+    .lessons { gap: 0; }
+    .lessons > li { padding: 8px 0 12px; border-bottom: 1px solid var(--kb-line); }
+    .lessons button { padding: 6px 0; border: 0; background: none; color: var(--kb-moon); font-weight: 600; }
+    .lessons button[aria-pressed='true'] { background: none; color: var(--kb-gold); }
+
+    .inline {
+        display: grid;
+        gap: 6px;
+        margin: 2px 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .inline li {
+        padding-left: 12px;
+        border-left: 3px solid var(--kb-gold);
+        color: var(--kb-mist);
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .inlineNone { display: block; margin: 2px 0 0; color: var(--kb-dim); font-size: 13px; }
+    .detail,
+    .wideOnly { display: none; }
+
+    .inlineDetail {
+        display: grid;
+        gap: 12px;
+        margin-top: 12px;
+        padding: 14px;
+        border: 1px solid var(--kb-line-strong);
+        border-radius: 14px;
+        background: var(--kb-surface-muted);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wires path,
+    .lessons button,
+    .points li { transition: none; }
+}

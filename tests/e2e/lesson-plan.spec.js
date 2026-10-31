@@ -394,11 +394,14 @@ test('中考复习地图 lists a subject\'s junior standards with the textbook u
     await expect(page.getByText('学业要求（课标原文').first()).toBeVisible()
 })
 
-test('a textbook\'s table of contents shows the 要点 the AI judged each unit to teach', async ({ page }) => {
+test('a textbook page maps each chapter\'s lessons to the 要点 they teach', async ({ page }) => {
     await page.goto('/textbooks/ed_2860489fc83ddeb6cec5')
-    const points = page.getByText('AI 判断的要点').first()
-    await expect(points).toBeVisible()
-    await expect(page.getByRole('link', { name: /^HI-S4-MC-0\d\.\d+$/ }).first()).toHaveAttribute('href', /\/standards\/HI-S4-MC-0\d#HI-S4-MC-0\d\.\d+/)
+    const map = page.getByRole('region', { name: '每一课教哪几条课标' })
+    const points = map.getByRole('list', { name: /教的要点$/ })
+    await expect(points.getByRole('link').first()).toHaveAttribute('href', /\/standards\/HI-S4-MC-0\d#HI-S4-MC-0\d\.\d+/)
+    // picking a lesson opens its 要点 with the textbook's own words and a way to prepare it
+    await map.getByRole('list', { name: /的课$/ }).getByRole('button').first().click()
+    await expect(map.getByRole('link', { name: '备这一课 →' })).toHaveAttribute('href', /\/lesson-plan\?subject=.+&edition=ed_2860489fc83ddeb6cec5&lesson=/)
 })
 
 test('上手指南 lists the weekly workflows with a way into each', async ({ page }) => {
@@ -407,16 +410,16 @@ test('上手指南 lists the weekly workflows with a way into each', async ({ pa
     await expect(page.locator('#guide-test').getByRole('heading', { name: '出卷或布置作业前，编一张多维细目表' })).toBeVisible()
     await expect(page.locator('#guide-term').getByRole('link', { name: '打开学期进度表' })).toHaveAttribute('href', '/schedule')
     await page.goto('/')
-    await expect(page.getByRole('link', { name: '五分钟上手指南' })).toHaveAttribute('href', '/guide')
+    await expect(page.getByRole('region', { name: '考前把课标读懂' }).getByRole('link', { name: /上手指南/ })).toHaveAttribute('href', '/guide')
 })
 
 test('a textbook page lists its 国家平台 units with 要点 and a way into each unit design', async ({ page }) => {
     await page.goto('/textbooks/ed_1bb9d396d4d884aee79e')
-    const units = page.getByRole('region', { name: /这本书的 \d+ 个单元/ })
-    await expect(units.getByRole('heading', { name: '4 分数的意义和性质' })).toBeVisible()
-    const unit = units.getByRole('listitem').filter({ has: page.getByRole('heading', { name: '4 分数的意义和性质' }) })
-    await expect(unit.getByRole('link', { name: '备这个单元' })).toHaveAttribute('href', /chapter=4/)
-    await expect(units.getByRole('link', { name: '把这些单元排进学期进度表' })).toHaveAttribute('href', /\/schedule\?/)
+    const map = page.getByRole('region', { name: '每一课教哪几条课标' })
+    await map.getByRole('navigation', { name: '选一章' }).getByRole('button', { name: /4 分数的意义和性质/ }).click()
+    await expect(map.getByRole('heading', { name: '4 分数的意义和性质' })).toBeVisible()
+    await expect(map.getByRole('link', { name: '备这个单元' })).toHaveAttribute('href', /chapter=4/)
+    await expect(page.getByRole('link', { name: '排学期进度' }).first()).toHaveAttribute('href', /\/schedule\?/)
 })
 
 test('AI 备课 opens on the textbook a teacher picked last time', async ({ page }) => {

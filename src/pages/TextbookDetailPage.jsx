@@ -12,7 +12,8 @@ import TextbookCover from '../features/textbooks/TextbookCover'
 import TextbookStatus from '../features/textbooks/TextbookStatus'
 import { loadTextbookDetail } from '../features/textbooks/textbookApi'
 import { bookFields, saveMyBook } from '../features/mybook/myBook.js'
-import { alignmentUnits } from '../features/textbooks/alignmentModel'
+import { alignmentUnits, pointIndex, v2Slug } from '../features/textbooks/alignmentModel'
+import UnitMap from '../features/textbooks/UnitMap'
 import styles from './TextbookDetailPage.module.css'
 
 const RELATION_LABELS = {
@@ -76,13 +77,21 @@ export default function TextbookDetailPage() {
     const [platformUnits, setPlatformUnits] = useState([])
     // 教材与课标对应, lesson by lesson: how many lessons were judged and how many 要点 they teach
     const [judged, setJudged] = useState(null)
+    // the lesson-by-lesson record and the 要点 texts, for the map of each chapter
+    const [record, setRecord] = useState(null)
+    const [points, setPoints] = useState(null)
+    const [chapter, setChapter] = useState(0)
     useEffect(() => {
         let active = true
         setAiPoints(new Map())
         setPlatformUnits([])
         setJudged(null)
+        setRecord(null)
+        setPoints(null)
+        setChapter(0)
         fetch(`/data/textbooks/national-lessons/${editionId}.json`).then(response => (response.ok ? response.json() : null)).then(record => {
             if (!active || !record) return
+            setRecord(record)
             setPlatformUnits(unitsOf(record).filter(unit => unit.chapter))
             const judgedLessons = (record.lessons || []).filter(lesson => Array.isArray(lesson.align))
             if (judgedLessons.length) setJudged({ lessons: alignmentUnits(record).reduce((sum, unit) => sum + unit.lessons.filter(lesson => lesson.judged).length, 0), points: new Set(judgedLessons.flatMap(lesson => lesson.align.filter(row => row[1] === 'T').map(row => row[0]))).size })
@@ -97,6 +106,17 @@ export default function TextbookDetailPage() {
         }).catch(() => {})
         return () => { active = false }
     }, [editionId])
+
+    useEffect(() => {
+        if (!judged || !book?.subject_slug) return undefined
+        let active = true
+        fetch(`/data/v2/by_subject/${v2Slug(book.subject_slug)}.json`).then(response => (response.ok ? response.json() : null)).then(subject => { if (active && subject) setPoints(pointIndex(subject)) }).catch(() => {})
+        return () => { active = false }
+    }, [judged, book?.subject_slug])
+    // chapters with at least one judged lesson; the platform's loose lessons (no chapter) are left to the 对应表
+    const mapUnits = useMemo(() => (record ? alignmentUnits(record).filter(unit => unit.chapter && unit.lessons.some(lesson => lesson.judged)) : []), [record])
+    const taughtCount = useMemo(() => new Set(mapUnits.flatMap(unit => unit.lessons.flatMap(lesson => lesson.rows.filter(row => row[1] === 'T').map(row => row[0])))).size, [mapUnits])
+    const lessonCount = mapUnits.reduce((sum, unit) => sum + unit.lessons.length, 0)
 
     const alignmentsByUnit = useMemo(() => {
         const groups = new Map()
@@ -123,6 +143,8 @@ export default function TextbookDetailPage() {
     if (error) return <ErrorState title="教材加载失败" message={error} />
     if (!book) return <PageLoading message="正在打开教材详情" />
 
+    const mapUnit = mapUnits[Math.min(chapter, mapUnits.length - 1)]
+
     return (
         <div className={styles.page}>
             <div className={`container ${styles.backRow}`}><Link to="/textbooks"><ArrowLeftIcon size={16} aria-hidden="true" /> 返回教材馆</Link></div>
@@ -132,33 +154,51 @@ export default function TextbookDetailPage() {
                     <div className={styles.heroContent}>
                         <span className={styles.eyebrow}>{book.stage_label} · {book.subject} · {book.volume}</span>
                         <h1>{book.title}</h1>
-                        <p className={styles.edition}>{book.edition_name}</p>
-                        <div className={styles.badges}>
-                            <TextbookStatus value={book.toc_status} label={`目录：${book.toc_status === 'approved' ? '已定位' : book.toc_status === 'machine_checked' ? '自动定位' : '待处理'}`} />
-                            <TextbookStatus value={book.page_map_status} label={`印刷页：${book.page_map_status === 'approved' ? '已对齐' : '待处理'}`} />
-                            <TextbookStatus value={book.text_quality} />
-                        </div>
-                        <p className={styles.summary}>这一页是教材的结构入口：从目录跳到原书，同时查看相关课标、教师用书与辅助材料。</p>
+                        <p className={styles.edition}>
+                            {book.edition_name}
+                            {mapUnits.length ? <> · {mapUnits.length} 章 · <b>{lessonCount} 课</b>都标好了课标要点 · 本册主要在教 <em>{taughtCount}</em> 条</> : null}
+                        </p>
                         <div className={styles.actions}>
-                            <Link className="btn btn-primary" to={`/textbooks/${book.edition_id}/read`}><BookOpenTextIcon size={18} aria-hidden="true" /> 开始阅读</Link>
-                            {book.toc[0]?.pdf_page && <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/read?page=${book.toc[0].pdf_page}`}>从第一章开始</Link>}
+                            <Link className="btn btn-primary" to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>用这本书备课 →</Link>
                             {platformUnits.length ? <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/standards`}>课标对应表</Link> : null}
-                            <Link className="btn btn-secondary" to={`/schedule?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>排学期进度表</Link>
+                            <Link className="btn btn-secondary" to={`/schedule?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>排学期进度</Link>
+                            <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/read`}><BookOpenTextIcon size={18} aria-hidden="true" /> 看原书</Link>
                         </div>
                     </div>
-                    <dl className={styles.facts}>
-                        <div><dt>PDF 页数</dt><dd>{book.page_count}</dd></div>
-                        <div><dt>可定位目录</dt><dd>{book.toc_entry_count}</dd></div>
-                        <div><dt>具体课标关联</dt><dd>{book.published_alignment_count}</dd></div>
-                        <div><dt>配套资源</dt><dd>{book.related_resource_count}</dd></div>
-                    </dl>
                 </div>
             </section>
+
+            {mapUnits.length ? (
+                <section className={`container ${styles.mapSection}`} aria-labelledby="textbook-map-heading">
+                    <div className={styles.sectionHeading}>
+                        <div><span>教材 × 课标</span><h2 id="textbook-map-heading">每一课教哪几条课标</h2></div>
+                        <p>左边是这一章的课，右边是它们教的课标要点。金线是「主要在教」，虚线是「也涉及」。AI 逐课读了教材原文后判断，待核验。</p>
+                    </div>
+                    <div className={styles.mapGrid}>
+                        <nav className={styles.chapters} aria-label="选一章">
+                            {mapUnits.map((unit, index) => (
+                                <button key={unit.name} type="button" aria-pressed={chapter === index} onClick={() => setChapter(index)}>
+                                    <span>{unit.name}</span><small>{unit.lessons.length}</small>
+                                </button>
+                            ))}
+                            <Link className={styles.chaptersMore} to={`/textbooks/${book.edition_id}/standards`}>整本书的对应表和 Word →</Link>
+                        </nav>
+                        <div className={styles.mapMain}>
+                            <div className={styles.mapUnitHead}>
+                                <h3>{mapUnit.name}</h3>
+                                <Link to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&chapter=${encodeURIComponent(mapUnit.chapter)}`}>备这个单元</Link>
+                                <Link to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&chapter=${encodeURIComponent(mapUnit.chapter)}&task=test`}>核验单元测试卷</Link>
+                            </div>
+                            {points ? <UnitMap book={book} unit={mapUnit} points={points} /> : <p className={styles.muted}>正在载入课标要点…</p>}
+                        </div>
+                    </div>
+                </section>
+            ) : null}
 
             <div className={`container ${styles.contentGrid}`}>
                 <main className={styles.mainColumn}>
                     <section className={styles.section}>
-                        <div className={styles.sectionHeading}><div><span>目录</span><h2>可定位目录</h2></div><p>同时显示 PDF 页与印刷页，点击可直达。</p></div>
+                        <div className={styles.sectionHeading}><div><span>目录</span><h2>目录与原书页码</h2></div><p>同时显示 PDF 页与印刷页，点击可直达。</p></div>
                         {book.toc.length ? (
                             <ol className={styles.toc}>
                                 {book.toc.map(entry => (
@@ -171,7 +211,7 @@ export default function TextbookDetailPage() {
                                             {(alignmentsByUnit.get(entry.entry_id)?.length || 0) > 0 && <span className={styles.relationCount}>{alignmentsByUnit.get(entry.entry_id).length} 条课标</span>}
                                             <Link className={styles.unitLink} to={`/textbook-units/${entry.entry_id}`}>关联页</Link>
                                         </div>
-                                        {aiPoints.get(entry.entry_id)?.length ? (
+                                        {!mapUnits.length && aiPoints.get(entry.entry_id)?.length ? (
                                             <p className={styles.aiPoints}><span>AI 判断的要点</span>{aiPoints.get(entry.entry_id).slice(0, 3).map(code => <Link key={code} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`}>{code}</Link>)}<Link className={styles.report} to={`/feedback?code=${aiPoints.get(entry.entry_id)[0]}&title=${encodeURIComponent('教材单元的课标要点有误')}&message=${encodeURIComponent(`${book.title} · ${entry.title}\nAI 判断的要点：${aiPoints.get(entry.entry_id).slice(0, 3).join('、')}\n\n哪一条不对，应该是：`)}`}>报错</Link></p>
                                         ) : null}
                                     </li>
@@ -180,7 +220,7 @@ export default function TextbookDetailPage() {
                         ) : <EmptyState title="目录还在处理" message={book.text_quality === 'scan_only' ? '这是扫描型 PDF，需要 OCR 后才能建立可搜索目录。' : '可以先阅读原书，结构化目录将在复核后显示。'} />}
                     </section>
 
-                    {platformUnits.length ? (
+                    {platformUnits.length && !mapUnits.length ? (
                         <section className={styles.section} aria-labelledby="textbook-platform-units">
                             <div className={styles.sectionHeading}><div><span>按单元备课</span><h2 id="textbook-platform-units">这本书的 {platformUnits.length} 个单元</h2></div><p>单元和课目来自国家中小学智慧教育平台的同步课目录；要点是 AI 逐课读了教材原文后判断的，待核验。每一课教哪几条、原话在哪一页，看<Link to={`/textbooks/${book.edition_id}/standards`}>课标对应表</Link>。</p></div>
                             <ol className={styles.platformUnits}>
@@ -226,8 +266,24 @@ export default function TextbookDetailPage() {
                     <section><span className={styles.asideLabel}>配套</span><h2>配套资源</h2>
                         {book.related_resources.length ? <ul>{book.related_resources.map(resource => <li key={resource.relation_id}>{resource.resource_reading_available && resource.resource_id ? <Link to={`/textbook-resources/${encodeURIComponent(resource.resource_id)}/read?page=1`}><strong>{resource.title}</strong><span>{RELATION_LABELS[resource.relationship] || '相关资料'} · 在线阅读</span></Link> : <div className={styles.resourceUnavailable}><strong>{resource.title}</strong><span>{RELATION_LABELS[resource.relationship] || '相关资料'} · 文件暂不可在线阅读</span></div>}</li>)}</ul> : <p className={styles.muted}>尚未收录该册的教师用书或辅助材料。配对接口已就绪，资源入库后会自动出现。</p>}
                     </section>
-                    <section><span className={styles.asideLabel}>处理</span><h2>处理说明</h2><ul className={styles.notes}>{book.extraction.notes.map((note, index) => <li key={index}>{note}</li>)}</ul></section>
-                    <section><span className={styles.asideLabel}>版本</span><h2>版本状态</h2><p className={styles.muted}>{book.revision_label}。{book.bibliographic_verified ? '书目信息已核实。' : '书目版次仍需人工核实，不影响已验证 PDF 阅读。'}</p></section>
+                    <details className={styles.bookData}>
+                        <summary>这本书的数据</summary>
+                        <div className={styles.badges}>
+                            <TextbookStatus value={book.toc_status} label={`目录：${book.toc_status === 'approved' ? '已定位' : book.toc_status === 'machine_checked' ? '自动定位' : '待处理'}`} />
+                            <TextbookStatus value={book.page_map_status} label={`印刷页：${book.page_map_status === 'approved' ? '已对齐' : '待处理'}`} />
+                            <TextbookStatus value={book.text_quality} />
+                        </div>
+                        <dl className={styles.facts}>
+                            <div><dt>PDF 页数</dt><dd>{book.page_count}</dd></div>
+                            <div><dt>可定位目录</dt><dd>{book.toc_entry_count}</dd></div>
+                            <div><dt>具体课标关联</dt><dd>{book.published_alignment_count}</dd></div>
+                            <div><dt>配套资源</dt><dd>{book.related_resource_count}</dd></div>
+                        </dl>
+                        <h3>处理说明</h3>
+                        <ul className={styles.notes}>{book.extraction.notes.map((note, index) => <li key={index}>{note}</li>)}</ul>
+                        <h3>版本状态</h3>
+                        <p className={styles.muted}>{book.revision_label}。{book.bibliographic_verified ? '书目信息已核实。' : '书目版次仍需人工核实，不影响已验证 PDF 阅读。'}</p>
+                    </details>
                 </aside>
             </div>
         </div>

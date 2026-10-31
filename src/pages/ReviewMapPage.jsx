@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { PageLoading, ErrorState } from '../components/StateComponents'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
+import { useMyBook } from '../features/mybook/myBook.js'
 import concepts from './ConceptsPage.module.css'
 import styles from './ReviewMapPage.module.css'
 
@@ -20,7 +21,10 @@ async function loadJson(url) {
 export default function ReviewMapPage() {
     usePageMeta(STATIC_PAGE_META['/review'])
     const [params, setParams] = useSearchParams()
-    const slug = SUBJECTS.some(([value]) => value === params.get('subject')) ? params.get('subject') : 'physics'
+    // with no subject asked for, open on 「我的书」's subject when it has a 中考 map
+    const myBook = useMyBook()
+    const fallback = SUBJECTS.some(([value]) => value === myBook?.subject_slug) ? myBook.subject_slug : 'physics'
+    const slug = SUBJECTS.some(([value]) => value === params.get('subject')) ? params.get('subject') : fallback
     const [data, setData] = useState(null)
     const [error, setError] = useState('')
     useEffect(() => {

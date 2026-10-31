@@ -130,6 +130,12 @@ export default function TextbookAlignmentPage() {
                 </div>
             </header>
 
+            {units.length > 1 ? (
+                <nav className={styles.jump} aria-label="按章跳转">
+                    {units.map(unit => <a key={unit.name} className={styles.jumpLink} href={`#unit-${unit.lessons[0].id}`}>{unit.name}</a>)}
+                </nav>
+            ) : null}
+
             {units.map(unit => (
                 <section key={unit.name} className={styles.unit} aria-labelledby={`unit-${unit.lessons[0].id}`}>
                     <div className={styles.unitHead}>
