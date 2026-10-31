@@ -535,7 +535,9 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
                 if (wanted(point)) lessons.push({ edition_id: edition, textbook_title: textbook, unit, lesson_title: title, lesson_id: lessonId, point, relation: relation === 'T' ? 'teaches' : 'touches', quote, source, pdf_page: page, source_label: SOURCE_LABEL(source, page), url: `https://www.kebiao.org/textbooks/${edition}/standards` })
             }
         }
-        lessons.sort((a, b) => (a.relation === b.relation ? 0 : a.relation === 'teaches' ? -1 : 1) || a.textbook_title.localeCompare(b.textbook_title, 'zh-Hans-CN', { numeric: true }))
+        // the library's books before the editions judged on lesson titles (pf_), as on the standard page
+        const pilot = (item: { edition_id: string }) => Number(item.edition_id.startsWith('pf_'))
+        lessons.sort((a, b) => (a.relation === b.relation ? 0 : a.relation === 'teaches' ? -1 : 1) || pilot(a) - pilot(b) || a.textbook_title.localeCompare(b.textbook_title, 'zh-Hans-CN', { numeric: true }))
         return ok(c, version, lessons, { total: lessons.length, review_status: 'machine_judged' })
     })
 

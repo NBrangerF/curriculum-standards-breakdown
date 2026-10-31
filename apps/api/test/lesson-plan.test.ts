@@ -483,6 +483,9 @@ test('教材与课标对应 API: a book lesson by lesson, and a 要点\'s lesson
     // 主要在教 first
     const relations = byStandard.data.map((item: any) => item.relation)
     assert.deepEqual(relations, [...relations].sort((a: string, b: string) => (a === b ? 0 : a === 'teaches' ? -1 : 1)))
+    // and within each, the library's books before the editions judged on lesson titles (pf_)
+    const order = byStandard.data.map((item: any) => `${item.relation === 'teaches' ? 0 : 1}${item.edition_id.startsWith('pf_') ? 1 : 0}`)
+    assert.deepEqual(order, [...order].sort())
 })
 
 test('pick: a 历史 lesson is judged only against its volume\'s period', async t => {
