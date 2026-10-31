@@ -2,7 +2,7 @@
 // so 教材与课标对应 can run on the lesson titles and the 教学设计's 教学目标. Only titles and ids are kept.
 // The newest printing of each grade and volume is used (「新教材-」 first; the older one while the 新教材 has no lessons).
 // Output: data/textbooks/smartedu/platform/<platform id>.json and data/textbooks/smartedu/platform/index.json.
-//   node scripts/resources/fetch_platform_editions.mjs --match '^(小学|初中)数学北师大版'
+//   node scripts/resources/fetch_platform_editions.mjs --match '^(小学|初中)数学北师大版' [--min-lessons 10]
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -12,6 +12,9 @@ const OUT = path.join(ROOT, 'data/textbooks/smartedu/platform')
 const CACHE = path.join(ROOT, 'generated/smartedu')
 const BASE = 'https://s-file-1.ykt.cbern.com.cn/zxx/ndrs/national_lesson'
 const match = new RegExp(process.argv[process.argv.indexOf('--match') + 1] || '^$', 'u')
+// --min-lessons N: a printing with fewer 同步课 than this (often an older printing the platform recorded only in part)
+// counts as having none
+const MIN_LESSONS = process.argv.includes('--min-lessons') ? Number(process.argv[process.argv.indexOf('--min-lessons') + 1]) : 1
 mkdirSync(OUT, { recursive: true })
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 // older platform ids share their first 20 hex digits (ff808081-8214-b259-0182-…): those take their last 20
@@ -74,8 +77,8 @@ for (const printings of [...picked.values()].sort((a, b) => a[0].grade - b[0].gr
                 lessons.push({ id: lesson.id, title: lesson.title, chapter_path: (chapterPaths[0] || '').split('/').filter(Boolean), pdf_page: null, ...lessonMaterials(lesson) })
             }
         }
-        if (!lessons.length) {
-            console.log(`  - ${book.title}: no lessons`)
+        if (lessons.length < MIN_LESSONS) {
+            console.log(`  - ${book.title}: ${lessons.length ? `only ${lessons.length} lessons` : 'no lessons'}`)
             continue
         }
         // the other printings of this book, if an earlier run listed one, are dropped: each book is listed once
