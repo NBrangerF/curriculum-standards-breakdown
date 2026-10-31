@@ -1676,6 +1676,19 @@ test('MCP tools return cited text and structured data', async () => {
         assert.ok(links.result.structuredContent.lessons.some((item: any) => item.quote === point[2] && item.relation === '主要在教'))
         assert.match(links.result.content[0].text, new RegExp(`教材里写着“`))
     }
+    // the editions judged on lesson titles (pf_) come after the library's books, and a grade asked for holds for them too
+    const titleOf = (row: any) => row[3].replace(/\s+/gu, '')
+    const pilot = index.lessons.find((row: any) => row[0].startsWith('pf_') && row[6].some((m: any) => m[1] === 'T') && titleOf(row).length >= 4 && index.lessons.filter((other: any) => titleOf(other).includes(titleOf(row))).length === 1)
+    if (pilot) {
+        const point = pilot[6].find((m: any) => m[1] === 'T')[0]
+        const teaches = (await call('get_textbook_links', { code: point })).result.structuredContent.lessons.filter((item: any) => item.relation === '主要在教').map((item: any) => Number(item.edition_id.startsWith('pf_')))
+        assert.deepEqual(teaches, [...teaches].sort((a, b) => a - b))
+        const [, , grade] = index.platform_books[pilot[0]]
+        const same = await call('find_textbook_chapter', { query: pilot[3], grade: `${grade}年级` })
+        assert.ok(same.result.structuredContent.lessons.some((item: any) => item.url.includes(`/textbooks/${pilot[0]}/`)), pilot[3])
+        const other = await call('find_textbook_chapter', { query: pilot[3], grade: `${grade === 1 ? 2 : 1}年级` })
+        assert.ok(!other.result.structuredContent.lessons.some((item: any) => item.url.includes(`/textbooks/${pilot[0]}/`)))
+    }
 
     const bad = await call('get_standard', { code: 'XX-S9-ZZ-99' })
     assert.equal(bad.result.isError, true)

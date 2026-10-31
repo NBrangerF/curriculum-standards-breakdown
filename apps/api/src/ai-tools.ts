@@ -260,13 +260,15 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             const { standard } = found
             // lesson by lesson, with the textbook's own words (教材与课标对应)
             const wanted = (point: string) => (/\.\d+$/u.test(asked) ? point === asked : point.replace(/\.\d+$/u, '') === standard.code)
-            const lessons: Array<{ textbook: string, unit: string, lesson: string, point: string, relation: string, quote: string, where: string, url: string }> = []
+            const lessons: Array<{ edition_id: string, textbook: string, unit: string, lesson: string, point: string, relation: string, quote: string, where: string, url: string }> = []
             for (const [edition, textbook, unit, title, , , matches] of (await ctx.v2.lessonAlignment()).lessons) {
                 for (const [point, relation, quote, source, page] of matches) {
-                    if (wanted(point)) lessons.push({ textbook, unit, lesson: title, point, relation: relation === 'T' ? '主要在教' : '也涉及', quote, where: SOURCE_LABEL(source, page), url: `${SITE}/textbooks/${edition}/standards` })
+                    if (wanted(point)) lessons.push({ edition_id: edition, textbook, unit, lesson: title, point, relation: relation === 'T' ? '主要在教' : '也涉及', quote, where: SOURCE_LABEL(source, page), url: `${SITE}/textbooks/${edition}/standards` })
                 }
             }
-            lessons.sort((a, b) => (a.relation === b.relation ? 0 : a.relation === '主要在教' ? -1 : 1) || a.textbook.localeCompare(b.textbook, 'zh-Hans-CN', { numeric: true }))
+            // the library's books before the editions judged on lesson titles (pf_), whose quotes are not from the book
+            const pilot = (item: { edition_id: string }) => Number(item.edition_id.startsWith('pf_'))
+            lessons.sort((a, b) => (a.relation === b.relation ? 0 : a.relation === '主要在教' ? -1 : 1) || pilot(a) - pilot(b) || a.textbook.localeCompare(b.textbook, 'zh-Hans-CN', { numeric: true }))
             const items: Array<{ textbook: string, chapter: string | null, printed_page: unknown, url: string, status: string }> = []
             const seen = new Set<string>()
             const push = (item: { textbook: string, chapter: string | null, printed_page: unknown, url: string, status: string }) => {
@@ -319,8 +321,9 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             const index = await ctx.v2.textbookChapters()
             const v2Slug = (bookSlug: string) => (['art', 'music'].includes(bookSlug) ? 'arts' : bookSlug)
             // first the 国家平台 lessons judged one by one on their own pages, with the textbook's own words
-            const lessonHits = (await ctx.v2.lessonAlignment()).lessons.filter(([edition, , unit, title]) => {
-                const book = index.books[edition]
+            const alignment = await ctx.v2.lessonAlignment()
+            const lessonHits = alignment.lessons.filter(([edition, , unit, title]) => {
+                const book = index.books[edition] || alignment.platform_books?.[edition]
                 if (book && ((slug && v2Slug(book[1]) !== slug) || (grade && book[2] !== grade))) return false
                 const name = title.replace(/\s+/gu, '')
                 return name.includes(query) || (query.length >= 3 && name.length >= 3 && query.includes(name)) || (!name.includes(query) && unit.replace(/\s+/gu, '').includes(query) && title === unit)

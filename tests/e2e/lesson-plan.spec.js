@@ -362,12 +362,14 @@ test('学期进度表 lays a textbook\'s units over the weeks, warns when hours 
     await expect(page.getByLabel('每周课时')).toHaveValue('1')
 })
 
-test('a standard page lists the textbook units that teach it', async ({ page }) => {
+test('a standard page lists, under each 要点, the lessons that teach it', async ({ page }) => {
     await page.goto('/standards/HI-S4-MC-02')
     const section = page.locator('#standard-textbook-units')
     await expect(section.getByRole('heading', { name: '教材里在哪教' })).toBeVisible()
-    await expect(section.getByRole('link', { name: /历史8年级上册 · 第三单元/ })).toHaveAttribute('href', /\/textbook-units\/tcu_/)
-    // a wrong unit can be reported with the standard and its units filled in
+    // each lesson opens its book's 课标对应表, with the textbook's own words beside it
+    await expect(section.getByRole('link', { name: /历史8年级上册 · 第三单元/ }).first()).toHaveAttribute('href', /\/textbooks\/ed_[0-9a-f]+\/standards$/)
+    await expect(section.getByText(/主要在教 · “/).first()).toBeVisible()
+    // a wrong one can be reported with the standard filled in
     await section.getByRole('link', { name: '告诉我们' }).click()
     await expect(page.getByLabel(/关联条目代码/)).toHaveValue('HI-S4-MC-02')
 })
@@ -394,7 +396,7 @@ test('中考复习地图 lists a subject\'s junior standards with the textbook u
 
 test('a textbook\'s table of contents shows the 要点 the AI judged each unit to teach', async ({ page }) => {
     await page.goto('/textbooks/ed_2860489fc83ddeb6cec5')
-    const points = page.getByText('AI 按单元判断的要点').first()
+    const points = page.getByText('AI 判断的要点').first()
     await expect(points).toBeVisible()
     await expect(page.getByRole('link', { name: /^HI-S4-MC-0\d\.\d+$/ }).first()).toHaveAttribute('href', /\/standards\/HI-S4-MC-0\d#HI-S4-MC-0\d\.\d+/)
 })

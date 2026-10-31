@@ -31,7 +31,7 @@ export type V2TextbookChapters = { books: Record<string, [string, string, number
 // lesson title, lesson id, PDF page, matches]; a match is [要点, 'T' 主要在教 | 'P' 也涉及, quote, source, PDF page]
 export type LessonAlignMatch = [string, 'T' | 'P', string, string, number | null]
 export type LessonAlignRow = [string, string, string, string, string, number | null, LessonAlignMatch[]]
-export type LessonAlignment = { note: string, lessons: LessonAlignRow[] }
+export type LessonAlignment = { note: string, lessons: LessonAlignRow[], platform_books?: Record<string, [string, string, number, string]> }
 export const SOURCE_LABEL = (source: string, page: number | null) => (source === 'book' ? (page ? `教材 PDF 第 ${page} 页` : '教材原文') : source === 'design' ? '国家平台教学设计' : source === 'task' ? '国家平台学习任务单' : source === 'slides' ? '国家平台课件' : source === 'summary' ? '国家平台课程简介' : '课题')
 export type V2TextbookLinks = { standards: Record<string, V2TextbookLink[]>, units: Record<string, Array<{ code: string, indicator: string | null, title?: string }>> }
 

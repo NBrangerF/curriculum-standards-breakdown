@@ -186,6 +186,8 @@ test('textbook detail exposes scope standards when unit evidence is empty', asyn
         contentType: 'application/json',
         body: JSON.stringify(book)
     }))
+    // and its lessons not yet judged one by one (教材与课标对应), which would lead the section instead
+    await page.route(`**/data/textbooks/national-lessons/${TEXTBOOK_ID}.json`, route => route.fulfill({ status: 404, body: '' }))
 
     await page.goto(`/textbooks/${TEXTBOOK_ID}`)
 

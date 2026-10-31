@@ -297,27 +297,32 @@ export function buildNationalLessons() {
         ;(unitsBySubject[code.slice(0, 2)] ??= {})[code] = sorted.slice(0, 8).map(row => [row.edition, row.textbook, row.unit, row.ids[0] || null, row.viaAi])
     }
     // per 要点: 主要在教 first, in textbook order, at most two lessons a book and ten in all; one lesson the platform
-    // lists several times (「正数与负数（一）」「正数与负数（二）」) counts once
+    // lists several times (「正数与负数（一）」「正数与负数（二）」) counts once. The library's books come first (their
+    // quotes are from the book itself), then up to six lessons of the editions judged on lesson titles (pf_)
     const pointsBySubject = {}
+    const pilot = row => row[0].startsWith('pf_')
     for (const [point, rows] of byPoint) {
         rows.sort((a, b) => (a[5] === b[5] ? 0 : a[5] === 'T' ? -1 : 1) || a[1].localeCompare(b[1], 'zh-Hans-CN', { numeric: true }) || a[4].length - b[4].length)
         const perBook = new Map()
         const seenLesson = new Set()
-        const kept = rows.filter(row => {
+        const pick = (list, limit) => list.filter(row => {
             const key = `${row[0]}|${lessonKey(row[4])}`
             if (seenLesson.has(key)) return false
             seenLesson.add(key)
             perBook.set(row[0], (perBook.get(row[0]) || 0) + 1)
             return perBook.get(row[0]) <= 2
-        }).slice(0, 10)
-        kept.sort((a, b) => a[1].localeCompare(b[1], 'zh-Hans-CN', { numeric: true }) || (a[5] === b[5] ? 0 : a[5] === 'T' ? -1 : 1))
+        }).slice(0, limit)
+        const kept = [...pick(rows.filter(row => !pilot(row)), 10), ...pick(rows.filter(pilot), 6)]
+        kept.sort((a, b) => pilot(a) - pilot(b) || a[1].localeCompare(b[1], 'zh-Hans-CN', { numeric: true }) || (a[5] === b[5] ? 0 : a[5] === 'T' ? -1 : 1))
         ;(pointsBySubject[point.slice(0, 2)] ??= {})[point] = kept
     }
     writeFileSync(path.join(ROOT, 'public/data/v2/lesson_alignment.json'), `${JSON.stringify({
         note: 'AI 逐课判断的教材与课标对应：relation T = 主要在教，P = 也涉及；quote 是这一课材料里的原话，source 说明出处（book = 教材 PDF 第 pdf_page 页，design = 国家平台教学设计，summary = 国家平台课程简介，title = 课题）。机器判断，待核验。',
         fields: ['edition_id', 'textbook_title', 'unit', 'lesson_title', 'lesson_id', 'pdf_page', 'matches'],
         match_fields: ['point', 'relation', 'quote', 'source', 'pdf_page'],
-        lessons: indexRows
+        lessons: indexRows,
+        // editions the library has no PDF of: edition_id → [textbook title, subject slug, grade, volume], as in textbook_chapters.json
+        platform_books: Object.fromEntries(platformBooks.map(book => [book.edition_id, [`${book.title}（${book.edition_name}）`, book.subject_slug, book.grade, book.volume]]))
     })}\n`)
     const subjectOut = path.join(ROOT, 'public/data/v2/national-lessons')
     rmSync(subjectOut, { recursive: true, force: true })
