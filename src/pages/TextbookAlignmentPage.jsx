@@ -133,6 +133,11 @@ export default function TextbookAlignmentPage() {
                         <h2 id={`unit-${unit.lessons[0].id}`}>{unit.name}</h2>
                         {book.platform_only ? null : <Link to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&${unit.chapter ? `chapter=${encodeURIComponent(unit.chapter)}` : `lesson=${unit.lessons[0].id}`}`}>{unit.chapter ? '备这个单元' : '备这一课'}</Link>}
                     </div>
+                    {(() => {
+                        // the unit as a whole: every 要点 one of its lessons mainly teaches, for 单元整体设计
+                        const codes = [...new Set(unit.lessons.flatMap(lesson => lesson.rows.filter(row => row[1] === 'T').map(row => row[0])))]
+                        return codes.length ? <p className={styles.unitPoints}><span>本单元主要在教</span>{codes.map(code => <Link key={code} className={styles.code} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`} title={points.get(code)?.text || ''}>{code}</Link>)}</p> : null
+                    })()}
                     <ol className={styles.lessons}>
                         {unit.lessons.map(lesson => {
                             const taught = lesson.rows.filter(row => row[1] === 'T')
