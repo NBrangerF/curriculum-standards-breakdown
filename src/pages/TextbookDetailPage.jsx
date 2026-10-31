@@ -11,6 +11,7 @@ import TextbookAlignmentCard from '../features/textbooks/TextbookAlignmentCard'
 import TextbookCover from '../features/textbooks/TextbookCover'
 import TextbookStatus from '../features/textbooks/TextbookStatus'
 import { loadTextbookDetail } from '../features/textbooks/textbookApi'
+import { alignmentUnits } from '../features/textbooks/alignmentModel'
 import styles from './TextbookDetailPage.module.css'
 
 const RELATION_LABELS = {
@@ -70,13 +71,18 @@ export default function TextbookDetailPage() {
     const [aiPoints, setAiPoints] = useState(() => new Map())
     // the 国家平台 unit list: clean even when this book's own 目录 scan is not
     const [platformUnits, setPlatformUnits] = useState([])
+    // 教材与课标对应, lesson by lesson: how many lessons were judged and how many 要点 they teach
+    const [judged, setJudged] = useState(null)
     useEffect(() => {
         let active = true
         setAiPoints(new Map())
         setPlatformUnits([])
+        setJudged(null)
         fetch(`/data/textbooks/national-lessons/${editionId}.json`).then(response => (response.ok ? response.json() : null)).then(record => {
             if (!active || !record) return
             setPlatformUnits(unitsOf(record).filter(unit => unit.chapter))
+            const judgedLessons = (record.lessons || []).filter(lesson => Array.isArray(lesson.align))
+            if (judgedLessons.length) setJudged({ lessons: alignmentUnits(record).reduce((sum, unit) => sum + unit.lessons.filter(lesson => lesson.judged).length, 0), points: new Set(judgedLessons.flatMap(lesson => lesson.align.filter(row => row[1] === 'T').map(row => row[0]))).size })
             const byUnit = new Map()
             for (const lesson of record.lessons || []) {
                 if (!lesson.unit_id || !lesson.ai_points?.length) continue
@@ -192,11 +198,24 @@ export default function TextbookDetailPage() {
                     ) : null}
 
                     <section className={styles.section}>
-                        <div className={styles.sectionHeading}><div><span>课标关联</span><h2>课标与教材关联</h2></div><p>机器校验后直接展示，并附页内证据、置信度与算法版本。</p></div>
-                        {book.alignments.length ? (
-                            <div className={styles.alignmentList}>{book.alignments.map(item => <TextbookAlignmentCard key={item.alignment_id} book={book} alignment={item} />)}</div>
-                        ) : <EmptyState title="暂无可靠的单元级关联" message={standardScopeCodes.length ? `已建立 ${standardScopeCodes.length} 条同学科、同学段课标范围关系；可以先浏览下方相关课标，具体单元证据仍需增强。` : '尚未生成具体单元证据或适用范围关系。'} />}
-                        <StandardScopeLinks standardCodes={standardScopeCodes} />
+                        <div className={styles.sectionHeading}><div><span>课标关联</span><h2>课标与教材关联</h2></div><p>{judged ? '每一课对应哪几条要点，附这一课教材的原话和页码。' : '机器校验后直接展示，并附页内证据、置信度与算法版本。'}</p></div>
+                        {judged ? (
+                            <p className={styles.platformMore}>{judged.lessons} 节课已逐课对到 2025 修订版课标的 {judged.points} 条要点。<Link to={`/textbooks/${book.edition_id}/standards`}>打开这本书的课标对应表</Link></p>
+                        ) : null}
+                        {judged ? (
+                            <details>
+                                <summary>旧版机器对齐（2022 年版编码，{book.alignments.length} 条）</summary>
+                                {book.alignments.length ? <div className={styles.alignmentList}>{book.alignments.map(item => <TextbookAlignmentCard key={item.alignment_id} book={book} alignment={item} />)}</div> : null}
+                                <StandardScopeLinks standardCodes={standardScopeCodes} />
+                            </details>
+                        ) : (
+                            <>
+                                {book.alignments.length ? (
+                                    <div className={styles.alignmentList}>{book.alignments.map(item => <TextbookAlignmentCard key={item.alignment_id} book={book} alignment={item} />)}</div>
+                                ) : <EmptyState title="暂无可靠的单元级关联" message={standardScopeCodes.length ? `已建立 ${standardScopeCodes.length} 条同学科、同学段课标范围关系；可以先浏览下方相关课标，具体单元证据仍需增强。` : '尚未生成具体单元证据或适用范围关系。'} />}
+                                <StandardScopeLinks standardCodes={standardScopeCodes} />
+                            </>
+                        )}
                     </section>
                 </main>
 
