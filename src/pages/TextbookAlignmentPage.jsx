@@ -162,7 +162,7 @@ export default function TextbookAlignmentPage() {
 
             <section className={concepts.block} aria-labelledby="alignment-missing">
                 <h2 id="alignment-missing">本年级没有在这本书里找到的要点（{coverage.total - coverage.taught - coverage.touched} 条）</h2>
-                <p className={concepts.footnote}>{book.grade >= 7 ? '初中课标是 7–9 年级的共同要求，大部分要点在七、八、九年级的其他册里教。' : '课标按学段写，同一学段两个年级、上下两册分着教，很多要点在同学段的另一册里。'}标「在《…》教」的，是 AI 在馆里其他册找到的；都没有的，可能是教材没专门安排、放在综合实践里，也可能是 AI 没认出来。</p>
+                <p className={concepts.footnote}>{book.grade >= 7 ? '初中课标是 7–9 年级的共同要求；这里只列按教材标在本年级的要点，上下两册分着教，很多在另一册里。' : '课标按学段写，同一学段两个年级、上下两册分着教，很多要点在同学段的另一册里。'}标「在《…》教」的，是 AI 在馆里其他册找到的；都没有的，可能是教材没专门安排、放在综合实践里，也可能是 AI 没认出来。</p>
                 {missing.map(group => (
                     <div key={group.standard.code} className={styles.missingGroup}>
                         <h3><Link to={`/standards/${group.standard.code}`}>{group.standard.code}</Link> {group.standard.level2 || group.standard.title}</h3>

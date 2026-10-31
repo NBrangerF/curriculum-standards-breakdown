@@ -66,7 +66,7 @@ export default function TextbookAlignmentOverviewPage() {
 
             <section className={concepts.block} aria-labelledby="alignment-check">
                 <h2 id="alignment-check">准不准</h2>
-                <p className={concepts.prose}>在 14 个学科里抽了 14 课，先由人按课标原文标出每课该对的要点，再和 AI 的结果比较：13 课里有 12 课，AI 找到了这一课该教的要点；AI 标「主要在教」的 19 条里，15 条和人的判断一致。错的多是把「也涉及」说成了「主要在教」，比如把秦汉统一的要点也算进了《东汉的兴衰》。「也涉及」放得宽，只作参考。所以页面上的对应都标着「待核验」，看到不对的请点「报错」，教研员审校后会改。</p>
+                <p className={concepts.prose}>先在 12 门学科里选了 14 课，由人按课标原文标出每课该对的要点，再和 AI 的结果比较：13 课里有 12 课，AI 找到了这一课该教的要点；AI 标「主要在教」的 19 条里，15 条和人的判断一致。再从已判断的课里按学科随机抽了 61 条「主要在教」逐条核对：53 条对，5 条部分对（应是「也涉及」，或同一条标准下有更贴切的要点），3 条错。错的多在同一条标准下相近的要点之间，比如讲正比例的课选了「比」，讲方向和距离的课选了「比例尺」。「也涉及」放得宽，只作参考。所以页面上的对应都标着「待核验」，看到不对的请点「报错」；教研员可以下载每本书的审校表逐条核对，核对过的会标「教研员已核验」。</p>
             </section>
 
             <section className={concepts.block} aria-labelledby="alignment-coverage">

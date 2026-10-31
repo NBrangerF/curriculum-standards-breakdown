@@ -90,7 +90,7 @@ if (arg('--merge')) {
     console.log(`merged ${added} lessons`)
     process.exit(0)
 }
-const files = readdirSync(EVIDENCE).filter(name => name.startsWith('ed_')).sort().filter((_, index) => index % SHARDS === SHARD)
+const files = readdirSync(EVIDENCE).filter(name => /^(ed|pf)_/u.test(name)).sort().filter((_, index) => index % SHARDS === SHARD)
 for (const file of REVERSE ? files.reverse() : files) {
     const evidence = JSON.parse(readFileSync(path.join(EVIDENCE, file), 'utf8'))
     if (ONLY && evidence.edition_id !== ONLY) continue

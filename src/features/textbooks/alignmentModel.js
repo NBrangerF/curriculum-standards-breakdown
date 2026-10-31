@@ -88,10 +88,12 @@ export function bookCoverage(units, subject, book) {
             for (const [point, relation] of lesson.rows) (relation === 'T' ? taught : touched).add(point)
         }
     }
+    // 初中 要点 carry the grade their textbook teaches them in: a 七年级 book is measured against 七年级's
+    const ofGrade = item => !book?.grade || !item.grades?.length || item.grades.includes(book.grade)
     const groups = standards.map(standard => ({
         standard,
-        points: (standard.indicators || []).map(item => ({ code: item.code, text: item.text, state: taught.has(item.code) ? 'T' : touched.has(item.code) ? 'P' : null }))
-    }))
+        points: (standard.indicators || []).filter(ofGrade).map(item => ({ code: item.code, text: item.text, state: taught.has(item.code) ? 'T' : touched.has(item.code) ? 'P' : null }))
+    })).filter(group => group.points.length)
     const all = groups.flatMap(group => group.points)
     return {
         groups,
