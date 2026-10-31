@@ -60,6 +60,8 @@ export interface StructuredLlmAdapter<T> {
     instructions: string
     chatInstructions: string
     maxCompletionTokens: number
+    // 'low' lets the model think before answering; slower, for batch work where a wrong match costs more than time
+    reasoningEffort?: 'minimal' | 'low'
     validate: (value: unknown) => T | null
 }
 
@@ -309,7 +311,7 @@ function requestBody<T>(protocol: LlmProtocol, model: string, input: string, ada
     if (protocol === 'chat_completions') {
         return {
             model,
-            reasoning_effort: 'minimal',
+            reasoning_effort: adapter.reasoningEffort || 'minimal',
             verbosity: 'low',
             max_completion_tokens: adapter.maxCompletionTokens,
             messages: [
@@ -323,7 +325,7 @@ function requestBody<T>(protocol: LlmProtocol, model: string, input: string, ada
         model,
         instructions: adapter.instructions,
         input,
-        reasoning: { effort: 'minimal' },
+        reasoning: { effort: adapter.reasoningEffort || 'minimal' },
         max_output_tokens: adapter.maxCompletionTokens,
         text: { format, verbosity: 'low' }
     }

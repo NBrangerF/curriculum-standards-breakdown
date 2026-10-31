@@ -114,7 +114,9 @@ function adapterFor(group: Array<AlignLessonInput & { key: string }>, points: Ma
         schema: SCHEMA,
         instructions: INSTRUCTIONS,
         chatInstructions: CHAT_INSTRUCTIONS,
-        maxCompletionTokens: 2000,
+        maxCompletionTokens: 6000,
+        // with no thinking the model ties 「从三个方向观察几何体」 to 图形的平移、旋转
+        reasoningEffort: 'low',
         validate(value) {
             const list = value && typeof value === 'object' ? (value as Record<string, unknown>).lessons : null
             if (!Array.isArray(list)) return null
