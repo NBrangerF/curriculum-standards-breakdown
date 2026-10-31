@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { markPathRead } from '../features/concepts/readingPath'
 import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/csr/ArrowUpRight'
 import { PageLoading, ErrorState } from '../components/StateComponents'
 import { conceptMeta } from '../seo/pageMeta.js'
@@ -19,6 +20,7 @@ export default function ConceptDetailPage() {
     const [error, setError] = useState('')
     const term = data?.terms.find(item => item.id === termId) || null
     usePageMeta(term ? conceptMeta(term) : null)
+    useEffect(() => { if (term) markPathRead(term.id) }, [term])
     useEffect(() => {
         let active = true
         loadConcepts().then(value => active && setData(value)).catch(errorValue => active && setError(errorValue.message))

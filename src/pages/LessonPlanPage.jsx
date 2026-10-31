@@ -467,6 +467,9 @@ export default function LessonPlanPage() {
                 <p className={styles.lede}>
                     选你下周要教的一课，确认它对应的课标要点，再说说班级情况。AI 只按你勾选的要点写，每条目标都标出依据；写完后程序会逐条核对：有没有超出课标的限定、目标有没有对应的活动和评价。整个过程约一分钟。也可以贴入自己的教案、试卷或作业：教案逐条核验，试卷编成多维细目表并查超标和漏考。
                 </p>
+                {params.get('for') === 'trial' ? (
+                    <p className={styles.trialNote}>教资面试试讲：先在下面选一课（手边没有教材就选「直接写课题」），起草教案后点「试讲稿 + 答辩」，约 1 分钟生成 10 分钟的试讲稿和 3 道答辩题。</p>
+                ) : null}
                 {stored.length && !plan ? (
                     <div className={styles.history}>
                         <span>最近的草稿（只存在这台设备的浏览器里）</span>

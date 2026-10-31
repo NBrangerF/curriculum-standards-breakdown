@@ -5,16 +5,8 @@ import { PageLoading, ErrorState } from '../components/StateComponents'
 import { conceptsMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { loadConcepts, subjectName } from '../features/concepts/conceptsData'
+import { READING_PATH } from '../features/concepts/readingPath'
 import styles from './ConceptsPage.module.css'
-
-const READING_PATH = [
-    ['standard-document', '一本课标有哪六个部分，什么问题翻哪一部分'],
-    ['core-literacy', '每门课要培养的是什么'],
-    ['content-academic-guidance', '学什么、学到什么程度、可以怎么教'],
-    ['learning-objective', '目标怎么写才看得见、评得了'],
-    ['teach-learn-assess', '目标、活动、评价为什么要对齐'],
-    ['unit-design', '从一课到一个单元：单元整体教学设计']
-]
 
 const firstSentence = text => {
     const end = text.indexOf('。')

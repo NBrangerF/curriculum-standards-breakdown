@@ -332,7 +332,12 @@ test('AI 备课 keeps recent drafts in this browser, including one saved under t
 
 test('教资课标速记 lists each 课标\'s 课程理念 with pages and lets a student cover and recall them', async ({ page }) => {
     await page.goto('/teacher-exam')
-    await expect(page.getByRole('heading', { name: '每门课的核心素养和课程理念' })).toBeVisible()
+    await expect(page.getByRole('heading', { name: '考前把课标读懂' })).toBeVisible()
+    await expect(page.getByRole('list', { name: '备考路线' }).getByRole('link', { name: /试讲稿与答辩/ })).toHaveAttribute('href', '/lesson-plan?for=trial')
+    // 我考的: one subject at a time, remembered on the device
+    await page.getByRole('group', { name: '我考的学科' }).getByRole('button', { name: '数学' }).click()
+    await expect(page).toHaveURL(/subject=math/)
+    await expect(page.locator('#exam-chinese')).toHaveCount(0)
     const math = page.locator('#exam-math')
     await expect(math.getByText('确立核心素养导向的课程目标')).toBeVisible()
     await expect(math.getByText(/修订版 PDF 第 5–7 页/)).toBeVisible()
