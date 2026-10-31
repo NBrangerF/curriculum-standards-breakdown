@@ -1,0 +1,113 @@
+.picker {
+    display: grid;
+    gap: 16px;
+    padding: 18px;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: 18px;
+    background: var(--kb-surface-muted);
+}
+
+.step {
+    display: grid;
+    gap: 10px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.step legend {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding: 0;
+    color: var(--kb-moon);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.step legend span {
+    color: var(--kb-gold);
+    font-family: var(--font-num);
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.step:disabled legend { color: var(--kb-dim); }
+.step:disabled legend span { color: var(--kb-dim); }
+
+.wait { margin: 0; color: var(--kb-dim); font-size: 13px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.chip,
+.grades button,
+.versions button {
+    border: 1px solid var(--kb-line-strong);
+    background: transparent;
+    color: var(--kb-mist);
+    font: inherit;
+    transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+.chip {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    gap: 7px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+.chip i { width: 6px; height: 6px; border-radius: 50%; background: var(--c); }
+
+.grades {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.grades button {
+    min-height: 40px;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.versions { display: grid; gap: 6px; }
+
+.versions button {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    border-radius: 11px;
+    font-size: 15px;
+    text-align: left;
+}
+
+.versions small { color: var(--kb-dim); font-size: 12px; }
+
+.chip:hover,
+.grades button:hover,
+.versions button:hover { border-color: var(--kb-gold); color: var(--kb-moon); }
+
+.chip[aria-pressed='true'],
+.grades button[aria-pressed='true'],
+.versions button[aria-pressed='true'] {
+    border-color: var(--kb-gold);
+    background: var(--kb-accent-soft);
+    color: var(--kb-moon);
+}
+
+.go { justify-self: stretch; min-height: 46px; font-size: 15px; }
+span.go { color: var(--kb-dim); cursor: default; }
+
+@media (max-width: 420px) {
+    .picker { padding: 14px; }
+    .grades { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px; }
+    .grades button { font-size: 13px; }
+}

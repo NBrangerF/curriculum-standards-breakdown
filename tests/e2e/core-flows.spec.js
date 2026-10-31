@@ -47,7 +47,7 @@ const seedCollectionWorkspace = page => page.addInitScript(() => {
 test('home sky keeps subject and skill entries reachable', async ({ page }) => {
     await page.goto('/')
     await expect(page).toHaveTitle(/kebiao/)
-    await expect(page.getByRole('heading', { level: 1, name: /kebiao 课标星图/ })).toBeAttached()
+    await expect(page.getByRole('heading', { level: 1, name: '从你手上的教材开始' })).toBeVisible()
 
     const math = page.locator('#subjects-section + ul').getByRole('link', { name: /数学/ })
     await expect(math).toContainText('230')
@@ -59,6 +59,23 @@ test('home sky keeps subject and skill entries reachable', async ({ page }) => {
     await page.getByRole('navigation', { name: '课标栏目' }).getByRole('link', { name: '可迁移技能' }).click()
     await expect(page).toHaveURL(/\/skills$/)
     await expect(page.getByRole('heading', { level: 1, name: '可迁移技能与课程关系' })).toBeVisible()
+})
+
+test('a teacher picks a textbook on the home page and it becomes 我的书', async ({ page }) => {
+    await page.goto('/')
+    const picker = page.getByRole('group', { name: '选一本教材' })
+    await picker.getByRole('button', { name: '数学', exact: true }).click()
+    await picker.getByRole('button', { name: '7 年级上册' }).click()
+    await picker.getByRole('button', { name: /人教版/ }).click()
+    await picker.getByRole('link', { name: /打开 数学七上 · 人教版/ }).click()
+    await expect(page).toHaveURL(/\/textbooks\/ed_006d5ed61c055eb63857$/)
+    await expect(page.getByRole('banner').getByRole('link', { name: /我的书：数学7年级上册/ })).toBeVisible()
+
+    await page.goto('/')
+    await expect(page.getByRole('heading', { name: '数学 7 年级上册' })).toBeVisible()
+    await expect(page.getByRole('link', { name: '用这本书备课 →' })).toHaveAttribute('href', /\/lesson-plan\?subject=.+&edition=ed_006d5ed61c055eb63857/)
+    await page.goto('/lesson-plan')
+    await expect(page).toHaveURL(/edition=ed_006d5ed61c055eb63857/)
 })
 
 test('an unknown standard code is reported without downloading every subject', async ({ page }) => {

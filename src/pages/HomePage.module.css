@@ -10,18 +10,43 @@
 
 .count { font-variant-numeric: tabular-nums; }
 
-/* Hero */
+/* Hero: the textbook first. Everything sits in the left column, so the 课标 glyph the sky draws on the right
+   (fixed to the viewport) never covers it; the lit star's caption sits above the glyph. */
 .hero {
     display: flex;
     min-height: calc(100vh - 4rem);
     min-height: calc(100svh - 4rem);
-    align-items: center;
+    align-items: flex-start;
 }
 
-.hero .wrap { width: 100%; padding-block: 48px 72px; }
-.heroCopy { max-width: 40rem; }
+.hero .wrap { width: 100%; padding-block: clamp(32px, 5vw, 56px) 72px; }
 
-.now { --c: var(--kb-gold); margin-top: 28px; }
+.heroGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 540px) minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+
+.heroCopy { min-width: 0; max-width: 540px; }
+
+.title {
+    margin: 14px 0 0;
+    color: var(--kb-moon);
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4vw, 50px);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+.lede { margin: 12px 0 0; color: var(--kb-mist); font-size: 16px; line-height: 1.75; }
+
+.entry { margin-top: 22px; }
+
+.heroSky { display: flex; min-width: 0; justify-content: flex-end; }
+
+.now { --c: var(--kb-gold); max-width: 30rem; margin-top: 0; }
 
 .nowMeta {
     display: flex;
@@ -55,19 +80,55 @@
     display: -webkit-box;
     overflow: hidden;
     min-height: 2.6em;
-    margin: 12px 0 0;
+    margin: 8px 0 0;
     padding-bottom: 0.08em;
     color: var(--kb-moon);
     font-family: var(--font-display);
-    font-size: clamp(30px, 3.9vw, 54px);
-    font-weight: 900;
-    line-height: 1.3;
-    letter-spacing: 0.03em;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
 
-.search { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+/* Two doors: the teacher's week and the 师范生's route */
+.doors {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 28px;
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1px solid var(--kb-line);
+}
+
+.doorTitle {
+    margin: 6px 0 8px;
+    color: var(--kb-moon);
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.35;
+}
+
+.doors ul { margin: 0; padding: 0; list-style: none; }
+
+.doors a {
+    display: grid;
+    min-height: 44px;
+    align-content: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--kb-line);
+    color: var(--kb-mist);
+    text-decoration: none;
+}
+
+.doors b { color: var(--kb-moon); font-size: 15px; font-weight: 600; transition: color 0.2s; }
+.doors span { color: var(--kb-dim); font-size: 13px; line-height: 1.5; }
+.doors a:hover b,
+.doors a:focus-visible b { color: var(--kb-gold); }
+
+.search { display: flex; flex-wrap: wrap; gap: 8px; }
 .field { position: relative; min-width: 0; flex: 1 1 240px; }
 
 .field input {
@@ -99,17 +160,17 @@
 .go {
     height: 54px;
     padding: 0 24px;
-    border: 0;
+    border: 1px solid var(--kb-line-strong);
     border-radius: 14px;
-    background: var(--kb-moon);
-    color: var(--kb-night);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--kb-moon);
     font: inherit;
     font-size: 16px;
     font-weight: 700;
-    transition: transform 0.2s var(--kb-ease), background 0.2s;
+    transition: transform 0.2s var(--kb-ease), border-color 0.2s;
 }
 
-.go:hover { background: #fff; transform: translateY(-1px); }
+.go:hover { border-color: var(--kb-gold); transform: translateY(-1px); }
 
 .match {
     min-height: 1.6em;
@@ -119,21 +180,8 @@
     font-size: 12.5px;
 }
 
-.studentLinks {
-    margin: -6px 0 14px;
-    color: var(--kb-dim);
-    font-size: 13px;
-    line-height: 1.9;
-}
-
-.studentLinks a {
-    color: var(--kb-gold);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(233, 200, 135, 0.35);
-}
-
 .entryLabel {
-    margin: 18px 0 10px;
+    margin: 30px 0 10px;
     color: var(--kb-dim);
     font-size: 13px;
     letter-spacing: 0.2em;
@@ -524,14 +572,19 @@
     letter-spacing: 0.04em;
 }
 
+@media (max-width: 520px) {
+    .doors { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+}
+
 @media (max-width: 900px) {
     .featureGrid { grid-template-columns: minmax(0, 1fr); }
     .paper { transform: rotateY(-8deg) rotateX(5deg); }
 }
 
 @media (max-width: 760px) {
-    .hero { align-items: flex-end; }
-    .hero .wrap { padding-block: 40vh 48px; }
+    /* the sky draws the glyph as a band under the header (skyEngine glyphRegion); the copy starts below it */
+    .hero .wrap { padding-block: calc(min(20vh, 170px) + 20px) 48px; }
+    .heroGrid { grid-template-columns: minmax(0, 1fr); }
 
     .sbtn {
         min-height: 58px;
@@ -571,42 +624,4 @@
 @media (prefers-reduced-motion: reduce) {
     .track,
     .cue i { animation: none; }
-}
-
-/* 备课 entry points under the search: a teacher starts from a textbook lesson */
-.tasks {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-    gap: 8px;
-    margin: 8px 0 18px;
-    padding: 0;
-    list-style: none;
-}
-
-.tasks a {
-    display: grid;
-    gap: 2px;
-    height: 100%;
-    padding: 10px 14px;
-    border: 1px solid var(--kb-line);
-    border-radius: 14px;
-    background: rgba(9, 11, 16, 0.6);
-    color: var(--kb-mist);
-    text-decoration: none;
-    transition: border-color 0.2s var(--kb-ease);
-}
-
-.tasks a:hover,
-.tasks a:focus-visible {
-    border-color: var(--kb-gold);
-}
-
-.tasks b {
-    color: var(--kb-moon);
-    font-size: 15px;
-}
-
-.tasks span {
-    font-size: 12.5px;
-    line-height: 1.55;
 }

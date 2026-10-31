@@ -86,7 +86,12 @@ export function createSkyEngine(canvas, tipEl) {
     /* ---------- layouts: home ---------- */
     const FOCUS_SUBJ = 2, FOCUS_BAND = 1
     const region = () => (mobile ? { x: W * 0.05, y: H * 0.09, w: W * 0.9, h: H * 0.44 } : { x: W * 0.4, y: H * 0.13, w: W * 0.56, h: H * 0.74 })
-    const glyphRegion = () => (mobile ? { x: W * 0.05, y: H * 0.1, w: W * 0.9, h: H * 0.28 } : { x: W * 0.47, y: H * 0.17, w: W * 0.49, h: H * 0.66 })
+    // Home's 课标 glyph: right of the 540px copy column on desktop (HomePage .heroCopy), a band under the header on phones
+    const glyphRegion = () => {
+        if (mobile) return { x: W * 0.06, y: 70, w: W * 0.88, h: Math.min(H * 0.2, 170) }
+        const x = Math.max(W * 0.47, (W - 1240) / 2 + 56 + 540 + 24)
+        return { x, y: H * 0.2, w: W * 0.96 - x, h: H * 0.64 }
+    }
 
     function computeSky() { for (let i = 0; i < N; i++) { T.sky[i * 2] = RA[i] * W; T.sky[i * 2 + 1] = RB[i] * H } }
 
