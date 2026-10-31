@@ -27,7 +27,7 @@ function downloadWord(book, plan, settings) {
     const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(book.title)}教学进度表</title><style>body{font-family:"SimSun","Songti SC",serif;font-size:11pt;margin:2cm}h1{font-size:16pt;text-align:center}p{text-align:center;color:#444}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:4pt 6pt;vertical-align:top;font-size:10pt}th{background:#eee}.foot{color:#666;font-size:9pt;text-align:left}</style></head><body>
 <h1>${esc(book.edition_name || '')}${esc(book.title)} 学期教学进度表</h1><p>每周 ${settings.perWeek} 课时 · 共 ${settings.weeks} 周（其中复习考试 ${settings.review} 周）· 计划 ${plan.used} 课时</p>
 <table><tr><th>周次</th><th>单元</th><th>教学内容</th><th>课时</th><th>课标要点</th></tr>${rows.map(row => `<tr>${row.map(cell => `<td>${esc(cell)}</td>`).join('')}</tr>`).join('')}</table>
-<p class="foot">单元和课目来自国家中小学智慧教育平台同步课目录；课时为估计，已按本校安排调整。课标要点为 AI 按单元判断（kebiao.org），依据《义务教育课程标准（2022年版2025年修订）》。</p></body></html>`
+<p class="foot">单元和课目来自国家中小学智慧教育平台同步课目录；课时为估计，已按本校安排调整。课标要点为 AI 逐课读教材后判断的各课「主要在教」（kebiao.org），待核验，依据《义务教育课程标准（2022年版2025年修订）》。</p></body></html>`
     const blob = new Blob(['﻿', html], { type: 'application/msword' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
@@ -149,7 +149,7 @@ export default function SchedulePage() {
                     </div>
                     <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="教学进度表（可左右滑动）">
                         <table>
-                            <thead><tr><th>周次</th><th>单元</th><th>教学内容</th><th>课时</th><th>课标要点（AI 按单元判断）</th></tr></thead>
+                            <thead><tr><th>周次</th><th>单元</th><th>教学内容</th><th>课时</th><th>课标要点（各课主要在教，AI 判断）</th></tr></thead>
                             <tbody>
                                 {plan.rows.map(row => (
                                     <tr key={row.name} data-over={row.end > plan.teaching ? 'true' : undefined}>
