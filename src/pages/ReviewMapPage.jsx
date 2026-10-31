@@ -7,7 +7,7 @@ import concepts from './ConceptsPage.module.css'
 import styles from './ReviewMapPage.module.css'
 
 // 中考复习地图: each junior-stage standard of a subject, with the textbook units of 七、八、九年级 that teach it
-// (from the AI 按单元判断 and page alignments) and the 学业要求 of its theme, so a 初三 teacher can plan review by 课标.
+// (from the AI's lesson-by-lesson judgements and page alignments) and the 学业要求 of its theme, so a 初三 teacher can plan review by 课标.
 const SUBJECTS = [['chinese', '语文'], ['math', '数学'], ['english', '英语'], ['morality_law', '道德与法治'], ['physics', '物理'], ['chemistry', '化学'], ['biology', '生物学'], ['history', '历史'], ['geography', '地理']]
 const GRADES = [7, 8, 9]
 
@@ -63,7 +63,7 @@ export default function ReviewMapPage() {
             </header>
             {!data ? <PageLoading message="正在整理复习地图" /> : (
                 <>
-                    <p className={styles.summary}>{data.subject.subject}：{total} 条初中课标，其中 {covered} 条找到了对应的教材单元。单元关联来自 AI 按单元判断和教材页码对齐，待核验；中考考什么，以当地的考试说明为准。</p>
+                    <p className={styles.summary}>{data.subject.subject}：{total} 条初中课标，其中 {covered} 条找到了对应的教材单元。单元关联来自 AI 逐课读教材后的判断和教材页码对齐，待核验；中考考什么，以当地的考试说明为准。</p>
                     {groups.map(group => (
                         <section key={group.name} className={concepts.block} aria-labelledby={`review-${group.name}`}>
                             <div className={concepts.blockHead}>
