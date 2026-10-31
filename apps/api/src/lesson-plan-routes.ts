@@ -267,7 +267,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             if (!standard) continue
             if (subjectSlug && standard.subject_slug !== subjectSlug) continue
             // one lesson judged on its own pages (align_textbook_lessons.mjs), or the unit judged by its lesson titles
-            standards.push({ ...standard, via: chosen?.align ? 'ai_lesson' : 'ai_unit', suggested: [] })
+            standards.push({ ...standard, via: scope.some(item => Array.isArray(item.align)) ? 'ai_lesson' : 'ai_unit', suggested: [] })
             unitPoints.push(point)
         }
         for (const item of aligned.slice(0, unitLessons.length ? 8 : 6)) {

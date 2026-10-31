@@ -66,6 +66,28 @@ export function buildNationalLessons() {
     // material. Where a lesson has it, its 主要在教 要点 replace the unit picks.
     const alignFile = path.join(SOURCE, 'lesson_alignment.json')
     const lessonAlign = existsSync(alignFile) ? JSON.parse(readFileSync(alignFile, 'utf8')).editions : {}
+    // 教研员审校 (import_alignment_reviews.mjs): 错 drops a match, 改为 moves it, 补充 adds one; each reviewed row
+    // gets a sixth field, 1, and the page marks it 「教研员已核验」
+    const reviewsFile = path.join(SOURCE, 'alignment_reviews.json')
+    const reviews = existsSync(reviewsFile) ? JSON.parse(readFileSync(reviewsFile, 'utf8')).editions : {}
+    // a review of one copy of a lesson (the 审校表 lists the first) covers the platform's other copies in its unit
+    const reviewKeys = new Map()
+    const reviewKey = (edition, lesson) => `${edition}|${lesson.chapter_path?.[0] || ''}|${lessonKey(lesson.title)}`
+    const reviewed = (edition, lesson, rows) => {
+        const verdicts = reviews[edition]?.lessons[lesson.id] || reviewKeys.get(reviewKey(edition, lesson))
+        if (!verdicts) return rows
+        const out = []
+        for (const [point, relation, quote, source, page] of rows) {
+            const verdict = verdicts[point]
+            if (!verdict) out.push([point, relation, quote, source, page])
+            else if (verdict.verdict === 'ok') out.push([point, relation, quote, source, page, 1])
+            else if (verdict.verdict === 'change' && !out.some(row => row[0] === verdict.to)) out.push([verdict.to, relation, quote, source, page, 1])
+        }
+        for (const [point, verdict] of Object.entries(verdicts)) {
+            if (verdict.verdict === 'add' && !out.some(row => row[0] === point)) out.push([point, 'T', '', 'review', null, 1])
+        }
+        return out
+    }
     // 要点 → the lessons that teach it, with the quote: 「这条要点在教材哪里教」
     const byPoint = new Map()
     // edition → the 要点 its lessons teach (T) and touch (P), for the coverage report
@@ -122,7 +144,9 @@ export function buildNationalLessons() {
         const position = lesson => order.get(lesson.chapter_path.at(-1)) ?? Number.MAX_SAFE_INTEGER
         const sorted = record.lessons.map((lesson, index) => ({ lesson, index })).sort((a, b) => position(a.lesson) - position(b.lesson) || a.index - b.index).map(item => item.lesson)
             // quotes taken before the 人教 font letters were read back (狓 → x) are shown as the book prints them
-        const alignOf = id => (lessonAlign[record.edition_id]?.lessons[id]?.m || []).filter(([point]) => inScope(record.textbook_title, point.replace(/\.\d+$/u, ''))).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest])
+        for (const lesson of record.lessons) if (reviews[record.edition_id]?.lessons[lesson.id]) reviewKeys.set(reviewKey(record.edition_id, lesson), reviews[record.edition_id].lessons[lesson.id])
+        const byId = new Map(record.lessons.map(lesson => [lesson.id, lesson]))
+        const alignOf = id => reviewed(record.edition_id, byId.get(id), (lessonAlign[record.edition_id]?.lessons[id]?.m || []).filter(([point]) => inScope(record.textbook_title, point.replace(/\.\d+$/u, ''))).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest]))
         const aiOf = new Map(sorted.map(lesson => {
             const taught = alignOf(lesson.id).filter(row => row[1] === 'T').map(([point]) => point)
             if (lessonAlign[record.edition_id]?.lessons[lesson.id]) return [lesson.id, firstFour(taught)]
@@ -222,6 +246,7 @@ export function buildNationalLessons() {
         walk(record.tree)
         const position = lesson => order.get(lesson.chapter_path.at(-1)) ?? Number.MAX_SAFE_INTEGER
         const name = `${record.textbook_title}（${record.edition_name}）`
+        for (const lesson of record.lessons) if (reviews[record.edition_id]?.lessons[lesson.id]) reviewKeys.set(reviewKey(record.edition_id, lesson), reviews[record.edition_id].lessons[lesson.id])
         const lessons = record.lessons.map((lesson, index) => ({ lesson, index })).sort((a, b) => position(a.lesson) - position(b.lesson) || a.index - b.index).map(({ lesson }) => ({
             id: lesson.id,
             title: lesson.title,
@@ -230,7 +255,7 @@ export function buildNationalLessons() {
             unit_id: null,
             materials: lesson.materials.filter(item => MATERIALS.includes(item)),
             hours: lesson.hours,
-            ...(judged.lessons[lesson.id] ? { align: (judged.lessons[lesson.id].m || []).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest]) } : {})
+            ...(judged.lessons[lesson.id] ? { align: reviewed(record.edition_id, lesson, (judged.lessons[lesson.id].m || []).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest])) } : {})
         }))
         writeFileSync(path.join(OUT, `${record.edition_id}.json`), `${JSON.stringify({ edition_id: record.edition_id, textbook_title: record.textbook_title, platform_title: record.platform_title, platform_textbook_id: record.platform_textbook_id, platform_only: true, confidence: 'edition', tree: record.tree, lessons })}\n`)
         platformBooks.push({ edition_id: record.edition_id, title: record.textbook_title, edition_name: record.edition_name, subject: record.subject, subject_slug: record.subject_slug, grade: record.grade, volume: record.volume, platform_title: record.platform_title, lessons: lessons.length })

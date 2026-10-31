@@ -93,11 +93,12 @@ function PrepPanel({ unit, book, prep }) {
                             {standards.slice(0, 4).map(item => (
                                 <li key={item.code}>
                                     <Link to={`/standards/${item.code}`}><code>{item.code}</code>{item.title}</Link>
-                                    <span>{item.via === 'search' ? '按课题检索，仅供参考' : item.via === 'ai_unit' ? 'AI 按教材单元判断，待核验' : '按教材页码机器对齐，待核验'} · {item.indicators.length} 条要点</span>
+                                    <span>{item.via === 'search' ? '按课题检索，仅供参考' : item.via === 'ai_lesson' ? 'AI 逐课读了教材原文判断，待核验' : item.via === 'ai_unit' ? 'AI 按教材单元判断，待核验' : '按教材页码机器对齐，待核验'} · {item.indicators.length} 条要点</span>
                                 </li>
                             ))}
                         </ul>
                     ) : <p className={styles.prepEmpty}>{prep ? '还没有对齐到新版课标。可以用 AI 起草教案时让 AI 帮你找。' : '正在查找…'}</p>}
+                    {standards.some(item => item.via === 'ai_lesson') ? <p className={styles.prepEmpty}>每一课教哪几条、教材原话在哪一页，看<Link to={`/textbooks/${unit.edition_id}/standards`}>这本书的课标对应表</Link>。</p> : null}
                 </div>
                 <div>
                     <h3>国家平台上的同步课</h3>

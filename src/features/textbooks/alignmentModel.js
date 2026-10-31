@@ -17,7 +17,26 @@ export function sourceLabel(source, page) {
     if (source === 'task') return '国家平台学习任务单'
     if (source === 'slides') return '国家平台课件'
     if (source === 'summary') return '国家平台课程简介'
+    if (source === 'review') return '教研员补充'
     return '课题'
+}
+
+// 审校表: every match of the book as a CSV row for a 教研员 to mark 对 / 错 / 改为 / 补充 in Excel or WPS;
+// scripts/resources/import_alignment_reviews.mjs reads it back
+const csvCell = value => (/[",\n]/u.test(String(value ?? '')) ? `"${String(value).replace(/"/gu, '""')}"` : String(value ?? ''))
+export const REVIEW_COLUMNS = ['教材编号', '教材', '单元', '课编号', '课', '关系', '要点编码', '要点原文', '教材原话', '出处', '审校结论', '改为或补充的要点', '备注']
+export function reviewSheet(book, units, points) {
+    const rows = [REVIEW_COLUMNS]
+    for (const unit of units) {
+        for (const lesson of unit.lessons) {
+            const base = [book.edition_id, `${book.title}（${book.edition_name}）`, unit.name, lesson.id, lesson.title]
+            if (!lesson.rows.length) rows.push([...base, '', '', '', '', '', '', '', ''])
+            for (const [code, relation, quote, source, page, reviewed] of lesson.rows) {
+                rows.push([...base, RELATION_LABELS[relation], code, points.get(code)?.text || '', quote, sourceLabel(source, page), reviewed ? '对' : '', '', ''])
+            }
+        }
+    }
+    return `\uFEFF${rows.map(row => row.map(csvCell).join(',')).join('\r\n')}\r\n`
 }
 
 export const v2Slug = slug => (['art', 'music'].includes(slug) ? 'arts' : slug)
@@ -79,6 +98,7 @@ export function bookCoverage(units, subject, book) {
         total: all.length,
         taught: all.filter(item => item.state === 'T').length,
         touched: all.filter(item => item.state === 'P').length,
+        reviewed: units.reduce((sum, unit) => sum + unit.lessons.reduce((n, lesson) => n + lesson.rows.filter(row => row[5] === 1).length, 0), 0),
         lessons: units.reduce((sum, unit) => sum + unit.lessons.length, 0),
         judged: units.reduce((sum, unit) => sum + unit.lessons.filter(item => item.judged).length, 0)
     }

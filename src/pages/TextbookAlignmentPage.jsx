@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { PageLoading, ErrorState } from '../components/StateComponents'
 import { loadTextbookDetail } from '../features/textbooks/textbookApi'
-import { RELATION_LABELS, alignmentUnits, bookCoverage, pointIndex, sourceLabel, v2Slug } from '../features/textbooks/alignmentModel'
+import { RELATION_LABELS, alignmentUnits, bookCoverage, pointIndex, reviewSheet, sourceLabel, v2Slug } from '../features/textbooks/alignmentModel'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { textbookAlignmentMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
@@ -41,8 +41,18 @@ function downloadWord(book, units, points) {
     setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
 
+function downloadReviewSheet(book, units, points) {
+    const blob = new Blob([reviewSheet(book, units, points)], { type: 'text/csv;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `${book.title}-${book.edition_name}-课标对应审校表.csv`
+    link.click()
+    setTimeout(() => URL.revokeObjectURL(url), 1000)
+}
+
 function Evidence({ book, row, points }) {
-    const [code, relation, quote, source, page] = row
+    const [code, relation, quote, source, page, reviewed] = row
     const point = points.get(code)
     return (
         <li className={styles.point} data-relation={relation}>
@@ -50,8 +60,9 @@ function Evidence({ book, row, points }) {
             <Link className={styles.code} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`}>{code}</Link>
             <span className={styles.pointText}>{point?.text || ''}</span>
             <p className={styles.quote}>
-                “{quote}”
+                {quote ? `“${quote}”` : null}
                 {source === 'book' && page ? <Link to={`/textbooks/${book.edition_id}/read?page=${page}`}>{sourceLabel(source, page)}</Link> : <span>{sourceLabel(source, page)}</span>}
+                {reviewed ? <span className={styles.reviewed}>教研员已核验</span> : null}
             </p>
         </li>
     )
@@ -106,9 +117,11 @@ export default function TextbookAlignmentPage() {
                     <div><dt>本年级要点</dt><dd>{coverage.total}<small> 条</small></dd></div>
                     <div><dt>本册主要在教</dt><dd>{coverage.taught}<small> 条</small></dd></div>
                     <div><dt>只是涉及</dt><dd>{coverage.touched}<small> 条</small></dd></div>
+                    {coverage.reviewed ? <div><dt>教研员已核验</dt><dd>{coverage.reviewed}<small> 条</small></dd></div> : null}
                 </dl>
                 <div className={styles.actions}>
                     <button type="button" className="btn btn-primary" onClick={() => { downloadWord(book, units, points); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'alignment' }) }}>下载 Word 对应表</button>
+                    <button type="button" className="btn btn-secondary" onClick={() => { downloadReviewSheet(book, units, points); trackUmamiEvent('lesson_plan_export', { format: 'csv', kind: 'alignment_review' }) }}>下载审校表</button>
                     {book.platform_only ? null : <Link className="btn btn-secondary" to={`/schedule?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>排学期进度表</Link>}
                     <Link className="btn btn-secondary" to="/textbook-alignment">这张表是怎么做的</Link>
                 </div>
@@ -164,6 +177,7 @@ export default function TextbookAlignmentPage() {
                     </div>
                 ))}
             </section>
+            <p className={concepts.footnote}>请教研员审校：点「下载审校表」，用 Excel 或 WPS 打开，在「审校结论」一栏写 对、错、改为 或 补充（改为、补充的，在下一栏写要点编码），存成 CSV 发回 kebiao。审校过的条目会标「教研员已核验」。</p>
             <p className={concepts.footnote}>课目来自国家中小学智慧教育平台「{record.platform_title}」，同一课的几个课时已合并。哪一条对不上，<Link to={`/feedback?title=${encodeURIComponent('教材课标对应有误')}&message=${encodeURIComponent(`${book.title}（${book.edition_name}）\n哪一课、哪一条不对，应该是：`)}`}>告诉我们</Link>。</p>
         </div>
     )
