@@ -110,8 +110,9 @@ export default function TextbookAlignmentPage() {
             <header className={concepts.hero}>
                 <p className={concepts.kicker}>课标对应表 · {book.edition_name} · {book.title}</p>
                 <h1 className={concepts.title}>这本书的每一课，教的是哪几条课标要点</h1>
-                {book.platform_only ? <p className={concepts.lede}>这一版教材馆里没有原书。AI 读的是国家中小学智慧教育平台上这一课的课题，以及能找到的教学设计、学习任务单或课件，对照本年级{data.subject.standards[0]?.subject}课标的全部要点，判断这一课「主要在教」和「也涉及」哪几条；每一条都摘了这些材料里的原话。只有课题的课，判断最粗，请对照自己手里的书核对。机器判断，待核验。</p> : null}
-                <p className={concepts.lede} hidden={book.platform_only}>AI 逐课读了这一课的教材原文（扫描版先做了文字识别；没有原文的，读国家平台教学设计里的教学目标或课题），再对照本年级{data.subject.standards[0]?.subject}课标的全部要点，判断这一课「主要在教」哪几条、「也涉及」哪几条。每一条都摘了这一课材料里的原话，点页码可以翻到原书核对。机器判断，待核验。</p>
+                {book.platform_only
+                    ? <p className={concepts.lede}>这一版教材馆里没有原书。AI 读的是国家中小学智慧教育平台上这一课的课题，以及能找到的教学设计、学习任务单或课件，对照本年级{data.subject.standards[0]?.subject}课标的全部要点，判断这一课「主要在教」和「也涉及」哪几条；每一条都摘了这些材料里的原话。只有课题的课，判断最粗，请对照自己手里的书核对。机器判断，待核验。</p>
+                    : <p className={concepts.lede}>AI 逐课读了这一课的教材原文（扫描版先做了文字识别；没有原文的，读国家平台教学设计里的教学目标或课题），再对照本年级{data.subject.standards[0]?.subject}课标的全部要点，判断这一课「主要在教」哪几条、「也涉及」哪几条。每一条都摘了这一课材料里的原话，点页码可以翻到原书核对。机器判断，待核验。</p>}
                 <dl className={styles.stats}>
                     <div><dt>逐课判断</dt><dd>{coverage.judged}<small> / {coverage.lessons} 课</small></dd></div>
                     <div><dt>本年级要点</dt><dd>{coverage.total}<small> 条</small></dd></div>

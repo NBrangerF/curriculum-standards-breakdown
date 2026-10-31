@@ -299,7 +299,7 @@ ${section('对应的课程标准', list(aligned))}`, {
         add(textbookAlignmentMeta(book), `${crumbNav(tableCrumbs)}
 <p class="kbp-kicker">课标对应表 · ${esc(book.edition_name)} · ${esc(book.title)}</p>
 <h1>这本书的每一课，教的是哪几条课标要点</h1>
-<p class="kbp-lede">AI 逐课读了这一课的教材原文（或国家平台教学设计里的教学目标），对照本年级课标的全部要点判断「主要在教」和「也涉及」，每条附这一课材料的原话。机器判断，待核验。</p>
+<p class="kbp-lede">${book.edition_id.startsWith('pf_') ? 'AI 逐课读了国家平台上这一课的课题，以及能找到的教学设计、学习任务单或课件（这一版教材馆里没有原书）' : 'AI 逐课读了这一课的教材原文（或国家平台教学设计里的教学目标）'}，对照本年级课标的全部要点判断「主要在教」和「也涉及」，每条附这一课材料的原话。机器判断，待核验。</p>
 ${[...byUnit].map(([unit, lessons]) => section(unit, list([...lessons].map(([title, item]) => `<strong>${esc(title)}</strong><br>${rows(item.align)}`)))).join('')}
 <p>${link('/textbook-alignment', '这张表是怎么做的')}</p>`, { jsonLd: [breadcrumbs(tableCrumbs)] })
     }
