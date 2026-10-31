@@ -1,6 +1,6 @@
 // Editions kebiao has no PDF of (北师大版 数学, …): their 国家中小学智慧教育平台 同步课 — chapter tree and lessons —
 // so 教材与课标对应 can run on the lesson titles and the 教学设计's 教学目标. Only titles and ids are kept.
-// The newest printing of each grade and volume is used (「新教材-」 first).
+// The newest printing of each grade and volume is used (「新教材-」 first; the older one while the 新教材 has no lessons).
 // Output: data/textbooks/smartedu/platform/<platform id>.json and data/textbooks/smartedu/platform/index.json.
 //   node scripts/resources/fetch_platform_editions.mjs --match '^(小学|初中)数学北师大版'
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
@@ -14,6 +14,8 @@ const BASE = 'https://s-file-1.ykt.cbern.com.cn/zxx/ndrs/national_lesson'
 const match = new RegExp(process.argv[process.argv.indexOf('--match') + 1] || '^$', 'u')
 mkdirSync(OUT, { recursive: true })
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+// older platform ids share their first 20 hex digits (ff808081-8214-b259-0182-…): those take their last 20
+const pfId = id => { const hex = id.replace(/-/gu, ''); return `pf_${hex.startsWith('ff808081') ? hex.slice(-20) : hex.slice(0, 20)}` }
 
 async function getJson(url, cacheName) {
     const file = path.join(CACHE, cacheName)
@@ -54,45 +56,50 @@ for (const item of materials) {
     if (!match.test(title) || /五•四学制|五四学制|目录/u.test(title)) continue
     const parsed = title.match(/^(小学|初中)(语文|数学|英语|道德与法治|科学|物理|化学|生物学|生物|历史|地理|音乐|美术|体育与健康)(.+?版)(?:（[^）]*）)?([一二三四五六七八九])年级(上册|下册|全一册)?/u)
     if (!parsed) continue
-    const key = `${parsed[2]}|${parsed[4]}|${parsed[5] || '全一册'}`
+    const key = `${parsed[2]}|${parsed[3]}|${parsed[4]}|${parsed[5] || '全一册'}`
     const entry = { id: item.id, title, fresh, subject: parsed[2], subject_slug: SUBJECTS[parsed[2]], edition_name: parsed[3], grade: GRADES[parsed[4]], volume: parsed[5] || '全一册' }
-    const seen = picked.get(key)
-    if (!seen || (fresh && !seen.fresh)) picked.set(key, entry)
+    // every printing of a grade and volume, the newest first: a 新教材 still without lessons falls back to the older one
+    if (!(picked.get(key) || []).some(other => other.id === entry.id)) picked.set(key, [...(picked.get(key) || []), entry].sort((a, b) => b.fresh - a.fresh))
 }
 const index = existsSync(path.join(OUT, 'index.json')) ? JSON.parse(readFileSync(path.join(OUT, 'index.json'), 'utf8')) : { source: 'https://basic.smartedu.cn/syncClassroom', note: '馆里没有原书 PDF 的版本：只有国家平台的课目录和教学设计。', books: {} }
-for (const book of [...picked.values()].sort((a, b) => a.grade - b.grade || a.volume.localeCompare(b.volume))) {
-    const tree = await getJson(`${BASE}/trees/${book.id}.json`, `tree-${book.id}.json`)
-    const parts = await getJson(`${BASE}/teachingmaterials/${book.id}/resources/parts.json`, `parts-${book.id}.json`)
-    const lessons = []
-    for (const url of parts || []) {
-        for (const lesson of (await getJson(url, `lessons-${book.id}-${path.basename(url)}`)) || []) {
-            if (lesson.status !== 'ONLINE') continue
-            const chapterPaths = String(lesson.chapter_paths || '').match(/[0-9a-f-]{36}(?:\/[0-9a-f-]{36})*/gu) || []
-            lessons.push({ id: lesson.id, title: lesson.title, chapter_path: (chapterPaths[0] || '').split('/').filter(Boolean), pdf_page: null, ...lessonMaterials(lesson) })
+for (const printings of [...picked.values()].sort((a, b) => a[0].grade - b[0].grade || a[0].volume.localeCompare(b[0].volume))) {
+    for (const book of printings) {
+        const tree = await getJson(`${BASE}/trees/${book.id}.json`, `tree-${book.id}.json`)
+        const parts = await getJson(`${BASE}/teachingmaterials/${book.id}/resources/parts.json`, `parts-${book.id}.json`)
+        const lessons = []
+        for (const url of parts || []) {
+            for (const lesson of (await getJson(url, `lessons-${book.id}-${path.basename(url)}`)) || []) {
+                if (lesson.status !== 'ONLINE') continue
+                const chapterPaths = String(lesson.chapter_paths || '').match(/[0-9a-f-]{36}(?:\/[0-9a-f-]{36})*/gu) || []
+                lessons.push({ id: lesson.id, title: lesson.title, chapter_path: (chapterPaths[0] || '').split('/').filter(Boolean), pdf_page: null, ...lessonMaterials(lesson) })
+            }
         }
+        if (!lessons.length) {
+            console.log(`  - ${book.title}: no lessons`)
+            continue
+        }
+        // the other printings of this book, if an earlier run listed one, are dropped: each book is listed once
+        for (const other of printings) if (other.id !== book.id) delete index.books[pfId(other.id)]
+        const editionId = pfId(book.id)
+        const record = {
+            edition_id: editionId,
+            textbook_title: `${book.subject === '生物' ? '生物学' : book.subject}${book.grade}年级${book.volume}`,
+            platform_textbook_id: book.id,
+            platform_title: book.title,
+            platform_only: true,
+            subject: book.subject === '生物' ? '生物学' : book.subject,
+            subject_slug: book.subject_slug,
+            edition_name: book.edition_name,
+            grade: book.grade,
+            volume: book.volume,
+            tree: slimTree(tree),
+            lessons
+        }
+        writeFileSync(path.join(OUT, `${editionId}.json`), `${JSON.stringify(record, null, 1)}\n`)
+        index.books[editionId] = { platform_textbook_id: book.id, platform_title: book.title, title: record.textbook_title, subject: record.subject, subject_slug: book.subject_slug, edition_name: book.edition_name, grade: book.grade, volume: book.volume, lessons: lessons.length }
+        console.log(`  ✓ ${book.title}: ${lessons.length} lessons`)
+        break
     }
-    if (!lessons.length) {
-        console.log(`  - ${book.title}: no lessons`)
-        continue
-    }
-    const editionId = `pf_${book.id.replace(/-/gu, '').slice(0, 20)}`
-    const record = {
-        edition_id: editionId,
-        textbook_title: `${book.subject === '生物' ? '生物学' : book.subject}${book.grade}年级${book.volume}`,
-        platform_textbook_id: book.id,
-        platform_title: book.title,
-        platform_only: true,
-        subject: book.subject === '生物' ? '生物学' : book.subject,
-        subject_slug: book.subject_slug,
-        edition_name: book.edition_name,
-        grade: book.grade,
-        volume: book.volume,
-        tree: slimTree(tree),
-        lessons
-    }
-    writeFileSync(path.join(OUT, `${editionId}.json`), `${JSON.stringify(record, null, 1)}\n`)
-    index.books[editionId] = { platform_textbook_id: book.id, platform_title: book.title, title: record.textbook_title, subject: record.subject, subject_slug: book.subject_slug, edition_name: book.edition_name, grade: book.grade, volume: book.volume, lessons: lessons.length }
-    console.log(`  ✓ ${book.title}: ${lessons.length} lessons`)
 }
 writeFileSync(path.join(OUT, 'index.json'), `${JSON.stringify(index, null, 1)}\n`)
 console.log(`platform editions: ${Object.keys(index.books).length} books`)

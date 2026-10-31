@@ -76,6 +76,8 @@ async function align(body) {
 
 let done = 0
 // --shard i/n: parallel workers each take every n-th book, into their own --out file; --merge folds them in
+// (--overwrite: their rows replace the ones already there, for a run that asked lessons again; a lesson that came back
+// with nothing keeps its earlier answer, whose quotes were checked against the pages it was asked with)
 const [SHARD, SHARDS] = arg('--shard') ? arg('--shard').split('/').map(Number) : [0, 1]
 if (arg('--merge')) {
     const main = existsSync(path.join(SOURCE, 'lesson_alignment.json')) ? JSON.parse(readFileSync(path.join(SOURCE, 'lesson_alignment.json'), 'utf8')) : out
@@ -83,7 +85,7 @@ if (arg('--merge')) {
     for (const file of arg('--merge').split(',')) {
         for (const [edition, entry] of Object.entries(JSON.parse(readFileSync(path.resolve(file), 'utf8')).editions)) {
             const target = (main.editions[edition] ??= { textbook_title: entry.textbook_title, lessons: {} })
-            for (const [id, row] of Object.entries(entry.lessons)) if (!target.lessons[id]) { target.lessons[id] = row; added += 1 }
+            for (const [id, row] of Object.entries(entry.lessons)) if (!target.lessons[id] || (process.argv.includes('--overwrite') && (row.m.length || !target.lessons[id].m.length))) { target.lessons[id] = row; added += 1 }
         }
     }
     writeFileSync(path.join(SOURCE, 'lesson_alignment.json'), `${JSON.stringify(main, null, 1)}\n`)
