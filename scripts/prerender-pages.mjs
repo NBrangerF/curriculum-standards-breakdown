@@ -178,7 +178,7 @@ function standardPage({ standard, subject }) {
     for (const [edition, textbook, unit, unitId, viaAi] of nationalUnits.get(standard.code) || []) {
         const key = unitId || `${edition}|${unit}`
         if (pageEvidence.has(key)) continue
-        pageEvidence.set(key, `${link(unitId ? `/textbook-units/${unitId}` : `/textbooks/${edition}`, `${textbook} · ${unit}`)}<span class="kbp-note"> · ${viaAi ? 'AI 按单元判断' : '机器对齐'}，待核验</span>`)
+        pageEvidence.set(key, `${link(unitId ? `/textbook-units/${unitId}` : `/textbooks/${edition}`, `${textbook} · ${unit}`)}<span class="kbp-note"> · ${viaAi === 2 ? 'AI 逐课判断' : viaAi ? 'AI 按单元判断' : '机器对齐'}，待核验</span>`)
     }
     const byLesson = standard.indicators.filter(item => nationalPoints.has(item.code)).map(item => `<li><span class="kbp-code">${esc(item.code)}</span> ${esc(item.text.length > 46 ? `${item.text.slice(0, 46)}…` : item.text)}${list(nationalPoints.get(item.code).map(([edition, textbook, unit, , lessonTitle, relation, quote, source, page]) => `${link(`/textbooks/${edition}/standards`, `${textbook} · ${lessonTitle || unit}`)}<span class="kbp-note"> · ${RELATION_LABEL[relation]} · “${esc(quote)}”（${esc(SOURCE_LABEL(source, page))}）</span>`))}</li>`)
     const siblings = subject.standards
