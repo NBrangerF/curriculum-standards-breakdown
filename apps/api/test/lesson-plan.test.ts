@@ -434,12 +434,55 @@ test('lesson-plan context puts the AI 按单元判断 要点 of the lesson\'s un
     const response = await app.request(`/api/v1/lesson-plans/context?edition_id=${found.edition}&lesson_id=${found.lesson.id}`)
     assert.equal(response.status, 200)
     const { data } = await json(response)
-    assert.equal(data.standards[0].via, 'ai_unit')
+    // judged on its own pages (教材与课标对应), or with its unit by the lesson titles
+    const via = Array.isArray(found.lesson.align) ? 'ai_lesson' : 'ai_unit'
+    assert.equal(data.standards[0].via, via)
     assert.equal(data.standards[0].code, found.lesson.ai_points[0].replace(/\.\d+$/u, ''))
     assert.ok(data.standards.every((item: any) => item.suggested.length === 0))
     // the 要点 come along, for the page to tick when the live pick fails
     assert.equal(data.ai_points[0], found.lesson.ai_points[0])
-    assert.ok(data.ai_points.every((point: string) => data.standards.some((item: any) => item.via === 'ai_unit' && item.indicators.some((indicator: any) => indicator.code === point))))
+    assert.ok(data.ai_points.every((point: string) => data.standards.some((item: any) => item.via === via && item.indicators.some((indicator: any) => indicator.code === point))))
+})
+
+test('lesson-plan context carries a judged lesson\'s 要点 with the textbook\'s own words', async () => {
+    const { readdir } = await import('node:fs/promises')
+    const dir = resolve(publicDataRoot, 'textbooks/national-lessons')
+    let found: { edition: string, lesson: any } | null = null
+    for (const file of (await readdir(dir)).filter(name => name.startsWith('ed_')).sort()) {
+        const record = JSON.parse(await readFile(resolve(dir, file), 'utf8'))
+        const lesson = record.lessons.find((item: any) => item.align?.some((row: any) => row[1] === 'T'))
+        if (lesson) { found = { edition: record.edition_id, lesson }; break }
+    }
+    if (!found) return
+    const response = await app.request(`/api/v1/lesson-plans/context?edition_id=${found.edition}&lesson_id=${found.lesson.id}`)
+    const { data } = await json(response)
+    const taught = data.lesson_align.filter((row: any) => row[1] === 'T')
+    assert.ok(taught.length)
+    for (const [point, , quote] of taught) {
+        assert.ok(data.standards.some((item: any) => item.indicators.some((indicator: any) => indicator.code === point)), point)
+        assert.ok(quote.length >= 2)
+    }
+})
+
+test('教材与课标对应 API: a book lesson by lesson, and a 要点\'s lessons, each with the quote', async () => {
+    const index = JSON.parse(await readFile(resolve(publicDataRoot, 'v2/lesson_alignment.json'), 'utf8'))
+    if (!index.lessons.length) return
+    const [edition, textbook, , title, , , matches] = index.lessons.find((row: any) => row[6].length)
+    const book = await json(await app.request(`/api/v1/textbooks/${edition}/alignment`))
+    assert.equal(book.data.textbook_title, textbook)
+    const lesson = book.data.lessons.find((item: any) => item.lesson_title === title)
+    assert.equal(lesson.matches[0].point, matches[0][0])
+    assert.equal(lesson.matches[0].quote, matches[0][2])
+    assert.ok(['teaches', 'touches'].includes(lesson.matches[0].relation))
+    assert.equal((await app.request('/api/v1/textbooks/ed_nope/alignment')).status, 404)
+    const byPoint = await json(await app.request(`/api/v1/standards/${matches[0][0]}/lessons`))
+    assert.ok(byPoint.data.some((item: any) => item.edition_id === edition && item.lesson_title === title && item.quote === matches[0][2]))
+    assert.ok(byPoint.data.every((item: any) => item.point === matches[0][0]))
+    const byStandard = await json(await app.request(`/api/v1/standards/${matches[0][0].replace(/\.\d+$/u, '')}/lessons`))
+    assert.ok(byStandard.data.length >= byPoint.data.length)
+    // 主要在教 first
+    const relations = byStandard.data.map((item: any) => item.relation)
+    assert.deepEqual(relations, [...relations].sort((a: string, b: string) => (a === b ? 0 : a === 'teaches' ? -1 : 1)))
 })
 
 test('pick: a 历史 lesson is judged only against its volume\'s period', async t => {

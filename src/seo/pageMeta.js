@@ -130,6 +130,14 @@ export function textbookMeta(book) {
     )
 }
 
+export function textbookAlignmentMeta(book) {
+    return page(
+        `${book.title}（${book.edition_name}）课标对应表：每一课教哪些课标要点`,
+        `${book.edition_name}${book.title}每一课对应的义务教育课程标准（2022年版2025年修订）要点：主要在教、也涉及，每条附这一课教材原文为证；并列出本年级没有在本册找到的要点。`,
+        `/textbooks/${book.edition_id}/standards`
+    )
+}
+
 export function textbookUnitMeta(unit, book) {
     // Some tables of contents repeat a unit heading, so the page keeps titles unique.
     const pageLabel = unit.printed_page ? `第 ${unit.printed_page} 页` : unit.pdf_page ? `PDF 第 ${unit.pdf_page} 页` : ''
@@ -185,6 +193,7 @@ export const STATIC_PAGE_META = {
     '/lesson-plan': page('AI 备课：从教材的一课起草有课标依据的教案', '选教材里的一课，确认对应的课标要点，AI 起草教学目标、重难点、评价任务和教学过程，每条目标标出课标依据，并自动核验超标和目标—活动—评价是否一致；也能把试卷、作业编成多维细目表，查超标和漏考。', '/lesson-plan'),
     '/guide': page('上手指南：五分钟学会用 kebiao 备课', '备一节课、做单元设计、核验教案、出卷前编多维细目表、排学期进度、初三复习、师范生备考、找同步课和实验：八个常用场景，每个三步，都对到课标原文和页码。', '/guide'),
     '/review': page('中考复习地图：每条初中课标在七、八、九年级哪一单元教过', '语文、数学、英语、道德与法治、物理、化学、生物学、历史、地理九门课，逐条列出初中课标在三年教材中的对应单元，附课标原文里的学业要求，按课标串起三年内容复习。', '/review'),
+    '/textbook-alignment': page('教材与课标对应：教材的每一课教哪几条课标要点', 'kebiao 把 135 册教材的国家平台同步课逐课对到《义务教育课程标准（2022年版2025年修订）》的要点上，每条对应都附教材原文和页码；并按学段统计馆里的教材教到了课标的多少。', '/textbook-alignment'),
     '/schedule': page('学期教学进度表：把一本教材排进这学期的每一周', '选教材、填每周课时和学期周数，按国家中小学智慧教育平台的单元和课目自动排出教学进度表，每个单元附 AI 判断的对应课标要点；课时可改，可复制、下载 Word。', '/schedule'),
     '/teacher-exam': page('教资课标速记：14 门课程的核心素养和课程理念', '按《义务教育课程标准（2022年版2025年修订）》逐条列出语文、数学、英语等 14 门课程的核心素养和课程理念，标明 PDF 页码，可遮住自测。教师资格笔试和面试答辩备考用。', '/teacher-exam'),
     '/experiments': page('必做实验清单：科学、物理、化学课标规定的学生必做实验', '科学课标附录 4 的 1–9 年级学生必做探究实践活动 126 项，物理测量类、探究类必做实验 18 项，化学必做实验 8 项。每项标出课标页码，附同名的国家平台同步课，可直接交给 AI 备课。', '/experiments'),

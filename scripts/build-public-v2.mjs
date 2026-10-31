@@ -282,6 +282,7 @@ ${subjects.map(s => `- [${s.subject}](${SITE}/subjects/${s.subject_slug}): ${s.s
 
 - [检索](${SITE}/smart-search?q=%E5%88%86%E6%95%B0%E7%9A%84%E5%A4%A7%E5%B0%8F): 用一句话找课标
 - [教材](${SITE}/textbooks): 统编版、人教版等教材的单元与课标对应
+- [教材与课标对应](${SITE}/textbook-alignment): 135 册教材的国家平台同步课逐课对到课标要点（主要在教、也涉及），每条附这一课教材的原话和页码；每本书的对应表在 ${SITE}/textbooks/<edition_id>/standards ，API：/api/v1/textbooks/<edition_id>/alignment、/api/v1/standards/<编码>/lessons
 - [概念词典](${SITE}/concepts): 大概念、大单元、学习任务群、项目式学习、多维细目表、增值评价等 25 个概念，逐字引用修订版课标原文并标页码；14 门学科的骨架和课程理念
 - [跨学科主题库](${SITE}/interdisciplinary): 历史、地理、体育与健康课标给出的 37 个跨学科主题，以及其他学科写进内容要求的跨学科学习，标页码
 - [必做实验清单](${SITE}/experiments): 科学课标附录 4 的 126 项学生必做探究实践活动，物理、化学的学生必做实验，标页码

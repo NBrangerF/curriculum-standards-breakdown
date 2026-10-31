@@ -17,19 +17,24 @@ const LIMIT = Number(arg('--limit')) || Infinity
 const ONLY = arg('--edition')
 const OUT = arg('--out') ? path.resolve(arg('--out')) : path.join(SOURCE, 'lesson_alignment.json')
 const REVERSE = process.argv.includes('--reverse')
-// --redo-dropped: ask again, once, for lessons whose every answer was turned down
+// --redo-dropped: ask again, once, for lessons with an answer turned down (its quote did not match: often the 人教
+// font letters, 狓 for x, now read back in the evidence)
 const REDO = process.argv.includes('--redo-dropped')
-// --lessons id,id: only these lessons (an evaluation set)
-const LESSONS = arg('--lessons') ? new Set(arg('--lessons').split(',')) : null
+// --lessons id,id (or --lessons-file file, one id a line): only these lessons; with --force, asked again even if done
+const LESSONS = arg('--lessons') ? new Set(arg('--lessons').split(',')) : arg('--lessons-file') ? new Set(readFileSync(path.resolve(arg('--lessons-file')), 'utf8').split('\n').filter(Boolean)) : null
+const FORCE = process.argv.includes('--force')
 const GAP_MS = Number(arg('--gap')) || 6800
 const PER_REQUEST = 9
 
 const books = new Map(JSON.parse(readFileSync(path.join(ROOT, 'public/data/textbooks/index.json'), 'utf8')).items.map(item => [item.edition_id, item]))
 const v2Slug = slug => (['art', 'music'].includes(slug) ? 'arts' : slug)
+// editions with no PDF in the library (fetch_platform_editions.mjs)
+const platformIndex = path.join(SOURCE, 'platform/index.json')
+const platformBooks = existsSync(platformIndex) ? JSON.parse(readFileSync(platformIndex, 'utf8')).books : {}
 const squash = text => String(text || '').replace(/[\s\p{P}\p{S}]/gu, '').toLowerCase()
 const out = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : {
     source: `${BASE}/api/v1/lesson-plans/align`,
-    note: 'AI 逐课判断的课标要点：T = 主要在教，P = 部分涉及。每条都摘了这一课材料里的原话，并标明出处（book = 教材 PDF 第几页，design = 国家平台教学设计，summary = 国家平台课程简介，title = 只有课题）。机器判断，待核验。',
+    note: 'AI 逐课判断的课标要点：T = 主要在教，P = 部分涉及。每条都摘了这一课材料里的原话，并标明出处（book = 教材 PDF 第几页，design = 国家平台教学设计，task = 国家平台学习任务单，slides = 国家平台课件，summary = 国家平台课程简介，title = 只有课题）。机器判断，待核验。',
     fields: ['point', 'relation', 'quote', 'source', 'pdf_page'],
     editions: {}
 }
@@ -41,7 +46,8 @@ function materialOf(lesson) {
     const blocks = []
     const book = lesson.sources.textbook
     if (book) blocks.push(`【教材原文 第${book.pages[0]}${book.pages[1] > book.pages[0] ? `–${book.pages[1]}` : ''}页${NOTE[book.located_by] || ''}】${book.parts.map(part => part.text).join(' ').slice(0, 1500)}`)
-    if (lesson.sources.design) blocks.push(`【教学设计·教学目标】${lesson.sources.design.text.slice(0, 450)}`)
+    const DESIGN_LABEL = { design: '教学设计·教学目标', task: '学习任务单', slides: '课件' }
+    if (lesson.sources.design) blocks.push(`【${DESIGN_LABEL[lesson.sources.design.kind || 'design']}】${lesson.sources.design.text.slice(0, 450)}`)
     if (lesson.sources.summary) blocks.push(`【课程简介】${lesson.sources.summary.text.slice(0, 300)}`)
     return blocks.join('\n').slice(0, 2900)
 }
@@ -50,7 +56,7 @@ function materialOf(lesson) {
 function sourceOf(quote, lesson) {
     const key = squash(quote).slice(0, 12)
     for (const part of lesson.sources.textbook?.parts || []) if (squash(part.text).includes(key)) return ['book', part.page]
-    if (squash(lesson.sources.design?.text).includes(key)) return ['design', null]
+    if (squash(lesson.sources.design?.text).includes(key)) return [lesson.sources.design.kind || 'design', null]
     if (squash(lesson.sources.summary?.text).includes(key)) return ['summary', null]
     if (squash(lesson.title).includes(key)) return ['title', null]
     // a 'close' quote (OCR noise) that no single page holds: the lesson's first page
@@ -88,7 +94,7 @@ const files = readdirSync(EVIDENCE).filter(name => name.startsWith('ed_')).sort(
 for (const file of REVERSE ? files.reverse() : files) {
     const evidence = JSON.parse(readFileSync(path.join(EVIDENCE, file), 'utf8'))
     if (ONLY && evidence.edition_id !== ONLY) continue
-    const book = books.get(evidence.edition_id)
+    const book = books.get(evidence.edition_id) || platformBooks[evidence.edition_id]
     if (!book) continue
     const entry = (out.editions[evidence.edition_id] ??= { textbook_title: evidence.textbook_title, lessons: {} })
     // a unit's lessons in book order; repeats of one 课题 (several 课时 on the same pages) are asked once
@@ -106,7 +112,7 @@ for (const file of REVERSE ? files.reverse() : files) {
             if (!asked.has(key)) asked.set(key, { lesson, copies: [] })
             asked.get(key).copies.push(lesson.id)
         }
-        const needs = id => !entry.lessons[id] || (REDO && !entry.lessons[id].m.length && entry.lessons[id].d > 0 && !entry.lessons[id].redo)
+        const needs = id => !entry.lessons[id] || (REDO && entry.lessons[id].d > 0 && !entry.lessons[id].redo) || (FORCE && LESSONS?.has(id))
         const pending = [...asked.values()].filter(item => item.copies.some(needs) && (!LESSONS || item.copies.some(id => LESSONS.has(id))))
         for (let index = 0; index < pending.length && done < LIMIT; index += PER_REQUEST) {
             const chunk = pending.slice(index, index + PER_REQUEST)

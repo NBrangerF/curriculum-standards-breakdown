@@ -27,6 +27,12 @@ export type V2Manifest = { source_version: string, source_note: string, totals: 
 export type V2TextbookLink = { edition_id: string, textbook_title: string, entry_id: string | null, unit_id: string | null, title: string | null, printed_page: number | null, pdf_page: number | null, indicator: string | null, method: string, score: number }
 // [edition_id, title, printed_page, pdf_page, unit_id, standard codes]; books: edition_id → [textbook title, subject slug, grade, volume]
 export type V2TextbookChapters = { books: Record<string, [string, string, number, string]>, chapters: Array<[string, string, number | null, number, string | null, string[]]> }
+// 教材与课标对应, lesson by lesson (scripts/resources/build_national_lessons.mjs): [edition_id, textbook title, unit,
+// lesson title, lesson id, PDF page, matches]; a match is [要点, 'T' 主要在教 | 'P' 也涉及, quote, source, PDF page]
+export type LessonAlignMatch = [string, 'T' | 'P', string, string, number | null]
+export type LessonAlignRow = [string, string, string, string, string, number | null, LessonAlignMatch[]]
+export type LessonAlignment = { note: string, lessons: LessonAlignRow[] }
+export const SOURCE_LABEL = (source: string, page: number | null) => (source === 'book' ? (page ? `教材 PDF 第 ${page} 页` : '教材原文') : source === 'design' ? '国家平台教学设计' : source === 'task' ? '国家平台学习任务单' : source === 'slides' ? '国家平台课件' : source === 'summary' ? '国家平台课程简介' : '课题')
 export type V2TextbookLinks = { standards: Record<string, V2TextbookLink[]>, units: Record<string, Array<{ code: string, indicator: string | null, title?: string }>> }
 
 const LINK_METHOD: Record<string, string> = { grade_basis: '要点年级依据所指的章节', toc_title: '目录标题与标准文字相符', grade_basis_volume: '要点年级依据所指的分册' }
@@ -61,6 +67,7 @@ export function createV2Store(dataRoot: string) {
     let legacy: Promise<Record<string, string> | null> | null = null
     let links: Promise<V2TextbookLinks | null> | null = null
     let chapters: Promise<V2TextbookChapters | null> | null = null
+    let lessonAlignment: Promise<LessonAlignment | null> | null = null
     const subjects = new Map<string, Promise<V2Subject | null>>()
     const store = {
         async manifest() {
@@ -92,6 +99,10 @@ export function createV2Store(dataRoot: string) {
         async textbookChapters() {
             chapters ??= read<V2TextbookChapters>('textbook_chapters.json')
             return (await chapters) || { books: {}, chapters: [] }
+        },
+        async lessonAlignment() {
+            lessonAlignment ??= read<LessonAlignment>('lesson_alignment.json')
+            return (await lessonAlignment) || { note: '', lessons: [] }
         }
     }
     return store

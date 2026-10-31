@@ -7,7 +7,7 @@ import { dirname, join } from 'node:path'
 import {
     SITE_URL, SITE_NAME, cardVersion, getDisplayTitle, clip, V2_STANDARDS_DOC, v2StageLabel, v2StandardMeta,
     homeMeta, subjectMeta, skillsOverviewMeta, skillMeta, textbooksMeta, textbookMeta,
-    textbookUnitMeta, learningResourcesMeta, learningResourceMeta, STATIC_PAGE_META,
+    textbookUnitMeta, textbookAlignmentMeta, learningResourcesMeta, learningResourceMeta, STATIC_PAGE_META,
     conceptsMeta, conceptMeta, subjectSkeletonMeta
 } from '../src/seo/pageMeta.js'
 import { logoSvg } from '../src/brand/logo.js'
@@ -60,6 +60,10 @@ const interdisciplinary = readJson('interdisciplinary.json')
 const experiments = readJson('experiments.json')
 // standard → the textbook units the AI (or the page alignment) tied it to, from build_national_lessons.mjs
 const nationalUnits = new Map(existsSync(join(DATA, 'v2/national-lessons')) ? readdirSync(join(DATA, 'v2/national-lessons')).flatMap(file => Object.entries(readJson(`v2/national-lessons/${file}`).units || {})) : [])
+// 要点 → the lessons that teach it, with the textbook's own words (教材与课标对应, align_textbook_lessons.mjs)
+const nationalPoints = new Map(existsSync(join(DATA, 'v2/national-lessons')) ? readdirSync(join(DATA, 'v2/national-lessons')).flatMap(file => Object.entries(readJson(`v2/national-lessons/${file}`).points || {})) : [])
+const SOURCE_LABEL = (source, page) => (source === 'book' ? (page ? `教材 PDF 第 ${page} 页` : '教材原文') : source === 'design' ? '国家平台教学设计' : source === 'task' ? '国家平台学习任务单' : source === 'slides' ? '国家平台课件' : source === 'summary' ? '国家平台课程简介' : '课题')
+const RELATION_LABEL = { T: '主要在教', P: '也涉及' }
 const CARD_VERSION = cardVersion(readJson('data_version.json').data_version)
 const cardUrl = path => `${SITE_URL}/cards/${path}.png?v=${CARD_VERSION}`
 
@@ -176,6 +180,7 @@ function standardPage({ standard, subject }) {
         if (pageEvidence.has(key)) continue
         pageEvidence.set(key, `${link(unitId ? `/textbook-units/${unitId}` : `/textbooks/${edition}`, `${textbook} · ${unit}`)}<span class="kbp-note"> · ${viaAi ? 'AI 按单元判断' : '机器对齐'}，待核验</span>`)
     }
+    const byLesson = standard.indicators.filter(item => nationalPoints.has(item.code)).map(item => `<li><span class="kbp-code">${esc(item.code)}</span> ${esc(item.text.length > 46 ? `${item.text.slice(0, 46)}…` : item.text)}${list(nationalPoints.get(item.code).map(([edition, textbook, unit, , lessonTitle, relation, quote, source, page]) => `${link(`/textbooks/${edition}/standards`, `${textbook} · ${lessonTitle || unit}`)}<span class="kbp-note"> · ${RELATION_LABEL[relation]} · “${esc(quote)}”（${esc(SOURCE_LABEL(source, page))}）</span>`))}</li>`)
     const siblings = subject.standards
         .filter(other => other.code !== standard.code && other.stage_code === standard.stage_code && other.level1 === standard.level1)
         .slice(0, 12).map(other => `${link(`/standards/${other.code}`, other.level2)} <span class="kbp-code">${esc(other.code)}</span>`)
@@ -192,6 +197,7 @@ ${section(`要点（${standard.indicators.length} 条，课标原文）`, `<ol>$
 ${section('学业要求', official(standard.requirements))}
 ${section('教学提示', official(standard.guidance))}
 ${standard.examples.length ? section('表现示例（kebiao 整理）', list(standard.examples.map(example => esc(example.text)))) : ''}
+${byLesson.length ? section('教材里在哪教（逐课）', `<ul>${byLesson.join('')}</ul><p class="kbp-note">AI 逐课读了教材原文后判断，引号里是这一课教材的原话；待核验。</p>`) : ''}
 ${section('对应教材', list([...pageEvidence.values()]))}
 ${section(`同学段同领域的其他标准（${standard.level1}）`, list(siblings))}
 <p class="kbp-note">${esc(subject.source_note)}</p>`
@@ -248,6 +254,8 @@ function textbookPages() {
 ${bySubject.map(subject => section(subject, list(textbooks.filter(book => book.subject === subject).map(book => link(`/textbooks/${book.edition_id}`, `${book.edition_name}${book.title}`))))).join('')}`, { jsonLd: [breadcrumbs(crumbs)] })
 
     const edition = id => JSON.parse(readFileSync(join(DATA, 'textbooks/by-edition', `${id}.json`), 'utf8'))
+    const alignedBooks = new Set(existsSync(join(DATA, 'textbooks/national-lessons')) ? readdirSync(join(DATA, 'textbooks/national-lessons')).filter(file => file.startsWith('ed_')).filter(file => readJson(`textbooks/national-lessons/${file}`).lessons.some(lesson => lesson.align?.length)).map(file => file.replace(/\.json$/u, '')) : [])
+    const hasAlignment = id => alignedBooks.has(id)
     for (const book of textbooks) {
         const detail = edition(book.edition_id)
         const bookCrumbs = [...crumbs, [book.title, `/textbooks/${book.edition_id}`]]
@@ -257,11 +265,43 @@ ${bySubject.map(subject => section(subject, list(textbooks.filter(book => book.s
 <p class="kbp-kicker">${esc([book.subject, book.stage_label, book.grade_label, book.volume].filter(Boolean).join(' · '))}</p>
 <h1>${esc(book.title)}</h1>
 <p class="kbp-lede">${esc(book.edition_name)} · 共 ${esc(book.page_count)} 页${book.revision_label ? ` · ${esc(book.revision_label)}` : ''}</p>
+${hasAlignment(book.edition_id) ? `<p>${link(`/textbooks/${book.edition_id}/standards`, '课标对应表：每一课教哪几条课标要点')}</p>` : ''}
 ${section('目录', list(toc))}
 ${section('对应的课程标准', list(aligned))}`, {
             type: 'book',
             jsonLd: [breadcrumbs(bookCrumbs), { '@context': 'https://schema.org', '@type': 'Book', name: book.title, bookEdition: book.edition_name, inLanguage: 'zh-CN', educationalLevel: book.grade_label, about: book.subject, numberOfPages: book.page_count }]
         })
+    }
+
+    // 课标对应表: every lesson with the 要点 it teaches and the textbook's own words
+    const v2Points = new Map(v2Subjects.flatMap(subject => subject.standards.flatMap(standard => (standard.indicators || []).map(item => [item.code, item.text]))))
+    // and the editions the library has no PDF of (fetch_platform_editions.mjs)
+    const platformBooks = existsSync(join(DATA, 'textbooks/platform_books.json')) ? readJson('textbooks/platform_books.json').books : []
+    for (const book of [...textbooks, ...platformBooks]) {
+        if (!book.edition_id.startsWith('pf_') && !hasAlignment(book.edition_id)) continue
+        const record = readJson(`textbooks/national-lessons/${book.edition_id}.json`)
+        const tableCrumbs = book.edition_id.startsWith('pf_')
+            ? [['首页', '/'], ['教材与课标对应', '/textbook-alignment'], [`${book.title}（${book.edition_name}）`, `/textbooks/${book.edition_id}/standards`]]
+            : [...crumbs, [book.title, `/textbooks/${book.edition_id}`], ['课标对应表', `/textbooks/${book.edition_id}/standards`]]
+        const byUnit = new Map()
+        for (const lesson of record.lessons) {
+            if (!lesson.align?.length) continue
+            const unit = lesson.chapters[0] || lesson.title
+            if (!byUnit.has(unit)) byUnit.set(unit, new Map())
+            const title = lesson.title.replace(/[（(]?第[一二三四五六七八九十\d]+课时[）)]?/gu, '').trim()
+            // one lesson the platform lists several times (「正数与负数（一）」) is shown once, by its plainest title
+            const key = title.replace(/^\d+(?:\.\d+)+\s*/u, '').replace(/(?:[（(][一二三四五六七八九十\d][）)])?\d?$/u, '') || title
+            const seen = [...byUnit.get(unit)].find(([, item]) => item.key === key)
+            if (!seen) byUnit.get(unit).set(title, { key, align: lesson.align })
+            else if (title.length < seen[0].length) { byUnit.get(unit).delete(seen[0]); byUnit.get(unit).set(title, seen[1]) }
+        }
+        const rows = align => align.map(([code, relation, quote, source, page]) => `<span class="kbp-code">${esc(code)}</span> ${esc(RELATION_LABEL[relation])}：${esc(v2Points.get(code) || '')}<span class="kbp-note">（“${esc(quote)}”，${esc(SOURCE_LABEL(source, page))}）</span>`).join('<br>')
+        add(textbookAlignmentMeta(book), `${crumbNav(tableCrumbs)}
+<p class="kbp-kicker">课标对应表 · ${esc(book.edition_name)} · ${esc(book.title)}</p>
+<h1>这本书的每一课，教的是哪几条课标要点</h1>
+<p class="kbp-lede">AI 逐课读了这一课的教材原文（或国家平台教学设计里的教学目标），对照本年级课标的全部要点判断「主要在教」和「也涉及」，每条附这一课材料的原话。机器判断，待核验。</p>
+${[...byUnit].map(([unit, lessons]) => section(unit, list([...lessons].map(([title, item]) => `<strong>${esc(title)}</strong><br>${rows(item.align)}`)))).join('')}
+<p>${link('/textbook-alignment', '这张表是怎么做的')}</p>`, { jsonLd: [breadcrumbs(tableCrumbs)] })
     }
 
     for (const unit of units) {
@@ -386,6 +426,10 @@ function staticPages() {
     add(STATIC_PAGE_META['/lesson-plan'], `<h1>AI 备课：从教材的一课起草有课标依据的教案</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/lesson-plan'].description)}</p><p>AI 只按你勾选的课标要点写，每条目标标出依据编码；写完后逐条核验：有没有超出课标写明的限定，目标有没有对应的教学环节和评价任务。可复制、下载 Word、打印。</p><p>还可以贴入自己的教案逐条核验，或贴入单元测试卷、作业：AI 逐题读出考查的要点、素养、层次和难度，程序编成多维细目表，并查超出课标限定的题、没有考到的要点和分值比例。</p>`)
     add(STATIC_PAGE_META['/guide'], `<h1>五分钟学会用 kebiao 备课</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/guide'].description)}</p><p>${link('/lesson-plan', 'AI 备课')} · ${link('/schedule', '学期进度表')} · ${link('/review', '中考复习地图')} · ${link('/concepts', '概念词典')} · ${link('/experiments', '必做实验清单')}</p>`)
     add(STATIC_PAGE_META['/review'], `<h1>中考复习地图</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/review'].description)}</p>`)
+    const coverage = existsSync(join(DATA, 'textbooks/alignment_coverage.json')) ? readJson('textbooks/alignment_coverage.json').subjects : []
+    add(STATIC_PAGE_META['/textbook-alignment'], `<h1>教材的每一课，教的是课标的哪几条要点</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/textbook-alignment'].description)}</p>
+${section('怎么对的', '<ol><li>按国家平台同步课的课题，在原书里顺着书页找到这一课的几页；扫描版先做文字识别。</li><li>读这一课自己的材料：教材原文、国家平台教学设计的教学目标、课程简介。</li><li>AI 对照本年级的全部课标要点，判断「主要在教」（这一课的目标，最多两条）和「也涉及」。</li><li>每一条都要摘这一课材料里的原话；原话不在材料里的，一律不算。</li></ol>')}
+${section('馆里的教材教到了课标的多少', list(coverage.flatMap(subject => subject.stages.filter(stage => stage.books.length).map(stage => `${esc(subject.name)} ${stage.grades[0]}–${stage.grades.at(-1)} 年级：${stage.points} 条要点，${stage.taught.length} 条有一课主要在教，${stage.touched.length} 条只是涉及`))))}`)
     add(STATIC_PAGE_META['/schedule'], `<h1>学期教学进度表</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/schedule'].description)}</p>`)
     add(STATIC_PAGE_META['/smart-search'], `<h1>智能检索</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/smart-search'].description)}</p>`)
 }

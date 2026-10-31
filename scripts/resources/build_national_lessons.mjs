@@ -4,6 +4,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { unscramble } from './textbook_text.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const SOURCE = path.join(ROOT, 'data/textbooks/smartedu')
@@ -59,6 +60,18 @@ export function buildNationalLessons() {
     }
     const picksFile = path.join(SOURCE, 'unit_picks.json')
     const unitPicks = existsSync(picksFile) ? JSON.parse(readFileSync(picksFile, 'utf8')).editions : {}
+    // one lesson the platform lists several times: 「正数与负数（一）」「正数与负数（二）」, 「3.4.1实际问题…」, 「解一元一次方程（一）1」
+    const lessonKey = title => String(title || '').replace(/[（(]?第[一二三四五六七八九十\d]+课时[）)]?/gu, '').trim().replace(/^\d+(?:\.\d+)+\s*/u, '').replace(/(?:[（(][一二三四五六七八九十\d][）)])?\d?$/u, '').replace(/[\s·•、，,。．.：:！!？?“”"'（）()《》\-—–_]/gu, '') || title
+    // 教材与课标对应, lesson by lesson (align_textbook_lessons.mjs): each lesson's 要点 with the quote from its own
+    // material. Where a lesson has it, its 主要在教 要点 replace the unit picks.
+    const alignFile = path.join(SOURCE, 'lesson_alignment.json')
+    const lessonAlign = existsSync(alignFile) ? JSON.parse(readFileSync(alignFile, 'utf8')).editions : {}
+    // 要点 → the lessons that teach it, with the quote: 「这条要点在教材哪里教」
+    const byPoint = new Map()
+    // edition → the 要点 its lessons teach (T) and touch (P), for the coverage report
+    const bookPoints = new Map()
+    // every judged lesson once, for the API and the MCP tools (public/data/v2/lesson_alignment.json)
+    const indexRows = []
     const byStandard = new Map()
     // standard → the textbook units that teach it (「这条课标在教材哪里教」), one row per book and unit
     const unitsByStandard = new Map()
@@ -108,7 +121,13 @@ export function buildNationalLessons() {
         // the platform lists lessons by upload; show them in the book's chapter order
         const position = lesson => order.get(lesson.chapter_path.at(-1)) ?? Number.MAX_SAFE_INTEGER
         const sorted = record.lessons.map((lesson, index) => ({ lesson, index })).sort((a, b) => position(a.lesson) - position(b.lesson) || a.index - b.index).map(item => item.lesson)
-        const aiOf = new Map(sorted.map(lesson => [lesson.id, firstFour((unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([code, grade, point]) => grade === 2 && point && inScope(record.textbook_title, code)).map(([, , point]) => point))]))
+            // quotes taken before the 人教 font letters were read back (狓 → x) are shown as the book prints them
+        const alignOf = id => (lessonAlign[record.edition_id]?.lessons[id]?.m || []).filter(([point]) => inScope(record.textbook_title, point.replace(/\.\d+$/u, ''))).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest])
+        const aiOf = new Map(sorted.map(lesson => {
+            const taught = alignOf(lesson.id).filter(row => row[1] === 'T').map(([point]) => point)
+            if (lessonAlign[record.edition_id]?.lessons[lesson.id]) return [lesson.id, firstFour(taught)]
+            return [lesson.id, firstFour((unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([code, grade, point]) => grade === 2 && point && inScope(record.textbook_title, code)).map(([, , point]) => point))]
+        }))
         const lessons = sorted.map(lesson => ({
             id: lesson.id,
             title: lesson.title,
@@ -117,8 +136,30 @@ export function buildNationalLessons() {
             unit_id: unitOf(lesson),
             materials: lesson.materials.filter(name => MATERIALS.includes(name)),
             hours: lesson.hours,
-            ...(aiOf.get(lesson.id)?.length ? { ai_points: aiOf.get(lesson.id) } : {})
+            ...(aiOf.get(lesson.id)?.length ? { ai_points: aiOf.get(lesson.id) } : {}),
+            // [要点, 'T' 主要在教 | 'P' 也涉及, quote, 'book' | 'design' | 'summary' | 'title', PDF page]
+            // present (perhaps empty) once the lesson was judged, so the page can tell 「没找到」 from 「还没判断」
+            ...(lessonAlign[record.edition_id]?.lessons[lesson.id] ? { align: alignOf(lesson.id) } : {})
         }))
+        if (lessonAlign[record.edition_id]) bookPoints.set(record.edition_id, { T: new Set(), P: new Set() })
+        const listed = new Map()
+        for (const lesson of lessons) {
+            if (!lesson.align?.length) continue
+            const unit = (lesson.chapters[0] || lesson.title).replace(/\s+/gu, ' ')
+            const key = `${unit}|${lessonKey(lesson.title)}`
+            const title = lesson.title.replace(/[（(]?第[一二三四五六七八九十\d]+课时[）)]?/gu, '').trim()
+            const seen = listed.get(key)
+            if (!seen) listed.set(key, [record.edition_id, record.textbook_title, unit, title, lesson.id, lesson.pdf_page, lesson.align])
+            else if (title.length < seen[3].length) seen[3] = title
+        }
+        indexRows.push(...listed.values())
+        for (const lesson of lessons) {
+            for (const [point, relation, quote, source, page] of lesson.align || []) {
+                bookPoints.get(record.edition_id)?.[relation].add(point)
+                if (!byPoint.has(point)) byPoint.set(point, [])
+                byPoint.get(point).push([record.edition_id, record.textbook_title, (lesson.chapters[0] || lesson.title).replace(/\s+/gu, ' '), lesson.id, lesson.title, relation, quote, source, page ?? null, lesson.unit_id])
+            }
+        }
         lessonTotal += lessons.length
         const out = {
             edition_id: record.edition_id,
@@ -133,11 +174,15 @@ export function buildNationalLessons() {
         const rows = (rowsByEdition.get(record.edition_id) || []).filter(row => Number.isInteger(row[3])).sort((a, b) => a[3] - b[3])
         for (const lesson of lessons) {
             const ai = aiOf.get(lesson.id) || []
+            // 1 = AI 按单元判断 (课名), 2 = AI 逐课判断, with a quote from the lesson's own material
+            const via = lesson.align?.length ? 2 : 1
             if (ai.length) {
-                linkLesson(ai, [record.edition_id, lesson.id, lesson.title, record.textbook_title, MATERIALS.filter(name => lesson.materials.includes(name)).map(name => MATERIALS.indexOf(name)), confidence === 'text' ? 1 : 0, 1])
-                linkUnit(ai, lesson, record, 1)
+                linkLesson(ai, [record.edition_id, lesson.id, lesson.title, record.textbook_title, MATERIALS.filter(name => lesson.materials.includes(name)).map(name => MATERIALS.indexOf(name)), confidence === 'text' ? 1 : 0, via])
+                linkUnit(ai, lesson, record, via)
                 continue
             }
+            // judged lesson by lesson and nothing found: the page alignment is not used either
+            if (lesson.align) continue
             const codes = []
             if (lesson.unit_id) {
                 for (const item of v2Links.units[lesson.unit_id] || []) codes.push(item.code)
@@ -157,6 +202,53 @@ export function buildNationalLessons() {
         index.editions[record.edition_id] = { platform_title: record.platform_title, lessons: lessons.length, confidence, units_linked: lessons.filter(item => item.unit_id).length }
     }
     writeFileSync(path.join(OUT, 'index.json'), `${JSON.stringify(index)}\n`)
+    // editions the library has no PDF of (fetch_platform_editions.mjs): their lessons and 要点, judged on the lesson
+    // titles and the 教学设计 or 学习任务单; named with the edition, since the library's own book has the same name
+    const platformDir = path.join(SOURCE, 'platform')
+    const platformBooks = []
+    for (const file of existsSync(platformDir) ? readdirSync(platformDir).filter(name => name.startsWith('pf_')).sort() : []) {
+        const record = JSON.parse(readFileSync(path.join(platformDir, file), 'utf8'))
+        const judged = lessonAlign[record.edition_id]
+        if (!judged) continue
+        const titles = new Map()
+        const order = new Map()
+        const walk = nodes => {
+            for (const node of nodes || []) {
+                titles.set(node.id, node.title)
+                order.set(node.id, order.size)
+                walk(node.children)
+            }
+        }
+        walk(record.tree)
+        const position = lesson => order.get(lesson.chapter_path.at(-1)) ?? Number.MAX_SAFE_INTEGER
+        const name = `${record.textbook_title}（${record.edition_name}）`
+        const lessons = record.lessons.map((lesson, index) => ({ lesson, index })).sort((a, b) => position(a.lesson) - position(b.lesson) || a.index - b.index).map(({ lesson }) => ({
+            id: lesson.id,
+            title: lesson.title,
+            chapters: lesson.chapter_path.map(id => titles.get(id)).filter(Boolean).filter(title => title !== lesson.title),
+            pdf_page: null,
+            unit_id: null,
+            materials: lesson.materials.filter(item => MATERIALS.includes(item)),
+            hours: lesson.hours,
+            ...(judged.lessons[lesson.id] ? { align: (judged.lessons[lesson.id].m || []).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest]) } : {})
+        }))
+        writeFileSync(path.join(OUT, `${record.edition_id}.json`), `${JSON.stringify({ edition_id: record.edition_id, textbook_title: record.textbook_title, platform_title: record.platform_title, platform_textbook_id: record.platform_textbook_id, platform_only: true, confidence: 'edition', tree: record.tree, lessons })}\n`)
+        platformBooks.push({ edition_id: record.edition_id, title: record.textbook_title, edition_name: record.edition_name, subject: record.subject, subject_slug: record.subject_slug, grade: record.grade, volume: record.volume, platform_title: record.platform_title, lessons: lessons.length })
+        const listed = new Map()
+        for (const lesson of lessons) {
+            const unit = (lesson.chapters[0] || lesson.title).replace(/\s+/gu, ' ')
+            for (const [point, relation, quote, source, page] of lesson.align || []) {
+                if (!byPoint.has(point)) byPoint.set(point, [])
+                byPoint.get(point).push([record.edition_id, name, unit, lesson.id, lesson.title, relation, quote, source, page ?? null, null])
+            }
+            if (!lesson.align?.length) continue
+            const key = `${unit}|${lessonKey(lesson.title)}`
+            const title = lesson.title.replace(/[（(]?第[一二三四五六七八九十\d]+课时[）)]?/gu, '').trim()
+            if (!listed.has(key)) listed.set(key, [record.edition_id, name, unit, title, lesson.id, null, lesson.align])
+        }
+        indexRows.push(...listed.values())
+    }
+    writeFileSync(path.join(ROOT, 'public/data/textbooks/platform_books.json'), `${JSON.stringify({ note: '馆里没有原书 PDF 的版本：课目录来自国家中小学智慧教育平台，课标对应按课题、教学设计或学习任务单判断。', books: platformBooks })}\n`)
     // per subject, so a standard page loads only its own subject; lessons with a video and a 教学设计 first
     const bySubject = {}
     for (const [code, list] of byStandard) {
@@ -179,16 +271,81 @@ export function buildNationalLessons() {
         const sorted = kept.sort((a, b) => a.textbook.localeCompare(b.textbook, 'zh-Hans-CN', { numeric: true }))
         ;(unitsBySubject[code.slice(0, 2)] ??= {})[code] = sorted.slice(0, 8).map(row => [row.edition, row.textbook, row.unit, row.ids[0] || null, row.viaAi])
     }
+    // per 要点: 主要在教 first, in textbook order, at most two lessons a book and ten in all; one lesson the platform
+    // lists several times (「正数与负数（一）」「正数与负数（二）」) counts once
+    const pointsBySubject = {}
+    for (const [point, rows] of byPoint) {
+        rows.sort((a, b) => (a[5] === b[5] ? 0 : a[5] === 'T' ? -1 : 1) || a[1].localeCompare(b[1], 'zh-Hans-CN', { numeric: true }) || a[4].length - b[4].length)
+        const perBook = new Map()
+        const seenLesson = new Set()
+        const kept = rows.filter(row => {
+            const key = `${row[0]}|${lessonKey(row[4])}`
+            if (seenLesson.has(key)) return false
+            seenLesson.add(key)
+            perBook.set(row[0], (perBook.get(row[0]) || 0) + 1)
+            return perBook.get(row[0]) <= 2
+        }).slice(0, 10)
+        kept.sort((a, b) => a[1].localeCompare(b[1], 'zh-Hans-CN', { numeric: true }) || (a[5] === b[5] ? 0 : a[5] === 'T' ? -1 : 1))
+        ;(pointsBySubject[point.slice(0, 2)] ??= {})[point] = kept
+    }
+    writeFileSync(path.join(ROOT, 'public/data/v2/lesson_alignment.json'), `${JSON.stringify({
+        note: 'AI 逐课判断的教材与课标对应：relation T = 主要在教，P = 也涉及；quote 是这一课材料里的原话，source 说明出处（book = 教材 PDF 第 pdf_page 页，design = 国家平台教学设计，summary = 国家平台课程简介，title = 课题）。机器判断，待核验。',
+        fields: ['edition_id', 'textbook_title', 'unit', 'lesson_title', 'lesson_id', 'pdf_page', 'matches'],
+        match_fields: ['point', 'relation', 'quote', 'source', 'pdf_page'],
+        lessons: indexRows
+    })}\n`)
     const subjectOut = path.join(ROOT, 'public/data/v2/national-lessons')
     rmSync(subjectOut, { recursive: true, force: true })
     mkdirSync(subjectOut, { recursive: true })
     for (const [prefix, standards] of Object.entries(bySubject)) {
-        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards, unit_fields: ['edition_id', 'textbook_title', 'unit', 'unit_id', 'via_ai'], units: unitsBySubject[prefix] || {} })}\n`)
+        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards, unit_fields: ['edition_id', 'textbook_title', 'unit', 'unit_id', 'via_ai'], units: unitsBySubject[prefix] || {}, point_fields: ['edition_id', 'textbook_title', 'unit', 'lesson_id', 'lesson_title', 'relation', 'quote', 'source', 'pdf_page', 'unit_id'], points: pointsBySubject[prefix] || {} })}\n`)
     }
-    return { editions: Object.keys(index.editions).length, lessons: lessonTotal, standards: byStandard.size }
+    const coverage = buildCoverage(bookPoints)
+    return { editions: Object.keys(index.editions).length, lessons: lessonTotal, standards: byStandard.size, coverage }
+}
+
+// 教材与课标对应 coverage: for each subject and 学段, the 要点 that some lesson in the library's textbooks teaches,
+// only touches, or that no lesson was found for. Writes public/data/textbooks/alignment_coverage.json.
+function buildCoverage(bookPoints) {
+    const books = JSON.parse(readFileSync(path.join(ROOT, 'public/data/textbooks/index.json'), 'utf8')).items
+    const v2Slug = slug => (['art', 'music'].includes(slug) ? 'arts' : slug)
+    const subjects = []
+    for (const file of readdirSync(path.join(ROOT, 'data/v2/by_subject')).filter(name => name.endsWith('.json')).sort()) {
+        const data = JSON.parse(readFileSync(path.join(ROOT, 'data/v2/by_subject', file), 'utf8'))
+        const slug = file.replace(/\.json$/u, '')
+        const stages = []
+        for (const stage of [...new Set(data.standards.map(item => item.stage))]) {
+            const standards = data.standards.filter(item => item.stage === stage)
+            const grades = [...new Set(standards.flatMap(item => item.grades || []))].sort((a, b) => a - b)
+            const inStage = books.filter(book => v2Slug(book.subject_slug) === slug && grades.includes(book.grade) && bookPoints.has(book.edition_id))
+                .sort((a, b) => a.title.localeCompare(b.title, 'zh-Hans-CN', { numeric: true }))
+            const taught = new Set()
+            const touched = new Set()
+            for (const book of inStage) {
+                for (const point of bookPoints.get(book.edition_id).T) taught.add(point)
+                for (const point of bookPoints.get(book.edition_id).P) touched.add(point)
+            }
+            const points = standards.flatMap(item => (item.indicators || []).map(point => point.code))
+            stages.push({
+                stage,
+                label: standards[0]?.stage_label || `${grades[0]}–${grades.at(-1)} 年级`,
+                grades,
+                books: inStage.map(book => [book.edition_id, book.title, book.edition_name]),
+                points: points.length,
+                taught: points.filter(code => taught.has(code)),
+                touched: points.filter(code => !taught.has(code) && touched.has(code)),
+                // with the start of its text: the overview lists them without loading every subject
+                missing: standards.flatMap(item => (item.indicators || []).filter(point => !taught.has(point.code) && !touched.has(point.code)).map(point => [point.code, point.text.length > 42 ? `${point.text.slice(0, 42)}…` : point.text]))
+            })
+        }
+        subjects.push({ slug, name: data.standards[0]?.subject || slug, stages })
+    }
+    const out = { note: '按 AI 逐课判断（每条都摘了教材原文为证）统计：taught = 有一课主要在教，touched = 只是有课涉及，missing = 馆里的教材里没找到教它的课。机器判断，待核验。', subjects }
+    writeFileSync(path.join(ROOT, 'public/data/textbooks/alignment_coverage.json'), `${JSON.stringify(out)}\n`)
+    return subjects.reduce((sum, subject) => sum + subject.stages.reduce((n, stage) => n + stage.taught.length, 0), 0)
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-    const { editions, lessons, standards } = buildNationalLessons()
-    console.log(`national-lessons: ${editions} textbooks, ${lessons} lessons, ${standards} standards with lessons`)
+    const { editions, lessons, standards, coverage } = buildNationalLessons()
+    console.log(`national-lessons: ${editions} textbooks, ${lessons} lessons, ${standards} standards with lessons, ${coverage} 要点 taught in the library`)
 }

@@ -448,6 +448,37 @@ button.badge:focus-visible {
     line-height: 1.7;
 }
 
+/* 教材里在哪教, one group per 要点; the quote sits on its own line */
+.pointLessons + .pointLessons {
+    margin-top: 1.3rem;
+}
+
+.pointLessons h3 {
+    margin: 1rem 0 0;
+    color: var(--kb-moon);
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.pointLessons h3 a {
+    margin-right: 0.4rem;
+    color: var(--kb-gold);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+}
+
+.pointLessons .resourceList {
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.pointLessons .resourceList span {
+    display: block;
+    margin: 0.15rem 0 0;
+    line-height: 1.6;
+}
+
 .resourceFoot {
     display: flex;
     flex-wrap: wrap;

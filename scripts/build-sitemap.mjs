@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Writes dist/sitemap.xml from the public data that the built site serves.
-import { readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 const SITE = 'https://www.kebiao.org'
@@ -23,6 +23,13 @@ for (const subject of v2.subjects) {
     for (const standard of readJson(subject.file).standards) entries.push([`/standards/${standard.code}`, standardsDate])
 }
 for (const textbook of readJson('textbooks/index.json').items) entries.push([`/textbooks/${textbook.edition_id}`, textbooksDate])
+// 课标对应表 for the books whose lessons were judged one by one
+for (const textbook of readJson('textbooks/index.json').items) {
+    const file = `textbooks/national-lessons/${textbook.edition_id}.json`
+    if (existsSync(join(DATA, file)) && readJson(file).lessons.some(lesson => lesson.align?.length)) entries.push([`/textbooks/${textbook.edition_id}/standards`, textbooksDate])
+}
+if (existsSync(join(DATA, 'textbooks/platform_books.json'))) for (const book of readJson('textbooks/platform_books.json').books) entries.push([`/textbooks/${book.edition_id}/standards`, textbooksDate])
+entries.push(['/textbook-alignment', textbooksDate])
 for (const unit of units.items) entries.push([`/textbook-units/${unit.entry_id}`, textbooksDate])
 for (const resource of resources.resources) entries.push([`/learning-resources/${resource.id}`, resourcesDate])
 const concepts = readJson('concepts.json')

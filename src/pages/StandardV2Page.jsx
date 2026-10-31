@@ -10,6 +10,7 @@ import { loadPlatforms, platformsFor } from '../features/learning-resources/plat
 import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
 import { v2StandardMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
+import { RELATION_LABELS, sourceLabel } from '../features/textbooks/alignmentModel'
 import styles from './StandardV2Page.module.css'
 
 const pagesLabel = pages => (pages?.length ? `课标第 ${pages.join('、')} 页` : '')
@@ -113,7 +114,7 @@ function CopyPromptButton({ standard, subjectName }) {
     return <button type="button" className={styles.badge} onClick={copy} title="复制这条标准的要点原文和写法要求，贴给豆包、DeepSeek 等">{copied ? '已复制提示词' : '复制成提示词'}</button>
 }
 
-function NationalLessons({ code }) {
+function NationalLessons({ code, indicators = [] }) {
     const [data, setData] = useState(null)
     useEffect(() => {
         let cancelled = false
@@ -126,36 +127,56 @@ function NationalLessons({ code }) {
     }, [code])
     const lessons = data?.standards?.[code] || []
     const units = data?.units?.[code] || []
-    if (!lessons.length) return null
-    const byAi = lessons.some(item => item[6] === 1)
+    // 教材与课标对应, lesson by lesson: under each 要点, the lessons that teach it, with the textbook's own words
+    const byPoint = indicators.map(item => ({ item, rows: data?.points?.[item.code] || [] })).filter(entry => entry.rows.length)
+    if (!lessons.length && !byPoint.length) return null
+    const byAi = lessons.some(item => item[6] >= 1)
     return (
         <>
-        {units.length ? (
+        {byPoint.length ? (
+            <section className={styles.block} id="standard-textbook-units">
+                <h2>教材里在哪教</h2>
+                {byPoint.map(({ item, rows }) => (
+                    <div key={item.code} className={styles.pointLessons}>
+                        <h3><a href={`#${item.code}`}>{item.code}</a> {item.text.length > 46 ? `${item.text.slice(0, 46)}…` : item.text}</h3>
+                        <ul className={styles.resourceList}>
+                            {rows.map(([edition, textbook, unit, lessonId, lessonTitle, relation, quote, source, page]) => (
+                                <li key={`${edition}-${lessonId}`}>
+                                    <Link to={`/textbooks/${edition}/standards`}>{textbook} · {unit.replace(/\s+/gu, ' ')}{lessonTitle && lessonTitle !== unit ? ` · ${lessonTitle}` : ''}</Link>
+                                    <span>{RELATION_LABELS[relation]} · “{quote}”（{sourceLabel(source, page)}）</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+                <p className={styles.blockNote}>AI 逐课读了教材原文（或国家平台教学设计里的教学目标），对照本年级全部要点判断的；引号里是这一课材料的原话，点开是这本书的课标对应表。都待核验，哪一条对不上，<Link to={`/feedback?code=${code}&title=${encodeURIComponent('「教材里在哪教」有误')}&message=${encodeURIComponent(`标准 ${code}：\n哪一课、哪一条不对，应该是：`)}`}>告诉我们</Link>。</p>
+            </section>
+        ) : units.length ? (
             <section className={styles.block} id="standard-textbook-units">
                 <h2>教材里在哪教</h2>
                 <ul className={styles.resourceList}>
                     {units.map(([edition, textbook, unit, unitId, viaAi]) => (
                         <li key={`${edition}-${unit}`}>
                             <Link to={unitId ? `/textbook-units/${unitId}` : `/textbooks/${edition}`}>{textbook} · {unit.replace(/\s+/gu, ' ')}</Link>
-                            <span>{viaAi === 1 ? 'AI 按单元判断' : '按教材页码对齐（机器）'}</span>
+                            <span>{viaAi === 2 ? 'AI 逐课判断' : viaAi === 1 ? 'AI 按单元判断' : '按教材页码对齐（机器）'}</span>
                         </li>
                     ))}
                 </ul>
                 <p className={styles.blockNote}>按国家平台的单元目录列出，都待核验。点开是 kebiao 教材馆里的这一单元，可以接着备课。哪一条对不上，<Link to={`/feedback?code=${code}&title=${encodeURIComponent('「教材里在哪教」有误')}&message=${encodeURIComponent(`标准 ${code} 的教材单元：\n${units.map(([, textbook, unit]) => `${textbook} · ${unit}`).join('\n')}\n\n哪一条不对，应该是：`)}`}>告诉我们</Link>。</p>
             </section>
         ) : null}
-        <section className={styles.block} id="standard-national-lessons">
+        {lessons.length ? <section className={styles.block} id="standard-national-lessons">
             <h2>国家平台同步课</h2>
             <ul className={styles.resourceList}>
                 {lessons.map(([, id, title, textbook, materials, , viaAi]) => (
                     <li key={id}>
                         <a href={NATIONAL_URL(id)} target="_blank" rel="noopener noreferrer">{title} ↗</a>
-                        <span>{textbook}{materials.length ? ` · ${materials.map(index => data.materials[index]).join(' · ')}` : ''}{viaAi === 1 ? ' · AI 按单元判断' : ''}</span>
+                        <span>{textbook}{materials.length ? ` · ${materials.map(index => data.materials[index]).join(' · ')}` : ''}{viaAi === 2 ? ' · AI 逐课判断' : viaAi === 1 ? ' · AI 按单元判断' : ''}</span>
                     </li>
                 ))}
             </ul>
-            <p className={styles.blockNote}>{byAi ? '标「AI 按单元判断」的，是 AI 读了教材单元的课名和本学段全部课标后判断为直接对应的；其余按教材页码与课标的机器对应列出。都待核验。' : '按教材页码与课标的机器对应列出，待核验。'}国家中小学智慧教育平台免费提供，观看需登录平台账号。</p>
-        </section>
+            <p className={styles.blockNote}>{byAi ? '标「AI 逐课判断」的，是 AI 读了这一课的教材原文后判断为主要在教的；标「AI 按单元判断」的，只读了单元的课名；其余按教材页码与课标的机器对应列出。都待核验。' : '按教材页码与课标的机器对应列出，待核验。'}国家中小学智慧教育平台免费提供，观看需登录平台账号。</p>
+        </section> : null}
         </>
     )
 }
@@ -366,7 +387,7 @@ export default function StandardV2Page() {
                 <section className={styles.block} id="standard-textbooks">
                     <StandardTextbookLinks standardCode={standard.code} />
                 </section>
-                <NationalLessons code={standard.code} />
+                <NationalLessons code={standard.code} indicators={standard.indicators || []} />
                 <Platforms subjectSlug={slug} standard={standard} />
                 <LearningResources ids={standard.learning_resource_ids || []} legacyCodes={standard.legacy_codes || []} />
 

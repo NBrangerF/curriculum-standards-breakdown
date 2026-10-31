@@ -298,6 +298,23 @@ paths:
               schema: { $ref: "#/components/schemas/ApiResponse" }
         "404":
           $ref: "#/components/responses/NotFound"
+  /api/v1/textbooks/{edition_id}/alignment:
+    get:
+      tags: [教材, 课程标准]
+      operationId: getTextbookAlignment
+      summary: 教材每一课对应的课标要点
+      description: 教材与课标对应，逐课：每一课主要在教（teaches）和也涉及（touches）的要点，每条附这一课材料里的原话 quote 和出处（教材 PDF 页、国家平台教学设计、课程简介或课题）。AI 读教材原文判断，待核验。
+      security: []
+      parameters:
+        - { name: edition_id, in: path, required: true, schema: { type: string } }
+      responses:
+        "200":
+          description: 这本教材的每一课及其要点
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
   /api/v1/textbooks/{edition_id}/page-map:
     get:
       tags: [教材]
@@ -470,6 +487,23 @@ paths:
           $ref: "#/components/responses/NotFound"
         "409":
           $ref: "#/components/responses/Conflict"
+  /api/v1/standards/{code}/lessons:
+    get:
+      tags: [教材, 课程标准]
+      operationId: getStandardLessons
+      summary: 从课标或要点反查在教材哪一课教
+      description: 教材与课标对应，逐课：一条标准（它的任一要点）或一条要点在哪些教材的哪一课教，主要在教的在前，每条附这一课教材的原话和页码。AI 读教材原文判断，待核验。
+      security: []
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+      responses:
+        "200":
+          description: 教这条标准或要点的课
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
   /api/v1/standards/{code}/learning-resources:
     get:
       tags: [学习资源, 课程标准]

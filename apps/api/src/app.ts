@@ -49,7 +49,7 @@ import { redactSensitiveText } from './ai-privacy.js'
 import { parsePlanWithLlm } from './plan-llm.js'
 import { resolveDataRoot } from './config.js'
 import { TextbookAssetService } from './textbook-assets.js'
-import { createV2Store, v2TextbookItem } from './v2-store.js'
+import { SOURCE_LABEL, createV2Store, v2TextbookItem } from './v2-store.js'
 import { ToolInputError, findTool, type ToolContext } from './ai-tools.js'
 import { handleMcp } from './mcp.js'
 import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate, type JudgeResult } from './search-judge.js'
@@ -390,6 +390,22 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         return ok(c, version, detail)
     })
 
+    // 教材与课标对应: each lesson of the book with the 要点 it teaches (T) or touches (P) and the textbook's own words
+    app.get('/api/v1/textbooks/:edition_id/alignment', async c => {
+        const version = await repository.loadDataVersion()
+        const editionId = c.req.param('edition_id')
+        const rows = (await v2.lessonAlignment()).lessons.filter(row => row[0] === editionId)
+        if (!rows.length) return apiError(c, 404, 'not_found', '这本教材还没有逐课的课标对应。')
+        const lessons = rows.map(([, , unit, title, lessonId, pdfPage, matches]) => ({
+            unit,
+            lesson_title: title,
+            lesson_id: lessonId,
+            pdf_page: pdfPage,
+            matches: matches.map(([point, relation, quote, source, page]) => ({ point, standard: point.replace(/\.\d+$/u, ''), relation: relation === 'T' ? 'teaches' : 'touches', quote, source, pdf_page: page, source_label: SOURCE_LABEL(source, page) }))
+        }))
+        return ok(c, version, { edition_id: editionId, textbook_title: rows[0][1], lessons }, { total: lessons.length, review_status: 'machine_judged', method: 'AI 逐课读教材原文判断，每条附原话' })
+    })
+
     app.get('/api/v1/textbooks/:edition_id/toc', async c => {
         const version = await repository.loadDataVersion()
         const detail = await textbookRepository.get(c.req.param('edition_id'))
@@ -503,6 +519,24 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         const code = lookup.resolved!.record!.code
         const textbooks = await textbookRepository.getTextbooksForStandard(code)
         return ok(c, version, textbooks, { total: textbooks.length })
+    })
+
+    // 教材与课标对应, from the 课标 side: the lessons that teach a standard (any of its 要点) or one 要点, with the
+    // textbook's own words; 主要在教 first, then in textbook order
+    app.get('/api/v1/standards/:code/lessons', async c => {
+        const version = await repository.loadDataVersion()
+        const code = c.req.param('code').toUpperCase()
+        const found = await v2.find(code)
+        if (!found) return apiError(c, 404, 'not_found', '未找到标准或要点。')
+        const wanted = (point: string) => (/\.\d+$/u.test(code) ? point === code : point.replace(/\.\d+$/u, '') === code)
+        const lessons = []
+        for (const [edition, textbook, unit, title, lessonId, , matches] of (await v2.lessonAlignment()).lessons) {
+            for (const [point, relation, quote, source, page] of matches) {
+                if (wanted(point)) lessons.push({ edition_id: edition, textbook_title: textbook, unit, lesson_title: title, lesson_id: lessonId, point, relation: relation === 'T' ? 'teaches' : 'touches', quote, source, pdf_page: page, source_label: SOURCE_LABEL(source, page), url: `https://www.kebiao.org/textbooks/${edition}/standards` })
+            }
+        }
+        lessons.sort((a, b) => (a.relation === b.relation ? 0 : a.relation === 'teaches' ? -1 : 1) || a.textbook_title.localeCompare(b.textbook_title, 'zh-Hans-CN', { numeric: true }))
+        return ok(c, version, lessons, { total: lessons.length, review_status: 'machine_judged' })
     })
 
     app.get('/api/v1/standards/:code/capability-graph', async c => {

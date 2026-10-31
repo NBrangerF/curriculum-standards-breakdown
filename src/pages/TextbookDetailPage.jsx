@@ -133,6 +133,7 @@ export default function TextbookDetailPage() {
                         <div className={styles.actions}>
                             <Link className="btn btn-primary" to={`/textbooks/${book.edition_id}/read`}><BookOpenTextIcon size={18} aria-hidden="true" /> 开始阅读</Link>
                             {book.toc[0]?.pdf_page && <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/read?page=${book.toc[0].pdf_page}`}>从第一章开始</Link>}
+                            {platformUnits.length ? <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/standards`}>课标对应表</Link> : null}
                             <Link className="btn btn-secondary" to={`/schedule?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>排学期进度表</Link>
                         </div>
                     </div>
@@ -162,7 +163,7 @@ export default function TextbookDetailPage() {
                                             <Link className={styles.unitLink} to={`/textbook-units/${entry.entry_id}`}>关联页</Link>
                                         </div>
                                         {aiPoints.get(entry.entry_id)?.length ? (
-                                            <p className={styles.aiPoints}><span>AI 按单元判断的要点</span>{aiPoints.get(entry.entry_id).slice(0, 3).map(code => <Link key={code} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`}>{code}</Link>)}<Link className={styles.report} to={`/feedback?code=${aiPoints.get(entry.entry_id)[0]}&title=${encodeURIComponent('教材单元的课标要点有误')}&message=${encodeURIComponent(`${book.title} · ${entry.title}\nAI 判断的要点：${aiPoints.get(entry.entry_id).slice(0, 3).join('、')}\n\n哪一条不对，应该是：`)}`}>报错</Link></p>
+                                            <p className={styles.aiPoints}><span>AI 判断的要点</span>{aiPoints.get(entry.entry_id).slice(0, 3).map(code => <Link key={code} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`}>{code}</Link>)}<Link className={styles.report} to={`/feedback?code=${aiPoints.get(entry.entry_id)[0]}&title=${encodeURIComponent('教材单元的课标要点有误')}&message=${encodeURIComponent(`${book.title} · ${entry.title}\nAI 判断的要点：${aiPoints.get(entry.entry_id).slice(0, 3).join('、')}\n\n哪一条不对，应该是：`)}`}>报错</Link></p>
                                         ) : null}
                                     </li>
                                 ))}
@@ -172,7 +173,7 @@ export default function TextbookDetailPage() {
 
                     {platformUnits.length ? (
                         <section className={styles.section} aria-labelledby="textbook-platform-units">
-                            <div className={styles.sectionHeading}><div><span>按单元备课</span><h2 id="textbook-platform-units">这本书的 {platformUnits.length} 个单元</h2></div><p>单元和课目来自国家中小学智慧教育平台的同步课目录；要点是 AI 按单元判断的，待核验。</p></div>
+                            <div className={styles.sectionHeading}><div><span>按单元备课</span><h2 id="textbook-platform-units">这本书的 {platformUnits.length} 个单元</h2></div><p>单元和课目来自国家中小学智慧教育平台的同步课目录；要点是 AI 逐课读了教材原文后判断的，待核验。每一课教哪几条、原话在哪一页，看<Link to={`/textbooks/${book.edition_id}/standards`}>课标对应表</Link>。</p></div>
                             <ol className={styles.platformUnits}>
                                 {platformUnits.map(unit => (
                                     <li key={unit.name}>

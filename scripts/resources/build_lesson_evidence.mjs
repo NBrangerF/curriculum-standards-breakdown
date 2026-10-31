@@ -6,10 +6,11 @@
 //   课程简介: the platform's summary of the lesson video.
 // Writes generated/smartedu/evidence/<edition_id>.json (local only: it quotes the books).
 //   node scripts/resources/build_lesson_evidence.mjs [--edition ed_…]
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { pagesFor } from '../v2/textbook_contents.mjs'
+import { unscramble } from './textbook_text.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const SOURCE = path.join(ROOT, 'data/textbooks/smartedu')
@@ -21,7 +22,7 @@ const only = process.argv.includes('--edition') ? process.argv[process.argv.inde
 
 export const squash = text => String(text || '').replace(/[\s\p{P}\p{S}]/gu, '').toLowerCase()
 // readable text: lines joined, spaces between Chinese characters dropped (text layers and OCR space them out)
-const tidy = text => String(text || '').replace(/\s+/gu, ' ').replace(/(\p{Script=Han}) (?=\p{Script=Han})/gu, '$1').trim()
+const tidy = text => unscramble(text).replace(/\s+/gu, ' ').replace(/(\p{Script=Han}) (?=\p{Script=Han})/gu, '$1').trim()
 const HOUR = /[（(]?第[一二三四五六七八九十\d]+课时[）)]?/gu
 const NUMBERING = /^(?:第[一二三四五六七八九十百零\d]+(?:单元|章|节|课|框|部分)|课题\s*\d+|实验活动\s*\d+|\d+(?:\.\d+)*\*?|unit\s*\d+|lesson\s*\d+|module\s*\d+)\s*/iu
 
@@ -81,14 +82,16 @@ export function objectivesOf(text) {
     return plain.slice(at, at + (end > 40 ? Math.min(end, 600) : 600)).trim()
 }
 
+// kind: 'design' (教学设计: its 教学目标), 'task' (学习任务单: its 学习目标, else its opening), 'slides' (a 课件 slide)
 function loadDesigns() {
     const file = path.join(CACHE, 'designs.jsonl')
     const out = new Map()
     if (!existsSync(file)) return out
     for (const line of readFileSync(file, 'utf8').split('\n').filter(Boolean)) {
         const row = JSON.parse(line)
-        const objectives = objectivesOf(row.text)
-        if (objectives) out.set(row.lesson_id, objectives)
+        const kind = row.kind || 'design'
+        const text = kind === 'design' ? objectivesOf(row.text) : objectivesOf(row.text) || tidy(row.text).slice(0, 450)
+        if (text.length >= 12) out.set(row.lesson_id, { kind, text })
     }
     return out
 }
@@ -227,7 +230,7 @@ export function buildEvidence(record, { pages, source }, designs, summaries) {
             }
             sources.textbook = { pages: [start.page, end], located_by: start.how, from: source, parts }
         }
-        if (designs.has(lesson.id)) sources.design = { text: designs.get(lesson.id).slice(0, 450) }
+        if (designs.has(lesson.id)) sources.design = { kind: designs.get(lesson.id).kind, text: designs.get(lesson.id).text.slice(0, 450) }
         if (summaries.has(lesson.id)) sources.summary = { text: summaries.get(lesson.id) }
         return { id: lesson.id, title: lesson.title, path: lesson.path, unit_node: lesson.chapter_path[0] || null, sources }
     })
@@ -238,16 +241,26 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     const designs = loadDesigns()
     const summaries = loadSummaries()
     const totals = { lessons: 0, textbook: 0, design: 0, summary: 0, none: 0 }
-    for (const file of readdirSync(SOURCE).filter(name => name.startsWith('ed_')).sort()) {
-        const record = JSON.parse(readFileSync(path.join(SOURCE, file), 'utf8'))
+    // the library's books, then the editions it has no PDF of (fetch_platform_editions.mjs): titles and 教学设计 only
+    const PLATFORM = path.join(SOURCE, 'platform')
+    // --platform: only the editions with no PDF
+    const files = [
+        ...(process.argv.includes('--platform') ? [] : readdirSync(SOURCE).filter(name => name.startsWith('ed_')).sort().map(name => path.join(SOURCE, name))),
+        ...(existsSync(PLATFORM) ? readdirSync(PLATFORM).filter(name => name.startsWith('pf_')).sort().map(name => path.join(PLATFORM, name)) : [])
+    ]
+    for (const file of files) {
+        const record = JSON.parse(readFileSync(file, 'utf8'))
         if (only && record.edition_id !== only) continue
-        const lessons = buildEvidence(record, bookPages(record.edition_id), designs, summaries)
+        const lessons = buildEvidence(record, record.platform_only ? { source: null, pages: [] } : bookPages(record.edition_id), designs, summaries)
         for (const lesson of lessons) {
             totals.lessons += 1
             for (const key of ['textbook', 'design', 'summary']) if (lesson.sources[key]) totals[key] += 1
             if (!Object.keys(lesson.sources).length) totals.none += 1
         }
-        writeFileSync(path.join(OUT, `${record.edition_id}.json`), `${JSON.stringify({ edition_id: record.edition_id, textbook_title: record.textbook_title, lessons }, null, 1)}\n`)
+        // written aside and renamed: a running align batch reads these files
+        const target = path.join(OUT, `${record.edition_id}.json`)
+        writeFileSync(`${target}.tmp`, `${JSON.stringify({ edition_id: record.edition_id, textbook_title: record.textbook_title, lessons }, null, 1)}\n`)
+        renameSync(`${target}.tmp`, target)
     }
     console.log(`lesson evidence: ${JSON.stringify(totals)}`)
 }

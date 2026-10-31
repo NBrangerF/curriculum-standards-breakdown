@@ -23,7 +23,8 @@ type Deps = {
     apiError: (c: Context<ApiBindings>, status: number, code: string, message: string, details?: unknown) => Response
 }
 
-type NationalLesson = { id: string, title: string, chapters: string[], pdf_page: number | null, unit_id: string | null, materials: string[], hours: number, ai_points?: string[] }
+type AlignRow = [string, 'T' | 'P', string, string, number | null]
+type NationalLesson = { id: string, title: string, chapters: string[], pdf_page: number | null, unit_id: string | null, materials: string[], hours: number, ai_points?: string[], align?: AlignRow[] }
 type NationalFile = { edition_id: string, platform_title: string, confidence: string, lessons: NationalLesson[] }
 type ConceptsFile = { subjects: Array<SubjectNote & { slug: string, name: string, terms: string[] }>, terms: Array<{ id: string, term: string }> }
 
@@ -265,7 +266,8 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             const standard = await planStandard(code)
             if (!standard) continue
             if (subjectSlug && standard.subject_slug !== subjectSlug) continue
-            standards.push({ ...standard, via: 'ai_unit', suggested: [] })
+            // one lesson judged on its own pages (align_textbook_lessons.mjs), or the unit judged by its lesson titles
+            standards.push({ ...standard, via: chosen?.align ? 'ai_lesson' : 'ai_unit', suggested: [] })
             unitPoints.push(point)
         }
         for (const item of aligned.slice(0, unitLessons.length ? 8 : 6)) {
@@ -329,6 +331,9 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             },
             standards,
             ai_points: unitPoints.slice(0, 8),
+            // this lesson's 要点, each with the words from its own material that show it: the page ticks the
+            // 主要在教 ones straight away instead of asking the AI again
+            lesson_align: chosen && Array.isArray(chosen.align) ? chosen.align.filter(row => standards.some(standard => standard.indicators.some(item => item.code === row[0]))) : null,
             subject_note: subjectSlug ? await subjectNote(subjectSlug) : null,
             national_lessons: nationalLessons,
             national_confidence: national?.confidence || null,

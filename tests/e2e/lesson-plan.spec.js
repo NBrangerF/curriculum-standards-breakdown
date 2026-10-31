@@ -470,3 +470,24 @@ test('四个评价 quotes the 课程方案 and the subjects, and the long name f
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true)
     }
 })
+
+test('AI 备课: a lesson judged on its own pages is ticked at once, with the textbook\'s words, and a hint asks the AI again', async ({ page }) => {
+    let picks = 0
+    await page.route('**/api/v1/lesson-plans/textbooks/*/lessons', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ platform_title: '小学数学人教版五年级下册', confidence: 'text', lessons: [{ id: 'L1', title: '分数的基本性质', chapters: ['4 分数的意义和性质'], pdf_page: 62, materials: [], url: '' }] })) }))
+    const judged = { ...context, lesson_align: [['MA-S3-NA-01.3', 'T', '分数的分子和分母同时乘或者除以相同的数（0除外），分数的大小不变', 'book', 62]] }
+    await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(judged)) }))
+    await page.route('**/api/v1/lesson-plans/pick', route => {
+        picks += 1
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [{ code: 'MA-S3-NA-02', grade: 2, reason: '老师说要讲等式', point: 'MA-S3-NA-02.1' }] })) })
+    })
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&lesson=L1`)
+    await expect(page.getByText(/已按这一课的教材原文勾好/)).toBeVisible()
+    await expect(page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })).toBeChecked()
+    await expect(page.getByText(/这一课写着“分数的分子和分母同时乘或者除以相同的数/)).toBeVisible()
+    await expect(page.getByText(/教材 PDF 第 62 页/)).toBeVisible()
+    expect(picks).toBe(0)
+    await page.getByRole('textbox', { name: /补一句/ }).fill('结合等式的性质讲')
+    await page.getByRole('button', { name: '重新找' }).click()
+    await expect(page.getByRole('checkbox', { name: /等式的基本性质/ })).toBeChecked()
+    expect(picks).toBe(1)
+})

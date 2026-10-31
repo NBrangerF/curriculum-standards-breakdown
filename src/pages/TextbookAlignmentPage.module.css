@@ -1,0 +1,333 @@
+/* 本册课标对应表 and 教材与课标对应; the page frame comes from ConceptsPage.module.css */
+.back {
+    margin: 0 0 0.6rem;
+    font-size: 0.9rem;
+}
+
+.back a {
+    color: var(--kb-dim);
+    text-decoration: none;
+}
+
+.back a:hover,
+.back a:focus-visible {
+    color: var(--kb-gold);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+    gap: 0.75rem;
+    margin: 1.4rem 0 0;
+}
+
+.stats div {
+    padding: 0.8rem 0.9rem;
+    border: 1px solid var(--kb-line);
+    border-radius: var(--radius-md, 12px);
+}
+
+.stats dt {
+    color: var(--kb-dim);
+    font-size: 0.8rem;
+}
+
+.stats dd {
+    margin: 0.2rem 0 0;
+    color: var(--kb-moon);
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.stats small {
+    color: var(--kb-dim);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+}
+
+.unit {
+    margin-top: 2rem;
+}
+
+.unitHead {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    align-items: baseline;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--kb-line);
+}
+
+.unitHead h2 {
+    margin: 0;
+    color: var(--kb-moon);
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 900;
+}
+
+.unitHead a,
+.lessonHead a {
+    color: var(--kb-gold);
+    font-size: 0.82rem;
+    text-decoration: none;
+}
+
+.unitHead a:hover,
+.unitHead a:focus-visible,
+.lessonHead a:hover,
+.lessonHead a:focus-visible {
+    text-decoration: underline;
+}
+
+.lessons {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lesson {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--kb-line);
+}
+
+.lessonHead {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.9rem;
+    align-items: baseline;
+}
+
+.lessonHead a.report {
+    color: var(--kb-dim);
+}
+
+.lessonHead strong {
+    color: var(--kb-moon);
+    font-size: 1rem;
+}
+
+.points {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0.6rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.point {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: 0.25rem 0.55rem;
+    align-items: baseline;
+    color: var(--kb-mist);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.relation {
+    padding: 0.05rem 0.45rem;
+    border: 1px solid var(--kb-gold);
+    border-radius: 999px;
+    color: var(--kb-gold);
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+
+.point[data-relation='P'] .relation {
+    border-color: var(--kb-line);
+    color: var(--kb-dim);
+}
+
+.code {
+    color: var(--kb-gold);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    white-space: nowrap;
+}
+
+.pointText {
+    min-width: 0;
+}
+
+.quote {
+    grid-column: 2 / -1;
+    margin: 0;
+    color: var(--kb-dim);
+    font-size: 0.84rem;
+}
+
+.quote a,
+.quote span {
+    margin-left: 0.5rem;
+    color: var(--kb-dim);
+    font-size: 0.76rem;
+    white-space: nowrap;
+}
+
+.quote a {
+    text-decoration: underline;
+}
+
+.touched {
+    margin-top: 0.5rem;
+}
+
+.touched summary {
+    color: var(--kb-dim);
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+
+.none {
+    margin: 0.5rem 0 0;
+    color: var(--kb-dim);
+    font-size: 0.86rem;
+}
+
+.missingGroup {
+    margin-top: 1.1rem;
+}
+
+.missingGroup h3 {
+    margin: 0 0 0.4rem;
+    color: var(--kb-moon);
+    font-size: 0.95rem;
+}
+
+.missingGroup h3 a {
+    color: var(--kb-gold);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.missingGroup ul {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--kb-mist);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.elsewhere {
+    margin-left: 0.5rem;
+    color: var(--kb-dim);
+    font-size: 0.8rem;
+}
+
+/* 教材与课标对应: coverage by subject and 学段 */
+.coverage {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1rem;
+}
+
+.coverageRow {
+    display: grid;
+    grid-template-columns: minmax(7rem, 10rem) 1fr;
+    gap: 0.4rem 1rem;
+    align-items: center;
+}
+
+.coverageRow > span {
+    color: var(--kb-moon);
+    font-size: 0.92rem;
+}
+
+.bar {
+    display: flex;
+    height: 0.6rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--kb-line);
+}
+
+.bar i {
+    display: block;
+    height: 100%;
+}
+
+.bar i[data-kind='T'] {
+    background: var(--kb-gold);
+}
+
+.bar i[data-kind='P'] {
+    background: var(--kb-dim);
+}
+
+.coverageNote {
+    grid-column: 2;
+    margin: 0;
+    color: var(--kb-dim);
+    font-size: 0.8rem;
+}
+
+.coverageNote a {
+    color: var(--kb-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+    margin: 0.8rem 0 0;
+    color: var(--kb-dim);
+    font-size: 0.8rem;
+}
+
+.legend i {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-right: 0.35rem;
+    border-radius: 3px;
+    vertical-align: -0.1rem;
+}
+
+.legend i[data-kind='T'] {
+    background: var(--kb-gold);
+}
+
+.legend i[data-kind='P'] {
+    background: var(--kb-dim);
+}
+
+.legend i[data-kind='none'] {
+    background: var(--kb-line);
+}
+
+@media (max-width: 640px) {
+    .point {
+        grid-template-columns: auto 1fr;
+    }
+
+    .pointText {
+        grid-column: 1 / -1;
+    }
+
+    .quote {
+        grid-column: 1 / -1;
+    }
+
+    .coverageRow {
+        grid-template-columns: 1fr;
+    }
+
+    .coverageNote {
+        grid-column: 1;
+    }
+}

@@ -2,7 +2,7 @@
 // endpoints (/api/v1/plugin/*) both call these, so an assistant gets the same answer either way.
 // Every answer carries the code, the 课标原文 and a link back to kebiao.org.
 import type { FileCurriculumRepository, FileTextbookRepository } from '../../../packages/curriculum-core/src/index.js'
-import { V2_CODE, type V2Standard, type V2Store, type V2Subject } from './v2-store.js'
+import { SOURCE_LABEL, V2_CODE, type V2Standard, type V2Store, type V2Subject } from './v2-store.js'
 
 export const SITE = 'https://www.kebiao.org'
 
@@ -246,7 +246,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
     {
         name: 'get_textbook_links',
         title: '标准对应的教材',
-        description: '查看一条标准对应哪些教材的哪些单元、章节或页码（人教版、统编版等）。多为机器对齐，结果会标明待核验。Textbooks and chapters for a standard.',
+        description: '查看一条标准或要点在哪些教材的哪一课教（人教版、统编版等）：AI 逐课读了教材原文判断，每条附这一课教材的原话和页码；没有逐课结果的，再列机器对齐的单元。都待核验。Textbook lessons and chapters for a standard.',
         inputSchema: {
             type: 'object',
             properties: { code: { type: 'string', description: '标准或要点编码' } },
@@ -254,9 +254,19 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             additionalProperties: false
         },
         async run(args, ctx) {
-            const found = await ctx.v2.find(str(args.code).toUpperCase())
+            const asked = str(args.code).toUpperCase()
+            const found = await ctx.v2.find(asked)
             if (!found) throw new ToolInputError(`没有这个标准编码：${str(args.code)}。`)
             const { standard } = found
+            // lesson by lesson, with the textbook's own words (教材与课标对应)
+            const wanted = (point: string) => (/\.\d+$/u.test(asked) ? point === asked : point.replace(/\.\d+$/u, '') === standard.code)
+            const lessons: Array<{ textbook: string, unit: string, lesson: string, point: string, relation: string, quote: string, where: string, url: string }> = []
+            for (const [edition, textbook, unit, title, , , matches] of (await ctx.v2.lessonAlignment()).lessons) {
+                for (const [point, relation, quote, source, page] of matches) {
+                    if (wanted(point)) lessons.push({ textbook, unit, lesson: title, point, relation: relation === 'T' ? '主要在教' : '也涉及', quote, where: SOURCE_LABEL(source, page), url: `${SITE}/textbooks/${edition}/standards` })
+                }
+            }
+            lessons.sort((a, b) => (a.relation === b.relation ? 0 : a.relation === '主要在教' ? -1 : 1) || a.textbook.localeCompare(b.textbook, 'zh-Hans-CN', { numeric: true }))
             const items: Array<{ textbook: string, chapter: string | null, printed_page: unknown, url: string, status: string }> = []
             const seen = new Set<string>()
             const push = (item: { textbook: string, chapter: string | null, printed_page: unknown, url: string, status: string }) => {
@@ -273,11 +283,15 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
                     push({ textbook: String(raw.textbook_title || ''), chapter, printed_page: raw.printed_page ?? null, url: raw.unit_id ? `${SITE}/textbook-units/${raw.unit_id}` : `${SITE}/textbooks/${raw.edition_id}`, status: raw.review_status === 'approved' ? '已核验' : '机器对齐，待核验' })
                 }
             }
-            const shown = items.slice(0, 12)
+            const shown = items.slice(0, lessons.length ? 6 : 12)
+            const lessonLines = lessons.slice(0, 12).map(item => `- ${item.textbook} · ${item.unit}${item.lesson && item.lesson !== item.unit ? ` · ${item.lesson}` : ''}：${item.relation} ${item.point}，教材里写着“${item.quote}”（${item.where}）${item.url}`)
             return {
-                data: { code: standard.code, name: standard.level2, textbooks: shown, total: items.length },
-                text: shown.length
-                    ? [`${standard.code} ${standard.level2} 对应的教材（${items.length} 处${items.length > shown.length ? `，列出前 ${shown.length} 处` : ''}）：`, ...shown.map(item => `- ${item.textbook}${item.chapter ? ` · ${item.chapter}` : '（整册）'}${item.printed_page ? `，第 ${item.printed_page} 页` : ''}（${item.status}）${item.url}`)].join('\n')
+                data: { code: asked, name: standard.level2, lessons: lessons.slice(0, 12), lesson_total: lessons.length, textbooks: shown, total: items.length },
+                text: lessons.length || shown.length
+                    ? [
+                        ...(lessons.length ? [`${asked} ${standard.level2} 在这些课教（AI 逐课读了教材原文判断，${lessons.length} 处，待核验）：`, ...lessonLines] : []),
+                        ...(shown.length ? [`${lessons.length ? '另外，机器按单元对齐的' : `${standard.code} ${standard.level2} 对应的`}教材（${items.length} 处${items.length > shown.length ? `，列出前 ${shown.length} 处` : ''}）：`, ...shown.map(item => `- ${item.textbook}${item.chapter ? ` · ${item.chapter}` : '（整册）'}${item.printed_page ? `，第 ${item.printed_page} 页` : ''}（${item.status}）${item.url}`)] : [])
+                    ].join('\n')
                     : `${standard.code} ${standard.level2} 暂时没有对应到具体教材。`
             }
         }
@@ -285,7 +299,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
     {
         name: 'find_textbook_chapter',
         title: '从教材章节找课标',
-        description: '按教材单元、章节或课的标题（如「分数的基本性质」「七七事变与全民族抗战」）找到它，再给出它对应的课标。可按学科、年级筛选。适合「下周教这一课，对应哪条课标」。Find a textbook chapter and its standards.',
+        description: '按教材单元、章节或课的标题（如「分数的基本性质」「七七事变与全民族抗战」）找到它，再给出它对应的课标要点：先列 AI 逐课读了教材原文判断的（附教材原话和页码），再列机器按目录对齐的。可按学科、年级筛选。适合「下周教这一课，对应哪条课标」。Find a textbook lesson or chapter and its standards.',
         inputSchema: {
             type: 'object',
             properties: {
@@ -304,6 +318,13 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             // every textbook's units, chapters and lessons, read from its 目录 at build time, with the standards aligned to its pages
             const index = await ctx.v2.textbookChapters()
             const v2Slug = (bookSlug: string) => (['art', 'music'].includes(bookSlug) ? 'arts' : bookSlug)
+            // first the 国家平台 lessons judged one by one on their own pages, with the textbook's own words
+            const lessonHits = (await ctx.v2.lessonAlignment()).lessons.filter(([edition, , unit, title]) => {
+                const book = index.books[edition]
+                if (book && ((slug && v2Slug(book[1]) !== slug) || (grade && book[2] !== grade))) return false
+                const name = title.replace(/\s+/gu, '')
+                return name.includes(query) || (query.length >= 3 && name.length >= 3 && query.includes(name)) || (!name.includes(query) && unit.replace(/\s+/gu, '').includes(query) && title === unit)
+            }).slice(0, 6)
             const hits = index.chapters.filter(([edition, title]) => {
                 const book = index.books[edition]
                 if (!book || (slug && v2Slug(book[1]) !== slug) || (grade && book[2] !== grade)) return false
@@ -332,10 +353,19 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
                 results.push({ textbook, chapter: title, printed_page: printedPage, url: unitId ? `${SITE}/textbook-units/${unitId}` : `${SITE}/textbooks/${edition}`, standards, via })
             }
             const note = { aligned: '按教材页码对齐', title_search: '这一章没有页码对齐，按章节标题检索，仅供参考', none: '暂无对应课标' } as Record<string, string>
+            const lessons = lessonHits.map(([edition, textbook, unit, title, , pdfPage, matches]) => ({
+                textbook, unit, lesson: title, pdf_page: pdfPage, url: `${SITE}/textbooks/${edition}/standards`,
+                points: matches.map(([point, relation, quote, source, page]) => ({ point, relation: relation === 'T' ? '主要在教' : '也涉及', quote, where: SOURCE_LABEL(source, page), url: standardUrl(point.replace(/\.\d+$/u, ''), point) }))
+            }))
+            const lessonText = lessons.map(item => `- ${item.textbook} · ${item.unit}${item.lesson !== item.unit ? ` · ${item.lesson}` : ''} ${item.url}\n${item.points.map(point => `  ${point.relation} ${point.point}：教材里写着“${point.quote}”（${point.where}）`).join('\n') || '  没找到这一课主要在教的要点'}`)
+            const chapterText = results.map(r => `- ${r.textbook} · ${r.chapter}${r.printed_page ? `（第 ${r.printed_page} 页）` : ''} ${r.url}\n  ${r.standards.length ? `${r.standards.map(s => `${s.code} ${s.name}（${s.subject} · ${s.stage}）`).join('；')}（${note[r.via]}）` : note.none}`)
             return {
-                data: { query, results },
-                text: results.length
-                    ? [`找到 ${results.length} 个教材章节（对应关系为机器对齐，待核验）：`, ...results.map(r => `- ${r.textbook} · ${r.chapter}${r.printed_page ? `（第 ${r.printed_page} 页）` : ''} ${r.url}\n  ${r.standards.length ? `${r.standards.map(s => `${s.code} ${s.name}（${s.subject} · ${s.stage}）`).join('；')}（${note[r.via]}）` : note.none}`)].join('\n')
+                data: { query, lessons, results },
+                text: lessons.length || results.length
+                    ? [
+                        ...(lessons.length ? [`找到 ${lessons.length} 节课（AI 逐课读了教材原文判断，附原话，待核验）：`, ...lessonText] : []),
+                        ...(results.length ? [`${lessons.length ? '另外，' : ''}找到 ${results.length} 个教材章节（对应关系为机器对齐，待核验）：`, ...chapterText] : [])
+                    ].join('\n')
                     : `没有找到标题包含「${query}」的教材章节；可以换个写法，或用 search_standards 按内容检索。`
             }
         }

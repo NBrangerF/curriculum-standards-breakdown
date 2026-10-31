@@ -12,6 +12,7 @@ import { downloadObservationWord, downloadReflectionWord, downloadReportWord, do
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
+import { sourceLabel } from '../features/textbooks/alignmentModel'
 
 const LAST_BOOK_KEY = 'kebiao.lessonPlan.lastBook'
 // the last 10 drafts stay in this browser; the old single-draft key is read once and folded in
@@ -91,7 +92,7 @@ const draftDate = value => {
 // common 学情 a teacher can add with one tap; the AI reads them like typed notes
 const CLASS_NOTES = ['基础较好，能主动提问', '两极分化明显', '前置知识掌握不牢', '表达说理较弱', '小组合作习惯较好', '注意力容易分散', '大班额（50 人以上）']
 
-const viaLabel = { aligned: '教材页码对齐（机器）', ai_unit: 'AI 按单元判断', search: '按课题检索', ai: 'AI 推荐', seed: '你从标准页选的' }
+const viaLabel = { aligned: '教材页码对齐（机器）', ai_lesson: 'AI 逐课判断', ai_unit: 'AI 按单元判断', search: '按课题检索', ai: 'AI 推荐', seed: '你从标准页选的' }
 
 export default function LessonPlanPage() {
     usePageMeta(STATIC_PAGE_META['/lesson-plan'])
@@ -235,6 +236,19 @@ export default function LessonPlanPage() {
             setSelected(new Set(points))
             setAi({ status: 'fallback', reasons: {} })
             return true
+        }
+        // the lesson was judged on its own pages beforehand (教材与课标对应): tick its 主要在教 要点 with the words
+        // that show them, and ask the AI again only when the teacher adds a hint
+        const taught = !hint && !isUnitPick ? (base.lesson_align || []).filter(row => row[1] === 'T') : []
+        if (taught.length) {
+            const reasons = {}
+            for (const [point, , quote, source, page] of taught) {
+                const code = point.replace(/\.\d+$/u, '')
+                if (!reasons[code]) reasons[code] = `主要在教，这一课写着“${quote}”（${sourceLabel(source, page)}）`
+            }
+            setSelected(new Set(taught.map(row => row[0])))
+            setAi({ status: 'lesson', reasons })
+            return
         }
         postApi('/api/v1/lesson-plans/pick', {
             lesson: {
@@ -546,6 +560,7 @@ export default function LessonPlanPage() {
                             : ai.status === 'ok' ? (isUnit ? `AI 读完了，已勾选这个单元对应的 ${selectedCount} 条要点。请核对：去掉单元里不教的，补上漏掉的。` : `AI 读完了，已勾选它判断直接对应的 ${selectedCount} 条要点。请核对：只留这节课真正要教的（一般 1–3 条）。`)
                                 : ai.status === 'closest' ? `AI 没有找到直接对应的要点，先勾了 ${selectedCount} 条最接近的。请读原文核对，或在下面补一句这节课主要教什么，让 AI 重新找。`
                                 : ai.status === 'none' ? 'AI 没有找到直接对应的要点。请从下面的候选里自己勾选，或换个课题写法。'
+                                    : ai.status === 'lesson' ? `已按这一课的教材原文勾好它主要在教的 ${selectedCount} 条要点（AI 事先逐课读过，每条附这一课的原话）。请核对；想换个角度，在下面补一句，AI 会重新找。`
                                     : ai.status === 'fallback' ? 'AI 这次没能读完要点，先勾上了它此前按整个单元判断的要点：不一定都是这一课教的，请读原文，按这一课增删。'
                                     : ai.status === 'failed' ? 'AI 这次没能读完要点。请读下面候选的原文，自己勾选：机器对齐和字面匹配可能出错，比如会把「分数的基本性质」对到「等式的基本性质」。' : ''}
                     </p>

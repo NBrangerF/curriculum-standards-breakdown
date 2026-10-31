@@ -1662,6 +1662,21 @@ test('MCP tools return cited text and structured data', async () => {
     assert.match(hit.textbook, /数学5年级下册/)
     assert.ok(hit.standards.some((s: any) => s.code.startsWith('MA-S3-')))
 
+    // lessons judged on their own pages come first, each 要点 with the textbook's own words
+    const index = JSON.parse(await readFile(resolve(process.cwd(), '../../public/data/v2/lesson_alignment.json'), 'utf8'))
+    const judged = index.lessons.find((row: any) => row[6].some((m: any) => m[1] === 'T') && row[3].replace(/\s+/gu, '').length >= 3)
+    if (judged) {
+        const lesson = await call('find_textbook_chapter', { query: judged[3] })
+        const first = lesson.result.structuredContent.lessons.find((item: any) => item.lesson === judged[3])
+        assert.ok(first, judged[3])
+        assert.equal(first.points[0].point, judged[6][0][0])
+        assert.match(lesson.result.content[0].text, /AI 逐课读了教材原文/)
+        const point = judged[6].find((m: any) => m[1] === 'T')
+        const links = await call('get_textbook_links', { code: point[0] })
+        assert.ok(links.result.structuredContent.lessons.some((item: any) => item.quote === point[2] && item.relation === '主要在教'))
+        assert.match(links.result.content[0].text, new RegExp(`教材里写着“`))
+    }
+
     const bad = await call('get_standard', { code: 'XX-S9-ZZ-99' })
     assert.equal(bad.result.isError, true)
     const unknown = await json(await mcp({ jsonrpc: '2.0', id: 9, method: 'tools/call', params: { name: 'no_such_tool', arguments: {} } }))
