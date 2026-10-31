@@ -15,7 +15,7 @@ import { unscramble } from './textbook_text.mjs'
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const SOURCE = path.join(ROOT, 'data/textbooks/smartedu')
 const CACHE = path.join(ROOT, 'generated/smartedu')
-const OUT = path.join(CACHE, 'evidence')
+const OUT = process.argv.includes('--out') ? path.resolve(process.argv[process.argv.indexOf('--out') + 1]) : path.join(CACHE, 'evidence')
 const GENERATIONS = path.join(ROOT, 'data/textbooks/library-state/generations')
 const registry = path.join(GENERATIONS, readdirSync(GENERATIONS).sort().pop(), 'asset_registry.lock.jsonl')
 const only = process.argv.includes('--edition') ? process.argv[process.argv.indexOf('--edition') + 1] : null
@@ -135,6 +135,11 @@ export function locate(lessons, pages) {
                 else if (page.text.includes(key)) put(page.pdf_page, 1, 'text')
             }
         }
+        // the platform files a lesson under the book's own section (「26.2 实际问题与反比例函数」 for 「反比例函数在实际
+        // 中的应用」): that heading is where the lesson starts, or close to it
+        for (const key of lesson.sectionKeys || []) {
+            for (const page of body) if (!listing.has(page.pdf_page) && page.text.slice(0, 120).includes(key)) put(page.pdf_page, 1.5, 'section')
+        }
         if (lesson.english?.unit) {
             // 「Starter Unit 1」 is not 「Unit 1」
             const head = page => page.text.slice(0, 160).replace(/starterunit\d+/gu, '')
@@ -160,25 +165,39 @@ export function locate(lessons, pages) {
         const list = [...found.values()].sort((a, b) => a.page - b.page)
         return list.length > 12 ? list.filter(item => item.how === 'heading' || item.how === 'platform').slice(0, 12) : list
     })
+    // a lesson the platform files only under its unit (no section) has no place in the order: it is left out of the
+    // chain and put on its best page within its unit afterwards
+    const chained = options.map((list, index) => (lessons[index].loose ? [] : list))
+    const inChain = options
     // best[i][c]: the heaviest non-decreasing chain ending with lesson i on its candidate c
-    const best = options.map(list => list.map(() => ({ score: 0, from: null })))
+    const best = chained.map(list => list.map(() => ({ score: 0, from: null })))
     for (let i = 0; i < options.length; i += 1) {
-        for (let c = 0; c < options[i].length; c += 1) {
-            let top = { score: options[i][c].weight, from: null }
+        for (let c = 0; c < chained[i].length; c += 1) {
+            let top = { score: chained[i][c].weight, from: null }
             for (let j = 0; j < i; j += 1) {
-                for (let d = 0; d < options[j].length; d += 1) {
-                    if (options[j][d].page <= options[i][c].page && best[j][d].score + options[i][c].weight > top.score) top = { score: best[j][d].score + options[i][c].weight, from: [j, d] }
+                for (let d = 0; d < chained[j].length; d += 1) {
+                    if (chained[j][d].page <= chained[i][c].page && best[j][d].score + chained[i][c].weight > top.score) top = { score: best[j][d].score + chained[i][c].weight, from: [j, d] }
                 }
             }
             best[i][c] = top
         }
     }
     let end = null
-    for (let i = 0; i < options.length; i += 1) for (let c = 0; c < options[i].length; c += 1) if (!end || best[i][c].score > best[end[0]][end[1]].score) end = [i, c]
+    for (let i = 0; i < options.length; i += 1) for (let c = 0; c < chained[i].length; c += 1) if (!end || best[i][c].score > best[end[0]][end[1]].score) end = [i, c]
     const chosen = lessons.map(() => null)
     while (end) {
-        chosen[end[0]] = options[end[0]][end[1]]
+        chosen[end[0]] = chained[end[0]][end[1]]
         end = best[end[0]][end[1]].from
+    }
+    for (let index = 0; index < lessons.length; index += 1) {
+        if (!lessons[index].loose) continue
+        const unit = lessons[index].chapter_path[0]
+        const pages = chosen.filter((item, other) => item && lessons[other].chapter_path[0] === unit).map(item => item.page)
+        if (!pages.length) continue
+        const low = Math.min(...pages)
+        const high = Math.max(...pages) + 4
+        const fit = inChain[index].filter(item => item.page >= low && item.page <= high).sort((a, b) => b.weight - a.weight || a.page - b.page)[0]
+        if (fit) chosen[index] = fit
     }
     return chosen.map(item => (item ? { page: item.page, how: item.how } : null))
 }
@@ -203,7 +222,11 @@ export function buildEvidence(record, { pages, source }, designs, summaries) {
         const ancestors = new Set(path.slice(0, -1).map(title => squash(title.replace(NUMBERING, ''))))
         const own = keysOf(lesson.title, parent)
         const keys = own.filter(key => !ancestors.has(key)).length ? own.filter(key => !ancestors.has(key)) : own
-        return { ...lesson, path, keys, english }
+        // the sections the platform files it under, below the unit itself
+        const sectionKeys = [...new Set(path.slice(1).filter(title => title !== lesson.title).flatMap(title => keysOf(title)))].filter(key => !keys.includes(key) && !ancestors.has(squash(path[0]?.replace(NUMBERING, '') || '')) || key !== squash(path[0]?.replace(NUMBERING, '') || ''))
+        // filed under the unit alone while the unit has sections: its place in the platform order means nothing
+        const loose = lesson.chapter_path.length === 1 && Boolean(record.tree.find(node => node.id === lesson.chapter_path[0])?.children?.length)
+        return { ...lesson, path, keys, sectionKeys, english, loose }
     })
     const starts = pages.length ? locate(lessons, pages) : lessons.map(() => null)
     const byPage = new Map(pages.map(page => [page.pdf_page, page.text]))

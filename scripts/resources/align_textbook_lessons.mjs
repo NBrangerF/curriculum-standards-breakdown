@@ -41,7 +41,7 @@ const out = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : {
 const save = () => writeFileSync(OUT, `${JSON.stringify(out, null, 1)}\n`)
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-const NOTE = { heading: '', text: '', platform: '', english: '（页码按单元推断）', fuzzy: '（页码按课题推断）', between: '（页码按前后课推断）' }
+const NOTE = { heading: '', text: '', platform: '', english: '（页码按单元推断）', fuzzy: '（页码按课题推断）', section: '（页码按所在小节推断）', between: '（页码按前后课推断）' }
 function materialOf(lesson) {
     const blocks = []
     const book = lesson.sources.textbook
