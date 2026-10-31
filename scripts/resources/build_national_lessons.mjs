@@ -273,6 +273,10 @@ export function buildNationalLessons() {
         }
         indexRows.push(...listed.values())
     }
+    // in school order: subject, edition, then grade and volume
+    const SUBJECT_ORDER = ['语文', '数学', '英语', '道德与法治', '科学', '物理', '化学', '生物学', '历史', '地理', '音乐', '美术', '体育与健康']
+    const VOLUME_ORDER = ['上册', '下册', '全一册']
+    platformBooks.sort((a, b) => SUBJECT_ORDER.indexOf(a.subject) - SUBJECT_ORDER.indexOf(b.subject) || a.edition_name.localeCompare(b.edition_name, 'zh-Hans-CN') || a.grade - b.grade || VOLUME_ORDER.indexOf(a.volume) - VOLUME_ORDER.indexOf(b.volume))
     writeFileSync(path.join(ROOT, 'public/data/textbooks/platform_books.json'), `${JSON.stringify({ note: '馆里没有原书 PDF 的版本：课目录来自国家中小学智慧教育平台，课标对应按课题、教学设计或学习任务单判断。', books: platformBooks })}\n`)
     // per subject, so a standard page loads only its own subject; lessons with a video and a 教学设计 first
     const bySubject = {}
