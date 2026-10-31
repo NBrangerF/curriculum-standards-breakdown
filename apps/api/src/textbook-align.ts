@@ -9,7 +9,8 @@ import { runStructuredLlm, type LlmStatus, type LlmUsage, type StructuredLlmAdap
 export type AlignPoint = { code: string, standard: string, header: string, text: string }
 export type AlignLessonInput = { id: string, title: string, material: string }
 export type AlignMatch = { point: string, standard: string, relation: 'teaches' | 'touches', quote: string, quote_check: 'exact' | 'close' }
-export type AlignLessonResult = { id: string, matches: AlignMatch[], dropped: number }
+export type AlignRejected = { point: string, relation: string, quote: string, reason: 'unknown_point' | 'quote_not_found' | 'quote_of_point' | 'repeat' }
+export type AlignLessonResult = { id: string, matches: AlignMatch[], dropped: number, rejected: AlignRejected[] }
 export type AlignResult = {
     status: LlmStatus | 'partial'
     model: string | null
@@ -126,6 +127,7 @@ function adapterFor(group: Array<AlignLessonInput & { key: string }>, points: Ma
                 if (!answer) continue
                 const material = `${lesson.title}\n${lesson.material}`
                 const matches: AlignMatch[] = []
+                const rejected: AlignRejected[] = []
                 let dropped = 0
                 for (const item of Array.isArray(answer.matches) ? answer.matches : []) {
                     if (!item || typeof item !== 'object') continue
@@ -139,13 +141,16 @@ function adapterFor(group: Array<AlignLessonInput & { key: string }>, points: Ma
                     const ofPoint = code && squash(points.get(code)?.text || '').includes(squash(quote)) && !squash(material).includes(squash(quote))
                     if (!code || !relation || !check || ofPoint || matches.some(match => match.point === code)) {
                         dropped += 1
+                        // returned so a batch can see why: a quote the material does not hold, or one copied from the 要点
+                        const reason = !code || !relation ? 'unknown_point' : ofPoint ? 'quote_of_point' : !check ? 'quote_not_found' : 'repeat'
+                        rejected.push({ point: String(record.point || '').slice(0, 24), relation: String(record.relation || ''), quote, reason })
                         continue
                     }
                     const count = matches.filter(match => match.relation === relation).length
                     if (count >= (relation === 'teaches' ? MAX_TEACHES : MAX_TOUCHES)) continue
                     matches.push({ point: code, standard: points.get(code)!.standard, relation, quote, quote_check: check })
                 }
-                out.push({ id: lesson.id, matches, dropped })
+                out.push({ id: lesson.id, matches, dropped, rejected })
             }
             return out.length ? out : null
         }

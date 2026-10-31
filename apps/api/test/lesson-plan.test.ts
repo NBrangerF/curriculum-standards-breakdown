@@ -528,7 +528,7 @@ test('教材与课标对应: every 要点 at the grade is read; matches without 
     t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
     const math = JSON.parse(await readFile(resolve(publicDataRoot, 'v2/by_subject/math.json'), 'utf8'))
     const atGrade5 = math.standards.filter((item: any) => item.grades.includes(5)).flatMap((item: any) => item.indicators.map((point: any) => point.code))
-    const limitedText = math.standards.flatMap((item: any) => item.indicators).find((point: any) => point.code === LIMITED).text
+    const commonText = math.standards.flatMap((item: any) => item.indicators).find((point: any) => point.code === 'MA-S3-NA-01.2').text
     const prompts: string[] = []
     t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
         const body = JSON.parse(String(init?.body))
@@ -549,7 +549,7 @@ test('教材与课标对应: every 要点 at the grade is read; matches without 
                     ]
                 },
                 // only the title: its quote is the title; a quote of the 要点 itself is not evidence
-                { id: 'L2', matches: [{ point: LIMITED, relation: 'touches', quote: '约分' }, { point: 'MA-S3-NA-01.2', relation: 'teaches', quote: limitedText.slice(0, 20) }] }
+                { id: 'L2', matches: [{ point: LIMITED, relation: 'touches', quote: '约分' }, { point: 'MA-S3-NA-01.2', relation: 'teaches', quote: commonText.slice(0, 20) }] }
             ]
         }
         return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 200, total_tokens: 1100 } }), { status: 200, headers: { 'content-type': 'application/json' } })
@@ -574,6 +574,8 @@ test('教材与课标对应: every 要点 at the grade is read; matches without 
     assert.deepEqual(first.matches.map((item: any) => [item.point, item.relation, item.quote_check]), [[LIMITED, 'teaches', 'exact']])
     assert.equal(first.matches[0].standard, 'MA-S3-NA-01')
     assert.equal(first.dropped, 2)
+    assert.deepEqual(first.rejected.map((item: any) => item.reason), ['quote_not_found', 'unknown_point'])
     assert.deepEqual(second.matches.map((item: any) => item.point), [LIMITED])
     assert.equal(second.dropped, 1)
+    assert.deepEqual(second.rejected.map((item: any) => [item.point, item.reason]), [['MA-S3-NA-01.2', 'quote_of_point']])
 })

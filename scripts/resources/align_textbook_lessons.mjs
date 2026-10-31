@@ -17,6 +17,8 @@ const LIMIT = Number(arg('--limit')) || Infinity
 const ONLY = arg('--edition')
 const OUT = arg('--out') ? path.resolve(arg('--out')) : path.join(SOURCE, 'lesson_alignment.json')
 const REVERSE = process.argv.includes('--reverse')
+// --redo-dropped: ask again, once, for lessons whose every answer was turned down
+const REDO = process.argv.includes('--redo-dropped')
 // --lessons id,id: only these lessons (an evaluation set)
 const LESSONS = arg('--lessons') ? new Set(arg('--lessons').split(',')) : null
 const GAP_MS = Number(arg('--gap')) || 6800
@@ -104,7 +106,8 @@ for (const file of REVERSE ? files.reverse() : files) {
             if (!asked.has(key)) asked.set(key, { lesson, copies: [] })
             asked.get(key).copies.push(lesson.id)
         }
-        const pending = [...asked.values()].filter(item => item.copies.some(id => !entry.lessons[id]) && (!LESSONS || item.copies.some(id => LESSONS.has(id))))
+        const needs = id => !entry.lessons[id] || (REDO && !entry.lessons[id].m.length && entry.lessons[id].d > 0 && !entry.lessons[id].redo)
+        const pending = [...asked.values()].filter(item => item.copies.some(needs) && (!LESSONS || item.copies.some(id => LESSONS.has(id))))
         for (let index = 0; index < pending.length && done < LIMIT; index += PER_REQUEST) {
             const chunk = pending.slice(index, index + PER_REQUEST)
             const started = Date.now()
@@ -118,6 +121,9 @@ for (const file of REVERSE ? files.reverse() : files) {
                     const item = chunk.find(entryItem => entryItem.lesson.id === result.id)
                     if (!item) continue
                     const row = { m: result.matches.map(match => [match.point, match.relation === 'teaches' ? 'T' : 'P', match.quote, ...sourceOf(match.quote, item.lesson)]), d: result.dropped }
+                    // what the route turned down, and why (a quote not in the material, or copied from the 要点)
+                    if (result.rejected?.length) row.r = result.rejected.map(item => [item.point, item.reason, item.quote])
+                    if (REDO) row.redo = 1
                     for (const id of item.copies) entry.lessons[id] = row
                 }
                 save()
