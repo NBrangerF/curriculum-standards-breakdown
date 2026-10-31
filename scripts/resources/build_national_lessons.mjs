@@ -11,6 +11,10 @@ const SOURCE = path.join(ROOT, 'data/textbooks/smartedu')
 const OUT = path.join(ROOT, 'public/data/textbooks/national-lessons')
 export const LESSON_URL = id => `https://basic.smartedu.cn/syncClassroom/classActivity?activityId=${id}`
 const MATERIALS = ['视频课程', '课件', '教学设计', '学习任务单', '课后练习', '基础性作业', '拓展性作业']
+// a 课题 that names no content (「练习一」「试一试」「整理与复习（二）」) is no evidence by itself: a match whose only
+// quote is such a 课题 is left out
+const GENERIC_TITLE = /^(?:练习[一二三四五六七八九十\d]*|练一练|试一试|做一做|想一想|(?:单元|期中|期末|总)?复习|整理(?:与|和)复习|回顾(?:与|和)整理|整理与评价|单元测试|测验)(?:[（(][一二三四五六七八九十\d]+[）)])?$/u
+const evidenced = ([, , quote, source]) => !(source === 'title' && GENERIC_TITLE.test(String(quote).replace(/\s+/gu, '')))
 
 const squash = text => String(text || '').replace(/^(第[一二三四五六七八九十百\d]+(?:单元|课|章|节)|课题\s*\d+|\d+(?:\.\d+)*\*?)/u, '').replace(/[\s·•、，,。．.：:！!？?“”"'（）()《》\-—–★*]/gu, '')
 
@@ -146,7 +150,7 @@ export function buildNationalLessons() {
             // quotes taken before the 人教 font letters were read back (狓 → x) are shown as the book prints them
         for (const lesson of record.lessons) if (reviews[record.edition_id]?.lessons[lesson.id]) reviewKeys.set(reviewKey(record.edition_id, lesson), reviews[record.edition_id].lessons[lesson.id])
         const byId = new Map(record.lessons.map(lesson => [lesson.id, lesson]))
-        const alignOf = id => reviewed(record.edition_id, byId.get(id), (lessonAlign[record.edition_id]?.lessons[id]?.m || []).filter(([point]) => inScope(record.textbook_title, point.replace(/\.\d+$/u, ''))).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest]))
+        const alignOf = id => reviewed(record.edition_id, byId.get(id), (lessonAlign[record.edition_id]?.lessons[id]?.m || []).filter(evidenced).filter(([point]) => inScope(record.textbook_title, point.replace(/\.\d+$/u, ''))).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest]))
         const aiOf = new Map(sorted.map(lesson => {
             const taught = alignOf(lesson.id).filter(row => row[1] === 'T').map(([point]) => point)
             if (lessonAlign[record.edition_id]?.lessons[lesson.id]) return [lesson.id, firstFour(taught)]
@@ -255,7 +259,7 @@ export function buildNationalLessons() {
             unit_id: null,
             materials: lesson.materials.filter(item => MATERIALS.includes(item)),
             hours: lesson.hours,
-            ...(judged.lessons[lesson.id] ? { align: reviewed(record.edition_id, lesson, (judged.lessons[lesson.id].m || []).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest])) } : {})
+            ...(judged.lessons[lesson.id] ? { align: reviewed(record.edition_id, lesson, (judged.lessons[lesson.id].m || []).filter(evidenced).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest])) } : {})
         }))
         writeFileSync(path.join(OUT, `${record.edition_id}.json`), `${JSON.stringify({ edition_id: record.edition_id, textbook_title: record.textbook_title, platform_title: record.platform_title, platform_textbook_id: record.platform_textbook_id, platform_only: true, confidence: 'edition', tree: record.tree, lessons })}\n`)
         platformBooks.push({ edition_id: record.edition_id, title: record.textbook_title, edition_name: record.edition_name, subject: record.subject, subject_slug: record.subject_slug, grade: record.grade, volume: record.volume, platform_title: record.platform_title, lessons: lessons.length })
