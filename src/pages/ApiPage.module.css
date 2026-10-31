@@ -37,13 +37,13 @@
 }
 
 .hero h1 {
-    max-width: 11ch;
-    margin: 1.25rem 0 0;
+    max-width: 16em;
+    margin: 1rem 0 0;
     color: inherit;
-    font-size: clamp(3.25rem, 6.7vw, 6.7rem);
+    font-size: clamp(32px, 4.4vw, 52px);
     font-weight: 900;
-    letter-spacing: 0.04em;
-    line-height: 1.15;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
     font-family: var(--font-display);
 }
 
@@ -182,7 +182,7 @@
 
 @media (max-width: 680px) {
     .heroLayout { padding-top: 3.5rem; padding-bottom: 3.8rem; }
-    .hero h1 { font-size: clamp(3rem, 15vw, 4.7rem); }
+    .hero h1 { font-size: clamp(2rem, 9vw, 2.75rem); }
     .heroActions { align-items: stretch; flex-direction: column; }
     .heroActions a { width: 100%; }
     .endpointMeta { align-items: flex-start; flex-direction: column; }

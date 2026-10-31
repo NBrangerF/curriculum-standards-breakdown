@@ -6,7 +6,7 @@
     --kb-surface: #0e1118;
     --kb-surface-muted: #151a24;
     --kb-ink: #eceff4;
-    --kb-ink-muted: #aab2bf;
+    --kb-ink-muted: #c3cad6;
     --kb-hairline: rgba(222, 228, 238, 0.14);
     --kb-accent: #e9c887;
     --kb-accent-hover: #f3dcab;
@@ -19,8 +19,8 @@
     --kb-night: #07080c;
     --kb-night-glass: rgba(9, 11, 16, 0.84);
     --kb-moon: #eceff4;
-    --kb-mist: #aab2bf;
-    --kb-dim: #858e9c;
+    --kb-mist: #c3cad6; /* running text: a step brighter than the first night palette, so long paragraphs read */
+    --kb-dim: #8b94a2;
     --kb-gold: #e9c887;
     --kb-gold-glow: rgba(233, 200, 135, 0.85);
     --kb-line: rgba(222, 228, 238, 0.14);
@@ -28,6 +28,9 @@
     --kb-paper: #f2ede1;
     --kb-paper-ink: #25221c;
     --kb-paper-mute: #6a6458;
+    /* Gold marks three things only: the main action, where you are, and a line from a lesson to its 要点. */
+    --kb-gold-ink: #1a1408;
+    --kb-link-line: rgba(233, 200, 135, 0.55);
     --kb-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 
     /* Compatibility aliases: legacy names resolve one-way to canonical references. */

@@ -40,13 +40,14 @@ export function Stat({ value, label }) {
 
 /**
  * The top of a secondary page: crumbs or a kicker, a display-serif title that lights up, then an optional
- * lede, stats and actions. Transparent, so the sky shows through.
+ * lede, stats and actions; `aside` is the page's instrument on the right (below on phones).
+ * Transparent, so the sky shows through.
  */
-export function PageHero({ crumbs, kicker, title, long = false, lede, stats, actions, color, className = '', children, ...rest }) {
+export function PageHero({ crumbs, kicker, title, long = false, lede, stats, actions, aside, color, className = '', children, ...rest }) {
     const titleClass = `${styles.title} ${long ? styles.titleLong : ''}`
     return (
         <header className={`${styles.hero} ${className}`} style={color ? { '--c': color } : undefined} {...rest}>
-            <div className={styles.wrap}>
+            <div className={`${styles.wrap} ${aside ? styles.heroGrid : ''}`}>
                 <div className={styles.heroCopy}>
                     {crumbs ? <Crumbs items={crumbs} /> : kicker ? <p className={styles.kicker}>{kicker}</p> : null}
                     {typeof title === 'string'
@@ -57,21 +58,20 @@ export function PageHero({ crumbs, kicker, title, long = false, lede, stats, act
                     {actions && <div className={styles.heroActions}>{actions}</div>}
                     {children}
                 </div>
+                {aside ? <div className={styles.heroAside}>{aside}</div> : null}
             </div>
         </header>
     )
 }
 
-/** Kicker plus a display-serif heading that lights up as it scrolls in; actions sit on the right. */
+/** Kicker plus a section heading; actions sit on the right. Only page titles light up, so sections stay still. */
 export function SectionHead({ kicker, title, as: Heading = 'h2', size = 'lg', id, className = '', children }) {
     const headingClass = size === 'sm' ? styles.h3 : styles.h2
     return (
         <div className={`${styles.sectionHead} ${className}`}>
             <div>
                 {kicker && <p className={styles.kicker}>{kicker}</p>}
-                {typeof title === 'string'
-                    ? <Ignite as={Heading} id={id} className={headingClass} text={title} mode="scrub" />
-                    : <Heading id={id} className={headingClass}>{title}</Heading>}
+                <Heading id={id} className={headingClass}>{title}</Heading>
             </div>
             {children && <div className={styles.heroActions}>{children}</div>}
         </div>

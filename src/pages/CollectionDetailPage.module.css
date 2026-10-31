@@ -18,7 +18,7 @@
 .titleBlock > span,
 .sectionHeading > span { display: block; margin-bottom: 0.8rem; color: var(--kb-gold); font-family: var(--font-mono); font-size: 12.5px; line-height: 1.2; letter-spacing: 0.16em; }
 .titleBlock > div { display: flex; align-items: center; gap: 1rem; }
-.titleBlock h1 { max-width: 13ch; margin: 0; font-family: var(--font-display); font-size: clamp(44px, 6vw, 88px); font-weight: 900; letter-spacing: 0.04em; line-height: 1.15; text-wrap: balance; }
+.titleBlock h1 { max-width: 16em; margin: 0; font-family: var(--font-display); font-size: clamp(32px, 4.4vw, 52px); font-weight: 900; letter-spacing: 0.02em; line-height: 1.2; text-wrap: balance; }
 .titleBlock > div button { display: grid; flex: none; width: 44px; height: 44px; place-items: center; border: 1px solid var(--kb-line-strong); border-radius: 999px; background: rgba(14, 17, 24, 0.62); color: var(--kb-mist); cursor: pointer; }
 .titleBlock > div button:hover { border-color: var(--kb-gold); color: var(--kb-moon); }
 .titleBlock > div button:focus-visible { outline: 3px solid var(--kb-focus, rgba(222, 228, 238, 0.225)); outline-offset: 2px; }
@@ -84,7 +84,7 @@
     /* the remove button sits above its card, so the card keeps the full width */
     .standardItem { display: grid; padding-right: 0; }
     .standardItem > button { position: static; order: -1; justify-self: end; margin-bottom: 6px; }
-    .titleBlock h1 { font-size: clamp(2.8rem, 15vw, 4.5rem); }
+    .titleBlock h1 { font-size: clamp(2rem, 9vw, 2.75rem); }
     .side dl { grid-template-columns: 1fr; }
     .side dl > div { display: flex; align-items: baseline; justify-content: space-between; border-right: 0; border-bottom: 1px solid var(--collection-line); }
     .side dl > div:last-child { border-bottom: 0; }

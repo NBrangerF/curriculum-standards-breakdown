@@ -47,6 +47,20 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
+/* Links inside running text read as text with a gold underline; styled links (buttons, cards) keep their class's look. */
+a:not([class]) {
+  color: var(--kb-moon);
+  text-decoration: underline;
+  text-decoration-color: var(--kb-link-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+a:not([class]):hover {
+  color: var(--kb-moon);
+  text-decoration-color: var(--kb-gold);
+}
+
 button {
   font-family: inherit;
   cursor: pointer;
@@ -185,16 +199,16 @@ h6 {
 }
 
 .btn-primary {
-  border-color: var(--kb-moon);
-  background: var(--kb-moon);
-  color: var(--kb-night);
+  border-color: var(--kb-gold);
+  background: var(--kb-gold);
+  color: var(--kb-gold-ink);
   font-weight: 700;
 }
 
 .btn-primary:hover {
-  border-color: #fff;
-  background: #fff;
-  color: var(--kb-night);
+  border-color: var(--kb-accent-hover);
+  background: var(--kb-accent-hover);
+  color: var(--kb-gold-ink);
   transform: translateY(-1px);
 }
 

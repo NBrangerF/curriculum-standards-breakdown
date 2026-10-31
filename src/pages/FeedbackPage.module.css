@@ -43,12 +43,12 @@
 
 .header h1,
 .success h1 {
-    max-width: 9ch;
+    max-width: 16em;
     margin: 0;
-    font-size: clamp(3.2rem, 6vw, 6rem);
+    font-size: clamp(32px, 4.4vw, 52px);
     font-weight: 900;
-    letter-spacing: 0.04em;
-    line-height: 1.15;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
     font-family: var(--font-display);
 }
 
@@ -144,7 +144,7 @@
 }
 
 .success > svg { margin-bottom: 1.6rem; color: var(--kb-accent, #e9c887); }
-.success h1 { max-width: none; font-size: clamp(2.7rem, 6vw, 4.6rem); }
+.success h1 { max-width: none; font-size: clamp(32px, 4.4vw, 52px); }
 .success h1:focus { outline: none; }
 .success h1:focus-visible { border-radius: 0.25rem; outline: 3px solid var(--kb-focus, rgba(222, 228, 238, 0.225)); outline-offset: 6px; }
 .success p { max-width: 39rem; margin: 1.3rem 0 2rem; color: var(--text-secondary); font-size: 1rem; line-height: 1.75; }

@@ -13,7 +13,7 @@
 .contactIntro > span,
 .wechatCopy > span,
 .scopeHeader > span { color: var(--kb-gold); letter-spacing: 0.16em; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.2; }
-.hero h1 { max-width: 10ch; margin: 1.2rem 0 0; color: inherit; font-size: clamp(3.4rem, 7vw, 7rem); font-weight: 900; letter-spacing: 0.04em; line-height: 1.15; animation: contact-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both; font-family: var(--font-display); }
+.hero h1 { max-width: 16em; margin: 1rem 0 0; color: inherit; font-size: clamp(32px, 4.4vw, 52px); font-weight: 900; letter-spacing: 0.02em; line-height: 1.2; animation: contact-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both; font-family: var(--font-display); }
 .hero p { max-width: 34rem; margin: 0 0 0.35rem; color: var(--kb-mist); font-size: clamp(1rem, 1.45vw, 1.18rem); line-height: 1.82; animation: contact-rise 700ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both; }
 
 .contactSection { padding: clamp(4.5rem, 8vw, 8rem) 0; background: transparent; border-top: 1px solid var(--kb-line); }
@@ -73,7 +73,7 @@
 
 @media (max-width: 680px) {
     .hero { padding-top: 4rem; }
-    .hero h1 { font-size: clamp(3.15rem, 16vw, 5rem); }
+    .hero h1 { font-size: clamp(2rem, 9vw, 2.75rem); }
     .contactRow { grid-template-columns: 1fr auto; gap: 0.8rem 1rem; min-height: 0; }
     .contactLabel { grid-column: 1 / -1; }
     .contactAction { grid-column: 2; grid-row: 2; }
