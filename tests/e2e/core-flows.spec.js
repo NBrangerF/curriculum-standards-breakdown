@@ -55,7 +55,8 @@ test('home sky keeps subject and skill entries reachable', async ({ page }) => {
     await expect(page).toHaveURL(/\/subjects\/math$/)
     await expect(page.getByRole('heading', { level: 1, name: '数学' })).toBeVisible()
 
-    await page.getByRole('banner').getByRole('link', { name: '可迁移技能' }).click()
+    // a subject page sits in the 课标 group, whose row of pages includes 可迁移技能
+    await page.getByRole('navigation', { name: '课标栏目' }).getByRole('link', { name: '可迁移技能' }).click()
     await expect(page).toHaveURL(/\/skills$/)
     await expect(page.getByRole('heading', { level: 1, name: '可迁移技能与课程关系' })).toBeVisible()
 })

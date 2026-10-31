@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
+import { bookFields, readMyBook, saveMyBook } from '../features/mybook/myBook.js'
 import { PERIODS, dateOf, layout, unitsOf, weekLabel } from '../features/schedule/scheduleModel'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
@@ -52,6 +53,12 @@ export default function SchedulePage() {
     const [hours, setHours] = useState({})
     const [copied, setCopied] = useState(false)
 
+    // an empty visit opens on 「我的书」
+    useEffect(() => {
+        if ([...params.keys()].length) return
+        const mine = readMyBook()
+        if (mine?.subject && mine?.edition?.startsWith('ed_')) setParams({ subject: mine.subject, edition: mine.edition }, { replace: true })
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps -- once, on arrival
     useEffect(() => {
         loadTextbookCatalog().then(data => setBooks(data.items || [])).catch(() => setBooks([]))
         fetch('/data/textbooks/national-lessons/index.json').then(response => (response.ok ? response.json() : null)).then(data => setLinked(new Set(Object.keys(data?.editions || {})))).catch(() => setLinked(new Set()))
@@ -59,6 +66,7 @@ export default function SchedulePage() {
     const usable = useMemo(() => books.filter(book => linked?.has(book.edition_id)), [books, linked])
     const subjects = useMemo(() => [...new Set(usable.map(book => book.subject))], [usable])
     const book = usable.find(item => item.edition_id === edition) || null
+    useEffect(() => { if (book) saveMyBook(bookFields(book)) }, [book])
 
     useEffect(() => {
         if (!edition) { setRecord(null); return }

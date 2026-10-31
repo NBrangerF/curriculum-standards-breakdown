@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { bookFields, saveMyBook } from '../features/mybook/myBook.js'
 import { Link, useParams } from 'react-router-dom'
 import { PageLoading, ErrorState } from '../components/StateComponents'
 import { loadTextbookDetail } from '../features/textbooks/textbookApi'
@@ -89,6 +90,7 @@ export default function TextbookAlignmentPage() {
         }).catch(errorValue => { if (active) setError(errorValue.message) })
         return () => { active = false }
     }, [editionId])
+    useEffect(() => { if (data) saveMyBook(bookFields(data.book)) }, [data])
 
     const view = useMemo(() => {
         if (!data) return null

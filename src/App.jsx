@@ -53,6 +53,7 @@ const TeacherExamPage = lazy(() => import('./pages/TeacherExamPage'))
 const SchedulePage = lazy(() => import('./pages/SchedulePage'))
 const ReviewMapPage = lazy(() => import('./pages/ReviewMapPage'))
 const GuidePage = lazy(() => import('./pages/GuidePage'))
+const StandardsHubPage = lazy(() => import('./pages/StandardsHubPage'))
 
 // v2 codes (MA-S1-NA-01, MA-S1-NA-01.3) open the standard; old codes move to where their record now lives.
 function StandardRoute() {
@@ -107,6 +108,7 @@ function App() {
                     <Route path="/concepts" element={route('concepts', lazyPage(<ConceptsPage />, '正在打开概念词典'))} />
                     <Route path="/concepts/subjects/:slug" element={route('subjectSkeleton', lazyPage(<SubjectSkeletonPage />, '正在整理学科骨架'))} />
                     <Route path="/concepts/:termId" element={route('concept', lazyPage(<ConceptDetailPage />, '正在打开概念'))} />
+                    <Route path="/standards" element={route('standardsHub', lazyPage(<StandardsHubPage />, '正在打开课标'))} />
                     <Route path="/standards/:code" element={route('standard', <StandardRoute />)} />
                     <Route path="/standards/:code/v1" element={route('standard', lazyPage(<StandardDetailPage />, '正在打开旧条目'))} />
                     <Route

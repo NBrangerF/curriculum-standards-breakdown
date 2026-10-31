@@ -11,6 +11,7 @@ import TextbookAlignmentCard from '../features/textbooks/TextbookAlignmentCard'
 import TextbookCover from '../features/textbooks/TextbookCover'
 import TextbookStatus from '../features/textbooks/TextbookStatus'
 import { loadTextbookDetail } from '../features/textbooks/textbookApi'
+import { bookFields, saveMyBook } from '../features/mybook/myBook.js'
 import { alignmentUnits } from '../features/textbooks/alignmentModel'
 import styles from './TextbookDetailPage.module.css'
 
@@ -66,6 +67,8 @@ export default function TextbookDetailPage() {
         setError('')
         loadTextbookDetail(editionId).then(setBook).catch(errorValue => setError(errorValue.message))
     }, [editionId])
+    // the book a teacher opens becomes 「我的书」 in the header
+    useEffect(() => { if (book) saveMyBook(bookFields(book)) }, [book])
 
     // the 要点 the AI judged each unit to teach (国家平台 unit picks), keyed by kebiao unit
     const [aiPoints, setAiPoints] = useState(() => new Map())

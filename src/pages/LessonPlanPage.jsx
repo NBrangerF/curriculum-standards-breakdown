@@ -8,13 +8,13 @@ import { XCircleIcon } from '@phosphor-icons/react/dist/csr/XCircle'
 import { postApi } from '../data/api'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
+import { bookFields, readMyBook, saveMyBook } from '../features/mybook/myBook.js'
 import { downloadObservationWord, downloadReflectionWord, downloadReportWord, downloadRubricWord, downloadSkeletonWord, downloadScriptWord, downloadTestWord, downloadWord, downloadUnitWord, planToText, reportToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
 import { sourceLabel } from '../features/textbooks/alignmentModel'
 
-const LAST_BOOK_KEY = 'kebiao.lessonPlan.lastBook'
 // the last 10 drafts stay in this browser; the old single-draft key is read once and folded in
 const STORE_KEY = 'kebiao.lessonPlan.history'
 const OLD_KEY = 'kebiao.lessonPlan.last'
@@ -148,20 +148,12 @@ export default function LessonPlanPage() {
 
     useEffect(() => { loadTextbookCatalog().then(data => setBooks(data.items || [])).catch(() => setBooks([])) }, [])
 
-    // a teacher uses one textbook all term: an empty visit opens on the last subject and textbook picked here
+    // a teacher uses one textbook all term: an empty visit opens on 「我的书」, the textbook last opened or picked
     useEffect(() => {
         if ([...params.keys()].length) return
-        try {
-            const last = JSON.parse(window.localStorage.getItem(LAST_BOOK_KEY) || 'null')
-            if (last?.subject && last?.edition) setParams({ subject: last.subject, edition: last.edition }, { replace: true })
-        } catch { /* private mode */ }
+        const last = readMyBook()
+        if (last?.subject && last?.edition?.startsWith('ed_')) setParams({ subject: last.subject, edition: last.edition }, { replace: true })
     }, []) // eslint-disable-line react-hooks/exhaustive-deps -- once, on arrival
-    useEffect(() => {
-        const subjectParam = params.get('subject')
-        const editionParam = params.get('edition')
-        if (!subjectParam || !editionParam || params.get('mode') === 'topic') return
-        try { window.localStorage.setItem(LAST_BOOK_KEY, JSON.stringify({ subject: subjectParam, edition: editionParam })) } catch { /* private mode */ }
-    }, [params])
 
     const subjects = useMemo(() => {
         const names = [...new Set(books.map(book => book.subject))]
@@ -180,6 +172,13 @@ export default function LessonPlanPage() {
         getJson(`/api/v1/lesson-plans/textbooks/${edition}/lessons`).then(data => active && setLessons(data)).catch(() => active && setLessons({ lessons: [] }))
         return () => { active = false }
     }, [edition])
+
+    // the textbook picked here, and the lesson being prepared, become 「我的书」
+    useEffect(() => {
+        if (!subject || !edition || freeMode) return
+        const lesson = lessonId ? lessons?.lessons?.find(item => item.id === lessonId) : null
+        saveMyBook({ subject, edition, ...bookFields(book), ...(lesson ? { lesson: { id: lesson.id, title: lesson.title } } : {}) })
+    }, [subject, edition, lessonId, freeMode, book, lessons])
 
     const lessonGroups = useMemo(() => {
         const groups = []
