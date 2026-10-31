@@ -521,3 +521,59 @@ test('核验我的试卷: a long paper is read in parts and the questions are me
     assert.ok(data.read.questions.length >= 45)
     assert.equal(data.table.score, data.read.questions.length * 2)
 })
+
+test('教材与课标对应: every 要点 at the grade is read; matches without a quote from the lesson are dropped', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const math = JSON.parse(await readFile(resolve(publicDataRoot, 'v2/by_subject/math.json'), 'utf8'))
+    const atGrade5 = math.standards.filter((item: any) => item.grades.includes(5)).flatMap((item: any) => item.indicators.map((point: any) => point.code))
+    const limitedText = math.standards.flatMap((item: any) => item.indicators).find((point: any) => point.code === LIMITED).text
+    const prompts: string[] = []
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body))
+        assert.match(String(body.messages[0].content), /教材与课标对应审核员/)
+        const user = String(body.messages[1].content)
+        prompts.push(user)
+        const content = {
+            lessons: [
+                {
+                    id: 'L1',
+                    matches: [
+                        // quoted from the lesson material, with the OCR's line break inside
+                        { point: LIMITED, relation: 'teaches', quote: '分数的分子和分母同时乘或除以相同的数' },
+                        // a quote the material does not have
+                        { point: 'MA-S3-NA-01.1', relation: 'teaches', quote: '认识小数的意义和读写方法' },
+                        // a code outside the grade
+                        { point: 'MA-S4-NA-02.1', relation: 'touches', quote: '分数的基本性质' }
+                    ]
+                },
+                // only the title: its quote is the title; a quote of the 要点 itself is not evidence
+                { id: 'L2', matches: [{ point: LIMITED, relation: 'touches', quote: '约分' }, { point: 'MA-S3-NA-01.2', relation: 'teaches', quote: limitedText.slice(0, 20) }] }
+            ]
+        }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 200, total_tokens: 1100 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const response = await app.request('/api/v1/lesson-plans/align', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-forwarded-for': '203.0.113.83' },
+        body: JSON.stringify({
+            lesson: { unit_title: '分数的意义和性质', textbook_title: '数学5年级下册', subject_slug: 'math', grade: 5 },
+            lessons: [
+                { id: 'lesson-a', title: '分数的基本性质', material: '【教材原文 第57页】分数的分子和分母同时乘或\n除以相同的数（0除外），分数的大小不变。' },
+                { id: 'lesson-b', title: '约分' }
+            ]
+        })
+    })
+    assert.equal(response.status, 200)
+    const { data } = await json(response)
+    assert.equal(data.read, atGrade5.length)
+    for (const code of atGrade5) assert.ok(prompts[0].includes(`${code}：`), code)
+    const [first, second] = data.lessons
+    assert.equal(first.id, 'lesson-a')
+    assert.deepEqual(first.matches.map((item: any) => [item.point, item.relation, item.quote_check]), [[LIMITED, 'teaches', 'exact']])
+    assert.equal(first.matches[0].standard, 'MA-S3-NA-01')
+    assert.equal(first.dropped, 2)
+    assert.deepEqual(second.matches.map((item: any) => item.point), [LIMITED])
+    assert.equal(second.dropped, 1)
+})

@@ -8,6 +8,7 @@ import { z } from 'zod'
 import type { FileCurriculumRepository } from '@curriculum/core'
 import { redactSensitiveText } from './ai-privacy.js'
 import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate } from './search-judge.js'
+import { alignLessons, type AlignPoint } from './textbook-align.js'
 import type { ApiBindings } from './http.js'
 import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftTalk, draftTrial, draftUnit, rankPoints, readTest, checkTest, splitTest, mergeReads, sanitiseProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
@@ -90,6 +91,20 @@ export const PickRequestSchema = z.object({
     }),
     hint: z.string().trim().max(80).default(''),
     lessons: z.array(z.string().trim().max(60)).max(20).default([])
+})
+// 教材与课标对应 (scripts/resources/align_textbook_lessons.mjs): lessons of one unit, each with its own material
+export const AlignRequestSchema = z.object({
+    lesson: z.object({
+        unit_title: z.string().trim().max(60).optional(),
+        textbook_title: z.string().trim().max(40).optional(),
+        subject_slug: z.string().trim().max(20),
+        grade: z.number().int().min(1).max(9).nullable().optional()
+    }),
+    lessons: z.array(z.object({
+        id: z.string().trim().min(1).max(60),
+        title: z.string().trim().min(1).max(80),
+        material: z.string().max(3000).default('')
+    })).min(1).max(9)
 })
 export const CheckRequestSchema = BaseRequestSchema.extend({ plan_text: z.string().trim().min(30).max(8000) })
 export const TestRequestSchema = BaseRequestSchema.extend({ test_text: z.string().trim().min(30).max(10000) })
@@ -535,6 +550,38 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             ranked,
             picks: picks.map(item => ({ code: item.code, grade: item.grade, reason: item.reason, point: item.point })),
             latency_ms: judge.latency_ms
+        })
+    })
+
+    // 教材与课标对应: which 要点 each lesson of a unit teaches, every match quoting the lesson's own material
+    app.post('/api/v1/lesson-plans/align', async c => {
+        const version = await repository.loadDataVersion()
+        const parsed = AlignRequestSchema.safeParse(await deps.parseJson(c))
+        if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请求参数校验失败。', parsed.error.issues)
+        const { lesson, lessons } = parsed.data
+        const subject = await v2.subject(lesson.subject_slug)
+        if (!subject) return deps.apiError(c, 422, 'validation_error', '未知学科。')
+        const grade = lesson.grade ?? null
+        const scope = lesson.subject_slug === 'history' ? HISTORY_SCOPE[String(lesson.textbook_title || '').replace(/\s+/gu, '')] : undefined
+        const pool: AlignPoint[] = subject.standards
+            .filter(item => !grade || !Array.isArray(item.grades) || !item.grades.length || item.grades.includes(grade))
+            .filter(item => !scope || scope.includes(String(item.level1 || '')))
+            .flatMap(standard => (standard.indicators || []).map(item => ({
+                code: item.code,
+                standard: standard.code,
+                header: `${standard.level1 || ''} · ${standard.level2 || standard.title || ''}`,
+                text: String(item.text || '')
+            })))
+        const context = `${grade ? `${grade}年级` : ''}${subject.subject}${lesson.textbook_title ? `（${lesson.textbook_title}）` : ''}${lesson.unit_title ? `，单元「${lesson.unit_title}」` : ''}`
+        const input = lessons.map(item => ({ id: item.id, title: item.title, material: redactSensitiveText(item.material).text }))
+        const result = await alignLessons(context, pool, input)
+        c.set('aiMetrics', { feature: 'lesson_plan', used: result.status !== 'disabled', status: result.status === 'partial' ? 'ok' : result.status, model: result.model, protocol: 'chat_completions', latency_ms: result.latency_ms, redaction_count: 0, input_tokens: result.usage?.input_tokens || 0, output_tokens: result.usage?.output_tokens || 0, total_tokens: result.usage?.total_tokens || 0 })
+        if (!result.lessons.length) return deps.apiError(c, result.status === 'timeout' ? 504 : 503, 'ai_unavailable', 'AI 这次没能读完，请稍后重试。')
+        return deps.ok(c, version as never, {
+            status: result.status,
+            read: pool.length,
+            lessons: result.lessons,
+            latency_ms: result.latency_ms
         })
     })
 }
