@@ -9,7 +9,7 @@ import { postApi } from '../data/api'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
 import { bookFields, readMyBook, saveMyBook } from '../features/mybook/myBook.js'
-import { downloadObservationWord, downloadReflectionWord, downloadReportWord, downloadRubricWord, downloadSkeletonWord, downloadScriptWord, downloadTestWord, downloadWord, downloadUnitWord, planToText, reportToText, testRows, testShare, testToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
+import { downloadObservationWord, downloadReflectionWord, downloadRubricWord, downloadSkeletonWord, downloadScriptWord, downloadWord, downloadUnitWord, planToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
@@ -30,10 +30,10 @@ const STEPS = [
 ]
 
 // When the AI is slow or down, a teacher drafting a plan still has a way on: the ticked 要点 as a prompt for
-// another AI, and the plan back here to check.
+// another AI, or a skeleton to write in.
 function aiError(errorValue, drafting = false) {
     if (errorValue.status === 429) return '用得太频繁了，请一分钟后再试。'
-    if (drafting && errorValue.status >= 500) return `${errorValue.message} 也可以先点上面的「复制成提示词」，把勾好的要点带到豆包、DeepSeek 里写；或「下载教案框架」自己写。写完回来「核验教案」。`
+    if (drafting && errorValue.status >= 500) return `${errorValue.message} 也可以先点上面的「复制成提示词」，把勾好的要点带到豆包、DeepSeek 里写；或「下载教案框架」自己写。`
     return errorValue.message
 }
 
@@ -43,30 +43,6 @@ async function getJson(url) {
     if (!response.ok) throw new Error(payload?.error?.message || `请求失败（${response.status}）`)
     return payload.data
 }
-
-// a deliberately weak plan for the lesson at hand: vague objectives, no 课标 basis, an objective with no
-// assessment and timings that do not add up, so a first-time teacher sees what the check catches
-const samplePlan = title => [
-    `课题：${title}`,
-    '教学目标：',
-    `1. 了解${title}的主要内容。`,
-    '2. 培养学生的核心素养，激发学习兴趣。',
-    '教学过程：',
-    '一、导入（5 分钟）：创设情境，引出课题。',
-    '二、新授（20 分钟）：教师讲解重点内容，学生听讲、记笔记。',
-    '三、练习（5 分钟）：完成课本练习。',
-    '四、小结（2 分钟）：回顾本课内容。',
-    '评价：课堂提问。'
-].join('\n')
-
-// a short homework in any subject, so a teacher can see a 多维细目表 before pasting their own paper
-const sampleTest = title => [
-    `《${title}》课后作业（共 20 分）`,
-    '1. 写出本课的三个关键词，并各用一句话解释。（4 分）',
-    '2. 判断：本课学到的结论在什么情况下不成立？举一个例子说明。（4 分）',
-    '3. 用本课学到的方法，解决一个生活中的问题，写出思考过程。（6 分）',
-    '4. 拓展：查找资料，就本课内容写一份不超过 200 字的小报告。（6 分）'
-].join('\n')
 
 function readStored() {
     try {
@@ -105,20 +81,12 @@ export default function LessonPlanPage() {
     const [ai, setAi] = useState({ status: 'idle', reasons: {} })
     const [selected, setSelected] = useState(() => new Set())
     const [settings, setSettings] = useState({ period: 40, index: 1, count: 1, classNotes: '', teacherNotes: '' })
-    // ?task=test opens 核验试卷 (from a textbook unit page's 「测试细目表」)
-    const [task, setTask] = useState(() => (['check', 'test'].includes(params.get('task')) ? params.get('task') : 'draft'))
-    const [ownPlan, setOwnPlan] = useState('')
-    const [report, setReport] = useState(null)
-    const [ownTest, setOwnTest] = useState('')
-    const [testReport, setTestReport] = useState(null)
-    const [testing, setTesting] = useState(false)
     const [unitPlan, setUnitPlan] = useState(null)
     const [talk, setTalk] = useState(null)
     const [trial, setTrial] = useState(null)
     // which script is being written: '' | 'talk' (说课稿) | 'trial' (试讲稿)
     const [talking, setTalking] = useState('')
     const [unitHours, setUnitHours] = useState(0)
-    const [checking, setChecking] = useState(false)
     const [hint, setHint] = useState('')
     const [hintFor, setHintFor] = useState('')
     const [plan, setPlan] = useState(null)
@@ -401,50 +369,6 @@ export default function LessonPlanPage() {
         }
     }
 
-    async function checkOwn() {
-        if (!context || !selected.size || ownPlan.trim().length < 30) return
-        setError('')
-        setReport(null)
-        setChecking(true)
-        const lesson = context.lesson
-        try {
-            const payload = await postApi('/api/v1/lesson-plans/check', {
-                lesson: { title: lesson.title, subject_slug: lesson.subject_slug, grade: lesson.grade || null, ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}) },
-                indicator_codes: [...selected],
-                period_minutes: settings.period,
-                plan_text: ownPlan.trim()
-            })
-            setReport(payload.data)
-            trackUmamiEvent('lesson_plan_checked', { subject: lesson.subject_slug, risks: payload.data.checks.filter(item => item.level === 'risk').length })
-        } catch (errorValue) {
-            setError(aiError(errorValue))
-        } finally {
-            setChecking(false)
-        }
-    }
-
-    // 核验我的试卷: the AI reads each question; the program builds the 多维细目表 and checks it against the 课标
-    async function checkTest() {
-        if (!context || !selected.size || selected.size > 10 || ownTest.trim().length < 30) return
-        setError('')
-        setTestReport(null)
-        setTesting(true)
-        const lesson = context.lesson
-        try {
-            const payload = await postApi('/api/v1/lesson-plans/check-test', {
-                lesson: { title: lesson.title.slice(0, 60), ...(lesson.unit_title ? { unit_title: lesson.unit_title.slice(0, 60) } : {}), subject_slug: lesson.subject_slug, grade: lesson.grade || null, ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}) },
-                indicator_codes: [...selected],
-                test_text: ownTest.trim()
-            })
-            setTestReport({ ...payload.data, title: lesson.title })
-            trackUmamiEvent('test_checked', { subject: lesson.subject_slug, questions: payload.data.read.questions.length, risks: payload.data.checks.filter(item => item.level === 'risk').length })
-        } catch (errorValue) {
-            setError(aiError(errorValue))
-        } finally {
-            setTesting(false)
-        }
-    }
-
     async function copy() {
         try {
             await navigator.clipboard.writeText(planToText(plan))
@@ -465,7 +389,7 @@ export default function LessonPlanPage() {
                 <p className={styles.kicker}>AI 备课 · 有据可查</p>
                 <h1 className={styles.title}>从教材的一课，起草一份有课标依据的教案</h1>
                 <p className={styles.lede}>
-                    选你下周要教的一课，确认它对应的课标要点，再说说班级情况。AI 只按你勾选的要点写，每条目标都标出依据；写完后程序会逐条核对：有没有超出课标的限定、目标有没有对应的活动和评价。整个过程约一分钟。也可以贴入自己的教案、试卷或作业：教案逐条核验，试卷编成多维细目表并查超标和漏考。
+                    选你下周要教的一课，确认它对应的课标要点，再说说班级情况。AI 只按你勾选的要点写，每条目标都标出依据；写完后程序逐条核对有没有超出课标的限定。约一分钟。
                 </p>
                 {params.get('for') === 'trial' ? (
                     <p className={styles.trialNote}>教资面试试讲：先在下面选一课（手边没有教材就选「直接写课题」），起草教案后点「试讲稿 + 答辩」，约 1 分钟生成 10 分钟的试讲稿和 3 道答辩题。</p>
@@ -555,6 +479,7 @@ export default function LessonPlanPage() {
                         {context.lesson.edition_id && context.lesson.pdf_page ? (
                             <Link className={styles.inlineLink} to={`/textbooks/${context.lesson.edition_id}/read?page=${context.lesson.pdf_page}`}>打开原书第 {context.lesson.pdf_page} 页（PDF） <ArrowRightIcon size={14} aria-hidden="true" /></Link>
                         ) : null}
+                        <SyncLessons context={context} />
                     </div>
 
                     <p className={styles.aiStatus} aria-live="polite">
@@ -592,45 +517,13 @@ export default function LessonPlanPage() {
                     </ul>
                     {!context.standards.length ? <p className={styles.small}>这一课还没有对齐的课标。等 AI 读完，或改用「直接写课题」。</p> : null}
                     {selectedCount && ai.status !== 'loading' ? <PromptCopy context={context} selected={selected} isUnit={isUnit} /> : null}
-
-                    <div className={styles.sideGrid}>
-                        {context.subject_note ? (
-                            <aside className={styles.note}>
-                                <h3>{context.subject_note.name}课标怎么组织内容</h3>
-                                <p>{context.subject_note.organized_by}</p>
-                                <p><b>备课抓手：</b>{context.subject_note.unit_hint}</p>
-                                <p className={styles.chips}>
-                                    {context.subject_note.terms.map(term => <Link key={term.id} to={`/concepts/${term.id}`} target="_blank" rel="noopener">{term.term}</Link>)}
-                                </p>
-                            </aside>
-                        ) : null}
-                        {context.national_lessons.length ? (
-                            <aside className={styles.note}>
-                                <h3>国家平台上这一课的同步课</h3>
-                                <ul className={styles.national}>
-                                    {context.national_lessons.slice(0, 5).map(item => (
-                                        <li key={item.id}>
-                                            <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title} <ArrowUpRightIcon size={13} aria-hidden="true" /></a>
-                                            {item.materials.length ? <span>{MATERIAL_ORDER.filter(name => item.materials.includes(name)).join(' · ')}</span> : null}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <p className={styles.small}>免费，观看需登录国家中小学智慧教育平台。{context.national_confidence === 'edition' ? '版本可能和你手上的不同。' : ''}</p>
-                            </aside>
-                        ) : null}
-                    </div>
                 </section>
             ) : null}
 
             {context ? (
                 isUnit ? (
                     <section className={styles.step} aria-labelledby="lp-unit">
-                        <h2 id="lp-unit"><span>3</span>{task === 'test' ? '贴入单元测试卷' : '单元整体设计'}</h2>
-                        <div className={styles.modeSwitch} role="tablist" aria-label="要做什么">
-                            <button type="button" role="tab" aria-selected={task !== 'test'} onClick={() => setTask('draft')}>单元整体设计</button>
-                            <button type="button" role="tab" aria-selected={task === 'test'} onClick={() => setTask('test')}>核验单元测试卷</button>
-                        </div>
-                        {task === 'test' ? <TestInput value={ownTest} onChange={setOwnTest} onRun={checkTest} running={testing} selectedCount={selectedCount} error={error} unit title={context.lesson.title} /> : <>
+                        <h2 id="lp-unit"><span>3</span>单元整体设计</h2>
                         <p className={styles.small}>按逆向设计的顺序：先写单元大概念、基本问题和单元目标，再定评价证据（含一个表现性任务），最后把课时排进教材这个单元的 {context.unit_lessons.length} 节课里。</p>
                         <div className={styles.settings}>
                             <label><span>单元总课时</span>
@@ -659,36 +552,10 @@ export default function LessonPlanPage() {
                             {!selectedCount ? <span className={styles.small}>先在上面勾选这个单元依据的要点。</span> : null}
                         </div>
                         {error ? <p className={styles.error} role="alert">{error}</p> : null}
-                        </>}
                     </section>
                 ) : (
                 <section className={styles.step} aria-labelledby="lp-class">
-                    <h2 id="lp-class"><span>3</span>{task === 'draft' ? <>说说你的情况<small>（可不填）</small></> : task === 'test' ? '贴入试卷或作业' : '贴入你的教案'}</h2>
-                    <div className={styles.modeSwitch} role="tablist" aria-label="要做什么">
-                        <button type="button" role="tab" aria-selected={task === 'draft'} onClick={() => setTask('draft')}>起草教案</button>
-                        <button type="button" role="tab" aria-selected={task === 'check'} onClick={() => setTask('check')}>核验教案</button>
-                        <button type="button" role="tab" aria-selected={task === 'test'} onClick={() => setTask('test')}>核验试卷</button>
-                    </div>
-                    {task === 'test' ? <TestInput value={ownTest} onChange={setOwnTest} onRun={checkTest} running={testing} selectedCount={selectedCount} error={error} title={context.lesson.title} /> : null}
-                    {task === 'check' ? (
-                        <>
-                            <label className={styles.textarea}>
-                                <span>教案全文（自己写的或 AI 写的都可以）</span>
-                                <textarea rows={10} maxLength={8000} value={ownPlan} onChange={event => setOwnPlan(event.target.value)} placeholder="把教案贴在这里，至少包括教学目标；有教学过程和评价更好。请删去学生姓名等个人信息。" />
-                            </label>
-                            {!ownPlan.trim() ? (
-                                <button type="button" className={styles.sample} onClick={() => setOwnPlan(samplePlan(context.lesson.title))}>手边没有教案？先用一份示例试试，看核验会指出什么</button>
-                            ) : null}
-                            <div className={styles.go}>
-                                <button type="button" className="btn btn-primary" disabled={checking || !selectedCount || ownPlan.trim().length < 30} onClick={checkOwn}>
-                                    {checking ? 'AI 正在读这份教案（约 20–40 秒）…' : `对照选定的 ${selectedCount} 条要点核验`}
-                                </button>
-                                {!selectedCount ? <span className={styles.small}>先在上面勾选这节课依据的要点。</span> : null}
-                            </div>
-                            {error ? <p className={styles.error} role="alert">{error}</p> : null}
-                        </>
-                    ) : null}
-                    {task === 'draft' ? <>
+                    <h2 id="lp-class"><span>3</span>说说你的情况<small>（可不填）</small></h2>
                     <div className={styles.settings}>
                         <label><span>每课时</span>
                             <select value={settings.period} onChange={event => setSettings({ ...settings, period: Number(event.target.value) })}>
@@ -736,14 +603,11 @@ export default function LessonPlanPage() {
                         </ol>
                     ) : null}
                     {error ? <p className={styles.error} role="alert">{error}</p> : null}
-                    </> : null}
                 </section>
                 )
             ) : null}
 
             {unitPlan && isUnit ? <UnitDocument plan={unitPlan} edition={edition} subject={subject} onCopy={async () => { try { await navigator.clipboard.writeText(unitToText(unitPlan)); setCopied(true) } catch { setCopied(false) } }} copied={copied} /> : null}
-            {report && task === 'check' && !isUnit ? <CheckReport report={report} /> : null}
-            {testReport && task === 'test' ? <TestReport report={testReport} /> : null}
             {plan && !isUnit ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} onTalk={makeTalk} talking={talking} /> : null}
             {talk && plan && !isUnit ? <TalkScriptView talk={talk} title={plan.frame?.title || plan.lesson.title} /> : null}
             {trial && plan && !isUnit ? <TrialScriptView trial={trial} title={plan.frame?.title || plan.lesson.title} /> : null}
@@ -949,7 +813,7 @@ function CheckList({ checks }) {
 }
 
 // For teachers who write with 豆包、DeepSeek or 元宝: the ticked 要点, verbatim with pages, and the rules kebiao's own
-// drafts follow, as one prompt to paste there. The plan can come back to 「核验教案」.
+// drafts follow, as one prompt to paste there.
 function PromptCopy({ context, selected, isUnit }) {
     const [copied, setCopied] = useState(false)
     const lesson = context.lesson
@@ -964,9 +828,7 @@ function PromptCopy({ context, selected, isUnit }) {
         '要求：',
         '1. 教学目标 2–4 条，每条以「学生能」开头，写清条件、行为和程度，用看得见的动词，并在括号里注明依据的要点编码。',
         '2. 先写评价任务（每条目标至少对应一个），再写教学过程（环节、时间、教师活动、学生活动、设计意图），每个环节注明推进哪条目标。',
-        '3. 要点里写明「不包括」「不要求」的内容不要出现；只用上面的要点编码，不要编造课标编码或原文。',
-        '',
-        '写好后，可以把教案贴到 kebiao.org/lesson-plan 的「核验教案」，对照课标逐条核验。'
+        '3. 要点里写明「不包括」「不要求」的内容不要出现；只用上面的要点编码，不要编造课标编码或原文。'
     ].join('\n')
     async function copy() {
         try {
@@ -979,169 +841,23 @@ function PromptCopy({ context, selected, isUnit }) {
         <div className={styles.promptCopy}>
             <button type="button" className="btn btn-secondary" onClick={copy}>{copied ? '已复制，去粘贴吧' : '复制成提示词'}</button>
             <button type="button" className="btn btn-ghost" onClick={() => { downloadSkeletonWord(context, selected); trackUmamiEvent('lesson_plan_export', { format: 'skeleton', kind: isUnit ? 'unit' : 'lesson' }) }}>{isUnit ? '下载单元设计框架' : '下载教案框架'}</button>
-            <span>习惯用豆包、DeepSeek、元宝写教案？把勾好的 {points.length} 条要点原文和写法要求一起复制过去。或下载一份{isUnit ? '单元设计框架（课标依据和单元里的课已填好）' : '教案框架（课标依据已填好）'}，按学校的格式自己写。写完可以回来「核验教案」。</span>
+            <span>用豆包、DeepSeek 写？复制勾好的 {points.length} 条要点和写法要求；或下载{isUnit ? '单元设计框架，课标依据和单元里的课已填好' : '教案框架，课标依据已填好'}。</span>
         </div>
     )
 }
 
-function TestInput({ value, onChange, onRun, running, selectedCount, error, unit = false, title = '' }) {
-    const tooMany = selectedCount > 10
+// 国家平台同步课, one line under the lesson: this lesson's own when the platform has it, else its unit's first few
+function SyncLessons({ context }) {
+    const own = context.national_lessons.filter(item => item.id === context.lesson.lesson_id)
+    const lessons = own.length ? own : context.national_lessons.slice(0, 5)
+    if (!lessons.length) return null
+    const materials = own.length ? MATERIAL_ORDER.filter(name => own[0].materials.includes(name)) : []
     return (
-        <>
-            <p className={styles.small}>AI 逐题读出题号、分值、题型，判断每道题考哪条要点、哪项素养和难度；程序据此编出多维细目表，并查超标、漏考和没对上要点的题。物理、化学、生物学、历史课标都要求命题时编制多维细目表（<Link to="/concepts/test-blueprint">课标原文怎么说</Link>）。</p>
-            <label className={styles.textarea}>
-                <span>{unit ? '单元测试卷全文' : '试卷或作业全文'}（带题号；有分值更好）</span>
-                <textarea rows={12} maxLength={10000} value={value} onChange={event => onChange(event.target.value)} placeholder={'例如：\n一、填空题（每空 2 分，共 20 分）\n1. 把 6/8 化成最简分数是（ ）。\n……\n请删去学生姓名等个人信息。图片题请用文字简述。'} />
-            </label>
-            {!value.trim() && title ? <button type="button" className={styles.sample} onClick={() => onChange(sampleTest(title))}>手边没有试卷？先用一份示例作业试试，看细目表长什么样</button> : null}
-            <div className={styles.go}>
-                <button type="button" className="btn btn-primary" disabled={running || !selectedCount || tooMany || value.trim().length < 30} onClick={onRun}>
-                    {running ? 'AI 正在逐题读（约 30–50 秒）…' : `对照选定的 ${selectedCount} 条要点编细目表`}
-                </button>
-                {!selectedCount ? <span className={styles.small}>先在上面勾选这份试卷考查的要点。</span> : tooMany ? <span className={styles.small}>一次最多对照 10 条要点，请去掉一些。</span> : null}
-            </div>
-            {error ? <p className={styles.error} role="alert">{error}</p> : null}
-        </>
-    )
-}
-
-function TestReport({ report }) {
-    const { read, table, checks, evidence } = report
-    const [copied, setCopied] = useState(false)
-    const risks = checks.filter(item => item.level === 'risk').length
-    const warns = checks.filter(item => item.level === 'warn').length
-    const rows = testRows(report)
-    const whole = table.score
-    const shareOf = (scores, key) => testShare(table, scores[key])
-    const untested = table.literacy.filter(item => !table.by_literacy[item])
-    async function copy() {
-        try {
-            await navigator.clipboard.writeText(testToText(report))
-            setCopied(true)
-            trackUmamiEvent('lesson_plan_export', { format: 'copy', kind: 'test' })
-        } catch {
-            setCopied(false)
-        }
-    }
-    return (
-        <article className={styles.doc} aria-labelledby="lp-test-title">
-            <div className={styles.docActions}>
-                <span className={styles.aiBadge}>AI 逐题读取 + 程序统计核验</span>
-                <button type="button" className="btn btn-secondary" onClick={copy}>{copied ? '已复制' : '复制细目表'}</button>
-                <button type="button" className="btn btn-secondary" onClick={() => { downloadTestWord(report); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'test' }) }}>下载 Word</button>
-            </div>
-            <header className={styles.docHead}>
-                <h2 id="lp-test-title">多维细目表：{report.title}</h2>
-                <p>{read.questions.length} 道题{whole ? ` · 共 ${whole} 分` : ''}{report.parts > 1 ? ` · 整卷较长，分 ${report.parts} 段同时读` : ''} · {risks ? `${risks} 处需要修改` : '没有必须修改的地方'}{warns ? ` · ${warns} 处建议` : ''}</p>
-            </header>
-            <section className={styles.checks} aria-label="核验结果">
-                <h3>发现</h3>
-                <CheckList checks={checks} />
-            </section>
-            <section>
-                <h3>内容 × {table.levels.length ? '层次' : '题目'}</h3>
-                <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="细目表（可左右滑动）">
-                    <table>
-                        <thead><tr><th>要点</th><th>题号</th><th>{table.unit === 'score' ? '分值' : '题数'}</th>{table.levels.map(level => <th key={level}>{level}</th>)}<th>占比</th></tr></thead>
-                        <tbody>
-                            {rows.map(row => (
-                                <tr key={row.code} data-empty={row.questions === '—' ? 'true' : undefined}>
-                                    <td><code>{row.code}</code> {row.text.length > 40 ? `${row.text.slice(0, 40)}…` : row.text}</td>
-                                    <td>{row.questions}</td>
-                                    <td className={styles.tight}>{row.score}</td>
-                                    {row.levels.map((nos, index) => <td key={table.levels[index]}>{nos}</td>)}
-                                    <td className={styles.tight}>{row.share}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                        {table.levels.length ? <tfoot><tr><th>合计</th><td>{read.questions.length} 题</td><td>{table.unit === 'score' ? whole : read.questions.length}</td>{table.levels.map(level => <td key={level}>{shareOf(table.by_level, level)}</td>)}<td>100%</td></tr></tfoot> : null}
-                    </table>
-                </div>
-                {table.level_source ? <p className={styles.small}>层次依据：{table.level_source}。其他学科课标没有统一规定认知层次，细目表只列难度。</p> : null}
-                {table.unit === 'count' ? <p className={styles.small}>这份试卷没有标分值，占比按题数计算。</p> : null}
-            </section>
-            <section>
-                <h3>结构</h3>
-                <dl className={styles.testMix}>
-                    <div><dt>难度</dt><dd>{['易', '中', '难'].map(key => `${key} ${shareOf(table.by_difficulty, key)}`).join(' · ')}</dd></div>
-                    <div><dt>题型</dt><dd>{Object.entries(table.by_type).map(([key, value]) => `${key} ${table.unit === 'score' ? `${value} 分` : `${value} 题`}`).join(' · ') || '—'}</dd></div>
-                    <div><dt>素养</dt><dd>{Object.entries(table.by_literacy).map(([key]) => `${key} ${shareOf(table.by_literacy, key)}`).join(' · ') || '—'}{untested.length ? <small>没有考到：{untested.join('、')}</small> : null}</dd></div>
-                </dl>
-            </section>
-            <section>
-                <h3>逐题</h3>
-                <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="逐题分析表（可左右滑动）">
-                    <table>
-                        <thead><tr><th>题号</th><th>题干开头</th><th>题型</th><th>分值</th><th>要点</th><th>素养</th>{table.levels.length ? <th>层次</th> : null}<th>难度</th></tr></thead>
-                        <tbody>
-                            {read.questions.map(item => (
-                                <tr key={`${item.no}-${item.quote}`}>
-                                    <td className={styles.tight}>{item.no}</td><td>{item.quote}</td><td className={styles.tight}>{item.type}</td><td className={styles.tight}>{item.score || ''}</td>
-                                    <td>{item.points.length ? item.points.map(code => <code key={code}>{code}</code>) : <em>未对应</em>}</td>
-                                    <td>{item.literacy.join('、')}</td>{table.levels.length ? <td className={styles.tight}>{item.level}</td> : null}<td className={styles.tight}>{item.difficulty}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-            <section>
-                <h3>依据的课标原文</h3>
-                <ul className={styles.evidence}>
-                    {evidence.map(item => <li key={item.code}><Link to={`/standards/${item.standard_code}#${item.code}`} target="_blank" rel="noopener"><code>{item.code}</code></Link>{item.text}<small>修订版第 {item.pages.join('、')} 页</small></li>)}
-                </ul>
-            </section>
-            <p className={styles.docFoot}>AI 只负责逐题读出题号、分值、题型，并判断每道题对应的要点、素养、层次和难度；AI 抄录的题干必须能在你贴的原文里找到，否则不计入。超标、漏考、分值合计和结构比例由程序对照课标原文统计。难度是 AI 按一般学生水平的估计，请结合本班实际调整。</p>
-        </article>
-    )
-}
-
-function CheckReport({ report }) {
-    const { read, checks, evidence } = report
-    const [copied, setCopied] = useState(false)
-    async function copy() {
-        try {
-            await navigator.clipboard.writeText(reportToText(report))
-            setCopied(true)
-            trackUmamiEvent('lesson_plan_export', { format: 'copy', kind: 'check' })
-        } catch { setCopied(false) }
-    }
-    const risks = checks.filter(item => item.level === 'risk').length
-    const warns = checks.filter(item => item.level === 'warn').length
-    return (
-        <article className={styles.doc} aria-labelledby="lp-report-title">
-            <div className={styles.docActions}>
-                <span className={styles.aiBadge}>AI 读取 + 程序核验</span>
-                <button type="button" className="btn btn-secondary" onClick={copy}>{copied ? '已复制' : '复制报告'}</button>
-                <button type="button" className="btn btn-secondary" onClick={() => { downloadReportWord(report); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'check' }) }}>下载 Word</button>
-            </div>
-            <header className={styles.docHead}>
-                <h2 id="lp-report-title">核验报告{read.frame.title ? `：${read.frame.title}` : ''}</h2>
-                <p>{risks ? `${risks} 处需要修改` : '没有必须修改的地方'}{warns ? ` · ${warns} 处建议` : ''}</p>
-            </header>
-            <section className={styles.checks} aria-label="核验结果">
-                <h3>发现</h3>
-                <CheckList checks={checks} />
-            </section>
-            <section>
-                <h3>你的教学目标对应的课标要点</h3>
-                <ol className={styles.objectives}>
-                    {read.frame.objectives.map(item => (
-                        <li key={item.id}>
-                            <span>{item.text}</span>
-                            <span className={styles.basis}>{item.basis.length ? item.basis.map(code => <code key={code}>{code}</code>) : <em>没有对应的要点</em>}</span>
-                        </li>
-                    ))}
-                </ol>
-            </section>
-            <section>
-                <h3>依据的课标原文</h3>
-                <ul className={styles.evidence}>
-                    {evidence.map(item => <li key={item.code}><Link to={`/standards/${item.standard_code}#${item.code}`} target="_blank" rel="noopener"><code>{item.code}</code></Link>{item.text}<small>修订版第 {item.pages.join('、')} 页</small></li>)}
-                </ul>
-            </section>
-            <p className={styles.docFoot}>AI 只负责把教案整理成目标、评价和环节，并判断每条目标对应哪条要点；超标、目标—活动—评价是否一致由程序对照课标原文检查。结果供参考，请以课标原文为准。</p>
-        </article>
+        <p className={styles.sync}>
+            <span>国家平台同步课</span>
+            {lessons.map(item => <a key={item.id} href={item.url} target="_blank" rel="noopener noreferrer">{item.title}<ArrowUpRightIcon size={13} aria-hidden="true" /></a>)}
+            <small>{[materials.join('、'), '免费，观看需登录', context.national_confidence === 'edition' ? '版本可能和你手上的不同' : ''].filter(Boolean).join(' · ')}</small>
+        </p>
     )
 }
 

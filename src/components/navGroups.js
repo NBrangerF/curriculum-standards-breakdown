@@ -5,10 +5,9 @@ export const NAV_GROUPS = [
         key: 'textbooks',
         label: '教材',
         to: '/textbooks',
-        owns: ['/textbooks', '/textbook-alignment', '/textbook-units', '/textbook-resources', '/learning-resources'],
+        owns: ['/textbooks', '/textbook-units', '/textbook-resources', '/learning-resources'],
         items: [
             { to: '/textbooks', label: '选教材', exact: true },
-            { to: '/textbook-alignment', label: '教材与课标对应' },
             { to: '/learning-resources', label: '学习资源' }
         ]
     },
@@ -16,10 +15,9 @@ export const NAV_GROUPS = [
         key: 'prep',
         label: '备课',
         to: '/lesson-plan',
-        owns: ['/lesson-plan', '/schedule', '/review', '/experiments', '/interdisciplinary', '/guide', '/alignment-workbench'],
+        owns: ['/lesson-plan', '/review', '/experiments', '/interdisciplinary', '/guide', '/alignment-workbench'],
         items: [
             { to: '/lesson-plan', label: 'AI 备课' },
-            { to: '/schedule', label: '学期进度表' },
             { to: '/review', label: '中考复习地图' },
             { to: '/experiments', label: '必做实验' },
             { to: '/interdisciplinary', label: '跨学科主题' },

@@ -1,6 +1,6 @@
-// 学期教学进度表: a textbook's 国家平台 units laid out over the weeks of a term.
+// A textbook's 国家平台 units, for the book page's 「按单元备课」.
 // The platform lists each lesson several times (re-uploads, 「（第2课时）」 parts, 「单元名-课名」 aliases), so lessons
-// are merged by a normalised title, and a unit's hours are only an estimate the teacher edits.
+// are merged by a normalised title, and a unit's hours are only an estimate.
 
 const HOUR = /[（(]第([一二三四五六七八九十\d]+)课时[）)]\s*$/u
 const PREFIX = /^(?:第[一二三四五六七八九十]+单元|[^-—]{2,12})[-—]+/u
@@ -12,9 +12,6 @@ export const normalise = title => title
     .replace(/[《》“”"（）()·\s]/gu, '')
     .replace(/(?:例\d+(?:、例\d+)*|练习[一二三四五六七八九十\d]*)$/u, '')
     .replace(/^(?:\d+|一单元略读课文|略读课文)/u, '')
-
-// typical periods a week, to start from; every school differs, so the teacher sets it
-export const PERIODS = { chinese: 6, math: 4, english: 3, morality_law: 2, science: 2, physics: 3, chemistry: 3, biology: 2, history: 2, geography: 2, it: 1, pe: 3, music: 2, art: 2, labor: 1 }
 
 export function unitsOf(record) {
     const units = []
@@ -36,28 +33,4 @@ export function unitsOf(record) {
     }
     for (const unit of units) unit.hours = unit.lessons.reduce((sum, item) => sum + item.hours, 0)
     return units
-}
-
-// lay units over weeks: each unit starts where the previous one ended
-export function layout(units, { perWeek, weeks, review }) {
-    const teaching = Math.max(1, weeks - review)
-    const available = teaching * perWeek
-    let used = 0
-    const rows = units.map(unit => {
-        const start = Math.floor(used / perWeek) + 1
-        used += unit.hours
-        const end = Math.max(start, Math.ceil(used / perWeek))
-        return { ...unit, start, end }
-    })
-    return { rows, used, available, teaching, over: used - available }
-}
-
-export const weekLabel = (start, end) => (start === end ? `第 ${start} 周` : `第 ${start}–${end} 周`)
-
-export function dateOf(startDate, week) {
-    if (!startDate) return ''
-    const date = new Date(`${startDate}T00:00:00`)
-    if (Number.isNaN(date.getTime())) return ''
-    date.setDate(date.getDate() + (week - 1) * 7)
-    return `${date.getMonth() + 1}/${date.getDate()}`
 }

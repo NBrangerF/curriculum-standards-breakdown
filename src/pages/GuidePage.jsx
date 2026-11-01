@@ -17,23 +17,8 @@ const FLOWS = [
         to: '/lesson-plan', action: '打开 AI 备课'
     },
     {
-        id: 'check', title: '核验自己写的（或 AI 写的）教案', who: '教案检查、评优、公开课前',
-        steps: ['在 AI 备课选好这一课、核对要点后，切到「核验教案」。', '把教案全文贴进去（手边没有就先点示例试试）。', '看核验报告：哪些目标没有课标依据、哪些动词看不见、哪里超出课标限定、目标和活动评价是否对齐；报告可复制或下载 Word。'],
-        to: '/lesson-plan', action: '打开 AI 备课'
-    },
-    {
-        id: 'test', title: '出卷或布置作业前，编一张多维细目表', who: '单元测试、期中期末、作业设计',
-        steps: ['在 AI 备课选好教材单元（或一课）和要点，切到「核验试卷」。', '把试卷或作业贴进去，带题号和分值更好；整张期末卷也可以，会拆成几段同时读。', 'AI 逐题读出考查的要点、素养、层次和难度，程序编成细目表，并指出超出课标限定的题、没对上要点的题和漏考的要点。'],
-        to: '/lesson-plan', action: '打开 AI 备课'
-    },
-    {
-        id: 'term', title: '开学排教学进度', who: '每学期初的教学进度表',
-        steps: ['在学期进度表里选这学期的教材，填每周课时和学期周数。', '按单元排出周次，每个单元附 AI 判断的课标要点；课时可改，改动只存在你的浏览器里。', '复制表格或下载 Word 交给学校；每个单元都能直接打开单元设计。'],
-        to: '/schedule', action: '打开学期进度表'
-    },
-    {
         id: 'review', title: '初三按课标复习', who: '九年级 · 中考复习',
-        steps: ['在中考复习地图里选学科。', '每条初中课标后面列出它在七、八、九年级哪一单元教过，并附课标原文里的学业要求。', '按课标把三年的内容串起来复习；出复习卷前用「核验试卷」查覆盖和超标。'],
+        steps: ['在中考复习地图里选学科。', '每条初中课标后面列出它在七、八、九年级哪一单元教过，并附课标原文里的学业要求。', '按课标把三年的内容串起来复习。'],
         to: '/review', action: '打开中考复习地图'
     },
     {
@@ -53,9 +38,9 @@ export default function GuidePage() {
     return (
         <div className={`container ${concepts.page}`}>
             <header className={concepts.hero}>
-                <p className={concepts.kicker}>上手指南 · 八个常用场景</p>
+                <p className={concepts.kicker}>上手指南 · 五个常用场景</p>
                 <h1 className={concepts.title}>五分钟学会用 kebiao 备课</h1>
-                <p className={concepts.lede}>kebiao 从你手上的教材出发，把每一步都对到《义务教育课程标准（2022年版2025年修订）》的原文和页码。下面是一周里最常用的八件事，每件三步。AI 做的判断都标「待核验」，发现不对，点旁边的「报错」或<Link to="/feedback">告诉我们</Link>。</p>
+                <p className={concepts.lede}>kebiao 从你手上的教材出发，把每一步都对到《义务教育课程标准（2022年版2025年修订）》的原文和页码。下面是一周里最常用的五件事，每件三步。AI 做的判断都标「待核验」，发现不对，点旁边的「报错」或<Link to="/feedback">告诉我们</Link>。</p>
                 <ul className={styles.jump} aria-label="场景">
                     {FLOWS.map(flow => <li key={flow.id}><a href={`#guide-${flow.id}`}>{flow.title}</a></li>)}
                 </ul>
@@ -72,7 +57,7 @@ export default function GuidePage() {
                     </li>
                 ))}
             </ol>
-            <p className={concepts.footnote}>网站不需要注册。草稿、进度表的改动只保存在你自己的浏览器里；贴进来的教案和试卷只用于这一次核验，请删去学生姓名等个人信息。</p>
+            <p className={concepts.footnote}>网站不需要注册。草稿只保存在你自己的浏览器里；写学情时请不要写学生姓名等个人信息。</p>
         </div>
     )
 }

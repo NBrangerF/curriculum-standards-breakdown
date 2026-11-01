@@ -67,7 +67,15 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     await expect(picked).toBeChecked()
     await expect(page.getByRole('checkbox', { name: /等式的基本性质/ })).not.toBeChecked()
     await expect(page.getByText('AI 判断：不切题：讲的是等式的性质，不是分数')).toBeVisible()
-    await expect(page.getByRole('link', { name: /分数的基本性质/ }).filter({ hasText: '分数的基本性质' }).first()).toBeVisible()
+    // the lesson's own 同步课 is one line in the lesson card; the subject note and the 核验 tabs are gone
+    await expect(page.getByRole('link', { name: '分数的基本性质', exact: true })).toHaveAttribute('href', /basic\.smartedu\.cn.*activityId=L1/u)
+    await expect(page.getByText('数学课标怎么组织内容')).toHaveCount(0)
+    await expect(page.getByRole('tab', { name: '核验教案' })).toHaveCount(0)
+    await expect(page.getByRole('tab', { name: '核验试卷' })).toHaveCount(0)
+    // the 常用学情 chips sit below the 学情 box, not over it
+    const notes = await page.getByPlaceholder(/班级整体情况/).boundingBox()
+    const chips = await page.getByRole('button', { name: '两极分化明显' }).boundingBox()
+    expect(chips.y).toBeGreaterThanOrEqual(notes.y + notes.height)
 
     await page.context().grantPermissions(['clipboard-read', 'clipboard-write'])
     await page.getByRole('button', { name: '复制成提示词' }).click()
@@ -178,41 +186,6 @@ test('概念词典: a word is found by any of its names; a term page lists the o
     await expect(practice.getByRole('link', { name: '识字与写字 · 学段要求 4（1–2 年级）' })).toHaveAttribute('href', '/standards/CN-S1-LW-04')
 })
 
-test('核验我的教案 reads a pasted plan and shows what to fix', async ({ page }) => {
-    await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(context)) }))
-    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [{ code: 'MA-S3-NA-01', grade: 2, reason: '比较分数大小', point: 'MA-S3-NA-01.3' }] })) }))
-    let sent = null
-    await page.route('**/api/v1/lesson-plans/check', route => {
-        sent = route.request().postDataJSON()
-        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({
-            read: { frame: { title: '分数的基本性质', objectives: [{ id: 'O1', text: '理解分数的基本性质', basis: ['MA-S3-NA-01.3'], kind: '' }, { id: 'O2', text: '培养核心素养', basis: [], kind: '' }], assessments: [] }, process: null, notes: [] },
-            checks: [{ level: 'risk', kind: 'beyond_standard', message: '教案里出现了「循环小数」，而课标写明不包括将循环小数转化成分数，可能超标，请核对。' }, { level: 'risk', kind: 'no_basis', message: '目标 2 没有对应的课标要点。' }],
-            evidence,
-            privacy: { redacted: false },
-            model: 'gpt-5-mini'
-        })) })
-    })
-    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&lesson=L1`)
-    await expect(page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })).toBeChecked()
-    await page.getByRole('tab', { name: '核验教案' }).click()
-    await page.getByRole('button', { name: /先用一份示例试试/ }).click()
-    await expect(page.getByPlaceholder(/把教案贴在这里/)).toHaveValue(/1\. 了解分数的基本性质的主要内容。/)
-    await page.getByPlaceholder(/把教案贴在这里/).fill('教学目标：1. 理解分数的基本性质；2. 培养核心素养。拓展：循环小数化分数。')
-    await page.getByRole('button', { name: /对照选定的 1 条要点核验/ }).click()
-    await expect(page.getByRole('heading', { name: /核验报告/ })).toBeVisible()
-    await expect(page.getByText(/2 处需要修改/)).toBeVisible()
-    await expect(page.getByText('没有对应的要点')).toBeVisible()
-    expect(sent.indicator_codes).toEqual(['MA-S3-NA-01.3'])
-    await page.context().grantPermissions(['clipboard-read', 'clipboard-write'])
-    await page.getByRole('button', { name: '复制报告' }).click()
-    const text = await page.evaluate(() => navigator.clipboard.readText())
-    expect(text).toContain('教案核验报告：分数的基本性质')
-    expect(text).toContain('2 处需要修改')
-    const download = page.waitForEvent('download')
-    await page.getByRole('button', { name: '下载 Word' }).click()
-    expect((await download).suggestedFilename()).toBe('分数的基本性质-核验报告.doc')
-})
-
 test('the AI reads the grade\'s standards for a lesson; the teacher hint reruns only that step', async ({ page }) => {
     const picks = []
     let contextCalls = 0
@@ -249,8 +222,10 @@ test('单元整体设计: a whole textbook unit is planned over its own lessons,
             prior_knowledge: [], connections: ''
         }, checks: [{ level: 'ok', kind: 'aligned', message: '每条单元目标都有课标要点依据、评价任务，并排进了具体课时；课时合计与设定一致。' }], evidence, privacy: { redacted: false }, model: 'gpt-5-mini' })) })
     })
-    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&chapter=${encodeURIComponent('4 分数的意义和性质')}`)
+    // an old 「核验单元测试卷」 link (task=test) now opens the unit design itself
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&chapter=${encodeURIComponent('4 分数的意义和性质')}&task=test`)
     await expect(page.getByRole('heading', { name: /单元整体设计/ }).first()).toBeVisible()
+    await expect(page.getByRole('tab', { name: '核验单元测试卷' })).toHaveCount(0)
     await expect(page.getByRole('combobox').nth(2)).toHaveValue('chapter::4 分数的意义和性质')
     // the 单元设计框架 lists the unit's own lessons, with no AI
     const frameDownload = page.waitForEvent('download')
@@ -275,42 +250,6 @@ test('单元整体设计: a whole textbook unit is planned over its own lessons,
     expect(sent.step).toBe('unit')
     expect(sent.unit_lessons).toEqual(['分数的意义', '分数的基本性质'])
     expect(sent.unit_hours).toBe(4)
-})
-
-test('核验单元测试卷: a pasted test becomes a 多维细目表 with the 超标 question named', async ({ page }) => {
-    const unitContext = { ...context, lesson: { ...lesson, title: '分数的意义和性质', unit_title: '4 分数的意义和性质', lesson_id: null }, unit_lessons: [{ id: 'L0', title: '分数的意义', section: null, pdf_page: 50, hours: 2 }, { id: 'L1', title: '分数的基本性质', section: null, pdf_page: 62, hours: 2 }] }
-    await page.route('**/api/v1/lesson-plans/textbooks/*/lessons', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ platform_title: '小学数学人教版五年级下册', confidence: 'text', lessons: [{ id: 'L0', title: '分数的意义', chapters: ['4 分数的意义和性质'], pdf_page: 50, materials: [], url: '' }, { id: 'L1', title: '分数的基本性质', chapters: ['4 分数的意义和性质'], pdf_page: 62, materials: [], url: '' }] })) }))
-    await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(unitContext)) }))
-    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [{ code: 'MA-S3-NA-01', grade: 2, reason: '分数', point: 'MA-S3-NA-01.3' }] })) }))
-    let sent = null
-    await page.route('**/api/v1/lesson-plans/check-test', route => {
-        sent = route.request().postDataJSON()
-        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({
-            read: { questions: [
-                { no: '1', quote: '把 6/8 化成最简分数', score: 20, type: '填空题', points: ['MA-S3-NA-01.3'], literacy: ['运算能力'], level: '掌握', difficulty: '易' },
-                { no: '2', quote: '把循环小数 0.333… 化成分数', score: 10, type: '填空题', points: ['MA-S3-NA-01.3'], literacy: ['数感'], level: '运用', difficulty: '难' }
-            ], beyond: [], total: 30, dropped: 0 },
-            table: { unit: 'score', weight_total: 30, literacy: ['数感', '运算能力', '推理意识'], levels: ['了解', '理解', '掌握', '运用'], level_source: '数学课标附录 2「有关行为动词的分类」（修订版第 185 页）', rows: [{ code: 'MA-S3-NA-01.3', text: '能比较两个分数的大小', questions: ['1', '2'], score: 30, by_level: { 了解: [], 理解: [], 掌握: ['1'], 运用: ['2'] } }], score: 30, by_level: { 掌握: 20, 运用: 10 }, by_difficulty: { 易: 20, 难: 10 }, by_type: { 填空题: 30 }, by_literacy: { 运算能力: 20, 数感: 10 } },
-            checks: [{ level: 'risk', kind: 'beyond_standard', message: '第 2 题出现了「循环小数」，而课标写明不包括将循环小数转化成分数，可能超标，请核对。' }],
-            evidence,
-            parts: 2,
-            privacy: { redacted: false },
-            model: 'gpt-5-mini'
-        })) })
-    })
-    // the textbook unit page links here with task=test
-    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&chapter=${encodeURIComponent('4 分数的意义和性质')}&task=test`)
-    await expect(page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })).toBeChecked()
-    await expect(page.getByRole('tab', { name: '核验单元测试卷' })).toHaveAttribute('aria-selected', 'true')
-    await page.getByLabel(/单元测试卷全文/).fill('一、填空题（共 30 分）\n1. 把 6/8 化成最简分数。（20 分）\n2. 把循环小数 0.333… 化成分数。（10 分）')
-    await page.getByRole('button', { name: /对照选定的 1 条要点编细目表/ }).click()
-    await expect(page.getByRole('heading', { name: /多维细目表：分数的意义和性质/ })).toBeVisible()
-    await expect(page.getByText(/第 2 题出现了「循环小数」/)).toBeVisible()
-    await expect(page.getByText(/分 2 段同时读/)).toBeVisible()
-    await expect(page.getByRole('columnheader', { name: '运用' }).first()).toBeVisible()
-    await expect(page.getByText(/没有考到：推理意识/)).toBeVisible()
-    expect(sent.indicator_codes).toEqual(['MA-S3-NA-01.3'])
-    expect(sent.lesson).toMatchObject({ title: '分数的意义和性质', subject_slug: 'math' })
 })
 
 test('跨学科主题库: a subject and grade show its own themes and other subjects\' themes that draw on it', async ({ page }) => {
@@ -375,22 +314,6 @@ test('教资课标速记 lists each 课标\'s 课程理念 with pages and lets a
     await expect(page.getByText('注重“教—学—评”一体化设计')).toBeVisible()
 })
 
-test('学期进度表 lays a textbook\'s units over the weeks, warns when hours run over, and keeps edits', async ({ page }) => {
-    await page.goto('/schedule?subject=%E5%8E%86%E5%8F%B2&edition=ed_2860489fc83ddeb6cec5')
-    await expect(page.getByRole('heading', { name: /历史8年级上册 教学进度表/ })).toBeVisible()
-    // 第二次鸦片战争 is its own lesson, not merged into 鸦片战争
-    const first = page.getByRole('row').filter({ hasText: '第一单元' })
-    await expect(first.getByText('鸦片战争、第二次鸦片战争、太平天国运动')).toBeVisible()
-    await expect(first.getByRole('link', { name: '备这个单元' })).toHaveAttribute('href', /chapter=%E7%AC%AC%E4%B8%80%E5%8D%95%E5%85%83/)
-    await expect(page.getByRole('status')).toContainText('还有')
-    await page.getByLabel('每周课时').fill('1')
-    await expect(page.getByRole('status')).toContainText('超出')
-    await first.getByRole('spinbutton').fill('6')
-    await page.reload()
-    await expect(page.getByRole('row').filter({ hasText: '第一单元' }).getByRole('spinbutton')).toHaveValue('6')
-    await expect(page.getByLabel('每周课时')).toHaveValue('1')
-})
-
 test('a standard page lists, under each 要点, the lessons that teach it', async ({ page }) => {
     await page.goto('/standards/HI-S4-MC-02')
     const section = page.locator('#standard-textbook-units')
@@ -436,10 +359,10 @@ test('a textbook page maps each chapter\'s lessons to the 要点 they teach', as
 test('上手指南 lists the weekly workflows with a way into each', async ({ page }) => {
     await page.goto('/guide')
     await expect(page.getByRole('heading', { name: '五分钟学会用 kebiao 备课' })).toBeVisible()
-    await expect(page.locator('#guide-test').getByRole('heading', { name: '出卷或布置作业前，编一张多维细目表' })).toBeVisible()
-    await expect(page.locator('#guide-term').getByRole('link', { name: '打开学期进度表' })).toHaveAttribute('href', '/schedule')
-    await page.goto('/')
-    await expect(page.getByRole('region', { name: '考前把课标读懂' }).getByRole('link', { name: /上手指南/ })).toHaveAttribute('href', '/guide')
+    await expect(page.locator('#guide-unit').getByRole('link', { name: '打开 AI 备课' })).toHaveAttribute('href', '/lesson-plan')
+    await expect(page.locator('#guide-term')).toHaveCount(0)
+    await expect(page.getByText('核验试卷')).toHaveCount(0)
+    await expect(page.getByRole('navigation', { name: '备课栏目' }).getByRole('link', { name: '上手指南' })).toHaveAttribute('href', '/guide')
 })
 
 test('a textbook page lists its 国家平台 units with 要点 and a way into each unit design', async ({ page }) => {
@@ -448,7 +371,8 @@ test('a textbook page lists its 国家平台 units with 要点 and a way into ea
     await map.getByRole('navigation', { name: '选一章' }).getByRole('button', { name: /4 分数的意义和性质/ }).click()
     await expect(map.getByRole('heading', { name: '4 分数的意义和性质' })).toBeVisible()
     await expect(map.getByRole('link', { name: '备这个单元' })).toHaveAttribute('href', /chapter=4/)
-    await expect(page.getByRole('link', { name: '排学期进度' }).first()).toHaveAttribute('href', /\/schedule\?/)
+    await expect(page.getByRole('link', { name: '排学期进度' })).toHaveCount(0)
+    await expect(page.getByRole('link', { name: '核验单元测试卷' })).toHaveCount(0)
 })
 
 test('AI 备课 opens on the textbook a teacher picked last time', async ({ page }) => {

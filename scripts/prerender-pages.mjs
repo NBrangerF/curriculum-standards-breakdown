@@ -281,7 +281,7 @@ ${section('对应的课程标准', list(aligned))}`, {
         if (!book.edition_id.startsWith('pf_') && !hasAlignment(book.edition_id)) continue
         const record = readJson(`textbooks/national-lessons/${book.edition_id}.json`)
         const tableCrumbs = book.edition_id.startsWith('pf_')
-            ? [['首页', '/'], ['教材与课标对应', '/textbook-alignment'], [`${book.title}（${book.edition_name}）`, `/textbooks/${book.edition_id}/standards`]]
+            ? [...crumbs, [`${book.title}（${book.edition_name}）`, `/textbooks/${book.edition_id}/standards`]]
             : [...crumbs, [book.title, `/textbooks/${book.edition_id}`], ['课标对应表', `/textbooks/${book.edition_id}/standards`]]
         const byUnit = new Map()
         for (const lesson of record.lessons) {
@@ -300,8 +300,7 @@ ${section('对应的课程标准', list(aligned))}`, {
 <p class="kbp-kicker">课标对应表 · ${esc(book.edition_name)} · ${esc(book.title)}</p>
 <h1>这本书的每一课，教的是哪几条课标要点</h1>
 <p class="kbp-lede">${book.edition_id.startsWith('pf_') ? 'AI 逐课读了国家平台上这一课的课题，以及能找到的教学设计、学习任务单或课件（这一版教材馆里没有原书）' : 'AI 逐课读了这一课的教材原文（或国家平台教学设计里的教学目标）'}，对照本年级课标的全部要点判断「主要在教」和「也涉及」，每条附这一课材料的原话。机器判断，待核验。</p>
-${[...byUnit].map(([unit, lessons]) => section(unit, list([...lessons].map(([title, item]) => `<strong>${esc(title)}</strong><br>${rows(item.align)}`)))).join('')}
-<p>${link('/textbook-alignment', '这张表是怎么做的')}</p>`, { jsonLd: [breadcrumbs(tableCrumbs)] })
+${[...byUnit].map(([unit, lessons]) => section(unit, list([...lessons].map(([title, item]) => `<strong>${esc(title)}</strong><br>${rows(item.align)}`)))).join('')}`, { jsonLd: [breadcrumbs(tableCrumbs)] })
     }
 
     for (const unit of units) {
@@ -423,14 +422,9 @@ function staticPages() {
     add(STATIC_PAGE_META['/glossary'], `<h1>术语表</h1>${terms.map(term => `<section><h2>${esc(term.term)}</h2><p>${esc(term.definition)}</p></section>`).join('')}`)
     add(STATIC_PAGE_META['/api'], `<h1>开放 API</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/api'].description)}</p><p>${link('/api/v1/docs', '查看 API 文档')}</p>`)
     add(STATIC_PAGE_META['/contact'], `<h1>联系我们</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/contact'].description)}</p>`)
-    add(STATIC_PAGE_META['/lesson-plan'], `<h1>AI 备课：从教材的一课起草有课标依据的教案</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/lesson-plan'].description)}</p><p>AI 只按你勾选的课标要点写，每条目标标出依据编码；写完后逐条核验：有没有超出课标写明的限定，目标有没有对应的教学环节和评价任务。可复制、下载 Word、打印。</p><p>还可以贴入自己的教案逐条核验，或贴入单元测试卷、作业：AI 逐题读出考查的要点、素养、层次和难度，程序编成多维细目表，并查超出课标限定的题、没有考到的要点和分值比例。</p>`)
-    add(STATIC_PAGE_META['/guide'], `<h1>五分钟学会用 kebiao 备课</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/guide'].description)}</p><p>${link('/lesson-plan', 'AI 备课')} · ${link('/schedule', '学期进度表')} · ${link('/review', '中考复习地图')} · ${link('/concepts', '概念词典')} · ${link('/experiments', '必做实验清单')}</p>`)
+    add(STATIC_PAGE_META['/lesson-plan'], `<h1>AI 备课：从教材的一课起草有课标依据的教案</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/lesson-plan'].description)}</p><p>AI 只按你勾选的课标要点写，每条目标标出依据编码；写完后逐条核验：有没有超出课标写明的限定，目标有没有对应的教学环节和评价任务。可复制、下载 Word、打印。</p>`)
+    add(STATIC_PAGE_META['/guide'], `<h1>五分钟学会用 kebiao 备课</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/guide'].description)}</p><p>${link('/lesson-plan', 'AI 备课')} · ${link('/review', '中考复习地图')} · ${link('/concepts', '概念词典')} · ${link('/experiments', '必做实验清单')}</p>`)
     add(STATIC_PAGE_META['/review'], `<h1>中考复习地图</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/review'].description)}</p>`)
-    const coverage = existsSync(join(DATA, 'textbooks/alignment_coverage.json')) ? readJson('textbooks/alignment_coverage.json').subjects : []
-    add(STATIC_PAGE_META['/textbook-alignment'], `<h1>教材的每一课，教的是课标的哪几条要点</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/textbook-alignment'].description)}</p>
-${section('怎么对的', '<ol><li>按国家平台同步课的课题，在原书里顺着书页找到这一课的几页；扫描版先做文字识别。</li><li>读这一课自己的材料：教材原文、国家平台教学设计的教学目标、课程简介。</li><li>AI 对照本年级的全部课标要点，判断「主要在教」（这一课的目标，最多两条）和「也涉及」。</li><li>每一条都要摘这一课材料里的原话；原话不在材料里的，一律不算。</li></ol>')}
-${section('馆里的教材教到了课标的多少', list(coverage.flatMap(subject => subject.stages.filter(stage => stage.books.length).map(stage => `${esc(subject.name)} ${stage.grades[0]}–${stage.grades.at(-1)} 年级：${stage.points} 条要点，${stage.taught.length} 条有一课主要在教，${stage.touched.length} 条只是涉及`))))}`)
-    add(STATIC_PAGE_META['/schedule'], `<h1>学期教学进度表</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/schedule'].description)}</p>`)
     add(STATIC_PAGE_META['/smart-search'], `<h1>智能检索</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/smart-search'].description)}</p>`)
 }
 

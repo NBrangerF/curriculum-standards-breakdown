@@ -54,6 +54,37 @@
     margin-top: 1.2rem;
 }
 
+/* 这张表是怎么做的, folded */
+.method {
+    max-width: 46rem;
+    margin-top: 1.1rem;
+    color: var(--kb-mist);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.method summary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--kb-gold);
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: rgba(233, 200, 135, 0.5);
+    text-underline-offset: 3px;
+}
+
+.method ol {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0.4rem 0 0;
+    padding-left: 1.4em;
+}
+
+.method li::marker { color: var(--kb-gold); }
+.method strong { color: var(--kb-moon); }
+.method p { margin: 0.7rem 0 0; }
+
 .unit {
     margin-top: 2rem;
     scroll-margin-top: 128px;
@@ -305,89 +336,6 @@
     margin-left: 0.5rem;
     color: var(--kb-dim);
     font-size: 0.8rem;
-}
-
-/* 教材与课标对应: coverage by subject and 学段 */
-.coverage {
-    display: grid;
-    gap: 0.9rem;
-    margin-top: 1rem;
-}
-
-.coverageRow {
-    display: grid;
-    grid-template-columns: minmax(7rem, 10rem) 1fr;
-    gap: 0.4rem 1rem;
-    align-items: center;
-}
-
-.coverageRow > span {
-    color: var(--kb-moon);
-    font-size: 0.92rem;
-}
-
-.bar {
-    display: flex;
-    height: 0.6rem;
-    overflow: hidden;
-    border-radius: 999px;
-    background: var(--kb-line);
-}
-
-.bar i {
-    display: block;
-    height: 100%;
-}
-
-.bar i[data-kind='T'] {
-    background: var(--kb-gold);
-}
-
-.bar i[data-kind='P'] {
-    background: var(--kb-dim);
-}
-
-.coverageNote {
-    grid-column: 2;
-    margin: 0;
-    color: var(--kb-dim);
-    font-size: 0.8rem;
-}
-
-.coverageNote a {
-    color: var(--kb-gold);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-}
-
-.legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 1.2rem;
-    margin: 0.8rem 0 0;
-    color: var(--kb-dim);
-    font-size: 0.8rem;
-}
-
-.legend i {
-    display: inline-block;
-    width: 0.8rem;
-    height: 0.8rem;
-    margin-right: 0.35rem;
-    border-radius: 3px;
-    vertical-align: -0.1rem;
-}
-
-.legend i[data-kind='T'] {
-    background: var(--kb-gold);
-}
-
-.legend i[data-kind='P'] {
-    background: var(--kb-dim);
-}
-
-.legend i[data-kind='none'] {
-    background: var(--kb-line);
 }
 
 @media (max-width: 640px) {

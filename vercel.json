@@ -25,6 +25,16 @@
             ]
         }
     ],
+    "redirects": [
+        {
+            "source": "/schedule",
+            "has": [{ "type": "query", "key": "edition", "value": "(?<edition>ed_[0-9a-f]+)" }],
+            "destination": "/textbooks/:edition",
+            "permanent": true
+        },
+        { "source": "/schedule", "destination": "/textbooks", "permanent": true },
+        { "source": "/textbook-alignment", "destination": "/textbooks", "permanent": true }
+    ],
     "rewrites": [
         {
             "source": "/api/v1/:path*",

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { unitsOf } from '../features/schedule/scheduleModel'
+import { unitsOf } from '../features/textbooks/platformUnits'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft'
 import { BookOpenTextIcon } from '@phosphor-icons/react/dist/csr/BookOpenText'
@@ -161,7 +161,6 @@ export default function TextbookDetailPage() {
                         <div className={styles.actions}>
                             <Link className="btn btn-primary" to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>用这本书备课 →</Link>
                             {platformUnits.length ? <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/standards`}>课标对应表</Link> : null}
-                            <Link className="btn btn-secondary" to={`/schedule?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>排学期进度</Link>
                             <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/read`}><BookOpenTextIcon size={18} aria-hidden="true" /> 看原书</Link>
                         </div>
                     </div>
@@ -187,7 +186,6 @@ export default function TextbookDetailPage() {
                             <div className={styles.mapUnitHead}>
                                 <h3>{mapUnit.name}</h3>
                                 <Link to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&chapter=${encodeURIComponent(mapUnit.chapter)}`}>备这个单元</Link>
-                                <Link to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&chapter=${encodeURIComponent(mapUnit.chapter)}&task=test`}>核验单元测试卷</Link>
                             </div>
                             {points ? <UnitMap book={book} unit={mapUnit} points={points} /> : <p className={styles.muted}>正在载入课标要点…</p>}
                         </div>
@@ -231,12 +229,10 @@ export default function TextbookDetailPage() {
                                         <p className={styles.unitActions}>
                                             {unit.points.slice(0, 3).map(code => <Link key={code} className={styles.unitCode} to={`/standards/${code.replace(/\.\d+$/u, '')}#${code}`}>{code}</Link>)}
                                             <Link to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&chapter=${encodeURIComponent(unit.chapter)}`}>备这个单元</Link>
-                                            <Link to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&chapter=${encodeURIComponent(unit.chapter)}&task=test`}>核验单元测试卷</Link>
                                         </p>
                                     </li>
                                 ))}
                             </ol>
-                            <p className={styles.platformMore}><Link to={`/schedule?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>把这些单元排进学期进度表</Link></p>
                         </section>
                     ) : null}
 

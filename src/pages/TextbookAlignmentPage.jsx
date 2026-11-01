@@ -15,6 +15,15 @@ import styles from './TextbookAlignmentPage.module.css'
 // Teachers start from the book; the 课标 comes to them lesson by lesson.
 const esc = value => String(value ?? '').replace(/[&<>"]/gu, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[char]))
 
+// 「这张表是怎么做的」, folded under the header: how a lesson was matched, and how the matches were checked
+const METHOD = [
+    ['找到这一课在原书的哪几页', '按国家平台同步课的课题，在原书里顺着书页往后找标题，跳过目录、单元导语和附录；扫描版教材先做文字识别。5,447 节课里 4,711 节找到了自己的页。'],
+    ['读这一课自己的材料', '教材原文那几页；国家平台教学设计里写的教学目标和重难点；没找到原书文字的课，再读学习任务单或课件；平台的课程简介。都没有的，只读课题。'],
+    ['对照本年级的全部要点', 'AI 读这门课这个年级的全部课标要点（历史按这一册的时期），判断这一课「主要在教」哪几条——这一课的教学目标，最多两条——和「也涉及」哪几条。'],
+    ['每一条都要有原话为证', 'AI 必须从这一课的材料里摘一段原话说明理由。系统逐条核对：原话不在材料里的、摘的是课标原文而不是教材的，一律不算。']
+]
+const ACCURACY = '先在 12 门学科里选了 14 课，用另一个大模型（Claude）按课标原文标出每课该对的要点，再和这里的结果比较：全部跑完后，13 课里有 11 课找到了这一课该教的要点；标「主要在教」的 16 条里，13 条一致。再由 Claude 按学科随机抽样、逐条读这一课的材料和要点原文核对：馆里的书抽了 61 条「主要在教」，53 条对，5 条部分对（应是「也涉及」，或同一条标准下有更贴切的要点），3 条错；试点版本抽了 66 条，59 条对，6 条部分对，1 条错；只凭课题判断的另抽了 20 条，14 条对，3 条部分对，3 条错，错的都是「练习一」「试一试」这类不说明内容的课题，这类对应已不采用。错的多在同一条标准下相近的要点之间，比如讲正比例的课选了「比」，讲方向和距离的课选了「比例尺」。这些检查都还没有经过老师或教研员复核；「也涉及」放得宽，只作参考。所以页面上的对应都标着「待核验」，看到不对的请点「报错」；教研员可以下载每本书的审校表逐条核对，核对过的会标「教研员已核验」。'
+
 async function loadJson(url) {
     const response = await fetch(url)
     if (!response.ok) throw new Error('对应表数据加载失败')
@@ -108,7 +117,7 @@ export default function TextbookAlignmentPage() {
 
     return (
         <div className={`container ${concepts.page}`}>
-            <p className={styles.back}>{book.platform_only ? <Link to="/textbook-alignment">← 教材与课标对应</Link> : <Link to={`/textbooks/${book.edition_id}`}>← {book.title}</Link>}</p>
+            <p className={styles.back}>{book.platform_only ? <Link to="/textbooks">← 选教材</Link> : <Link to={`/textbooks/${book.edition_id}`}>← {book.title}</Link>}</p>
             <header className={concepts.hero}>
                 <p className={concepts.kicker}>课标对应表 · {book.edition_name} · {book.title}</p>
                 <h1 className={concepts.title}>这本书的每一课，教的是哪几条课标要点</h1>
@@ -125,9 +134,12 @@ export default function TextbookAlignmentPage() {
                 <div className={styles.actions}>
                     <button type="button" className="btn btn-primary" onClick={() => { downloadWord(book, units, points); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'alignment' }) }}>下载 Word 对应表</button>
                     <button type="button" className="btn btn-secondary" onClick={() => { downloadReviewSheet(book, units, points); trackUmamiEvent('lesson_plan_export', { format: 'csv', kind: 'alignment_review' }) }}>下载审校表</button>
-                    {book.platform_only ? null : <Link className="btn btn-secondary" to={`/schedule?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>排学期进度表</Link>}
-                    <Link className="btn btn-secondary" to="/textbook-alignment">这张表是怎么做的</Link>
                 </div>
+                <details className={styles.method}>
+                    <summary>这张表是怎么做的</summary>
+                    <ol>{METHOD.map(([title, text]) => <li key={title}><strong>{title}</strong>：{text}</li>)}</ol>
+                    <p><strong>准不准</strong>：{ACCURACY}</p>
+                </details>
             </header>
 
             {units.length > 1 ? (

@@ -203,6 +203,8 @@
     gap: 0.5rem;
 }
 
+.topicRow button { white-space: nowrap; }
+
 .small {
     margin: 0.75rem 0 0;
     color: var(--kb-dim);
@@ -248,6 +250,29 @@
     font-size: 0.85rem;
     text-decoration: none;
 }
+
+/* 国家平台同步课: one line in the lesson card */
+.sync {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.8rem;
+    align-items: baseline;
+    margin: 0.55rem 0 0;
+    color: var(--kb-dim);
+    font-size: 0.85rem;
+}
+
+.sync a {
+    display: inline-flex;
+    gap: 0.2rem;
+    align-items: center;
+    color: var(--kb-moon);
+    text-decoration: underline;
+    text-decoration-color: rgba(233, 200, 135, 0.5);
+    text-underline-offset: 3px;
+}
+
+.sync small { font-size: 0.78rem; }
 
 .aiStatus {
     min-height: 1.5em;
@@ -359,67 +384,6 @@
     color: var(--kb-dim);
     font-size: 0.74rem;
     white-space: nowrap;
-}
-
-.sideGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: 0.75rem;
-    margin-top: 1rem;
-}
-
-.note {
-    padding: 0.9rem 1rem;
-    border: 1px solid var(--kb-line);
-    border-radius: var(--radius-md, 12px);
-    color: var(--kb-mist);
-    font-size: 0.86rem;
-    line-height: 1.75;
-}
-
-.note h3 {
-    margin: 0 0 0.4rem;
-    color: var(--kb-moon);
-    font-size: 0.95rem;
-}
-
-.note p {
-    margin: 0.35rem 0 0;
-}
-
-.chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-}
-
-.chips a {
-    padding: 0.1rem 0.6rem;
-    border: 1px solid var(--kb-line-strong);
-    border-radius: var(--radius-full, 999px);
-    color: var(--kb-gold);
-    font-size: 0.78rem;
-    text-decoration: none;
-}
-
-.national {
-    display: grid;
-    gap: 0.45rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.national a {
-    color: var(--kb-moon);
-    text-decoration-color: rgba(233, 200, 135, 0.5);
-    text-underline-offset: 3px;
-}
-
-.national span {
-    display: block;
-    color: var(--kb-dim);
-    font-size: 0.75rem;
 }
 
 .go {
@@ -683,6 +647,7 @@
 
 .doc th {
     background: rgba(37, 34, 28, 0.06);
+    white-space: nowrap;
 }
 
 .stages {
@@ -779,55 +744,6 @@
     }
 }
 
-/* 多维细目表 */
-.doc th,
-.doc .tight {
-    white-space: nowrap;
-}
-
-.doc tr[data-empty='true'] td {
-    color: #8a3b12;
-}
-
-.doc tfoot th,
-.doc tfoot td {
-    background: rgba(37, 34, 28, 0.04);
-    font-weight: 600;
-}
-
-.doc td code {
-    color: #6b4a10;
-    font-size: 0.78rem;
-    white-space: nowrap;
-}
-
-.testMix {
-    display: grid;
-    gap: 0.45rem;
-    margin: 0;
-}
-
-.testMix div {
-    display: grid;
-    grid-template-columns: 3.5em 1fr;
-    gap: 0.6rem;
-}
-
-.testMix dt {
-    color: var(--kb-paper-mute);
-    font-size: 0.85rem;
-}
-
-.testMix dd {
-    margin: 0;
-}
-
-.testMix small {
-    display: block;
-    margin-top: 0.2rem;
-    color: #8a3b12;
-}
-
 /* 试讲稿 */
 .cue {
     color: var(--kb-paper-mute);
@@ -879,25 +795,12 @@
     text-underline-offset: 3px;
 }
 
-.sample {
-    margin: -0.3rem 0 0.8rem;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: var(--kb-gold);
-    font: inherit;
-    font-size: 0.86rem;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    cursor: pointer;
-}
-
-/* 常用学情 */
+/* 常用学情, under the 学情 box (a gap above, so the chips never ride up over it) */
 .quickNotes {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
-    margin: -0.4rem 0 0.9rem;
+    gap: 0.4rem;
+    margin: 0.6rem 0 0;
 }
 
 .quickNotes button {

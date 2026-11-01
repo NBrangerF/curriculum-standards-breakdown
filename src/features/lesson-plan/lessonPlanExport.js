@@ -145,105 +145,6 @@ export function downloadUnitWord(plan) {
     setTimeout(() => URL.revokeObjectURL(url), 2000)
 }
 
-// ---------- 多维细目表 ----------
-const share = (part, whole) => (whole ? `${Math.round((part / whole) * 100)}%` : '—')
-const fmt = value => (Number.isInteger(value) ? String(value) : value.toFixed(1))
-
-// shares are of 分值, or of 题数 when the paper gives no scores
-export const testShare = (table, value) => share(value || 0, table.weight_total)
-
-export function testRows(report) {
-    const { table } = report
-    return table.rows.map(row => ({
-        code: row.code || '未对应',
-        text: row.text,
-        questions: row.questions.join('、') || '—',
-        score: table.unit === 'score' ? fmt(row.score) : `${fmt(row.score)} 题`,
-        share: testShare(table, row.score),
-        levels: table.levels.map(level => row.by_level[level]?.join('、') || '')
-    }))
-}
-
-export function testToText(report) {
-    const { read, table, checks, title } = report
-    const out = [`多维细目表：${title}`, `${read.questions.length} 道题${table.score ? ` · 共 ${fmt(table.score)} 分` : ''}`, '']
-    out.push(['要点', '题号', '分值', ...table.levels, '占比'].join('\t'))
-    for (const row of testRows(report)) out.push([`${row.code} ${row.text.slice(0, 30)}`, row.questions, row.score, ...row.levels, row.share].join('\t'))
-    out.push('', '逐题')
-    out.push(['题号', '题干', '题型', '分值', '要点', '素养', ...(table.levels.length ? ['层次'] : []), '难度'].join('\t'))
-    for (const item of read.questions) out.push([item.no, item.quote, item.type, item.score || '', item.points.join('、'), item.literacy.join('、'), ...(table.levels.length ? [item.level] : []), item.difficulty].join('\t'))
-    out.push('', '核验发现')
-    for (const item of checks) out.push(`· ${item.message}`)
-    if (table.level_source) out.push('', `层次依据：${table.level_source}`)
-    out.push('', '细目表由 AI 逐题读取、程序统计和核验（kebiao.org），请以课标原文为准。')
-    return out.join('\n')
-}
-
-export function downloadTestWord(report) {
-    const { read, table, checks, title } = report
-    const head = cells => `<tr>${cells.map(cell => `<th>${esc(cell)}</th>`).join('')}</tr>`
-    const row = cells => `<tr>${cells.map(cell => `<td>${esc(cell)}</td>`).join('')}</tr>`
-    const body = [
-        `<h1>多维细目表：${esc(title)}</h1>`,
-        `<p class="meta">${read.questions.length} 道题${table.score ? ` · 共 ${esc(fmt(table.score))} 分` : ''}</p>`,
-        '<h2>一、内容 × 层次</h2>',
-        `<table>${head(['要点', '题号', '分值', ...table.levels, '占比'])}${testRows(report).map(item => row([`${item.code} ${item.text}`, item.questions, item.score, ...item.levels, item.share])).join('')}</table>`,
-        table.level_source ? `<p class="page">层次依据：${esc(table.level_source)}</p>` : '',
-        '<h2>二、逐题</h2>',
-        `<table>${head(['题号', '题干', '题型', '分值', '要点', '素养', ...(table.levels.length ? ['层次'] : []), '难度'])}${read.questions.map(item => row([item.no, item.quote, item.type, item.score || '', item.points.join('、'), item.literacy.join('、'), ...(table.levels.length ? [item.level] : []), item.difficulty])).join('')}</table>`,
-        '<h2>三、核验发现</h2>',
-        `<ul>${checks.map(item => `<li>${esc(item.message)}</li>`).join('')}</ul>`,
-        '<p class="foot">细目表由 AI 逐题读取、程序统计和核验（kebiao.org），依据《义务教育课程标准（2022年版2025年修订）》，请以课标原文为准。</p>'
-    ].join('\n')
-    const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title><style>
-body{font-family:"SimSun","Songti SC",serif;font-size:12pt;line-height:1.6;margin:2cm}h1{font-size:16pt;text-align:center}h2{font-size:13pt;margin:14pt 0 4pt}
-.meta{text-align:center;color:#444}.page,.foot{color:#666;font-size:9.5pt}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:3pt 5pt;vertical-align:top;font-size:10pt}th{background:#eee}
-</style></head><body>${body}</body></html>`
-    const blob = new Blob(['﻿', html], { type: 'application/msword' })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = `${String(title || '试卷').replace(/[\\/:*?"<>|]/gu, '')}-多维细目表.doc`
-    document.body.appendChild(link)
-    link.click()
-    link.remove()
-    setTimeout(() => URL.revokeObjectURL(url), 2000)
-}
-
-// ---------- 核验报告 (a teacher's own plan, checked) ----------
-function reportLines(report) {
-    const { read, checks, evidence, title } = report
-    const risks = checks.filter(item => item.level === 'risk').length
-    const warns = checks.filter(item => item.level === 'warn').length
-    const out = [`教案核验报告：${read.frame.title || title || ''}`, `${risks ? `${risks} 处需要修改` : '没有必须修改的地方'}${warns ? `，${warns} 处建议` : ''}`, '', '一、核验发现']
-    for (const item of checks) out.push(`· ${item.message}${item.quote ? `（${item.quote}）` : ''}`)
-    out.push('', '二、教学目标与对应的课标要点')
-    read.frame.objectives.forEach((item, index) => out.push(`${index + 1}. ${item.text}　→ ${item.basis.length ? item.basis.join('、') : '没有对应的要点'}`))
-    out.push('', '三、依据的课标原文（义务教育课程标准 2022年版2025年修订）')
-    for (const item of evidence) out.push(`${item.code}　${item.text}（修订版第 ${item.pages.join('、')} 页）`)
-    out.push('', 'AI 只负责把教案整理成目标、评价和环节，并判断每条目标对应哪条要点；超标、目标—活动—评价是否一致由程序对照课标原文检查（kebiao.org）。结果供参考，以课标原文为准。')
-    return out
-}
-
-export function reportToText(report) {
-    return reportLines(report).join('\n')
-}
-
-export function downloadReportWord(report) {
-    const lines = reportLines(report)
-    const body = lines.map((line, index) => (index === 0 ? `<h1>${esc(line)}</h1>` : /^[一二三]、/u.test(line) ? `<h2>${esc(line)}</h2>` : line ? `<p>${esc(line)}</p>` : '')).join('\n')
-    const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(lines[0])}</title><style>body{font-family:"SimSun","Songti SC",serif;font-size:12pt;line-height:1.7;margin:2cm}h1{font-size:16pt;text-align:center}h2{font-size:13pt;margin:14pt 0 4pt}</style></head><body>${body}</body></html>`
-    const blob = new Blob(['\ufeff', html], { type: 'application/msword' })
-    const url = URL.createObjectURL(blob)
-    const link = document.createElement('a')
-    link.href = url
-    link.download = `${(report.read.frame.title || '教案').replace(/[\\/:*?"<>|]/gu, '')}-核验报告.doc`
-    document.body.appendChild(link)
-    link.click()
-    link.remove()
-    setTimeout(() => URL.revokeObjectURL(url), 2000)
-}
-
 // ---------- 说课稿 / 试讲稿: a heading per section, paragraphs as written ----------
 export function downloadScriptWord(title, sections, fileName) {
     const body = [`<h1>${esc(title)}</h1>`, ...sections.flatMap(({ heading, text }) => [`<h2>${esc(heading)}</h2>`, ...String(text).split(/\n+/u).filter(Boolean).map(line => `<p>${esc(line)}</p>`)])].join('\n')
@@ -409,7 +310,7 @@ ul{margin:2pt 0 6pt;padding-left:1.2em}.code{white-space:nowrap;font-size:9.5pt}
 <h2>一、课标依据</h2>
 ${basis}
 ${body}
-<p class="foot">课标依据逐字摘自《义务教育课程标准（2022年版2025年修订）》（kebiao.org）。写好后可以贴回 kebiao.org/lesson-plan 的「核验教案」，对照课标逐条核验。</p>
+<p class="foot">课标依据逐字摘自《义务教育课程标准（2022年版2025年修订）》（kebiao.org）。</p>
 </body></html>`
 }
 

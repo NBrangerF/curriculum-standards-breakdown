@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { Routes, Route, useParams } from 'react-router-dom'
+import { Navigate, Routes, Route, useParams, useSearchParams } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import Header from './components/Header'
@@ -40,7 +40,6 @@ const TextbookReaderPage = lazy(() => import('./pages/TextbookReaderPage'))
 const TextbookResourceReaderPage = lazy(() => import('./pages/TextbookResourceReaderPage'))
 const TextbookUnitPage = lazy(() => import('./pages/TextbookUnitPage'))
 const TextbookAlignmentPage = lazy(() => import('./pages/TextbookAlignmentPage'))
-const TextbookAlignmentOverviewPage = lazy(() => import('./pages/TextbookAlignmentOverviewPage'))
 const LearningResourceLibraryPage = lazy(() => import('./pages/LearningResourceLibraryPage'))
 const LearningResourceDetailPage = lazy(() => import('./pages/LearningResourceDetailPage'))
 const ConceptsPage = lazy(() => import('./pages/ConceptsPage'))
@@ -50,7 +49,6 @@ const LessonPlanPage = lazy(() => import('./pages/LessonPlanPage'))
 const InterdisciplinaryPage = lazy(() => import('./pages/InterdisciplinaryPage'))
 const ExperimentsPage = lazy(() => import('./pages/ExperimentsPage'))
 const TeacherExamPage = lazy(() => import('./pages/TeacherExamPage'))
-const SchedulePage = lazy(() => import('./pages/SchedulePage'))
 const ReviewMapPage = lazy(() => import('./pages/ReviewMapPage'))
 const GuidePage = lazy(() => import('./pages/GuidePage'))
 const StandardsHubPage = lazy(() => import('./pages/StandardsHubPage'))
@@ -59,6 +57,13 @@ const StandardsHubPage = lazy(() => import('./pages/StandardsHubPage'))
 function StandardRoute() {
     const { code } = useParams()
     return isV2Code(code) ? <StandardV2Page /> : <LegacyStandardRedirect code={code} />
+}
+
+// 学期进度表 (/schedule) is gone: an old link opens its book (vercel.json redirects the same way for full page loads)
+function ScheduleRedirect() {
+    const [params] = useSearchParams()
+    const edition = params.get('edition') || ''
+    return <Navigate to={/^ed_[0-9a-f]+$/u.test(edition) ? `/textbooks/${edition}` : '/textbooks'} replace />
 }
 
 function lazyPage(element, message) {
@@ -91,7 +96,7 @@ function App() {
                     <Route path="/learning-resources/:resourceId" element={route('learningResourceDetail', lazyPage(<LearningResourceDetailPage />, '正在打开学习资源'))} />
                     <Route path="/textbooks/:editionId/read" element={route('textbookReader', lazyPage(<TextbookReaderPage />, '正在打开教材阅读器'))} />
                     <Route path="/textbooks/:editionId/standards" element={route('textbookAlignment', lazyPage(<TextbookAlignmentPage />, '正在整理课标对应表'))} />
-                    <Route path="/textbook-alignment" element={route('textbookAlignmentOverview', lazyPage(<TextbookAlignmentOverviewPage />, '正在统计教材覆盖'))} />
+                    <Route path="/textbook-alignment" element={<Navigate to="/textbooks" replace />} />
                     <Route path="/textbooks/:editionId" element={route('textbookDetail', lazyPage(<TextbookDetailPage />, '正在打开教材详情'))} />
                     <Route path="/textbook-resources/:resourceId/read" element={route('textbookResourceReader', lazyPage(<TextbookResourceReaderPage />, '正在打开支持资源阅读器'))} />
                     <Route path="/textbook-units/:unitId" element={route('textbookUnit', lazyPage(<TextbookUnitPage />, '正在整理教材单元'))} />
@@ -101,7 +106,7 @@ function App() {
                     <Route path="/lesson-plan" element={route('lessonPlan', lazyPage(<LessonPlanPage />, '正在打开 AI 备课'))} />
                     <Route path="/guide" element={route('guide', lazyPage(<GuidePage />, '正在打开上手指南'))} />
                     <Route path="/review" element={route('reviewMap', lazyPage(<ReviewMapPage />, '正在打开中考复习地图'))} />
-                    <Route path="/schedule" element={route('schedule', lazyPage(<SchedulePage />, '正在打开学期进度表'))} />
+                    <Route path="/schedule" element={<ScheduleRedirect />} />
                     <Route path="/teacher-exam" element={route('teacherExam', lazyPage(<TeacherExamPage />, '正在打开教资课标速记'))} />
                     <Route path="/experiments" element={route('experiments', lazyPage(<ExperimentsPage />, '正在打开必做实验清单'))} />
                     <Route path="/interdisciplinary" element={route('interdisciplinary', lazyPage(<InterdisciplinaryPage />, '正在打开跨学科主题库'))} />

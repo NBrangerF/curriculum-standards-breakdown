@@ -3,7 +3,7 @@ import styles from './MyBookCard.module.css'
 
 const enc = encodeURIComponent
 
-/** 「我的书」 with the three things a teacher does next: prepare a lesson, see its 课标对应表, plan the term. */
+/** 「我的书」 with the two things a teacher does next: prepare a lesson, see its 课标对应表. */
 export default function MyBookCard({ book, onChange, className = '' }) {
     const lesson = book.lesson
     // pilot editions have no PDF and no AI 备课 lesson list; their 课标对应表 is the whole of what they offer
@@ -34,7 +34,6 @@ export default function MyBookCard({ book, onChange, className = '' }) {
                             {lesson?.title ? `接着备「${lesson.title}」` : '用这本书备课'} →
                         </Link>
                         <Link className="btn btn-secondary" to={`/textbooks/${book.edition}/standards`}>课标对应表</Link>
-                        <Link className="btn btn-secondary" to={`/schedule?${query}`}>排学期进度</Link>
                     </>
                 )}
             </div>
