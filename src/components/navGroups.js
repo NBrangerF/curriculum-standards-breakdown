@@ -15,9 +15,10 @@ export const NAV_GROUPS = [
         key: 'prep',
         label: '备课',
         to: '/lesson-plan',
-        owns: ['/lesson-plan', '/review', '/experiments', '/interdisciplinary', '/guide', '/alignment-workbench'],
+        owns: ['/lesson-plan', '/checks', '/review', '/experiments', '/interdisciplinary', '/guide', '/alignment-workbench'],
         items: [
             { to: '/lesson-plan', label: 'AI 备课' },
+            { to: '/checks', label: '课堂诊断' },
             { to: '/review', label: '中考复习地图' },
             { to: '/experiments', label: '必做实验' },
             { to: '/interdisciplinary', label: '跨学科主题' },

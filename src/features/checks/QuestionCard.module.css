@@ -1,0 +1,181 @@
+/* A question as it will look on the projector: a paper slip on the night page. */
+.card {
+    display: grid;
+    align-content: start;
+    gap: 0.75rem;
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid var(--kb-line);
+    border-radius: 12px;
+    background: var(--kb-surface);
+}
+
+.selected {
+    border-color: var(--kb-gold);
+    box-shadow: 0 0 0 1px var(--kb-gold) inset;
+}
+
+.head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 0.7rem;
+}
+
+.type {
+    padding: 0.05rem 0.5rem;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: 99px;
+    color: var(--kb-mist);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    white-space: nowrap;
+}
+
+.topic {
+    margin: 0;
+    color: var(--kb-moon);
+    font-size: 1.02rem;
+    font-weight: 700;
+}
+
+.slip {
+    display: grid;
+    gap: 0.55rem;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    background: var(--kb-paper);
+    color: var(--kb-paper-ink);
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.slip p {
+    margin: 0;
+}
+
+.stem {
+    font-weight: 700;
+}
+
+.work {
+    padding-left: 0.7rem;
+    border-left: 3px solid #b8861b;
+}
+
+.choices {
+    display: grid;
+    gap: 0.3rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.choices li {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.choices li > span:first-child {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 1.45rem;
+    height: 1.45rem;
+    border-radius: 50%;
+    background: #b8861b;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.writeHint {
+    color: var(--kb-paper-mute);
+    font-size: 0.9rem;
+}
+
+.reveals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0;
+    color: var(--kb-mist);
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+.reveals b {
+    color: var(--kb-dim);
+    font-weight: 500;
+}
+
+.reveals span {
+    padding: 0 0.45rem;
+    border-radius: 4px;
+    background: var(--kb-surface-muted);
+}
+
+.answer {
+    color: var(--kb-mist);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+.answer summary {
+    color: var(--kb-dim);
+    cursor: pointer;
+}
+
+.answer p {
+    margin: 0.2rem 0 0;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.9rem;
+}
+
+.pick {
+    min-height: 34px;
+    padding: 0 0.9rem;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--kb-moon);
+    font: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.pick[aria-pressed="true"] {
+    border-color: var(--kb-gold);
+    background: var(--kb-accent-soft);
+    color: var(--kb-gold);
+}
+
+.pick:focus-visible,
+.present:focus-visible {
+    outline: 2px solid var(--kb-focus);
+    outline-offset: 2px;
+}
+
+.present {
+    color: var(--kb-gold);
+    font-size: 0.9rem;
+}
+
+.points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+}
+
+.points a {
+    color: var(--kb-dim);
+}

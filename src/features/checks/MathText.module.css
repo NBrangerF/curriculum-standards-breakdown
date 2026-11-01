@@ -1,0 +1,51 @@
+.math {
+    display: inline;
+}
+
+.visual {
+    display: inline;
+}
+
+.frac {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    vertical-align: middle;
+    margin: 0 0.12em;
+    font-size: 0.86em;
+    line-height: 1.12;
+    text-align: center;
+}
+
+.num {
+    padding: 0 0.18em 0.06em;
+}
+
+.den {
+    padding: 0.06em 0.18em 0;
+    border-top: max(1px, 0.07em) solid currentColor;
+}
+
+.sup,
+.sub {
+    font-size: 0.66em;
+    line-height: 0;
+}
+
+.sqrt {
+    white-space: nowrap;
+}
+
+.radicand {
+    padding: 0 0.08em;
+    border-top: max(1px, 0.07em) solid currentColor;
+}
+
+.sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}

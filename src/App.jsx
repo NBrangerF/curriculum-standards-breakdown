@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { Navigate, Routes, Route, useParams, useSearchParams } from 'react-router-dom'
+import { Navigate, Routes, Route, useLocation, useParams, useSearchParams } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import Header from './components/Header'
@@ -52,6 +52,9 @@ const TeacherExamPage = lazy(() => import('./pages/TeacherExamPage'))
 const ReviewMapPage = lazy(() => import('./pages/ReviewMapPage'))
 const GuidePage = lazy(() => import('./pages/GuidePage'))
 const StandardsHubPage = lazy(() => import('./pages/StandardsHubPage'))
+const ChecksPage = lazy(() => import('./pages/ChecksPage'))
+const ChecksAfterPage = lazy(() => import('./pages/ChecksAfterPage'))
+const ChecksPresentPage = lazy(() => import('./pages/ChecksPresentPage'))
 
 // v2 codes (MA-S1-NA-01, MA-S1-NA-01.3) open the standard; old codes move to where their record now lives.
 function StandardRoute() {
@@ -75,6 +78,8 @@ function App() {
     const analyticsEnabled = import.meta.env.VITE_ENABLE_ANALYTICS === 'true'
     const speedInsightsEnabled = import.meta.env.VITE_ENABLE_SPEED_INSIGHTS === 'true'
     const umamiEnabled = isKebiaoProductionHost()
+    // the projector view fills the screen: no site header or footer around it
+    const bare = useLocation().pathname.startsWith('/checks/present')
     // saved lists made before the 2025 rebuild hold old codes; move them to the new standards
     useEffect(() => { migrateSavedCodes({ getCollections, saveCollections }).catch(() => {}) }, [])
 
@@ -82,7 +87,7 @@ function App() {
         <SkyProvider>
         <div className="app">
             <a className="skip-link" href="#main-content">跳到主要内容</a>
-            <Header />
+            {bare ? null : <Header />}
             <main className="main-content" id="main-content">
                 <DefaultPageMeta />
                 <Routes>
@@ -105,6 +110,9 @@ function App() {
                     <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />
                     <Route path="/lesson-plan" element={route('lessonPlan', lazyPage(<LessonPlanPage />, '正在打开 AI 备课'))} />
                     <Route path="/guide" element={route('guide', lazyPage(<GuidePage />, '正在打开上手指南'))} />
+                    <Route path="/checks" element={route('checks', lazyPage(<ChecksPage />, '正在打开课堂诊断'))} />
+                    <Route path="/checks/after" element={route('checksAfter', lazyPage(<ChecksAfterPage />, '正在打开批完就用'))} />
+                    <Route path="/checks/present" element={route('checksPresent', lazyPage(<ChecksPresentPage />, '正在准备放映'))} />
                     <Route path="/review" element={route('reviewMap', lazyPage(<ReviewMapPage />, '正在打开中考复习地图'))} />
                     <Route path="/schedule" element={<ScheduleRedirect />} />
                     <Route path="/teacher-exam" element={route('teacherExam', lazyPage(<TeacherExamPage />, '正在打开教资课标速记'))} />
@@ -129,7 +137,7 @@ function App() {
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </main>
-            <Footer />
+            {bare ? null : <Footer />}
             {analyticsEnabled ? <Analytics /> : null}
             {analyticsEnabled || umamiEnabled ? <UiTelemetryListener /> : null}
             {umamiEnabled ? <UmamiRouteTelemetry /> : null}

@@ -1,0 +1,819 @@
+/* Projector view: one 16:9 stage that scales like a slide (all sizes in cqh, 1% of the stage height),
+   letterboxed on 4:3 projectors. White by default because most classrooms are lit; 黑底 for dim rooms. */
+.root {
+    --bg: #fbfaf7;
+    --ink: #15181e;
+    --muted: #5b6270;
+    --line: #d5d9e0;
+    --card: #fff;
+    --paper: #f4f0e5;
+    --accent: #b8861b;
+    --accent-strong: #855c0c;
+    --accent-ink: #fff;
+    --accent-soft: #f5ead0;
+    --good: #19744a;
+    --good-soft: #e0f1e7;
+    --bad: #b03826;
+    --bad-soft: #fae3dd;
+    --letterbox: #1b1e24;
+
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: var(--letterbox);
+    color: var(--ink);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+}
+
+.root[data-theme="dark"] {
+    --bg: #0b0e14;
+    --ink: #eef1f5;
+    --muted: #a6afbd;
+    --line: #2d3544;
+    --card: #121722;
+    --paper: #171d2a;
+    --accent: #e9c887;
+    --accent-strong: #e9c887;
+    --accent-ink: #1a1408;
+    --accent-soft: rgb(233 200 135 / 14%);
+    --good: #6fd39b;
+    --good-soft: rgb(111 211 155 / 14%);
+    --bad: #ff9a86;
+    --bad-soft: rgb(255 154 134 / 14%);
+    --letterbox: #000;
+}
+
+/* the site styles headings and paragraphs for its night pages; on a slide they follow the slide's ink */
+.stage :is(h1, h2, h3, p, li) {
+    color: inherit;
+    font-family: inherit;
+    letter-spacing: normal;
+}
+
+.stageWrap {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+}
+
+.stage {
+    position: relative;
+    width: min(100vw, calc(100vh * 16 / 9));
+    height: min(100vh, calc(100vw * 9 / 16));
+    overflow: hidden;
+    background: var(--bg);
+    container-type: size;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: 2.6cqh;
+    padding: 4.4cqh 6cqh 5cqh;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    gap: 3cqh;
+    color: var(--muted);
+    font-size: 3cqh;
+    line-height: 1.3;
+}
+
+.count {
+    color: var(--accent-strong);
+    font-weight: 700;
+}
+
+.count small {
+    color: var(--muted);
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.body {
+    display: grid;
+    gap: 3cqh;
+    min-height: 0;
+    align-content: start;
+}
+
+.revealSlide .body {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 4cqh;
+}
+
+.ask {
+    display: grid;
+    align-content: start;
+    gap: 3cqh;
+    min-width: 0;
+}
+
+.stem {
+    margin: 0;
+    font-size: 6.2cqh;
+    font-weight: 700;
+    line-height: 1.38;
+    text-wrap: balance;
+}
+
+.revealSlide .stem {
+    font-size: 4.4cqh;
+}
+
+.stemSmall {
+    margin: 0;
+    font-size: 5cqh;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+/* answer choices */
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4cqh;
+}
+
+.optionsList {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.8cqh;
+}
+
+.option {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2cqh 2.2cqh;
+    min-height: 11cqh;
+    padding: 2cqh 2.6cqh;
+    border: 0.35cqh solid var(--line);
+    border-radius: 1.8cqh;
+    background: var(--card);
+    font-size: 5.2cqh;
+    line-height: 1.3;
+    overflow: hidden;
+}
+
+.optionsList .option {
+    min-height: 0;
+    padding-block: 1.5cqh;
+    font-size: 4.6cqh;
+}
+
+.revealSlide .option {
+    min-height: 0;
+    padding: 1.3cqh 2cqh;
+    font-size: 3.7cqh;
+    gap: 0.8cqh 1.6cqh;
+}
+
+.optionText {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.badge {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-size: 0.86em;
+    font-weight: 800;
+}
+
+.writeAnswers .badge {
+    width: auto;
+    height: auto;
+    padding: 0.4cqh 1.6cqh;
+    border-radius: 99px;
+    font-size: 2.6cqh;
+    font-weight: 700;
+}
+
+.right {
+    border-color: var(--good);
+    background: var(--good-soft);
+}
+
+.right .badge {
+    background: var(--good);
+    color: #fff;
+}
+
+.wrong .optionText {
+    color: var(--muted);
+}
+
+.wrong .badge {
+    background: var(--line);
+    color: var(--ink);
+}
+
+.mark {
+    flex: none;
+    width: 1.2em;
+    height: 1.2em;
+    margin-left: auto;
+}
+
+.right .mark,
+.right > h3 .mark {
+    color: var(--good);
+}
+
+.wrong .mark,
+.wrong > h3 .mark {
+    color: var(--bad);
+}
+
+.caption {
+    flex-basis: 100%;
+    color: var(--bad);
+    font-size: 2.7cqh;
+    line-height: 1.35;
+}
+
+.captionTop {
+    padding: 0.6cqh 1.2cqh;
+    border-radius: 0.8cqh;
+    background: var(--bad-soft);
+    font-weight: 700;
+}
+
+/* 同意吗 */
+.judge {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3cqh;
+}
+
+.judgeOption {
+    flex-direction: column;
+    justify-content: center;
+    min-height: 22cqh;
+    font-size: 5.6cqh;
+    text-align: center;
+}
+
+.judgeOption .optionText {
+    flex: none;
+}
+
+.judgeOption .mark {
+    margin: 0;
+}
+
+.revealSlide .judgeOption {
+    min-height: 0;
+    flex-direction: row;
+    font-size: 4cqh;
+}
+
+.thumb {
+    width: 1.8em;
+    height: 1.8em;
+    color: var(--accent);
+}
+
+.revealSlide .thumb {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.work {
+    display: grid;
+    gap: 0.6cqh;
+    padding: 2.2cqh 3cqh;
+    border-left: 0.8cqh solid var(--accent);
+    border-radius: 0 1.6cqh 1.6cqh 0;
+    background: var(--paper);
+    font-size: 4.8cqh;
+    line-height: 1.45;
+}
+
+.revealSlide .work {
+    font-size: 3.6cqh;
+    padding-block: 1.4cqh;
+}
+
+.work p {
+    margin: 0;
+}
+
+.workWho {
+    color: var(--muted);
+    font-size: 0.6em;
+}
+
+/* 哪一步错 */
+.steps {
+    display: grid;
+    gap: 1.6cqh;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stepRow {
+    min-height: 0;
+    padding-block: 1.4cqh;
+    font-size: 4.6cqh;
+}
+
+.revealSlide .stepRow {
+    font-size: 3.6cqh;
+}
+
+.stepWrong {
+    border-color: var(--bad);
+    background: var(--bad-soft);
+}
+
+.stepWrong .badge {
+    background: var(--bad);
+    color: #fff;
+}
+
+/* 写答案 */
+.writeBox {
+    display: grid;
+    gap: 2cqh;
+}
+
+.writePrompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2cqh;
+    margin: 0;
+    padding: 5cqh 3cqh;
+    border: 0.4cqh dashed var(--line);
+    border-radius: 2cqh;
+    color: var(--muted);
+    font-size: 4.4cqh;
+}
+
+.writePrompt svg {
+    width: 1.3em;
+    height: 1.3em;
+    color: var(--accent);
+}
+
+.writeAnswers {
+    display: grid;
+    gap: 1.6cqh;
+}
+
+.writeTally {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6cqh;
+}
+
+.writeTallyItem {
+    position: relative;
+    min-width: 22cqh;
+    padding: 1.2cqh 2cqh 6cqh;
+    border: 0.3cqh solid var(--line);
+    border-radius: 1.4cqh;
+    background: var(--card);
+    font-size: 3.2cqh;
+    overflow: hidden;
+}
+
+/* counts per answer, added by the teacher (C, or keys 1–4) */
+.option > :not(.tallyBar) {
+    position: relative;
+    z-index: 1;
+}
+
+.tallyBar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    background: var(--accent-soft);
+    transition: width 0.2s ease;
+}
+
+.right .tallyBar {
+    background: rgb(25 116 74 / 16%);
+}
+
+.tally {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 1cqh;
+}
+
+.mark + .tally {
+    margin-left: 0;
+}
+
+.optionText + .tally,
+.thumb ~ .tally {
+    margin-left: auto;
+}
+
+.tallyNum {
+    color: var(--accent-strong);
+    font-size: 0.62em;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.tallyButtons {
+    display: flex;
+    gap: 0.6cqh;
+}
+
+.tallyButtons button {
+    min-width: 4.4cqh;
+    height: 4.4cqh;
+    padding: 0 0.8cqh;
+    border: 0.25cqh solid var(--line);
+    border-radius: 0.8cqh;
+    background: var(--bg);
+    color: var(--ink);
+    font: inherit;
+    font-size: 2.4cqh;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.tallyButtons button:focus-visible {
+    outline: 0.4cqh solid var(--accent);
+}
+
+/* 正确做法 beside the revealed question */
+.solution {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4cqh;
+    align-self: start;
+    max-height: 100%;
+    padding: 3cqh 3.4cqh;
+    border-radius: 2cqh;
+    background: var(--paper);
+    font-size: 3.7cqh;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+.solution h3 {
+    margin: 0;
+    color: var(--good);
+    font-size: 3cqh;
+}
+
+.solution p {
+    margin: 0;
+}
+
+.solution .discuss {
+    margin-top: 1cqh;
+    padding-top: 1.4cqh;
+    border-top: 0.25cqh solid var(--line);
+    color: var(--muted);
+    font-size: 2.8cqh;
+}
+
+.foot {
+    display: flex;
+    justify-content: center;
+}
+
+.how {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.4cqh;
+    padding: 1.2cqh 2.8cqh;
+    border-radius: 99px;
+    background: var(--accent-soft);
+    color: var(--ink);
+    font-size: 3.2cqh;
+    font-weight: 600;
+}
+
+.how svg {
+    width: 1.3em;
+    height: 1.3em;
+    color: var(--accent-strong);
+}
+
+/* 比一比 */
+.contrast {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4cqh;
+    align-content: start;
+    min-height: 0;
+}
+
+.paper {
+    display: grid;
+    align-content: start;
+    gap: 1.2cqh;
+    padding: 3cqh 3.4cqh;
+    border: 0.35cqh solid var(--line);
+    border-radius: 2cqh;
+    background: var(--paper);
+    font-size: 4.2cqh;
+    line-height: 1.5;
+}
+
+.paper h3 {
+    display: flex;
+    align-items: center;
+    gap: 1.6cqh;
+    margin: 0 0 0.6cqh;
+    font-size: 3.6cqh;
+}
+
+.paper h3 .mark {
+    margin-left: 0;
+}
+
+.paper p {
+    margin: 0;
+}
+
+.paper.wrong {
+    border-color: var(--bad);
+}
+
+.paper.wrong p:not(.caption) {
+    color: var(--ink);
+}
+
+.paper .caption {
+    font-weight: 700;
+}
+
+/* 阶梯练习 */
+.ladder {
+    display: grid;
+    gap: 2.2cqh;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-content: start;
+}
+
+.ladder li {
+    display: grid;
+    grid-template-columns: 17cqh minmax(0, 1fr);
+    align-items: baseline;
+    gap: 0.8cqh 2.4cqh;
+    padding: 2.2cqh 3cqh;
+    border: 0.35cqh solid var(--line);
+    border-radius: 1.8cqh;
+    background: var(--card);
+    font-size: 4.2cqh;
+    line-height: 1.45;
+}
+
+.level {
+    color: var(--accent-strong);
+    font-size: 3cqh;
+    font-weight: 800;
+}
+
+.ladderQ {
+    min-width: 0;
+}
+
+.ladderA {
+    grid-column: 2;
+    color: var(--good);
+    font-size: 3.4cqh;
+    font-weight: 600;
+}
+
+/* 封面 */
+.cover {
+    grid-template-rows: none;
+    align-content: center;
+    gap: 3.6cqh;
+    padding-inline: 9cqh;
+}
+
+.coverKicker {
+    margin: 0;
+    color: var(--accent-strong);
+    font-size: 3.4cqh;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.coverTitle {
+    margin: 0;
+    font-size: 9cqh;
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+.coverTopics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4cqh;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.coverTopics li {
+    padding: 0.8cqh 2cqh;
+    border: 0.3cqh solid var(--line);
+    border-radius: 99px;
+    font-size: 3.2cqh;
+}
+
+.coverHow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.6cqh;
+}
+
+.coverHow p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 3.2cqh;
+}
+
+/* overlays */
+.timer {
+    position: absolute;
+    top: 3.6cqh;
+    right: 5cqh;
+    z-index: 3;
+    color: var(--accent-strong);
+    font-size: 8cqh;
+    font-weight: 800;
+}
+
+.timeUp {
+    color: var(--bad);
+}
+
+.blackout {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    background: #000;
+    cursor: pointer;
+}
+
+.toolbar {
+    position: absolute;
+    right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: max(12px, env(safe-area-inset-bottom, 0px));
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+    max-width: calc(100vw - 24px);
+    padding: 4px;
+    border-radius: 10px;
+    background: rgb(20 23 30 / 88%);
+    color: #eef1f5;
+    font-size: 13px;
+    transition: opacity 0.4s ease;
+}
+
+.idle .toolbar:not(:focus-within, :hover) {
+    opacity: 0;
+}
+
+.toolbar button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 36px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.toolbar button svg {
+    width: 18px;
+    height: 18px;
+}
+
+.toolbar button:hover,
+.toolbar button[aria-pressed="true"] {
+    background: rgb(255 255 255 / 14%);
+}
+
+.toolbar button:focus-visible {
+    outline: 2px solid #e9c887;
+    outline-offset: -2px;
+}
+
+.toolbar button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.page {
+    min-width: 54px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+.sep {
+    width: 1px;
+    height: 22px;
+    margin: 0 4px;
+    background: rgb(255 255 255 / 22%);
+}
+
+.notes {
+    position: absolute;
+    left: max(12px, env(safe-area-inset-left, 0px));
+    bottom: max(12px, env(safe-area-inset-bottom, 0px));
+    z-index: 11;
+    display: grid;
+    gap: 10px;
+    width: min(560px, calc(100vw - 24px));
+    max-height: 62vh;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: rgb(20 23 30 / 96%);
+    color: #eef1f5;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow: auto;
+}
+
+.notes header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.notes header span {
+    flex: 1;
+    min-width: 0;
+    color: #a6afbd;
+    font-size: 12px;
+}
+
+.notes header button {
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.notesBody {
+    display: grid;
+    gap: 10px;
+}
+
+.note {
+    padding-left: 10px;
+    border-left: 3px solid #e9c887;
+}
+
+.note b {
+    display: block;
+}
+
+.note p {
+    margin: 2px 0 0;
+    color: #c9d0db;
+}
+
+.noteKeys {
+    margin: 0;
+    color: #8b94a2;
+    font-size: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toolbar,
+    .tallyBar {
+        transition: none;
+    }
+}
