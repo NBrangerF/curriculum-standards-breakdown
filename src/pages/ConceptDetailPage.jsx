@@ -6,6 +6,7 @@ import { PageLoading, ErrorState } from '../components/StateComponents'
 import { conceptMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { loadConcepts, subjectName } from '../features/concepts/conceptsData'
+import ConceptsRail from '../features/concepts/ConceptsRail'
 import NotFoundPage from './NotFoundPage'
 import styles from './ConceptsPage.module.css'
 
@@ -32,107 +33,110 @@ export default function ConceptDetailPage() {
     const category = data.categories.find(item => item.id === term.category)
     const related = term.related.map(id => data.terms.find(item => item.id === id)).filter(Boolean)
     return (
-        <article className={`container ${styles.page}`}>
-            <nav className={styles.crumb} aria-label="面包屑">
-                <Link to="/">首页</Link><span>/</span><Link to="/concepts">概念词典</Link><span>/</span><span>{term.term}</span>
-            </nav>
-            <header className={styles.detailHead}>
-                <p className={styles.kicker}>{category?.label}</p>
-                <h1 className={styles.title}>{term.term}</h1>
-                {term.aliases.length ? <p className={styles.aliases}>也说：{term.aliases.join('、')}</p> : null}
-                <p className={styles.plain}>{term.plain}</p>
-                <p className={styles.plainSource}>kebiao 整理的大白话解释。依据见下方课标原文。</p>
-            </header>
+        <div className={`container ${styles.page} ${styles.layout}`}>
+            <ConceptsRail data={data} current={term.id} />
+            <article className={styles.article}>
+                <nav className={styles.crumb} aria-label="面包屑">
+                    <Link to="/concepts">概念词典</Link><span aria-hidden="true">/</span><span>{category?.label}</span>
+                </nav>
+                <header className={styles.termHead}>
+                    <h1 className={styles.title}>{term.term}</h1>
+                    {term.aliases.length ? <p className={styles.aliases}>也说：{term.aliases.join('、')}</p> : null}
+                    <p className={styles.plain}>{term.plain}</p>
+                    <p className={styles.plainSource}>kebiao 整理的大白话解释，依据见下方课标原文。</p>
+                </header>
 
-            {term.not_in_standards ? (
-                <p className={styles.callout}>修订版课标和课程方案里没有这个词。这里写的是它在教研中的通行用法，以及和课标的关系。</p>
-            ) : null}
+                {term.not_in_standards ? (
+                    <p className={styles.callout}>修订版课标和课程方案里没有这个词。这里写的是它在教研中的通行用法，以及和课标的关系。</p>
+                ) : null}
 
-            {term.quotes.length ? (
-                <section className={styles.section} aria-labelledby="concept-quotes">
-                    <h2 id="concept-quotes">课标原文</h2>
-                    <ul className={styles.quotes}>
-                        {term.quotes.map(quote => (
-                            <li key={`${quote.subject}-${quote.pages.join('-')}-${quote.text.slice(0, 8)}`}>
-                                <blockquote>{quote.text}</blockquote>
-                                <p className={styles.quoteSource}>{subjectLink(data, quote.subject)} · {pageLabel(quote.pages)}</p>
-                                {quote.note ? <p className={styles.quoteNote}>{quote.note}</p> : null}
-                            </li>
-                        ))}
-                    </ul>
-                    <p className={styles.small}>原文由修订版扫描件识别整理，已逐字核对；请以官方出版物为准。</p>
+                {term.quotes.length ? (
+                    <section className={styles.section} aria-labelledby="concept-quotes">
+                        <h2 id="concept-quotes">课标原文</h2>
+                        <ul className={styles.quotes}>
+                            {term.quotes.map(quote => (
+                                <li key={`${quote.subject}-${quote.pages.join('-')}-${quote.text.slice(0, 8)}`}>
+                                    <blockquote>{quote.text}</blockquote>
+                                    <p className={styles.quoteSource}>{subjectLink(data, quote.subject)} · {pageLabel(quote.pages)}</p>
+                                    {quote.note ? <p className={styles.quoteNote}>{quote.note}</p> : null}
+                                </li>
+                            ))}
+                        </ul>
+                        <p className={styles.small}>原文由修订版扫描件识别整理，已逐字核对；请以官方出版物为准。</p>
+                    </section>
+                ) : null}
+
+                {term.by_subject.length ? (
+                    <section className={styles.section} aria-labelledby="concept-subjects">
+                        <h2 id="concept-subjects">各学科怎么用</h2>
+                        <dl className={styles.bySubject}>
+                            {term.by_subject.map(item => (
+                                <div key={item.subject}><dt>{subjectLink(data, item.subject)}</dt><dd>{item.text}</dd></div>
+                            ))}
+                        </dl>
+                    </section>
+                ) : null}
+
+                <section className={styles.section} aria-labelledby="concept-use">
+                    <h2 id="concept-use">备课时怎么用</h2>
+                    <p className={styles.prose}>{term.how_to_use}</p>
+                    {term.id === 'interdisciplinary' ? <p className={styles.callout}>课标给出的跨学科主题，按学科和年级整理在<Link to="/interdisciplinary">跨学科主题库</Link>，每个主题都能直接交给 AI 备课。</p> : null}
+                    {['unit-design', 'big-unit'].includes(term.id) ? <p className={styles.callout}>从教材出发做一次：在 <Link to="/lesson-plan">AI 备课</Link>选好教材后，在「哪一课」里选「◆ 整个单元」，AI 会按这个单元在教材里的课时，起草大概念、基本问题、表现性任务和课时安排。想先看整学期，用<Link to="/schedule">学期进度表</Link>，每个单元都能直接打开单元设计。</p> : null}
+                    {term.id === 'test-blueprint' ? <p className={styles.callout}>把试卷或作业贴进 <Link to="/lesson-plan">AI 备课</Link>的「核验试卷」：AI 逐题读出细目表，程序查超标、漏考和比例。</p> : null}
                 </section>
-            ) : null}
 
-            {term.by_subject.length ? (
-                <section className={styles.section} aria-labelledby="concept-subjects">
-                    <h2 id="concept-subjects">各学科怎么用</h2>
-                    <dl className={styles.bySubject}>
-                        {term.by_subject.map(item => (
-                            <div key={item.subject}><dt>{subjectLink(data, item.subject)}</dt><dd>{item.text}</dd></div>
-                        ))}
-                    </dl>
-                </section>
-            ) : null}
+                {term.misreadings.length ? (
+                    <section className={styles.section} aria-labelledby="concept-misreadings">
+                        <h2 id="concept-misreadings">常见误解</h2>
+                        <ul className={styles.misreadings}>{term.misreadings.map(item => <li key={item}>{item}</li>)}</ul>
+                    </section>
+                ) : null}
 
-            <section className={styles.section} aria-labelledby="concept-use">
-                <h2 id="concept-use">备课时怎么用</h2>
-                <p className={styles.prose}>{term.how_to_use}</p>
-                {term.id === 'interdisciplinary' ? <p className={styles.callout}>课标给出的跨学科主题，按学科和年级整理在<Link to="/interdisciplinary">跨学科主题库</Link>，每个主题都能直接交给 AI 备课。</p> : null}
-                {['unit-design', 'big-unit'].includes(term.id) ? <p className={styles.callout}>从教材出发做一次：在 <Link to="/lesson-plan">AI 备课</Link>选好教材后，在「哪一课」里选「◆ 整个单元」，AI 会按这个单元在教材里的课时，起草大概念、基本问题、表现性任务和课时安排。想先看整学期，用<Link to="/schedule">学期进度表</Link>，每个单元都能直接打开单元设计。</p> : null}
-                {term.id === 'test-blueprint' ? <p className={styles.callout}>把试卷或作业贴进 <Link to="/lesson-plan">AI 备课</Link>的「核验试卷」：AI 逐题读出细目表，程序查超标、漏考和比例。</p> : null}
-            </section>
+                {term.examples.length || term.mentions.length ? (
+                    <section className={styles.section} aria-labelledby="concept-entries">
+                        <h2 id="concept-entries">在 kebiao 里看真实条目</h2>
+                        <ul className={styles.entries}>
+                            {term.examples.map(item => (
+                                <li key={item.code}>
+                                    <Link to={`/standards/${item.code}`}><code>{item.code}</code>{item.title}</Link>
+                                    <span>{item.why}</span>
+                                </li>
+                            ))}
+                            {term.mentions.map(item => (
+                                <li key={item.code}>
+                                    <Link to={`/standards/${item.code}`}><code>{item.code}</code>{item.title}</Link>
+                                    <span>原文提到「{item.word}」：……{item.excerpt}……</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+                ) : null}
 
-            {term.misreadings.length ? (
-                <section className={styles.section} aria-labelledby="concept-misreadings">
-                    <h2 id="concept-misreadings">常见误解</h2>
-                    <ul className={styles.misreadings}>{term.misreadings.map(item => <li key={item}>{item}</li>)}</ul>
-                </section>
-            ) : null}
+                {/* the comparison abroad helps some readers; it stays folded so the 课标 comes first */}
+                {term.abroad.length ? (
+                    <details className={styles.fold}>
+                        <summary>国外怎么处理同一件事<small>{term.abroad.length} 个对照</small></summary>
+                        <ul className={styles.abroad}>
+                            {term.abroad.map(item => (
+                                <li key={item.name}>
+                                    <strong>{item.url ? <a href={item.url} target="_blank" rel="noopener noreferrer">{item.name} <ArrowUpRightIcon size={13} aria-hidden="true" /></a> : item.name}</strong>
+                                    <span>{item.text}</span>
+                                </li>
+                            ))}
+                        </ul>
+                        <p className={styles.small}>对照只为帮助理解，不代表两边的要求相同。</p>
+                    </details>
+                ) : null}
 
-            {term.abroad.length ? (
-                <section className={styles.section} aria-labelledby="concept-abroad">
-                    <h2 id="concept-abroad">国外怎么处理同一件事</h2>
-                    <ul className={styles.abroad}>
-                        {term.abroad.map(item => (
-                            <li key={item.name}>
-                                <strong>{item.url ? <a href={item.url} target="_blank" rel="noopener noreferrer">{item.name} <ArrowUpRightIcon size={13} aria-hidden="true" /></a> : item.name}</strong>
-                                <span>{item.text}</span>
-                            </li>
-                        ))}
-                    </ul>
-                    <p className={styles.small}>对照只为帮助理解，不代表两边的要求相同。</p>
-                </section>
-            ) : null}
-
-            {term.examples.length || term.mentions.length ? (
-                <section className={styles.section} aria-labelledby="concept-entries">
-                    <h2 id="concept-entries">在 kebiao 里看真实条目</h2>
-                    <ul className={styles.entries}>
-                        {term.examples.map(item => (
-                            <li key={item.code}>
-                                <Link to={`/standards/${item.code}`}><code>{item.code}</code>{item.title}</Link>
-                                <span>{item.why}</span>
-                            </li>
-                        ))}
-                        {term.mentions.map(item => (
-                            <li key={item.code}>
-                                <Link to={`/standards/${item.code}`}><code>{item.code}</code>{item.title}</Link>
-                                <span>原文提到「{item.word}」：……{item.excerpt}……</span>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-            ) : null}
-
-            {related.length ? (
-                <section className={styles.section} aria-labelledby="concept-related">
-                    <h2 id="concept-related">相关概念</h2>
-                    <ul className={styles.chips}>
-                        {related.map(item => <li key={item.id}><Link to={`/concepts/${item.id}`}>{item.term}</Link></li>)}
-                    </ul>
-                </section>
-            ) : null}
-        </article>
+                {related.length ? (
+                    <section className={styles.section} aria-labelledby="concept-related">
+                        <h2 id="concept-related">相关概念</h2>
+                        <ul className={styles.chips}>
+                            {related.map(item => <li key={item.id}><Link to={`/concepts/${item.id}`}>{item.term}</Link></li>)}
+                        </ul>
+                    </section>
+                ) : null}
+            </article>
+        </div>
     )
 }

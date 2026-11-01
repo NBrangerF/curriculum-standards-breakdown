@@ -154,6 +154,30 @@ test('concept pages quote the 课标 with pages and link real standards', async 
     await expect(page.getByRole('link', { name: '1–2 年级' }).first()).toHaveAttribute('href', /\/standards\/SC-S1-/)
 })
 
+test('概念词典: a word is found by any of its names; a term page lists the others; 语文 reads 语文实践 → 学习任务群', async ({ page }) => {
+    await page.goto('/concepts')
+    const find = page.getByRole('searchbox', { name: '找一个词' })
+    await find.fill('双向细目表')
+    await expect(page.getByRole('link', { name: /^多维细目表/ })).toHaveAttribute('href', '/concepts/test-blueprint')
+    await expect(page.getByRole('heading', { name: '内容怎么组织' })).toHaveCount(0)
+    await find.fill('量子纠缠')
+    await expect(page.getByRole('status')).toContainText('词典里没有「量子纠缠」')
+
+    await page.goto('/concepts/big-ideas')
+    const rail = page.getByRole('navigation', { name: '概念词典目录' })
+    await expect(rail.getByRole('link', { name: '大概念', exact: true })).toHaveAttribute('aria-current', 'page')
+    await rail.getByRole('link', { name: '逆向设计' }).click()
+    await expect(page.getByRole('heading', { level: 1, name: '逆向设计' })).toBeVisible()
+
+    await page.goto('/concepts/subjects/chinese')
+    const practice = page.getByRole('region', { name: '识字与写字' })
+    await expect(practice.getByRole('heading', { name: /识字与写字/ })).toContainText('语文实践')
+    await expect(practice.getByText('学习任务群', { exact: true })).toBeVisible()
+    await expect(practice.getByRole('link', { name: '1–2 年级' }).first()).toHaveAttribute('href', '/standards/CN-S1-TG-01')
+    // 学段要求: several standards a stage, numbered as the 课标 numbers them
+    await expect(practice.getByRole('link', { name: '识字与写字 · 学段要求 4（1–2 年级）' })).toHaveAttribute('href', '/standards/CN-S1-LW-04')
+})
+
 test('核验我的教案 reads a pasted plan and shows what to fix', async ({ page }) => {
     await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(context)) }))
     await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [{ code: 'MA-S3-NA-01', grade: 2, reason: '比较分数大小', point: 'MA-S3-NA-01.3' }] })) }))
