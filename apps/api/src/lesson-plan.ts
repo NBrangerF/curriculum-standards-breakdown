@@ -443,8 +443,9 @@ function validatePractice(value: unknown, frame: Frame, codes: Set<string>): Pra
         return {
             kind: (str(record.kind, 4) === '检测' ? '检测' : '练习') as PracticeItem['kind'],
             level: ['基础', '变式', '提高'].find(level => str(record.level, 6).includes(level)) || '基础',
-            question: str(record.question, 500),
-            answer: str(record.answer, 400),
+            // the page and the Word files number the items; drop the model's own 「2.」 and 「参考答案：」
+            question: str(record.question, 500).replace(/^\d{1,2}\s*[.、．)）](?!\d)\s*/u, ''),
+            answer: str(record.answer, 400).replace(/^(参考答案|答案)\s*[:：]\s*/u, ''),
             code: codes.has(str(record.code, 24)) ? str(record.code, 24) : '',
             objective_id: objectiveIds.has(objective) ? objective : ''
         }

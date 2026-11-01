@@ -680,7 +680,7 @@ function readingModel(calls: string[]) {
         calls.push(String(body.messages[1].content))
         const content = system.includes('读懂这节课依据的课标要点')
             ? { points: [{ code: LIMITED, plain: '会比较分数大小、会转化', verbs: [{ word: '比较', meaning: '能说明理由地比较' }, { word: '掌握', meaning: '要点里没有这个词' }, { word: '能比较两个分数的大小和两个小数', meaning: '半句话，不是关键词' }], this_lesson: '本课只做同分母变形', textbook: '用教材的折纸例子', avoid: '不要讲循环小数' }, { code: 'MA-S9-ZZ-01.1', plain: '编造的要点' }], position: '承前启后', literacy: [{ name: '运算能力', look_for: '能说清每一步' }, { name: '编造的素养', look_for: '…' }] }
-            : { items: [{ kind: '练习', level: '基础', question: '2/3 = ?/12', answer: '8', code: LIMITED, objective_id: 'O2' }, { kind: '检测', level: '变式', question: '比较 3/4 和 5/8', answer: '3/4 大', code: 'MA-S1-ZZ-99.1', objective_id: 'O9' }, { kind: '检测', level: '提高', question: '', answer: 'x' }] }
+            : { items: [{ kind: '练习', level: '基础', question: '1. 2/3 = ?/12', answer: '参考答案：8', code: LIMITED, objective_id: 'O2' }, { kind: '检测', level: '变式', question: '1.5 米和 3/2 米一样长吗？', answer: '3/4 大', code: 'MA-S1-ZZ-99.1', objective_id: 'O9' }, { kind: '检测', level: '提高', question: '', answer: 'x' }] }
         return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 600, total_tokens: 1500 } }), { status: 200, headers: { 'content-type': 'application/json' } })
     }
 }
@@ -717,6 +717,10 @@ test('课标解读: the 要点 read for the teacher, with what comes before and 
     const practice = (await json(await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': CLASS_IP }, body: JSON.stringify({ ...request, step: 'practice', frame: frame() }) }))).data
     assert.equal(practice.practice.items.length, 2)
     assert.equal(practice.practice.items[1].code, '')
+    // the page numbers the items: the model's own 「1.」 and 「参考答案：」 go, a decimal at the start stays
+    assert.equal(practice.practice.items[0].question, '2/3 = ?/12')
+    assert.equal(practice.practice.items[0].answer, '8')
+    assert.equal(practice.practice.items[1].question, '1.5 米和 3/2 米一样长吗？')
     assert.equal(practice.practice.items[1].objective_id, '')
     assert.ok(!practice.checks.some((item: any) => item.message.includes('当堂检测')))
     assert.match(calls[1], /已定的目标与评价/)
