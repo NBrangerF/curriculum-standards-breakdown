@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { RELATION_LABELS, sourceLabel } from './alignmentModel'
+import { subjectOfCode } from '../../data/v2Data.js'
 import styles from './UnitMap.module.css'
 
 const enc = encodeURIComponent
@@ -152,6 +153,7 @@ function LessonDetail({ book, unit, lesson, points }) {
                             <p className={styles.rowHead}>
                                 <span className={relation === 'T' ? styles.tagT : styles.tagP}>{RELATION_LABELS[relation]}</span>
                                 <Link className={styles.code} to={standardHref(code)}>{code}</Link>
+                                <Link className={styles.graphLink} to={`/knowledge-graph/${subjectOfCode(code)}?focus=${code}`}>前后联系 →</Link>
                             </p>
                             <p className={styles.pointText}>{points.get(code)?.text || ''}</p>
                             {quote ? <p className={styles.paper}>“{quote}”<small>{sourceLabel(source, page)}</small></p> : null}

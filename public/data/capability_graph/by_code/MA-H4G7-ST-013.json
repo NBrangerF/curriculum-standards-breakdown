@@ -43,16 +43,136 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_adf20574ad64411f",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_7_down",
+        "tes_86316737841f5be8",
+        "textbook-node:tcn_223746e2e4866afc",
+        "textbook-unit:tcu_500c902721061b81"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据样本来推断总体,所以在设计抽样方案时,要注意样本对总体的代表性.简单随机抽样是一种基本且实用的抽样方法,它要求总体中的每一个个体都有相等的机会被抽到.",
+          "excerpt_hash": "c940299e8e8e6d29f8ae1c47eb43edbc9a439ea6ccb805f6abcd81f6cd7715af",
+          "pdf_page": 190,
+          "printed_page": "182",
+          "span_id": "tes_86316737841f5be8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2bc7462fe29658c0",
+        "lc_9894db711bc7281e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2bc7462fe29658c0",
+          "label": "识别并说出简单随机事件的概率的关键特征"
+        },
+        {
+          "component_id": "lc_9894db711bc7281e",
+          "label": "计算简单随机事件的概率"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_223746e2e4866afc",
+      "node_title": "根据样本来推断总体,所以在设计抽样方案时,要注意样本对总体的代表性.简单随机抽样是一种基本且实用的抽样方法,它要求总体中的每一个个体都有相等的机会被抽到.",
+      "pdf_page": 190,
+      "printed_page": "182",
+      "publication_status": "published",
+      "rationale": "教材练习“根据样本来推断总体,所以在设计抽样方案时,要注意样本对总体的代表性.简单随机抽样是一种基本且实用的抽样方法,它要求总体中的每一个个体都有相等的机会被抽到.”与课标 MA-H4G7-ST-013 的可教学小能力“识别并说出简单随机事件的概率的关键特征、计算简单随机事件的概率”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_500c902721061b81",
+      "unit_title": "第十二章 数据的收集、整理与描述"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ff514a8303968083",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_7_down",
+        "tes_ca3ac0b894d233b7",
+        "textbook-node:tcn_4a4e8111cc022714",
+        "textbook-unit:tcu_500c902721061b81"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "调查考察全体调查对象,抽样调查只考察部分调查对象.因为抽样调查是根据样本来推断总体,所以在设计抽样方案时,要注意样本对总体的代表性.简单随机抽样是一种基本且实用的抽样方法,它要求总体中的每一",
+          "excerpt_hash": "1b88e342d590a9aee9a37c7f5673e69a82969fe0d2769c10c487410f85a5ced4",
+          "pdf_page": 190,
+          "printed_page": "182",
+          "span_id": "tes_ca3ac0b894d233b7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2bc7462fe29658c0",
+        "lc_9894db711bc7281e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2bc7462fe29658c0",
+          "label": "识别并说出简单随机事件的概率的关键特征"
+        },
+        {
+          "component_id": "lc_9894db711bc7281e",
+          "label": "计算简单随机事件的概率"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4a4e8111cc022714",
+      "node_title": "调查考察全体调查对象,抽样调查只考察部分调查对象.因为抽样调查是根据样本来推断总体,所以在设计抽样方案时,要注意样本对总体的代表性.简单随机抽样是一种基本且实用的抽样方法,它要求总体中的每一",
+      "pdf_page": 190,
+      "printed_page": "182",
+      "publication_status": "published",
+      "rationale": "教材练习“调查考察全体调查对象,抽样调查只考察部分调查对象.因为抽样调查是根据样本来推断总体,所以在设计抽样方案时,要注意样本对总体的代表性.简单随机抽样是一种基本且实用的抽样方法,它要求总体中的每一”与课标 MA-H4G7-ST-013 的可教学小能力“识别并说出简单随机事件的概率的关键特征、计算简单随机事件的概率”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_500c902721061b81",
+      "unit_title": "第十二章 数据的收集、整理与描述"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_354d3746420b4236",
@@ -63,7 +183,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_48072359f7df"
+        "external_smartedu_2026_math_junior_grade_7_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +195,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d6ebc3492905c591",
       "textbook_grade": 7,
       "textbook_subject": "数学",
@@ -94,7 +214,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c5fa3c0e2226"
+        "external_smartedu_2026_math_junior_grade_7_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -106,7 +226,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_05b1d5ed90d78b81",
       "textbook_grade": 7,
       "textbook_subject": "数学",

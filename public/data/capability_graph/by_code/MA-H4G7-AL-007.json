@@ -43,16 +43,126 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_78a5dd870cf555c0",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_7_up",
+        "tes_205c304820a02e30",
+        "textbook-node:tcn_062556c77d8dcdd3",
+        "textbook-unit:tcu_18653a93f02b3f69"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择二进制的优越性.任务2 小组合作,研究二进制数的加法运算法则,并填写表1中的活动记录单.",
+          "excerpt_hash": "d442a1d95b443ee270c834353ad0ad431351c769039954ec8c4e02371373362a",
+          "pdf_page": 71,
+          "printed_page": "63",
+          "span_id": "tes_205c304820a02e30"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f1847ff1c2e4c47a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f1847ff1c2e4c47a",
+          "label": "用二次根式运算法则进行简单四则运算"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_062556c77d8dcdd3",
+      "node_title": "选择二进制的优越性.任务2 小组合作,研究二进制数的加法运算法则,并填写表1中的活动记录单.",
+      "pdf_page": 71,
+      "printed_page": "63",
+      "publication_status": "published",
+      "rationale": "教材练习“选择二进制的优越性.任务2 小组合作,研究二进制数的加法运算法则,并填写表1中的活动记录单.”与课标 MA-H4G7-AL-007 的可教学小能力“用二次根式运算法则进行简单四则运算”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_18653a93f02b3f69",
+      "unit_title": "第一章 有理数"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_fd0f046dae402fb5",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_7_up",
+        "tes_52c565f870557921",
+        "textbook-node:tcn_31e521aecc595dbe",
+        "textbook-unit:tcu_18653a93f02b3f69"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "讨论该进制数的加法运算法则.\u000e\u0004\u0002 任选下列主题之一进行研究1.国际数学教育大会是全球数学教育界水平最高、",
+          "excerpt_hash": "bb846f405edebdbccd7b30076212f8759802376eb6ca45d65f9adb2c1fbe4526",
+          "pdf_page": 72,
+          "printed_page": "64",
+          "span_id": "tes_52c565f870557921"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f1847ff1c2e4c47a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f1847ff1c2e4c47a",
+          "label": "用二次根式运算法则进行简单四则运算"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_31e521aecc595dbe",
+      "node_title": "讨论该进制数的加法运算法则.\u000e\u0004\u0002 任选下列主题之一进行研究1.国际数学教育大会是全球数学教育界水平最高、",
+      "pdf_page": 72,
+      "printed_page": "64",
+      "publication_status": "published",
+      "rationale": "教材练习“讨论该进制数的加法运算法则.\u000e\u0004\u0002 任选下列主题之一进行研究1.国际数学教育大会是全球数学教育界水平最高、”与课标 MA-H4G7-AL-007 的可教学小能力“用二次根式运算法则进行简单四则运算”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_18653a93f02b3f69",
+      "unit_title": "第一章 有理数"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_799dacb6d7766492",
@@ -63,7 +173,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_48072359f7df"
+        "external_smartedu_2026_math_junior_grade_7_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +185,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d6ebc3492905c591",
       "textbook_grade": 7,
       "textbook_subject": "数学",
@@ -94,7 +204,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c5fa3c0e2226"
+        "external_smartedu_2026_math_junior_grade_7_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -106,7 +216,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_05b1d5ed90d78b81",
       "textbook_grade": 7,
       "textbook_subject": "数学",

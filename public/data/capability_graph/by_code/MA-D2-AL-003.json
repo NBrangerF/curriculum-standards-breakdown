@@ -81,16 +81,346 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
     "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 6,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_08bf24cbff5bef40",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_3_up",
+        "tes_087619a2515242f6",
+        "textbook-node:tcn_6557c11a6b9c56d1",
+        "textbook-unit:tcu_755df4da6f5a9250"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "18 混合运算",
+          "excerpt_hash": "044b0f7044c4a8366b891855ba8be940ce345c800a5175ce0060c2d4db606db4",
+          "pdf_page": 23,
+          "printed_page": "18",
+          "span_id": "tes_087619a2515242f6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3eb2b4683402d78d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3eb2b4683402d78d",
+          "label": "进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_6557c11a6b9c56d1",
+      "node_title": "18混合运算",
+      "pdf_page": 23,
+      "printed_page": "18",
+      "publication_status": "published",
+      "rationale": "教材课文“18混合运算”与课标 MA-D2-AL-003 的可教学小能力“进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_755df4da6f5a9250",
+      "unit_title": "二、混合运算"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_185c289937d078df",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_3_up",
+        "tes_e9dd4df643b7d431",
+        "textbook-node:tcn_c3ca113b433f67af",
+        "textbook-unit:tcu_755df4da6f5a9250"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "8 混合运算",
+          "excerpt_hash": "3ea03499257d4ebb2fae37badd72b8a8da73e374a695f06aedaf869c47456fa1",
+          "pdf_page": 13,
+          "printed_page": "8",
+          "span_id": "tes_e9dd4df643b7d431"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3eb2b4683402d78d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3eb2b4683402d78d",
+          "label": "进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c3ca113b433f67af",
+      "node_title": "8混合运算",
+      "pdf_page": 13,
+      "printed_page": "8",
+      "publication_status": "published",
+      "rationale": "教材课文“8混合运算”与课标 MA-D2-AL-003 的可教学小能力“进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_755df4da6f5a9250",
+      "unit_title": "二、混合运算"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_284868204ebbe9a0",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_3_up",
+        "tes_11259fe29191f41b",
+        "textbook-node:tcn_2d870b31a983da35",
+        "textbook-unit:tcu_755df4da6f5a9250"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "14 混合运算",
+          "excerpt_hash": "2f08e5396aa927774f35755ca4a0c8374930ca3987d111f352d3d1af074a183d",
+          "pdf_page": 19,
+          "printed_page": "14",
+          "span_id": "tes_11259fe29191f41b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3eb2b4683402d78d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3eb2b4683402d78d",
+          "label": "进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2d870b31a983da35",
+      "node_title": "14混合运算",
+      "pdf_page": 19,
+      "printed_page": "14",
+      "publication_status": "published",
+      "rationale": "教材课文“14混合运算”与课标 MA-D2-AL-003 的可教学小能力“进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_755df4da6f5a9250",
+      "unit_title": "二、混合运算"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_298c5241317812bc",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_3_up",
+        "tes_9fb7c9785e6a9450",
+        "textbook-node:tcn_ae64274aaeff6233",
+        "textbook-unit:tcu_755df4da6f5a9250"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "12 混合运算",
+          "excerpt_hash": "1791b42c04abfb769b89faaa44c1e2671dcdd1ef84fdbffda0995a8d3cc9b7bf",
+          "pdf_page": 17,
+          "printed_page": "12",
+          "span_id": "tes_9fb7c9785e6a9450"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3eb2b4683402d78d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3eb2b4683402d78d",
+          "label": "进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ae64274aaeff6233",
+      "node_title": "12混合运算",
+      "pdf_page": 17,
+      "printed_page": "12",
+      "publication_status": "published",
+      "rationale": "教材课文“12混合运算”与课标 MA-D2-AL-003 的可教学小能力“进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_755df4da6f5a9250",
+      "unit_title": "二、混合运算"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e284283cc838317f",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_3_up",
+        "tes_a7ea3549af24e901",
+        "textbook-node:tcn_052d847911c01400",
+        "textbook-unit:tcu_755df4da6f5a9250"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "6 混合运算",
+          "excerpt_hash": "d62b4e748910a8baae369b97e13a4e8f266afa443f27576662026926225c9d5c",
+          "pdf_page": 11,
+          "printed_page": "6",
+          "span_id": "tes_a7ea3549af24e901"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3eb2b4683402d78d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3eb2b4683402d78d",
+          "label": "进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_052d847911c01400",
+      "node_title": "6混合运算",
+      "pdf_page": 11,
+      "printed_page": "6",
+      "publication_status": "published",
+      "rationale": "教材课文“6混合运算”与课标 MA-D2-AL-003 的可教学小能力“进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_755df4da6f5a9250",
+      "unit_title": "二、混合运算"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f97614ff97119754",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f589d57b7a6621f69e55",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_3_up",
+        "tes_eab980c75cf6d039",
+        "textbook-node:tcn_3b7fa695cd4015c3",
+        "textbook-unit:tcu_755df4da6f5a9250"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "10 混合运算",
+          "excerpt_hash": "88fd1069768c00dfbc2c11ff4b5f1ef588551e63a382521734d2d590703402fb",
+          "pdf_page": 15,
+          "printed_page": "10",
+          "span_id": "tes_eab980c75cf6d039"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3eb2b4683402d78d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3eb2b4683402d78d",
+          "label": "进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3b7fa695cd4015c3",
+      "node_title": "10混合运算",
+      "pdf_page": 15,
+      "printed_page": "10",
+      "publication_status": "published",
+      "rationale": "教材课文“10混合运算”与课标 MA-D2-AL-003 的可教学小能力“进行整数四则混合运算（以两步为主，不超过三步），正确运用小括号和中括号”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "数学",
+      "textbook_title": "数学3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_755df4da6f5a9250",
+      "unit_title": "二、混合运算"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_093740e075b28c56",
@@ -101,7 +431,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_8ec280d20713"
+        "external_smartedu_2026_math_primary_grade_3_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -113,7 +443,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_96d95cbb27d9412e",
       "textbook_grade": 3,
       "textbook_subject": "数学",
@@ -132,7 +462,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_b8d2d5a007c1"
+        "external_smartedu_2026_math_primary_grade_4_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -144,7 +474,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_f61cbfb4e176d8e2",
       "textbook_grade": 4,
       "textbook_subject": "数学",
@@ -194,7 +524,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_f7680a7d4b92"
+        "external_smartedu_2026_math_primary_grade_3_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -206,7 +536,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_7b7248af637aca0a",
       "textbook_grade": 3,
       "textbook_subject": "数学",

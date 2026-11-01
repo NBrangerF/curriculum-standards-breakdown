@@ -58,7 +58,10 @@ export function loadLegacyCodes() {
 // Where an old (v1) code now lives: "/standards/<code>#<要点>" or a subject page, or null.
 export async function resolveLegacyCode(code) {
     const map = await loadLegacyCodes()
-    return map[String(code || '').trim().toUpperCase()] || map[String(code || '').trim()] || null
+    const key = String(code || '').trim()
+    // own keys only: 「constructor」 is not an old code
+    const own = name => (Object.prototype.hasOwnProperty.call(map, name) ? map[name] : null)
+    return own(key.toUpperCase()) || own(key) || null
 }
 
 export const statusLabel = check => ({

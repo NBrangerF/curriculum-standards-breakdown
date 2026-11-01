@@ -79,16 +79,126 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4f3885cb92ab499a",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_up",
+        "tes_99137c01b9955f02",
+        "textbook-node:tcn_7cb2027e4388fc98",
+        "textbook-unit:tcu_cc2e2b9baa3373a9"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "回答上面的问题,要用到整式的乘法知识.本章我们将在七年级学习整式的加减法的基础上,继续学习整式的乘法.整式的乘法是代数运算以及解决许多数学问题的重要基础.我们可以类比数的运算,以运算律为基础,研究整式",
+          "excerpt_hash": "e60c2835eab55b14bcb1f160c21286be9458ab4cae5b4be3918445fff99b2d84",
+          "pdf_page": 104,
+          "printed_page": "97",
+          "span_id": "tes_99137c01b9955f02"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_919514ea69a70567"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_919514ea69a70567",
+          "label": "用数学语言将现实问题转化为数学问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_7cb2027e4388fc98",
+      "node_title": "回答上面的问题,要用到整式的乘法知识.本章我们将在七年级学习整式的加减法的基础上,继续学习整式的乘法.整式的乘法是代数运算以及解决许多数学问题的重要基础.我们可以类比数的运算,以运算律为基础,研究整式",
+      "pdf_page": 104,
+      "printed_page": "97",
+      "publication_status": "published",
+      "rationale": "教材练习“回答上面的问题,要用到整式的乘法知识.本章我们将在七年级学习整式的加减法的基础上,继续学习整式的乘法.整式的乘法是代数运算以及解决许多数学问题的重要基础.我们可以类比数的运算,以运算律为基础,研究整式”与课标 MA-H4G8-PR-011 的可教学小能力“用数学语言将现实问题转化为数学问题”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_cc2e2b9baa3373a9",
+      "unit_title": "第十六章 整式的乘法"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_da09675bad819e8c",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a8de7020a4602b4d0f3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_up",
+        "tes_491dbd61d8c38ca8",
+        "textbook-node:tcn_a9354de85b56b25c",
+        "textbook-unit:tcu_cc2e2b9baa3373a9"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "计算 (犪+犫)(狆+狇),可以先把其中的一个多项式 (如狆+狇)看成一个整体,运用单项式与多 把多项式相乘的问项式相乘的法则,得 题转化为单项式与多项",
+          "excerpt_hash": "2ac69cb422e31f3dce7bb3aa174f52cdc18c4e30648afb8784ad5ed5ea88a0e6",
+          "pdf_page": 113,
+          "printed_page": "106",
+          "span_id": "tes_491dbd61d8c38ca8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_919514ea69a70567"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_919514ea69a70567",
+          "label": "用数学语言将现实问题转化为数学问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a9354de85b56b25c",
+      "node_title": "计算 (犪+犫)(狆+狇),可以先把其中的一个多项式 (如狆+狇)看成一个整体,运用单项式与多 把多项式相乘的问项式相乘的法则,得 题转化为单项式与多项",
+      "pdf_page": 113,
+      "printed_page": "106",
+      "publication_status": "published",
+      "rationale": "教材练习“计算 (犪+犫)(狆+狇),可以先把其中的一个多项式 (如狆+狇)看成一个整体,运用单项式与多 把多项式相乘的问项式相乘的法则,得 题转化为单项式与多项”与课标 MA-H4G8-PR-011 的可教学小能力“用数学语言将现实问题转化为数学问题”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_cc2e2b9baa3373a9",
+      "unit_title": "第十六章 整式的乘法"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_dd36b3ac42297504",
@@ -99,7 +209,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_e14d09b0b94a"
+        "external_smartedu_2026_math_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -111,7 +221,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d79076db84511d8a",
       "textbook_grade": 8,
       "textbook_subject": "数学",
@@ -130,7 +240,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_485165afa9c8"
+        "external_smartedu_2026_math_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -142,7 +252,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_8684cc79506c65f5",
       "textbook_grade": 8,
       "textbook_subject": "数学",

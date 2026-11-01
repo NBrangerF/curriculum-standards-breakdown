@@ -448,17 +448,18 @@ test('textbook context API returns page-specific alignments and keeps scopes sep
     const request = (path: string) => textbookApp.request(path, {
         headers: { 'x-forwarded-for': '203.0.113.121' }
     })
-    const response = await request('/api/v1/textbooks/ed_006d5ed61c055eb63857/context?page=121')
+    // 人教版 数学四年级下册 (not yet reprinted): PDF page 55 is printed page 50
+    const response = await request('/api/v1/textbooks/ed_e8d4a6502261fd8416ff/context?page=55')
     assert.equal(response.status, 200)
     const payload = await json(response)
-    assert.equal(payload.data.pdf_page, 121)
-    assert.equal(payload.data.printed_page, '114')
+    assert.equal(payload.data.pdf_page, 55)
+    assert.equal(payload.data.printed_page, '50')
     assert.ok(payload.data.active_nodes.length > 0)
     assert.deepEqual(
         payload.data.alignments.map((item: Record<string, any>) => item.standard_code).sort(),
-        ['MA-H4G7-GE-002', 'MA-H4G7-GE-037']
+        ['MA-D2-AL-002']
     )
-    assert.ok(payload.data.alignments.every((item: Record<string, any>) => item.review_status === 'approved'))
+    assert.ok(payload.data.alignments.every((item: Record<string, any>) => item.review_status === 'machine_checked'))
     assert.ok(payload.data.alignments.every((item: Record<string, any>) => !['curriculum_scope', 'adjacent_curriculum_scope'].includes(item.relation_type)))
     assert.ok(payload.data.standard_scopes.length > 0)
 
@@ -479,7 +480,7 @@ test('textbook context API returns page-specific alignments and keeps scopes sep
     const reversePayload = await json(reverseResponse)
     assert.ok(reversePayload.data.some((item: Record<string, any>) => item.alignment_id === alignment.alignment_id))
 
-    const fineResponse = await request('/api/v1/textbooks/ed_9d4028e2ab482520d0aa/context?page=70')
+    const fineResponse = await request('/api/v1/textbooks/ed_9d4028e2ab482520d0aa/context?page=9')
     assert.equal(fineResponse.status, 200)
     const finePayload = await json(fineResponse)
     const pageEvidence = finePayload.data.alignments.find((item: Record<string, any>) => item.evidence_level === 'L3')
@@ -1747,6 +1748,10 @@ test('MCP transport handles notifications, batches and bad requests', async () =
     assert.equal(parse.status, 400)
     assert.equal((await json(parse)).error.code, -32700)
     assert.equal((await mcp({ id: 1, method: 'ping' })).status, 400)
+    // a batch counts once against the rate limit, so it is capped
+    const pings = (n: number) => Array.from({ length: n }, (_, id) => ({ jsonrpc: '2.0', id, method: 'ping' }))
+    assert.equal(((await (await mcp(pings(20))).json()) as any[]).length, 20)
+    assert.equal((await json(await mcp(pings(21)))).error.code, -32600)
     const get = await publicApp.request('/mcp')
     assert.equal(get.status, 405)
     assert.equal(get.headers.get('allow'), 'POST')
@@ -1828,4 +1833,18 @@ test('smart search drops what the model judges off-topic and shows its reasons',
     assert.ok(data.relevance_check.dropped > 0)
     assert.equal(data.relevance_summary.direct, data.results.filter((item: any) => item.match_strength === 'direct').length)
     assert.match(data.coverage_note, /AI 逐条读了/)
+})
+
+test('a request id from the caller is kept only when it is a plain token', async () => {
+    const plain = await publicApp.request('/api/v1/health', { headers: { 'x-request-id': 'trace-42.a:b' } })
+    assert.equal(plain.headers.get('x-request-id'), 'trace-42.a:b')
+    const odd = await publicApp.request('/api/v1/health', { headers: { 'x-request-id': '<script>alert(1)</script>' } })
+    assert.match(odd.headers.get('x-request-id') || '', /^[0-9a-f-]{36}$/u)
+    assert.equal((await json(odd)).meta.request_id, odd.headers.get('x-request-id'))
+})
+
+test('MCP search tools cut an oversized query instead of searching all of it', async () => {
+    const body = { jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'search_standards', arguments: { query: '分数'.repeat(50000) } } }
+    const reply = await json(await mcp(body))
+    assert.equal(reply.result.isError, false)
 })

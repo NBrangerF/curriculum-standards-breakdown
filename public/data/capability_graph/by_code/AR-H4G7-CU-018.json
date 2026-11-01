@@ -83,16 +83,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_02a0efb235546890",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_4e29c3897ac01b25a084",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_art_junior_grade_7_up",
+        "tes_4165942fdb497e7e",
+        "textbook-node:tcn_9b2f656aec0d3c77",
+        "textbook-unit:tcu_eec0950d3424cdf3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "设计制作工艺品。",
+          "excerpt_hash": "af3007589ea51eac7ea019a80160f2cef829c2f226aeb9f5a2ca3503084b11fc",
+          "pdf_page": 30,
+          "printed_page": "24",
+          "span_id": "tes_4165942fdb497e7e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2dae005406665c67"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2dae005406665c67",
+          "label": "运用传统工艺制作方法制作工艺品"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9b2f656aec0d3c77",
+      "node_title": "设计制作工艺品。",
+      "pdf_page": 30,
+      "printed_page": "24",
+      "publication_status": "published",
+      "rationale": "教材练习“设计制作工艺品。”与课标 AR-H4G7-CU-018 的可教学小能力“运用传统工艺制作方法制作工艺品”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_eec0950d3424cdf3",
+      "unit_title": "色彩魅力"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_8fcab040a2f03e78",
@@ -103,7 +158,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a98e81d5ea76"
+        "external_smartedu_2026_music_junior_grade_7_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -115,7 +170,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_5c9c27ac05203638",
       "textbook_grade": 7,
       "textbook_subject": "音乐",
@@ -134,7 +189,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_86eb84faa252"
+        "external_smartedu_2026_art_junior_grade_7_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -146,7 +201,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_0805abf2f5db09ed",
       "textbook_grade": 7,
       "textbook_subject": "美术",
@@ -165,7 +220,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_d35e7be5354c"
+        "external_smartedu_2026_art_junior_grade_7_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -177,7 +232,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_a883040b0334e9a7",
       "textbook_grade": 7,
       "textbook_subject": "美术",
@@ -196,7 +251,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a99675852c59"
+        "external_smartedu_2026_music_junior_grade_7_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -208,7 +263,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_b3fadfb25eca49fe",
       "textbook_grade": 7,
       "textbook_subject": "音乐",

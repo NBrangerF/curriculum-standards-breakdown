@@ -42,6 +42,15 @@ const AI_TIER_LIMITS: Record<AccessTier, number> = {
     admin: 2000
 }
 
+// One AI 教案 is four draft calls (目标与评价 and 课标解读 together, then 教学过程 and 当堂练习 together), and
+// teachers in one school share an address, so drafting has its own budget.
+const AI_DRAFT_TIER_LIMITS: Record<AccessTier, number> = {
+    anonymous: 24,
+    developer: 120,
+    partner: 1200,
+    admin: 4000
+}
+
 // The reader pulls a textbook in many small byte ranges, so asset reads get their own budget.
 const ASSET_TIER_LIMITS: Record<AccessTier, number> = {
     anonymous: 300,
@@ -85,6 +94,7 @@ const FIELDSET_MIN_TIER: Record<string, AccessTier> = {
 }
 
 const rateBuckets = new Map<string, { count: number; resetAt: number }>()
+const MAX_RATE_BUCKETS = 5000
 interface MetricsEvent {
     timestamp: string
     request_id: string
@@ -201,7 +211,9 @@ function normalizeApiKeyId(value: string): string | null {
 }
 
 export const requestIdMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
-    const requestId = c.req.header('x-request-id') || crypto.randomUUID()
+    // a caller's id is echoed in headers, JSON and logs, so only a plain token is kept
+    const asked = c.req.header('x-request-id') || ''
+    const requestId = /^[\w.:-]{1,128}$/u.test(asked) ? asked : crypto.randomUUID()
     c.set('requestId', requestId)
     c.header('x-request-id', requestId)
     await next()
@@ -248,11 +260,12 @@ export const apiAccessMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
 
 export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
     const tier = c.get('accessTier') || 'anonymous'
+    const isDraftRoute = c.req.path === '/api/v1/lesson-plans/draft'
     const isAiRoute = AI_ROUTES.has(c.req.path)
     const isAssetRoute = c.req.path.startsWith('/api/v1/textbook-assets/')
     const isToolRoute = c.req.path === '/mcp' || c.req.path === '/api/v1/mcp' || c.req.path.startsWith('/api/v1/plugin/')
-    const policy = isAiRoute ? 'ai' : isAssetRoute ? 'asset' : isToolRoute ? 'tools' : 'general'
-    const limit = isAiRoute ? AI_TIER_LIMITS[tier] : isAssetRoute ? ASSET_TIER_LIMITS[tier] : isToolRoute ? TOOL_TIER_LIMITS[tier] : TIER_LIMITS[tier]
+    const policy = isDraftRoute ? 'ai-draft' : isAiRoute ? 'ai' : isAssetRoute ? 'asset' : isToolRoute ? 'tools' : 'general'
+    const limit = isDraftRoute ? AI_DRAFT_TIER_LIMITS[tier] : isAiRoute ? AI_TIER_LIMITS[tier] : isAssetRoute ? ASSET_TIER_LIMITS[tier] : isToolRoute ? TOOL_TIER_LIMITS[tier] : TIER_LIMITS[tier]
     const now = Date.now()
     const resetAt = Math.ceil(now / 60000) * 60000
     const clientId = c.req.header('x-forwarded-for') || c.req.header('cf-connecting-ip') || 'local'
@@ -260,6 +273,8 @@ export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
     const bucket = rateBuckets.get(bucketKey)
     const current = bucket && bucket.resetAt > now ? bucket : { count: 0, resetAt }
     current.count += 1
+    // a long-lived instance sees many addresses; drop finished windows so the map does not grow for ever
+    if (rateBuckets.size >= MAX_RATE_BUCKETS) for (const [key, value] of rateBuckets) if (value.resetAt <= now) rateBuckets.delete(key)
     rateBuckets.set(bucketKey, current)
 
     const remaining = Math.max(0, limit - current.count)

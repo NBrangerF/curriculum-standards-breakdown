@@ -131,7 +131,8 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             additionalProperties: false
         },
         async run(args, ctx) {
-            const query = str(args.query)
+            // the same 500-character cap as POST /standards/semantic-search
+            const query = str(args.query).slice(0, 500)
             if (query.length < 2) throw new ToolInputError('请给出至少两个字的检索内容。')
             const slug = await subjectSlug(args.subject, ctx, false)
             const grade = gradeOf(args.stage)
@@ -315,7 +316,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             additionalProperties: false
         },
         async run(args, ctx) {
-            const query = str(args.query).replace(/\s+/gu, '')
+            const query = str(args.query).replace(/\s+/gu, '').slice(0, 100)
             if (query.length < 2) throw new ToolInputError('请给出至少两个字的章节标题。')
             const slug = await subjectSlug(args.subject, ctx, false)
             const grade = gradeOf(args.grade)

@@ -129,7 +129,7 @@ export const TextbookTocEntrySchema = z.object({
     confidence: z.number().min(0).max(1),
     review_status: z.enum(['approved', 'machine_checked', 'needs_review']),
     publication_status: z.literal('published').optional(),
-    source: z.enum(['pdf_outline', 'toc_text', 'ocr_toc', 'heading_match', 'heading_match+split_heading_merge', 'body_inferred_unit', 'manual', 'legacy_unit_evidence'])
+    source: z.enum(['pdf_outline', 'toc_text', 'ocr_toc', 'heading_match', 'heading_match+split_heading_merge', 'body_inferred_unit', 'manual', 'legacy_unit_evidence', 'smartedu_sync_lessons'])
 }).strict()
 
 export const TextbookPageMapEntrySchema = z.object({

@@ -337,6 +337,10 @@
     font-size: 0.76rem;
 }
 
+/* 知识图谱: what this standard's 要点 build on and what builds on them (opens beside the draft) */
+.standardHead a.graphLink { color: var(--kb-gold); font-size: 0.76rem; font-weight: 400; }
+.standardHead a.graphLink:hover { text-decoration: underline; text-underline-offset: 3px; }
+
 .reason {
     margin: 0.35rem 0 0;
     color: var(--color-success-dark);
@@ -819,4 +823,162 @@
 .quickNotes button:focus-visible {
     border-color: var(--kb-gold);
     color: var(--kb-moon);
+}
+
+/* 课标分析: each 要点 read for the teacher, with what comes before and after it */
+.reading {
+    display: grid;
+    gap: 0.2rem;
+    margin: 0.35rem 0 0.7rem;
+    padding: 0.5rem 0.8rem;
+    border-left: 2px solid rgba(138, 90, 11, 0.35);
+    background: rgba(255, 255, 255, 0.4);
+    font-size: 0.88rem;
+}
+
+.reading div {
+    display: grid;
+    grid-template-columns: 5.5em 1fr;
+    gap: 0.5rem;
+}
+
+.reading dt {
+    color: var(--kb-paper-mute);
+    font-size: 0.8rem;
+}
+
+.reading dd {
+    margin: 0;
+}
+
+.verb {
+    display: block;
+}
+
+.verb b {
+    margin-right: 0.45rem;
+    color: #6b4a10;
+}
+
+.links {
+    margin: 0 !important;
+    padding-left: 0 !important;
+    list-style: none;
+}
+
+.limits {
+    padding: 0.5rem 0.9rem;
+    border-left: 3px solid #b5303d;
+    background: rgba(181, 48, 61, 0.06);
+}
+
+.limits b,
+.standardText p b {
+    margin-right: 0.6rem;
+}
+
+.standardText {
+    margin-top: 0.7rem;
+    font-size: 0.86rem;
+}
+
+.standardText summary,
+.practice summary {
+    cursor: pointer;
+    color: #6b4a10;
+}
+
+.strategies {
+    margin-top: 0.4rem !important;
+}
+
+/* 教学过程: 组织形式, key questions with the expected answers, the whole-class check */
+.stageHead .org {
+    padding: 0 0.45rem;
+    border: 1px solid rgba(37, 34, 28, 0.3);
+    border-radius: 6px;
+    color: var(--kb-paper-ink);
+}
+
+.questions {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    list-style: none;
+}
+
+.stages .questions li {
+    display: grid;
+    gap: 0.1rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+}
+
+.questions b {
+    margin-right: 0.45rem;
+    color: var(--kb-paper-mute);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* 当堂练习与检测 */
+.practice {
+    display: grid;
+    gap: 0.6rem;
+    padding-left: 0 !important;
+    list-style: none;
+    counter-reset: practice;
+}
+
+.practice li {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid rgba(37, 34, 28, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.45);
+    counter-increment: practice;
+}
+
+.practiceHead {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.6rem;
+    align-items: center;
+    color: var(--kb-paper-mute);
+    font-size: 0.8rem;
+}
+
+.practiceHead::before {
+    content: counter(practice) '.';
+    color: var(--kb-paper-ink);
+    font-weight: 700;
+}
+
+.practiceHead span[data-kind='检测'] {
+    color: #b5303d;
+    font-weight: 600;
+}
+
+.practiceHead code {
+    color: #6b4a10;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+}
+
+.practice details {
+    margin-top: 0.3rem;
+    font-size: 0.88rem;
+}
+
+.minutes {
+    margin-left: 0.5rem;
+    color: var(--kb-paper-mute);
+    font-size: 0.78rem;
+}
+
+/* notes inside the paper document use its own muted ink, not the page's */
+.doc .small {
+    color: var(--kb-paper-mute);
 }

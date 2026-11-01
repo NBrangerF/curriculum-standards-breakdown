@@ -9,13 +9,14 @@ import { postApi } from '../data/api'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { loadTextbookCatalog } from '../features/textbooks/textbookApi'
 import { bookFields, readMyBook, saveMyBook } from '../features/mybook/myBook.js'
-import { downloadObservationWord, downloadReflectionWord, downloadRubricWord, downloadSkeletonWord, downloadScriptWord, downloadWord, downloadUnitWord, planToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
+import { downloadBriefWord, downloadObservationWord, downloadReflectionWord, downloadRubricWord, downloadSkeletonWord, downloadScriptWord, downloadWord, downloadUnitWord, planToText, unitToText } from '../features/lesson-plan/lessonPlanExport'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
 import { sourceLabel } from '../features/textbooks/alignmentModel'
 import { loadBank, presentHref, questionsForLesson } from '../features/checks/checksData.js'
 import { subjectBySlug } from '../features/checks/subjects.js'
+import { subjectOfCode } from '../data/v2Data.js'
 
 // the last 10 drafts stay in this browser; the old single-draft key is read once and folded in
 const STORE_KEY = 'kebiao.lessonPlan.history'
@@ -26,10 +27,13 @@ const SUBJECT_ORDER = ['语文', '数学', '英语', '道德与法治', '科学'
 const TOPIC_SUBJECTS = [['语文', 'chinese'], ['数学', 'math'], ['英语', 'english'], ['道德与法治', 'morality_law'], ['科学', 'science'], ['物理', 'physics'], ['化学', 'chemistry'], ['生物学', 'biology'], ['历史', 'history'], ['地理', 'geography'], ['信息科技', 'it'], ['体育与健康', 'pe'], ['艺术（音乐、美术等）', 'arts'], ['劳动', 'labor']]
 const MATERIAL_ORDER = ['视频课程', '课件', '教学设计', '学习任务单', '课后练习']
 const STEPS = [
-    { key: 'frame', label: 'AI 写目标、重难点和评价', hint: '先定证据，约 20–40 秒' },
-    { key: 'process', label: 'AI 写教学过程、作业和板书', hint: '约 20–40 秒' },
-    { key: 'check', label: '对照课标逐条核验', hint: '编码、超标、目标—活动—评价' }
+    { key: 'frame', label: 'AI 读课标，写目标、重难点和评价', hint: '同时写课标解读，约 20–40 秒' },
+    { key: 'process', label: 'AI 写教学过程、当堂练习和板书', hint: '约 20–40 秒' },
+    { key: 'check', label: '对照课标和课堂实际核验', hint: '编码、超标、目标—活动—评价、时间与作业量' }
 ]
+// the class as it usually is: about 45 students; 课型 left to the AI unless the teacher says
+const CLASS_SIZES = [30, 35, 40, 45, 50, 55, 60]
+const LESSON_TYPES = ['新授课', '复习课', '练习课', '实验课', '讲评课']
 
 // When the AI is slow or down, a teacher drafting a plan still has a way on: the ticked 要点 as a prompt for
 // another AI, or a skeleton to write in.
@@ -44,6 +48,22 @@ async function getJson(url) {
     const payload = await response.json().catch(() => null)
     if (!response.ok) throw new Error(payload?.error?.message || `请求失败（${response.status}）`)
     return payload.data
+}
+
+// the lesson as the draft API takes it
+function draftLesson(lesson) {
+    return {
+        title: lesson.title,
+        ...(lesson.unit_title ? { unit_title: lesson.unit_title.slice(0, 60) } : {}),
+        ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}),
+        ...(lesson.edition_name ? { edition_name: lesson.edition_name } : {}),
+        subject_slug: lesson.subject_slug,
+        grade: lesson.grade || null,
+        ...(lesson.pdf_page ? { pages: `PDF 第 ${lesson.pdf_page} 页起` } : {}),
+        // the book and its 国家平台 lesson: the 课标解读 says where else the book teaches these 要点
+        ...(/^ed_[0-9a-f]+$/u.test(lesson.edition_id || '') ? { edition_id: lesson.edition_id } : {}),
+        ...(lesson.lesson_id ? { lesson_id: String(lesson.lesson_id).slice(0, 60) } : {})
+    }
 }
 
 function readStored() {
@@ -68,7 +88,7 @@ const draftDate = value => {
 }
 
 // common 学情 a teacher can add with one tap; the AI reads them like typed notes
-const CLASS_NOTES = ['基础较好，能主动提问', '两极分化明显', '前置知识掌握不牢', '表达说理较弱', '小组合作习惯较好', '注意力容易分散', '大班额（50 人以上）']
+const CLASS_NOTES = ['基础较好，能主动提问', '两极分化明显', '前置知识掌握不牢', '表达说理较弱', '小组合作习惯较好', '注意力容易分散']
 
 const viaLabel = { aligned: '教材页码对齐（机器）', ai_lesson: 'AI 逐课判断', ai_unit: 'AI 按单元判断', search: '按课题检索', ai: 'AI 推荐', seed: '你从标准页选的' }
 
@@ -82,11 +102,11 @@ export default function LessonPlanPage() {
     const [contextError, setContextError] = useState('')
     const [ai, setAi] = useState({ status: 'idle', reasons: {} })
     const [selected, setSelected] = useState(() => new Set())
-    const [settings, setSettings] = useState({ period: 40, index: 1, count: 1, classNotes: '', teacherNotes: '' })
+    const [settings, setSettings] = useState({ period: 40, periodSet: false, index: 1, count: 1, classSize: 45, lessonType: '', classNotes: '', teacherNotes: '' })
     const [unitPlan, setUnitPlan] = useState(null)
     const [talk, setTalk] = useState(null)
     const [trial, setTrial] = useState(null)
-    // which script is being written: '' | 'talk' (说课稿) | 'trial' (试讲稿)
+    // what is being written after the plan: '' | 'talk' (说课稿) | 'trial' (试讲稿) | 'practice' (当堂练习 again)
     const [talking, setTalking] = useState('')
     const [unitHours, setUnitHours] = useState(0)
     const [hint, setHint] = useState('')
@@ -96,6 +116,11 @@ export default function LessonPlanPage() {
     const [error, setError] = useState('')
     const [copied, setCopied] = useState(false)
     const [stored, setStored] = useState(readStored)
+    // 初中 periods are usually 45 minutes and 小学 40, until the teacher picks one
+    const lessonGrade = context?.lesson?.grade || 0
+    useEffect(() => {
+        if (lessonGrade) setSettings(current => (current.periodSet ? current : { ...current, period: lessonGrade >= 7 ? 45 : 40 }))
+    }, [lessonGrade])
     const runRef = useRef(0)
 
     const subject = params.get('subject') || ''
@@ -278,19 +303,13 @@ export default function LessonPlanPage() {
         const lesson = context.lesson
         const subjectName = context.subject_note?.name || subject
         const request = {
-            lesson: {
-                title: lesson.title,
-                ...(lesson.unit_title ? { unit_title: lesson.unit_title.slice(0, 60) } : {}),
-                ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}),
-                ...(lesson.edition_name ? { edition_name: lesson.edition_name } : {}),
-                subject_slug: lesson.subject_slug,
-                grade: lesson.grade || null,
-                ...(lesson.pdf_page ? { pages: `PDF 第 ${lesson.pdf_page} 页起` } : {})
-            },
+            lesson: draftLesson(lesson),
             indicator_codes: [...selected],
             period_minutes: settings.period,
             lesson_index: Math.min(settings.index, settings.count),
             lesson_count: settings.count,
+            class_size: settings.classSize,
+            lesson_type: settings.lessonType,
             class_notes: settings.classNotes,
             teacher_notes: settings.teacherNotes
         }
@@ -298,15 +317,23 @@ export default function LessonPlanPage() {
         setPlan(null)
         setTalk(null)
         setTrial(null)
+        // 课标解读 and 当堂练习 add to the plan; when one of them fails the plan stands without it
+        const extra = step => postApi('/api/v1/lesson-plans/draft', step).then(response => response.data).catch(() => null)
         try {
             setStep('frame')
-            const first = (await postApi('/api/v1/lesson-plans/draft', { ...request, step: 'frame' })).data
-            const partial = { ...base, frame: first.frame, process: null, evidence: first.evidence, checks: first.checks, model: first.model, privacy: first.privacy }
+            const [first, reading] = await Promise.all([
+                postApi('/api/v1/lesson-plans/draft', { ...request, step: 'frame' }).then(response => response.data),
+                extra({ ...request, step: 'reading' })
+            ])
+            const partial = { ...base, meta: { ...base.meta, class_size: settings.classSize, lesson_type: settings.lessonType }, frame: first.frame, process: null, practice: null, reading, evidence: first.evidence, checks: first.checks, model: first.model, privacy: first.privacy }
             setPlan(partial)
             setStep('process')
-            const second = (await postApi('/api/v1/lesson-plans/draft', { ...request, step: 'process', frame: first.frame })).data
+            const [second, practice] = await Promise.all([
+                postApi('/api/v1/lesson-plans/draft', { ...request, step: 'process', frame: first.frame }).then(response => response.data),
+                extra({ ...request, step: 'practice', frame: first.frame })
+            ])
             setStep('check')
-            const done = { ...partial, process: second.process, checks: second.checks, created_at: new Date().toISOString() }
+            const done = { ...partial, process: second.process, practice: practice?.practice || null, checks: [...second.checks, ...(practice?.checks || [])], created_at: new Date().toISOString() }
             setPlan(done)
             setStored(writeStored(done))
             setStep('done')
@@ -364,6 +391,30 @@ export default function LessonPlanPage() {
             if (step === 'trial') setTrial(payload.trial)
             else setTalk(payload.talk)
             trackUmamiEvent('lesson_plan_export', { format: step, kind: 'lesson' })
+        } catch (errorValue) {
+            setError(aiError(errorValue))
+        } finally {
+            setTalking('')
+        }
+    }
+
+    // 当堂练习 once more, when its call failed and the rest of the plan came back
+    async function retryPractice() {
+        if (!plan?.frame || talking) return
+        setTalking('practice')
+        setError('')
+        try {
+            const payload = (await postApi('/api/v1/lesson-plans/draft', {
+                step: 'practice',
+                lesson: draftLesson(plan.lesson),
+                indicator_codes: plan.evidence.map(item => item.code),
+                period_minutes: plan.meta?.period_minutes || 40,
+                ...(plan.meta?.class_size ? { class_size: plan.meta.class_size } : {}),
+                frame: plan.frame
+            })).data
+            const next = { ...plan, practice: payload.practice, checks: [...plan.checks, ...payload.checks] }
+            setPlan(next)
+            setStored(writeStored(next))
         } catch (errorValue) {
             setError(aiError(errorValue))
         } finally {
@@ -503,6 +554,7 @@ export default function LessonPlanPage() {
                                 <div className={styles.standardHead}>
                                     <Link to={`/standards/${standard.code}`} target="_blank" rel="noopener"><code>{standard.code}</code>{standard.title}</Link>
                                     <span className={styles.via}>{viaLabel[standard.via] || standard.via}</span>
+                                    <Link className={styles.graphLink} to={`/knowledge-graph/${subjectOfCode(standard.code)}?focus=${(standard.indicators.find(item => selected.has(item.code)) || standard.indicators[0])?.code || ''}`} target="_blank" rel="noopener">前后联系 ↗</Link>
                                 </div>
                                 {ai.reasons[standard.code] ? <p className={styles.reason}>AI 判断：{ai.reasons[standard.code]}</p> : null}
                                 <ul className={styles.indicators}>
@@ -519,7 +571,7 @@ export default function LessonPlanPage() {
                         ))}
                     </ul>
                     {!context.standards.length ? <p className={styles.small}>这一课还没有对齐的课标。等 AI 读完，或改用「直接写课题」。</p> : null}
-                    {selectedCount && ai.status !== 'loading' ? <PromptCopy context={context} selected={selected} isUnit={isUnit} /> : null}
+                    {selectedCount && ai.status !== 'loading' ? <PromptCopy context={context} selected={selected} isUnit={isUnit} settings={settings} /> : null}
                 </section>
             ) : null}
 
@@ -561,7 +613,7 @@ export default function LessonPlanPage() {
                     <h2 id="lp-class"><span>3</span>说说你的情况<small>（可不填）</small></h2>
                     <div className={styles.settings}>
                         <label><span>每课时</span>
-                            <select value={settings.period} onChange={event => setSettings({ ...settings, period: Number(event.target.value) })}>
+                            <select value={settings.period} onChange={event => setSettings({ ...settings, period: Number(event.target.value), periodSet: true })}>
                                 {[35, 40, 45].map(value => <option key={value} value={value}>{value} 分钟</option>)}
                             </select>
                         </label>
@@ -573,6 +625,17 @@ export default function LessonPlanPage() {
                         <label><span>这是第</span>
                             <select value={settings.index} onChange={event => setSettings({ ...settings, index: Number(event.target.value) })}>
                                 {Array.from({ length: settings.count }, (_, k) => k + 1).map(value => <option key={value} value={value}>{value} 课时</option>)}
+                            </select>
+                        </label>
+                        <label><span>班额</span>
+                            <select value={settings.classSize} onChange={event => setSettings({ ...settings, classSize: Number(event.target.value) })}>
+                                {CLASS_SIZES.map(value => <option key={value} value={value}>约 {value} 人</option>)}
+                            </select>
+                        </label>
+                        <label><span>课型</span>
+                            <select value={settings.lessonType} onChange={event => setSettings({ ...settings, lessonType: event.target.value })}>
+                                <option value="">AI 判断</option>
+                                {LESSON_TYPES.map(value => <option key={value} value={value}>{value}</option>)}
                             </select>
                         </label>
                     </div>
@@ -611,7 +674,7 @@ export default function LessonPlanPage() {
             ) : null}
 
             {unitPlan && isUnit ? <UnitDocument plan={unitPlan} edition={edition} subject={subject} onCopy={async () => { try { await navigator.clipboard.writeText(unitToText(unitPlan)); setCopied(true) } catch { setCopied(false) } }} copied={copied} /> : null}
-            {plan && !isUnit ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} onTalk={makeTalk} talking={talking} /> : null}
+            {plan && !isUnit ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} onTalk={makeTalk} talking={talking} onPractice={retryPractice} /> : null}
             {talk && plan && !isUnit ? <TalkScriptView talk={talk} title={plan.frame?.title || plan.lesson.title} /> : null}
             {trial && plan && !isUnit ? <TrialScriptView trial={trial} title={plan.frame?.title || plan.lesson.title} /> : null}
         </div>
@@ -817,11 +880,12 @@ function CheckList({ checks }) {
 
 // For teachers who write with 豆包、DeepSeek or 元宝: the ticked 要点, verbatim with pages, and the rules kebiao's own
 // drafts follow, as one prompt to paste there.
-function PromptCopy({ context, selected, isUnit }) {
+function PromptCopy({ context, selected, isUnit, settings }) {
     const [copied, setCopied] = useState(false)
     const lesson = context.lesson
     const points = context.standards.flatMap(standard => standard.indicators.filter(item => selected.has(item.code)))
-    const what = isUnit ? '单元整体教学设计（单元大概念、基本问题、单元目标、表现性任务、课时安排）' : '一份 40 分钟的教案'
+    const period = settings?.period || 40
+    const what = isUnit ? '单元整体教学设计（单元大概念、基本问题、单元目标、表现性任务、课时安排）' : `一份 ${period} 分钟的教案`
     const text = [
         `请你作为${context.subject_note?.name || ''}教研员，依据下面的课程标准要点，为${[lesson.edition_name, lesson.textbook_title].filter(Boolean).join('')}${lesson.textbook_title ? '的' : ''}「${lesson.title}」${lesson.grade ? `（${lesson.grade} 年级）` : ''}写${what}。`,
         '',
@@ -829,9 +893,12 @@ function PromptCopy({ context, selected, isUnit }) {
         ...points.map(item => `- ${item.code}：${item.text}（修订版第 ${item.pages.join('、')} 页）`),
         '',
         '要求：',
-        '1. 教学目标 2–4 条，每条以「学生能」开头，写清条件、行为和程度，用看得见的动词，并在括号里注明依据的要点编码。',
-        '2. 先写评价任务（每条目标至少对应一个），再写教学过程（环节、时间、教师活动、学生活动、设计意图），每个环节注明推进哪条目标。',
-        '3. 要点里写明「不包括」「不要求」的内容不要出现；只用上面的要点编码，不要编造课标编码或原文。'
+        '1. 先写「课标分析」：逐条说清这条要点要学生做到什么，关键行为词（如「理解」「运用」）要求到什么程度，本课承担哪一部分，怎样用教材去落实它（不要只把教材讲一遍）。',
+        '2. 教学目标 2–4 条，每条以「学生能」开头，写清条件、行为和程度，用看得见的动词，并在括号里注明依据的要点编码。',
+        '3. 先写评价任务（每条目标至少对应一个），再写教学过程（环节、时间、组织形式、教师活动、学生活动、关键问题与预设回答、设计意图），每个环节注明推进哪条目标。',
+        `4. 按常规大班设计（约 ${settings?.classSize || 45} 人，按排就座，一位老师）：以讲解和示范为主线，讲之前留 1–3 分钟让学生先想、先试，再同桌交流；小组活动一节课最多 2 次；写清老师怎样看到全班学会没有，不要只靠举手。`,
+        '5. 附当堂练习与检测题（基础、变式、提高）和参考答案；作业分层并写预计用时，符合「双减」要求。',
+        '6. 要点里写明「不包括」「不要求」的内容不要出现；只用上面的要点编码，不要编造课标编码或原文。'
     ].join('\n')
     async function copy() {
         try {
@@ -888,20 +955,22 @@ function SyncLessons({ context }) {
     )
 }
 
-function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
-    const { lesson, frame, process, evidence, checks, meta } = plan
+function PlanDocument({ plan, done, onCopy, copied, onTalk, talking, onPractice }) {
+    const { lesson, frame, process, practice, reading, evidence, checks, meta } = plan
     const objectiveNo = id => id.replace('O', '')
+    const metaLine = [lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', meta ? `第 ${meta.lesson_index} 课时（共 ${meta.lesson_count} 课时）· ${meta.period_minutes} 分钟` : '', meta?.class_size ? `约 ${meta.class_size} 人` : '', meta?.lesson_type || ''].filter(Boolean).join(' · ')
     return (
         <article className={styles.doc} aria-labelledby="lp-doc-title">
             <div className={styles.docActions}>
                 <span className={styles.aiBadge}>AI 起草 · 需老师修改</span>
                 {done ? (
                     <>
-                        <button type="button" className="btn btn-secondary" onClick={onCopy}>{copied ? '已复制' : '复制全文'}</button>
-                        <button type="button" className="btn btn-secondary" onClick={() => { downloadWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'lesson' }) }}>下载 Word</button>
+                        <button type="button" className="btn btn-secondary" onClick={() => { downloadWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'word', kind: 'lesson' }) }}>下载 Word（详案）</button>
+                        <button type="button" className="btn btn-secondary" title="一页纸：环节、时间、关键问题、练习和板书，带进课堂用" onClick={() => { downloadBriefWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'brief', kind: 'lesson' }) }}>简案（上课用）</button>
+                        <button type="button" className="btn btn-ghost" onClick={onCopy}>{copied ? '已复制' : '复制全文'}</button>
                         <button type="button" className="btn btn-ghost" onClick={() => { trackUmamiEvent('lesson_plan_export', { format: 'print', kind: 'lesson' }); window.print() }}>打印</button>
-                        {onTalk ? <button type="button" className="btn btn-secondary" onClick={() => onTalk('talk')} disabled={Boolean(talking)}>{talking === 'talk' ? '正在写说课稿…' : '生成说课稿'}</button> : null}
-                        {onTalk ? <button type="button" className="btn btn-secondary" onClick={() => onTalk('trial')} disabled={Boolean(talking)}>{talking === 'trial' ? '正在写试讲稿…' : '试讲稿 + 答辩'}</button> : null}
+                        {onTalk ? <button type="button" className="btn btn-ghost" onClick={() => onTalk('talk')} disabled={Boolean(talking)}>{talking === 'talk' ? '正在写说课稿…' : '生成说课稿'}</button> : null}
+                        {onTalk ? <button type="button" className="btn btn-ghost" onClick={() => onTalk('trial')} disabled={Boolean(talking)}>{talking === 'trial' ? '正在写试讲稿…' : '试讲稿 + 答辩'}</button> : null}
                         <button type="button" className="btn btn-ghost" title="按这份教案的目标、评价和环节生成，供听课、评课、磨课时填写" onClick={() => { downloadObservationWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'observation', kind: 'lesson' }) }}>听课观察表</button>
                         <button type="button" className="btn btn-ghost" title="按这份教案的目标、证据和预设难点生成，上完课填写" onClick={() => { downloadReflectionWord(plan); trackUmamiEvent('lesson_plan_export', { format: 'reflection', kind: 'lesson' }) }}>课后反思表</button>
                     </>
@@ -909,7 +978,7 @@ function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
             </div>
             <header className={styles.docHead}>
                 <h2 id="lp-doc-title">{frame?.title || lesson.title}</h2>
-                <p>{[lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', meta ? `第 ${meta.lesson_index} 课时（共 ${meta.lesson_count} 课时）· ${meta.period_minutes} 分钟` : ''].filter(Boolean).join(' · ')}</p>
+                <p>{metaLine}</p>
             </header>
 
             {checks?.length ? (
@@ -924,15 +993,7 @@ function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
                 </section>
             ) : null}
 
-            <section>
-                <h3>一、课标依据</h3>
-                <ul className={styles.evidence}>
-                    {evidence.map(item => (
-                        <li key={item.code}><Link to={`/standards/${item.standard_code}#${item.code}`} target="_blank" rel="noopener"><code>{item.code}</code></Link>{item.text}<small>修订版第 {item.pages.join('、')} 页 · {item.stage_label}</small></li>
-                    ))}
-                </ul>
-                {frame?.core_understanding ? <p className={styles.core}><b>核心理解</b>{frame.core_understanding}</p> : null}
-            </section>
+            <StandardReading evidence={evidence} reading={reading} core={frame?.core_understanding} />
 
             {frame ? (
                 <>
@@ -951,6 +1012,7 @@ function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
                         <div><h3>三、教学重点</h3><ul>{frame.key_points.map(text => <li key={text}>{text}</li>)}</ul></div>
                         <div><h3>教学难点</h3><ul>{frame.difficult_points.map(text => <li key={text}>{text}</li>)}</ul></div>
                     </section>
+                    {frame.strategies?.length ? <p className={styles.strategies}><b>突破难点：</b>{frame.strategies.join('；')}</p> : null}
                     <section>
                         <h3>四、学情分析</h3>
                         <p>{frame.learner_analysis}</p>
@@ -978,29 +1040,124 @@ function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
 
             {process ? (
                 <>
+                    {process.materials.length || process.safety.length ? (
+                        <section>
+                            <h3>六、教学准备</h3>
+                            {process.materials.length ? <p>{process.materials.join('、')}</p> : null}
+                            {process.safety.length ? <p className={styles.safety}><b>安全提示：</b>{process.safety.join('；')}</p> : null}
+                        </section>
+                    ) : null}
                     <section>
-                        <h3>六、教学过程</h3>
+                        <h3>七、教学过程</h3>
                         <ol className={styles.stages}>
                             {process.stages.map((stage, index) => (
                                 <li key={`${stage.name}-${index}`}>
-                                    <div className={styles.stageHead}><b>{stage.name}</b><span>{stage.minutes} 分钟</span>{stage.objective_ids.length ? <span>目标 {stage.objective_ids.map(objectiveNo).join('、')}</span> : null}{stage.assessment_ids.length ? <span>评价 {stage.assessment_ids.join('、')}</span> : null}</div>
+                                    <div className={styles.stageHead}><b>{stage.name}</b><span>{stage.minutes} 分钟</span>{stage.org ? <span className={styles.org}>{stage.org}</span> : null}{stage.objective_ids.length ? <span>目标 {stage.objective_ids.map(objectiveNo).join('、')}</span> : null}{stage.assessment_ids.length ? <span>评价 {stage.assessment_ids.join('、')}</span> : null}</div>
                                     <dl>
                                         <div><dt>教师活动</dt><dd>{stage.teacher}</dd></div>
                                         <div><dt>学生活动</dt><dd>{stage.students}</dd></div>
+                                        {stage.questions?.length ? (
+                                            <div><dt>关键问题</dt><dd>
+                                                <ul className={styles.questions}>
+                                                    {stage.questions.map(item => (
+                                                        <li key={item.q}>
+                                                            <span><b>问</b>{item.q}</span>
+                                                            {item.expect ? <span><b>预设</b>{item.expect}</span> : null}
+                                                            {item.follow ? <span><b>追问</b>{item.follow}</span> : null}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </dd></div>
+                                        ) : null}
+                                        {stage.check ? <div><dt>看全班</dt><dd>{stage.check}</dd></div> : null}
+                                        {stage.support ? <div><dt>照顾差异</dt><dd>{stage.support}</dd></div> : null}
                                         <div><dt>设计意图</dt><dd>{stage.purpose}</dd></div>
                                     </dl>
                                 </li>
                             ))}
                         </ol>
                     </section>
-                    {process.homework.length ? <section><h3>七、作业设计</h3><ul>{process.homework.map(item => <li key={item.task}><b>【{item.level}】</b>{item.task}</li>)}</ul></section> : null}
-                    {process.board.length ? <section><h3>八、板书设计</h3><pre className={styles.board}>{process.board.join('\n')}</pre></section> : null}
-                    {process.materials.length ? <p><b>教学准备：</b>{process.materials.join('、')}</p> : null}
-                    {process.safety.length ? <p className={styles.safety}><b>安全提示：</b>{process.safety.join('；')}</p> : null}
+                    {practice?.items?.length ? (
+                        <section>
+                            <h3>八、当堂练习与检测</h3>
+                            <ol className={styles.practice}>
+                                {practice.items.map((item, index) => (
+                                    <li key={`${item.question}-${index}`}>
+                                        <div className={styles.practiceHead}><span data-kind={item.kind}>{item.kind}</span><span>{item.level}</span>{item.code ? <Link to={`/standards/${item.code.replace(/\.\d+$/u, '')}#${item.code}`} target="_blank" rel="noopener"><code>{item.code}</code></Link> : null}</div>
+                                        <p>{item.question}</p>
+                                        <details><summary>参考答案</summary><p>{item.answer}</p></details>
+                                    </li>
+                                ))}
+                            </ol>
+                            <p className={styles.small}>题目和答案由 AI 起草，课前请核对后再用。</p>
+                        </section>
+                    ) : done && onPractice ? (
+                        <section>
+                            <h3>八、当堂练习与检测</h3>
+                            <p className={styles.small}>这次没写出当堂练习。 <button type="button" className="btn btn-ghost" onClick={onPractice} disabled={Boolean(talking)}>{talking === 'practice' ? '正在写当堂练习…' : '再写一次'}</button></p>
+                        </section>
+                    ) : null}
+                    {process.board.length ? <section><h3>九、板书设计</h3><pre className={styles.board}>{process.board.join('\n')}</pre></section> : null}
+                    {process.homework.length ? <section><h3>十、作业设计</h3><ul>{process.homework.map(item => <li key={item.task}><b>【{item.level}】</b>{item.task}{item.minutes ? <small className={styles.minutes}>约 {item.minutes} 分钟</small> : null}</li>)}</ul></section> : null}
                 </>
-            ) : frame ? <p className={styles.small}>正在写教学过程…</p> : null}
+            ) : frame ? <p className={styles.small}>正在写教学过程和当堂练习…</p> : null}
 
-            <p className={styles.docFoot}>本教案由 AI{plan.model ? `（${plan.model}）` : ''}依据 kebiao.org 收录的《义务教育课程标准（2022年版2025年修订）》要点起草。课标原文以官方出版物为准；请结合教材和班级实际修改后使用。{plan.privacy?.redacted ? ' 你填写的内容里有可识别的个人信息，发送前已移除。' : ''}</p>
+            <p className={styles.docFoot}>本教案由 AI{plan.model ? `（${plan.model}）` : ''}依据 kebiao.org 收录的《义务教育课程标准（2022年版2025年修订）》要点起草，按常规大班课堂设计：以讲解示范为主线，讲之前让学生先想先试，讲之后练习反馈。课标原文以官方出版物为准；请结合教材和班级实际修改后使用。{plan.privacy?.redacted ? ' 你填写的内容里有可识别的个人信息，发送前已移除。' : ''}</p>
         </article>
+    )
+}
+
+// 一、课标分析: each 要点 as the 课标 says it, then read for the teacher (what it asks, how far this lesson goes, how to use
+// the textbook for it, what to avoid) with what comes before and after it and where this book teaches it. Without a
+// reading (AI failed, or an older draft) it is the 课标依据 list it always was.
+function StandardReading({ evidence, reading, core }) {
+    const points = new Map((reading?.reading?.points || []).map(item => [item.code, item]))
+    const links = new Map((reading?.links || []).map(item => [item.code, item]))
+    const standards = reading?.standards || []
+    const linkText = item => <><Link to={`/standards/${item.code.replace(/\.\d+$/u, '')}#${item.code}`} target="_blank" rel="noopener"><code>{item.code}</code></Link>{item.grade ? `（${item.grade}）` : ''}{item.text.length > 34 ? `${item.text.slice(0, 34)}…` : item.text}{item.reason ? <small>——{item.reason}</small> : null}</>
+    return (
+        <section>
+            <h3>一、课标分析</h3>
+            <ul className={styles.evidence}>
+                {evidence.map(item => {
+                    const point = points.get(item.code)
+                    const link = links.get(item.code)
+                    return (
+                        <li key={item.code}>
+                            <Link to={`/standards/${item.standard_code}#${item.code}`} target="_blank" rel="noopener"><code>{item.code}</code></Link>{item.text}<small>修订版第 {item.pages.join('、')} 页 · {item.stage_label}</small>
+                            {point || link?.before.length || link?.after.length || link?.in_book.length ? (
+                                <dl className={styles.reading}>
+                                    {point?.plain ? <div><dt>要做到</dt><dd>{point.plain}</dd></div> : null}
+                                    {point?.verbs.length ? <div><dt>关键词</dt><dd>{point.verbs.map(verb => <span key={verb.word} className={styles.verb}><b>{verb.word}</b>{verb.meaning}</span>)}</dd></div> : null}
+                                    {point?.this_lesson ? <div><dt>本课承担</dt><dd>{point.this_lesson}</dd></div> : null}
+                                    {point?.textbook ? <div><dt>用教材教</dt><dd>{point.textbook}</dd></div> : null}
+                                    {point?.avoid ? <div><dt>注意</dt><dd>{point.avoid}</dd></div> : null}
+                                    {link?.before.length ? <div><dt>先学</dt><dd><ul className={styles.links}>{link.before.map(entry => <li key={entry.code}>{linkText(entry)}</li>)}</ul></dd></div> : null}
+                                    {link?.after.length ? <div><dt>后学</dt><dd><ul className={styles.links}>{link.after.map(entry => <li key={entry.code}>{linkText(entry)}</li>)}</ul></dd></div> : null}
+                                    {link?.in_book.length ? <div><dt>本册在哪教</dt><dd>{link.in_book.map(entry => `${entry.lesson}${entry.current ? '（本课）' : ''}${entry.page ? `（PDF ${entry.page}）` : ''}`).join('；')}{link.books > 1 ? <small>　另有 {link.books - 1} 本教材也教它</small> : null}</dd></div> : null}
+                                </dl>
+                            ) : null}
+                        </li>
+                    )
+                })}
+            </ul>
+            {reading?.reading?.position ? <p className={styles.core}><b>这节课的位置</b>{reading.reading.position}</p> : null}
+            {core ? <p className={styles.core}><b>核心理解</b>{core}</p> : null}
+            {reading?.reading?.literacy?.length ? <p className={styles.core}><b>素养表现</b>{reading.reading.literacy.map(item => `${item.name}：${item.look_for}`).join('；')}</p> : null}
+            {reading?.limits?.length ? <p className={styles.limits}><b>课标限定</b>{reading.limits.join('；')}——这些内容本课不教、不考。</p> : null}
+            {standards.some(item => item.requirements.length || item.guidance.length) ? (
+                <details className={styles.standardText}>
+                    <summary>课标原文：所在标准、学业要求、教学提示</summary>
+                    {standards.map(item => (
+                        <div key={item.code}>
+                            <p><b>{item.code} {item.title}</b>（{item.stage_label}）{item.statement ? `：${item.statement}` : ''}{item.statement_source === 'kebiao_summary' ? <small>（kebiao 概括）</small> : null}</p>
+                            {item.requirements.length ? <p><b>学业要求</b>{item.requirements.join(' ')}</p> : null}
+                            {item.guidance.length ? <p><b>教学提示</b>{item.guidance.join(' ')}</p> : null}
+                        </div>
+                    ))}
+                </details>
+            ) : null}
+            {reading && !reading.reading ? <p className={styles.small}>这次 AI 没有写出课标解读；上面是课标原文和前后联系。</p> : null}
+        </section>
     )
 }

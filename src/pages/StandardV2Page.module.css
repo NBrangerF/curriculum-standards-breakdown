@@ -329,6 +329,10 @@ button.badge:focus-visible {
     font-size: 0.74rem;
 }
 
+/* 知识图谱: this 要点 in the middle, what it builds on and what builds on it */
+.graphLink { margin-left: auto; color: var(--kb-gold); text-decoration: none; }
+.graphLink:hover { text-decoration: underline; text-underline-offset: 3px; }
+
 .flag {
     padding: 0 0.45rem;
     border-radius: var(--radius-full);
@@ -546,7 +550,10 @@ button.badge:focus-visible {
 
 .notFound {
     margin-top: 1rem;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
 }
 
 @media (max-width: 640px) {

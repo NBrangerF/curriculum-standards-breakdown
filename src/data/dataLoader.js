@@ -482,7 +482,7 @@ export async function loadStandardByCode(code) {
     const requested = String(code || '').trim()
     const aliasMatches = aliases[requested.toUpperCase()] || []
     const canonicalCode = aliasMatches.length === 1 ? aliasMatches[0] : requested
-    const subjectSlug = codeIndex[canonicalCode]
+    const subjectSlug = Object.prototype.hasOwnProperty.call(codeIndex, canonicalCode) ? codeIndex[canonicalCode] : null
     // The code and alias indexes cover every published code, id and legacy code,
     // so an unknown code is missing without downloading every subject file.
     if (!subjectSlug) return null

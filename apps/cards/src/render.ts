@@ -73,7 +73,8 @@ function takeaway(standard: V1Standard) {
 
 function v1Card(code: string): CardStandard | null {
     codeIndex ??= readJson('indexes/code_to_subject.json') as Record<string, string>
-    const slug = codeIndex[code]
+    // own keys only: /cards/s/constructor.png must not find Object's constructor (that was a 500)
+    const slug = Object.hasOwn(codeIndex, code) ? codeIndex[code] : null
     if (!slug) return null
     if (!subjectFiles.has(slug)) subjectFiles.set(slug, readJson(`by_subject/${slug}.json`).standards)
     const standard = subjectFiles.get(slug)!.find(item => item.code === code)

@@ -123,16 +123,126 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
     "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_414cefec3b2abcfa",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_6_up",
+        "tes_688d5fb5e32ff796",
+        "textbook-node:tcn_bed3532c16850053",
+        "textbook-unit:tcu_f561d5a68f3d3aea"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2. 百分数的应用",
+          "excerpt_hash": "74decd04244efce3bdef6b9df2e4b9d018dd0981b1ba7ccd3335f9b6f771db15",
+          "pdf_page": 90,
+          "printed_page": "85",
+          "span_id": "tes_688d5fb5e32ff796"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_409387805f5755e4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_409387805f5755e4",
+          "label": "用自己的话解释百分数的统计意义"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_bed3532c16850053",
+      "node_title": "2百分数的应用",
+      "pdf_page": 90,
+      "printed_page": "85",
+      "publication_status": "published",
+      "rationale": "教材课文“2百分数的应用”与课标 MA-D3-ST-002 的可教学小能力“用自己的话解释百分数的统计意义”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f561d5a68f3d3aea",
+      "unit_title": "3 分数除法"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5e97badda0b54eed",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_1ba8117dec0624e11c0e",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_6_up",
+        "tes_4aab1794d19de036",
+        "textbook-node:tcn_122d83d33c951235",
+        "textbook-unit:tcu_f561d5a68f3d3aea"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1. 百分数的意义",
+          "excerpt_hash": "0c50e5617e8710773ca06f375daaa8b93a97108ec233fa2c8a83771df89af3d3",
+          "pdf_page": 84,
+          "printed_page": "79",
+          "span_id": "tes_4aab1794d19de036"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_409387805f5755e4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_409387805f5755e4",
+          "label": "用自己的话解释百分数的统计意义"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_122d83d33c951235",
+      "node_title": "1百分数的意义",
+      "pdf_page": 84,
+      "printed_page": "79",
+      "publication_status": "published",
+      "rationale": "教材课文“1百分数的意义”与课标 MA-D3-ST-002 的可教学小能力“用自己的话解释百分数的统计意义”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 6,
+      "textbook_subject": "数学",
+      "textbook_title": "数学6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_f561d5a68f3d3aea",
+      "unit_title": "3 分数除法"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_55e5b639640823bf",
@@ -174,7 +284,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_b06437a92308"
+        "external_smartedu_2026_math_primary_grade_6_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -186,7 +296,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_52ef62335b18e7df",
       "textbook_grade": 6,
       "textbook_subject": "数学",
@@ -236,7 +346,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_98536ea16bbc"
+        "external_smartedu_2026_math_primary_grade_5_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -248,7 +358,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_e1c2312794f3e566",
       "textbook_grade": 5,
       "textbook_subject": "数学",

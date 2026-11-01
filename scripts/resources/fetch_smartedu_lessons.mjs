@@ -3,7 +3,7 @@
 // (视频课程、课件、教学设计、学习任务单、课后练习…). Only titles and ids are kept; the platform hosts the content.
 // Output: data/textbooks/smartedu/<edition_id>.json and data/textbooks/smartedu/index.json.
 // Usage: node scripts/resources/fetch_smartedu_lessons.mjs [--only ed_xxx] [--refresh]
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { readdirSync } from 'node:fs'
@@ -194,6 +194,8 @@ for (const book of books) {
     const sole = best && best.variant >= 0 && (candidates.length === 1 || (best.overlap === 0 && !best.tie && best.variant > 0))
     if (!best || best.variant < 0 || (best.overlap < 2 && !sole) || (bookText && best.tie && best.overlap < 3)) {
         index.editions[book.edition_id] = { status: 'not_found', candidates: candidates.map(item => item.title) }
+        // a list matched on an earlier run no longer fits (the PDF was replaced by a newer printing): drop it
+        rmSync(path.join(OUT, `${book.edition_id}.json`), { force: true })
         console.log(`  - ${book.title} (${book.edition_name}): no match among ${candidates.length}`)
         continue
     }

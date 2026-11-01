@@ -292,7 +292,7 @@ function FeedbackPage() {
                         </div>
                         <div className={styles.field}>
                             <label htmlFor="relatedCode">关联条目代码 <small>可选</small></label>
-                            <input id="relatedCode" name="relatedCode" value={formData.relatedCode} onChange={handleChange} placeholder="例如 MA-D2-GE-003" />
+                            <input id="relatedCode" name="relatedCode" value={formData.relatedCode} onChange={handleChange} placeholder="例如 MA-S2-NA-01.3" />
                         </div>
                     </div>
 

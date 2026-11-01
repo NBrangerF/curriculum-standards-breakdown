@@ -158,16 +158,181 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 3,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_08a6df390da5b9b3",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_down",
+        "tes_000dbece39e1787d",
+        "textbook-node:tcn_4b4ab8990d1f712c",
+        "textbook-unit:tcu_9911aa3e8fdd4a1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "计算全国的居民人均可支配收入,可先按省份各自计算其人均可支配收入和人数,再利用加权平均数进行计算.这样不仅减少了把各省份所有调查的数据集中在一起的工作,而且分散了计算量.像这样先按数据分组分别计算,再通过一定算法由各",
+          "excerpt_hash": "8d0a2adc9d5442c2d6e4fe800804b30ab2c0ca67d8b9f9b61daf2af1627189f3",
+          "pdf_page": 160,
+          "printed_page": "153",
+          "span_id": "tes_000dbece39e1787d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f48177c7f2d2a45a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f48177c7f2d2a45a",
+          "label": "用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4b4ab8990d1f712c",
+      "node_title": "计算全国的居民人均可支配收入,可先按省份各自计算其人均可支配收入和人数,再利用加权平均数进行计算.这样不仅减少了把各省份所有调查的数据集中在一起的工作,而且分散了计算量.像这样先按数据分组分别计算,再通过一定算法由各",
+      "pdf_page": 160,
+      "printed_page": "153",
+      "publication_status": "published",
+      "rationale": "教材练习“计算全国的居民人均可支配收入,可先按省份各自计算其人均可支配收入和人数,再利用加权平均数进行计算.这样不仅减少了把各省份所有调查的数据集中在一起的工作,而且分散了计算量.像这样先按数据分组分别计算,再通过一定算法由各”与课标 MA-H4G8-ST-001 的可教学小能力“用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9911aa3e8fdd4a1f",
+      "unit_title": "第二十四章 数据的分析"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_15bed7d4abf8f255",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_down",
+        "tes_665c5bd848ea5440",
+        "textbook-node:tcn_31fbdc5db0be7bce",
+        "textbook-unit:tcu_9911aa3e8fdd4a1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据样本数据计算反映了每个数据与平均数的平均差异程度,能较好 得到的方差,叫作样本地反映出数据的离散程度,是刻画数据离散程度最 方差;根据总体数据计",
+          "excerpt_hash": "3d3635a3099dd3011967cda8c084f0adc82937707765231b30a2e06dac620257",
+          "pdf_page": 176,
+          "printed_page": "169",
+          "span_id": "tes_665c5bd848ea5440"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f48177c7f2d2a45a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f48177c7f2d2a45a",
+          "label": "用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_31fbdc5db0be7bce",
+      "node_title": "根据样本数据计算反映了每个数据与平均数的平均差异程度,能较好 得到的方差,叫作样本地反映出数据的离散程度,是刻画数据离散程度最 方差;根据总体数据计",
+      "pdf_page": 176,
+      "printed_page": "169",
+      "publication_status": "published",
+      "rationale": "教材练习“根据样本数据计算反映了每个数据与平均数的平均差异程度,能较好 得到的方差,叫作样本地反映出数据的离散程度,是刻画数据离散程度最 方差;根据总体数据计”与课标 MA-H4G8-ST-001 的可教学小能力“用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9911aa3e8fdd4a1f",
+      "unit_title": "第二十四章 数据的分析"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1f08bc46a8898755",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_down",
+        "tes_8bf6a2f79eef6879",
+        "textbook-node:tcn_f411f4895d48f2b3",
+        "textbook-unit:tcu_9911aa3e8fdd4a1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "计算器或计算机等信息技术工具进行统计计算.下面以借助某软件计算第149页 “问题1”中的平均数和第152页 “例2”中的加权平均数为例 (不同软件或软件的不同版本,具体操作可能不同),介绍用信息技术工具求统计量的值.",
+          "excerpt_hash": "1407526026ee90a089db81d7de0cc4a903764360d25f99d7ce7bda0cc8d8b345",
+          "pdf_page": 173,
+          "printed_page": "166",
+          "span_id": "tes_8bf6a2f79eef6879"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f48177c7f2d2a45a"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f48177c7f2d2a45a",
+          "label": "用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f411f4895d48f2b3",
+      "node_title": "计算器或计算机等信息技术工具进行统计计算.下面以借助某软件计算第149页 “问题1”中的平均数和第152页 “例2”中的加权平均数为例 (不同软件或软件的不同版本,具体操作可能不同),介绍用信息技术工具求统计量的值.",
+      "pdf_page": 173,
+      "printed_page": "166",
+      "publication_status": "published",
+      "rationale": "教材练习“计算器或计算机等信息技术工具进行统计计算.下面以借助某软件计算第149页 “问题1”中的平均数和第152页 “例2”中的加权平均数为例 (不同软件或软件的不同版本,具体操作可能不同),介绍用信息技术工具求统计量的值.”与课标 MA-H4G8-ST-001 的可教学小能力“用自己的话解释平均数、中位数、众数、加权平均数的意义和集中趋势特点”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9911aa3e8fdd4a1f",
+      "unit_title": "第二十四章 数据的分析"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_6824b21072021bbc",
@@ -178,7 +343,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_e14d09b0b94a"
+        "external_smartedu_2026_math_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -190,7 +355,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d79076db84511d8a",
       "textbook_grade": 8,
       "textbook_subject": "数学",
@@ -209,7 +374,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_485165afa9c8"
+        "external_smartedu_2026_math_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -221,7 +386,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_8684cc79506c65f5",
       "textbook_grade": 8,
       "textbook_subject": "数学",

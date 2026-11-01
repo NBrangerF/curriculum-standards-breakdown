@@ -10,7 +10,7 @@ import { redactSensitiveText } from './ai-privacy.js'
 import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate } from './search-judge.js'
 import { alignLessons, type AlignPoint } from './textbook-align.js'
 import type { ApiBindings } from './http.js'
-import { checkPlan, checkTeacherPlan, checkUnit, draftFrame, draftProcess, draftTalk, draftTrial, draftUnit, rankPoints, readTest, checkTest, splitTest, mergeReads, sanitiseProcess, readTeacherPlan, sanitiseFrame, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type SubjectNote } from './lesson-plan.js'
+import { checkPlan, checkPractice, checkTeacherPlan, checkUnit, DEFAULT_CLASS_SIZE, draftFrame, draftPractice, draftProcess, draftReading, draftTalk, draftTrial, draftUnit, LESSON_TYPES, limitsOf, rankPoints, readTest, checkTest, splitTest, mergeReads, sanitiseProcess, readTeacherPlan, sanitiseFrame, v2SubjectSlug, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type PointLink, type PointLinks, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
 
 type Deps = {
@@ -27,6 +27,15 @@ type AlignRow = [string, 'T' | 'P', string, string, number | null]
 type NationalLesson = { id: string, title: string, chapters: string[], pdf_page: number | null, unit_id: string | null, materials: string[], hours: number, ai_points?: string[], align?: AlignRow[] }
 type NationalFile = { edition_id: string, platform_title: string, confidence: string, lessons: NationalLesson[] }
 type ConceptsFile = { subjects: Array<SubjectNote & { slug: string, name: string, terms: string[] }>, terms: Array<{ id: string, term: string }> }
+// kebiao 知识图谱 (scripts/v2/build_knowledge_graph.mjs): each 要点 with its 年级 column, and 要先会 lines [from, to, reason]
+type GraphFile = {
+    columns: Array<{ key: string, label: string }>
+    points: Record<string, { t: string, col: string }>
+    external?: Record<string, { t: string, col: string, colLabel?: string, subject?: string }>
+    edges: Array<[string, string, string]>
+}
+// where each 要点 is taught: [book, unit, lesson, relation, quote, source, page, edition_id, reviewed]
+type GraphLessonsFile = { points: Record<string, Array<[string, string, string, string, string, string, number | null, string, number]>> }
 
 const LESSON_URL = (id: string) => `https://basic.smartedu.cn/syncClassroom/classActivity?activityId=${id}`
 const BAND_OF_GRADE = (grade: number) => (grade <= 2 ? 'H1' : grade <= 4 ? 'H2' : grade <= 6 ? 'H3' : 'H4')
@@ -51,22 +60,28 @@ const BaseRequestSchema = z.object({
         edition_name: z.string().trim().max(40).optional(),
         subject_slug: z.string().trim().max(20),
         grade: z.number().int().min(1).max(9).nullable().optional(),
-        pages: z.string().trim().max(30).optional()
+        pages: z.string().trim().max(30).optional(),
+        // the book and its 国家平台 lesson: where else the book teaches the 要点, and this lesson's own words
+        edition_id: z.string().trim().regex(/^ed_[0-9a-f]+$/u).optional(),
+        lesson_id: z.string().trim().max(60).optional()
     }),
     indicator_codes: z.array(z.string().trim().max(24)).min(1).max(10),
     period_minutes: z.number().int().min(20).max(90).default(40),
     lesson_index: z.number().int().min(1).max(30).default(1),
     lesson_count: z.number().int().min(1).max(30).default(1),
+    class_size: z.number().int().min(10).max(80).default(DEFAULT_CLASS_SIZE),
+    lesson_type: z.enum(['', ...LESSON_TYPES]).default(''),
     class_notes: z.string().max(800).default(''),
     teacher_notes: z.string().max(1000).default('')
 })
 const HOUR = /[（(]第([一二三四五六七八九十\d]+)课时[）)]\s*$/u
 const HOUR_NUMBERS: Record<string, number> = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9, 十: 10 }
+const canonicalTitle = (title: string) => title.replace(HOUR, '').replace(/^[^_]{2,20}_/u, '').replace(/^第[一二三四五六七八九十]+单元[-—\s]+/u, '').trim() || title
 function canonicalLessons(lessons: NationalLesson[]) {
     const out: Array<{ id: string, title: string, section: string | null, pdf_page: number | null, hours: number }> = []
     for (const lesson of lessons) {
         const hour = lesson.title.match(HOUR)?.[1]
-        const title = lesson.title.replace(HOUR, '').replace(/^[^_]{2,20}_/u, '').replace(/^第[一二三四五六七八九十]+单元[-—\s]+/u, '').trim() || lesson.title
+        const title = canonicalTitle(lesson.title)
         const found = out.find(item => item.title === title)
         const hours = Math.max(lesson.hours || 1, hour ? HOUR_NUMBERS[hour] || Number(hour) || 1 : 1)
         if (found) found.hours = Math.max(found.hours, hours)
@@ -76,7 +91,7 @@ function canonicalLessons(lessons: NationalLesson[]) {
 }
 
 export const DraftRequestSchema = BaseRequestSchema.extend({
-    step: z.enum(['frame', 'process', 'unit', 'talk', 'trial']),
+    step: z.enum(['frame', 'reading', 'process', 'practice', 'unit', 'talk', 'trial']),
     process: z.unknown().optional(),
     frame: z.unknown().optional(),
     unit_lessons: z.array(z.string().trim().min(1).max(60)).max(40).default([]),
@@ -354,6 +369,74 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         })
     })
 
+    // 前后联系 and 教材里在哪教 for the picked 要点: facts from kebiao's data, not from the model
+    async function pointLinks(codes: string[], subjectSlug: string, editionId: string | undefined, lessonId: string | undefined, title: string): Promise<PointLinks[]> {
+        const slug = v2SubjectSlug(subjectSlug)
+        const graph = /^[a-z_]+$/u.test(slug) ? await readData<GraphFile>(`v2/graph/${slug}.json`) : null
+        const taught = /^[a-z_]+$/u.test(slug) ? await readData<GraphLessonsFile>(`v2/graph/lessons/${slug}.json`) : null
+        const national = editionId ? await nationalFile(editionId) : null
+        const ownLesson = national ? findLesson(national, lessonId, title) : null
+        const ownTitle = ownLesson ? canonicalTitle(ownLesson.title) : ''
+        const columnLabel = new Map((graph?.columns || []).map(column => [column.key, column.label]))
+        const describe = (code: string, reason: string): PointLink | null => {
+            const own = graph?.points[code]
+            if (own) return { code, text: own.t, grade: columnLabel.get(own.col) || own.col, reason }
+            const other = graph?.external?.[code]
+            return other ? { code, text: other.t, grade: `${other.subject || ''}${other.colLabel || other.col}`, reason } : null
+        }
+        const sameSubjectFirst = (a: PointLink, b: PointLink) => Number(Boolean(graph?.external?.[a.code])) - Number(Boolean(graph?.external?.[b.code]))
+        return codes.map(code => {
+            const before = (graph?.edges || []).filter(edge => edge[1] === code).map(edge => describe(edge[0], edge[2])).filter((item): item is PointLink => Boolean(item)).sort(sameSubjectFirst).slice(0, 4)
+            const after = (graph?.edges || []).filter(edge => edge[0] === code).map(edge => describe(edge[1], edge[2])).filter((item): item is PointLink => Boolean(item)).sort(sameSubjectFirst).slice(0, 4)
+            const rows = (taught?.points[code] || []).filter(row => row[3] === 'T')
+            const inBook: PointLinks['in_book'] = []
+            if (national) {
+                // the book's own lesson-by-lesson judgement is complete (the graph file keeps a few lessons per 要点);
+                // review lessons are left out and this lesson is marked, so the teacher sees which piece it carries
+                for (const lesson of national.lessons) {
+                    const row = (lesson.align || []).find(item => item[0] === code && item[1] === 'T')
+                    const name = canonicalTitle(lesson.title)
+                    if (!row || /整理|复习/u.test(name) || inBook.some(item => item.lesson === name)) continue
+                    inBook.push({ unit: lesson.chapters[0] || '', lesson: name, page: Number.isInteger(row[4]) ? row[4] : lesson.pdf_page, ...(name === ownTitle ? { current: true } : {}) })
+                }
+            } else {
+                for (const row of rows) {
+                    if (row[7] !== editionId || inBook.some(item => item.lesson === row[2])) continue
+                    inBook.push({ unit: row[1], lesson: row[2], page: Number.isInteger(row[6]) ? row[6] : null })
+                }
+            }
+            return { code, before, after, in_book: inBook.slice(0, 8), books: new Set(rows.map(row => row[7])).size }
+        })
+    }
+
+    // the 国家平台 lesson a request names: by id, or else by title
+    const findLesson = (national: NationalFile, lessonId: string | undefined, title: string) => (lessonId && national.lessons.find(item => item.id === lessonId)) || national.lessons.find(item => item.title === title) || null
+
+    // this lesson's own words from the textbook (教材与课标对应), quoted for 课标解读 and the exercises
+    async function lessonQuotes(editionId: string | undefined, lessonId: string | undefined, title: string) {
+        const national = editionId ? await nationalFile(editionId) : null
+        if (!national) return []
+        const lesson = findLesson(national, lessonId, title)
+        const rows = Array.isArray(lesson?.align) ? lesson.align : []
+        const quotes = [...rows.filter(row => row[3] === 'book'), ...rows.filter(row => row[3] !== 'book' && row[3] !== 'title')].map(row => String(row[2] || '').slice(0, 60)).filter(Boolean)
+        return [...new Set(quotes)].slice(0, 6)
+    }
+
+    // the lesson's unit in textbook order, this lesson marked, so the plan leaves the later lessons' content to them;
+    // a long unit is cut to the lessons around this one
+    async function unitSequence(editionId: string | undefined, lessonId: string | undefined, title: string) {
+        const national = editionId ? await nationalFile(editionId) : null
+        const lesson = national ? findLesson(national, lessonId, title) : null
+        if (!national || !lesson?.chapters[0]) return []
+        const own = canonicalTitle(lesson.title)
+        const list: Array<{ title: string, current?: boolean }> = canonicalLessons(national.lessons.filter(item => item.chapters[0] === lesson.chapters[0])).map(item => (item.title === own ? { title: item.title, current: true } : { title: item.title }))
+        const at = list.findIndex(item => item.current)
+        if (at < 0 || list.length < 2) return []
+        const from = Math.max(0, at - 5)
+        const to = Math.min(list.length, at + 9)
+        return [...(from > 0 ? [{ title: '…' }] : []), ...list.slice(from, to), ...(to < list.length ? [{ title: '…' }] : [])]
+    }
+
     // 要点 text always comes from kebiao's data, never from the request
     async function resolveInput(body: z.infer<typeof BaseRequestSchema>) {
         const standards: PlanStandard[] = []
@@ -383,7 +466,12 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             lessonIndex: Math.min(body.lesson_index, body.lesson_count),
             lessonCount: body.lesson_count,
             classNotes: classNotes.text.trim(),
-            teacherNotes: teacherNotes.text.trim()
+            teacherNotes: teacherNotes.text.trim(),
+            classSize: body.class_size,
+            lessonType: body.lesson_type,
+            links: await pointLinks(indicators.slice(0, 12).map(item => item.code), body.lesson.subject_slug, body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title),
+            lessonQuotes: await lessonQuotes(body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title),
+            unitLessons: await unitSequence(body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title)
         }
         const privacy = { redacted: classNotes.redacted || teacherNotes.redacted, redaction_count: classNotes.redaction_count + teacherNotes.redaction_count }
         const evidence = input.indicators.map(item => ({ code: item.code, text: item.text, pages: item.pages, standard_code: item.standard_code, standard_title: item.standard_title, stage_label: item.stage_label }))
@@ -425,6 +513,34 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
             if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `draft_${run.status}`, run.status === 'disabled' ? 'AI 暂不可用。' : 'AI 这次没有写出可用的试讲稿。请再试一次。')
             return deps.ok(c, version as never, { step: 'trial', trial: run.output, evidence, model: run.model, latency_ms: run.latency_ms })
+        }
+
+        if (body.step === 'reading') {
+            // the 课标 itself (statement, 学业要求, 教学提示, 不包括) and the links are facts the teacher always gets;
+            // the model's reading of them is added when it answers
+            const run = await draftReading(input)
+            c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
+            const sources = [...input.indicators.map(item => item.text), ...input.standards.flatMap(item => [...item.requirements, ...item.guidance])]
+            return deps.ok(c, version as never, {
+                step: 'reading',
+                reading: run.output,
+                reading_status: run.status,
+                links: input.links || [],
+                standards: input.standards.map(item => ({ code: item.code, title: item.title, stage_label: item.stage_label, statement: item.statement, statement_source: item.statement_source, requirements: item.requirements, guidance: item.guidance })),
+                limits: [...new Map(limitsOf(sources).map(item => [item.phrase, item.phrase])).values()],
+                evidence,
+                model: run.model,
+                latency_ms: run.latency_ms
+            })
+        }
+
+        if (body.step === 'practice') {
+            const frame = sanitiseFrame(body.frame, new Set(input.indicators.map(item => item.code)))
+            if (!frame) return deps.apiError(c, 422, 'validation_error', '缺少第一步生成的目标与评价。')
+            const run = await draftPractice(input, frame)
+            c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
+            if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `draft_${run.status}`, run.status === 'disabled' ? 'AI 起草暂不可用。' : 'AI 这次没有写出可用的练习题。')
+            return deps.ok(c, version as never, { step: 'practice', practice: run.output, checks: checkPractice(run.output, frame), model: run.model, latency_ms: run.latency_ms })
         }
 
         if (body.step === 'frame') {

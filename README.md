@@ -13,6 +13,7 @@
 <p align="center">
   <a href="https://www.kebiao.org/"><strong>在线使用</strong></a> ·
   <a href="https://www.kebiao.org/smart-search">用教学语言查课标</a> ·
+  <a href="https://github.com/NBrangerF/China-Textbook-New">下载最新版教材 PDF</a> ·
   <a href="https://www.kebiao.org/feedback">反馈与共建</a>
 </p>
 
@@ -50,6 +51,7 @@ kebiao 以课程标准为主轴，把分散在文档、教材、资源和教学�
 | 比较学科与学段差异 | [并列对比](https://www.kebiao.org/#compare-filter) 1–3 个学科的同一学段，或同一学科跨 1–6 个学段/年级的变化。 |
 | 理解一条标准的前后联系 | 在[标准详情](https://www.kebiao.org/standards/MA-D2-GE-003)中查看能力拆解、课程进阶、相邻标准和关系图谱，并查看前置关系候选及其核验状态。 |
 | 对照教材与课标 | 在[教材馆](https://www.kebiao.org/textbooks)浏览 141 册小学与初中教材索引；对已完成正文回查的目录，可定位到具体 PDF 页。 |
+| 下载最新版教材 PDF | 姊妹仓库 [China Textbook New](https://github.com/NBrangerF/China-Textbook-New) 收录 147 本义务教育最新版教材（其中 115 本是 2022 课标修订版），逐本核对国家中小学智慧教育平台，大文件也能整本下载。 |
 | 找到可用的学习材料 | [浏览简体中文学习资源](https://www.kebiao.org/learning-resources)，在详情页查看来源、许可与已有的课标关联证据。 |
 | 整理自己的备课线索 | 把标准保存在当前浏览器的[清单](https://www.kebiao.org/collections)中，导入或导出 JSON，并生成适合打印的版本。 |
 | 复核教学计划与课标的关系 | 在[预览工作台](https://www.kebiao.org/alignment-workbench)中完成“解析 → 人工复核 → 候选匹配 → 覆盖分析 → 周计划草案”。 |

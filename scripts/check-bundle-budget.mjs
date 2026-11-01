@@ -4,6 +4,8 @@ import { resolve } from 'node:path'
 
 const assetsDirectory = resolve('dist/assets')
 const files = await readdir(assetsDirectory)
+// The entry is the module index.html loads; lazily loaded libraries can be named index-*.js too.
+const entry = (await readFile(resolve('dist/index.html'), 'utf8')).match(/<script type="module"[^>]*src="\/assets\/([^"]+\.js)"/u)?.[1]
 
 // The pre-Learning Map entry baseline was frozen at 140KB gzip. Keep the
 // supplementary route from adding more than 5KB to the initial application
@@ -26,7 +28,7 @@ const budgets = [
 
 const results = []
 for (const budget of budgets) {
-    const filename = files.find(file => budget.pattern.test(file))
+    const filename = budget.label === 'main' ? entry : files.find(file => budget.pattern.test(file))
     if (!filename) throw new Error(`Missing production chunk for ${budget.label}`)
     const contents = await readFile(resolve(assetsDirectory, filename))
     const gzipKB = Number((gzipSync(contents).byteLength / 1024).toFixed(2))

@@ -1,9 +1,10 @@
 {
   "alignments": [],
   "audit": {
-    "approved_page_map_count": 110,
-    "approved_toc_entry_count": 0,
+    "approved_page_map_count": 102,
+    "approved_toc_entry_count": 17,
     "candidate_toc_entry_count": 0,
+    "machine_checked_toc_entry_count": 0,
     "numeric_page_offset": 5,
     "numeric_page_offset_confidence": 0.99,
     "ocr": {
@@ -12,29 +13,34 @@
       "status": "no_toc_detected",
       "toc_pages": []
     },
-    "pdf_page_count": 115,
+    "pdf_page_count": 107,
+    "published_toc_entry_count": 0,
     "toc_candidate_page_count": 0
   },
   "content_alignment": {
     "algorithm_version": "component-evidence-hybrid-v3",
     "alignment_count": 0,
     "automatic_content_unit_count": 0,
-    "content_node_count": 114,
-    "evidence_span_count": 0,
+    "content_node_count": 158,
+    "evidence_span_count": 34,
     "generated_alignment_count": 0,
-    "native_text_ratio": 0.9565,
+    "native_text_ratio": 0.9907,
     "ocr_page_count": 0,
+    "ocr_reused_count": 0,
     "ocr_skipped_count": 0,
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
+    "reconciled_unit_range_count": 2,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
-    "sidecar_path": "derived/textbook-content-v2/a1ee1d8358d960cf72f0eb26930c3b85fc583a9bef3915438bc046ba48187b80/pages.jsonl",
-    "source_asset_sha256": "a1ee1d8358d960cf72f0eb26930c3b85fc583a9bef3915438bc046ba48187b80",
-    "unit_recovery_native_text_ratio": 0.8174,
-    "unit_recovery_reason": "no_coherent_native_heading_sequence",
-    "unit_recovery_status": "scope_only"
+    "sidecar_path": "derived/textbook-content-v2/b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98/pages.jsonl",
+    "sidecar_sha256": "e8901036f55b34eb57180ff636129820ff93a5e3b03d00c12d110a21a3d353c7",
+    "source_asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+    "unit_range_reconciliation_algorithm": "sidecar-top-heading-unit-range-v2",
+    "unit_recovery_native_text_ratio": 1,
+    "unit_recovery_reason": "published_toc_available",
+    "unit_recovery_status": "not_needed"
   },
   "content_nodes": [
     {
@@ -208,13 +214,52 @@
       "unit_id": null
     },
     {
+      "confidence": 0.9,
+      "end_pdf_page": 12,
+      "end_printed_page": "6",
+      "evidence_span_ids": [
+        "tes_e8cfeac8c22b95a1"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_616013fd3a40fefc",
+      "parent_id": "tcn_f9c319e30eaace07",
+      "pdf_page": 11,
+      "pdf_page_end": 12,
+      "pdf_page_start": 11,
+      "printed_page": "6",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "6 分类与整理",
+      "title": "6分类与整理",
+      "unit_id": "tcu_838d9fdb82cd06d7"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 15,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_f9c319e30eaace07",
+      "parent_id": null,
+      "pdf_page": 11,
+      "pdf_page_end": 15,
+      "pdf_page_start": 11,
+      "printed_page": "6",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "逐层分类",
+      "title": "逐层分类",
+      "toc_entry_id": "tcu_024397e9fba92f0f",
+      "unit_id": "tcu_024397e9fba92f0f"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 11,
       "end_printed_page": "6",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ac183b559139fbd1",
-      "parent_id": null,
+      "parent_id": "tcn_f9c319e30eaace07",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -222,7 +267,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 11 页",
-      "unit_id": null
+      "unit_id": "tcu_838d9fdb82cd06d7"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 15,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_1b67306f7986c922",
+      "parent_id": null,
+      "pdf_page": 11,
+      "pdf_page_end": 15,
+      "pdf_page_start": 11,
+      "printed_page": "6",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "一、分类与整理",
+      "title": "一、分类与整理",
+      "toc_entry_id": "tcu_838d9fdb82cd06d7",
+      "unit_id": "tcu_838d9fdb82cd06d7"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 12,
+      "end_printed_page": "7",
+      "evidence_span_ids": [
+        "tes_976e3399591feb7a"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_906065e61bd73faa",
+      "parent_id": "tcn_616013fd3a40fefc",
+      "pdf_page": 12,
+      "pdf_page_end": 12,
+      "pdf_page_start": 12,
+      "printed_page": "7",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "根据上图填写下表并回答问题。",
+      "title": "根据上图填写下表并回答问题。",
+      "unit_id": "tcu_838d9fdb82cd06d7"
     },
     {
       "confidence": 0.98,
@@ -231,7 +315,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_971c499ebccd0dfc",
-      "parent_id": null,
+      "parent_id": "tcn_f9c319e30eaace07",
       "pdf_page": 12,
       "pdf_page_end": 12,
       "pdf_page_start": 12,
@@ -239,7 +323,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 12 页",
-      "unit_id": null
+      "unit_id": "tcu_838d9fdb82cd06d7"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 15,
+      "end_printed_page": "8",
+      "evidence_span_ids": [
+        "tes_801ab2c58ade6cd4"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_5805de131b820266",
+      "parent_id": "tcn_f9c319e30eaace07",
+      "pdf_page": 13,
+      "pdf_page_end": 15,
+      "pdf_page_start": 13,
+      "printed_page": "8",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "8 分类与整理",
+      "title": "8分类与整理",
+      "unit_id": "tcu_838d9fdb82cd06d7"
     },
     {
       "confidence": 0.98,
@@ -248,7 +352,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b162d706fefa21b9",
-      "parent_id": null,
+      "parent_id": "tcn_f9c319e30eaace07",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -256,7 +360,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 13 页",
-      "unit_id": null
+      "unit_id": "tcu_838d9fdb82cd06d7"
     },
     {
       "confidence": 0.98,
@@ -265,7 +369,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_59e65ce0933618e2",
-      "parent_id": null,
+      "parent_id": "tcn_f9c319e30eaace07",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -273,7 +377,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 14 页",
-      "unit_id": null
+      "unit_id": "tcu_838d9fdb82cd06d7"
     },
     {
       "confidence": 0.98,
@@ -282,7 +386,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_75f44baff2c8830b",
-      "parent_id": null,
+      "parent_id": "tcn_f9c319e30eaace07",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -290,7 +394,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 15 页",
-      "unit_id": null
+      "unit_id": "tcu_838d9fdb82cd06d7"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 20,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_c4f96c359e97e85c",
+      "parent_id": "tcn_dfcf5bab15652e7f",
+      "pdf_page": 16,
+      "pdf_page_end": 20,
+      "pdf_page_start": 16,
+      "printed_page": "11",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "乘法的初步认识 例1",
+      "title": "乘法的初步认识 例1",
+      "toc_entry_id": "tcu_e815a12ff3f32217",
+      "unit_id": "tcu_e815a12ff3f32217"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 35,
+      "end_printed_page": "11",
+      "evidence_span_ids": [
+        "tes_8510b67b4fffb45e"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_e3027e9c7ffd8087",
+      "parent_id": "tcn_c4f96c359e97e85c",
+      "pdf_page": 16,
+      "pdf_page_end": 35,
+      "pdf_page_start": 16,
+      "printed_page": "11",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "1. 乘法的初步认识",
+      "title": "1乘法的初步认识",
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -299,7 +442,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b578419473c0a30d",
-      "parent_id": null,
+      "parent_id": "tcn_c4f96c359e97e85c",
       "pdf_page": 16,
       "pdf_page_end": 16,
       "pdf_page_start": 16,
@@ -307,7 +450,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 16 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 35,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_dfcf5bab15652e7f",
+      "parent_id": null,
+      "pdf_page": 16,
+      "pdf_page_end": 35,
+      "pdf_page_start": 16,
+      "printed_page": "11",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "二、1~6的表内乘法",
+      "title": "二、1~6的表内乘法",
+      "toc_entry_id": "tcu_0c5aba52b32c470a",
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -316,7 +478,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_df858b786cab0d6c",
-      "parent_id": null,
+      "parent_id": "tcn_c4f96c359e97e85c",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -324,7 +486,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 17 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -333,7 +495,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_25c2969fd53399cc",
-      "parent_id": null,
+      "parent_id": "tcn_c4f96c359e97e85c",
       "pdf_page": 18,
       "pdf_page_end": 18,
       "pdf_page_start": 18,
@@ -341,7 +503,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 18 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -350,7 +512,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b6acaeddec37a360",
-      "parent_id": null,
+      "parent_id": "tcn_c4f96c359e97e85c",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -358,7 +520,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 19 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -367,7 +529,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7eff427a939e17e5",
-      "parent_id": null,
+      "parent_id": "tcn_c4f96c359e97e85c",
       "pdf_page": 20,
       "pdf_page_end": 20,
       "pdf_page_start": 20,
@@ -375,7 +537,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 20 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 21,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_d2e641cf55a6adec",
+      "parent_id": "tcn_dfcf5bab15652e7f",
+      "pdf_page": 21,
+      "pdf_page_end": 21,
+      "pdf_page_start": 21,
+      "printed_page": "16",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "5的乘法口诀",
+      "title": "5的乘法口诀",
+      "toc_entry_id": "tcu_14ad4c8cbec98238",
+      "unit_id": "tcu_14ad4c8cbec98238"
     },
     {
       "confidence": 0.98,
@@ -384,7 +565,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_83fd2c5d7a0a844d",
-      "parent_id": null,
+      "parent_id": "tcn_d2e641cf55a6adec",
       "pdf_page": 21,
       "pdf_page_end": 21,
       "pdf_page_start": 21,
@@ -392,7 +573,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 21 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 22,
+      "end_printed_page": "17",
+      "evidence_span_ids": [
+        "tes_f1b50a41e4d8ac00"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_4fda8432d2569f45",
+      "parent_id": "tcn_e3027e9c7ffd8087",
+      "pdf_page": 22,
+      "pdf_page_end": 22,
+      "pdf_page_start": 22,
+      "printed_page": "17",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "想一想: 1×1= 一一 得( )17",
+      "title": "想一想: 1×1= 一一 得( )17",
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -401,7 +602,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0b4c123be76b03f6",
-      "parent_id": null,
+      "parent_id": "tcn_dfcf5bab15652e7f",
       "pdf_page": 22,
       "pdf_page_end": 22,
       "pdf_page_start": 22,
@@ -409,7 +610,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 22 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -418,7 +619,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_45ef57c5f5c44173",
-      "parent_id": null,
+      "parent_id": "tcn_dfcf5bab15652e7f",
       "pdf_page": 23,
       "pdf_page_end": 23,
       "pdf_page_start": 23,
@@ -426,7 +627,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 23 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -435,7 +636,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7c604368717c9866",
-      "parent_id": null,
+      "parent_id": "tcn_dfcf5bab15652e7f",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -443,7 +644,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 24 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -452,7 +653,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d687bed7dcdec7f7",
-      "parent_id": null,
+      "parent_id": "tcn_dfcf5bab15652e7f",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -460,7 +661,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 25 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 26,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_f08ef8445fc4d323",
+      "parent_id": "tcn_dfcf5bab15652e7f",
+      "pdf_page": 26,
+      "pdf_page_end": 26,
+      "pdf_page_start": 26,
+      "printed_page": "21",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "乘加、乘减",
+      "title": "乘加、乘减",
+      "toc_entry_id": "tcu_5ab814991d255cd3",
+      "unit_id": "tcu_5ab814991d255cd3"
     },
     {
       "confidence": 0.98,
@@ -469,7 +689,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_75e3c488581776d5",
-      "parent_id": null,
+      "parent_id": "tcn_f08ef8445fc4d323",
       "pdf_page": 26,
       "pdf_page_end": 26,
       "pdf_page_start": 26,
@@ -477,7 +697,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 26 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 31,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_c048611899785392",
+      "parent_id": "tcn_dfcf5bab15652e7f",
+      "pdf_page": 27,
+      "pdf_page_end": 31,
+      "pdf_page_start": 27,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "6的乘法口诀",
+      "title": "6的乘法口诀",
+      "toc_entry_id": "tcu_82c00137f1012965",
+      "unit_id": "tcu_82c00137f1012965"
     },
     {
       "confidence": 0.98,
@@ -486,7 +725,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0b8a8f0525991940",
-      "parent_id": null,
+      "parent_id": "tcn_c048611899785392",
       "pdf_page": 27,
       "pdf_page_end": 27,
       "pdf_page_start": 27,
@@ -494,7 +733,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 27 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -503,7 +742,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_adc6fc2896fe3d86",
-      "parent_id": null,
+      "parent_id": "tcn_c048611899785392",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -511,7 +750,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 28 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -520,7 +759,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4a6f91336e834e57",
-      "parent_id": null,
+      "parent_id": "tcn_c048611899785392",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -528,7 +767,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 29 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -537,7 +776,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5b4769191e0017ee",
-      "parent_id": null,
+      "parent_id": "tcn_c048611899785392",
       "pdf_page": 30,
       "pdf_page_end": 30,
       "pdf_page_start": 30,
@@ -545,7 +784,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 30 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 31,
+      "end_printed_page": "26",
+      "evidence_span_ids": [
+        "tes_6731a29c46b1109b"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_fc3e7a8e847b0b86",
+      "parent_id": "tcn_e3027e9c7ffd8087",
+      "pdf_page": 31,
+      "pdf_page_end": 31,
+      "pdf_page_start": 31,
+      "printed_page": "26",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "想一想:这两种方法有什么相同的地方?",
+      "title": "想一想:这两种方法有什么相同的地方?",
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -554,7 +813,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_de0a86e31bf57e21",
-      "parent_id": null,
+      "parent_id": "tcn_c048611899785392",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -562,7 +821,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 31 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -571,7 +830,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_301ecc1d238e900b",
-      "parent_id": null,
+      "parent_id": "tcn_dfcf5bab15652e7f",
       "pdf_page": 32,
       "pdf_page_end": 32,
       "pdf_page_start": 32,
@@ -579,7 +838,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 32 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -588,7 +847,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0b128d40ba5deadf",
-      "parent_id": null,
+      "parent_id": "tcn_dfcf5bab15652e7f",
       "pdf_page": 33,
       "pdf_page_end": 33,
       "pdf_page_start": 33,
@@ -596,7 +855,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 33 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 34,
+      "end_printed_page": "29",
+      "evidence_span_ids": [
+        "tes_50bd9e8455034be9"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_a3bb6e74f2da16b6",
+      "parent_id": "tcn_e3027e9c7ffd8087",
+      "pdf_page": 34,
+      "pdf_page_end": 34,
+      "pdf_page_start": 34,
+      "printed_page": "29",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "计算。 乘法真方便。",
+      "title": "计算。 乘法真方便。",
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -605,7 +884,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_511cf1f51475908f",
-      "parent_id": null,
+      "parent_id": "tcn_dfcf5bab15652e7f",
       "pdf_page": 34,
       "pdf_page_end": 34,
       "pdf_page_start": 34,
@@ -613,7 +892,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 34 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
     },
     {
       "confidence": 0.98,
@@ -622,7 +901,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_22b8f002082ae349",
-      "parent_id": null,
+      "parent_id": "tcn_dfcf5bab15652e7f",
       "pdf_page": 35,
       "pdf_page_end": 35,
       "pdf_page_start": 35,
@@ -630,7 +909,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 35 页",
-      "unit_id": null
+      "unit_id": "tcu_0c5aba52b32c470a"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 40,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_8dab98506b230da8",
+      "parent_id": null,
+      "pdf_page": 36,
+      "pdf_page_end": 40,
+      "pdf_page_start": 36,
+      "printed_page": "31",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "平均分——包含",
+      "title": "平均分——包含",
+      "toc_entry_id": "tcu_6f0e5ff31892e783",
+      "unit_id": "tcu_6f0e5ff31892e783"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 53,
+      "end_printed_page": "31",
+      "evidence_span_ids": [
+        "tes_99451c1118972bfd"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_d583a21d03be879b",
+      "parent_id": "tcn_8dab98506b230da8",
+      "pdf_page": 36,
+      "pdf_page_end": 53,
+      "pdf_page_start": 36,
+      "printed_page": "31",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "1. 除法的初步认识",
+      "title": "1除法的初步认识",
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -639,7 +957,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1061f11a10de42a5",
-      "parent_id": null,
+      "parent_id": "tcn_8dab98506b230da8",
       "pdf_page": 36,
       "pdf_page_end": 36,
       "pdf_page_start": 36,
@@ -647,7 +965,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 36 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 53,
+      "end_printed_page": "48",
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_c4232c14cfcd48e9",
+      "parent_id": null,
+      "pdf_page": 36,
+      "pdf_page_end": 53,
+      "pdf_page_start": 36,
+      "printed_page": "31",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "三、1～6的表内除法",
+      "title": "三、1～6的表内除法",
+      "toc_entry_id": "tcu_a139a56376360f23",
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -656,7 +993,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ac6f59e3f419aaa4",
-      "parent_id": null,
+      "parent_id": "tcn_8dab98506b230da8",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -664,7 +1001,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 37 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -673,7 +1010,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f9f3731227080bac",
-      "parent_id": null,
+      "parent_id": "tcn_8dab98506b230da8",
       "pdf_page": 38,
       "pdf_page_end": 38,
       "pdf_page_start": 38,
@@ -681,7 +1018,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 38 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -690,7 +1027,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_498b91f3b0144d32",
-      "parent_id": null,
+      "parent_id": "tcn_8dab98506b230da8",
       "pdf_page": 39,
       "pdf_page_end": 39,
       "pdf_page_start": 39,
@@ -698,7 +1035,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 39 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -707,7 +1044,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_40afab79e1724f93",
-      "parent_id": null,
+      "parent_id": "tcn_8dab98506b230da8",
       "pdf_page": 40,
       "pdf_page_end": 40,
       "pdf_page_start": 40,
@@ -715,7 +1052,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 40 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -724,7 +1061,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e3f2483ee784b62c",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 41,
       "pdf_page_end": 41,
       "pdf_page_start": 41,
@@ -732,7 +1069,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 41 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -741,7 +1078,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_cbc89fed5342c8e9",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 42,
       "pdf_page_end": 42,
       "pdf_page_start": 42,
@@ -749,7 +1086,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 42 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -758,7 +1095,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5b6997ac4fd9fb3c",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 43,
       "pdf_page_end": 43,
       "pdf_page_start": 43,
@@ -766,7 +1103,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 43 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -775,7 +1112,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e21c4a480c8aa2d8",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -783,7 +1120,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 44 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -792,7 +1129,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b8c722dd78504747",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -800,7 +1137,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 45 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 46,
+      "end_printed_page": "41",
+      "evidence_span_ids": [
+        "tes_f3a4fa9671721a9a"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_142b24408e25c208",
+      "parent_id": "tcn_d583a21d03be879b",
+      "pdf_page": 46,
+      "pdf_page_end": 46,
+      "pdf_page_start": 46,
+      "printed_page": "41",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "想一想:12 ÷ 4的商是几? 12 ÷ 4 =做一做1 6个气球平均分给3人,每人分几个?怎样算?",
+      "title": "想一想:12 ÷ 4的商是几? 12 ÷ 4 =做一做1 6个气球平均分给3人,每人分几个?怎样算?",
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -809,7 +1166,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2fdefd64474db838",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -817,7 +1174,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 46 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -826,7 +1183,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f0c3bc0938bde486",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 47,
       "pdf_page_end": 47,
       "pdf_page_start": 47,
@@ -834,7 +1191,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 47 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -843,7 +1200,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_cf274e63bad452d8",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -851,7 +1208,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 48 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 49,
+      "end_printed_page": "44",
+      "evidence_span_ids": [
+        "tes_85320bf7b3b7a928"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_c3ae07641583c2d6",
+      "parent_id": "tcn_d583a21d03be879b",
+      "pdf_page": 49,
+      "pdf_page_end": 49,
+      "pdf_page_start": 49,
+      "printed_page": "44",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "写出几组像上面这样的算式。",
+      "title": "写出几组像上面这样的算式。",
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -860,7 +1237,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_cd9616b7169910ad",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -868,7 +1245,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 49 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -877,7 +1254,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4c3a39775fce8151",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -885,7 +1262,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 50 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
+    },
+    {
+      "confidence": 0.96,
+      "end_pdf_page": 51,
+      "end_printed_page": "46",
+      "evidence_span_ids": [
+        "tes_b0331a0ea4a08406"
+      ],
+      "kind": "objective",
+      "node_id": "tcn_d11f66389468a24f",
+      "parent_id": "tcn_d583a21d03be879b",
+      "pdf_page": 51,
+      "pdf_page_end": 51,
+      "pdf_page_start": 51,
+      "printed_page": "46",
+      "review_status": "machine_checked",
+      "source": "body_objective_marker",
+      "text_excerpt": "本单元学习了哪些知识?说一说你的收获吧。",
+      "title": "本单元学习了哪些知识?说一说你的收获吧。",
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -894,7 +1291,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ce319e292b97099f",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 51,
       "pdf_page_end": 51,
       "pdf_page_start": 51,
@@ -902,7 +1299,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 51 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -911,7 +1308,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_dc4d2d68e7bcc670",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 52,
       "pdf_page_end": 52,
       "pdf_page_start": 52,
@@ -919,7 +1316,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 52 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -928,7 +1325,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9a5941972d2262ab",
-      "parent_id": null,
+      "parent_id": "tcn_c4232c14cfcd48e9",
       "pdf_page": 53,
       "pdf_page_end": 53,
       "pdf_page_start": 53,
@@ -936,7 +1333,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 53 页",
-      "unit_id": null
+      "unit_id": "tcu_a139a56376360f23"
     },
     {
       "confidence": 0.98,
@@ -945,7 +1342,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_96149917686fedc0",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 54,
       "pdf_page_end": 54,
       "pdf_page_start": 54,
@@ -953,7 +1350,65 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 54 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 91,
+      "end_printed_page": "86",
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_8a4ddef95d06aef8",
+      "parent_id": null,
+      "pdf_page": 54,
+      "pdf_page_end": 91,
+      "pdf_page_start": 54,
+      "printed_page": "49",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "校园小导游",
+      "title": "校园小导游",
+      "toc_entry_id": "tcu_7073092111906db5",
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 56,
+      "end_printed_page": "50",
+      "evidence_span_ids": [
+        "tes_88f19fa83689e3ec"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_7fa5837265e5fa2b",
+      "parent_id": "tcn_c12ca8b81c7e82bb",
+      "pdf_page": 55,
+      "pdf_page_end": 56,
+      "pdf_page_start": 55,
+      "printed_page": "50",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "50 校园小导游",
+      "title": "50校园小导游",
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 56,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_c12ca8b81c7e82bb",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 55,
+      "pdf_page_end": 56,
+      "pdf_page_start": 55,
+      "printed_page": "50",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "认识东、南、西、北",
+      "title": "认识东、南、西、北",
+      "toc_entry_id": "tcu_60b060ccef5079b4",
+      "unit_id": "tcu_60b060ccef5079b4"
     },
     {
       "confidence": 0.98,
@@ -962,7 +1417,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_52072068fcb03913",
-      "parent_id": null,
+      "parent_id": "tcn_c12ca8b81c7e82bb",
       "pdf_page": 55,
       "pdf_page_end": 55,
       "pdf_page_start": 55,
@@ -970,7 +1425,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 55 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -979,7 +1434,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_10a366a3637f23c9",
-      "parent_id": null,
+      "parent_id": "tcn_c12ca8b81c7e82bb",
       "pdf_page": 56,
       "pdf_page_end": 56,
       "pdf_page_start": 56,
@@ -987,7 +1442,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 56 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 61,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_24640efecf4454b6",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 57,
+      "pdf_page_end": 61,
+      "pdf_page_start": 57,
+      "printed_page": "52",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "设计导游路线",
+      "title": "设计导游路线",
+      "toc_entry_id": "tcu_f22c286ef66966b7",
+      "unit_id": "tcu_f22c286ef66966b7"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 58,
+      "end_printed_page": "52",
+      "evidence_span_ids": [
+        "tes_7570f0adcf447cb6"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_ce3260bcaf5ab31c",
+      "parent_id": "tcn_24640efecf4454b6",
+      "pdf_page": 57,
+      "pdf_page_end": 58,
+      "pdf_page_start": 57,
+      "printed_page": "52",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "52 校园小导游",
+      "title": "52校园小导游",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -996,7 +1490,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6415afb57996fbce",
-      "parent_id": null,
+      "parent_id": "tcn_24640efecf4454b6",
       "pdf_page": 57,
       "pdf_page_end": 57,
       "pdf_page_start": 57,
@@ -1004,7 +1498,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 57 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1013,7 +1507,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4b4f331e83224baa",
-      "parent_id": null,
+      "parent_id": "tcn_24640efecf4454b6",
       "pdf_page": 58,
       "pdf_page_end": 58,
       "pdf_page_start": 58,
@@ -1021,7 +1515,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 58 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 60,
+      "end_printed_page": "54",
+      "evidence_span_ids": [
+        "tes_4a5ce0bb75e59f79"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_41e3ea9b25ba44ff",
+      "parent_id": "tcn_24640efecf4454b6",
+      "pdf_page": 59,
+      "pdf_page_end": 60,
+      "pdf_page_start": 59,
+      "printed_page": "54",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "54 校园小导游",
+      "title": "54校园小导游",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1030,7 +1544,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_09833523b0ce777f",
-      "parent_id": null,
+      "parent_id": "tcn_24640efecf4454b6",
       "pdf_page": 59,
       "pdf_page_end": 59,
       "pdf_page_start": 59,
@@ -1038,7 +1552,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 59 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1047,7 +1561,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_10afec325d94f867",
-      "parent_id": null,
+      "parent_id": "tcn_24640efecf4454b6",
       "pdf_page": 60,
       "pdf_page_end": 60,
       "pdf_page_start": 60,
@@ -1055,7 +1569,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 60 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 62,
+      "end_printed_page": "56",
+      "evidence_span_ids": [
+        "tes_1b8ee2792e1215f3"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_624dc0e730f1a028",
+      "parent_id": "tcn_24640efecf4454b6",
+      "pdf_page": 61,
+      "pdf_page_end": 62,
+      "pdf_page_start": 61,
+      "printed_page": "56",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "56 厘米和米",
+      "title": "56厘米和米",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1064,7 +1598,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5fc60c7735a11e04",
-      "parent_id": null,
+      "parent_id": "tcn_24640efecf4454b6",
       "pdf_page": 61,
       "pdf_page_end": 61,
       "pdf_page_start": 61,
@@ -1072,7 +1606,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 61 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1081,7 +1615,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_bae6c774c4d528d0",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 62,
       "pdf_page_end": 62,
       "pdf_page_start": 62,
@@ -1089,7 +1623,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 62 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 64,
+      "end_printed_page": "58",
+      "evidence_span_ids": [
+        "tes_91ea0747273bba8e"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_b34c45982792cfd3",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 63,
+      "pdf_page_end": 64,
+      "pdf_page_start": 63,
+      "printed_page": "58",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "58 厘米和米",
+      "title": "58厘米和米",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1098,7 +1652,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8f23c090ae2cecb7",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 63,
       "pdf_page_end": 63,
       "pdf_page_start": 63,
@@ -1106,7 +1660,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 63 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1115,7 +1669,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_49589c983bd28e87",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 64,
       "pdf_page_end": 64,
       "pdf_page_start": 64,
@@ -1123,7 +1677,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 64 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 66,
+      "end_printed_page": "60",
+      "evidence_span_ids": [
+        "tes_9ff4b413268dea45"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_cc73e80fe86d8512",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 65,
+      "pdf_page_end": 66,
+      "pdf_page_start": 65,
+      "printed_page": "60",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "60 厘米和米",
+      "title": "60厘米和米",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1132,7 +1706,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_79c9a0cf0e786991",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 65,
       "pdf_page_end": 65,
       "pdf_page_start": 65,
@@ -1140,7 +1714,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 65 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1149,7 +1723,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1e8f8214f6f62d96",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 66,
       "pdf_page_end": 66,
       "pdf_page_start": 66,
@@ -1157,7 +1731,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 66 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 68,
+      "end_printed_page": "62",
+      "evidence_span_ids": [
+        "tes_485d0417f507d145"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_acaa3cca8d8a616a",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 67,
+      "pdf_page_end": 68,
+      "pdf_page_start": 67,
+      "printed_page": "62",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "62 厘米和米",
+      "title": "62厘米和米",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1166,7 +1760,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9072a92e0a2db508",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 67,
       "pdf_page_end": 67,
       "pdf_page_start": 67,
@@ -1174,7 +1768,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 67 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 68,
+      "end_printed_page": "63",
+      "evidence_span_ids": [
+        "tes_65d1ebdd88d6813c"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_c4dc6755c18f2249",
+      "parent_id": "tcn_acaa3cca8d8a616a",
+      "pdf_page": 68,
+      "pdf_page_end": 68,
+      "pdf_page_start": 68,
+      "printed_page": "63",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "说说你是怎样确定的。",
+      "title": "说说你是怎样确定的。",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1183,7 +1797,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_eec8a4af46a2c0ab",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 68,
       "pdf_page_end": 68,
       "pdf_page_start": 68,
@@ -1191,7 +1805,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 68 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 69,
+      "end_printed_page": "64",
+      "evidence_span_ids": [
+        "tes_ec09bc9f684a4c4c"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_2089bffda0d6d41d",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 69,
+      "pdf_page_end": 69,
+      "pdf_page_start": 69,
+      "printed_page": "64",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "64 厘米和米",
+      "title": "64厘米和米",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1200,7 +1834,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b98ca69692ac59b0",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 69,
       "pdf_page_end": 69,
       "pdf_page_start": 69,
@@ -1208,7 +1842,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 69 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 70,
+      "end_printed_page": "65",
+      "evidence_span_ids": [
+        "tes_bdddd0deaf6baf99"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_361cfbe1bca47cb2",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 70,
+      "pdf_page_end": 70,
+      "pdf_page_start": 70,
+      "printed_page": "65",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "1厘米",
+      "title": "1厘米",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1217,7 +1871,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_71bbb649fc0c4f44",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -1225,7 +1879,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 70 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 72,
+      "end_printed_page": "66",
+      "evidence_span_ids": [
+        "tes_22bc3b0b8c85179b"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_8db397b87e123f6a",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 71,
+      "pdf_page_end": 72,
+      "pdf_page_start": 71,
+      "printed_page": "66",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "66 厘米和米",
+      "title": "66厘米和米",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1234,7 +1908,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7da8dba0ae3e33a1",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 71,
       "pdf_page_end": 71,
       "pdf_page_start": 71,
@@ -1242,7 +1916,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 71 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1251,7 +1925,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5950d7e096fafafd",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 72,
       "pdf_page_end": 72,
       "pdf_page_start": 72,
@@ -1259,7 +1933,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 72 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 73,
+      "end_printed_page": "68",
+      "evidence_span_ids": [
+        "tes_f677358de57d8eb9"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_e171b2d422c5eaa5",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 73,
+      "pdf_page_end": 73,
+      "pdf_page_start": 73,
+      "printed_page": "68",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "68 身体上的尺子",
+      "title": "68身体上的尺子",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1268,7 +1962,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_91ad16064cbc2540",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 73,
       "pdf_page_end": 73,
       "pdf_page_start": 73,
@@ -1276,7 +1970,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 73 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 74,
+      "end_printed_page": "69",
+      "evidence_span_ids": [
+        "tes_9e93f1e4e49d844e"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_296a6650e56fc73f",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 74,
+      "pdf_page_end": 74,
+      "pdf_page_start": 74,
+      "printed_page": "69",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "1拃是把手指用力张",
+      "title": "1拃是把手指用力张",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1285,7 +1999,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fb020f79f3609b13",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 74,
       "pdf_page_end": 74,
       "pdf_page_start": 74,
@@ -1293,7 +2007,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 74 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 76,
+      "end_printed_page": "70",
+      "evidence_span_ids": [
+        "tes_2ae0f9c799e38d8c"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_832aaf438eb684f2",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 75,
+      "pdf_page_end": 76,
+      "pdf_page_start": 75,
+      "printed_page": "70",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "70 身体上的尺子",
+      "title": "70身体上的尺子",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1302,7 +2036,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_07ae29cfcbedc264",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 75,
       "pdf_page_end": 75,
       "pdf_page_start": 75,
@@ -1310,7 +2044,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 75 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1319,7 +2053,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_536a9ce2d4ace9ca",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 76,
       "pdf_page_end": 76,
       "pdf_page_start": 76,
@@ -1327,7 +2061,47 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 76 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 77,
+      "end_printed_page": "72",
+      "evidence_span_ids": [
+        "tes_a300074acf5dc130"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_6f2784fa9e53316b",
+      "parent_id": "tcn_832aaf438eb684f2",
+      "pdf_page": 77,
+      "pdf_page_end": 77,
+      "pdf_page_start": 77,
+      "printed_page": "72",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "选择合适的身体尺测量能分析测量数据、发现问题能主动地合作学习",
+      "title": "选择合适的身体尺测量能分析测量数据、发现问题能主动地合作学习",
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 91,
+      "end_printed_page": "72",
+      "evidence_span_ids": [
+        "tes_6c7b5ebd50a9953f"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_2804db50928f0453",
+      "parent_id": "tcn_8a4ddef95d06aef8",
+      "pdf_page": 77,
+      "pdf_page_end": 91,
+      "pdf_page_start": 77,
+      "printed_page": "72",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "72 身体上的尺子",
+      "title": "72身体上的尺子",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1336,7 +2110,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7d4d6a4f28906c6a",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 77,
       "pdf_page_end": 77,
       "pdf_page_start": 77,
@@ -1344,7 +2118,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 77 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1353,7 +2127,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7d8d03b281b27b48",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 78,
       "pdf_page_end": 78,
       "pdf_page_start": 78,
@@ -1361,7 +2135,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 78 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1370,7 +2144,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5f872cbe744aed86",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 79,
       "pdf_page_end": 79,
       "pdf_page_start": 79,
@@ -1378,7 +2152,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 79 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1387,7 +2161,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_06b77735742b79c2",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 80,
       "pdf_page_end": 80,
       "pdf_page_start": 80,
@@ -1395,7 +2169,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 80 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1404,7 +2178,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_23505d8b3986cd10",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 81,
       "pdf_page_end": 81,
       "pdf_page_start": 81,
@@ -1412,7 +2186,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 81 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1421,7 +2195,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2efcd27143821dcc",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 82,
       "pdf_page_end": 82,
       "pdf_page_start": 82,
@@ -1429,7 +2203,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 82 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 83,
+      "end_printed_page": "78",
+      "evidence_span_ids": [
+        "tes_a6fcf48eac95b860"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_3f85e860a1746889",
+      "parent_id": "tcn_2804db50928f0453",
+      "pdf_page": 83,
+      "pdf_page_end": 83,
+      "pdf_page_start": 83,
+      "printed_page": "78",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "计算每一题分别用的是哪句口诀?你发现了什么?",
+      "title": "计算每一题分别用的是哪句口诀?你发现了什么?",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1438,7 +2232,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_12d1081c80184a16",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 83,
       "pdf_page_end": 83,
       "pdf_page_start": 83,
@@ -1446,7 +2240,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 83 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1455,7 +2249,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_705ebbe6d2889d70",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 84,
       "pdf_page_end": 84,
       "pdf_page_start": 84,
@@ -1463,7 +2257,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 84 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1472,7 +2266,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fedf7434ade2af4d",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 85,
       "pdf_page_end": 85,
       "pdf_page_start": 85,
@@ -1480,7 +2274,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 85 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 86,
+      "end_printed_page": "81",
+      "evidence_span_ids": [
+        "tes_7f0c34e84be9d0a8"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_3d784ec974c86905",
+      "parent_id": "tcn_2804db50928f0453",
+      "pdf_page": 86,
+      "pdf_page_end": 86,
+      "pdf_page_start": 86,
+      "printed_page": "81",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "计算每组算式时有什么相同的地方?",
+      "title": "计算每组算式时有什么相同的地方?",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1489,7 +2303,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_dad6544e0466ea95",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 86,
       "pdf_page_end": 86,
       "pdf_page_start": 86,
@@ -1497,7 +2311,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 86 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1506,7 +2320,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_940603d5bd9d145d",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 87,
       "pdf_page_end": 87,
       "pdf_page_start": 87,
@@ -1514,7 +2328,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 87 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 88,
+      "end_printed_page": "83",
+      "evidence_span_ids": [
+        "tes_2d7ecea0c7a265f2"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_a581eaaa0865a11b",
+      "parent_id": "tcn_2804db50928f0453",
+      "pdf_page": 88,
+      "pdf_page_end": 88,
+      "pdf_page_start": 88,
+      "printed_page": "83",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "想一想:前一个问题的答案和后一个问题有什么关系?",
+      "title": "想一想:前一个问题的答案和后一个问题有什么关系?",
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1523,7 +2357,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ca4e1dbbf9fbb6cd",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 88,
       "pdf_page_end": 88,
       "pdf_page_start": 88,
@@ -1531,7 +2365,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 88 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1540,7 +2374,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ab16486f27215b97",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 89,
       "pdf_page_end": 89,
       "pdf_page_start": 89,
@@ -1548,7 +2382,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 89 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1557,7 +2391,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9e91486966e36dab",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 90,
       "pdf_page_end": 90,
       "pdf_page_start": 90,
@@ -1565,7 +2399,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 90 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
     },
     {
       "confidence": 0.98,
@@ -1574,7 +2408,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3f5201af31aea3f7",
-      "parent_id": null,
+      "parent_id": "tcn_8a4ddef95d06aef8",
       "pdf_page": 91,
       "pdf_page_end": 91,
       "pdf_page_start": 91,
@@ -1582,7 +2416,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 91 页",
-      "unit_id": null
+      "unit_id": "tcu_7073092111906db5"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 95,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_2926745c97e12cbb",
+      "parent_id": null,
+      "pdf_page": 92,
+      "pdf_page_end": 95,
+      "pdf_page_start": 92,
+      "printed_page": "87",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "整理和复习",
+      "title": "整理和复习",
+      "toc_entry_id": "tcu_ba84e09dffb3086f",
+      "unit_id": "tcu_ba84e09dffb3086f"
     },
     {
       "confidence": 0.98,
@@ -1591,7 +2444,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f6c58f61f65df5c4",
-      "parent_id": null,
+      "parent_id": "tcn_2926745c97e12cbb",
       "pdf_page": 92,
       "pdf_page_end": 92,
       "pdf_page_start": 92,
@@ -1599,7 +2452,106 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 92 页",
-      "unit_id": null
+      "unit_id": "tcu_eea8763eadaf69f7"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 95,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_ed442c81d1fe0d2d",
+      "parent_id": null,
+      "pdf_page": 92,
+      "pdf_page_end": 95,
+      "pdf_page_start": 92,
+      "printed_page": "87",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "四、厘米和米",
+      "title": "四、厘米和米",
+      "toc_entry_id": "tcu_eea8763eadaf69f7",
+      "unit_id": "tcu_eea8763eadaf69f7"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 93,
+      "end_printed_page": "88",
+      "evidence_span_ids": [
+        "tes_a1a450bdd0c94926"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_6764a02906a46af4",
+      "parent_id": "tcn_2926745c97e12cbb",
+      "pdf_page": 93,
+      "pdf_page_end": 93,
+      "pdf_page_start": 93,
+      "printed_page": "88",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "7的口诀",
+      "title": "7的口诀",
+      "unit_id": "tcu_eea8763eadaf69f7"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 93,
+      "end_printed_page": "88",
+      "evidence_span_ids": [
+        "tes_b3b3a8f364f98460"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_76bf30c46687b871",
+      "parent_id": "tcn_2926745c97e12cbb",
+      "pdf_page": 93,
+      "pdf_page_end": 93,
+      "pdf_page_start": 93,
+      "printed_page": "88",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "5的口诀",
+      "title": "5的口诀",
+      "unit_id": "tcu_eea8763eadaf69f7"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 93,
+      "end_printed_page": "88",
+      "evidence_span_ids": [
+        "tes_8e034f3d006679cd"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_b4e408b4304fba4b",
+      "parent_id": "tcn_2926745c97e12cbb",
+      "pdf_page": 93,
+      "pdf_page_end": 93,
+      "pdf_page_start": 93,
+      "printed_page": "88",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "8的口诀",
+      "title": "8的口诀",
+      "unit_id": "tcu_eea8763eadaf69f7"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 95,
+      "end_printed_page": "88",
+      "evidence_span_ids": [
+        "tes_b97914e844cc02f4"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_e4d97b46f7cae776",
+      "parent_id": "tcn_2926745c97e12cbb",
+      "pdf_page": 93,
+      "pdf_page_end": 95,
+      "pdf_page_start": 93,
+      "printed_page": "88",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "9的口诀",
+      "title": "9的口诀",
+      "unit_id": "tcu_eea8763eadaf69f7"
     },
     {
       "confidence": 0.98,
@@ -1608,7 +2560,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_90bddfd247e9d573",
-      "parent_id": null,
+      "parent_id": "tcn_2926745c97e12cbb",
       "pdf_page": 93,
       "pdf_page_end": 93,
       "pdf_page_start": 93,
@@ -1616,7 +2568,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 93 页",
-      "unit_id": null
+      "unit_id": "tcu_eea8763eadaf69f7"
     },
     {
       "confidence": 0.98,
@@ -1625,7 +2577,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f6c13809afadc974",
-      "parent_id": null,
+      "parent_id": "tcn_2926745c97e12cbb",
       "pdf_page": 94,
       "pdf_page_end": 94,
       "pdf_page_start": 94,
@@ -1633,7 +2585,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 94 页",
-      "unit_id": null
+      "unit_id": "tcu_eea8763eadaf69f7"
     },
     {
       "confidence": 0.98,
@@ -1642,7 +2594,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c4e325bc78c6fd7c",
-      "parent_id": null,
+      "parent_id": "tcn_2926745c97e12cbb",
       "pdf_page": 95,
       "pdf_page_end": 95,
       "pdf_page_start": 95,
@@ -1650,7 +2602,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 95 页",
-      "unit_id": null
+      "unit_id": "tcu_eea8763eadaf69f7"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 96,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_d45e9c79242a0f6f",
+      "parent_id": "tcn_097f9b4f231135fc",
+      "pdf_page": 96,
+      "pdf_page_end": 96,
+      "pdf_page_start": 96,
+      "printed_page": "91",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "数与运算",
+      "title": "数与运算",
+      "toc_entry_id": "tcu_8e6752e3dd6239b4",
+      "unit_id": "tcu_8e6752e3dd6239b4"
     },
     {
       "confidence": 0.98,
@@ -1659,7 +2630,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_50cc8106e685e5cb",
-      "parent_id": null,
+      "parent_id": "tcn_d45e9c79242a0f6f",
       "pdf_page": 96,
       "pdf_page_end": 96,
       "pdf_page_start": 96,
@@ -1667,7 +2638,45 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 96 页",
-      "unit_id": null
+      "unit_id": "tcu_24570d07a766619b"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 97,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_097f9b4f231135fc",
+      "parent_id": null,
+      "pdf_page": 96,
+      "pdf_page_end": 97,
+      "pdf_page_start": 96,
+      "printed_page": "91",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "六、复习与关联",
+      "title": "六、复习与关联",
+      "toc_entry_id": "tcu_24570d07a766619b",
+      "unit_id": "tcu_24570d07a766619b"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 97,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_dc3310fcd9d9c7f5",
+      "parent_id": "tcn_097f9b4f231135fc",
+      "pdf_page": 97,
+      "pdf_page_end": 97,
+      "pdf_page_start": 97,
+      "printed_page": "92",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "数量关系",
+      "title": "数量关系",
+      "toc_entry_id": "tcu_a6d3f8e8345c4c6b",
+      "unit_id": "tcu_a6d3f8e8345c4c6b"
     },
     {
       "confidence": 0.98,
@@ -1676,7 +2685,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ddaf0e88964e749b",
-      "parent_id": null,
+      "parent_id": "tcn_dc3310fcd9d9c7f5",
       "pdf_page": 97,
       "pdf_page_end": 97,
       "pdf_page_start": 97,
@@ -1684,7 +2693,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 97 页",
-      "unit_id": null
+      "unit_id": "tcu_24570d07a766619b"
     },
     {
       "confidence": 0.98,
@@ -1855,139 +2864,871 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 107 页",
       "unit_id": null
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 108,
-      "end_printed_page": "103",
-      "evidence_span_ids": [],
-      "kind": "page",
-      "node_id": "tcn_1e491dfd920b6902",
-      "parent_id": null,
-      "pdf_page": 108,
-      "pdf_page_end": 108,
-      "pdf_page_start": 108,
-      "printed_page": "103",
-      "review_status": "machine_checked",
-      "source": "pdfjs_text_layer",
-      "title": "PDF 第 108 页",
-      "unit_id": null
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 109,
-      "end_printed_page": "104",
-      "evidence_span_ids": [],
-      "kind": "page",
-      "node_id": "tcn_08546ec785ba63f3",
-      "parent_id": null,
-      "pdf_page": 109,
-      "pdf_page_end": 109,
-      "pdf_page_start": 109,
-      "printed_page": "104",
-      "review_status": "machine_checked",
-      "source": "pdfjs_text_layer",
-      "title": "PDF 第 109 页",
-      "unit_id": null
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 110,
-      "end_printed_page": "105",
-      "evidence_span_ids": [],
-      "kind": "page",
-      "node_id": "tcn_4b30fd3808bcf664",
-      "parent_id": null,
-      "pdf_page": 110,
-      "pdf_page_end": 110,
-      "pdf_page_start": 110,
-      "printed_page": "105",
-      "review_status": "machine_checked",
-      "source": "pdfjs_text_layer",
-      "title": "PDF 第 110 页",
-      "unit_id": null
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 111,
-      "end_printed_page": "106",
-      "evidence_span_ids": [],
-      "kind": "page",
-      "node_id": "tcn_1cf4e2de1e57c1c5",
-      "parent_id": null,
-      "pdf_page": 111,
-      "pdf_page_end": 111,
-      "pdf_page_start": 111,
-      "printed_page": "106",
-      "review_status": "machine_checked",
-      "source": "pdfjs_text_layer",
-      "title": "PDF 第 111 页",
-      "unit_id": null
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 112,
-      "end_printed_page": "107",
-      "evidence_span_ids": [],
-      "kind": "page",
-      "node_id": "tcn_74c3d59805d0240f",
-      "parent_id": null,
-      "pdf_page": 112,
-      "pdf_page_end": 112,
-      "pdf_page_start": 112,
-      "printed_page": "107",
-      "review_status": "machine_checked",
-      "source": "pdfjs_text_layer",
-      "title": "PDF 第 112 页",
-      "unit_id": null
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 114,
-      "end_printed_page": "109",
-      "evidence_span_ids": [],
-      "kind": "page",
-      "node_id": "tcn_565529f4ad916048",
-      "parent_id": null,
-      "pdf_page": 114,
-      "pdf_page_end": 114,
-      "pdf_page_start": 114,
-      "printed_page": "109",
-      "review_status": "machine_checked",
-      "source": "pdfjs_text_layer",
-      "title": "PDF 第 114 页",
-      "unit_id": null
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 115,
-      "end_printed_page": "110",
-      "evidence_span_ids": [],
-      "kind": "page",
-      "node_id": "tcn_53d184d411b43682",
-      "parent_id": null,
-      "pdf_page": 115,
-      "pdf_page_end": 115,
-      "pdf_page_start": 115,
-      "printed_page": "110",
-      "review_status": "machine_checked",
-      "source": "pdfjs_text_layer",
-      "title": "PDF 第 115 页",
-      "unit_id": null
     }
   ],
   "edition_id": "ed_22e1b88b6b37064c3b0f",
-  "evidence_id": "ctb_17c68dba255a",
-  "evidence_spans": [],
+  "evidence_id": "external_smartedu_2026_math_primary_grade_2_up",
+  "evidence_spans": [
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 79.902,
+        "x": 62.278,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "6 分类与整理",
+      "excerpt_hash": "a2966176d13ed8398f18f33c5736bafd598d15dd3a25738172808e546a098df8",
+      "node_id": "tcn_616013fd3a40fefc",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 11,
+      "printed_page": "6",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_e8cfeac8c22b95a1",
+      "text": "6 分类与整理",
+      "text_hash": "a2966176d13ed8398f18f33c5736bafd598d15dd3a25738172808e546a098df8"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 16,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 224,
+        "x": 94.209,
+        "y": 195.312
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "根据上图填写下表并回答问题。",
+      "excerpt_hash": "80e99f628561fdcf9708cfdc21bae82a6480a09a7d178b9b2efa411d60e8f794",
+      "node_id": "tcn_906065e61bd73faa",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 12,
+      "printed_page": "7",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_976e3399591feb7a",
+      "text": "根据上图填写下表并回答问题。",
+      "text_hash": "80e99f628561fdcf9708cfdc21bae82a6480a09a7d178b9b2efa411d60e8f794"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 79.902,
+        "x": 62.278,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "8 分类与整理",
+      "excerpt_hash": "45a207fa97caf13bfc684731b2fe2fe15116a3626bb283ed06827cbdf27ed6aa",
+      "node_id": "tcn_5805de131b820266",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 13,
+      "printed_page": "8",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_801ab2c58ade6cd4",
+      "text": "8 分类与整理",
+      "text_hash": "45a207fa97caf13bfc684731b2fe2fe15116a3626bb283ed06827cbdf27ed6aa"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 21.609,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 168.904,
+        "x": 186.966,
+        "y": 653.176
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "1. 乘法的初步认识",
+      "excerpt_hash": "9121bad0039011d123c8b7e7936653368bbe1e092b3059b4e09e453dd517cf9f",
+      "node_id": "tcn_e3027e9c7ffd8087",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 16,
+      "printed_page": "11",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_8510b67b4fffb45e",
+      "text": "1. 乘法的初步认识",
+      "text_hash": "9121bad0039011d123c8b7e7936653368bbe1e092b3059b4e09e453dd517cf9f"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 17.984,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 373.011,
+        "x": 109.417,
+        "y": 79.427
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "想一想: 1×1= 一一 得( )17",
+      "excerpt_hash": "60b5fbbe0c43a31a31689bd419adbc3da9ffdd40d3533509ae7b5cc50d64fe13",
+      "node_id": "tcn_4fda8432d2569f45",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 22,
+      "printed_page": "17",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_f1b50a41e4d8ac00",
+      "text": "想一想: 1×1= 一一 得( )17",
+      "text_hash": "60b5fbbe0c43a31a31689bd419adbc3da9ffdd40d3533509ae7b5cc50d64fe13"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 16,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 288,
+        "x": 105.475,
+        "y": 133.311
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "想一想:这两种方法有什么相同的地方?",
+      "excerpt_hash": "fca1d3a539746b7f8926ae91967b01e80fc2b4aa8a31e0b72910a83de198ad57",
+      "node_id": "tcn_fc3e7a8e847b0b86",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 31,
+      "printed_page": "26",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_6731a29c46b1109b",
+      "text": "想一想:这两种方法有什么相同的地方?",
+      "text_hash": "fca1d3a539746b7f8926ae91967b01e80fc2b4aa8a31e0b72910a83de198ad57"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 13.642,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 202.022,
+        "x": 170.654,
+        "y": 107.445
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "计算。 乘法真方便。",
+      "excerpt_hash": "b49da11d301de1bebdb8026f10755e98b0b008b648d9e2d5feb0ea4e8adeb4cc",
+      "node_id": "tcn_a3bb6e74f2da16b6",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 34,
+      "printed_page": "29",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_50bd9e8455034be9",
+      "text": "计算。 乘法真方便。",
+      "text_hash": "b49da11d301de1bebdb8026f10755e98b0b008b648d9e2d5feb0ea4e8adeb4cc"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 21.609,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 172.012,
+        "x": 185.412,
+        "y": 653.176
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "1. 除法的初步认识",
+      "excerpt_hash": "1132c76a024106d67e2625aea1a0e1222f3efc2b0306b93a75d68aa5da4a55f4",
+      "node_id": "tcn_d583a21d03be879b",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 36,
+      "printed_page": "31",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_99451c1118972bfd",
+      "text": "1. 除法的初步认识",
+      "text_hash": "1132c76a024106d67e2625aea1a0e1222f3efc2b0306b93a75d68aa5da4a55f4"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 17.394,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 264.242,
+        "x": 95.528,
+        "y": 233.518
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "想一想:12 ÷ 4的商是几? 12 ÷ 4 =做一做1 6个气球平均分给3人,每人分几个?怎样算?",
+      "excerpt_hash": "62eab2fe104d65f5e6a1e7836042f0fab8759e4533455fcc9d954364337ff660",
+      "node_id": "tcn_142b24408e25c208",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 46,
+      "printed_page": "41",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_f3a4fa9671721a9a",
+      "text": "想一想:12 ÷ 4的商是几? 12 ÷ 4 =做一做1 6个气球平均分给3人,每人分几个?怎样算?",
+      "text_hash": "62eab2fe104d65f5e6a1e7836042f0fab8759e4533455fcc9d954364337ff660"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 16,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 208,
+        "x": 89.875,
+        "y": 81.417
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "写出几组像上面这样的算式。",
+      "excerpt_hash": "8299ebe4a2a4a63484e7d77bdc4bb6be7cb8641c8b9e31670d5c4e2eb563e207",
+      "node_id": "tcn_c3ae07641583c2d6",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 49,
+      "printed_page": "44",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_85320bf7b3b7a928",
+      "text": "写出几组像上面这样的算式。",
+      "text_hash": "8299ebe4a2a4a63484e7d77bdc4bb6be7cb8641c8b9e31670d5c4e2eb563e207"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 16,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 320,
+        "x": 90.11,
+        "y": 606.224
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "objective",
+      "excerpt": "本单元学习了哪些知识?说一说你的收获吧。",
+      "excerpt_hash": "980cb43aa6f8885a3d9278464282a50d6fa40bb2e0b1e8d54be7ecc1afe6688e",
+      "node_id": "tcn_d11f66389468a24f",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 51,
+      "printed_page": "46",
+      "role": "objective",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_b0331a0ea4a08406",
+      "text": "本单元学习了哪些知识?说一说你的收获吧。",
+      "text_hash": "980cb43aa6f8885a3d9278464282a50d6fa40bb2e0b1e8d54be7ecc1afe6688e"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 82.821,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "50 校园小导游",
+      "excerpt_hash": "6a93f26ce3b4b612f575c90e3e3ebc271d5cacfa7c76d8c6b3cb292cb353e104",
+      "node_id": "tcn_7fa5837265e5fa2b",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 55,
+      "printed_page": "50",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_88f19fa83689e3ec",
+      "text": "50 校园小导游",
+      "text_hash": "6a93f26ce3b4b612f575c90e3e3ebc271d5cacfa7c76d8c6b3cb292cb353e104"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 82.821,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "52 校园小导游",
+      "excerpt_hash": "c64b5b58d5df6a22c9d0c4e306ebc4ee204e7831afa6e0f131ff4e0e08a49f50",
+      "node_id": "tcn_ce3260bcaf5ab31c",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 57,
+      "printed_page": "52",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_7570f0adcf447cb6",
+      "text": "52 校园小导游",
+      "text_hash": "c64b5b58d5df6a22c9d0c4e306ebc4ee204e7831afa6e0f131ff4e0e08a49f50"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 82.821,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "54 校园小导游",
+      "excerpt_hash": "c5da2e79c85b536f268c601f0872eec173d767bbc63b68e47c603482e3e202ed",
+      "node_id": "tcn_41e3ea9b25ba44ff",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 59,
+      "printed_page": "54",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_4a5ce0bb75e59f79",
+      "text": "54 校园小导游",
+      "text_hash": "c5da2e79c85b536f268c601f0872eec173d767bbc63b68e47c603482e3e202ed"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 72.321,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "56 厘米和米",
+      "excerpt_hash": "4c1d59cddeca06e48ca53b56f59c4f0929cbcb3dffbe1b9dc3463bb000f267b8",
+      "node_id": "tcn_624dc0e730f1a028",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 61,
+      "printed_page": "56",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_1b8ee2792e1215f3",
+      "text": "56 厘米和米",
+      "text_hash": "4c1d59cddeca06e48ca53b56f59c4f0929cbcb3dffbe1b9dc3463bb000f267b8"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 72.321,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "58 厘米和米",
+      "excerpt_hash": "132446a5ce1ca06bfbcbc55b2f38b9659df14de779208bc56e0c29016ab8c8b3",
+      "node_id": "tcn_b34c45982792cfd3",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 63,
+      "printed_page": "58",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_91ea0747273bba8e",
+      "text": "58 厘米和米",
+      "text_hash": "132446a5ce1ca06bfbcbc55b2f38b9659df14de779208bc56e0c29016ab8c8b3"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 72.321,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "60 厘米和米",
+      "excerpt_hash": "a1beb61448fb77efcd381e15b5d0f7f6eea1ddd7b0617e31e4272f92444627fe",
+      "node_id": "tcn_cc73e80fe86d8512",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 65,
+      "printed_page": "60",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_9ff4b413268dea45",
+      "text": "60 厘米和米",
+      "text_hash": "a1beb61448fb77efcd381e15b5d0f7f6eea1ddd7b0617e31e4272f92444627fe"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 72.321,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "62 厘米和米",
+      "excerpt_hash": "f07be33d324b631cc9cfe490225980cde10f8439e16a6de9105f658380ce7548",
+      "node_id": "tcn_acaa3cca8d8a616a",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 67,
+      "printed_page": "62",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_485d0417f507d145",
+      "text": "62 厘米和米",
+      "text_hash": "f07be33d324b631cc9cfe490225980cde10f8439e16a6de9105f658380ce7548"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 16,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 160,
+        "x": 93.932,
+        "y": 79.793
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "说说你是怎样确定的。",
+      "excerpt_hash": "a856599bdcf9240227b0f9af36e265db1d3d954be5982eb3ea2dba6a19f63263",
+      "node_id": "tcn_c4dc6755c18f2249",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 68,
+      "printed_page": "63",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_65d1ebdd88d6813c",
+      "text": "说说你是怎样确定的。",
+      "text_hash": "a856599bdcf9240227b0f9af36e265db1d3d954be5982eb3ea2dba6a19f63263"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 72.321,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "64 厘米和米",
+      "excerpt_hash": "5003acc3f5c46791313f72d241bbd4dfe118c392a2abd1dbbe6f6de32eb6ba7f",
+      "node_id": "tcn_2089bffda0d6d41d",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 69,
+      "printed_page": "64",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_ec09bc9f684a4c4c",
+      "text": "64 厘米和米",
+      "text_hash": "5003acc3f5c46791313f72d241bbd4dfe118c392a2abd1dbbe6f6de32eb6ba7f"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 12,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 32.112,
+        "x": 163.512,
+        "y": 467.971
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "1厘米",
+      "excerpt_hash": "80fccdb269bbcf2348c28f77a7d2693a9879860e0e1bac29e837f461797f4d84",
+      "node_id": "tcn_361cfbe1bca47cb2",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 70,
+      "printed_page": "65",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_bdddd0deaf6baf99",
+      "text": "1厘米",
+      "text_hash": "80fccdb269bbcf2348c28f77a7d2693a9879860e0e1bac29e837f461797f4d84"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 72.321,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "66 厘米和米",
+      "excerpt_hash": "d7a495a6097636047dae7eed52caa5e1918002499882403807316d17659d1d8f",
+      "node_id": "tcn_8db397b87e123f6a",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 71,
+      "printed_page": "66",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_22bc3b0b8c85179b",
+      "text": "66 厘米和米",
+      "text_hash": "d7a495a6097636047dae7eed52caa5e1918002499882403807316d17659d1d8f"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 93.321,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "68 身体上的尺子",
+      "excerpt_hash": "93829dd1fba1e5194e2efe0fd67f7aed7c8909d9df449681088019af46d0000b",
+      "node_id": "tcn_e171b2d422c5eaa5",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 73,
+      "printed_page": "68",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_f677358de57d8eb9",
+      "text": "68 身体上的尺子",
+      "text_hash": "93829dd1fba1e5194e2efe0fd67f7aed7c8909d9df449681088019af46d0000b"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 12,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 104.904,
+        "x": 140.908,
+        "y": 104.371
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "1拃是把手指用力张",
+      "excerpt_hash": "621108decd21a93c35382d08bc7d8c0afc9dfc00b62bfa72d82f6f534fe8b4c8",
+      "node_id": "tcn_296a6650e56fc73f",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 74,
+      "printed_page": "69",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_9e93f1e4e49d844e",
+      "text": "1拃是把手指用力张",
+      "text_hash": "621108decd21a93c35382d08bc7d8c0afc9dfc00b62bfa72d82f6f534fe8b4c8"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 93.321,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "70 身体上的尺子",
+      "excerpt_hash": "291c8834f217e17dbc3bbc9fc6ffc3ee074b665bf803e07f40804191ab7d95d6",
+      "node_id": "tcn_832aaf438eb684f2",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 75,
+      "printed_page": "70",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_2ae0f9c799e38d8c",
+      "text": "70 身体上的尺子",
+      "text_hash": "291c8834f217e17dbc3bbc9fc6ffc3ee074b665bf803e07f40804191ab7d95d6"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 10.546,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 93.321,
+        "x": 59.359,
+        "y": 29.618
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "72 身体上的尺子",
+      "excerpt_hash": "8807579deb0d833a713ecb68976e92f222a32eb39c09f467be1bea8efcd95d1d",
+      "node_id": "tcn_2804db50928f0453",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 77,
+      "printed_page": "72",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_6c7b5ebd50a9953f",
+      "text": "72 身体上的尺子",
+      "text_hash": "8807579deb0d833a713ecb68976e92f222a32eb39c09f467be1bea8efcd95d1d"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 14,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 137.103,
+        "x": 92.516,
+        "y": 216.111
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "选择合适的身体尺测量能分析测量数据、发现问题能主动地合作学习",
+      "excerpt_hash": "b5ec5514ee683eb6b028e37b55919f01d010a28ece54f93359976cc8c66ce74d",
+      "node_id": "tcn_6f2784fa9e53316b",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 77,
+      "printed_page": "72",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_a300074acf5dc130",
+      "text": "选择合适的身体尺测量能分析测量数据、发现问题能主动地合作学习",
+      "text_hash": "b5ec5514ee683eb6b028e37b55919f01d010a28ece54f93359976cc8c66ce74d"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 16,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 352,
+        "x": 89.742,
+        "y": 422.197
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "计算每一题分别用的是哪句口诀?你发现了什么?",
+      "excerpt_hash": "09387f1b95fd94bd1a202afa9d587e1bbcc21bd7acd8f90bdde64f66829eb352",
+      "node_id": "tcn_3f85e860a1746889",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 83,
+      "printed_page": "78",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_a6fcf48eac95b860",
+      "text": "计算每一题分别用的是哪句口诀?你发现了什么?",
+      "text_hash": "09387f1b95fd94bd1a202afa9d587e1bbcc21bd7acd8f90bdde64f66829eb352"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 16,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 256,
+        "x": 95.528,
+        "y": 147.223
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "计算每组算式时有什么相同的地方?",
+      "excerpt_hash": "08ccaf0f1b8ff2f4c8b39b39bf5d084e7c7e6f2dfe26a108cd050473eb2253ce",
+      "node_id": "tcn_3d784ec974c86905",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 86,
+      "printed_page": "81",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_7f0c34e84be9d0a8",
+      "text": "计算每组算式时有什么相同的地方?",
+      "text_hash": "08ccaf0f1b8ff2f4c8b39b39bf5d084e7c7e6f2dfe26a108cd050473eb2253ce"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 16,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 369.284,
+        "x": 109.7,
+        "y": 104.598
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "exercise",
+      "excerpt": "想一想:前一个问题的答案和后一个问题有什么关系?",
+      "excerpt_hash": "dcb2b0ab73b247ec1df4410e9b54de225e4f9cc4a5dbc2fc4156651ad7aa2586",
+      "node_id": "tcn_a581eaaa0865a11b",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 88,
+      "printed_page": "83",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_2d7ecea0c7a265f2",
+      "text": "想一想:前一个问题的答案和后一个问题有什么关系?",
+      "text_hash": "dcb2b0ab73b247ec1df4410e9b54de225e4f9cc4a5dbc2fc4156651ad7aa2586"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 12,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 44.112,
+        "x": 64.553,
+        "y": 372.323
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "8的口诀",
+      "excerpt_hash": "792f341869f68491d8fbb599ba74468e8a0b36d4cc39441944b8aa0a597d5640",
+      "node_id": "tcn_b4e408b4304fba4b",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 93,
+      "printed_page": "88",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_8e034f3d006679cd",
+      "text": "8的口诀",
+      "text_hash": "792f341869f68491d8fbb599ba74468e8a0b36d4cc39441944b8aa0a597d5640"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 12,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 44.112,
+        "x": 64.553,
+        "y": 392.831
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "7的口诀",
+      "excerpt_hash": "5acb4cf3487b97a416a6ab9ae194ee057a8bf7a4dae175787b629cae6503e9ec",
+      "node_id": "tcn_6764a02906a46af4",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 93,
+      "printed_page": "88",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_a1a450bdd0c94926",
+      "text": "7的口诀",
+      "text_hash": "5acb4cf3487b97a416a6ab9ae194ee057a8bf7a4dae175787b629cae6503e9ec"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 12,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 44.112,
+        "x": 64.541,
+        "y": 433.847
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "5的口诀",
+      "excerpt_hash": "d2b09423b7b16f181e718c0a4941cb7c015e0f61e9dd328328fc9701a9f6e107",
+      "node_id": "tcn_76bf30c46687b871",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 93,
+      "printed_page": "88",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_b3b3a8f364f98460",
+      "text": "5的口诀",
+      "text_hash": "d2b09423b7b16f181e718c0a4941cb7c015e0f61e9dd328328fc9701a9f6e107"
+    },
+    {
+      "asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+      "bbox": {
+        "height": 12,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 44.112,
+        "x": 64.553,
+        "y": 351.815
+      },
+      "edition_id": "ed_22e1b88b6b37064c3b0f",
+      "evidence_role": "heading",
+      "excerpt": "9的口诀",
+      "excerpt_hash": "b4321c968bddef6f825fbf3538afaf13a44b17cb9d224d5985d431205e52e2df",
+      "node_id": "tcn_e4d97b46f7cae776",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 93,
+      "printed_page": "88",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_b97914e844cc02f4",
+      "text": "9的口诀",
+      "text_hash": "b4321c968bddef6f825fbf3538afaf13a44b17cb9d224d5985d431205e52e2df"
+    }
+  ],
   "extraction": {
-    "average_characters_per_page": 208,
-    "extracted_at": "2026-07-18T06:51:24.853328Z",
+    "average_characters_per_page": 250.4,
+    "extracted_at": "2026-11-01T07:30:00.049224Z",
     "notes": [
-      "数字印刷页与 PDF 页偏移 5，由 79 页重复证据支持。",
-      "只有在正文页面直接回查到的标题才自动进入已核对目录。"
+      "数字印刷页与 PDF 页偏移 5，由 56 页重复证据支持。",
+      "目录条目只有在正文页面直接回查，或通过保守的扫描目录识别门槛后，才进入已核对目录。"
     ],
-    "page_count_checked": 115,
-    "pages_with_text": 109
+    "page_count_checked": 107,
+    "pages_with_text": 107
   },
   "page_map": [
     {
@@ -2703,62 +4444,6 @@
       "pdf_page": 107,
       "printed_page": "102",
       "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 103",
-      "pdf_page": 108,
-      "printed_page": "103",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 104",
-      "pdf_page": 109,
-      "printed_page": "104",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 105",
-      "pdf_page": 110,
-      "printed_page": "105",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 106",
-      "pdf_page": 111,
-      "printed_page": "106",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 107",
-      "pdf_page": 112,
-      "printed_page": "107",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 108",
-      "pdf_page": 113,
-      "printed_page": "108",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 109",
-      "pdf_page": 114,
-      "printed_page": "109",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 110",
-      "pdf_page": 115,
-      "printed_page": "110",
-      "review_status": "approved"
     }
   ],
   "schema_version": 2,
@@ -2785,5 +4470,395 @@
     }
   ],
   "text_quality": "native_text",
-  "toc": []
+  "toc": [
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 15,
+      "entry_id": "tcu_838d9fdb82cd06d7",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 11,
+      "printed_page": "6",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 1,
+      "title": "一、分类与整理",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 15,
+      "entry_id": "tcu_024397e9fba92f0f",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_838d9fdb82cd06d7",
+      "pdf_page": 11,
+      "printed_page": "6",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 2,
+      "title": "逐层分类",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 35,
+      "entry_id": "tcu_0c5aba52b32c470a",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 16,
+      "printed_page": "11",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 3,
+      "title": "二、1~6的表内乘法",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 20,
+      "entry_id": "tcu_e815a12ff3f32217",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0c5aba52b32c470a",
+      "pdf_page": 16,
+      "printed_page": "11",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 4,
+      "title": "乘法的初步认识 例1",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 21,
+      "entry_id": "tcu_14ad4c8cbec98238",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0c5aba52b32c470a",
+      "pdf_page": 21,
+      "printed_page": "16",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 5,
+      "title": "5的乘法口诀",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 26,
+      "entry_id": "tcu_5ab814991d255cd3",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0c5aba52b32c470a",
+      "pdf_page": 26,
+      "printed_page": "21",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 6,
+      "title": "乘加、乘减",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 31,
+      "entry_id": "tcu_82c00137f1012965",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0c5aba52b32c470a",
+      "pdf_page": 27,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 7,
+      "title": "6的乘法口诀",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 53,
+      "end_printed_page": "48",
+      "entry_id": "tcu_a139a56376360f23",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 36,
+      "printed_page": "31",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 24,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 120,
+            "x": 211.362,
+            "y": 634.934
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "校园小导游"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": null
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 8,
+      "title": "三、1～6的表内除法",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 40,
+      "entry_id": "tcu_6f0e5ff31892e783",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a139a56376360f23",
+      "pdf_page": 36,
+      "printed_page": "31",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 9,
+      "title": "平均分——包含",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 91,
+      "end_printed_page": "86",
+      "entry_id": "tcu_7073092111906db5",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 54,
+      "printed_page": "49",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": null,
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 24,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 120,
+            "x": 211.362,
+            "y": 634.934
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "校园小导游"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 10,
+      "title": "校园小导游",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 56,
+      "entry_id": "tcu_60b060ccef5079b4",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_7073092111906db5",
+      "pdf_page": 55,
+      "printed_page": "50",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 11,
+      "title": "认识东、南、西、北",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 61,
+      "entry_id": "tcu_f22c286ef66966b7",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_7073092111906db5",
+      "pdf_page": 57,
+      "printed_page": "52",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 12,
+      "title": "设计导游路线",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 95,
+      "entry_id": "tcu_eea8763eadaf69f7",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 92,
+      "printed_page": "87",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 13,
+      "title": "四、厘米和米",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 95,
+      "entry_id": "tcu_ba84e09dffb3086f",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_eea8763eadaf69f7",
+      "pdf_page": 92,
+      "printed_page": "87",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 14,
+      "title": "整理和复习",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 97,
+      "entry_id": "tcu_24570d07a766619b",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 96,
+      "printed_page": "91",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 15,
+      "title": "六、复习与关联",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 96,
+      "entry_id": "tcu_8e6752e3dd6239b4",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24570d07a766619b",
+      "pdf_page": 96,
+      "printed_page": "91",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 16,
+      "title": "数与运算",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 97,
+      "entry_id": "tcu_a6d3f8e8345c4c6b",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24570d07a766619b",
+      "pdf_page": 97,
+      "printed_page": "92",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 17,
+      "title": "数量关系",
+      "toc_pdf_page": null
+    }
+  ],
+  "unit_range_reconciliation": {
+    "algorithm_version": "sidecar-top-heading-unit-range-v2",
+    "auxiliary_boundary_evidence": null,
+    "changed_unit_range_count": 2,
+    "changes": [
+      {
+        "after": {
+          "end_pdf_page": 53,
+          "pdf_page": 36
+        },
+        "before": {
+          "end_pdf_page": 54,
+          "pdf_page": 36
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 24,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 120,
+            "x": 211.362,
+            "y": 634.934
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "校园小导游"
+        },
+        "start_evidence": null,
+        "title": "三、1～6的表内除法",
+        "unit_id": "tcu_a139a56376360f23"
+      },
+      {
+        "after": {
+          "end_pdf_page": 91,
+          "pdf_page": 54
+        },
+        "before": {
+          "end_pdf_page": 91,
+          "pdf_page": 55
+        },
+        "end_evidence": null,
+        "start_evidence": {
+          "bbox": {
+            "height": 24,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 120,
+            "x": 211.362,
+            "y": 634.934
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "校园小导游"
+        },
+        "title": "校园小导游",
+        "unit_id": "tcu_7073092111906db5"
+      }
+    ],
+    "clamped_content_node_range_count": 3,
+    "detached_auxiliary_content_node_count": 0,
+    "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
+    "exact_unit_heading_evidence_count": 1,
+    "inspected_page_count": 107,
+    "provenance": "machine_generated",
+    "publication_gate": false,
+    "reassigned_content_node_count": 67,
+    "review_policy": "automatic_no_human_gate",
+    "schema_version": 1,
+    "sidecar_sha256": "e8901036f55b34eb57180ff636129820ff93a5e3b03d00c12d110a21a3d353c7",
+    "source_asset_sha256": "b7c84671803bec668a9f581185780f2295e7fca32f0ed5147854477d1aca0f98",
+    "status": "reconciled",
+    "top_level_unit_count": 6,
+    "top_line_limit": 4
+  }
 }

@@ -41,16 +41,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 1,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_182791876068214a",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_4033475eef6d59cd7a75",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_junior_grade_8_full",
+        "tes_1a9d6b0b7a03d9a8",
+        "textbook-node:tcn_ffc408d6b01beed0",
+        "textbook-unit:tcu_e949efc4b00cc479"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "按运动项目分成不同的小组,小组成员通过电视或网络,一起观赏",
+          "excerpt_hash": "f5cf5b3d1b7af11cf6da3e57145a1ca962297dae5781d3eda520a05b320d0ad0",
+          "pdf_page": 14,
+          "printed_page": "9",
+          "span_id": "tes_1a9d6b0b7a03d9a8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a5247fa47612e3c2"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a5247fa47612e3c2",
+          "label": "正确运用所学田径类运动项目的完整动作技术完成任务"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ffc408d6b01beed0",
+      "node_title": "按运动项目分成不同的小组,小组成员通过电视或网络,一起观赏",
+      "pdf_page": 14,
+      "printed_page": "9",
+      "publication_status": "published",
+      "rationale": "教材学习目标“按运动项目分成不同的小组,小组成员通过电视或网络,一起观赏”与课标 PE-H4G8-HB-005 的可教学小能力“正确运用所学田径类运动项目的完整动作技术完成任务”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康8年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_e949efc4b00cc479",
+      "unit_title": "第一单元 体育文化与体育精神"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a891326660e1577f",
@@ -61,7 +116,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_640488b51030"
+        "external_smartedu_2026_pe_junior_grade_8_full"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -73,7 +128,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_b134cd8790a103dd",
       "textbook_grade": 8,
       "textbook_subject": "体育与健康",

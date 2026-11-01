@@ -1,17 +1,46 @@
-// Turns a drafted lesson plan into plain text (复制) and a Word-readable HTML document (下载 Word, 打印).
+// Turns a drafted lesson plan into plain text (复制), a Word-readable 详案 (下载 Word, 打印) and a one-page 简案 to take
+// into class.
 
 export const KIND_LABEL = { 知道: '知道', 理解: '理解', 能做: '能做' }
 
+const metaText = plan => {
+    const { lesson, meta } = plan
+    return [lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', meta ? `第 ${meta.lesson_index} 课时（共 ${meta.lesson_count} 课时）· ${meta.period_minutes} 分钟` : '', meta?.class_size ? `约 ${meta.class_size} 人` : '', meta?.lesson_type || ''].filter(Boolean).join(' · ')
+}
+const linkLine = entry => `${entry.code}（${entry.grade}）${entry.text}${entry.reason ? `——${entry.reason}` : ''}`
+const bookLine = link => link.in_book.map(entry => `${entry.lesson}${entry.current ? '（本课）' : ''}${entry.page ? `（PDF ${entry.page}）` : ''}`).join('；')
+const readingOf = plan => ({
+    points: new Map((plan.reading?.reading?.points || []).map(item => [item.code, item])),
+    links: new Map((plan.reading?.links || []).map(item => [item.code, item]))
+})
+const homeworkLine = item => `【${item.level}】${item.task}${item.minutes ? `（约 ${item.minutes} 分钟）` : ''}`
+
 function lines(plan) {
-    const { lesson, frame, process, evidence, meta } = plan
+    const { lesson, frame, process, practice, reading, evidence } = plan
+    const { points, links } = readingOf(plan)
     const out = []
     out.push(`课题：${frame?.title || lesson.title}`)
-    out.push([lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', meta ? `第 ${meta.lesson_index} 课时（共 ${meta.lesson_count} 课时）· ${meta.period_minutes} 分钟` : ''].filter(Boolean).join(' · '))
+    out.push(metaText(plan))
     out.push('')
-    out.push('一、课标依据（义务教育课程标准 2022年版2025年修订）')
-    for (const item of evidence || []) out.push(`${item.code}　${item.text}（修订版第 ${item.pages.join('、')} 页）`)
+    out.push('一、课标分析（义务教育课程标准 2022年版2025年修订）')
+    for (const item of evidence || []) {
+        out.push(`${item.code}　${item.text}（修订版第 ${item.pages.join('、')} 页）`)
+        const point = points.get(item.code)
+        const link = links.get(item.code)
+        if (point?.plain) out.push(`　要做到：${point.plain}`)
+        if (point?.verbs.length) out.push(`　关键词：${point.verbs.map(verb => `${verb.word}——${verb.meaning}`).join('；')}`)
+        if (point?.this_lesson) out.push(`　本课承担：${point.this_lesson}`)
+        if (point?.textbook) out.push(`　用教材教：${point.textbook}`)
+        if (point?.avoid) out.push(`　注意：${point.avoid}`)
+        if (link?.before.length) out.push(`　先学：${link.before.map(linkLine).join('；')}`)
+        if (link?.after.length) out.push(`　后学：${link.after.map(linkLine).join('；')}`)
+        if (link?.in_book.length) out.push(`　本册在哪教：${bookLine(link)}`)
+    }
+    if (reading?.reading?.position) out.push(`这节课的位置：${reading.reading.position}`)
+    if (frame?.core_understanding) out.push(`核心理解：${frame.core_understanding}`)
+    if (reading?.reading?.literacy?.length) out.push(`素养表现：${reading.reading.literacy.map(item => `${item.name}——${item.look_for}`).join('；')}`)
+    if (reading?.limits?.length) out.push(`课标限定：${reading.limits.join('；')}`)
     if (frame) {
-        if (frame.core_understanding) { out.push(''); out.push(`核心理解：${frame.core_understanding}`) }
         out.push('')
         out.push('二、教学目标')
         frame.objectives.forEach((item, index) => out.push(`${index + 1}. ${item.text}（依据：${item.basis.join('、')}）`))
@@ -19,6 +48,7 @@ function lines(plan) {
         out.push('三、教学重点与难点')
         out.push(`重点：${frame.key_points.join('；')}`)
         out.push(`难点：${frame.difficult_points.join('；')}`)
+        if (frame.strategies?.length) out.push(`突破难点：${frame.strategies.join('；')}`)
         out.push('')
         out.push('四、学情分析')
         out.push(frame.learner_analysis)
@@ -33,18 +63,33 @@ function lines(plan) {
         frame.assessments.forEach(item => out.push(`${item.id}（对应目标 ${item.objective_ids.map(id => id.replace('O', '')).join('、')}）${item.task}　证据：${item.evidence}　标准：${item.criteria}`))
     }
     if (process) {
+        if (process.materials.length || process.safety.length) {
+            out.push('')
+            out.push('六、教学准备')
+            if (process.materials.length) out.push(process.materials.join('、'))
+            if (process.safety.length) out.push(`安全提示：${process.safety.join('；')}`)
+        }
         out.push('')
-        out.push('六、教学过程')
+        out.push('七、教学过程')
         process.stages.forEach((stage, index) => {
-            out.push(`${index + 1}. ${stage.name}（${stage.minutes} 分钟）`)
+            out.push(`${index + 1}. ${stage.name}（${stage.minutes} 分钟${stage.org ? `，${stage.org}` : ''}）`)
             out.push(`   教师活动：${stage.teacher}`)
             out.push(`   学生活动：${stage.students}`)
+            for (const item of stage.questions || []) out.push(`   关键问题：${item.q}${item.expect ? `　预设：${item.expect}` : ''}${item.follow ? `　追问：${item.follow}` : ''}`)
+            if (stage.check) out.push(`   看全班：${stage.check}`)
+            if (stage.support) out.push(`   照顾差异：${stage.support}`)
             out.push(`   设计意图：${stage.purpose}`)
         })
-        if (process.homework.length) { out.push(''); out.push('七、作业设计'); process.homework.forEach(item => out.push(`【${item.level}】${item.task}`)) }
-        if (process.board.length) { out.push(''); out.push('八、板书设计'); process.board.forEach(item => out.push(item)) }
-        if (process.materials.length) { out.push(''); out.push(`教学准备：${process.materials.join('、')}`) }
-        if (process.safety.length) { out.push(`安全提示：${process.safety.join('；')}`) }
+        if (practice?.items?.length) {
+            out.push('')
+            out.push('八、当堂练习与检测')
+            practice.items.forEach((item, index) => {
+                out.push(`${index + 1}.【${item.kind}·${item.level}】${item.question}${item.code ? `（${item.code}）` : ''}`)
+                out.push(`   参考答案：${item.answer}`)
+            })
+        }
+        if (process.board.length) { out.push(''); out.push('九、板书设计'); process.board.forEach(item => out.push(item)) }
+        if (process.homework.length) { out.push(''); out.push('十、作业设计'); process.homework.forEach(item => out.push(homeworkLine(item))) }
     }
     out.push('')
     out.push('本教案由 AI 依据 kebiao.org 收录的课标要点起草，请结合教材和班级实际修改后使用。')
@@ -57,48 +102,119 @@ export function planToText(plan) {
 
 const esc = value => String(value ?? '').replace(/[&<>"]/gu, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[char]))
 
-export function planToHtml(plan) {
-    const { lesson, frame, process, evidence, checks, meta } = plan
-    const title = frame?.title || lesson.title
-    const cell = text => `<td>${esc(text)}</td>`
-    const section = (heading, body) => (body ? `<h2>${esc(heading)}</h2>${body}` : '')
-    const list = items => (items.length ? `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>` : '')
-    const body = [
-        `<h1>${esc(title)}</h1>`,
-        `<p class="meta">${esc([lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', meta ? `第 ${meta.lesson_index} 课时（共 ${meta.lesson_count} 课时）· ${meta.period_minutes} 分钟` : ''].filter(Boolean).join(' · '))}</p>`,
-        section('一、课标依据', list((evidence || []).map(item => `<b>${esc(item.code)}</b> ${esc(item.text)}<span class="page">（修订版第 ${esc(item.pages.join('、'))} 页）</span>`))),
-        frame?.core_understanding ? `<p><b>核心理解：</b>${esc(frame.core_understanding)}</p>` : '',
-        frame ? section('二、教学目标', `<ol>${frame.objectives.map(item => `<li>${esc(item.text)} <span class="basis">依据 ${esc(item.basis.join('、'))}</span></li>`).join('')}</ol>`) : '',
-        frame ? section('三、教学重点与难点', `<p><b>重点：</b>${esc(frame.key_points.join('；'))}</p><p><b>难点：</b>${esc(frame.difficult_points.join('；'))}</p>`) : '',
-        frame ? section('四、学情分析', `<p>${esc(frame.learner_analysis)}</p>${frame.prior_knowledge.length ? `<p><b>前置知识：</b>${esc(frame.prior_knowledge.join('；'))}</p>` : ''}${frame.misconceptions.length ? `<p><b>常见误解与应对：</b></p>${list(frame.misconceptions.map(item => `${esc(item.text)}——${esc(item.response)}`))}` : ''}${frame.keywords.length ? `<p><b>关键词：</b>${esc(frame.keywords.map(item => `${item.term}（${item.definition}）`).join('；'))}</p>` : ''}`) : '',
-        frame ? section('五、评价任务', `<table><tr><th>任务</th><th>证据</th><th>达成标准</th><th>目标</th></tr>${frame.assessments.map(item => `<tr>${cell(item.task)}${cell(item.evidence)}${cell(item.criteria)}${cell(item.objective_ids.map(id => id.replace('O', '')).join('、'))}</tr>`).join('')}</table>`) : '',
-        process ? section('六、教学过程', `<table><tr><th>环节</th><th>时间</th><th>教师活动</th><th>学生活动</th><th>设计意图</th></tr>${process.stages.map(stage => `<tr>${cell(stage.name)}${cell(`${stage.minutes} 分钟`)}${cell(stage.teacher)}${cell(stage.students)}${cell(stage.purpose)}</tr>`).join('')}</table>`) : '',
-        process?.homework.length ? section('七、作业设计', list(process.homework.map(item => `【${esc(item.level)}】${esc(item.task)}`))) : '',
-        process?.board.length ? section('八、板书设计', `<pre>${esc(process.board.join('\n'))}</pre>`) : '',
-        process?.materials.length ? `<p><b>教学准备：</b>${esc(process.materials.join('、'))}</p>` : '',
-        process?.safety.length ? `<p><b>安全提示：</b>${esc(process.safety.join('；'))}</p>` : '',
-        checks?.length ? section('附：核验', list(checks.map(item => esc(item.message)))) : '',
-        '<p class="foot">本教案由 AI 依据 kebiao.org 收录的《义务教育课程标准（2022年版2025年修订）》要点起草，请结合教材和班级实际修改后使用。</p>'
-    ].join('\n')
-    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title><style>
-body{font-family:"SimSun","Songti SC",serif;font-size:12pt;line-height:1.7;color:#111;margin:2cm}
+const DOC_STYLE = `body{font-family:"SimSun","Songti SC",serif;font-size:12pt;line-height:1.7;color:#111;margin:2cm}
 h1{font-size:18pt;text-align:center;margin:0 0 6pt}h2{font-size:13pt;margin:14pt 0 4pt}
-.meta{text-align:center;color:#444;margin:0 0 12pt}.page,.basis{color:#666;font-size:10pt}
+.meta{text-align:center;color:#444;margin:0 0 12pt}.page,.basis,.note{color:#666;font-size:10pt}
 table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:4pt 6pt;vertical-align:top;font-size:10.5pt}th{background:#eee}
 pre{font-family:inherit;border:1px solid #999;padding:8pt}.foot{color:#666;font-size:9pt;margin-top:18pt}
-</style></head><body>${body}</body></html>`
-}
+.point{margin:6pt 0 10pt}.point p{margin:2pt 0 2pt 2em}.label{font-weight:bold}.blank{border-bottom:1px solid #999;height:20pt;margin:0}`
 
-export function downloadWord(plan) {
-    const blob = new Blob(['﻿', planToHtml(plan)], { type: 'application/msword' })
+function saveDoc(html, fileName) {
+    const blob = new Blob(['﻿', html], { type: 'application/msword' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = `${(plan.frame?.title || plan.lesson.title || '教案').replace(/[\\/:*?"<>|]/gu, '')}-教案.doc`
+    link.download = `${String(fileName).replace(/[\\/:*?"<>|]/gu, '')}.doc`
     document.body.appendChild(link)
     link.click()
     link.remove()
     setTimeout(() => URL.revokeObjectURL(url), 2000)
+}
+
+function readingHtml(plan) {
+    const { evidence, reading, frame } = plan
+    const { points, links } = readingOf(plan)
+    const row = (label, text) => (text ? `<p><span class="label">${esc(label)}：</span>${esc(text)}</p>` : '')
+    const items = (evidence || []).map(item => {
+        const point = points.get(item.code)
+        const link = links.get(item.code)
+        return `<div class="point"><b>${esc(item.code)}</b> ${esc(item.text)}<span class="page">（修订版第 ${esc(item.pages.join('、'))} 页）</span>${[
+            row('要做到', point?.plain),
+            row('关键词', point?.verbs.map(verb => `${verb.word}——${verb.meaning}`).join('；')),
+            row('本课承担', point?.this_lesson),
+            row('用教材教', point?.textbook),
+            row('注意', point?.avoid),
+            row('先学', link?.before.map(linkLine).join('；')),
+            row('后学', link?.after.map(linkLine).join('；')),
+            row('本册在哪教', link?.in_book.length ? bookLine(link) : '')
+        ].join('')}</div>`
+    }).join('')
+    const after = [
+        reading?.reading?.position ? `<p><b>这节课的位置：</b>${esc(reading.reading.position)}</p>` : '',
+        frame?.core_understanding ? `<p><b>核心理解：</b>${esc(frame.core_understanding)}</p>` : '',
+        reading?.reading?.literacy?.length ? `<p><b>素养表现：</b>${esc(reading.reading.literacy.map(item => `${item.name}——${item.look_for}`).join('；'))}</p>` : '',
+        reading?.limits?.length ? `<p><b>课标限定：</b>${esc(reading.limits.join('；'))}（本课不教、不考）</p>` : ''
+    ].join('')
+    return items + after
+}
+
+export function planToHtml(plan) {
+    const { lesson, frame, process, practice, reading, checks } = plan
+    const title = frame?.title || lesson.title
+    const cell = html => `<td>${html}</td>`
+    const section = (heading, body) => (body ? `<h2>${esc(heading)}</h2>${body}` : '')
+    const list = items => (items.length ? `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>` : '')
+    const teacherCell = stage => [
+        esc(stage.teacher),
+        ...(stage.questions || []).map(item => `<br><b>关键问题：</b>${esc(item.q)}${item.expect ? `<br><span class="note">预设：${esc(item.expect)}</span>` : ''}${item.follow ? `<br><span class="note">追问：${esc(item.follow)}</span>` : ''}`),
+        stage.check ? `<br><b>看全班：</b>${esc(stage.check)}` : ''
+    ].join('')
+    const studentCell = stage => `${esc(stage.students)}${stage.support ? `<br><b>照顾差异：</b>${esc(stage.support)}` : ''}`
+    const standards = reading?.standards || []
+    const body = [
+        `<h1>${esc(title)}</h1>`,
+        `<p class="meta">${esc(metaText(plan))}</p>`,
+        section('一、课标分析', readingHtml(plan)),
+        frame ? section('二、教学目标', `<ol>${frame.objectives.map(item => `<li>${esc(item.text)} <span class="basis">依据 ${esc(item.basis.join('、'))}</span></li>`).join('')}</ol>`) : '',
+        frame ? section('三、教学重点与难点', `<p><b>重点：</b>${esc(frame.key_points.join('；'))}</p><p><b>难点：</b>${esc(frame.difficult_points.join('；'))}</p>${frame.strategies?.length ? `<p><b>突破难点：</b>${esc(frame.strategies.join('；'))}</p>` : ''}`) : '',
+        frame ? section('四、学情分析', `<p>${esc(frame.learner_analysis)}</p>${frame.prior_knowledge.length ? `<p><b>前置知识：</b>${esc(frame.prior_knowledge.join('；'))}</p>` : ''}${frame.misconceptions.length ? `<p><b>常见误解与应对：</b></p>${list(frame.misconceptions.map(item => `${esc(item.text)}——${esc(item.response)}`))}` : ''}${frame.keywords.length ? `<p><b>关键词：</b>${esc(frame.keywords.map(item => `${item.term}（${item.definition}）`).join('；'))}</p>` : ''}`) : '',
+        frame ? section('五、评价任务', `<table><tr><th>任务</th><th>证据</th><th>达成标准</th><th>目标</th></tr>${frame.assessments.map(item => `<tr>${cell(esc(item.task))}${cell(esc(item.evidence))}${cell(esc(item.criteria))}${cell(esc(item.objective_ids.map(id => id.replace('O', '')).join('、')))}</tr>`).join('')}</table>`) : '',
+        process && (process.materials.length || process.safety.length) ? section('六、教学准备', `${process.materials.length ? `<p>${esc(process.materials.join('、'))}</p>` : ''}${process.safety.length ? `<p><b>安全提示：</b>${esc(process.safety.join('；'))}</p>` : ''}`) : '',
+        process ? section('七、教学过程', `<table><tr><th style="width:14%">环节</th><th>教师活动</th><th>学生活动</th><th style="width:18%">设计意图</th></tr>${process.stages.map(stage => `<tr>${cell(`${esc(stage.name)}<br><span class="note">${esc(stage.minutes)} 分钟${stage.org ? `<br>${esc(stage.org)}` : ''}</span>`)}${cell(teacherCell(stage))}${cell(studentCell(stage))}${cell(esc(stage.purpose))}</tr>`).join('')}</table>`) : '',
+        practice?.items?.length ? section('八、当堂练习与检测', `<ol>${practice.items.map(item => `<li>【${esc(item.kind)}·${esc(item.level)}】${esc(item.question)}${item.code ? ` <span class="basis">${esc(item.code)}</span>` : ''}<br><span class="note">参考答案：${esc(item.answer)}</span></li>`).join('')}</ol><p class="note">题目和答案由 AI 起草，课前请核对。</p>`) : '',
+        process?.board.length ? section('九、板书设计', `<pre>${esc(process.board.join('\n'))}</pre>`) : '',
+        process?.homework.length ? section('十、作业设计', list(process.homework.map(item => esc(homeworkLine(item))))) : '',
+        process ? section('十一、教学反思', '<p class="note">（课后填写：目标达成情况、学生的典型错误、下次要改的地方）</p><p class="blank"></p><p class="blank"></p><p class="blank"></p>') : '',
+        checks?.length ? section('附：核验', list(checks.map(item => esc(item.message)))) : '',
+        standards.some(item => item.requirements.length || item.guidance.length) ? section('附：课标原文', standards.map(item => `<p><b>${esc(item.code)} ${esc(item.title)}</b>（${esc(item.stage_label)}）${item.statement ? `：${esc(item.statement)}` : ''}</p>${item.requirements.length ? `<p><b>学业要求：</b>${esc(item.requirements.join(' '))}</p>` : ''}${item.guidance.length ? `<p><b>教学提示：</b>${esc(item.guidance.join(' '))}</p>` : ''}`).join('')) : '',
+        '<p class="foot">本教案由 AI 依据 kebiao.org 收录的《义务教育课程标准（2022年版2025年修订）》要点起草，按常规大班课堂设计，请结合教材和班级实际修改后使用。</p>'
+    ].join('\n')
+    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title><style>${DOC_STYLE}</style></head><body>${body}</body></html>`
+}
+
+export function downloadWord(plan) {
+    saveDoc(planToHtml(plan), `${plan.frame?.title || plan.lesson.title || '教案'}-教案`)
+}
+
+// ---------- 简案: one page to take into class — the clock, what to say and ask, what to check, the board ----------
+export function briefHtml(plan) {
+    const { lesson, frame, process, practice } = plan
+    const title = frame?.title || lesson.title
+    let clock = 0
+    const rows = (process?.stages || []).map(stage => {
+        const from = clock
+        clock += stage.minutes
+        const asks = (stage.questions || []).map(item => `问：${esc(item.q)}${item.expect ? `<br><span class="note">预设：${esc(item.expect)}</span>` : ''}`).join('<br>')
+        return `<tr><td>${from}–${clock}′</td><td><b>${esc(stage.name)}</b>${stage.org ? `<br><span class="note">${esc(stage.org)}</span>` : ''}</td><td>${esc(stage.teacher)}<br><span class="note">学生：${esc(stage.students)}</span></td><td>${asks}${stage.check ? `${asks ? '<br>' : ''}<b>看全班：</b>${esc(stage.check)}` : ''}</td></tr>`
+    }).join('')
+    const items = practice?.items || []
+    const body = [
+        `<h1>${esc(title)}（简案）</h1>`,
+        `<p class="meta">${esc(metaText(plan))}</p>`,
+        frame ? `<p><b>目标：</b>${frame.objectives.map((item, index) => `${index + 1}. ${esc(item.text)}`).join('　')}</p>` : '',
+        frame ? `<p><b>重点：</b>${esc(frame.key_points.join('；'))}　<b>难点：</b>${esc(frame.difficult_points.join('；'))}</p>` : '',
+        rows ? `<table><tr><th style="width:9%">时间</th><th style="width:13%">环节</th><th>做什么</th><th style="width:32%">关键问题 · 看全班</th></tr>${rows}</table>` : '',
+        items.length ? `<p><b>练习与检测：</b></p><ol>${items.map(item => `<li>【${esc(item.kind)}·${esc(item.level)}】${esc(item.question)}</li>`).join('')}</ol>` : '',
+        process?.board.length ? `<p><b>板书：</b></p><pre>${esc(process.board.join('\n'))}</pre>` : '',
+        process?.homework.length ? `<p><b>作业：</b>${esc(process.homework.map(homeworkLine).join('　'))}</p>` : '',
+        items.length ? `<p class="note">答案：${items.map((item, index) => `${index + 1}. ${esc(item.answer)}`).join('　')}</p>` : ''
+    ].join('\n')
+    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}（简案）</title><style>${DOC_STYLE}
+body{font-size:10.5pt;line-height:1.5;margin:1.5cm}h1{font-size:15pt}td,th{font-size:9.5pt}</style></head><body>${body}</body></html>`
+}
+
+export function downloadBriefWord(plan) {
+    saveDoc(briefHtml(plan), `${plan.frame?.title || plan.lesson.title || '教案'}-简案`)
 }
 
 // ---------- 单元整体设计 ----------
@@ -285,21 +401,29 @@ ${goals}
 <h2>八、课时安排</h2>
 <table><tr><th>课时</th><th>课题</th><th>课时数</th><th>主要目标</th><th>关键活动与评价</th></tr>${unitLessons.map((item, index) => `<tr><td class="short">${index + 1}</td><td>${esc(item.title)}</td><td class="short">${esc(item.hours || '')}</td><td class="short"></td><td class="blank"></td></tr>`).join('')}</table>
 <h2>九、单元作业与反思</h2>
-${box('单元作业怎样分层；学完后哪条目标达成得不好，下次怎么调整。')}` : `<h2>二、教材分析</h2>
-${box('这一课在单元里的位置、前后联系，教材用了哪些情境和例题。')}
+${box('单元作业怎样分层；学完后哪条目标达成得不好，下次怎么调整。')}` : `<p><b>课标分析</b></p>
+<p class="hint">逐条写：这条要点要学生最终做到什么；关键行为词（理解、运用……）要求到什么程度；本课承担哪一部分；先学的是什么、后面用到哪里。</p>
+<table><tr><th>要点</th><th>要做到 · 关键词的程度</th><th>本课承担</th></tr>${points.map(item => `<tr><td class="code">${esc(item.code)}</td><td class="blank"></td><td class="blank"></td></tr>`).join('')}</table>
+<h2>二、教材分析（用教材教）</h2>
+${box('教材用了哪些情境、例题和活动，各为哪条要点服务；哪些可以换成学生熟悉的情境，哪些需要补充；只按教材讲容易漏掉或超出什么。')}
 <h2>三、学情分析</h2>
-${box('学生已经会什么，可能在哪里出错。')}
+${box('多数学生的起点，容易卡在哪里；学得快和学得慢的学生各需要什么。')}
 <h2>四、教学目标</h2>
 ${goals}
 <h2>五、教学重点和难点</h2>
-<p>重点：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p><p>难点：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+<p>重点：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p><p>难点：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p><p>突破难点：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
 <h2>六、评价任务（先定证据，再设计活动）</h2>
 <table><tr><th>对应目标</th><th>学生要完成的任务</th><th>看什么证据</th><th>达成标准</th></tr>${points.map((_, index) => `<tr><td class="short">目标 ${index + 1}</td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>`).join('')}</table>
 <h2>七、教学过程</h2>
-<table><tr><th>环节</th><th>时间</th><th>教师活动</th><th>学生活动</th><th>设计意图</th><th>对应目标</th></tr>${['导入', '新授 / 探究', '练习 / 运用', '小结'].map(name => `<tr><td class="short">${name}</td><td class="short"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="short"></td></tr>`).join('')}</table>
-<h2>八、作业设计</h2>
-<p>基础：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p><p>拓展：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
-<h2>九、板书设计</h2><div class="box"></div>`
+<p class="hint">讲之前先让学生想一想、试一试（独立 1–3 分钟，再同桌交流）；每讲一步用一个问题或小题检查；写清老师怎样看到全班学会没有（手势表决、同桌互查、巡视抽看……）。</p>
+<table><tr><th>环节</th><th>时间</th><th>组织</th><th>教师活动与关键问题</th><th>学生活动</th><th>设计意图</th><th>目标</th></tr>${['回顾检测', '情境与问题', '先试', '讲解与示范', '练习与反馈', '当堂检测', '小结'].map(name => `<tr><td class="short">${name}</td><td class="short"></td><td class="short"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="short"></td></tr>`).join('')}</table>
+<h2>八、当堂练习与检测</h2>
+${box('基础题、变式题、提高题各一两道；最后两三道作当堂检测，3–5 分钟做完。')}
+<h2>九、板书设计</h2><div class="box"></div>
+<h2>十、作业设计</h2>
+<p>基础（必做，约＿＿分钟）：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p><p>提高（选做，约＿＿分钟）：＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+<h2>十一、教学反思</h2>
+${box('课后填写：目标达成情况、学生的典型错误、下次要改的地方。')}`
     return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}${unitLessons ? '单元设计框架' : '教案框架'}</title><style>
 body{font-family:"SimSun","Songti SC",serif;font-size:11pt;line-height:1.6;margin:1.8cm}h1{font-size:16pt;text-align:center;margin:0 0 4pt}h2{font-size:12.5pt;margin:12pt 0 4pt}
 .meta{text-align:center;color:#444;margin:0 0 8pt}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:4pt 5pt;vertical-align:top;font-size:10pt}th{background:#eee}

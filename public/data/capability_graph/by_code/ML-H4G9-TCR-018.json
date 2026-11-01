@@ -82,19 +82,74 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 1,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_e0ee1e474ad8cf21",
+      "alignment_id": "tca_b7b690ccab264831",
+      "alignment_type": "contextualizes",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_7e63f930aaf0037f4469",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_history_junior_grade_9_up",
+        "tes_a5b6fc237e68fc86",
+        "textbook-node:tcn_364f0b695a0b3f26",
+        "textbook-unit:tcu_0c44f7f76c9010b3"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "阅读马克思主义经典著作?",
+          "excerpt_hash": "e679e3aef433a1fe1fb92d5e2e87c3c4a712479af1bc0038f2d9b292821b9c71",
+          "pdf_page": 130,
+          "printed_page": "125",
+          "span_id": "tes_a5b6fc237e68fc86"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3838f47ebd569c35"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3838f47ebd569c35",
+          "label": "初步阐释中国共产党为什么能、马克思主义为什么行、中国特色社会主义为什么好"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_364f0b695a0b3f26",
+      "node_title": "阅读马克思主义经典著作?",
+      "pdf_page": 130,
+      "printed_page": "125",
+      "publication_status": "published",
+      "rationale": "教材练习“阅读马克思主义经典著作?”为课标 ML-H4G9-TCR-018 的可教学小能力“初步阐释中国共产党为什么能、马克思主义为什么行、中国特色社会主义为什么好”提供学科情境关联。",
+      "relation_type": "contextualizes",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 9,
+      "textbook_subject": "历史",
+      "textbook_title": "历史9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_0c44f7f76c9010b3",
+      "unit_title": "第七单元 工业革命和国际共产主义运动的兴起"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_18352f64d6a8cf94",
       "alignment_type": "contextualizes",
       "confidence": 0.92,
       "coverage": "partial",
@@ -104,19 +159,19 @@
       "evidence_level": "L2_topic",
       "evidence_refs": [
         "external_smartedu_2026_history_junior_grade_9_up",
-        "tes_57fc7b33f7fbfe27",
-        "textbook-node:tcn_7b4d9e6c1c6d28b7",
-        "textbook-unit:tcu_66a513201fc250df"
+        "tes_cefb5ce4c14b43cc",
+        "textbook-node:tcn_77e1eec87d756b49",
+        "textbook-unit:tcu_0c44f7f76c9010b3"
       ],
       "evidence_role": "contextual_textbook",
       "evidence_spans": [
         {
           "evidence_role": "contextual_textbook",
-          "excerpt": "第20课 马克思主义的诞生 111",
-          "excerpt_hash": "a18bfc1fe3ae1bf61c9822b3091b6bf096e179c9eca4ac09c03ce34effa4e88d",
-          "pdf_page": 6,
-          "printed_page": "1",
-          "span_id": "tes_57fc7b33f7fbfe27"
+          "excerpt": "第 20 课 马克思主义的诞生 111",
+          "excerpt_hash": "ca9457268136775631966af100ce5d6dd6d5bf42cfdbfa85084e62f9da0137e6",
+          "pdf_page": 116,
+          "printed_page": "111",
+          "span_id": "tes_cefb5ce4c14b43cc"
         }
       ],
       "learning_component_ids": [
@@ -130,10 +185,10 @@
       ],
       "level": "unit",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_7b4d9e6c1c6d28b7",
+      "node_id": "tcn_77e1eec87d756b49",
       "node_title": "第20课马克思主义的诞生111",
-      "pdf_page": 6,
-      "printed_page": "1",
+      "pdf_page": 116,
+      "printed_page": "111",
       "publication_status": "published",
       "rationale": "教材课文“第20课马克思主义的诞生111”为课标 ML-H4G9-TCR-018 的可教学小能力“初步阐释中国共产党为什么能、马克思主义为什么行、中国特色社会主义为什么好”提供学科情境关联。",
       "relation_type": "contextualizes",
@@ -144,8 +199,8 @@
       "textbook_subject": "历史",
       "textbook_title": "历史9年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_66a513201fc250df",
-      "unit_title": "第一单元"
+      "unit_id": "tcu_0c44f7f76c9010b3",
+      "unit_title": "第七单元 工业革命和国际共产主义运动的兴起"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",

@@ -85,6 +85,7 @@ export default function TextbookLibraryPage() {
                         <span className={styles.eyebrow}><BookOpenTextIcon size={16} aria-hidden="true" /> 教材馆 · 义务教育教科书</span>
                         <h1>选你的教材</h1>
                         <p>{manifest.count} 本有原书；{pilots.length ? `另有北师大、苏教、冀教、华东师大、青岛版等 ${pilots.length} 本只有国家平台的课目录。` : ''}每一课教哪几条课标、原话在第几页，都已逐课标好。</p>
+                        <p className={styles.download}>要下载最新修订版的原书 PDF，可以去 GitHub：<a href="https://github.com/NBrangerF/China-Textbook-New" target="_blank" rel="noopener noreferrer">China Textbook New ↗</a>，每本都和国家中小学智慧教育平台核对过。</p>
                     </div>
                     {myBook && !changing
                         ? <MyBookCard book={myBook} onChange={() => setChanging(true)} />

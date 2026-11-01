@@ -94,6 +94,7 @@ tests:
           return JSON.stringify(c.grade_bands) === JSON.stringify(['H2'])
             && c.excluded_subjects.includes('chinese');
 
+  # Since the 2025 rebuild a 初中 standard is the 7–9 年级 common requirement (H4); there is no 七年级-only band.
   - description: middle-school grade and subject fidelity
     vars:
       query: 七年级数学里和数据分析与表达有关的标准
@@ -103,11 +104,11 @@ tests:
         value: |
           const data = JSON.parse(output);
           const c = data.query_plan.resolved_constraints;
-          return JSON.stringify(c.grade_bands) === JSON.stringify(['H4G7'])
+          return JSON.stringify(c.grade_bands) === JSON.stringify(['H4'])
             && JSON.stringify(c.subjects) === JSON.stringify(['math']);
       - type: javascript
         metric: ResultConstraintSafety
         value: |
           const data = JSON.parse(output);
           return data.results.length > 0 && data.results.every((item) =>
-            item.standard.subject_slug === 'math' && item.standard.grade_band === 'H4G7');
+            item.standard.subject_slug === 'math' && item.standard.grade_band === 'H4');

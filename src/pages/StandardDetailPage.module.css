@@ -6,7 +6,7 @@
     color: var(--text-primary);
 }
 
-.not-found-actions { margin-top: 1rem; text-align: center; }
+.not-found-actions { margin-top: 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
 
 .standard-detail-page .breadcrumb-bar {
     padding: clamp(28px, 4vw, 48px) 0 0;

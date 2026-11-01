@@ -16,13 +16,14 @@ import styles from './StandardV2Page.module.css'
 
 const pagesLabel = pages => (pages?.length ? `课标第 ${pages.join('、')} 页` : '')
 
-function SourceLine({ section, pages, check }) {
+function SourceLine({ section, pages, check, graph }) {
     const parts = ['课标原文', section, pagesLabel(pages)].filter(Boolean)
     const status = statusLabel(check)
     return (
         <p className={styles.source}>
             {parts.join(' · ')}
             {status ? <span className={`${styles.flag} ${styles[check.status] || ''}`}>{status}</span> : null}
+            {graph ? <Link className={styles.graphLink} to={graph}>前后联系 →</Link> : null}
         </p>
     )
 }
@@ -57,7 +58,7 @@ function Indicator({ item, dimmed, targeted, checks = 0 }) {
             </div>
             <p className={styles.indicatorText}>{revised ? withAdditions(item.text, item.check.added) : item.text}</p>
             {item.official_examples ? <p className={styles.officialExample}>{item.official_examples}</p> : null}
-            <SourceLine section={item.section} pages={item.pages} check={item.check} />
+            <SourceLine section={item.section} pages={item.pages} check={item.check} graph={`/knowledge-graph/${subjectOfCode(item.code)}?focus=${item.code}`} />
             {checks ? <Link className={styles.checkLink} to={`/checks?point=${item.code}`}>课堂诊断题 {checks} 道：上课问一道，看全班怎么想</Link> : null}
             {item.examples.length ? (
                 <details className={styles.examples}>
@@ -304,7 +305,7 @@ export default function StandardV2Page() {
         return (
             <div className="page-content container">
                 <ErrorState title="标准未找到" message={state.message || `找不到编码为 ${code} 的标准`} />
-                <p className={styles.notFound}><Link to="/" className="btn btn-primary">返回首页</Link></p>
+                <p className={styles.notFound}><Link to="/standards" className="btn btn-primary">按学科查找课标</Link><Link to="/" className="btn btn-secondary">返回首页</Link></p>
             </div>
         )
     }

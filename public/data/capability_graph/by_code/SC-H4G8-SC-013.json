@@ -116,16 +116,126 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 6,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_275bcf5cc95a4fe3",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_c8cec7bb4ee4d9a29577",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_biology_junior_grade_8_down",
+        "tes_1e91c5c340159d34",
+        "textbook-node:tcn_2ff10bb37af20cf1",
+        "textbook-unit:tcu_a1467cc212810e20"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "实验·探究 模拟保护色的形成过程如果桦尺蛾的体色与周围环境的色彩非常相似,它就不易被其他动物发现。类似这样的体色,对于躲避敌害或捕食猎物是十分有利的,称",
+          "excerpt_hash": "b2a164f08d5e34685c4b2b39165645ae3e7682ae2fc051d5993fc4327fb0cd29",
+          "pdf_page": 69,
+          "printed_page": null,
+          "span_id": "tes_1e91c5c340159d34"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_19392078ebeeba58"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_19392078ebeeba58",
+          "label": "描述果实和种子的形成过程"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2ff10bb37af20cf1",
+      "node_title": "实验·探究 模拟保护色的形成过程如果桦尺蛾的体色与周围环境的色彩非常相似,它就不易被其他动物发现。类似这样的体色,对于躲避敌害或捕食猎物是十分有利的,称",
+      "pdf_page": 69,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材练习“实验·探究 模拟保护色的形成过程如果桦尺蛾的体色与周围环境的色彩非常相似,它就不易被其他动物发现。类似这样的体色,对于躲避敌害或捕食猎物是十分有利的,称”与课标 SC-H4G8-SC-013 的可教学小能力“描述果实和种子的形成过程”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_a1467cc212810e20",
+      "unit_title": "第六单元 生命的延续和发展"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9ef5bbfe8f34844e",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_c8cec7bb4ee4d9a29577",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_biology_junior_grade_8_down",
+        "tes_dd15b6ff8fb9a454",
+        "textbook-node:tcn_a1553583c386b4d0",
+        "textbook-unit:tcu_a1467cc212810e20"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "完成操作后,要悉心照料植物。应以多种形式记录项目实施情况,如利用拍照、延时摄影或画图等方式记录植物的生长情况,还可",
+          "excerpt_hash": "9d48af003ab480113c2b60b9adaf1a9800daa1390864c122044202f749307952",
+          "pdf_page": 14,
+          "printed_page": null,
+          "span_id": "tes_dd15b6ff8fb9a454"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9392031f96189967"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9392031f96189967",
+          "label": "列举绿色开花植物的生殖方式及其在生产生活中的应用"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a1553583c386b4d0",
+      "node_title": "完成操作后,要悉心照料植物。应以多种形式记录项目实施情况,如利用拍照、延时摄影或画图等方式记录植物的生长情况,还可",
+      "pdf_page": 14,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材练习“完成操作后,要悉心照料植物。应以多种形式记录项目实施情况,如利用拍照、延时摄影或画图等方式记录植物的生长情况,还可”与课标 SC-H4G8-SC-013 的可教学小能力“列举绿色开花植物的生殖方式及其在生产生活中的应用”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_a1467cc212810e20",
+      "unit_title": "第六单元 生命的延续和发展"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_b0074a917ef9fd5f",
@@ -136,7 +246,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_77ef51325c22"
+        "external_smartedu_2026_biology_junior_grade_8_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -148,7 +258,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_aa920dd0236fd836",
       "textbook_grade": 8,
       "textbook_subject": "生物学",
@@ -167,7 +277,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a871f50d9e2b"
+        "external_smartedu_2026_geography_junior_grade_8_up"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -179,7 +289,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_c38c1b84336fa7fa",
       "textbook_grade": 8,
       "textbook_subject": "地理",
@@ -198,7 +308,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_5f552244f754"
+        "external_smartedu_2026_geography_junior_grade_8_down"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -210,7 +320,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_e4f214193210f062",
       "textbook_grade": 8,
       "textbook_subject": "地理",
@@ -229,7 +339,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_ce524ff21ae1"
+        "external_smartedu_2026_biology_junior_grade_8_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -241,7 +351,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d75ade93cbf14989",
       "textbook_grade": 8,
       "textbook_subject": "生物学",
@@ -260,7 +370,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a0a929bcb6e9"
+        "external_smartedu_2026_physics_junior_grade_8_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -272,7 +382,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_a2e8478f57c656a4",
       "textbook_grade": 8,
       "textbook_subject": "物理",
@@ -291,7 +401,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_ffb2a04886aa"
+        "external_smartedu_2026_physics_junior_grade_8_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -303,7 +413,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_23244c2ebb335c01",
       "textbook_grade": 8,
       "textbook_subject": "物理",

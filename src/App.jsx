@@ -5,10 +5,6 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
-import SkillsOverviewPage from './pages/SkillsOverviewPage'
-import SkillDetailPage from './pages/SkillDetailPage'
-import SearchResultsPage from './pages/SearchResultsPage'
-import StandardV2Page from './pages/StandardV2Page'
 import LegacyStandardRedirect from './pages/LegacyStandardRedirect'
 import { isV2Code, migrateSavedCodes } from './data/v2Data.js'
 import { getCollections, saveCollections } from './data/collections'
@@ -23,6 +19,12 @@ import { SkyProvider } from './features/starmap/SkyProvider.jsx'
 import './App.css'
 
 const SubjectPage = lazy(() => import('./pages/SubjectPage'))
+// the standard page, the comparison and the skills pages load on demand: the first visit gets the prerendered
+// page at once (PageLoading shows it), and every other page no longer downloads their code and react-aria
+const StandardV2Page = lazy(() => import('./pages/StandardV2Page'))
+const SearchResultsPage = lazy(() => import('./pages/SearchResultsPage'))
+const SkillsOverviewPage = lazy(() => import('./pages/SkillsOverviewPage'))
+const SkillDetailPage = lazy(() => import('./pages/SkillDetailPage'))
 const StandardDetailPage = lazy(() => import('./pages/StandardDetailPage'))
 const CollectionsPage = lazy(() => import('./pages/CollectionsPage'))
 const GlossaryPage = lazy(() => import('./pages/GlossaryPage'))
@@ -49,7 +51,7 @@ const LessonPlanPage = lazy(() => import('./pages/LessonPlanPage'))
 const InterdisciplinaryPage = lazy(() => import('./pages/InterdisciplinaryPage'))
 const ExperimentsPage = lazy(() => import('./pages/ExperimentsPage'))
 const TeacherExamPage = lazy(() => import('./pages/TeacherExamPage'))
-const ReviewMapPage = lazy(() => import('./pages/ReviewMapPage'))
+const KnowledgeGraphPage = lazy(() => import('./pages/KnowledgeGraphPage'))
 const GuidePage = lazy(() => import('./pages/GuidePage'))
 const StandardsHubPage = lazy(() => import('./pages/StandardsHubPage'))
 const ChecksPage = lazy(() => import('./pages/ChecksPage'))
@@ -59,7 +61,23 @@ const ChecksPresentPage = lazy(() => import('./pages/ChecksPresentPage'))
 // v2 codes (MA-S1-NA-01, MA-S1-NA-01.3) open the standard; old codes move to where their record now lives.
 function StandardRoute() {
     const { code } = useParams()
-    return isV2Code(code) ? <StandardV2Page /> : <LegacyStandardRedirect code={code} />
+    return isV2Code(code) ? lazyPage(<StandardV2Page />, '正在打开标准') : <LegacyStandardRedirect code={code} />
+}
+
+// /search compares subjects and 学段; a keyword (/search?q=分数, as people and other sites guess it) goes to the AI search
+function SearchRoute() {
+    const [params] = useSearchParams()
+    const keyword = (params.get('q') || '').trim()
+    if (keyword && !params.get('subjects') && !params.get('bands')) return <Navigate to={`/smart-search?q=${encodeURIComponent(keyword)}`} replace />
+    return lazyPage(<SearchResultsPage />, '正在打开对比视图')
+}
+
+// 中考复习地图 (/review) became the 知识图谱: /review?subject=physics opens 物理 (vercel.json redirects the same way)
+const GRAPH_SLUGS = ['chinese', 'math', 'english', 'morality_law', 'history', 'geography', 'science', 'physics', 'chemistry', 'biology', 'it', 'pe', 'arts', 'labor']
+function ReviewRedirect() {
+    const [params] = useSearchParams()
+    const subject = params.get('subject') || ''
+    return <Navigate to={GRAPH_SLUGS.includes(subject) ? `/knowledge-graph/${subject}` : '/knowledge-graph'} replace />
 }
 
 // 学期进度表 (/schedule) is gone: an old link opens its book (vercel.json redirects the same way for full page loads)
@@ -94,9 +112,9 @@ function App() {
                 <Routes>
                     <Route path="/" element={route('home', <HomePage />)} />
                     <Route path="/subjects/:slug" element={route('subject', lazyPage(<SubjectPage />, '正在展开学科星图'))} />
-                    <Route path="/skills" element={route('skills', <SkillsOverviewPage />)} />
-                    <Route path="/skills/:code" element={route('skillDetail', <SkillDetailPage />)} />
-                    <Route path="/search" element={route('search', <SearchResultsPage />)} />
+                    <Route path="/skills" element={route('skills', lazyPage(<SkillsOverviewPage />, '正在打开可迁移技能'))} />
+                    <Route path="/skills/:code" element={route('skillDetail', lazyPage(<SkillDetailPage />, '正在打开技能'))} />
+                    <Route path="/search" element={route('search', <SearchRoute />)} />
                     <Route path="/textbooks" element={route('textbooks', lazyPage(<TextbookLibraryPage />, '正在打开教材馆'))} />
                     <Route path="/learning-resources" element={route('learningResources', lazyPage(<LearningResourceLibraryPage />, '正在打开学习资源库'))} />
                     <Route path="/learning-resources/:resourceId" element={route('learningResourceDetail', lazyPage(<LearningResourceDetailPage />, '正在打开学习资源'))} />
@@ -114,7 +132,9 @@ function App() {
                     <Route path="/checks" element={route('checks', lazyPage(<ChecksPage />, '正在打开课堂诊断'))} />
                     <Route path="/checks/after" element={route('checksAfter', lazyPage(<ChecksAfterPage />, '正在打开批完就用'))} />
                     <Route path="/checks/present" element={route('checksPresent', lazyPage(<ChecksPresentPage />, '正在准备放映'))} />
-                    <Route path="/review" element={route('reviewMap', lazyPage(<ReviewMapPage />, '正在打开中考复习地图'))} />
+                    <Route path="/knowledge-graph" element={route('knowledgeGraph', lazyPage(<KnowledgeGraphPage />, '正在展开知识图谱'))} />
+                    <Route path="/knowledge-graph/:slug" element={route('knowledgeGraph', lazyPage(<KnowledgeGraphPage />, '正在展开知识图谱'))} />
+                    <Route path="/review" element={<ReviewRedirect />} />
                     <Route path="/schedule" element={<ScheduleRedirect />} />
                     <Route path="/teacher-exam" element={route('teacherExam', lazyPage(<TeacherExamPage />, '正在打开教资课标速记'))} />
                     <Route path="/experiments" element={route('experiments', lazyPage(<ExperimentsPage />, '正在打开必做实验清单'))} />

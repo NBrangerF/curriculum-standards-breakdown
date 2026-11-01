@@ -124,7 +124,7 @@ export interface TextbookTocEntry {
     confidence: number
     review_status: 'approved' | 'machine_checked' | 'needs_review'
     publication_status?: 'published'
-    source: 'pdf_outline' | 'toc_text' | 'ocr_toc' | 'heading_match' | 'heading_match+split_heading_merge' | 'body_inferred_unit' | 'manual' | 'legacy_unit_evidence'
+    source: 'pdf_outline' | 'toc_text' | 'ocr_toc' | 'heading_match' | 'heading_match+split_heading_merge' | 'body_inferred_unit' | 'manual' | 'legacy_unit_evidence' | 'smartedu_sync_lessons'
 }
 
 export interface TextbookPageMapEntry {

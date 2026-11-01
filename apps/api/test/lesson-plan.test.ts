@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
-import { checkPlan, checkTest, fitHours, fitMinutes, limitsOf, splitTest, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
+import { checkPlan, checkPractice, checkTest, classroomChecks, fitHours, fitMinutes, limitsOf, orgOf, sanitiseProcess, splitTest, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
 
 const publicDataRoot = resolve(process.cwd(), '../../public/data')
 const app = createApp(new FileCurriculumRepository(publicDataRoot))
@@ -123,7 +123,7 @@ test('lesson-plan draft: frame then process, codes kept to the picked 要点 and
     }
     const first = await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ ...request, step: 'frame' }) })
     assert.equal(first.status, 200)
-    assert.equal(first.headers.get('x-ratelimit-policy'), 'ai-per-minute')
+    assert.equal(first.headers.get('x-ratelimit-policy'), 'ai-draft-per-minute')
     const one = (await json(first)).data
     assert.deepEqual(one.frame.objectives[0].basis, [LIMITED])
     assert.match(one.evidence[0].text, /不包括将循环小数转化成分数/)
@@ -624,4 +624,143 @@ test('教材与课标对应: every 要点 at the grade is read; matches without 
     assert.deepEqual(second.matches.map((item: any) => item.point), [LIMITED])
     assert.equal(second.dropped, 1)
     assert.deepEqual(second.rejected.map((item: any) => [item.point, item.reason]), [['MA-S3-NA-01.2', 'quote_of_point']])
+})
+
+// ---------- the class as it is: 45 students in rows, 课标解读, 当堂练习 ----------
+test('组织形式 is read in the four forms a big class uses', () => {
+    assert.equal(orgOf('个人→两人'), '独立→同桌')
+    assert.equal(orgOf('小组合作'), '四人小组')
+    assert.equal(orgOf('师生互动'), '全班')
+    assert.equal(orgOf('自主练习，然后同桌互查'), '独立→同桌')
+    assert.equal(orgOf('讲授'), '')
+})
+
+test('a stage keeps its 组织形式, key questions with the expected answers, the whole-class check and the support', () => {
+    const process = sanitiseProcess({
+        stages: [{ name: '先试', minutes: 5, org: '个人→两人', teacher: '出示 2/3 和 4/6', students: '画图比较', questions: [{ q: '哪个大？', expect: '一样大；有人说 4/6 大', follow: '画图看看' }, { q: '' }], check: '举手势表决', support: '慢的看提示卡', purpose: '先试', objective_ids: ['O1'], assessment_ids: [] }],
+        homework: [{ level: '基础', task: '练习三第 1 题', minutes: 8 }, { level: '提高', task: '编一道题', minutes: 'x' }],
+        board: [], materials: [], safety: []
+    }, frame())
+    assert.ok(process)
+    const [stage] = process.stages
+    assert.equal(stage.org, '独立→同桌')
+    assert.equal(stage.questions?.length, 1)
+    assert.equal(stage.check, '举手势表决')
+    assert.equal(stage.support, '慢的看提示卡')
+    assert.equal(process.homework[0].minutes, 8)
+    assert.ok(!('minutes' in process.homework[1]))
+})
+
+test('classroom checks: too little student time, too many groups, an unseen class and homework past 双减', () => {
+    const stage = (name: string, minutes: number, org: string, check = '') => ({ name, minutes, org, teacher: '…', students: '…', check, purpose: '', objective_ids: ['O1', 'O2'], assessment_ids: name === '小组三' ? ['A1'] : [] })
+    const crowded = { ...planProcess, stages: [stage('讲解', 30, '全班'), stage('小组一', 3, '四人小组', '巡视抽看'), stage('小组二', 3, '四人小组', '巡视'), stage('小组三', 4, '四人小组')], homework: [{ level: '基础', task: '完成练习册第 3 页', minutes: 25 }] }
+    const kinds = classroomChecks(crowded, 40, 5).map(item => item.kind)
+    for (const kind of ['student_time', 'group_work', 'class_check', 'homework_load']) assert.ok(kinds.includes(kind), kind)
+    // 一、二年级: no written homework at home; oral and hands-on work is fine
+    assert.ok(classroomChecks({ ...planProcess, homework: [{ level: '基础', task: '写生字两遍' }] }, 40, 1).some(item => item.kind === 'homework_load'))
+    assert.ok(!classroomChecks({ ...planProcess, homework: [{ level: '实践', task: '回家数一数家里的门窗' }, { level: '基础', task: '把课文读给家长听' }] }, 40, 1).some(item => item.kind === 'homework_load'))
+    // 三年级起 only the required written work counts towards the limit: oral work and the optional 提高 item do not
+    assert.ok(!classroomChecks({ ...planProcess, homework: [{ level: '基础', task: '口头复述课文的主要内容', minutes: 10 }, { level: '提高', task: '写一段观潮的话', minutes: 15 }] }, 40, 4).some(item => item.kind === 'homework_load'))
+    // a plan from before the stages carried 组织形式 is not judged on it, and advice does not undo the alignment verdict
+    assert.ok(!classroomChecks(planProcess, 40, 5).some(item => item.kind === 'student_time'))
+    assert.ok(checkPlan(frame(), crowded, { indicators: [{ code: LIMITED, text: '会比较', pages: [], standard_code: 'MA-S3-NA-01', standard_title: '', stage_label: '' }], standards: [], periodMinutes: 40, lesson: { grade: 5 } }).some(item => item.kind === 'aligned'))
+})
+
+test('当堂练习: every 要点 the objectives use gets an item, and the last items check the objectives', () => {
+    const practice = { items: [{ kind: '练习' as const, level: '基础', question: '把 2/3 化成分母是 12 的分数', answer: '8/12', code: LIMITED, objective_id: 'O2' }] }
+    assert.deepEqual(checkPractice(practice, frame()).map(item => item.kind), ['practice_gap'])
+    assert.match(checkPractice(practice, frame())[0].message, /当堂检测/)
+    assert.ok(checkPractice({ items: [] }, frame()).some(item => item.message.includes(LIMITED)))
+})
+
+function readingModel(calls: string[]) {
+    return async (_input: unknown, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body))
+        const system = String(body.messages[0].content)
+        calls.push(String(body.messages[1].content))
+        const content = system.includes('读懂这节课依据的课标要点')
+            ? { points: [{ code: LIMITED, plain: '会比较分数大小、会转化', verbs: [{ word: '比较', meaning: '能说明理由地比较' }, { word: '掌握', meaning: '要点里没有这个词' }, { word: '能比较两个分数的大小和两个小数', meaning: '半句话，不是关键词' }], this_lesson: '本课只做同分母变形', textbook: '用教材的折纸例子', avoid: '不要讲循环小数' }, { code: 'MA-S9-ZZ-01.1', plain: '编造的要点' }], position: '承前启后', literacy: [{ name: '运算能力', look_for: '能说清每一步' }, { name: '编造的素养', look_for: '…' }] }
+            : { items: [{ kind: '练习', level: '基础', question: '1. 2/3 = ?/12', answer: '参考答案：8', code: LIMITED, objective_id: 'O2' }, { kind: '检测', level: '变式', question: '1.5 米和 3/2 米一样长吗？', answer: '3/4 大', code: 'MA-S1-ZZ-99.1', objective_id: 'O9' }, { kind: '检测', level: '提高', question: '', answer: 'x' }] }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 600, total_tokens: 1500 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    }
+}
+
+// the AI routes allow ten requests a minute from one address; these tests use their own
+const CLASS_IP = '203.0.113.45'
+
+test('课标解读: the 要点 read for the teacher, with what comes before and after, this book\'s lessons and the 课标 text', async t => {
+    const request = { step: 'reading', lesson: { title: '分数的基本性质', subject_slug: 'math', grade: 5, edition_id: math5b, lesson_id: fractionLesson.id }, indicator_codes: [LIMITED], class_size: 48 }
+    // with the AI off the teacher still gets the facts
+    const off = (await json(await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': CLASS_IP }, body: JSON.stringify(request) }))).data
+    assert.equal(off.reading, null)
+    assert.ok(off.links[0].before.some((item: any) => item.code === 'MA-S2-NA-01.3' && item.reason))
+    assert.ok(off.links[0].after.some((item: any) => item.code === 'MA-S3-NA-01.5'))
+    assert.ok(off.limits.some((item: string) => item.includes('不包括将循环小数转化成分数')))
+    assert.equal(off.standards[0].code, 'MA-S3-NA-01')
+    // 本册在哪教 from the book's own lesson judgement: every lesson that teaches it, this one marked, no review lessons
+    const inBook = off.links[0].in_book.map((item: any) => `${item.lesson}${item.current ? '*' : ''}`)
+    assert.deepEqual(inBook, ['分数的意义', '分数与除法', '真分数和假分数', '分数的基本性质*', '约分', '通分', '分数和小数的互化'])
+
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const calls: string[] = []
+    t.mock.method(globalThis, 'fetch', readingModel(calls))
+    const on = (await json(await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': CLASS_IP }, body: JSON.stringify(request) }))).data
+    assert.equal(on.reading.points.length, 1)
+    assert.deepEqual(on.reading.points[0].verbs.map((item: any) => item.word), ['比较'])
+    assert.deepEqual(on.reading.literacy.map((item: any) => item.name), ['运算能力'])
+    assert.match(calls[0], /前后联系/)
+    assert.match(calls[0], /MA-S2-NA-01\.3/)
+
+    // 当堂练习: codes and objectives outside the plan are cleared, and an item without a question is dropped
+    const practice = (await json(await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': CLASS_IP }, body: JSON.stringify({ ...request, step: 'practice', frame: frame() }) }))).data
+    assert.equal(practice.practice.items.length, 2)
+    assert.equal(practice.practice.items[1].code, '')
+    // the page numbers the items: the model's own 「1.」 and 「参考答案：」 go, a decimal at the start stays
+    assert.equal(practice.practice.items[0].question, '2/3 = ?/12')
+    assert.equal(practice.practice.items[0].answer, '8')
+    assert.equal(practice.practice.items[1].question, '1.5 米和 3/2 米一样长吗？')
+    assert.equal(practice.practice.items[1].objective_id, '')
+    assert.ok(!practice.checks.some((item: any) => item.message.includes('当堂检测')))
+    assert.match(calls[1], /已定的目标与评价/)
+})
+
+test('the frame and process prompts carry the class as it is', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const calls: string[] = []
+    t.mock.method(globalThis, 'fetch', fakeModel(calls))
+    const request = { lesson: { title: '分数的基本性质', subject_slug: 'math', grade: 5, edition_id: math5b, lesson_id: fractionLesson.id }, indicator_codes: [LIMITED], class_size: 52, lesson_type: '新授课' }
+    await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': CLASS_IP }, body: JSON.stringify({ ...request, step: 'frame' }) })
+    assert.match(calls[0], /约 52 名学生/)
+    assert.match(calls[0], /课型：新授课/)
+    assert.match(calls[0], /数学：先让学生尝试再讲例题/)
+    // the unit in textbook order: 通分 comes later, so this lesson leaves it alone
+    assert.match(calls[0], /本单元的课（教材顺序）：.*真分数和假分数 → 「分数的基本性质」（本课） → 最大公因数 → 约分 → 最小公倍数 → 通分/)
+    const bad = await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': CLASS_IP }, body: JSON.stringify({ ...request, step: 'frame', lesson_type: '公开课' }) })
+    assert.equal(bad.status, 422)
+})
+
+test('the 教案 heading is the lesson, without 「教学设计（前半部分）」', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const content = { ...frame(), title: '《分数的基本性质》第一课时教学设计（前半部分）' }
+    t.mock.method(globalThis, 'fetch', async () => new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 600, total_tokens: 1500 } }), { status: 200, headers: { 'content-type': 'application/json' } }))
+    const request = { step: 'frame', lesson: { title: '分数的基本性质', subject_slug: 'math', grade: 5, edition_id: math5b, lesson_id: fractionLesson.id }, indicator_codes: [LIMITED] }
+    const data = (await json(await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': CLASS_IP }, body: JSON.stringify(request) }))).data
+    assert.equal(data.frame.title, '《分数的基本性质》第一课时')
+})
+
+test('an objective that takes on a later lesson of the unit is flagged, and the alignment verdict stands', () => {
+    const indicators = [{ code: LIMITED, text: '会比较', pages: [], standard_code: 'MA-S3-NA-01', standard_title: '', stage_label: '' }]
+    const unitLessons = [{ title: '真分数和假分数' }, { title: '分数的基本性质', current: true }, { title: '约分' }, { title: '通分' }, { title: '约分和通分的练习' }, { title: '…' }]
+    const ahead = frame({ objectives: [frame().objectives[0], { ...frame().objectives[1], text: '学生能用通分比较两个异分母分数的大小' }] })
+    const checks = checkPlan(ahead, null, { indicators, standards: [], periodMinutes: 40, unitLessons })
+    assert.deepEqual(checks.filter(item => item.kind === 'later_lesson').map(item => item.message.match(/「(.+?)」/)?.[1]), ['通分'])
+    assert.ok(checks.some(item => item.kind === 'aligned'))
+    // the lesson's own title and earlier lessons are not flagged
+    assert.ok(!checkPlan(frame(), null, { indicators, standards: [], periodMinutes: 40, unitLessons }).some(item => item.kind === 'later_lesson'))
 })

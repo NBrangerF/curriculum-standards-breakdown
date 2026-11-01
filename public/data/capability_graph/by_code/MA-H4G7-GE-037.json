@@ -130,41 +130,59 @@
   },
   "curriculum_alignments": [
     {
-      "algorithm_version": "pre-full-alignment",
-      "alignment_id": "tca_d0ac55da5dd7c916",
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a3b07097fd60b0e7",
       "alignment_type": "supports",
-      "confidence": 0.58,
+      "confidence": 0.92,
       "coverage": "partial",
-      "edition_id": "ed_006d5ed61c055eb63857",
-      "evidence_basis": "reviewed_toc_title",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "toc_title",
       "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
       "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctu_a9d90ba682c8fc",
-        "textbook-unit:tcu_08ccd50d19c18ac8"
+        "external_smartedu_2026_math_junior_grade_7_down",
+        "tes_cb5f941ef401208d",
+        "textbook-node:tcn_df854e95a1d01d57",
+        "textbook-unit:tcu_69f80947fa1b2b47"
       ],
-      "evidence_role": "legacy_reviewed_textbook_evidence",
-      "evidence_spans": [],
-      "learning_component_ids": [],
-      "learning_components": [],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "64 第九章 平面直角坐标系",
+          "excerpt_hash": "9e7b0a6db2c02dbe691a4e7cd2fbc2650f10348a6fb30f4ae4151e3f57febe9e",
+          "pdf_page": 71,
+          "printed_page": "63",
+          "span_id": "tes_cb5f941ef401208d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2b474fbe725453c6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2b474fbe725453c6",
+          "label": "用自己的话解释平面直角坐标系概念"
+        }
+      ],
       "level": "unit",
-      "method": "legacy_human_review",
-      "node_id": null,
-      "node_title": "",
-      "pdf_page": 121,
-      "printed_page": "114",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_df854e95a1d01d57",
+      "node_title": "64第九章平面直角坐标系",
+      "pdf_page": 71,
+      "printed_page": "63",
       "publication_status": "published",
-      "rationale": "已核对教材单元「4.1 几何图形」与课标「MA-H4G7-GE-037」的 subdomain_anchor 关联。",
+      "rationale": "教材课文“64第九章平面直角坐标系”与课标 MA-H4G7-GE-037 的可教学小能力“用自己的话解释平面直角坐标系概念”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
-      "review_status": "approved",
-      "revision_status": "revision_unknown",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
       "textbook_grade": 7,
       "textbook_subject": "数学",
-      "textbook_title": "数学7年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_08ccd50d19c18ac8",
-      "unit_title": "4.1几何图形"
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_69f80947fa1b2b47",
+      "unit_title": "第九章 平面直角坐标系"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -176,7 +194,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_48072359f7df"
+        "external_smartedu_2026_math_junior_grade_7_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -188,7 +206,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d6ebc3492905c591",
       "textbook_grade": 7,
       "textbook_subject": "数学",
@@ -207,7 +225,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c5fa3c0e2226"
+        "external_smartedu_2026_math_junior_grade_7_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -219,7 +237,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_05b1d5ed90d78b81",
       "textbook_grade": 7,
       "textbook_subject": "数学",

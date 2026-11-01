@@ -15,11 +15,10 @@ export const NAV_GROUPS = [
         key: 'prep',
         label: '备课',
         to: '/lesson-plan',
-        owns: ['/lesson-plan', '/checks', '/review', '/experiments', '/interdisciplinary', '/guide', '/alignment-workbench'],
+        owns: ['/lesson-plan', '/checks', '/experiments', '/interdisciplinary', '/guide', '/alignment-workbench'],
         items: [
             { to: '/lesson-plan', label: 'AI 备课' },
             { to: '/checks', label: '课堂诊断' },
-            { to: '/review', label: '中考复习地图' },
             { to: '/experiments', label: '必做实验' },
             { to: '/interdisciplinary', label: '跨学科主题' },
             { to: '/guide', label: '上手指南' }
@@ -29,9 +28,10 @@ export const NAV_GROUPS = [
         key: 'standards',
         label: '课标',
         to: '/standards',
-        owns: ['/standards', '/subjects', '/smart-search', '/search', '/concepts', '/skills', '/glossary'],
+        owns: ['/standards', '/subjects', '/knowledge-graph', '/smart-search', '/search', '/concepts', '/skills', '/glossary'],
         items: [
             { to: '/standards', label: '学科总览', exact: true },
+            { to: '/knowledge-graph', label: '知识图谱' },
             { to: '/smart-search', label: 'AI 检索' },
             { to: '/concepts', label: '概念词典' },
             { to: '/skills', label: '可迁移技能' }

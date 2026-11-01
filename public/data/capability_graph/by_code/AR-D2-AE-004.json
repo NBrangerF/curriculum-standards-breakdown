@@ -85,16 +85,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 8,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_07ee70990bebc3a8",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_up",
+        "tes_bbbff2c327b5af23",
+        "textbook-node:tcn_a9b9c8280836f2d1",
+        "textbook-unit:tcu_19526130b5ce2fa2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "探究龙身体的多种制作方法31",
+          "excerpt_hash": "fe812f831e6131946a6aa1f54511f77dbfa35795c99a81cce9f6a0bfd466e946",
+          "pdf_page": 37,
+          "printed_page": "31",
+          "span_id": "tes_bbbff2c327b5af23"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d1b79d7299d1fcdf"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d1b79d7299d1fcdf",
+          "label": "运用材料与制作方法完成一件生活装饰或环境美化作品，体现色彩与形式的协调统一"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a9b9c8280836f2d1",
+      "node_title": "探究龙身体的多种制作方法31",
+      "pdf_page": 37,
+      "printed_page": "31",
+      "publication_status": "published",
+      "rationale": "教材练习“探究龙身体的多种制作方法31”与课标 AR-D2-AE-004 的可教学小能力“运用材料与制作方法完成一件生活装饰或环境美化作品，体现色彩与形式的协调统一”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_19526130b5ce2fa2",
+      "unit_title": "神话故事永流传"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_386d03abb5d9cb61",
@@ -105,7 +160,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_25cc2de0079d"
+        "external_smartedu_2026_art_primary_grade_4_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -117,7 +172,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_fbf879fc86b8f9dd",
       "textbook_grade": 4,
       "textbook_subject": "美术",
@@ -136,7 +191,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c5257fc4696e"
+        "external_smartedu_2026_art_primary_grade_3_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -148,7 +203,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_5773d3c34b5fac1a",
       "textbook_grade": 3,
       "textbook_subject": "美术",
@@ -229,7 +284,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_aa7ce1e8a37f"
+        "external_smartedu_2026_music_primary_grade_3_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -241,7 +296,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_4a0a538012d57261",
       "textbook_grade": 3,
       "textbook_subject": "音乐",
@@ -260,7 +315,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_572122ddff26"
+        "external_smartedu_2026_music_primary_grade_3_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -272,7 +327,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_9a72f44c9f0c7435",
       "textbook_grade": 3,
       "textbook_subject": "音乐",
@@ -322,7 +377,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_aa3aaa5d9032"
+        "external_smartedu_2026_art_primary_grade_3_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -334,7 +389,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_19c3fbbc0c7e7882",
       "textbook_grade": 3,
       "textbook_subject": "美术",

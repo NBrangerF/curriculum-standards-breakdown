@@ -9,9 +9,15 @@ export const config = {
 
 export default function middleware(request) {
     const url = new URL(request.url)
-    const code = decodeURIComponent(url.pathname.slice('/standards/'.length)).replace(/\/+$/u, '')
-    const to = legacyCodes[code]
-    if (to) {
+    let code = ''
+    try {
+        code = decodeURIComponent(url.pathname.slice('/standards/'.length)).replace(/\/+$/u, '')
+    } catch {
+        // a broken escape such as %E0%A4%A is no code; the app shows its 「未找到」 page
+    }
+    // own keys only: /standards/constructor must not find Object's constructor (that was a 500)
+    const to = Object.hasOwn(legacyCodes, code) ? legacyCodes[code] : null
+    if (typeof to === 'string') {
         const target = new URL(to, url.origin)
         if (to.startsWith('/standards/')) target.searchParams.set('from', code)
         return new Response(null, {

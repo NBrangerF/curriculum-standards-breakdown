@@ -82,16 +82,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_30a010a50bc23d43",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_5176fbbfb48b6f094ec5",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_art_junior_grade_8_up",
+        "tes_872716add17a8471",
+        "textbook-node:tcn_07770a326421ab06",
+        "textbook-unit:tcu_686c7be5b5942900"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "设计深度融合,实现传统文化的创造性转化。",
+          "excerpt_hash": "7cdd9a1a27cd0dcac6e45e5717af5ad737fd6fce3c0bbbe8232cc3a194d42a5c",
+          "pdf_page": 42,
+          "printed_page": "36",
+          "span_id": "tes_872716add17a8471"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_fb8f4d59aa65850f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_fb8f4d59aa65850f",
+          "label": "主动在传承中华优秀传统文化、革命文化、社会主义先进文化和感悟伟大建党精神中运用影视知识与技能"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_07770a326421ab06",
+      "node_title": "设计深度融合,实现传统文化的创造性转化。",
+      "pdf_page": 42,
+      "printed_page": "36",
+      "publication_status": "published",
+      "rationale": "教材练习“设计深度融合,实现传统文化的创造性转化。”与课标 AR-H4G8-CU-005 的可教学小能力“主动在传承中华优秀传统文化、革命文化、社会主义先进文化和感悟伟大建党精神中运用影视知识与技能”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "美术",
+      "textbook_title": "美术8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_686c7be5b5942900",
+      "unit_title": "第四单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c092c01e76298c10",
@@ -102,7 +157,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c4470d97d606"
+        "external_smartedu_2026_music_junior_grade_8_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -114,7 +169,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_49008e32afb1ea73",
       "textbook_grade": 8,
       "textbook_subject": "音乐",
@@ -133,7 +188,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_3f3ef809a59b"
+        "external_smartedu_2026_art_junior_grade_8_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -145,7 +200,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_3937cb93e59941dd",
       "textbook_grade": 8,
       "textbook_subject": "美术",
@@ -164,7 +219,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_5456c0d80ef9"
+        "external_smartedu_2026_art_junior_grade_8_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -176,7 +231,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_66b34c8187cbffd0",
       "textbook_grade": 8,
       "textbook_subject": "美术",
@@ -195,7 +250,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_841b34386a8a"
+        "external_smartedu_2026_music_junior_grade_8_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -207,7 +262,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_e236fa847f007794",
       "textbook_grade": 8,
       "textbook_subject": "音乐",

@@ -115,8 +115,8 @@ test('pairs all four geography atlases and maps the metadata-only teacher guide 
     },
     {
       target_edition_id: 'ed_9d4028e2ab482520d0aa',
-      target_unit_id: 'tcu_4689a5d3ae9ee154',
-      target_pages: [6, 19],
+      target_unit_id: 'tcu_40282fbcfd792795',
+      target_pages: [6, 17],
       resource_pages: [1, 12],
       method: 'explicit_manifest'
     }
@@ -136,7 +136,7 @@ test('pairs all four geography atlases and maps the metadata-only teacher guide 
   const unitProjection = projectRelatedResourcesForUnit(
     catalog,
     'ed_9d4028e2ab482520d0aa',
-    'tcu_4689a5d3ae9ee154',
+    'tcu_40282fbcfd792795',
     { readableEditionIds: new Set() }
   )
   assert.deepEqual(unitProjection.map(resource => ({
@@ -150,7 +150,7 @@ test('pairs all four geography atlases and maps the metadata-only teacher guide 
     resource_section_title: '第一单元教学设计（测试元数据）',
     resource_reading_available: false,
     resource_pages: [1, 12],
-    target_pages: [6, 19]
+    target_pages: [6, 17]
   }])
 
   const atlasIds = new Set(catalog.resources.filter(resource => resource.resource_type === 'student_companion').map(resource => resource.resource_id))
@@ -523,7 +523,7 @@ test('registered import survives a default catalog rebuild with its unit mapping
     assert.equal(catalog.pairings.length, 1)
     assert.equal(catalog.pairings[0].target_edition_id, 'ed_9d4028e2ab482520d0aa')
     assert.equal(catalog.unit_mappings.length, 1)
-    assert.equal(catalog.unit_mappings[0].target_unit_id, 'tcu_4689a5d3ae9ee154')
+    assert.equal(catalog.unit_mappings[0].target_unit_id, 'tcu_40282fbcfd792795')
     assert.equal(catalog.unit_mappings[0].method, 'explicit_manifest')
     assert.equal(JSON.stringify(catalog).includes(temporaryRoot), false)
     assert.equal(auditTextbookResourceCatalog(catalog).valid, true)

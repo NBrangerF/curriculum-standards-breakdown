@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { parseArgs, readJson, readJsonLines } from './library_common.js'
 
-const EXPECTED = { primary: 83, junior: 57, current: 140, editions: 144, scheduled: 4, companions: 4 }
+const EXPECTED = { primary: 86, junior: 57, current: 143, editions: 144, scheduled: 1, companions: 4 }
 
 function main() {
   const args = parseArgs(process.argv.slice(2))
@@ -36,7 +36,8 @@ function main() {
   }
 
   const scheduledSlots = scheduledTargets.map(row => `${row.stage}/${row.subject}/${row.grade}/${row.volume}`).sort()
-  const expectedScheduledSlots = ['junior/英语/9/下册', 'primary/体育与健康/4/全一册', 'primary/体育与健康/5/全一册', 'primary/体育与健康/6/全一册'].sort()
+  // 体育与健康 4–6 学生用书 came out on 国家中小学智慧教育平台 on 2026-08-20
+  const expectedScheduledSlots = ['junior/英语/9/下册'].sort()
   if (JSON.stringify(scheduledSlots) !== JSON.stringify(expectedScheduledSlots)) errors.push(`unexpected scheduled slots: ${scheduledSlots.join(', ')}`)
   for (const row of scheduledTargets) {
     if (row.availability_status !== 'not_released_as_of_2026-07-17') errors.push(`scheduled slot missing release evidence status: ${row.edition_id}`)
