@@ -100,7 +100,8 @@ export function checkSubject(subject) {
         if (file !== `${book.stem}.json`) errors.push(`${where}: file name should be ${book.stem}.json`)
         const volume = library.get(book.key)
         if (!subject.bands && !volume) warnings.push(`${where}: the library has no ${subject.editions.join('/')} ${book.key}`)
-        else if (volume && !volume.units) warnings.push(`${where}: no lesson tree for ${volume.edition} ${book.key}, so units are not checked`)
+        // the library's own gap (a reprint whose lesson list has not been imported yet), not a problem with the questions
+        else if (volume && !volume.units) notes.push(`${where}: no lesson tree for ${volume.edition} ${book.key}, so units are not checked`)
         const units = subject.bands ? bandUnits[meta.band] : volume?.units
         const covered = new Set()
         let count = 0
@@ -128,10 +129,14 @@ export function checkSubject(subject) {
             }
 
             // where it sits in the book (or the 学段's 任务群/模块)
+            let unitOrder = 999
             if (units) {
                 const unit = units.find(title => squash(title).includes(squash(item.unit)))
                 if (!unit) err(`unit "${item.unit}" is not one of: ${units.join(' / ')}`)
-                else covered.add(unit)
+                else {
+                    covered.add(unit)
+                    unitOrder = units.indexOf(unit)
+                }
             }
             if (volume?.units && Array.isArray(item.lessons) && item.lessons.length) {
                 const hits = item.lessons.filter(keyword => volume.titles.some(title => squash(title).includes(squash(keyword))))
@@ -203,7 +208,7 @@ export function checkSubject(subject) {
             }
 
             const extra = subject.bands ? { grades: book.grades } : {}
-            items.push({ ...item, book: book.key, grade: book.grade, term: book.term, ...extra, edition_id: volume?.edition_id || null })
+            items.push({ ...item, book: book.key, grade: book.grade, term: book.term, ...extra, edition_id: volume?.edition_id || null, unitOrder })
             count += 1
         }
         if (units) {
@@ -236,8 +241,9 @@ export function checkSubject(subject) {
 }
 
 function publicSubject({ subject, items, books, misconceptions }) {
+    // book by book, units in the book's own order, then by id
     const order = item => item.grade * 10 + TERM_ORDER[item.term]
-    const sorted = [...items].sort((a, b) => order(a) - order(b) || a.id.localeCompare(b.id, 'en', { numeric: true }))
+    const sorted = [...items].sort((a, b) => order(a) - order(b) || a.unitOrder - b.unitOrder || a.id.localeCompare(b.id, 'en', { numeric: true }))
     const editions = [...new Set(books.map(book => book.edition))].join('、')
     return {
         schema: 2,
@@ -248,7 +254,7 @@ function publicSubject({ subject, items, books, misconceptions }) {
         note: `kebiao 编写的课堂诊断题。每个错误选项对应一种常见错法${subject.sums ? '；数值答案经程序验算' : ''}。题目对应课标要点与${subject.bands ? '课标的学段内容' : `${editions}教材单元`}。`,
         books: books.map(({ key, label, short, grade, grades, term, edition, edition_id, count }) => ({ key, label, short, grade, grades, term, edition, edition_id, count })),
         misconceptions: Object.fromEntries([...misconceptions].map(([id, { name, why, move }]) => [id, { name, why, move }])),
-        items: sorted.map(({ verify, ...item }) => ({ ...item, verified: (verify || []).length }))
+        items: sorted.map(({ verify, unitOrder, ...item }) => ({ ...item, verified: (verify || []).length }))
     }
 }
 

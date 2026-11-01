@@ -16,30 +16,10 @@
   ],
   "items": [
     {
-      "id": "en-4b-01",
-      "type": "choice",
-      "unit": "Unit 1 My School",
-      "lessons": ["My school"],
-      "points": ["EN-S1-LS-01.14", "EN-S1-LK-01.11"],
-      "topic": "楼层的说法",
-      "stem": "— Where's the library? — ____（在二楼）",
-      "options": ["It's in the second floor.", "It's on the two floor.", "It's on the second floor."],
-      "answer": 2,
-      "wrong": {"0": "zai-always-in", "1": "cardinal-for-ordinal"},
-      "right": ["“第二层”用 second，不用 two；", "在某一层楼用 on：It's on the second floor."],
-      "typical": ["“在”就是 in：", "It's in the second floor."],
-      "typical_error": "zai-always-in",
-      "ladder": [
-        {"q": "补全：The music room is on the ____ floor.（一楼）", "a": "first"},
-        {"q": "补全：The computer room is ____ the second floor.", "a": "on"},
-        {"q": "用英语说：我们的教室在一楼。", "a": "Our classroom is on the first floor."}
-      ]
-    },
-    {
       "id": "en-4b-02",
       "type": "choice",
-      "unit": "Unit 2 What time is it?",
-      "lessons": ["What time is it"],
+      "unit": "Unit 3 Time for school",
+      "lessons": ["Time for school"],
       "points": ["EN-S1-LS-01.13", "EN-S1-LK-01.9"],
       "topic": "It's time to / for",
       "stem": "下午 5 点，该回家了。选出正确的一句。",
@@ -56,29 +36,10 @@
       ]
     },
     {
-      "id": "en-4b-03",
-      "type": "write",
-      "unit": "Unit 3 Weather",
-      "lessons": ["Weather"],
-      "points": ["EN-S1-TH-01.17", "EN-S1-LK-01.8"],
-      "topic": "描述天气的词",
-      "stem": "天气预报：北京，晴。用括号里的词填空：It's ____ (sun) in Beijing.",
-      "answer": "sunny",
-      "wrong": {"sun": "noun-for-adjective", "suny": "y-no-double"},
-      "right": ["说天气用带 y 的词：sun → sunny；", "sun 加 y 之前先双写 n。"],
-      "typical": ["“晴”就是 sun：", "It's sun in Beijing."],
-      "typical_error": "noun-for-adjective",
-      "ladder": [
-        {"q": "用括号里的词填空：It's ____ (wind) today.", "a": "windy"},
-        {"q": "用括号里的词填空：It's ____ (cloud) in Shanghai.", "a": "cloudy"},
-        {"q": "— What's the weather like in Harbin? — ____（下雪）", "a": "It's snowy.（或 It's snowing.）"}
-      ]
-    },
-    {
       "id": "en-4b-04",
       "type": "judge",
-      "unit": "Unit 4 At the farm",
-      "lessons": ["At the farm"],
+      "unit": "Unit 5 Farms and us",
+      "lessons": ["What farm animals"],
       "points": ["EN-S1-LK-01.8", "EN-S1-LS-01.16"],
       "topic": "sheep 的复数",
       "stem": "Mike 在农场写了这句话，你同意吗？",
@@ -95,8 +56,8 @@
     {
       "id": "en-4b-05",
       "type": "choice",
-      "unit": "Unit 4 At the farm",
-      "lessons": ["At the farm"],
+      "unit": "Unit 5 Farms and us",
+      "lessons": ["What can we learn on a farm"],
       "points": ["EN-S1-LK-01.11", "EN-S1-LK-01.9"],
       "topic": "these 还是 those",
       "stem": "Look at ____ cows over there!",
@@ -109,14 +70,14 @@
       "ladder": [
         {"q": "（手里拿着几根胡萝卜）补全：____ are carrots.", "a": "These"},
         {"q": "（指着远处的一匹马）补全：What's ____ ?", "a": "that"},
-        {"q": "（指着远处的几只母鸡）用英语问一问，再答一答。", "a": "What are those? They're hens."}
+        {"q": "（指着远处的几只鸡）用英语问一问，再答一答。", "a": "What are those? They're chickens."}
       ]
     },
     {
       "id": "en-4b-06",
       "type": "choice",
-      "unit": "Unit 5 My clothes",
-      "lessons": ["My clothes"],
+      "unit": "Unit 4 Going shopping",
+      "lessons": ["What do we need to buy"],
       "points": ["EN-S1-LK-01.11", "EN-S1-LS-01.16"],
       "topic": "短裤按复数说",
       "stem": "这条短裤是 Mike 的。选出正确的一句。",
@@ -135,8 +96,8 @@
     {
       "id": "en-4b-07",
       "type": "choice",
-      "unit": "Unit 6 Shopping",
-      "lessons": ["Shopping"],
+      "unit": "Unit 4 Going shopping",
+      "lessons": ["How do we decide what to buy"],
       "points": ["EN-S1-LK-01.9", "EN-S1-LK-01.11"],
       "topic": "问价钱",
       "stem": "你想问这双鞋多少钱，选出正确的问句。",
@@ -150,6 +111,26 @@
         {"q": "补全：How much ____ this skirt?", "a": "is"},
         {"q": "补全：— How much are the socks? — ____ 10 yuan.", "a": "They're"},
         {"q": "用英语问这件夹克多少钱。", "a": "How much is this jacket?"}
+      ]
+    },
+    {
+      "id": "en-4b-08",
+      "type": "choice",
+      "unit": "Unit 6 From farm to table",
+      "lessons": ["How should we eat"],
+      "points": ["EN-S1-LK-01.16", "EN-S1-LS-01.12"],
+      "topic": "Would you like 的回答",
+      "stem": "— Would you like some soup? — ____（想要）",
+      "options": ["Yes, I do.", "Yes, I'd like.", "Yes, please."],
+      "answer": 2,
+      "wrong": {"0": "would-like-as-like", "1": "like-no-object"},
+      "right": ["Would you like ...? 是问“要不要来点……”，", "想要就说 Yes, please.，不要就说 No, thanks."],
+      "typical": ["Do you like ...? 答 Yes, I do，", "这句也答：Yes, I do."],
+      "typical_error": "would-like-as-like",
+      "ladder": [
+        {"q": "— Would you like some noodles? — ____（不要）", "a": "No, thanks."},
+        {"q": "补全：— What would you like? — I'd like some ____ .（牛肉）", "a": "beef"},
+        {"q": "请客人吃点鸡肉，用英语问一句。", "a": "Would you like some chicken?"}
       ]
     }
   ]

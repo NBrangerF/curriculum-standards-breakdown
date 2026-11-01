@@ -6,13 +6,12 @@
     {"id": "can-to-verb", "name": "can 后面多加了 to", "why": "受 want to、like to 影响，以为两个动词之间都要加 to。", "move": "对比：want to play / can play，让学生说出哪些词后面不加 to。"},
     {"id": "he-she-verb-no-s", "name": "三单主语后动词没加 s", "why": "汉语里“他去”“我去”的“去”一样，动词不随主语变。", "move": "圈出主语，问：是他、她、它或一个人吗？是就给动词加 s 或 es。"},
     {"id": "verb-es-as-s", "name": "该加 es 的只加了 s", "why": "没记住以 o、s、x、ch、sh 结尾的动词加 es。", "move": "列出 o、s、x、ch、sh 结尾的词，让学生当场加 es：goes、does、watches、washes、fixes。"},
-    {"id": "by-bus-with-article", "name": "by 后面加了冠词", "why": "把 take the bus 里的 the 带进了 by bus。", "move": "板书两个固定说法：by bus / take the bus，by 后面直接跟交通工具。"},
-    {"id": "take-bus-without-article", "name": "take 后面漏了冠词", "why": "把 by bus 的说法搬到了 take 后面。", "move": "take 后是“乘坐一辆车”：take a bus / take the subway，冠词不能少。"},
     {"id": "dont-with-adjective", "name": "Don't 后直接接形容词", "why": "汉语“别迟到”里“迟到”像动词，就把 late 当动词用。", "move": "问：late 是动词吗？形容词要靠 be：Be quiet. → Don't be late."},
     {"id": "because-with-so", "name": "because 和 so 连用", "why": "汉语习惯说“因为……所以……”。", "move": "规定：because 和 so 只留一个；让学生把句子分别用 because、so 各说一遍。"},
     {"id": "simple-for-progressive", "name": "正在发生的事用了一般现在时", "why": "汉语动词没有时态变化，没注意 Listen! 提示事情正在发生。", "move": "圈出 Listen!、Look!、now，问：这件事是不是此刻正在发生？"},
     {"id": "progressive-no-be", "name": "进行时漏了 be", "why": "汉语“在唱歌”里没有和 be 对应的字。", "move": "板书公式 am/is/are + 动词-ing，让学生先找 be，再找 -ing。"},
     {"id": "progressive-no-ing", "name": "be 后面用了动词原形", "why": "记得要用 be，却忘了给动词加 -ing。", "move": "用公式逐个检查：be 和 -ing 少一个都不行。"},
+    {"id": "progressive-for-habit", "name": "习惯性的事也用了进行时", "why": "刚学了现在进行时，就以为“现在”的事都用 be + -ing，没注意 usually 说的是平时的习惯。", "move": "把信号词分两组：usually、often、every day 说习惯，用一般现在时；Look!、now、right now 说此刻，用进行时。"},
     {"id": "there-has-for-exist", "name": "用 have 表示“某处有”", "why": "汉语“附近有一个公园”的“有”直接译成了 have/has。", "move": "对比：My town has a park.（谁拥有）There is a park near here.（哪里存在）问：句子的主语是谁？"},
     {"id": "is-long-hair", "name": "把“是长头发”说成 is", "why": "汉语说“她是长头发”，就用 is 连接 hair。", "move": "问：她“是”头发吗？头发、眼睛用 has；高、瘦用 is。"},
     {"id": "hair-as-countable", "name": "把 hair 当成可数名词", "why": "头发可以一根一根数，就以为一头头发也要加 s。", "move": "说明：hair 指一头头发时不可数；two hairs 是“两根头发”。"},
@@ -24,69 +23,30 @@
   ],
   "items": [
     {
-      "id": "en-7b-01",
-      "type": "choice",
-      "unit": "Unit 1 Can you play the guitar?",
-      "lessons": ["Can you play the guitar"],
-      "points": ["EN-S3-LK-01.14"],
-      "topic": "情态动词 can",
-      "stem": "My sister ____ the piano very well.",
-      "options": ["can plays", "cans play", "can to play", "can play"],
-      "answer": 3,
-      "wrong": {"0": "can-then-verb-s", "1": "s-added-to-can", "2": "can-to-verb"},
-      "right": ["can 是情态动词，没有人称变化，", "后面直接跟动词原形：can play。"],
-      "typical": ["主语 my sister 是三单，动词加 s：", "My sister can plays the piano."],
-      "typical_error": "can-then-verb-s",
-      "ladder": [
-        {"q": "He can ____ (swim) very well.", "a": "swim"},
-        {"q": "改成一般疑问句：Tom can speak English.", "a": "Can Tom speak English?"},
-        {"q": "—Can your brother play chess? —No, he ____.", "a": "can't"}
-      ]
-    },
-    {
-      "id": "en-7b-02",
-      "type": "write",
-      "unit": "Unit 2 What time do you go to school?",
-      "lessons": ["What time do you go to school"],
-      "points": ["EN-S3-LK-01.13"],
-      "topic": "说别人的日常活动",
-      "stem": "用括号里的词填空：Tom usually ____ (go) to school at 7:30 and ____ (watch) TV after dinner.",
-      "answer": "goes, watches",
-      "wrong": {"go, watch": "he-she-verb-no-s", "gos, watchs": "verb-es-as-s"},
-      "right": ["主语 Tom 是三单，动词要变；", "以 o、ch 结尾的加 es：goes，watches。"],
-      "typical": ["“他去上学”和“我去上学”一样，不用变：go，watch"],
-      "typical_error": "he-she-verb-no-s",
-      "ladder": [
-        {"q": "She ____ (do) her homework at six.", "a": "does"},
-        {"q": "My father ____ (have) breakfast at 7:00.", "a": "has"},
-        {"q": "Tom and his brother ____ (brush) their teeth at 9:00.", "a": "brush（主语是复数）"}
-      ]
-    },
-    {
       "id": "en-7b-03",
       "type": "choice",
-      "unit": "Unit 3 How do you get to school?",
-      "lessons": ["How do you get to school"],
-      "points": ["EN-S3-LC-01.4"],
-      "topic": "交通方式的表达",
-      "stem": "“我坐公交车上学。”哪句对？",
-      "options": ["I go to school by the bus.", "I take the bus to school.", "I take bus to school."],
-      "answer": 1,
-      "wrong": {"0": "by-bus-with-article", "2": "take-bus-without-article"},
-      "right": ["by + 交通工具，中间不加冠词：by bus；", "take 后要加冠词：take the bus。"],
-      "typical": ["记得 take the bus，换成 by 也带上 the：", "I go to school by the bus."],
-      "typical_error": "by-bus-with-article",
+      "unit": "Unit 6 A Rain or Shine",
+      "lessons": ["What’s the weather like"],
+      "points": ["EN-S3-LK-01.14", "EN-S3-LK-01.15"],
+      "topic": "usually 与 now 的时态",
+      "stem": "Tom usually ____ to school. It's raining today. Look! He ____ for the bus now.",
+      "options": ["walks; waits", "is walking; is waiting", "walks; is waiting", "walks; waiting"],
+      "answer": 2,
+      "wrong": {"0": "simple-for-progressive", "1": "progressive-for-habit", "3": "progressive-no-be"},
+      "right": ["usually 说平时的习惯，用一般现在时：walks；", "Look! 和 now 说此刻正在发生，用现在进行时：is waiting。"],
+      "typical": ["学了进行时，两个空都用 be + -ing：", "Tom is usually walking to school."],
+      "typical_error": "progressive-for-habit",
       "ladder": [
-        {"q": "I go to school ____ subway.", "a": "by"},
-        {"q": "He takes ____ train to Shanghai.", "a": "the（或 a）"},
-        {"q": "改写：I ride my bike to school. = I go to school ____ ____.", "a": "by bike"}
+        {"q": "In Harbin, it often ____ (snow) in winter.", "a": "snows"},
+        {"q": "Look! It ____ (snow) outside now.", "a": "is snowing"},
+        {"q": "My dad usually ____ (drive) to work, but now he ____ (ride) a bike.", "a": "drives；is riding"}
       ]
     },
     {
       "id": "en-7b-04",
       "type": "judge",
-      "unit": "Unit 4 Don’t eat in class.",
-      "lessons": ["eat in class"],
+      "unit": "Unit 2 No Rules, No Order",
+      "lessons": ["What rules do we follow"],
       "points": ["EN-S3-LK-01.13"],
       "topic": "否定祈使句",
       "stem": "小明给班级写了一条规则。你同意这样写吗？",
@@ -103,8 +63,8 @@
     {
       "id": "en-7b-05",
       "type": "choice",
-      "unit": "Unit 5 Why do you like pandas?",
-      "lessons": ["Why do you like pandas"],
+      "unit": "Unit 1 Animal Friends",
+      "lessons": ["Why do you like animals"],
       "points": ["EN-S3-LC-02.7"],
       "topic": "because 与 so",
       "stem": "“因为熊猫可爱，所以我喜欢它们。”哪句对？",
@@ -123,8 +83,8 @@
     {
       "id": "en-7b-06",
       "type": "choice",
-      "unit": "Unit 6 I’m watching TV.",
-      "lessons": ["watching TV"],
+      "unit": "Unit 5 Here and Now",
+      "lessons": ["What are you doing right now"],
       "points": ["EN-S3-LK-01.14"],
       "topic": "动词 sing 的形式",
       "stem": "Listen! Mary ____ in her room.",
@@ -141,48 +101,10 @@
       ]
     },
     {
-      "id": "en-7b-07",
-      "type": "judge",
-      "unit": "Unit 8 Is there a post office near here?",
-      "lessons": ["Is there a post office near here"],
-      "points": ["EN-S3-LK-01.13"],
-      "topic": "说“附近有……”",
-      "stem": "小明想说“我家附近有一个公园”。他这样写，你同意吗？",
-      "work": ["There has a park near my home."],
-      "answer": false,
-      "wrong": {"agree": "there-has-for-exist"},
-      "right": ["说“某处有某物”用 there be，不用 have/has：", "There is a park near my home."],
-      "ladder": [
-        {"q": "____ ____ a bank on Green Street.", "a": "There is"},
-        {"q": "—____ ____ any restaurants near here? —Yes, there are.", "a": "Are there"},
-        {"q": "My town ____ (have) two big parks.", "a": "has（主语是 my town）"}
-      ]
-    },
-    {
-      "id": "en-7b-08",
-      "type": "choice",
-      "unit": "Unit 9 What does he look like?",
-      "lessons": ["What does he look like"],
-      "points": ["EN-S3-LK-01.10"],
-      "topic": "描述外貌：头发",
-      "stem": "“她是长头发。”哪句对？",
-      "options": ["She is long hair.", "She has long hairs.", "She has long hair."],
-      "answer": 2,
-      "wrong": {"0": "is-long-hair", "1": "hair-as-countable"},
-      "right": ["描述头发用 have/has；", "hair 指一头头发时不可数：She has long hair."],
-      "typical": ["“是长头发”，“是”就是 is：", "She is long hair."],
-      "typical_error": "is-long-hair",
-      "ladder": [
-        {"q": "My brother ____ short curly hair.", "a": "has"},
-        {"q": "My father ____ tall and he ____ a big nose.", "a": "is；has"},
-        {"q": "—What does she look like? —She's thin and ____ (wear) glasses.", "a": "wears"}
-      ]
-    },
-    {
       "id": "en-7b-09",
       "type": "judge",
-      "unit": "Unit 10 I’d like some noodles.",
-      "lessons": ["like some noodles"],
+      "unit": "Unit 4 Eat Well",
+      "lessons": ["What do we like to eat"],
       "points": ["EN-S3-LK-01.20"],
       "topic": "请人吃喝：some 还是 any",
       "stem": "服务员这样问客人。小红说这句话没有错，你同意吗？",
@@ -199,8 +121,8 @@
     {
       "id": "en-7b-10",
       "type": "choice",
-      "unit": "Unit 11 How was your school trip?",
-      "lessons": ["How was your school trip"],
+      "unit": "Unit 7 A Day to Remember",
+      "lessons": ["What was your special day like"],
       "points": ["EN-S3-LK-01.14"],
       "topic": "一般过去时的疑问句",
       "stem": "—____ you ____ any horses on the farm? —Yes, I did.",
@@ -219,8 +141,8 @@
     {
       "id": "en-7b-11",
       "type": "write",
-      "unit": "Unit 12 What did you do last weekend?",
-      "lessons": ["What did you do last weekend"],
+      "unit": "Unit 8 Once upon a Time",
+      "lessons": ["What are your favourite stories"],
       "points": ["EN-S3-LK-01.15"],
       "topic": "说上周末做的事",
       "stem": "用括号里的词填空：Last weekend I ____ (go) to the beach and ____ (buy) a hat.",
@@ -233,6 +155,86 @@
         {"q": "I ____ (do) my homework last night.", "a": "did"},
         {"q": "We ____ (see) a movie and ____ (eat) pizza last night.", "a": "saw；ate"},
         {"q": "Yesterday they ____ (take) a bus and ____ (get) home at six.", "a": "took；got"}
+      ]
+    },
+    {
+      "id": "en-7b-12",
+      "type": "choice",
+      "unit": "Unit 3 Keep Fit",
+      "lessons": ["How often do you do sport or exercise"],
+      "points": ["EN-S3-LK-01.14"],
+      "topic": "my、me 还是 mine",
+      "stem": "—Is this your ruler? —Yes, it's ____.",
+      "options": ["my", "me", "mine"],
+      "answer": 2,
+      "wrong": {"0": "my-without-noun", "1": "me-for-mine"},
+      "right": ["空后面没有名词，要用名词性物主代词：", "mine = my ruler。Yes, it's mine."],
+      "typical": ["“我的”就是 my：", "Yes, it's my."],
+      "typical_error": "my-without-noun",
+      "ladder": [
+        {"q": "This pencil isn't ____ (I). It's Tom's.", "a": "mine"},
+        {"q": "—Is this Jenny's eraser? —Yes, it's ____.", "a": "hers"},
+        {"q": "My pen is red. ____ (你的) is blue.", "a": "Yours"}
+      ]
+    },
+    {
+      "id": "en-7b-13",
+      "type": "choice",
+      "unit": "Unit 3 Keep Fit",
+      "lessons": ["How often do you do sport or exercise"],
+      "points": ["EN-S3-LK-01.14"],
+      "topic": "对 Twice a week 提问",
+      "stem": "—____ do you exercise? —Twice a week.",
+      "options": ["How often", "How long", "How many"],
+      "answer": 0,
+      "wrong": {"1": "how-long-for-how-often", "2": "how-many-for-how-often"},
+      "right": ["Twice a week 说的是“多久一次”，问频率用 how often；", "how long 问多长时间，答语像 For an hour."],
+      "typical": ["汉语问“多久”，就用 how long：", "How long do you exercise?"],
+      "typical_error": "how-long-for-how-often",
+      "ladder": [
+        {"q": "—____ does he go to the movies? —Once a month.", "a": "How often"},
+        {"q": "—____ do you sleep every night? —About eight hours.", "a": "How long（或 How many hours）"},
+        {"q": "—How ____ times a week do you play tennis? —Three times.", "a": "many"}
+      ]
+    },
+    {
+      "id": "en-7b-14",
+      "type": "choice",
+      "unit": "Unit 4 Eat Well",
+      "lessons": ["What do we like to eat"],
+      "points": ["EN-S3-LK-01.14"],
+      "topic": "说喜欢的食物",
+      "stem": "“我喜欢香蕉和面包。”哪句对？",
+      "options": ["I like bananas and bread.", "I like banana and bread.", "I like bananas and breads."],
+      "answer": 0,
+      "wrong": {"1": "like-singular-countable", "2": "uncountable-noun-plus-s"},
+      "right": ["泛指一类可数的东西用复数：bananas；", "bread 不可数，不加 s。"],
+      "typical": ["喜欢的东西都加 s：", "I like bananas and breads."],
+      "typical_error": "uncountable-noun-plus-s",
+      "ladder": [
+        {"q": "Do you like ____ (apple)?", "a": "apples"},
+        {"q": "I have some ____ (milk) for breakfast.", "a": "milk"},
+        {"q": "My brother likes ____ (strawberry) and ____ (rice).", "a": "strawberries；rice"}
+      ]
+    },
+    {
+      "id": "en-7b-15",
+      "type": "choice",
+      "unit": "Unit 5 Here and Now",
+      "lessons": ["Draw a group of flats"],
+      "points": ["EN-S3-LK-01.15", "EN-S3-LK-01.10"],
+      "topic": "楼层的说法",
+      "stem": "— Where's Flat 201? — ____（在二楼）",
+      "options": ["It's in the second floor.", "It's on the two floor.", "It's on the second floor."],
+      "answer": 2,
+      "wrong": {"0": "zai-always-in", "1": "cardinal-for-ordinal"},
+      "right": ["“第二层”用 second，不用 two；", "在某一层楼用 on：It's on the second floor."],
+      "typical": ["“在”就是 in：", "It's in the second floor."],
+      "typical_error": "zai-always-in",
+      "ladder": [
+        {"q": "补全：Flat 101 is on the ____ floor.（一楼）", "a": "first"},
+        {"q": "补全：My grandparents live ____ the third floor.", "a": "on"},
+        {"q": "用英语说：我们住在五楼。", "a": "We live on the fifth floor."}
       ]
     }
   ]

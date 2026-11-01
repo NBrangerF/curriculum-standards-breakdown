@@ -2,57 +2,39 @@
   "book": {"subject": "英语", "grade": 4, "term": "上", "edition": "人教版 PEP（三年级起点）"},
   "misconceptions": [
     {"id": "magic-e-ignored", "name": "以为词尾不发音的 e 没用", "why": "结尾的 e 不读出来，就以为它不起作用，把前面的 a 还读成 cat 里的音。", "move": "成对读：cap—cape、hat—hate、Sam—same，让学生自己说出：加了 e，a 就读字母 A 的名字。"},
-    {"id": "an-overuse", "name": "学了 an 就到处用", "why": "记住了“有时要用 an”，没弄清只有元音音素开头的词前才用 an。", "move": "先读出名词的第一个音：English 开头是元音，用 an；maths、driver 开头是辅音，用 a。"},
+    {"id": "an-overuse", "name": "学了 an 就到处用", "why": "记住了“有时要用 an”，没弄清只有元音音素开头的词前才用 an。", "move": "先读出名词的第一个音：office 开头是元音，用 an；factory、driver 开头是辅音，用 a。"},
     {"id": "subject-for-possessive", "name": "用主格代替“……的”", "why": "汉语“她名字”“它妈妈”可以不说“的”，就把 she、it 直接放在名词前。", "move": "列一张对照表：I—my，you—your，he—his，she—her，it—its，名词前面用右边那一列。"},
     {"id": "hair-countable", "name": "以为“长头发”要说 hairs", "why": "头发有很多根，就当成“好几个”加了 s，不知道说一头头发时 hair 不加 s。", "move": "告诉学生：说一头头发时 hair 不加 s，前面也不加 a，和 milk、water 一样：She has long hair."},
-    {"id": "plural-as-it", "name": "复数的东西还用 it", "why": "It's ... 说得最熟，没注意问的是好几样东西，要用 they。", "move": "看问句：Where is ...? 答 It's ...；Where are ...? 答 They're ...，is 配 it，are 配 they。"},
-    {"id": "be-drop", "name": "照汉语漏掉 am/is/are", "why": "汉语“钥匙在桌上”“我九岁”里没有和 is、are 对应的词，就照着漏掉了。", "move": "让学生找句子里的“小帮手”：They ____ on the table. 没有 are，这句话就不完整。"},
+    {"id": "plural-as-it", "name": "复数的东西还用 it", "why": "It's ... 说得最熟，没注意说的是好几样东西，要用 they。", "move": "先问说的是几样东西：一件外套用 It's ...，一双袜子、几把钥匙用 They're ...，is 配 it，are 配 they。"},
+    {"id": "be-drop", "name": "照汉语漏掉 am/is/are", "why": "汉语“它们很暖和”“我九岁”里没有和 is、are 对应的词，就照着漏掉了。", "move": "让学生找句子里的“小帮手”：They ____ warm. 没有 are，这句话就不完整。"},
     {"id": "would-like-as-like", "name": "把“想要”听成“喜欢”", "why": "would like 里有 like，就当成“喜欢”，用回答 Do you like ...? 的方式来答。", "move": "并排写两句：Do you like soup?（喜欢吗）/ Would you like some soup?（要不要来点），分别配上 Yes, I do. 和 Yes, please."}
   ],
   "items": [
     {
-      "id": "en-4a-01",
-      "type": "judge",
-      "unit": "Unit 1 My classroom",
-      "lessons": ["My classroom"],
-      "points": ["EN-S1-LK-01.3", "EN-S1-LK-01.2"],
-      "topic": "a-e 的读音",
-      "stem": "小明这样说，你同意吗？",
-      "work": ["cap 后面加上 e，就成了 cape。", "e 不发音，所以 a 的读音不变。"],
-      "answer": false,
-      "wrong": {"agree": "magic-e-ignored"},
-      "right": ["结尾的 e 不发音，但它让前面的 a 读字母 A 的名字。", "cap 里的 a 和 cat 一样；cape 里的 a 和 cake、name 一样。"],
-      "ladder": [
-        {"q": "圈出 a 读字母 A 名字的词：cat　cake　bag　name", "a": "cake　name"},
-        {"q": "哪个词里的 a 和 face 里的 a 读音一样：bag　make　hand", "a": "make"},
-        {"q": "用拼读规则读生词 gate：a 像 cat 里的，还是像 cake 里的？", "a": "像 cake 里的 a"}
-      ]
-    },
-    {
       "id": "en-4a-02",
       "type": "choice",
-      "unit": "Unit 2 My schoolbag",
-      "lessons": ["My schoolbag"],
+      "unit": "Unit 1 Helping at home",
+      "lessons": ["How are families different"],
       "points": ["EN-S1-LK-01.11", "EN-S1-LS-01.16"],
-      "topic": "an English book",
-      "stem": "I have ____ English book and ____ maths book. 选出正确的一组。",
+      "topic": "an office worker",
+      "stem": "My mother is ____ office worker. My father is ____ factory worker. 选出正确的一组。",
       "options": ["a，a", "an，a", "an，an"],
       "answer": 1,
       "wrong": {"0": "a-before-vowel", "2": "an-overuse"},
-      "right": ["English 开头的音是元音，用 an；maths 开头是辅音，用 a。", "an English book，a maths book"],
-      "typical": ["两本书前面都用 a：", "a English book，a maths book"],
+      "right": ["office 开头的音是元音，用 an；factory 开头是辅音，用 a。", "an office worker，a factory worker"],
+      "typical": ["两个职业前面都用 a：", "a office worker，a factory worker"],
       "typical_error": "a-before-vowel",
       "ladder": [
-        {"q": "填 a 或 an：____ storybook　____ English book", "a": "a storybook　an English book"},
-        {"q": "填 a 或 an：____ eraser　____ notebook", "a": "an eraser　a notebook"},
-        {"q": "用英语说说书包里有：一本语文书、一块橡皮、两本故事书。", "a": "a Chinese book, an eraser and two storybooks"}
+        {"q": "填 a 或 an：____ doctor　____ office worker", "a": "a doctor　an office worker"},
+        {"q": "填 a 或 an：____ nurse　____ English teacher", "a": "a nurse　an English teacher"},
+        {"q": "用英语问：你妈妈是做什么工作的？再答：她是办公室职员。", "a": "What's your mother's job? She's an office worker."}
       ]
     },
     {
       "id": "en-4a-03",
       "type": "choice",
-      "unit": "Unit 3 My friends",
-      "lessons": ["My friends"],
+      "unit": "Unit 2 My friends",
+      "lessons": ["Who are your friends"],
       "points": ["EN-S1-LK-01.11", "EN-S1-LS-01.16"],
       "topic": "his 还是 her",
       "stem": "Look at that girl. ____ name is Lily.",
@@ -71,8 +53,8 @@
     {
       "id": "en-4a-04",
       "type": "judge",
-      "unit": "Unit 3 My friends",
-      "lessons": ["My friends"],
+      "unit": "Unit 2 My friends",
+      "lessons": ["How do we choose our friends"],
       "points": ["EN-S1-LK-01.8", "EN-S1-LS-01.16"],
       "topic": "long hair 不加 s",
       "stem": "Mike 这样介绍他的好朋友，你同意吗？",
@@ -89,48 +71,28 @@
     {
       "id": "en-4a-05",
       "type": "choice",
-      "unit": "Unit 4 My home",
-      "lessons": ["My home"],
+      "unit": "Unit 6 Changing for the seasons",
+      "lessons": ["What do we wear in different seasons"],
       "points": ["EN-S1-LK-01.9", "EN-S1-LK-01.11"],
       "topic": "They're 还是 It's",
-      "stem": "— Where are my keys? — ____（在桌子上）",
-      "options": ["It's on the table.", "They're on the table.", "They on the table."],
+      "stem": "— Do you like your new socks? — Yes! ____（很暖和。）",
+      "options": ["It's warm.", "They're warm.", "They warm."],
       "answer": 1,
       "wrong": {"0": "plural-as-it", "2": "be-drop"},
-      "right": ["keys 是好几把钥匙，用 they；", "they 后面的 are 不能少：They're on the table."],
-      "typical": ["找东西就答 It's ...：", "It's on the table."],
+      "right": ["socks 是一双袜子，用 they 指代；", "they 后面的 are 不能少：They're warm."],
+      "typical": ["说东西怎么样，张口就是 It's ...：", "Yes! It's warm."],
       "typical_error": "plural-as-it",
       "ladder": [
-        {"q": "补全：— Where is my phone? — ____ on the sofa.", "a": "It's"},
-        {"q": "补全：— Where are my glasses? — ____ in the bedroom.", "a": "They're"},
-        {"q": "— Are they near the phone? — 不是。用英语回答。", "a": "No, they aren't."}
-      ]
-    },
-    {
-      "id": "en-4a-06",
-      "type": "choice",
-      "unit": "Unit 5 Dinner's ready",
-      "lessons": ["Dinner's ready"],
-      "points": ["EN-S1-LK-01.16", "EN-S1-LS-01.12"],
-      "topic": "Would you like 的回答",
-      "stem": "— Would you like some soup? — ____（想要）",
-      "options": ["Yes, I do.", "Yes, I'd like.", "Yes, please."],
-      "answer": 2,
-      "wrong": {"0": "would-like-as-like", "1": "like-no-object"},
-      "right": ["Would you like ...? 是问“要不要来点……”，", "想要就说 Yes, please.，不要就说 No, thanks."],
-      "typical": ["Do you like ...? 答 Yes, I do，", "这句也答：Yes, I do."],
-      "typical_error": "would-like-as-like",
-      "ladder": [
-        {"q": "— Would you like some noodles? — ____（不要）", "a": "No, thanks."},
-        {"q": "补全：— What would you like? — I'd like some ____ .（牛肉）", "a": "beef"},
-        {"q": "请客人吃点鸡肉，用英语问一句。", "a": "Would you like some chicken?"}
+        {"q": "补全：I like this coat. ____ warm.", "a": "It's"},
+        {"q": "补全：Look at these shirts. ____ nice.", "a": "They're"},
+        {"q": "— Whose socks are these? — 是我的。用英语回答。", "a": "They're mine."}
       ]
     },
     {
       "id": "en-4a-07",
       "type": "choice",
-      "unit": "Unit 6 Meet my family!",
-      "lessons": ["Meet my family"],
+      "unit": "Unit 4 Helping in the community",
+      "lessons": ["What jobs are important"],
       "points": ["EN-S1-LS-01.11", "EN-S1-LK-01.11"],
       "topic": "介绍家人的职业",
       "stem": "介绍叔叔的工作（司机），选出正确的一句。",
@@ -144,6 +106,25 @@
         {"q": "补全：My aunt is ____ nurse.", "a": "a"},
         {"q": "补全：This is my uncle. ____ is ____ farmer.", "a": "He，a"},
         {"q": "用英语问同学：你叔叔是做什么工作的？", "a": "What's your uncle's job?"}
+      ]
+    },
+    {
+      "id": "en-4a-08",
+      "type": "write",
+      "unit": "Unit 5 The weather and us",
+      "lessons": ["How can the weather be different"],
+      "points": ["EN-S1-TH-01.17", "EN-S1-LK-01.8"],
+      "topic": "描述天气的词",
+      "stem": "天气预报：北京，晴。用括号里的词填空：It's ____ (sun) in Beijing.",
+      "answer": "sunny",
+      "wrong": {"sun": "noun-for-adjective", "suny": "y-no-double"},
+      "right": ["说天气用带 y 的词：sun → sunny；", "sun 加 y 之前先双写 n。"],
+      "typical": ["“晴”就是 sun：", "It's sun in Beijing."],
+      "typical_error": "noun-for-adjective",
+      "ladder": [
+        {"q": "用括号里的词填空：It's ____ (wind) today.", "a": "windy"},
+        {"q": "用括号里的词填空：It's ____ (cloud) in Shanghai.", "a": "cloudy"},
+        {"q": "— What's the weather like in Harbin? — ____（下雪）", "a": "It's snowy.（或 It's snowing.）"}
       ]
     }
   ]
