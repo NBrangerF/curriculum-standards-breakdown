@@ -101,6 +101,8 @@ export type DraftInput = {
     links?: PointLinks[]
     // this lesson's own words from the textbook (教材与课标对应 quotes), for 课标解读 and the plan
     lessonQuotes?: string[]
+    // the unit's lessons in textbook order, this one marked: what the later lessons teach stays out of this one
+    unitLessons?: Array<{ title: string, current?: boolean }>
 }
 
 const str = (value: unknown, max = 400) => String(value ?? '').replace(/\s+/gu, ' ').trim().slice(0, max)
@@ -142,11 +144,12 @@ export function classroomChecks(process: Process, periodMinutes: number, grade: 
         const unseen = process.stages.filter(stage => /独立|同桌|四人小组/u.test(stage.org || '') && !stage.check).map(stage => stage.name)
         if (unseen.length) checks.push({ level: 'warn', kind: 'class_check', message: `「${unseen.join('」「')}」让学生自己做，但没写老师怎样看到全班的情况（手势表决、同桌互查、巡视抽看……）。` })
     }
-    const minutes = process.homework.reduce((sum, item) => sum + (item.minutes || 0), 0)
+    // 「双减」 limits written homework: oral and hands-on work, and the optional 提高 items, are not counted
     const written = process.homework.filter(item => item.level !== '实践' && /写|做|完成|练习|抄|算|填/u.test(item.task) && !/口头|说给|读给|讲给|听/u.test(item.task))
+    const minutes = written.filter(item => !/提高|选做|拓展|挑战/u.test(item.level)).reduce((sum, item) => sum + (item.minutes || 0), 0)
     if (grade && grade <= 2 && written.length) checks.push({ level: 'warn', kind: 'homework_load', message: '按「双减」要求，一、二年级不布置家庭书面作业；可以改成口头、阅读或实践类作业。', quote: written[0].task })
-    else if (grade && grade <= 6 && minutes > 20) checks.push({ level: 'warn', kind: 'homework_load', message: `作业预计 ${minutes} 分钟；小学三至六年级每天书面作业合计不超过 60 分钟，一科一般控制在 15 分钟左右。` })
-    else if (grade && grade >= 7 && minutes > 30) checks.push({ level: 'warn', kind: 'homework_load', message: `作业预计 ${minutes} 分钟；初中每天书面作业合计不超过 90 分钟，一科一般控制在 20–25 分钟。` })
+    else if (grade && grade <= 6 && minutes > 20) checks.push({ level: 'warn', kind: 'homework_load', message: `必做的书面作业预计 ${minutes} 分钟；小学三至六年级每天书面作业合计不超过 60 分钟，一科一般控制在 15 分钟左右。` })
+    else if (grade && grade >= 7 && minutes > 30) checks.push({ level: 'warn', kind: 'homework_load', message: `必做的书面作业预计 ${minutes} 分钟；初中每天书面作业合计不超过 90 分钟，一科一般控制在 20–25 分钟。` })
     return checks
 }
 
@@ -221,7 +224,7 @@ const CLASSROOM_KINDS = new Set(['student_time', 'group_work', 'class_check', 'h
 const SHARED_RULES = `规则：
 1. 只能以「依据」里列出的课标要点为依据。目标的 basis 只能填这些要点编码，不得编造编码，也不得引用依据以外的课标。
 2. 要点原文里写明「不包括」「不要求」「不涉及」的内容，教案里不得出现。
-3. 内容要符合老师给出的教材和年级，不要超出这个年级学生的认知水平，也不要提前教后面学段的内容。要点往往覆盖整个单元，只写和本课课题直接相关的部分；属于本单元其他课时的内容不要写进本课目标。
+3. 内容要符合老师给出的教材和年级，不要超出这个年级学生的认知水平，也不要提前教后面学段的内容。要点往往覆盖整个单元，只写和本课课题直接相关的部分；属于本单元其他课的内容（见「本单元的课」）不要写进本课的目标和练习。
 4. 活动要在普通教室条件下可行；器材写常见的；涉及实验、工具、运动的写安全要求。
 5. 用简洁的中文，面向教师；不要写空话套话（如「全面提升核心素养」）。
 6. 不写任何学生的姓名或个人信息。`
@@ -229,7 +232,8 @@ const SHARED_RULES = `规则：
 const FRAME_INSTRUCTIONS = `你是经验丰富的中小学教研员，帮老师起草一节课的教学设计（前半部分）。按「逆向设计」的顺序：先定目标，再定评价证据。按「课堂实际」设计，给常规大班用，不要理想化。
 ${SHARED_RULES}
 写法要求：
-- objectives：2–4 条。每条以「学生能」开头，写清条件（在什么情境中）、行为（做什么、怎么做）和程度（做到什么程度），用看得见的动词（说出、比较、解释、设计、完成、运用、判断……），不用「了解」「感受」「培养」这类看不见的词。程度要和要点里的行为词相当（要点写「理解」就不要只写「说出」）。kind 填「知道」「理解」或「能做」。basis 填它依据的要点编码（至少 1 个）。
+- title：课题名称，可加「（第 1 课时）」，不要写「教学设计」等字样。
+- objectives：2–4 条。每条以「学生能」开头、不超过 70 字，写清条件（在什么情境中）、行为（做什么、怎么做）和程度（做到什么程度），用看得见的动词（说出、比较、解释、设计、完成、运用、判断……），不用「了解」「感受」「培养」这类看不见的词。程度要和要点里的行为词相当（要点写「理解」就不要只写「说出」）。kind 填「知道」「理解」或「能做」。basis 填它依据的要点编码（至少 1 个）。
 - core_understanding：一句话写出学完这节课学生应形成的核心理解（大概念层面的认识），不要只写知识点名称。
 - key_points、difficult_points：各 1–2 条，具体到本课内容。
 - strategies：1–2 条，突破难点的具体办法（用什么例子、什么活动、什么对比）。
@@ -246,8 +250,8 @@ ${SHARED_RULES}
 - stages：4–7 个环节，按上课顺序，每个环节至少 2 分钟，所有环节分钟数合计必须等于一节课的时长。常见顺序（按课型和学科调整）：回顾检测（用前置知识出 2–3 个小问题）→ 情境与问题 → 先试（独立想、同桌说）→ 讲解与示范（从学生的想法讲起，配例题、范例或示范）→ 练习与反馈（从基础到变式）→ 当堂检测 → 小结。
 - 每个环节写：name（环节名）；minutes（分钟，整数）；org（组织形式：全班、同桌、四人小组、独立，先后两种写成「独立→同桌」）；teacher（教师活动：具体到讲什么、示范什么、出示什么，不超过 150 字）；students（学生活动：做什么、产出什么，不超过 100 字）；questions（0–2 个关键问题：q 问题，expect 预设的学生回答（含典型错误），follow 追问或点拨）；check（老师怎样在 1 分钟内看到全班学会没有：手势或卡片表决、同桌互查、巡视抽看、随机点名、板演等；纯讲授的环节留空）；support（照顾差异：给学得慢、学得快的学生的安排；没有就留空）；purpose（设计意图，一句话）；objective_ids（推进哪些目标，不能留空）；assessment_ids（完成哪些评价任务，可为空）。
 - 每条目标至少在一个环节里推进；每个评价任务都要安排在某个环节。
-- 学生独立思考、同桌交流、练习、检测的环节合计约占一节课时间的 40%；小组活动最多 2 次，每次不超过 6 分钟。
-- homework：1–3 条，level 填「基础」（必做）、「提高」（选做）或「实践」，minutes 写预计用时（分钟）。符合「双减」：一、二年级不布置书面作业（可布置口头、实践类）；三至六年级本学科合计一般不超过 15 分钟，初中一般不超过 25 分钟；不布置机械重复的作业。
+- 学生独立思考、同桌交流、练习、检测的环节合计约占一节课时间的 40%；小组活动最多 2 次，每次不超过 6 分钟；有小组活动的环节（如「独立→四人小组」）整个环节不超过 8 分钟。
+- homework：1–3 条，level 填「基础」（必做）、「提高」（选做）或「实践」，minutes 写预计用时（分钟）。符合「双减」：一、二年级不布置书面作业（可布置口头、实践类）；必做的书面作业，三至六年级本学科一般不超过 15 分钟，初中一般不超过 25 分钟；不布置机械重复的作业。
 - board：板书设计，3–8 行，体现本课结构（知识框架、关键结论、例题要点）。
 - materials：教具、学具或材料，0–6 条，写普通学校有的。
 - safety：涉及实验、工具、运动或外出时写安全提示，0–3 条；没有就返回空数组。
@@ -259,12 +263,13 @@ ${SHARED_RULES}
 - items：4–7 道，按课上使用的顺序。kind 填「练习」或「检测」；最后 2–3 道是「检测」，3–5 分钟能做完，用来判断目标有没有达成。
 - level 填「基础」「变式」或「提高」：练习从基础到变式（换情境、换数据、换问法，抓住不变的本质），至少 1 道「提高」给学得快的学生。
 - question：题目本身，完整、可以直接用；选择题写出选项，需要图的用文字说清图。体育、艺术、实验等以技能为主的课，写成课上的练习任务和检测办法（看什么、怎样算达到）。
+- 题目是学生在座位上独立完成的纸笔题或口答题，不写成小组活动；涉及实验的题只用教材里的、结论确定的实验。
 - answer：参考答案；开放题写评分要点。答案必须正确，计算要算对。
 - code：这道题练的要点编码，只能填「依据」里的编码；objective_id：对应的目标编号（O1、O2……）。
 - 题目贴合本课教材内容（可参考「本课教材原话」）和学生年级，不出超出课标的题。
 必须只返回一个 JSON 对象：{"items":[{"kind":"练习","level":"基础","question":"…","answer":"…","code":"…","objective_id":"O1"}]}`
 
-const READING_INSTRUCTIONS = `你是熟悉课程标准的中小学教研员。帮老师读懂这节课依据的课标要点：让老师用教材去教课标要求的东西，而不是只把教材内容讲一遍。「依据」里有要点原文、所在标准、学业要求和教学提示；「前后联系」是学生之前学过的、后面会用到的要点；「教材里在哪教」和「本课教材原话」来自教材。
+const READING_INSTRUCTIONS = `你是熟悉课程标准的中小学教研员。帮老师读懂这节课依据的课标要点：让老师用教材去教课标要求的东西，而不是只把教材内容讲一遍。「依据」里有要点原文、所在标准、学业要求和教学提示；「前后联系」是学生之前学过的、后面会用到的要点；「本单元的课」「教材里在哪教」和「本课教材原话」来自教材。
 规则：
 1. 只解读「依据」里列出的要点，不编造课标内容；引用课标时照抄原文。
 2. 具体到本课，面向老师，用朴素的话；不写空话套话（如「全面提升核心素养」）。
@@ -273,8 +278,8 @@ const READING_INSTRUCTIONS = `你是熟悉课程标准的中小学教研员。�
 - points：「依据」里的每条要点一项，按依据的顺序。
   - code：要点编码。
   - plain：用老师听得懂的话说清这条要点要学生最终做到什么（不超过 60 字）。
-  - verbs：1–3 个从要点原文里摘出的关键行为词（word 必须是原文里出现的词，如「理解」「探索」「运用」「说明」），meaning 写它在这里要求做到什么程度、怎样算做到（不超过 40 字）。
-  - this_lesson：本课承担这条要点的哪一部分、做到什么程度，哪些留给后面的课时（不超过 80 字）。
+  - verbs：1–3 个从要点原文里摘出的关键行为词（word 必须是原文里出现的词，2–6 个字，如「理解」「探索」「运用」「说明」），meaning 写它在这里要求做到什么程度、怎样算做到（不超过 40 字）。
+  - this_lesson：本课承担这条要点的哪一部分、做到什么程度，哪些留给本单元后面的课或后面的学段（参考「本单元的课」，不超过 80 字）。
   - textbook：用教材教：本课教材的例子、活动、习题怎样为这条要点服务；哪些可以换成学生熟悉的情境，哪些需要补充（不超过 100 字）。
   - avoid：只按教材讲容易出的偏差：漏掉的（比如只练算法不讲道理、只记结论不经历过程）或超出的（课标「不包括」的、后面学段才要求的）（不超过 80 字）。
 - position：这节课在单元和学段里的位置：前面学过什么，这节课为后面哪些内容打基础（不超过 100 字，参考「前后联系」）。
@@ -352,6 +357,7 @@ function lessonBlock(input: DraftInput) {
     const lines = [
         `学科：${lesson.subject}${lesson.grade ? `　年级：${lesson.grade} 年级` : ''}`,
         `课题：${lesson.title}${lesson.unit_title && lesson.unit_title !== lesson.title ? `（所在单元：${lesson.unit_title}）` : ''}`,
+        input.unitLessons?.length ? `本单元的课（教材顺序）：${input.unitLessons.map(item => (item.current ? `「${item.title}」（本课）` : item.title)).join(' → ')}` : '',
         lesson.textbook_title ? `教材：${lesson.edition_name ? `${lesson.edition_name} ` : ''}${lesson.textbook_title}${lesson.pages ? `，${lesson.pages}` : ''}` : '',
         `课时：第 ${input.lessonIndex} 课时（共 ${input.lessonCount} 课时），每课时 ${input.periodMinutes} 分钟`
     ]
@@ -405,8 +411,8 @@ function validateReading(value: unknown, input: Pick<DraftInput, 'indicators' | 
         const code = str(record.code, 24)
         const text = textOf.get(code)
         if (!text || points.some(point => point.code === code)) continue
-        // a key verb must be the 要点's own word, not one the model brought
-        const verbs = (Array.isArray(record.verbs) ? record.verbs : []).slice(0, 3).map(entry => ({ word: str((entry as Record<string, unknown>)?.word, 12), meaning: str((entry as Record<string, unknown>)?.meaning, 100) })).filter(entry => entry.word && entry.meaning && text.includes(entry.word))
+        // a key verb must be the 要点's own word, not one the model brought, and a word rather than half a clause
+        const verbs = (Array.isArray(record.verbs) ? record.verbs : []).slice(0, 3).map(entry => ({ word: str((entry as Record<string, unknown>)?.word, 40), meaning: str((entry as Record<string, unknown>)?.meaning, 100) })).filter(entry => entry.word && entry.word.length <= 8 && entry.meaning && text.includes(entry.word))
         const point = { code, plain: str(record.plain, 140), verbs, this_lesson: str(record.this_lesson, 180), textbook: str(record.textbook, 220), avoid: str(record.avoid, 180) }
         if (point.plain || point.this_lesson || point.textbook) points.push(point)
     }
@@ -456,7 +462,8 @@ function validateFrame(value: unknown, indicatorCodes: Set<string>): Frame | nul
         return { id: `A${index + 1}`, objective_ids: mapIds(record.objective_ids), task: str(record.task, 260), evidence: str(record.evidence, 200), criteria: str(record.criteria, 260) }
     }).filter(item => item.task)
     return {
-        title: str(raw.title, 60),
+        // the heading of the 教案 and its file name: 「《观潮》第一课时教学设计（前半部分）」 → 「《观潮》第一课时」
+        title: str(raw.title, 80).replace(/[（(]前半部分[）)]|教学设计/gu, '').trim().slice(0, 60),
         core_understanding: str(raw.core_understanding, 160),
         objectives,
         key_points: strList(raw.key_points, 3),

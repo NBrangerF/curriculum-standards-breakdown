@@ -76,11 +76,12 @@ const BaseRequestSchema = z.object({
 })
 const HOUR = /[（(]第([一二三四五六七八九十\d]+)课时[）)]\s*$/u
 const HOUR_NUMBERS: Record<string, number> = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9, 十: 10 }
+const canonicalTitle = (title: string) => title.replace(HOUR, '').replace(/^[^_]{2,20}_/u, '').replace(/^第[一二三四五六七八九十]+单元[-—\s]+/u, '').trim() || title
 function canonicalLessons(lessons: NationalLesson[]) {
     const out: Array<{ id: string, title: string, section: string | null, pdf_page: number | null, hours: number }> = []
     for (const lesson of lessons) {
         const hour = lesson.title.match(HOUR)?.[1]
-        const title = lesson.title.replace(HOUR, '').replace(/^[^_]{2,20}_/u, '').replace(/^第[一二三四五六七八九十]+单元[-—\s]+/u, '').trim() || lesson.title
+        const title = canonicalTitle(lesson.title)
         const found = out.find(item => item.title === title)
         const hours = Math.max(lesson.hours || 1, hour ? HOUR_NUMBERS[hour] || Number(hour) || 1 : 1)
         if (found) found.hours = Math.max(found.hours, hours)
@@ -394,14 +395,32 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         })
     }
 
+    // the 国家平台 lesson a request names: by id, or else by title
+    const findLesson = (national: NationalFile, lessonId: string | undefined, title: string) => (lessonId && national.lessons.find(item => item.id === lessonId)) || national.lessons.find(item => item.title === title) || null
+
     // this lesson's own words from the textbook (教材与课标对应), quoted for 课标解读 and the exercises
     async function lessonQuotes(editionId: string | undefined, lessonId: string | undefined, title: string) {
         const national = editionId ? await nationalFile(editionId) : null
         if (!national) return []
-        const lesson = (lessonId && national.lessons.find(item => item.id === lessonId)) || national.lessons.find(item => item.title === title) || null
+        const lesson = findLesson(national, lessonId, title)
         const rows = Array.isArray(lesson?.align) ? lesson.align : []
         const quotes = [...rows.filter(row => row[3] === 'book'), ...rows.filter(row => row[3] !== 'book' && row[3] !== 'title')].map(row => String(row[2] || '').slice(0, 60)).filter(Boolean)
         return [...new Set(quotes)].slice(0, 6)
+    }
+
+    // the lesson's unit in textbook order, this lesson marked, so the plan leaves the later lessons' content to them;
+    // a long unit is cut to the lessons around this one
+    async function unitSequence(editionId: string | undefined, lessonId: string | undefined, title: string) {
+        const national = editionId ? await nationalFile(editionId) : null
+        const lesson = national ? findLesson(national, lessonId, title) : null
+        if (!national || !lesson?.chapters[0]) return []
+        const own = canonicalTitle(lesson.title)
+        const list: Array<{ title: string, current?: boolean }> = canonicalLessons(national.lessons.filter(item => item.chapters[0] === lesson.chapters[0])).map(item => (item.title === own ? { title: item.title, current: true } : { title: item.title }))
+        const at = list.findIndex(item => item.current)
+        if (at < 0 || list.length < 2) return []
+        const from = Math.max(0, at - 5)
+        const to = Math.min(list.length, at + 9)
+        return [...(from > 0 ? [{ title: '…' }] : []), ...list.slice(from, to), ...(to < list.length ? [{ title: '…' }] : [])]
     }
 
     // 要点 text always comes from kebiao's data, never from the request
@@ -437,7 +456,8 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             classSize: body.class_size,
             lessonType: body.lesson_type,
             links: await pointLinks(indicators.slice(0, 12).map(item => item.code), body.lesson.subject_slug, body.lesson.edition_id),
-            lessonQuotes: await lessonQuotes(body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title)
+            lessonQuotes: await lessonQuotes(body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title),
+            unitLessons: await unitSequence(body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title)
         }
         const privacy = { redacted: classNotes.redacted || teacherNotes.redacted, redaction_count: classNotes.redaction_count + teacherNotes.redaction_count }
         const evidence = input.indicators.map(item => ({ code: item.code, text: item.text, pages: item.pages, standard_code: item.standard_code, standard_title: item.standard_title, stage_label: item.stage_label }))

@@ -659,6 +659,8 @@ test('classroom checks: too little student time, too many groups, an unseen clas
     // 一、二年级: no written homework at home; oral and hands-on work is fine
     assert.ok(classroomChecks({ ...planProcess, homework: [{ level: '基础', task: '写生字两遍' }] }, 40, 1).some(item => item.kind === 'homework_load'))
     assert.ok(!classroomChecks({ ...planProcess, homework: [{ level: '实践', task: '回家数一数家里的门窗' }, { level: '基础', task: '把课文读给家长听' }] }, 40, 1).some(item => item.kind === 'homework_load'))
+    // 三年级起 only the required written work counts towards the limit: oral work and the optional 提高 item do not
+    assert.ok(!classroomChecks({ ...planProcess, homework: [{ level: '基础', task: '口头复述课文的主要内容', minutes: 10 }, { level: '提高', task: '写一段观潮的话', minutes: 15 }] }, 40, 4).some(item => item.kind === 'homework_load'))
     // a plan from before the stages carried 组织形式 is not judged on it, and advice does not undo the alignment verdict
     assert.ok(!classroomChecks(planProcess, 40, 5).some(item => item.kind === 'student_time'))
     assert.ok(checkPlan(frame(), crowded, { indicators: [{ code: LIMITED, text: '会比较', pages: [], standard_code: 'MA-S3-NA-01', standard_title: '', stage_label: '' }], standards: [], periodMinutes: 40, lesson: { grade: 5 } }).some(item => item.kind === 'aligned'))
@@ -677,7 +679,7 @@ function readingModel(calls: string[]) {
         const system = String(body.messages[0].content)
         calls.push(String(body.messages[1].content))
         const content = system.includes('读懂这节课依据的课标要点')
-            ? { points: [{ code: LIMITED, plain: '会比较分数大小、会转化', verbs: [{ word: '比较', meaning: '能说明理由地比较' }, { word: '掌握', meaning: '要点里没有这个词' }], this_lesson: '本课只做同分母变形', textbook: '用教材的折纸例子', avoid: '不要讲循环小数' }, { code: 'MA-S9-ZZ-01.1', plain: '编造的要点' }], position: '承前启后', literacy: [{ name: '运算能力', look_for: '能说清每一步' }, { name: '编造的素养', look_for: '…' }] }
+            ? { points: [{ code: LIMITED, plain: '会比较分数大小、会转化', verbs: [{ word: '比较', meaning: '能说明理由地比较' }, { word: '掌握', meaning: '要点里没有这个词' }, { word: '能比较两个分数的大小和两个小数', meaning: '半句话，不是关键词' }], this_lesson: '本课只做同分母变形', textbook: '用教材的折纸例子', avoid: '不要讲循环小数' }, { code: 'MA-S9-ZZ-01.1', plain: '编造的要点' }], position: '承前启后', literacy: [{ name: '运算能力', look_for: '能说清每一步' }, { name: '编造的素养', look_for: '…' }] }
             : { items: [{ kind: '练习', level: '基础', question: '2/3 = ?/12', answer: '8', code: LIMITED, objective_id: 'O2' }, { kind: '检测', level: '变式', question: '比较 3/4 和 5/8', answer: '3/4 大', code: 'MA-S1-ZZ-99.1', objective_id: 'O9' }, { kind: '检测', level: '提高', question: '', answer: 'x' }] }
         return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 600, total_tokens: 1500 } }), { status: 200, headers: { 'content-type': 'application/json' } })
     }
@@ -728,6 +730,19 @@ test('the frame and process prompts carry the class as it is', async t => {
     assert.match(calls[0], /约 52 名学生/)
     assert.match(calls[0], /课型：新授课/)
     assert.match(calls[0], /数学：先让学生尝试再讲例题/)
+    // the unit in textbook order: 通分 comes later, so this lesson leaves it alone
+    assert.match(calls[0], /本单元的课（教材顺序）：.*真分数和假分数 → 「分数的基本性质」（本课） → 最大公因数 → 约分 → 最小公倍数 → 通分/)
     const bad = await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': CLASS_IP }, body: JSON.stringify({ ...request, step: 'frame', lesson_type: '公开课' }) })
     assert.equal(bad.status, 422)
+})
+
+test('the 教案 heading is the lesson, without 「教学设计（前半部分）」', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const content = { ...frame(), title: '《分数的基本性质》第一课时教学设计（前半部分）' }
+    t.mock.method(globalThis, 'fetch', async () => new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 900, completion_tokens: 600, total_tokens: 1500 } }), { status: 200, headers: { 'content-type': 'application/json' } }))
+    const request = { step: 'frame', lesson: { title: '分数的基本性质', subject_slug: 'math', grade: 5, edition_id: math5b, lesson_id: fractionLesson.id }, indicator_codes: [LIMITED] }
+    const data = (await json(await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': CLASS_IP }, body: JSON.stringify(request) }))).data
+    assert.equal(data.frame.title, '《分数的基本性质》第一课时')
 })
