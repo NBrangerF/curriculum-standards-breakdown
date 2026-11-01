@@ -185,6 +185,14 @@ kebiao 七月做过基准测试（`docs/research/2026-07-11-graph-engine-benchma
 - 不把「要先会」说成认知科学意义上的先修，只说「很可能需要先会」。
 - 不导入别家的知识点体系或先修数据（cn-math-taxonomy 为 CC BY-NC，os-taxonomy 为 ODbL）。
 
+## 八、实现（2026-11-01，用户确认设计后）
+
+- **页面**：`/knowledge-graph`（打开「我的书」的学科，没有就是数学）和 `/knowledge-graph/<学科>`，`?focus=<要点>` 打开聚焦，`?view=list` 是列表视图。`/review` 永久跳到这里，`/review?subject=physics` 跳到物理。代码在 `src/pages/KnowledgeGraphPage.jsx` 和 `src/features/knowledge-graph/`，没有新增依赖。
+- **数据**：`scripts/v2/build_knowledge_graph.mjs` 在 `build:public-data` 最后运行，写 `public/data/v2/graph/<学科>.json`（线索、年级列、要点、要先会）、`graph/lessons/<学科>.json`（每个要点的课和教材原话，打开要点时才加载）、`graph/search.json`（跨学科搜索）。课来自 `public/data/v2/lesson_alignment.json`，信息科技的国家教学指南也在里面。
+- **线索**：`data/v2/graph/threads.json`。数学、道德与法治手工整理了主题对应；艺术、信息科技和初中五门课按领域成行；物理、化学、生物学、地理在领域前接上小学科学的同一核心概念；其余按同名主题自动成行。同一列里的几条标准按教材章节排序；语文同一学段有几条「学段要求」时，用标准原句的头几个字作站名。
+- **「要先会」**：见 `data/v2/graph/prereq/README.md`。11 组并行判断，共 889 条，覆盖 687 个要点；数学 235 条、163 个要点。复核删去 19 条；随机抽查 60 条，对 51 条，部分对 9 条，不对 0 条（抽查也是 AI 做的）。实际做下来有一处比设计稿更严：只标到学段、没有册和章的要点（小学各科，语文、英语、科学、地理的 7–9 年级），同一学段内分不出先后，就只连更早的学段；「七至九年级共同」的要点没有固定年级，可以用初中任何年级的要点当来源。物理组独立判出了设计稿里的样例：欧姆定律 ← 正比例函数。
+- **入口**：标准页每个要点、教材页单元图里每个要点、AI 备课每条课标，都有「前后联系」链接。
+
 ## 参考
 
 - Achieve the Core Coherence Map：https://tools.achievethecore.org/coherence-map/ ，说明页 https://achievethecore.org/page/2801/learn-more-about-the-coherence-map ，Wiring Diagram https://achievethecore.org/page/844/ccssm-wiring-diagram

@@ -15,13 +15,14 @@ import styles from './StandardV2Page.module.css'
 
 const pagesLabel = pages => (pages?.length ? `课标第 ${pages.join('、')} 页` : '')
 
-function SourceLine({ section, pages, check }) {
+function SourceLine({ section, pages, check, graph }) {
     const parts = ['课标原文', section, pagesLabel(pages)].filter(Boolean)
     const status = statusLabel(check)
     return (
         <p className={styles.source}>
             {parts.join(' · ')}
             {status ? <span className={`${styles.flag} ${styles[check.status] || ''}`}>{status}</span> : null}
+            {graph ? <Link className={styles.graphLink} to={graph}>前后联系 →</Link> : null}
         </p>
     )
 }
@@ -56,7 +57,7 @@ function Indicator({ item, dimmed, targeted }) {
             </div>
             <p className={styles.indicatorText}>{revised ? withAdditions(item.text, item.check.added) : item.text}</p>
             {item.official_examples ? <p className={styles.officialExample}>{item.official_examples}</p> : null}
-            <SourceLine section={item.section} pages={item.pages} check={item.check} />
+            <SourceLine section={item.section} pages={item.pages} check={item.check} graph={`/knowledge-graph/${subjectOfCode(item.code)}?focus=${item.code}`} />
             {item.examples.length ? (
                 <details className={styles.examples}>
                     <summary>表现示例 · {item.examples.length} 条 <span>kebiao 整理</span></summary>

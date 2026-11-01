@@ -337,6 +337,10 @@
     font-size: 0.76rem;
 }
 
+/* 知识图谱: what this standard's 要点 build on and what builds on them (opens beside the draft) */
+.standardHead a.graphLink { color: var(--kb-gold); font-size: 0.76rem; font-weight: 400; }
+.standardHead a.graphLink:hover { text-decoration: underline; text-underline-offset: 3px; }
+
 .reason {
     margin: 0.35rem 0 0;
     color: var(--color-success-dark);

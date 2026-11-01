@@ -29,7 +29,8 @@ const routes = [
     ['interdisciplinary', '/interdisciplinary?subject=chinese&grade=8'],
     ['experiments', '/experiments'],
     ['teacherExam', '/teacher-exam'],
-    ['reviewMap', '/review?subject=history'],
+    ['knowledgeGraph', '/knowledge-graph/history'],
+    ['knowledgeGraphFocus', '/knowledge-graph/math?focus=MA-S4-NA-07.2'],
     ['guide', '/guide'],
     ['textbookAlignment', '/textbooks/ed_006d5ed61c055eb63857/standards']
 ]

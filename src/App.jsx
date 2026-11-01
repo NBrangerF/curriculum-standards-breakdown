@@ -49,7 +49,7 @@ const LessonPlanPage = lazy(() => import('./pages/LessonPlanPage'))
 const InterdisciplinaryPage = lazy(() => import('./pages/InterdisciplinaryPage'))
 const ExperimentsPage = lazy(() => import('./pages/ExperimentsPage'))
 const TeacherExamPage = lazy(() => import('./pages/TeacherExamPage'))
-const ReviewMapPage = lazy(() => import('./pages/ReviewMapPage'))
+const KnowledgeGraphPage = lazy(() => import('./pages/KnowledgeGraphPage'))
 const GuidePage = lazy(() => import('./pages/GuidePage'))
 const StandardsHubPage = lazy(() => import('./pages/StandardsHubPage'))
 
@@ -57,6 +57,14 @@ const StandardsHubPage = lazy(() => import('./pages/StandardsHubPage'))
 function StandardRoute() {
     const { code } = useParams()
     return isV2Code(code) ? <StandardV2Page /> : <LegacyStandardRedirect code={code} />
+}
+
+// 中考复习地图 (/review) became the 知识图谱: /review?subject=physics opens 物理 (vercel.json redirects the same way)
+const GRAPH_SLUGS = ['chinese', 'math', 'english', 'morality_law', 'history', 'geography', 'science', 'physics', 'chemistry', 'biology', 'it', 'pe', 'arts', 'labor']
+function ReviewRedirect() {
+    const [params] = useSearchParams()
+    const subject = params.get('subject') || ''
+    return <Navigate to={GRAPH_SLUGS.includes(subject) ? `/knowledge-graph/${subject}` : '/knowledge-graph'} replace />
 }
 
 // 学期进度表 (/schedule) is gone: an old link opens its book (vercel.json redirects the same way for full page loads)
@@ -105,7 +113,9 @@ function App() {
                     <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />
                     <Route path="/lesson-plan" element={route('lessonPlan', lazyPage(<LessonPlanPage />, '正在打开 AI 备课'))} />
                     <Route path="/guide" element={route('guide', lazyPage(<GuidePage />, '正在打开上手指南'))} />
-                    <Route path="/review" element={route('reviewMap', lazyPage(<ReviewMapPage />, '正在打开中考复习地图'))} />
+                    <Route path="/knowledge-graph" element={route('knowledgeGraph', lazyPage(<KnowledgeGraphPage />, '正在展开知识图谱'))} />
+                    <Route path="/knowledge-graph/:slug" element={route('knowledgeGraph', lazyPage(<KnowledgeGraphPage />, '正在展开知识图谱'))} />
+                    <Route path="/review" element={<ReviewRedirect />} />
                     <Route path="/schedule" element={<ScheduleRedirect />} />
                     <Route path="/teacher-exam" element={route('teacherExam', lazyPage(<TeacherExamPage />, '正在打开教资课标速记'))} />
                     <Route path="/experiments" element={route('experiments', lazyPage(<ExperimentsPage />, '正在打开必做实验清单'))} />

@@ -8,7 +8,7 @@ import {
     SITE_URL, SITE_NAME, cardVersion, getDisplayTitle, clip, V2_STANDARDS_DOC, v2StageLabel, v2StandardMeta,
     homeMeta, subjectMeta, skillsOverviewMeta, skillMeta, textbooksMeta, textbookMeta,
     textbookUnitMeta, textbookAlignmentMeta, learningResourcesMeta, learningResourceMeta, STATIC_PAGE_META,
-    conceptsMeta, conceptMeta, subjectSkeletonMeta
+    conceptsMeta, conceptMeta, subjectSkeletonMeta, knowledgeGraphMeta
 } from '../src/seo/pageMeta.js'
 import { logoSvg } from '../src/brand/logo.js'
 
@@ -445,14 +445,55 @@ ${section('备考路线', `<ol>${[
 ${notes.map(subject => section(subject.name, `<p>核心素养：${esc(subject.core_literacy.join('、'))}</p><p>课程理念（修订版 PDF 第 ${subject.ideas.pages[0]}–${subject.ideas.pages.at(-1)} 页）：</p><ol>${subject.ideas.items.map(item => `<li>${esc(item)}</li>`).join('')}</ol><p>${link(`/concepts/subjects/${subject.slug}`, `${subject.name}课标的骨架`)}</p>`)).join('')}`, { jsonLd: [breadcrumbs(crumbs)] })
 }
 
+// 知识图谱: a hub and one page per subject, every thread with its stations, 要点, lessons and 要先会 lines
+function knowledgeGraphPages() {
+    const graphManifest = readJson('v2/graph/manifest.json')
+    const hubCrumbs = [['首页', '/'], ['知识图谱', '/knowledge-graph']]
+    add(STATIC_PAGE_META['/knowledge-graph'], `${crumbNav(hubCrumbs)}
+<p class="kbp-kicker">${V2_STANDARDS_DOC}</p>
+<h1>知识图谱</h1>
+<p class="kbp-lede">每个点是课标里的一句要点。点一个，看它要先会什么、后面用到哪里、在哪本教材哪一课教。</p>
+${list(graphManifest.subjects.map(entry => `${link(`/knowledge-graph/${entry.slug}`, `${entry.subject}知识图谱`)} <span class="kbp-code">${entry.lanes} 条线索 · ${entry.points} 个要点 · ${entry.taught} 个找到了主要在教的课</span>`))}
+<p class="kbp-note">「要先会」：学生没掌握前一个要点，很可能学不好后一个，不表示必须先学完；由 AI 逐条判断，待核验。「同一线索」：课标里同一主题的上一学段或下一学段。</p>`, { jsonLd: [breadcrumbs(hubCrumbs)] })
+    for (const entry of graphManifest.subjects) {
+        const graph = readJson(`v2/graph/${entry.slug}.json`)
+        const textOf = code => graph.points[code]?.t || graph.external[code]?.t || ''
+        const columnLabel = key => (key === 'shared' ? '七至九年级共同' : graph.columns.find(column => column.key === key)?.label || key)
+        const before = new Map()
+        for (const [source, target, reason] of graph.edges) if (graph.points[target]) before.set(target, [...(before.get(target) || []), [source, reason]])
+        const keys = [...graph.columns.map(column => column.key), 'shared']
+        const lanes = graph.lanes.map(lane => {
+            const stations = keys.flatMap(key => (lane.cells[key] || []).map(std => [key, std])).map(([key, std]) => {
+                const info = graph.standards[std]
+                const codes = info.points.filter(code => graph.points[code]?.col === key)
+                if (!codes.length) return ''
+                return `<h3>${esc(columnLabel(key))} · ${link(`/standards/${std}`, info.title)}</h3>${list(codes.map(code => {
+                    const point = graph.points[code]
+                    const lines = (before.get(code) || []).map(([source, reason]) => `${esc(source)}「${esc(clip(textOf(source), 30))}」（${esc(reason)}）`)
+                    return `<span class="kbp-code">${esc(code)}</span> ${esc(point.t)}${point.tags?.length ? `<br><span class="kbp-note">教材：${esc(point.tags.join('；'))}</span>` : ''}${lines.length ? `<br><span class="kbp-note">要先会：${lines.join('；')}</span>` : ''}`
+                }))}`
+            }).join('')
+            const requirements = (lane.requirements || []).map(item => `<p class="kbp-note">学业要求（课标第 ${item.pages.join('、')} 页）：${esc(item.text)}</p>`).join('')
+            return section(`${lane.group ? `${lane.group} · ` : ''}${lane.name}`, requirements + stations)
+        }).join('')
+        const crumbs = [...hubCrumbs, [`${entry.subject}`, `/knowledge-graph/${entry.slug}`]]
+        add(knowledgeGraphMeta({ slug: entry.slug, subject: entry.subject }), `${crumbNav(crumbs)}
+<p class="kbp-kicker">知识图谱 · ${esc(entry.subject)} · ${entry.points} 个要点</p>
+<h1>${esc(entry.subject)}知识图谱</h1>
+<p class="kbp-lede">${entry.lanes} 条线索，${entry.points} 个要点，按年级从左到右排开；${entry.taught} 个要点在教材里找到了主要在教的课。每个要点都可以看它要先会什么、后面用到哪里、在哪一课教。</p>
+${graph.about.threads ? `<p class="kbp-note">${esc(graph.about.threads)}</p>` : ''}
+${lanes}
+<p class="kbp-note">要点逐字取自${V2_STANDARDS_DOC}。「要先会」和「教材里的课」由 AI 判断，待核验。</p>`, { jsonLd: [breadcrumbs(crumbs)], image: cardUrl(`subject/${entry.slug}`) })
+    }
+}
+
 function staticPages() {
     const terms = glossary.terms || []
     add(STATIC_PAGE_META['/glossary'], `<h1>术语表</h1>${terms.map(term => `<section><h2>${esc(term.term)}</h2><p>${esc(term.definition)}</p></section>`).join('')}`)
     add(STATIC_PAGE_META['/api'], `<h1>开放 API</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/api'].description)}</p><p>${link('/api/v1/docs', '查看 API 文档')}</p>`)
     add(STATIC_PAGE_META['/contact'], `<h1>联系我们</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/contact'].description)}</p>`)
     add(STATIC_PAGE_META['/lesson-plan'], `<h1>AI 备课：从教材的一课起草有课标依据的教案</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/lesson-plan'].description)}</p><p>AI 只按你勾选的课标要点写，每条目标标出依据编码；写完后逐条核验：有没有超出课标写明的限定，目标有没有对应的教学环节和评价任务。可复制、下载 Word、打印。</p>`)
-    add(STATIC_PAGE_META['/guide'], `<h1>五分钟学会用 kebiao 备课</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/guide'].description)}</p><p>${link('/lesson-plan', 'AI 备课')} · ${link('/review', '中考复习地图')} · ${link('/concepts', '概念词典')} · ${link('/experiments', '必做实验清单')}</p>`)
-    add(STATIC_PAGE_META['/review'], `<h1>中考复习地图</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/review'].description)}</p>`)
+    add(STATIC_PAGE_META['/guide'], `<h1>五分钟学会用 kebiao 备课</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/guide'].description)}</p><p>${link('/lesson-plan', 'AI 备课')} · ${link('/knowledge-graph', '知识图谱')} · ${link('/concepts', '概念词典')} · ${link('/experiments', '必做实验清单')}</p>`)
     add(STATIC_PAGE_META['/smart-search'], `<h1>智能检索</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/smart-search'].description)}</p>`)
 }
 
@@ -467,6 +508,7 @@ conceptPages()
 interdisciplinaryPage()
 experimentsPage()
 teacherExamPage()
+knowledgeGraphPages()
 staticPages()
 
 // ---------- render ----------
@@ -494,7 +536,7 @@ const STYLE = `<style id="kbp-style">
 .kbp-foot .kbp-wrap{padding-top:16px;padding-bottom:0;border-top:1px solid var(--kb-line,rgba(222,228,238,.14))}
 </style>`
 
-const NAV = [...v2Subjects.map(subject => link(`/subjects/${subject.subject_slug}`, subject.subject)), link('/textbooks', '教材馆'), link('/concepts', '概念词典'), link('/skills', '可迁移技能'), link('/smart-search', '智能检索')].join('')
+const NAV = [...v2Subjects.map(subject => link(`/subjects/${subject.subject_slug}`, subject.subject)), link('/textbooks', '教材馆'), link('/knowledge-graph', '知识图谱'), link('/concepts', '概念词典'), link('/skills', '可迁移技能'), link('/smart-search', '智能检索')].join('')
 const FOOTER = '<footer class="kbp-foot"><div class="kbp-wrap"><p>课标原文来自教育部《义务教育课程标准（2022年版）》及其 2025 年日常修订版。kebiao 是独立的开放索引，与教育部无隶属关系。</p></div></footer>'
 
 function render(page) {

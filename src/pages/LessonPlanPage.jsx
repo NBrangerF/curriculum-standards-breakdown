@@ -14,6 +14,7 @@ import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
 import { sourceLabel } from '../features/textbooks/alignmentModel'
+import { subjectOfCode } from '../data/v2Data.js'
 
 // the last 10 drafts stay in this browser; the old single-draft key is read once and folded in
 const STORE_KEY = 'kebiao.lessonPlan.history'
@@ -500,6 +501,7 @@ export default function LessonPlanPage() {
                                 <div className={styles.standardHead}>
                                     <Link to={`/standards/${standard.code}`} target="_blank" rel="noopener"><code>{standard.code}</code>{standard.title}</Link>
                                     <span className={styles.via}>{viaLabel[standard.via] || standard.via}</span>
+                                    <Link className={styles.graphLink} to={`/knowledge-graph/${subjectOfCode(standard.code)}?focus=${(standard.indicators.find(item => selected.has(item.code)) || standard.indicators[0])?.code || ''}`} target="_blank" rel="noopener">前后联系 ↗</Link>
                                 </div>
                                 {ai.reasons[standard.code] ? <p className={styles.reason}>AI 判断：{ai.reasons[standard.code]}</p> : null}
                                 <ul className={styles.indicators}>

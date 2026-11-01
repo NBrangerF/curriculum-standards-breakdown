@@ -33,7 +33,14 @@
             "permanent": true
         },
         { "source": "/schedule", "destination": "/textbooks", "permanent": true },
-        { "source": "/textbook-alignment", "destination": "/textbooks", "permanent": true }
+        { "source": "/textbook-alignment", "destination": "/textbooks", "permanent": true },
+        {
+            "source": "/review",
+            "has": [{ "type": "query", "key": "subject", "value": "(?<subject>chinese|math|english|morality_law|history|geography|science|physics|chemistry|biology|it|pe|arts|labor)" }],
+            "destination": "/knowledge-graph/:subject",
+            "permanent": true
+        },
+        { "source": "/review", "destination": "/knowledge-graph", "permanent": true }
     ],
     "rewrites": [
         {

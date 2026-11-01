@@ -287,7 +287,7 @@ ${subjects.map(s => `- [${s.subject}](${SITE}/subjects/${s.subject_slug}): ${s.s
 - [跨学科主题库](${SITE}/interdisciplinary): 历史、地理、体育与健康课标给出的 37 个跨学科主题，以及其他学科写进内容要求的跨学科学习，标页码
 - [必做实验清单](${SITE}/experiments): 科学课标附录 4 的 126 项学生必做探究实践活动，物理、化学的学生必做实验，标页码
 - [教资课标速记](${SITE}/teacher-exam): 14 门课程的核心素养和课程理念，标页码
-- [中考复习地图](${SITE}/review): 每条初中课标在七、八、九年级教材哪一单元教过，附学业要求
+- [知识图谱](${SITE}/knowledge-graph): 每门课的要点按线索和年级排开，每个要点要先会什么、后面用到哪里、在哪本教材哪一课教；每门课一页，如 ${SITE}/knowledge-graph/math
 - [AI 备课](${SITE}/lesson-plan): 从教材的一课起草有课标依据的教案
 - [站点地图](${SITE}/sitemap.xml)
 
