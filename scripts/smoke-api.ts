@@ -422,7 +422,13 @@ const results = []
 for (const check of checks) {
     const started = performance.now()
     try {
-        const result = await runCheck(check)
+        // The AI checks wait on the model provider, which now and then answers slower than its timeout; one slow
+        // answer gets a second try, a real regression fails twice.
+        const result = await runCheck(check).catch(async error => {
+            console.log(`retry ${check.name}: ${error instanceof Error ? error.message : String(error)}`)
+            await new Promise(resolve => setTimeout(resolve, 5000))
+            return runCheck(check)
+        })
         const durationMs = Math.round((performance.now() - started) * 100) / 100
         results.push({ name: check.name, ok: true, duration_ms: durationMs, ...result })
         console.log(`ok ${check.name} ${durationMs}ms`)
