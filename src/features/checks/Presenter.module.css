@@ -22,7 +22,8 @@
     z-index: 100;
     background: var(--letterbox);
     color: var(--ink);
-    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+    /* Latin faces first: digits and signs (−, ×, ÷) come from them, so a minus never looks like 一; Chinese falls through */
+    font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
     font-variant-numeric: tabular-nums;
 }
 
