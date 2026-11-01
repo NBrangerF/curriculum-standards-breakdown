@@ -90,6 +90,17 @@ test('an unknown standard code is reported without downloading every subject', a
     await page.goto('/standards/NOT-A-REAL-CODE')
     await expect(page.getByRole('heading', { name: '标准未找到' })).toBeVisible()
     expect(subjectRequests).toEqual([])
+    // a way on: the standards by subject
+    await page.getByRole('link', { name: '按学科查找课标' }).click()
+    await expect(page).toHaveURL(/\/standards$/)
+})
+
+test('a keyword on the comparison page goes to the AI search; filters stay on the comparison', async ({ page }) => {
+    await page.goto('/search?q=%E5%88%86%E6%95%B0')
+    await expect(page).toHaveURL(/\/smart-search\?q=%E5%88%86%E6%95%B0$/)
+    await page.goto('/search?subjects=math&bands=H1')
+    await expect(page).toHaveURL(/\/search\?subjects=math&bands=H1$/)
+    await expect(page.getByRole('heading', { name: '对比视图' })).toBeVisible()
 })
 
 test('unknown routes show a not-found page with a way home', async ({ page }) => {

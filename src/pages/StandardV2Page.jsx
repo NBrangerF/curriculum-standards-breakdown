@@ -293,7 +293,7 @@ export default function StandardV2Page() {
         return (
             <div className="page-content container">
                 <ErrorState title="标准未找到" message={state.message || `找不到编码为 ${code} 的标准`} />
-                <p className={styles.notFound}><Link to="/" className="btn btn-primary">返回首页</Link></p>
+                <p className={styles.notFound}><Link to="/standards" className="btn btn-primary">按学科查找课标</Link><Link to="/" className="btn btn-secondary">返回首页</Link></p>
             </div>
         )
     }

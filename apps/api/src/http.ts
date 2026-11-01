@@ -94,6 +94,7 @@ const FIELDSET_MIN_TIER: Record<string, AccessTier> = {
 }
 
 const rateBuckets = new Map<string, { count: number; resetAt: number }>()
+const MAX_RATE_BUCKETS = 5000
 interface MetricsEvent {
     timestamp: string
     request_id: string
@@ -210,7 +211,9 @@ function normalizeApiKeyId(value: string): string | null {
 }
 
 export const requestIdMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
-    const requestId = c.req.header('x-request-id') || crypto.randomUUID()
+    // a caller's id is echoed in headers, JSON and logs, so only a plain token is kept
+    const asked = c.req.header('x-request-id') || ''
+    const requestId = /^[\w.:-]{1,128}$/u.test(asked) ? asked : crypto.randomUUID()
     c.set('requestId', requestId)
     c.header('x-request-id', requestId)
     await next()
@@ -270,6 +273,8 @@ export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
     const bucket = rateBuckets.get(bucketKey)
     const current = bucket && bucket.resetAt > now ? bucket : { count: 0, resetAt }
     current.count += 1
+    // a long-lived instance sees many addresses; drop finished windows so the map does not grow for ever
+    if (rateBuckets.size >= MAX_RATE_BUCKETS) for (const [key, value] of rateBuckets) if (value.resetAt <= now) rateBuckets.delete(key)
     rateBuckets.set(bucketKey, current)
 
     const remaining = Math.max(0, limit - current.count)

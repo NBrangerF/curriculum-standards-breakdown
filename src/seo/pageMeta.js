@@ -209,7 +209,7 @@ export const STATIC_PAGE_META = {
     '/api': page('开放 API', '用 REST API 查询义务教育课程标准、可迁移技能和教材对照，可接入备课工具、智能体和 MCP。', '/api'),
     '/contact': page('联系我们', '反馈 kebiao 的数据问题、提出合作或接入需求。', '/contact'),
     '/smart-search': page('智能检索', '用一句话描述教学内容或学习目标，找到最相关的义务教育课程标准条目。', '/smart-search'),
-    '/search': page('检索课标', '按关键词、学科、学段和领域检索义务教育课程标准。', '/search')
+    '/search': page('对比课标', '按学科和学段并排对比义务教育课程标准；按关键词找课标请用 AI 检索。', '/search')
 }
 
 export const DEFAULT_PAGE_META = homeMeta()

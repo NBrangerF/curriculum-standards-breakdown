@@ -5,6 +5,7 @@ import type { Context } from 'hono'
 import { KEBIAO_TOOLS, ToolInputError, findTool, SITE, type ToolContext } from './ai-tools.js'
 
 const SUPPORTED_VERSIONS = ['2025-06-18', '2025-03-26', '2024-11-05']
+export const MAX_BATCH = 20
 const SERVER_INFO = { name: 'kebiao', title: 'kebiao 课标', version: '1.0.0', websiteUrl: SITE }
 const INSTRUCTIONS = [
     'kebiao 是中国义务教育课程标准（2022年版2025年修订）的结构化索引：14 门学科，每条标准对应一个学段的一个内容单元，下列「要点」逐字取自课标原文并标明页码。',
@@ -73,7 +74,8 @@ export async function handleMcp(c: Context, ctx: ToolContext) {
     }
     const batch = Array.isArray(body)
     const messages = (batch ? body : [body]) as JsonRpcMessage[]
-    if (!messages.length || messages.some(m => !m || typeof m !== 'object' || m.jsonrpc !== '2.0')) {
+    // one HTTP request counts once against the rate limit, so a batch may not carry thousands of calls
+    if (!messages.length || messages.length > MAX_BATCH || messages.some(m => !m || typeof m !== 'object' || m.jsonrpc !== '2.0')) {
         return c.json(failure(null, -32600, 'Invalid Request'), 400)
     }
     // Notifications and responses from the client get no reply.

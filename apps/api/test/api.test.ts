@@ -1707,6 +1707,10 @@ test('MCP transport handles notifications, batches and bad requests', async () =
     assert.equal(parse.status, 400)
     assert.equal((await json(parse)).error.code, -32700)
     assert.equal((await mcp({ id: 1, method: 'ping' })).status, 400)
+    // a batch counts once against the rate limit, so it is capped
+    const pings = (n: number) => Array.from({ length: n }, (_, id) => ({ jsonrpc: '2.0', id, method: 'ping' }))
+    assert.equal(((await (await mcp(pings(20))).json()) as any[]).length, 20)
+    assert.equal((await json(await mcp(pings(21)))).error.code, -32600)
     const get = await publicApp.request('/mcp')
     assert.equal(get.status, 405)
     assert.equal(get.headers.get('allow'), 'POST')
@@ -1788,4 +1792,18 @@ test('smart search drops what the model judges off-topic and shows its reasons',
     assert.ok(data.relevance_check.dropped > 0)
     assert.equal(data.relevance_summary.direct, data.results.filter((item: any) => item.match_strength === 'direct').length)
     assert.match(data.coverage_note, /AI 逐条读了/)
+})
+
+test('a request id from the caller is kept only when it is a plain token', async () => {
+    const plain = await publicApp.request('/api/v1/health', { headers: { 'x-request-id': 'trace-42.a:b' } })
+    assert.equal(plain.headers.get('x-request-id'), 'trace-42.a:b')
+    const odd = await publicApp.request('/api/v1/health', { headers: { 'x-request-id': '<script>alert(1)</script>' } })
+    assert.match(odd.headers.get('x-request-id') || '', /^[0-9a-f-]{36}$/u)
+    assert.equal((await json(odd)).meta.request_id, odd.headers.get('x-request-id'))
+})
+
+test('MCP search tools cut an oversized query instead of searching all of it', async () => {
+    const body = { jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'search_standards', arguments: { query: '分数'.repeat(50000) } } }
+    const reply = await json(await mcp(body))
+    assert.equal(reply.result.isError, false)
 })

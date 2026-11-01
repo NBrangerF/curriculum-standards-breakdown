@@ -33,3 +33,4 @@ jobs:
       - run: npm run lint:styles
       - run: npm run seo:test
       - run: npm run build
+      - run: node scripts/check-bundle-budget.mjs

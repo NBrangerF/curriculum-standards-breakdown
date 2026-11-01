@@ -479,7 +479,8 @@ function StandardDetailPage() {
                     message={error || `找不到代码为 ${code} 的标准`}
                 />
                 <div className={styles['not-found-actions']}>
-                    <Link to="/" className="btn btn-primary">返回首页</Link>
+                    <Link to="/standards" className="btn btn-primary">按学科查找课标</Link>
+                    <Link to="/" className="btn btn-secondary">返回首页</Link>
                 </div>
             </div>
         )
