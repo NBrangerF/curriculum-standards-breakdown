@@ -12,6 +12,11 @@ const FLOWS = [
         to: '/lesson-plan', action: '打开 AI 备课'
     },
     {
+        id: 'checks', title: '上课先问一道题，批完作业明天补', who: '数学老师 · 大班课堂',
+        steps: ['在课堂诊断里选年级、册和单元，挑一两道题；每个错误答案都对应一种常见错法。', '点「投影放映」：全班用手势 1–4、拇指或举草稿纸一起作答，按数字键记人数，翻页揭晓答案和“选错的同学可能怎么想”；也可以下载 PPT 放进自己的课件。', '批完作业，在「批完就用」里点看到的错法和大约多少人，生成明天开课 5 分钟：一道诊断题、比一比、阶梯练习。过几天点「回看」换一道题再查。'],
+        to: '/checks', action: '打开课堂诊断'
+    },
+    {
         id: 'unit', title: '做一个单元的整体设计', who: '任课老师 · 教研组单元备课',
         steps: ['在 AI 备课里选教材后，在「哪一课」里选「◆ 整个单元」。', '核对 AI 勾选的单元要点，设定单元总课时。', '起草单元大概念、基本问题、单元目标、表现性任务，并按教材里的课排好课时；每一课都能接着起草教案。'],
         to: '/lesson-plan', action: '打开 AI 备课'
@@ -38,7 +43,7 @@ export default function GuidePage() {
     return (
         <div className={`container ${concepts.page}`}>
             <header className={concepts.hero}>
-                <p className={concepts.kicker}>上手指南 · 五个常用场景</p>
+                <p className={concepts.kicker}>上手指南 · 六个常用场景</p>
                 <h1 className={concepts.title}>五分钟学会用 kebiao 备课</h1>
                 <p className={concepts.lede}>kebiao 从你手上的教材出发，把每一步都对到《义务教育课程标准（2022年版2025年修订）》的原文和页码。下面是一周里最常用的五件事，每件三步。AI 做的判断都标「待核验」，发现不对，点旁边的「报错」或<Link to="/feedback">告诉我们</Link>。</p>
                 <ul className={styles.jump} aria-label="场景">
