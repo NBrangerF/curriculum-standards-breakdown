@@ -7,7 +7,7 @@ import FavoriteButton from '../components/FavoriteButton'
 import ShareStandardButton from '../features/share/ShareStandardButton'
 import StandardTextbookLinks from '../features/textbooks/StandardTextbookLinks'
 import { loadPlatforms, platformsFor } from '../features/learning-resources/platforms'
-import { loadChecksIndex } from '../features/checks/checksData.js'
+import { loadChecksIndex, subjectOfPoint } from '../features/checks/checksData.js'
 import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
 import { v2StandardMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
@@ -275,12 +275,12 @@ export default function StandardV2Page() {
     const { standard, subject } = state
     usePageMeta(standard && subject ? v2StandardMeta(standard, subject) : null)
 
-    // 课堂诊断题 per 要点 (math only so far): a small index, so other subjects fetch nothing
+    // 课堂诊断题 per 要点: one small index for every subject (舞蹈、戏剧 have no bank yet)
     const [checkCounts, setCheckCounts] = useState({})
     useEffect(() => {
         let cancelled = false
         setCheckCounts({})
-        if (!standardCode.startsWith('MA-')) return undefined
+        if (!subjectOfPoint(standardCode)) return undefined
         loadChecksIndex().then(index => { if (!cancelled && index) setCheckCounts(index.by_point || {}) })
         return () => { cancelled = true }
     }, [standardCode])

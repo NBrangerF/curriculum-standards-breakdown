@@ -1706,12 +1706,12 @@ test('课堂诊断题: /api/v1/checks and the get_check_questions tool', async (
     assert.ok(first.answer && first.how_to_answer)
     if (first.type !== 'step') assert.ok(first.wrong_answers.every((wrong: any) => wrong.misconceptions.length && wrong.misconceptions.every((m: any) => m.name && m.why && m.move)))
 
-    const byGrade = await json(await get('/api/v1/checks?grade=7&term=上&limit=50'))
-    assert.ok(byGrade.data.length > 0 && byGrade.data.every((item: any) => item.grade === 7 && item.term === '上'))
+    const byGrade = await json(await get('/api/v1/checks?subject=数学&grade=7&term=上&limit=50'))
+    assert.ok(byGrade.data.length > 0 && byGrade.data.every((item: any) => item.subject_slug === 'math' && item.grade === 7 && item.term === '上'))
     const one = await json(await get(`/api/v1/checks/${first.id}`))
     assert.equal(one.data.id, first.id)
     assert.equal((await get('/api/v1/checks/no-such')).status, 404)
-    assert.equal((await get('/api/v1/checks?subject=history')).status, 404)
+    assert.equal((await get('/api/v1/checks?subject=dance')).status, 404)
 
     const call = async (args: Record<string, unknown>) => json(await mcp({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'get_check_questions', arguments: args } }))
     const tool = await call({ topic: '一元一次方程', limit: 2 })

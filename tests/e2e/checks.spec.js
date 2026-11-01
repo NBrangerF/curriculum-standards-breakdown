@@ -35,7 +35,7 @@ test('pick two questions, project them and count answers', async ({ page }) => {
     await page.keyboard.press('Escape')
     await expect(page.getByRole('complementary', { name: '教师提示' })).toHaveCount(0)
     await page.keyboard.press('Escape')
-    await expect(page).toHaveURL(/\/checks\?grade=5&term=/u)
+    await expect(page).toHaveURL(/\/checks\?subject=math&book=5/u)
 })
 
 test('a single question opens straight on the question and has a compare and a ladder slide', async ({ page }) => {

@@ -14,6 +14,8 @@ import { loadTextbookDetail } from '../features/textbooks/textbookApi'
 import { bookFields, saveMyBook } from '../features/mybook/myBook.js'
 import { alignmentUnits, pointIndex, v2Slug } from '../features/textbooks/alignmentModel'
 import UnitMap from '../features/textbooks/UnitMap'
+import { loadChecksIndex } from '../features/checks/checksData.js'
+import { bandOfGrade, subjectByName } from '../features/checks/subjects.js'
 import styles from './TextbookDetailPage.module.css'
 
 const RELATION_LABELS = {
@@ -57,6 +59,25 @@ function StandardScopeLinks({ standardCodes }) {
     )
 }
 
+// 课堂诊断题 for this volume (its 学段, for subjects filed by 学段), when the bank has some: a link, else ''
+function useChecksLink(book) {
+    const [href, setHref] = useState('')
+    const { subject: name, grade, volume, edition_name: edition } = book || {}
+    useEffect(() => {
+        setHref('')
+        const subject = subjectByName(name)
+        if (!subject || !grade || (!subject.bands && !subject.editions.includes(edition))) return undefined
+        const key = subject.bands ? bandOfGrade(subject, grade) : `${grade}${{ 上册: '上', 下册: '下', 全一册: '全' }[volume] || ''}`
+        let active = true
+        loadChecksIndex().then(index => {
+            const entry = index?.subjects?.find(item => item.slug === subject.slug)
+            if (active && entry?.books?.some(item => item.key === key && item.count)) setHref(`/checks?subject=${subject.slug}&book=${encodeURIComponent(key)}`)
+        })
+        return () => { active = false }
+    }, [name, grade, volume, edition])
+    return href
+}
+
 export default function TextbookDetailPage() {
     const { editionId } = useParams()
     const [book, setBook] = useState(null)
@@ -70,6 +91,7 @@ export default function TextbookDetailPage() {
     }, [editionId])
     // the book a teacher opens becomes 「我的书」 in the header
     useEffect(() => { if (book) saveMyBook(bookFields(book)) }, [book])
+    const checksHref = useChecksLink(book)
 
     // the 要点 the AI judged each unit to teach (国家平台 unit picks), keyed by kebiao unit
     const [aiPoints, setAiPoints] = useState(() => new Map())
@@ -161,7 +183,7 @@ export default function TextbookDetailPage() {
                         <div className={styles.actions}>
                             <Link className="btn btn-primary" to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>用这本书备课 →</Link>
                             {platformUnits.length ? <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/standards`}>课标对应表</Link> : null}
-                            {book.subject === '数学' && book.grade >= 1 && book.grade <= 9 ? <Link className="btn btn-secondary" to={`/checks?grade=${book.grade}&term=${String(book.volume || '').slice(0, 1) || '上'}`}>课堂诊断题</Link> : null}
+                            {checksHref ? <Link className="btn btn-secondary" to={checksHref}>课堂诊断题</Link> : null}
                             <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/read`}><BookOpenTextIcon size={18} aria-hidden="true" /> 看原书</Link>
                         </div>
                     </div>

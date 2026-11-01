@@ -1,18 +1,21 @@
-// 课堂诊断题: loading the bank, finding questions for a book unit or a 要点, and turning questions into slides.
-// The slide list is shared by the projector view and the PPT export, so both show the same thing.
+// 课堂诊断题: loading the banks (one per subject), finding questions for a book, a unit, a 要点 or a lesson,
+// and turning questions into slides. The slide list is shared by the projector view and the PPT export, so both show the same thing.
+import { bandOfGrade, subjectByName, subjectBySlug } from './subjects.js'
 
-let pendingBank = null
+const banks = new Map()
 let pendingIndex = null
 
 export function loadBank(slug = 'math') {
-    pendingBank ??= fetch(`/data/checks/${slug}.json`).then(response => {
-        if (!response.ok) throw new Error('诊断题加载失败，请刷新再试')
-        return response.json()
-    }).catch(error => {
-        pendingBank = null
-        throw error
-    })
-    return pendingBank
+    if (!banks.has(slug)) {
+        banks.set(slug, fetch(`/data/checks/${slug}.json`).then(response => {
+            if (!response.ok) throw new Error('诊断题加载失败，请刷新再试')
+            return response.json()
+        }).catch(error => {
+            banks.delete(slug)
+            throw error
+        }))
+    }
+    return banks.get(slug)
 }
 
 export function loadChecksIndex() {
@@ -23,6 +26,41 @@ export function loadChecksIndex() {
     return pendingIndex
 }
 
+const POINT_PREFIX = { MA: 'math', CN: 'chinese', EN: 'english', ML: 'morality_law', HI: 'history', GE: 'geography', SC: 'science', PH: 'physics', CH: 'chemistry', BI: 'biology', IT: 'it', PE: 'pe', LA: 'labor' }
+
+/** The bank a 要点 or standard code belongs to: CN-S2-RA-01.2 → chinese; 艺术 splits into 音乐 and 美术 by domain. */
+export function subjectOfPoint(code = '') {
+    const [prefix, , domain] = String(code).toUpperCase().split('-')
+    if (prefix === 'AR') return domain === 'MU' ? 'music' : domain === 'VA' || domain === 'FM' ? 'art' : null
+    return POINT_PREFIX[prefix] || null
+}
+
+/** The subject a page opens: ?subject=, else the 要点's subject, else 我的书's, else 数学. */
+export function pickSubject(index, { subject = '', point = '', myBook = null } = {}) {
+    const available = new Set((index?.subjects || []).map(entry => entry.slug))
+    const wanted = [subject, subjectOfPoint(point), subjectByName(myBook?.subject)?.slug, 'math']
+    return wanted.find(slug => slug && available.has(slug)) || index?.subjects?.[0]?.slug || 'math'
+}
+
+const TERM_OF_VOLUME = { 上册: '上', 下册: '下', 全一册: '全' }
+
+/** A volume's book key in a bank: 5下 or 9全, or the 学段 (3-4, 3-5) its grade falls in for subjects filed by 学段. */
+export function bookKeyFor(bank, grade, term) {
+    const subject = subjectBySlug(bank?.subject_slug)
+    if (subject?.bands) return grade ? bandOfGrade(subject, grade) || '' : ''
+    return grade && term ? `${grade}${TERM_OF_VOLUME[term] || term}` : ''
+}
+
+/** The book a page opens: ?book=, else ?grade=&term=, else 我的书, else the first book with questions. */
+export function pickBook(bank, { book = '', grade = '', term = '', myBook = null } = {}) {
+    const books = bank?.books || []
+    const has = key => books.some(entry => entry.key === key && entry.count)
+    const mine = myBook && myBook.subject === bank?.subject ? bookKeyFor(bank, myBook.grade, myBook.volume) : ''
+    return [book, bookKeyFor(bank, grade, term), mine].find(key => key && has(key)) || books.find(entry => entry.count)?.key || ''
+}
+
+export const bookOfKey = (bank, key) => bank?.books?.find(entry => entry.key === key) || null
+
 // How a class of 40–60 answers at once, without devices.
 export const TYPE_META = {
     choice: { label: '选择', how: '选几，就举几根手指', short: '手势 1–4' },
@@ -30,11 +68,6 @@ export const TYPE_META = {
     step: { label: '哪一步错', how: '从第几步开始错，就举几根手指', short: '手势 1–4' },
     write: { label: '写答案', how: '把答案写在草稿纸上，举起来', short: '草稿纸举起' }
 }
-
-export const TERMS = ['上', '下']
-export const BOOKS = Array.from({ length: 9 }, (_, index) => index + 1).flatMap(grade => TERMS.map(term => ({ grade, term, key: `${grade}${term}` })))
-export const GRADE_NAME = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九']
-export const bookLabel = ({ grade, term }) => `${GRADE_NAME[grade]}年级${term}册`
 
 /** The answer choices a class can show for one question: [{ key, label, correct, misconceptions: [id] }]. */
 export function choicesOf(item) {
@@ -60,9 +93,9 @@ export function misconceptionsOf(item) {
 
 const squash = text => String(text || '').replace(/[\s、，,（）()·—\-－]/gu, '')
 
-/** Questions for one book (grade + term), grouped by the unit titles of the 人教版 book when we know them. */
-export function questionsForBook(bank, grade, term) {
-    return bank.items.filter(item => item.grade === Number(grade) && item.term === term)
+/** Questions for one book (5下, 9全) or 学段 (3-4). */
+export function questionsForBook(bank, key) {
+    return bank.items.filter(item => item.book === key)
 }
 
 export function unitsOf(items) {
@@ -79,16 +112,21 @@ export function questionsForPoint(bank, code) {
     return bank.items.filter(item => item.points.includes(code))
 }
 
-/** Questions that fit a lesson of any edition: same 要点 first, then a title word match within the grade. */
+/**
+ * Questions that fit a lesson of any edition: same 要点 first, then a title word match within the grade.
+ * A question filed by 学段 also counts the lesson's grade being in its 学段.
+ */
 export function questionsForLesson(bank, { grade, title = '', chapters = [], points = [] }) {
     const text = squash([title, ...chapters].join(' '))
     return bank.items
         .map(item => {
+            const grades = item.grades || [item.grade]
             let score = 0
             if (item.points.some(code => points.includes(code))) score += 2
-            if (item.lessons.some(keyword => text.includes(squash(keyword)))) score += 3
+            if ((item.lessons || []).some(keyword => text.includes(squash(keyword)))) score += 3
             if (text.includes(squash(item.unit))) score += 1
-            if (grade && Math.abs(item.grade - grade) > 1) score = 0
+            if (item.grades && item.grades.includes(Number(grade))) score += 1
+            if (grade && !grades.some(value => Math.abs(value - grade) <= 1)) score = 0
             return { item, score }
         })
         .filter(entry => entry.score >= 3)

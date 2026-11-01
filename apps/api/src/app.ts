@@ -543,23 +543,26 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         return ok(c, version, lessons, { total: lessons.length, review_status: 'machine_judged' })
     })
 
-    // 课堂诊断题: whole-class check questions, each wrong answer tied to a misconception (kebiao 编写，数值经程序验算)
+    // 课堂诊断题: whole-class check questions, each wrong answer tied to a misconception (kebiao 编写，数值经程序验算).
+    // One subject (?subject=english or 英语), the subject of ?code=, or every subject.
     app.get('/api/v1/checks', async c => {
         const version = await repository.loadDataVersion()
-        const bank = await checks.bank(c.req.query('subject') || 'math')
-        if (!bank) return apiError(c, 404, 'not_found', '这门学科还没有课堂诊断题。')
+        const subject = c.req.query('subject') || ''
+        const code = c.req.query('code') || c.req.query('point') || ''
+        const banks = await checks.banksFor({ subject, code })
+        if (subject && !banks.length) return apiError(c, 404, 'not_found', '这门学科还没有课堂诊断题。')
         const grade = Number(c.req.query('grade') || 0)
         const limit = Math.min(50, Math.max(1, Number(c.req.query('limit') || 20)))
-        const found = findChecks(bank, { code: c.req.query('code') || c.req.query('point') || '', grade: Number.isInteger(grade) ? grade : 0, term: c.req.query('term') || '', q: c.req.query('q') || '' })
-        return ok(c, version, found.slice(0, limit).map(item => publicCheck(item, bank)), { total: found.length, source: 'kebiao 编写的课堂诊断题，题目对应人教版教材单元与课标要点' })
+        const query = { code, grade: Number.isInteger(grade) ? grade : 0, term: c.req.query('term') || '', q: c.req.query('q') || '' }
+        const found = banks.flatMap(bank => findChecks(bank, query).map(item => ({ item, bank })))
+        return ok(c, version, found.slice(0, limit).map(({ item, bank }) => publicCheck(item, bank)), { total: found.length, source: 'kebiao 编写的课堂诊断题，题目对应教材单元（信息科技、劳动、体育与健康、音乐、美术对应课标学段）与课标要点' })
     })
 
     app.get('/api/v1/checks/:id', async c => {
         const version = await repository.loadDataVersion()
-        const bank = await checks.bank('math')
-        const item = bank?.items.find(entry => entry.id === c.req.param('id'))
-        if (!bank || !item) return apiError(c, 404, 'not_found', '未找到这道诊断题。')
-        return ok(c, version, publicCheck(item, bank))
+        const found = await checks.byId(c.req.param('id'))
+        if (!found) return apiError(c, 404, 'not_found', '未找到这道诊断题。')
+        return ok(c, version, publicCheck(found.item, found.bank))
     })
 
     app.get('/api/v1/standards/:code/capability-graph', async c => {

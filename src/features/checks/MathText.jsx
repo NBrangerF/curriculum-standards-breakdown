@@ -1,9 +1,7 @@
-import { createContext, useContext } from 'react'
+import { useContext } from 'react'
+import { MarkupContext } from './markup.js'
 import { parseMath, plainMath } from './mathText.js'
 import styles from './MathText.module.css'
-
-/** The markup of the questions on screen: 'math' (fractions, powers, reaction conditions) or 'plain' (语文、英语… as written). */
-export const MarkupContext = createContext('math')
 
 function Nodes({ nodes }) {
     return nodes.map((node, index) => {

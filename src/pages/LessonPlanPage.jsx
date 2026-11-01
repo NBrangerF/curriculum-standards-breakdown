@@ -15,6 +15,7 @@ import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
 import { sourceLabel } from '../features/textbooks/alignmentModel'
 import { loadBank, presentHref, questionsForLesson } from '../features/checks/checksData.js'
+import { subjectBySlug } from '../features/checks/subjects.js'
 
 // the last 10 drafts stay in this browser; the old single-draft key is read once and folded in
 const STORE_KEY = 'kebiao.lessonPlan.history'
@@ -849,17 +850,18 @@ function PromptCopy({ context, selected, isUnit }) {
 }
 
 // 国家平台同步课, one line under the lesson: this lesson's own when the platform has it, else its unit's first few
-// 课堂诊断题 that fit this lesson (math): one question to project at the start or end of the lesson
+// 课堂诊断题 that fit this lesson: one question to project at the start or end of the lesson
 function LessonChecks({ context, selected }) {
     const [bank, setBank] = useState(null)
-    const isMath = context.lesson.subject_slug === 'math'
+    const slug = subjectBySlug(context.lesson.subject_slug)?.slug || ''
     useEffect(() => {
-        if (!isMath) return undefined
+        setBank(null)
+        if (!slug) return undefined
         let active = true
-        loadBank().then(value => { if (active) setBank(value) }).catch(() => {})
+        loadBank(slug).then(value => { if (active) setBank(value) }).catch(() => {})
         return () => { active = false }
-    }, [isMath])
-    if (!isMath || !bank) return null
+    }, [slug])
+    if (!slug || !bank) return null
     const items = questionsForLesson(bank, { grade: context.lesson.grade, title: context.lesson.title, chapters: [context.lesson.unit_title || ''], points: [...selected] }).slice(0, 3)
     if (!items.length) return null
     const back = `${window.location.pathname}${window.location.search}`

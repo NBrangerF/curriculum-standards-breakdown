@@ -2,12 +2,15 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { PageLoading } from '../components/StateComponents'
 import Presenter from '../features/checks/Presenter.jsx'
+import { MarkupContext } from '../features/checks/markup.js'
 import { buildDeck, loadBank } from '../features/checks/checksData.js'
+import { subjectOfId } from '../features/checks/subjects.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import styles from './ChecksPage.module.css'
 
 // /checks/present?q=ma-5b-05,ma-5b-08&with=contrast,ladder&title=… — the projector view, without the site's header.
+// One subject per deck (the bank of the first id).
 export default function ChecksPresentPage() {
     usePageMeta(STATIC_PAGE_META['/checks/present'])
     const [params] = useSearchParams()
@@ -18,12 +21,14 @@ export default function ChecksPresentPage() {
     const extras = (params.get('with') || '').split(',').filter(Boolean)
     const title = params.get('title') || ''
     const back = params.get('back') || '/checks'
+    // a deck is one subject's questions; the first id says which bank (ma-5b-05 → math)
+    const slug = subjectOfId(ids[0])?.slug || 'math'
 
     useEffect(() => {
         let active = true
-        loadBank().then(value => active && setBank(value)).catch(errorValue => active && setError(errorValue.message))
+        loadBank(slug).then(value => active && setBank(value)).catch(errorValue => active && setError(errorValue.message))
         return () => { active = false }
-    }, [])
+    }, [slug])
 
     const items = useMemo(() => (bank ? ids.map(id => bank.items.find(item => item.id === id)).filter(Boolean) : []), [bank, ids.join(',')])
     const slides = useMemo(() => buildDeck(items, { extras, title }), [items, extras.join(','), title])
@@ -46,7 +51,11 @@ export default function ChecksPresentPage() {
     }
     const download = async tallies => {
         const { downloadPptx } = await import('../features/checks/exportPptx.js')
-        await downloadPptx(slides, { title: title || items[0].topic, misconceptions: bank.misconceptions, tallies })
+        await downloadPptx(slides, { title: title || items[0].topic, misconceptions: bank.misconceptions, tallies, markup: bank.markup })
     }
-    return <Presenter slides={slides} title={title || items[0].topic} misconceptions={bank.misconceptions} onExit={exit} onDownload={download} />
+    return (
+        <MarkupContext.Provider value={bank.markup || 'math'}>
+            <Presenter slides={slides} title={title || items[0].topic} misconceptions={bank.misconceptions} onExit={exit} onDownload={download} />
+        </MarkupContext.Provider>
+    )
 }

@@ -511,12 +511,13 @@ paths:
       tags: [课堂诊断, 课程标准]
       operationId: listCheckQuestions
       summary: 查课堂诊断题
-      description: kebiao 编写的数学课堂诊断题（人教版 1–9 年级）。全班用手势、拇指或举草稿纸一起作答；每个错误答案对应一种常见错法，附为什么会错、课上怎么接、正确做法和三级阶梯练习。present_url 打开可投影的放映页。数值答案经程序验算。
+      description: kebiao 编写的课堂诊断题，15 个学科（语文、数学、英语、道德与法治、历史、地理、科学、物理、化学、生物学、信息科技、体育与健康、音乐、美术、劳动）。语文、道德与法治、历史按统编版单元，数学、英语、物理、化学、生物学、地理按人教版单元，科学按教科版单元；信息科技、劳动、体育与健康、音乐、美术按课标学段（grades 列出学段的年级）。全班用手势、拇指或举草稿纸一起作答；每个错误答案对应一种常见错法，附为什么会错、课上怎么接、正确做法和三级阶梯练习。present_url 打开可投影的放映页。数学、物理、化学的数值答案经程序验算。不给 subject 和 code 时在所有学科里找。
       security: []
       parameters:
-        - { name: code, in: query, required: false, schema: { type: string }, description: 课标要点或标准编码，如 MA-S3-NA-01.3 }
-        - { name: grade, in: query, required: false, schema: { type: integer, minimum: 1, maximum: 9 }, description: 年级 }
-        - { name: term, in: query, required: false, schema: { type: string, enum: [上, 下] }, description: 上册或下册 }
+        - { name: subject, in: query, required: false, schema: { type: string }, description: 学科，slug 或学科名，如 english 或 英语 }
+        - { name: code, in: query, required: false, schema: { type: string }, description: 课标要点或标准编码，如 MA-S3-NA-01.3；不给 subject 时按编码判断学科 }
+        - { name: grade, in: query, required: false, schema: { type: integer, minimum: 1, maximum: 9 }, description: 年级（按学段编排的学科，返回包含这个年级的学段的题） }
+        - { name: term, in: query, required: false, schema: { type: string, enum: [上, 下, 全] }, description: 上册、下册或全一册 }
         - { name: q, in: query, required: false, schema: { type: string }, description: 关键词，在课题、单元、题干和课时名中查找 }
         - { name: limit, in: query, required: false, schema: { type: integer, minimum: 1, maximum: 50, default: 20 } }
       responses:
@@ -534,7 +535,7 @@ paths:
       summary: 取一道课堂诊断题
       security: []
       parameters:
-        - { name: id, in: path, required: true, schema: { type: string }, description: 题目编号，如 ma-5b-05 }
+        - { name: id, in: path, required: true, schema: { type: string }, description: 题目编号，如 ma-5b-05、ph-9-03、la-3-4-02 }
       responses:
         "200":
           description: 一道诊断题

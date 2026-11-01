@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { PageLoading, ErrorState } from '../components/StateComponents'
-import { BOOKS, LEVELS, bookLabel, buildDeck, deleteRecord, loadBank, misconceptionsOf, planFromSeen, presentHref, questionsForBook, readRecords, saveRecord, unitsOf } from '../features/checks/checksData.js'
+import MathText from '../features/checks/MathText.jsx'
+import { MarkupContext } from '../features/checks/markup.js'
+import { LEVELS, bookOfKey, buildDeck, deleteRecord, loadBank, loadChecksIndex, misconceptionsOf, pickBook, pickSubject, planFromSeen, presentHref, questionsForBook, readRecords, saveRecord, unitsOf } from '../features/checks/checksData.js'
 import { useMyBook } from '../features/mybook/myBook.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
@@ -10,6 +12,7 @@ import styles from './ChecksPage.module.css'
 
 // 批完就用: while marking, tick the misconceptions seen and roughly how many students; get tomorrow's first five
 // minutes as slides (one check question, its reveal, 比一比, 阶梯练习). No names; records stay in this browser.
+// ?subject=english&book=7上&unit=… opens a unit; older links with ?grade=&term= still work.
 const PLAN_EXTRAS = ['contrast', 'ladder', 'first']
 
 function today() {
@@ -33,6 +36,7 @@ export default function ChecksAfterPage() {
     usePageMeta(STATIC_PAGE_META['/checks/after'])
     const [params, setParams] = useSearchParams()
     const myBook = useMyBook()
+    const [index, setIndex] = useState(null)
     const [bank, setBank] = useState(null)
     const [error, setError] = useState('')
     const [seen, setSeen] = useState({})
@@ -41,45 +45,55 @@ export default function ChecksAfterPage() {
     const [records, setRecords] = useState(() => readRecords())
     const [busy, setBusy] = useState(false)
 
+    const slug = index ? pickSubject(index, { subject: params.get('subject') || '', myBook }) : ''
+
     useEffect(() => {
         let active = true
-        loadBank().then(value => active && setBank(value)).catch(errorValue => active && setError(errorValue.message))
+        loadChecksIndex().then(value => {
+            if (!active) return
+            if (value) setIndex(value)
+            else setError('诊断题加载失败，请刷新再试')
+        })
         return () => { active = false }
     }, [])
 
-    const counts = useMemo(() => {
-        const map = new Map()
-        for (const item of bank?.items || []) map.set(`${item.grade}${item.term}`, (map.get(`${item.grade}${item.term}`) || 0) + 1)
-        return map
-    }, [bank])
+    useEffect(() => {
+        if (!slug) return undefined
+        let active = true
+        loadBank(slug).then(value => active && setBank(value)).catch(errorValue => active && setError(errorValue.message))
+        return () => { active = false }
+    }, [slug])
 
-    const fromLink = params.get('grade') && params.get('term') ? `${params.get('grade')}${params.get('term')}` : ''
-    const fromMyBook = myBook?.subject === '数学' && myBook.grade ? `${myBook.grade}${String(myBook.volume || '').slice(0, 1)}` : ''
-    const bookKey = fromLink || (counts.get(fromMyBook) ? fromMyBook : BOOKS.find(book => counts.get(book.key))?.key || '5下')
-    const book = BOOKS.find(entry => entry.key === bookKey) || BOOKS[0]
-    const units = useMemo(() => (bank ? unitsOf(questionsForBook(bank, book.grade, book.term)) : []), [bank, book.grade, book.term])
+    const ready = Boolean(bank && bank.subject_slug === slug)
+    const bookKey = useMemo(() => (ready ? pickBook(bank, { book: params.get('book') || '', grade: params.get('grade') || '', term: params.get('term') || '', myBook }) : ''), [ready, bank, params, myBook])
+    const book = ready ? bookOfKey(bank, bookKey) : null
+    const units = useMemo(() => (ready ? unitsOf(questionsForBook(bank, bookKey)) : []), [ready, bank, bookKey])
     const unitName = units.some(unit => unit.unit === params.get('unit')) ? params.get('unit') : units[0]?.unit || ''
     const unit = units.find(entry => entry.unit === unitName)
     const unitMisconceptions = useMemo(() => [...new Set((unit?.items || []).flatMap(misconceptionsOf))], [unit])
 
     if (error) return <ErrorState title="批完就用加载失败" message={error} />
-    if (!bank) return <PageLoading message="正在打开批完就用" />
+    if (!index || !ready) return <PageLoading message="正在打开批完就用" />
 
     const setQuery = patch => {
         setPlan(null)
         setSeen({})
-        setParams({ grade: String(patch.grade ?? book.grade), term: patch.term ?? book.term, ...(patch.unit ? { unit: patch.unit } : {}) }, { replace: true })
+        const subject = patch.subject ?? slug
+        const nextBook = patch.subject ? '' : patch.book ?? bookKey
+        setParams({ subject, ...(nextBook ? { book: nextBook } : {}), ...(patch.unit ? { unit: patch.unit } : {}) }, { replace: true })
     }
     const marked = Object.values(seen).some(level => level > 0)
     const deckTitle = `${unitName} · 明天开课 5 分钟`
-    const back = `/checks/after?grade=${book.grade}&term=${book.term}&unit=${encodeURIComponent(unitName)}`
+    const back = `/checks/after?subject=${slug}&book=${encodeURIComponent(bookKey)}&unit=${encodeURIComponent(unitName)}`
+    // records of this subject (older records, from before other subjects, are math)
+    const ownRecords = records.filter(record => (record.subject || 'math') === slug)
 
     const generate = () => {
         const next = planFromSeen(unit.items, seen)
         const missing = Object.entries(seen).filter(([id, level]) => level > 0 && !next.focus.includes(id)).map(([id]) => id)
         setPlan({ ...next, missing })
         if (next.items.length) {
-            const record = { id: `${Date.now()}`, date: today(), grade: book.grade, term: book.term, unit: unitName, seen, note: note.trim(), items: next.items.map(item => item.id), focus: next.focus }
+            const record = { id: `${Date.now()}`, date: today(), subject: slug, book: bookKey, label: `${bank.subject} ${book?.short || ''}`, unit: unitName, seen, note: note.trim(), items: next.items.map(item => item.id), focus: next.focus }
             setRecords(saveRecord(record))
         }
     }
@@ -87,12 +101,13 @@ export default function ChecksAfterPage() {
         setBusy(true)
         try {
             const { downloadPptx } = await import('../features/checks/exportPptx.js')
-            await downloadPptx(buildDeck(items, { extras, title }), { title, misconceptions: bank.misconceptions })
+            await downloadPptx(buildDeck(items, { extras, title }), { title, misconceptions: bank.misconceptions, markup: bank.markup })
         } finally { setBusy(false) }
     }
     const nameOf = id => bank.misconceptions[id]?.name || id
 
     return (
+        <MarkupContext.Provider value={bank.markup || 'math'}>
         <div className={`container ${concepts.page}`}>
             <header className={concepts.hero}>
                 <p className={concepts.kicker}>批完就用 · 记录只存在这台电脑上</p>
@@ -100,17 +115,20 @@ export default function ChecksAfterPage() {
                 <p className={concepts.lede}>
                     边批边点：这份作业里出现了哪些错法，大约多少人。不用记学生名字，也不用逐题数人数。点“生成明天开课 5 分钟”，就得到一组能直接投影的幻灯片：先用一道题看全班还会不会这样错，再把两种做法放在一起比一比，最后全班在练习本上做三级阶梯练习。
                 </p>
-                <p className={styles.afterLink}><Link to={`/checks?grade=${book.grade}&term=${book.term}`}>← 回到课堂诊断题库</Link></p>
+                <p className={styles.afterLink}><Link to={`/checks?subject=${slug}${bookKey ? `&book=${encodeURIComponent(bookKey)}` : ''}`}>← 回到课堂诊断题库</Link></p>
             </header>
 
             <div className={styles.after}>
                 <div className={styles.field}>
-                    <span>批的是哪一册</span>
-                    <nav className={`${styles.books} ${styles.booksInline}`} aria-label="选年级和册">
-                        {BOOKS.map(entry => {
-                            const count = counts.get(entry.key) || 0
-                            return <button key={entry.key} type="button" aria-pressed={entry.key === book.key} disabled={!count} onClick={() => setQuery({ grade: entry.grade, term: entry.term })} title={count ? `${count} 题` : '还在准备'}>{entry.grade}{entry.term}</button>
-                        })}
+                    <span>哪一科</span>
+                    <nav className={`${styles.subjects} ${styles.booksInline}`} aria-label="选学科">
+                        {index.subjects.map(entry => <button key={entry.slug} type="button" aria-pressed={entry.slug === slug} onClick={() => setQuery({ subject: entry.slug })}>{entry.name}</button>)}
+                    </nav>
+                </div>
+                <div className={styles.field}>
+                    <span>{bank.books.some(entry => entry.grades?.length > 1) ? '哪个学段' : '批的是哪一册'}</span>
+                    <nav className={`${styles.books} ${styles.booksInline}`} aria-label={`选${bank.subject}的年级`}>
+                        {bank.books.map(entry => <button key={entry.key} type="button" aria-pressed={entry.key === bookKey} onClick={() => setQuery({ book: entry.key })} title={`${entry.label} · ${entry.count} 题`}>{entry.short}</button>)}
                     </nav>
                 </div>
                 {units.length ? (
@@ -120,7 +138,7 @@ export default function ChecksAfterPage() {
                             {units.map(entry => <option key={entry.unit} value={entry.unit}>{entry.unit}</option>)}
                         </select>
                     </label>
-                ) : <p className={styles.empty}>{bookLabel(book)}的诊断题还在准备。</p>}
+                ) : <p className={styles.empty}>{bank.subject}{book?.label || ''}的诊断题还在准备。</p>}
 
                 {unit ? (
                     <fieldset className={`${styles.field} ${styles.seenField}`}>
@@ -128,7 +146,7 @@ export default function ChecksAfterPage() {
                         <ul className={styles.seenList}>
                             {unitMisconceptions.map(id => (
                                 <li key={id} className={styles.seenRow}>
-                                    <span className={styles.seenName}><b>{nameOf(id)}</b><span>{bank.misconceptions[id]?.why}</span></span>
+                                    <span className={styles.seenName}><b>{nameOf(id)}</b><MathText text={bank.misconceptions[id]?.why} /></span>
                                     <span className={styles.levels} role="group" aria-label={`${nameOf(id)}：大约多少人`}>
                                         {LEVELS.map(level => (
                                             <button key={level.value} type="button" aria-pressed={(seen[id] || 0) === level.value} onClick={() => { setPlan(null); setSeen(current => ({ ...current, [id]: level.value })) }}>{level.label}</button>
@@ -177,21 +195,21 @@ export default function ChecksAfterPage() {
                     </section>
                 ) : null}
 
-                {records.length ? (
+                {ownRecords.length ? (
                     <section aria-labelledby="after-history">
                         <div className={concepts.blockHead}>
                             <h2 id="after-history">最近的记录</h2>
                             <p>“回看”会换一道针对同样错法的题，看补救后还有多少人这样错。</p>
                         </div>
                         <ul className={styles.history}>
-                            {records.map(record => {
+                            {ownRecords.map(record => {
                                 const items = record.items.map(id => bank.items.find(item => item.id === id)).filter(Boolean)
                                 const recheck = recheckOf(bank, record)
                                 const title = `${record.unit} · ${record.date}`
                                 return (
                                     <li key={record.id}>
                                         <time dateTime={record.date}>{record.date}</time>
-                                        <b>{record.grade}{record.term} {record.unit}</b>
+                                        <b>{record.label || `${record.grade}${record.term}`} {record.unit}</b>
                                         <span>{record.focus.map(nameOf).join('、')}{record.note ? `；${record.note}` : ''}</span>
                                         {items.length ? <Link to={presentHref(items.map(item => item.id), { extras: PLAN_EXTRAS, title, back: '/checks/after' })}>再放一次</Link> : null}
                                         {recheck.length ? <Link to={presentHref(recheck.map(item => item.id), { title: `回看 · ${record.unit}`, back: '/checks/after' })}>回看：再查一次</Link> : null}
@@ -204,5 +222,6 @@ export default function ChecksAfterPage() {
                 ) : null}
             </div>
         </div>
+        </MarkupContext.Provider>
     )
 }

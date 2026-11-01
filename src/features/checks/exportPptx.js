@@ -1,6 +1,6 @@
 // Editable PPT of the same slides the projector view shows (16:9, 微软雅黑, light theme).
 // Steps that the projector shows on a key press (marking 比一比, showing 阶梯练习 answers) become a second slide.
-// Fractions are written a/b and powers as x², so every box stays plain, editable text.
+// Fractions are written a/b and powers as x², so every box stays plain, editable text; 语文、英语… go in as written.
 import { plainMath } from './mathText.js'
 import { TYPE_META, choicesOf, misconceptionsOf } from './checksData.js'
 
@@ -13,7 +13,8 @@ const W = 13.333
 const PAD = 0.7
 const LEVELS = ['① 基础', '② 巩固', '③ 挑战']
 
-const t = text => plainMath(text)
+let markup = 'math'
+const t = text => (markup === 'plain' ? String(text ?? '') : plainMath(text))
 
 function frame(pptx, label, topic) {
     const slide = pptx.addSlide()
@@ -111,7 +112,8 @@ function notesFor(item, misconceptions) {
     return lines.join('\n')
 }
 
-export async function downloadPptx(slides, { title = '课堂诊断', misconceptions = {}, tallies = {} } = {}) {
+export async function downloadPptx(slides, { title = '课堂诊断', misconceptions = {}, tallies = {}, markup: textMarkup = 'math' } = {}) {
+    markup = textMarkup
     const { default: PptxGenJS } = await import('pptxgenjs')
     const pptx = new PptxGenJS()
     pptx.layout = 'LAYOUT_WIDE'
