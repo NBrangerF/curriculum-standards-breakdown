@@ -41,6 +41,48 @@
     border-top: max(1px, 0.07em) solid currentColor;
 }
 
+.over {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    vertical-align: middle;
+    margin: 0 0.25em;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.overLabel {
+    padding: 0 0.35em 0.1em;
+    font-size: 0.62em;
+}
+
+.overEquals {
+    min-width: 2.4em;
+    height: 0.3em;
+    border-top: max(1px, 0.07em) solid currentColor;
+    border-bottom: max(1px, 0.07em) solid currentColor;
+}
+
+.overArrow {
+    position: relative;
+    min-width: 2.4em;
+    height: 0.3em;
+    border-top: max(1px, 0.07em) solid currentColor;
+    transform: translateY(0.15em);
+}
+
+.overArrow::after {
+    position: absolute;
+    top: -0.25em;
+    right: -0.05em;
+    width: 0.4em;
+    height: 0.4em;
+    border-top: max(1px, 0.07em) solid currentColor;
+    border-right: max(1px, 0.07em) solid currentColor;
+    transform: translateY(-0.03em) rotate(45deg);
+    content: "";
+}
+
 .sr {
     position: absolute;
     width: 1px;

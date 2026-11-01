@@ -5,6 +5,7 @@
 //   x^2  a^{n+1} superscript (one digit run or one letter, or a braced group)
 //   x_1          subscript, same rules
 //   √2  √{x+1}   square root over one token or a braced group
+//   =[点燃]=  -[加热]->  a reaction condition over an equals sign or an arrow (chemistry)
 // Anything else is text. Braces without a top-level slash only group.
 
 function readGroup(source, start) {
@@ -38,7 +39,7 @@ function readToken(source, start) {
     return [match[0], start + match[0].length]
 }
 
-/** Parse markup into nodes: { t: 'text', v } | { t: 'frac', n, d } | { t: 'sup'|'sub'|'sqrt', v }. */
+/** Parse markup into nodes: { t: 'text', v } | { t: 'frac', n, d } | { t: 'sup'|'sub'|'sqrt', v } | { t: 'over', v, arrow }. */
 export function parseMath(source = '') {
     const nodes = []
     let text = ''
@@ -63,6 +64,14 @@ export function parseMath(source = '') {
             flush()
             nodes.push({ t: char === '^' ? 'sup' : 'sub', v: parseMath(inner) })
             index = next
+        } else if ((char === '=' || char === '-') && value[index + 1] === '[') {
+            // =[点燃]= or -[加热]->: the condition is plain text
+            const close = value.indexOf(']', index + 2)
+            const tail = char === '=' ? '=' : '->'
+            if (close <= index + 2 || !value.startsWith(tail, close + 1)) { text += char; index += 1; continue }
+            flush()
+            nodes.push({ t: 'over', v: value.slice(index + 2, close), arrow: char === '-' })
+            index = close + 1 + tail.length
         } else if (char === '√' && index + 1 < value.length && /[0-9a-zA-Z{]/u.test(value[index + 1])) {
             const [inner, next] = readToken(value, index + 1)
             flush()
@@ -101,7 +110,8 @@ function linearText(nodes) {
         } else if (node.t === 'sqrt') {
             const inner = linearText(node.v)
             out += `√${/^[0-9]+$|^[a-zA-Z]$/u.test(inner) ? inner : `(${inner})`}`
-        } else if (node.t === 'sup') out += script(linearText(node.v), SUP, '^')
+        } else if (node.t === 'over') out += node.arrow ? `─${node.v}→` : `═${node.v}═`
+        else if (node.t === 'sup') out += script(linearText(node.v), SUP, '^')
         else out += script(linearText(node.v), SUB, '_')
     }
     return out
