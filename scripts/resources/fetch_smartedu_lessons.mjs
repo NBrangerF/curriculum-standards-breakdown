@@ -190,6 +190,16 @@ for (const book of books) {
     }
     // OCR'd books must win clearly: at least five titles (or numbered chapters) and twice the next edition's score
     if (fromOcr && best && !(best.score >= 5 && best.overlap >= 5 && best.score >= 2 * runnerUp)) best = null
+    // The platform has opened the newer printing's list (新教材-…) but published nothing in it yet, and the older list
+    // barely fits this book (教科 科学5上 2025: 5 of 32 titles): its lessons would point to pages the book does not have.
+    // No list until the newer one is out. Only books whose pages carry real text are judged this way: a scan with no
+    // readable text (音乐 简谱 books) fits no list by text, right or wrong.
+    const unpublished = trees.find(item => item.candidate.title.startsWith('新教材') && !item.nodes.length)
+    const readable = pages.length && (bookText.match(/[一-鿿]/gu) || []).length / pages.length >= 40
+    if (best && readable && unpublished && !best.candidate.title.startsWith('新教材') && best.overlap * 2 < best.titled) {
+        console.log(`  · ${book.title}: 「${unpublished.candidate.title}」 has no lessons yet and 「${best.candidate.title}」 shares only ${best.overlap} of ${best.titled} titles`)
+        best = null
+    }
     // one candidate with the same subject, edition, grade, volume and editor is the book even when our 目录 is too sparse to compare
     const sole = best && best.variant >= 0 && (candidates.length === 1 || (best.overlap === 0 && !best.tie && best.variant > 0))
     if (!best || best.variant < 0 || (best.overlap < 2 && !sole) || (bookText && best.tie && best.overlap < 3)) {
