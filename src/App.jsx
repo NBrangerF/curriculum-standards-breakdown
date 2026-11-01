@@ -86,7 +86,8 @@ function App() {
     return (
         <SkyProvider>
         <div className="app">
-            <a className="skip-link" href="#main-content">跳到主要内容</a>
+            {/* the projector view starts in its slides; the hidden skip link's shadow would show in the corner */}
+            {bare ? null : <a className="skip-link" href="#main-content">跳到主要内容</a>}
             {bare ? null : <Header />}
             <main className="main-content" id="main-content">
                 <DefaultPageMeta />
