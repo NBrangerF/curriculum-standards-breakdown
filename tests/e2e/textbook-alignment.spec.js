@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import { readFile } from 'node:fs/promises'
+import { lessonKey } from '../../src/features/textbooks/alignmentModel.js'
 
 // 教材与课标对应: a book's 课标对应表 lists each lesson's 要点 with the textbook's own words and page, and hands a
 // 教研员 the 审校表; 「这张表是怎么做的」, folded under its header, explains the method and the checks.
@@ -7,7 +8,9 @@ const EDITION = 'ed_006d5ed61c055eb63857'
 
 test('课标对应表: each lesson with its 要点, the quote and the page; Word and the 审校表 download', async ({ page }) => {
     const record = JSON.parse(await readFile(`public/data/textbooks/national-lessons/${EDITION}.json`, 'utf8'))
-    const lesson = record.lessons.find(item => item.align?.some(row => row[1] === 'T' && row[3] === 'book'))
+    // a lesson the platform lists once: copies of one lesson (「1.1正数和负数」「正数和负数」) are shown merged
+    const keys = record.lessons.map(item => lessonKey(item.title))
+    const lesson = record.lessons.find(item => keys.filter(key => key === lessonKey(item.title)).length === 1 && item.align?.some(row => row[1] === 'T' && row[3] === 'book'))
     test.skip(!lesson, 'no judged lesson in the local data')
     const [code, , quote, , pdfPage] = lesson.align.find(row => row[1] === 'T' && row[3] === 'book')
     await page.goto(`/textbooks/${EDITION}/standards`)

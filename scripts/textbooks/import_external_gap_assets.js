@@ -181,11 +181,13 @@ async function acquireSource({ source, catalog, root, runId, journalPath }) {
 
   const lockRow = {
     ...target,
+    // a slot whose series changed with the 2022 revision (人美版 美术, 人音版 音乐) keeps its id but names the book it now holds
+    edition_name: source.edition_name || target.edition_name,
     source_id: source.source_id,
     evidence_id: `external_${source.source_id}`,
     source_repository: ['smartedu_preview_pdf', 'local_platform_pdf'].includes(source.kind) ? '国家中小学智慧教育平台' : '公开网盘镜像',
     source_commit: null,
-    source_url: source.share_url || `https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=${source.official_catalog_id}${source.kind === 'local_platform_pdf' ? '&catalogType=tchMaterial&subCatalog=dzjc' : ''}`,
+    source_url: source.source_url || source.share_url || `https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=${source.official_catalog_id}${source.kind === 'local_platform_pdf' ? '&catalogType=tchMaterial&subCatalog=dzjc' : ''}`,
     source_detail_url: source.detail_url || source.share_url,
     source_kind: source.kind,
     source_sha1: source.source_sha1 || null,

@@ -375,14 +375,14 @@ test('FileCurriculumRepository matches plans to real standards with explanations
 test('FileTextbookRepository exposes specific evidence and deduplicated curriculum scopes', async () => {
     const repository = new FileTextbookRepository(publicDataRoot)
     const catalog = await repository.loadCatalog()
-    assert.equal(catalog.items.length, 141)
+    assert.equal(catalog.items.length, 144)
 
     const detail = await repository.get('ed_9d4028e2ab482520d0aa')
     assert.ok(detail)
     assert.ok(detail.standard_scopes.length > 0)
     assert.ok(detail.alignments.some(alignment => alignment.review_status === 'machine_checked'))
 
-    const links = await repository.getTextbooksForStandard('MA-H4G7-AL-003')
+    const links = await repository.getTextbooksForStandard('MA-D2-AL-002')
     assert.ok(links.some(link => link.evidence_granularity === 'textbook_page_evidence'))
     assert.ok(links.some(link => typeof link.evidence_excerpt === 'string' && link.evidence_excerpt.length > 0))
     assert.ok(links.some(link => link.evidence_granularity === 'textbook_grade_band_scope'))
@@ -392,16 +392,17 @@ test('FileTextbookRepository exposes specific evidence and deduplicated curricul
 
 test('FileTextbookRepository resolves page context without promoting curriculum scope', async () => {
     const repository = new FileTextbookRepository(publicDataRoot)
-    const context = await repository.getPageContext('ed_006d5ed61c055eb63857', 121)
+    // 人教版 数学四年级下册 (not yet reprinted): PDF page 55 is printed page 50
+    const context = await repository.getPageContext('ed_e8d4a6502261fd8416ff', 55)
     assert.ok(context)
-    assert.equal(context.pdf_page, 121)
-    assert.equal(context.printed_page, '114')
+    assert.equal(context.pdf_page, 55)
+    assert.equal(context.printed_page, '50')
     assert.ok(context.active_nodes.length > 0)
     assert.deepEqual(
         context.alignments.map(alignment => alignment.standard_code).sort(),
-        ['MA-H4G7-GE-002', 'MA-H4G7-GE-037']
+        ['MA-D2-AL-002']
     )
-    assert.ok(context.alignments.every(alignment => alignment.review_status === 'approved'))
+    assert.ok(context.alignments.every(alignment => alignment.review_status === 'machine_checked'))
     assert.ok(context.alignments.every(alignment => !['curriculum_scope', 'adjacent_curriculum_scope'].includes(alignment.relation_type)))
     assert.ok(context.standard_scopes.length > 0)
 
@@ -421,7 +422,7 @@ test('FileTextbookRepository resolves page context without promoting curriculum 
     const reverse = await repository.getTextbooksForStandard(concreteAlignment.standard_code)
     assert.ok(reverse.some(link => link.alignment_id === concreteAlignment.alignment_id))
 
-    const fineGrained = await repository.getPageContext('ed_9d4028e2ab482520d0aa', 70)
+    const fineGrained = await repository.getPageContext('ed_9d4028e2ab482520d0aa', 9)
     assert.ok(fineGrained)
     const pageEvidence = fineGrained.alignments.find(alignment => alignment.evidence_level === 'L3')
     assert.ok(pageEvidence)
@@ -449,7 +450,12 @@ test('textbook detail schema accepts split heading merge TOC provenance', async 
     const repository = new FileTextbookRepository(publicDataRoot)
     const detail = await repository.get('ed_ba25683b949d491afb3c')
     assert.ok(detail)
-    assert.ok(detail.toc.some(entry => entry.source === 'heading_match+split_heading_merge'))
+    // this book's 2026 printing takes its 目录 from the 国家平台 同步课 list; no published 目录 uses the split-heading
+    // merge any more, but the schema still accepts it
+    assert.ok(detail.toc.some(entry => entry.source === 'smartedu_sync_lessons'))
+    const record = structuredClone(detail) as unknown as { toc: Array<Record<string, unknown>> }
+    record.toc[0] = { ...record.toc[0], source: 'heading_match+split_heading_merge' }
+    assert.equal(TextbookDetailRecordSchema.parse(record).toc[0].source, 'heading_match+split_heading_merge')
 })
 
 const learningFixture: KnowledgeGraphDataset = {

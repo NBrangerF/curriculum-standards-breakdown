@@ -448,17 +448,18 @@ test('textbook context API returns page-specific alignments and keeps scopes sep
     const request = (path: string) => textbookApp.request(path, {
         headers: { 'x-forwarded-for': '203.0.113.121' }
     })
-    const response = await request('/api/v1/textbooks/ed_006d5ed61c055eb63857/context?page=121')
+    // 人教版 数学四年级下册 (not yet reprinted): PDF page 55 is printed page 50
+    const response = await request('/api/v1/textbooks/ed_e8d4a6502261fd8416ff/context?page=55')
     assert.equal(response.status, 200)
     const payload = await json(response)
-    assert.equal(payload.data.pdf_page, 121)
-    assert.equal(payload.data.printed_page, '114')
+    assert.equal(payload.data.pdf_page, 55)
+    assert.equal(payload.data.printed_page, '50')
     assert.ok(payload.data.active_nodes.length > 0)
     assert.deepEqual(
         payload.data.alignments.map((item: Record<string, any>) => item.standard_code).sort(),
-        ['MA-H4G7-GE-002', 'MA-H4G7-GE-037']
+        ['MA-D2-AL-002']
     )
-    assert.ok(payload.data.alignments.every((item: Record<string, any>) => item.review_status === 'approved'))
+    assert.ok(payload.data.alignments.every((item: Record<string, any>) => item.review_status === 'machine_checked'))
     assert.ok(payload.data.alignments.every((item: Record<string, any>) => !['curriculum_scope', 'adjacent_curriculum_scope'].includes(item.relation_type)))
     assert.ok(payload.data.standard_scopes.length > 0)
 
@@ -479,7 +480,7 @@ test('textbook context API returns page-specific alignments and keeps scopes sep
     const reversePayload = await json(reverseResponse)
     assert.ok(reversePayload.data.some((item: Record<string, any>) => item.alignment_id === alignment.alignment_id))
 
-    const fineResponse = await request('/api/v1/textbooks/ed_9d4028e2ab482520d0aa/context?page=70')
+    const fineResponse = await request('/api/v1/textbooks/ed_9d4028e2ab482520d0aa/context?page=9')
     assert.equal(fineResponse.status, 200)
     const finePayload = await json(fineResponse)
     const pageEvidence = finePayload.data.alignments.find((item: Record<string, any>) => item.evidence_level === 'L3')
