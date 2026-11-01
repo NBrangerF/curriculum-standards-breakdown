@@ -92,55 +92,28 @@
     -webkit-line-clamp: 2;
 }
 
-/* Two doors: the teacher's week and the 师范生's route */
-.doors {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 28px;
-    margin-top: 32px;
-    padding-top: 22px;
+/* search sits under the book, a step quieter than it */
+.search {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 36px;
+    padding-top: 28px;
     border-top: 1px solid var(--kb-line);
 }
 
-.doorTitle {
-    margin: 6px 0 8px;
-    color: var(--kb-moon);
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 900;
-    line-height: 1.35;
-}
-
-.doors ul { margin: 0; padding: 0; list-style: none; }
-
-.doors a {
-    display: grid;
-    min-height: 44px;
-    align-content: center;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--kb-line);
-    color: var(--kb-mist);
-    text-decoration: none;
-}
-
-.doors b { color: var(--kb-moon); font-size: 15px; font-weight: 600; transition: color 0.2s; }
-.doors span { color: var(--kb-dim); font-size: 13px; line-height: 1.5; }
-.doors a:hover b,
-.doors a:focus-visible b { color: var(--kb-gold); }
-
-.search { display: flex; flex-wrap: wrap; gap: 8px; }
 .field { position: relative; min-width: 0; flex: 1 1 240px; }
 
 .field input {
     width: 100%;
-    height: 54px;
+    height: 48px;
     padding: 0 16px 0 46px;
-    border: 1px solid var(--kb-line-strong);
-    border-radius: 14px;
-    background: rgba(14, 17, 24, 0.75);
+    border: 1px solid var(--kb-line);
+    border-radius: 12px;
+    background: rgba(14, 17, 24, 0.6);
     color: var(--kb-moon);
     font: inherit;
-    font-size: 16px;
+    font-size: 15px;
     backdrop-filter: blur(10px);
 }
 
@@ -158,19 +131,19 @@
 }
 
 .go {
-    height: 54px;
-    padding: 0 24px;
-    border: 1px solid var(--kb-line-strong);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--kb-moon);
+    height: 48px;
+    padding: 0 20px;
+    border: 1px solid var(--kb-line);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--kb-mist);
     font: inherit;
-    font-size: 16px;
-    font-weight: 700;
-    transition: transform 0.2s var(--kb-ease), border-color 0.2s;
+    font-size: 15px;
+    font-weight: 600;
+    transition: transform 0.2s var(--kb-ease), border-color 0.2s, color 0.2s;
 }
 
-.go:hover { border-color: var(--kb-gold); transform: translateY(-1px); }
+.go:hover { border-color: var(--kb-gold); color: var(--kb-moon); transform: translateY(-1px); }
 
 .match {
     min-height: 1.6em;
@@ -181,7 +154,7 @@
 }
 
 .entryLabel {
-    margin: 30px 0 10px;
+    margin: 56px 0 12px;
     color: var(--kb-dim);
     font-size: 13px;
     letter-spacing: 0.2em;
@@ -190,7 +163,7 @@
 
 .srail {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 8px;
     margin: 0;
     padding: 0;
@@ -572,10 +545,6 @@
     letter-spacing: 0.04em;
 }
 
-@media (max-width: 520px) {
-    .doors { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-}
-
 @media (max-width: 900px) {
     .featureGrid { grid-template-columns: minmax(0, 1fr); }
     .paper { transform: rotateY(-8deg) rotateX(5deg); }
@@ -596,6 +565,7 @@
         font-size: 13.5px;
     }
 
+    .srail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .nm { gap: 7px; }
     .ct { padding-left: 14px; font-size: 16px; }
 

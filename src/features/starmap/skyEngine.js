@@ -89,7 +89,9 @@ export function createSkyEngine(canvas, tipEl) {
     // Home's 课标 glyph: right of the 540px copy column on desktop (HomePage .heroCopy), a band under the header on phones
     const glyphRegion = () => {
         if (mobile) return { x: W * 0.06, y: 70, w: W * 0.88, h: Math.min(H * 0.2, 170) }
-        const x = Math.max(W * 0.47, (W - 1240) / 2 + 56 + 540 + 24)
+        // right of the 540px home copy; the 1240px wrap's side padding is clamp(16px, 4vw, 56px), not always 56
+        const left = Math.max(0, (W - 1240) / 2) + Math.min(56, Math.max(16, W * 0.04))
+        const x = Math.max(W * 0.47, left + 540 + 24)
         return { x, y: H * 0.2, w: W * 0.96 - x, h: H * 0.64 }
     }
 

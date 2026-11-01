@@ -7,6 +7,16 @@
     background: var(--kb-surface-muted);
 }
 
+/* home: no panel, the chips sit on the sky (two classes, so the phone padding below does not come back) */
+.picker.inline {
+    gap: 20px;
+    padding: 0;
+    border: 0;
+    background: none;
+}
+
+.inline .go { justify-self: start; padding-inline: 24px; }
+
 .step {
     display: grid;
     gap: 10px;

@@ -29,8 +29,9 @@ export function bookHref(book) {
 const slotOf = book => `${book.grade}${book.volume}`
 const slotLabel = book => `${CN[book.grade] || book.grade}${String(book.volume).slice(0, 1)}`
 
-/** Three steps to a textbook: subject, then grade and volume, then edition. */
-export default function BookPicker({ className = '' }) {
+/** Three steps to a textbook: subject, then grade and volume, then edition. `inline` (the home page) drops the
+ *  panel and shows each step only once the one before it is chosen. */
+export default function BookPicker({ className = '', inline = false }) {
     const [books, setBooks] = useState(null)
     const [subject, setSubject] = useState('')
     const [slot, setSlot] = useState('')
@@ -57,7 +58,7 @@ export default function BookPicker({ className = '' }) {
     const pickSlot = value => { setSlot(value); setEdition('') }
 
     return (
-        <div className={`${styles.picker} ${className}`} role="group" aria-label="选一本教材">
+        <div className={`${styles.picker} ${inline ? styles.inline : ''} ${className}`} role="group" aria-label="选一本教材">
             <fieldset className={styles.step}>
                 <legend><span>1</span>学科</legend>
                 {books ? (
@@ -73,7 +74,7 @@ export default function BookPicker({ className = '' }) {
                     </div>
                 ) : <p className={styles.wait}>正在载入教材…</p>}
             </fieldset>
-            <fieldset className={styles.step} disabled={!subject}>
+            {inline && !subject ? null : <fieldset className={styles.step} disabled={!subject}>
                 <legend><span>2</span>年级</legend>
                 {subject ? (
                     <div className={styles.grades}>
@@ -84,8 +85,8 @@ export default function BookPicker({ className = '' }) {
                         ))}
                     </div>
                 ) : <p className={styles.wait}>先选学科</p>}
-            </fieldset>
-            <fieldset className={styles.step} disabled={!slot}>
+            </fieldset>}
+            {inline && !slot ? null : <fieldset className={styles.step} disabled={!slot}>
                 <legend><span>3</span>版本</legend>
                 {slot ? (
                     <div className={styles.versions}>
@@ -97,12 +98,12 @@ export default function BookPicker({ className = '' }) {
                         ))}
                     </div>
                 ) : <p className={styles.wait}>先选年级</p>}
-            </fieldset>
+            </fieldset>}
             {chosen ? (
                 <Link className={`btn btn-primary ${styles.go}`} to={bookHref(chosen)}>
                     打开 {chosen.subject}{slotLabel(chosen)} · {chosen.edition_name} →
                 </Link>
-            ) : (
+            ) : inline ? null : (
                 <span className={`btn btn-secondary ${styles.go}`} aria-disabled="true">选好后打开这本书</span>
             )}
         </div>

@@ -48,7 +48,11 @@ test('home sky keeps subject and skill entries reachable', async ({ page }) => {
     await page.goto('/')
     await expect(page).toHaveTitle(/kebiao/)
     await expect(page.getByRole('heading', { level: 1, name: '从你手上的教材开始' })).toBeVisible()
+    // the first screen is the book and a search; 教资 has its own place in the header
+    await expect(page.getByRole('heading', { name: '考前把课标读懂' })).toHaveCount(0)
+    await expect(page.getByRole('banner').getByRole('link', { name: '教资', exact: true }).first()).toHaveAttribute('href', '/teacher-exam')
 
+    // subjects are at the foot of the page, after the star map
     const math = page.locator('#subjects-section + ul').getByRole('link', { name: /数学/ })
     await expect(math).toContainText('230')
     await math.click()

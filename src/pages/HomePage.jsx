@@ -32,22 +32,6 @@ const CAPTIONS = [
     { step: '伍 · 检索', title: '找你要的\n那一颗' }
 ]
 
-// Two doors under the book: the teacher's week, and the 师范生's 教资 route.
-const TEACHER_DOOR = [
-    { to: '/lesson-plan', label: '备一课', text: 'AI 起草有课标依据的教案' },
-    { to: '/lesson-plan', label: '单元整体设计', text: '在「哪一课」里选整个单元' },
-    { to: '/lesson-plan?task=check', label: '核验教案、试卷', text: '查超标和漏考，出细目表' },
-    { to: '/schedule', label: '学期进度表', text: '一本书排进每一周' },
-    { to: '/review', label: '中考复习地图', text: '初中课标在哪一单元教过' }
-]
-const EXAM_DOOR = [
-    { to: '/concepts#concept-path', label: '先读这六页', text: '一本课标怎么读，目标怎么写' },
-    { to: '/teacher-exam', label: '课标速记', text: '14 门课的理念和核心素养' },
-    { to: '/lesson-plan?for=trial', label: '试讲稿与答辩', text: '选一课，10 分钟试讲' },
-    { to: '/concepts', label: '概念词典', text: '大概念、大单元原文怎么说' },
-    { to: '/guide', label: '上手指南', text: '八个常用场景，每个三步' }
-]
-
 function SearchIcon({ size = 18 }) {
     return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
 }
@@ -216,22 +200,8 @@ function HomePage() {
                         <p className={styles.lede}>每一课教的是哪几条课标、教材原文在第几页，都已经逐课标好。</p>
                         {myBook && !changing
                             ? <MyBookCard book={myBook} onChange={() => setChanging(true)} className={styles.entry} />
-                            : <BookPicker className={styles.entry} />}
+                            : <BookPicker inline className={styles.entry} />}
 
-                        <div className={styles.doors}>
-                            <section aria-labelledby="door-teacher">
-                                <p className={styles.kicker}>任课老师</p>
-                                <h2 className={styles.doorTitle} id="door-teacher">这周要上的课</h2>
-                                <ul>{TEACHER_DOOR.map(item => <li key={item.label}><Link to={item.to}><b>{item.label}</b><span>{item.text}</span></Link></li>)}</ul>
-                            </section>
-                            <section aria-labelledby="door-exam">
-                                <p className={styles.kicker}>师范生 · 教资</p>
-                                <h2 className={styles.doorTitle} id="door-exam">考前把课标读懂</h2>
-                                <ul>{EXAM_DOOR.map(item => <li key={item.label}><Link to={item.to}><b>{item.label}</b><span>{item.text}</span></Link></li>)}</ul>
-                            </section>
-                        </div>
-
-                        <p className={styles.entryLabel} id="search-section">查课标</p>
                         {/* typing lights the matching stars; submitting asks AI search */}
                         <form className={styles.search} role="search" onSubmit={event => { event.preventDefault(); if (query.trim().length >= 2) navigate(`/smart-search?q=${encodeURIComponent(query.trim())}`) }}>
                             <label className="sr-only" htmlFor="hero-q">用一句话 AI 检索课程标准</label>
@@ -242,12 +212,6 @@ function HomePage() {
                             <button className={styles.go} type="submit" data-kb-telemetry-task="search_start">AI 检索</button>
                         </form>
                         <p className={styles.match} aria-live="polite">{results == null ? '' : `${results.length ? `${results.length} 颗亮起` : '星图里没有字面匹配'} · 回车用 AI 检索`}</p>
-                        <p className={styles.entryLabel} id="subjects-section">从学科进入</p>
-                        <ul className={styles.srail} aria-labelledby="subjects-section">
-                            {(K ? K.subjects : []).map((s, k) => (
-                                <RailLink key={s.slug} to={`/subjects/${s.slug}`} color={s.color} name={s.name} count={s.count} list={K.bySubject[k]} />
-                            ))}
-                        </ul>
                         <p className={styles.cue}><i aria-hidden="true" />向下是课标星图</p>
                     </div>
                     {/* the star lit in the 课标 glyph, joined to its caption by a gold line; phones show the glyph only */}
@@ -337,6 +301,12 @@ function HomePage() {
                 <div className={styles.wrap}>
                     <Ignite as="h2" mode="scrub" className={styles.big} id="end-title" text="从一条开始。" />
                     <button className={styles.cta} type="button" onClick={() => openPalette('')}>搜索全部 {(K ? K.N : 2520).toLocaleString('en-US')} 条要点 <kbd>⌘K</kbd></button>
+                    <p className={styles.entryLabel} id="subjects-section">从学科进入</p>
+                    <ul className={styles.srail} aria-labelledby="subjects-section">
+                        {(K ? K.subjects : []).map((s, k) => (
+                            <RailLink key={s.slug} to={`/subjects/${s.slug}`} color={s.color} name={s.name} count={s.count} list={K.bySubject[k]} />
+                        ))}
+                    </ul>
                 </div>
             </section>
         </div>
