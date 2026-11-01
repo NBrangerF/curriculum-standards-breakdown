@@ -6,6 +6,8 @@
 .eyebrow { display: inline-flex; gap: .5rem; align-items: center; color: var(--kb-gold); font-family: var(--font-mono); font-size: 12.5px; line-height: 1; letter-spacing: .16em; }
 .intro h1 { margin-top: 14px; font-family: var(--font-display); font-size: clamp(32px, 4.4vw, 52px); font-weight: 900; line-height: 1.2; letter-spacing: .02em; }
 .intro p { max-width: 38em; margin-top: var(--space-4); color: var(--kb-mist); font-size: 16px; line-height: 1.8; }
+.intro p.download { margin-top: var(--space-2); color: var(--kb-dim); font-size: 14px; }
+.download a { white-space: nowrap; color: var(--kb-moon); text-decoration: underline; text-decoration-color: var(--kb-gold); text-underline-offset: 3px; }
 
 .filters { position: sticky; z-index: 20; top: 64px; border-block: 1px solid var(--kb-line); background: var(--kb-night-glass); backdrop-filter: blur(16px); }
 .filterGrid { display: grid; grid-template-columns: minmax(13rem,1.6fr) repeat(4,minmax(8rem,1fr)) auto; gap: .75rem; align-items: end; padding-top: .9rem; padding-bottom: .9rem; }
