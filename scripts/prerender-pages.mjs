@@ -100,18 +100,22 @@ const crumbNav = items => `<nav class="kbp-crumb" aria-label="面包屑">${items
 const pages = []
 const add = (meta, main, extra = {}) => pages.push({ ...meta, main, ...extra })
 
+const subjectList = () => list(v2Manifest.subjects.map(subject => `${link(`/subjects/${subject.subject_slug}`, `${subject.subject}课程标准`)} <span class="kbp-code">${subject.standard_count} 条标准 · ${subject.indicator_count} 条要点</span>`))
+const totalsLine = `${v2Manifest.totals.standards.toLocaleString('en-US')} 条标准 · ${v2Manifest.totals.indicators.toLocaleString('en-US')} 条要点`
+
 function homePage() {
     const meta = homeMeta({ standardCount: v2Manifest.totals.standards, indicatorCount: v2Manifest.totals.indicators, subjectCount: v2Manifest.totals.subjects })
     const main = `
-<p class="kbp-kicker">${V2_STANDARDS_DOC} · 结构化索引</p>
-<h1>让每一句「符合课标」都有据可查</h1>
-<p class="kbp-lede">${esc(meta.description)}</p>
-${section('按学科浏览', list(v2Manifest.subjects.map(subject => `${link(`/subjects/${subject.subject_slug}`, `${subject.subject}课程标准`)} <span class="kbp-code">${subject.standard_count} 条标准 · ${subject.indicator_count} 条要点</span>`)))}
-${section('从教材找课标', `<p>${link('/textbooks', `教材馆：${textbooks.length} 册教材`)}，按单元查看对应的课程标准。</p>`)}
+<p class="kbp-kicker">义务教育课程标准 · 2022年版2025年修订 · ${totalsLine}</p>
+<h1>从你手上的教材开始</h1>
+<p class="kbp-lede">每一课教的是哪几条课标、教材原文在第几页，都已经逐课标好。</p>
+${section('从教材开始', `<p>${link('/textbooks', `教材馆：${textbooks.length} 册教材`)}，选一本，看每一课教哪几条课标。</p>`)}
+${section('按学科看课标', subjectList())}
 ${section('更多入口', list([
         `${link('/smart-search', '智能检索')}：用一句话描述教学内容，找到相关课标`,
         `${link('/skills', '可迁移技能')}：从能力出发反查课标`,
         `${link('/learning-resources', '开放学习资源')}：对应到课标的精选资源`,
+        `${link('/teacher-exam', '教资')}：考前把课标读懂`,
         `${link('/api', '开放 API')}：把课标数据接入你的工具`
     ]))}`
     add(meta, main, {
@@ -124,6 +128,20 @@ ${section('更多入口', list([
             potentialAction: { '@type': 'SearchAction', target: `${SITE_URL}/smart-search?q={search_term_string}`, 'query-input': 'required name=search_term_string' }
         }]
     })
+}
+
+function standardsHubPage() {
+    const crumbs = [['首页', '/'], ['按学科看课标', '/standards']]
+    add(STATIC_PAGE_META['/standards'], `${crumbNav(crumbs)}
+<p class="kbp-kicker">课标 · ${V2_STANDARDS_DOC}</p>
+<h1>按学科看课标</h1>
+<p class="kbp-lede">14 门课程，${totalsLine.replace(' · ', '、')}，每条附课标原文和页码。手上有教材的话，从${link('/textbooks', '教材')}进更快：每一课教哪几条已经标好。</p>
+${section('学科', subjectList())}
+${section('查和比', list([
+        `${link('/smart-search', 'AI 检索')}：用一句话找课标，例如「三年级科学里讲植物生长的」`,
+        `${link('/concepts', '概念词典')}：大概念、大单元、学习任务群，课标原文怎么说`,
+        `${link('/skills', '可迁移技能')}：批判性思维、协作等七种能力落在哪些学科的哪几条`
+    ]))}`, { jsonLd: [breadcrumbs(crumbs)] })
 }
 
 function subjectPage(subject) {
@@ -247,11 +265,14 @@ ${section('以它为主要技能的课标', tagged)}`, { jsonLd: [breadcrumbs(sk
 function textbookPages() {
     const crumbs = [['首页', '/'], ['教材馆', '/textbooks']]
     const bySubject = [...new Set(textbooks.map(book => book.subject))]
+    // the editions the library has no PDF of (fetch_platform_editions.mjs)
+    const platformBooks = existsSync(join(DATA, 'textbooks/platform_books.json')) ? readJson('textbooks/platform_books.json').books : []
     add(textbooksMeta({ textbookCount: textbooks.length }), `${crumbNav(crumbs)}
 <p class="kbp-kicker">教材馆 · ${textbooks.length} 册</p>
-<h1>教材馆</h1>
-<p class="kbp-lede">按学科和年级浏览教材目录，查看每个单元对应的课程标准。</p>
-${bySubject.map(subject => section(subject, list(textbooks.filter(book => book.subject === subject).map(book => link(`/textbooks/${book.edition_id}`, `${book.edition_name}${book.title}`))))).join('')}`, { jsonLd: [breadcrumbs(crumbs)] })
+<h1>选你的教材</h1>
+<p class="kbp-lede">${textbooks.length} 本有原书；${platformBooks.length ? `另有北师大、苏教、冀教、华东师大、青岛版等 ${platformBooks.length} 本只有国家平台的课目录。` : ''}每一课教哪几条课标、原话在第几页，都已逐课标好。</p>
+${bySubject.map(subject => section(subject, list(textbooks.filter(book => book.subject === subject).map(book => link(`/textbooks/${book.edition_id}`, `${book.edition_name}${book.title}`))))).join('')}
+${platformBooks.length ? section('只有课目录的版本', `<p>馆里没有这些书的原书；课目录来自国家中小学智慧教育平台，每一课教哪几条课标同样逐课标好。</p>${list(platformBooks.map(book => link(`/textbooks/${book.edition_id}/standards`, `${book.edition_name}${book.title}`)))}`) : ''}`, { jsonLd: [breadcrumbs(crumbs)] })
 
     const edition = id => JSON.parse(readFileSync(join(DATA, 'textbooks/by-edition', `${id}.json`), 'utf8'))
     const alignedBooks = new Set(existsSync(join(DATA, 'textbooks/national-lessons')) ? readdirSync(join(DATA, 'textbooks/national-lessons')).filter(file => file.startsWith('ed_')).filter(file => readJson(`textbooks/national-lessons/${file}`).lessons.some(lesson => lesson.align?.length)).map(file => file.replace(/\.json$/u, '')) : [])
@@ -275,8 +296,7 @@ ${section('对应的课程标准', list(aligned))}`, {
 
     // 课标对应表: every lesson with the 要点 it teaches and the textbook's own words
     const v2Points = new Map(v2Subjects.flatMap(subject => subject.standards.flatMap(standard => (standard.indicators || []).map(item => [item.code, item.text]))))
-    // and the editions the library has no PDF of (fetch_platform_editions.mjs)
-    const platformBooks = existsSync(join(DATA, 'textbooks/platform_books.json')) ? readJson('textbooks/platform_books.json').books : []
+    // and the editions the library has no PDF of
     for (const book of [...textbooks, ...platformBooks]) {
         if (!book.edition_id.startsWith('pf_') && !hasAlignment(book.edition_id)) continue
         const record = readJson(`textbooks/national-lessons/${book.edition_id}.json`)
@@ -411,10 +431,18 @@ ${experiments.groups.flatMap(group => group.standards.map(standard => section(`$
 
 function teacherExamPage() {
     const crumbs = [['首页', '/'], ['教资课标速记', '/teacher-exam']]
+    const notes = concepts.subjects.filter(subject => subject.ideas)
     add(STATIC_PAGE_META['/teacher-exam'], `${crumbNav(crumbs)}
-<h1>每门课的核心素养和课程理念</h1>
-<p class="kbp-lede">${esc(STATIC_PAGE_META['/teacher-exam'].description)}</p>
-${concepts.subjects.filter(subject => subject.ideas).map(subject => section(subject.name, `<p>核心素养：${esc(subject.core_literacy.join('、'))}</p><p>课程理念（修订版 PDF 第 ${subject.ideas.pages[0]}–${subject.ideas.pages.at(-1)} 页）：</p><ol>${subject.ideas.items.map(item => `<li>${esc(item)}</li>`).join('')}</ol><p>${link(`/concepts/subjects/${subject.slug}`, `${subject.name}课标的骨架`)}</p>`)).join('')}`, { jsonLd: [breadcrumbs(crumbs)] })
+<p class="kbp-kicker">教资备考 · ${notes.length} 门课程 · 修订版课标原文，标明页码</p>
+<h1>考前把课标读懂</h1>
+<p class="kbp-lede">教师资格笔试的学科知识与教学能力、面试的试讲和答辩，都会问到所教学科课标的课程理念和核心素养。按下面四步走。</p>
+${section('备考路线', `<ol>${[
+        `${link('/concepts#concept-path', '先读这六页')}：一本课标怎么读、核心素养、目标怎么写`,
+        `课标速记：下面 ${notes.length} 门课的课程理念和核心素养，遮住自测`,
+        `${link('/lesson-plan?for=trial', '试讲稿与答辩')}：选一课起草教案，再生成 10 分钟试讲和 3 道答辩`,
+        `${link('/concepts', '概念词典')}：大单元、任务群、教—学—评一致性`
+    ].map(item => `<li>${item}</li>`).join('')}</ol>`)}
+${notes.map(subject => section(subject.name, `<p>核心素养：${esc(subject.core_literacy.join('、'))}</p><p>课程理念（修订版 PDF 第 ${subject.ideas.pages[0]}–${subject.ideas.pages.at(-1)} 页）：</p><ol>${subject.ideas.items.map(item => `<li>${esc(item)}</li>`).join('')}</ol><p>${link(`/concepts/subjects/${subject.slug}`, `${subject.name}课标的骨架`)}</p>`)).join('')}`, { jsonLd: [breadcrumbs(crumbs)] })
 }
 
 function staticPages() {
@@ -429,6 +457,7 @@ function staticPages() {
 }
 
 homePage()
+standardsHubPage()
 v2Subjects.forEach(subjectPage)
 for (const entry of v2ByCode.values()) standardPage(entry)
 skillPages()
