@@ -82,7 +82,7 @@ export type PointReading = { code: string, plain: string, verbs: Array<{ word: s
 export type Reading = { points: PointReading[], position: string, literacy: Array<{ name: string, look_for: string }> }
 // what comes before and after a 要点 (kebiao 知识图谱) and where this book teaches it (教材与课标对应)
 export type PointLink = { code: string, text: string, grade: string, reason: string }
-export type PointLinks = { code: string, before: PointLink[], after: PointLink[], in_book: Array<{ unit: string, lesson: string, page: number | null }>, books: number }
+export type PointLinks = { code: string, before: PointLink[], after: PointLink[], in_book: Array<{ unit: string, lesson: string, page: number | null, current?: boolean }>, books: number }
 export type PlanCheck = { level: 'ok' | 'warn' | 'risk', kind: string, message: string, quote?: string, code?: string }
 export type DraftInput = {
     lesson: PlanLesson
@@ -164,12 +164,23 @@ export function checkPractice(practice: Practice, frame: Frame): PlanCheck[] {
     return checks
 }
 
-export function checkPlan(frame: Frame, process: Process | null, input: Pick<DraftInput, 'indicators' | 'standards' | 'periodMinutes'> & { lesson?: Pick<PlanLesson, 'grade'> }, options: CheckOptions = {}): PlanCheck[] {
+// the unit's lessons after this one whose titles are specific enough to spot in an objective (「通分」, not 「练习」)
+function laterLessons(unitLessons: DraftInput['unitLessons']) {
+    const list = unitLessons || []
+    const at = list.findIndex(item => item.current)
+    if (at < 0) return []
+    return list.slice(at + 1).map(item => item.title).filter(title => title.length >= 2 && title.length <= 8 && !list[at].title.includes(title) && !/…|整理|复习|练习|园地|口语交际|习作|Unit|Section/u.test(title))
+}
+
+export function checkPlan(frame: Frame, process: Process | null, input: Pick<DraftInput, 'indicators' | 'standards' | 'periodMinutes' | 'unitLessons'> & { lesson?: Pick<PlanLesson, 'grade'> }, options: CheckOptions = {}): PlanCheck[] {
     const checks: PlanCheck[] = []
     const picked = new Set(input.indicators.map(item => item.code))
     const cited = new Set(frame.objectives.flatMap(item => item.basis))
+    const later = laterLessons(input.unitLessons)
     for (const objective of frame.objectives) {
         if (!objective.basis.length) checks.push({ level: 'risk', kind: 'no_basis', message: `目标 ${objective.id} 没有对应的课标要点。`, quote: objective.text })
+        const ahead = later.find(title => objective.text.includes(title))
+        if (ahead) checks.push({ level: 'warn', kind: 'later_lesson', message: `目标 ${objective.id} 写到了「${ahead}」，本单元后面有「${ahead}」一课专门教它；本课可以只做铺垫，或把这条目标留到那一课。`, quote: objective.text })
         const vague = objective.text.match(VAGUE)
         if (vague && !/能|会|说出|写出|解释|比较|设计|完成|运用|判断/u.test(objective.text)) {
             checks.push({ level: 'warn', kind: 'vague_verb', message: `目标 ${objective.id} 用了「${vague[1]}」这类看不见的动词，建议改成学生能做出的行为。`, quote: objective.text })
@@ -214,17 +225,17 @@ export function checkPlan(frame: Frame, process: Process | null, input: Pick<Dra
             checks.push({ level: 'risk', kind: 'beyond_standard', message: `教案里出现了「${limit.key}」，而课标写明${limit.phrase}，可能超标，请核对。`, quote: limit.source })
         }
     }
-    // classroom advice (time, groups, homework) does not undo the alignment verdict
+    // classroom advice (time, groups, homework, a later lesson's content) does not undo the alignment verdict
     if (!checks.some(item => item.level !== 'ok' && !CLASSROOM_KINDS.has(item.kind))) checks.push({ level: 'ok', kind: 'aligned', message: '每条目标都有课标要点依据、教学环节和评价任务，没有发现超出课标限定的内容。' })
     return checks
 }
-const CLASSROOM_KINDS = new Set(['student_time', 'group_work', 'class_check', 'homework_load', 'practice_gap'])
+const CLASSROOM_KINDS = new Set(['student_time', 'group_work', 'class_check', 'homework_load', 'practice_gap', 'later_lesson'])
 
 // ---------- prompts ----------
 const SHARED_RULES = `规则：
 1. 只能以「依据」里列出的课标要点为依据。目标的 basis 只能填这些要点编码，不得编造编码，也不得引用依据以外的课标。
 2. 要点原文里写明「不包括」「不要求」「不涉及」的内容，教案里不得出现。
-3. 内容要符合老师给出的教材和年级，不要超出这个年级学生的认知水平，也不要提前教后面学段的内容。要点往往覆盖整个单元，只写和本课课题直接相关的部分；属于本单元其他课的内容（见「本单元的课」）不要写进本课的目标和练习。
+3. 内容要符合老师给出的教材和年级，不要超出这个年级学生的认知水平，也不要提前教后面学段的内容。要点往往覆盖整个单元，只写和本课课题直接相关的部分；本单元其他课要教的内容（见「本单元的课」）不写进本课的目标、环节和练习，后面的课最多一句铺垫。
 4. 活动要在普通教室条件下可行；器材写常见的；涉及实验、工具、运动的写安全要求。
 5. 用简洁的中文，面向教师；不要写空话套话（如「全面提升核心素养」）。
 6. 不写任何学生的姓名或个人信息。`
@@ -345,7 +356,7 @@ function linksBlock(input: DraftInput) {
 function bookBlock(input: DraftInput) {
     const out: string[] = []
     for (const link of input.links || []) {
-        if (link.in_book.length) out.push(`${link.code}：${link.in_book.map(item => `${item.unit ? `${item.unit} · ` : ''}${item.lesson}${item.page ? `（PDF 第 ${item.page} 页）` : ''}`).join('；')}`)
+        if (link.in_book.length) out.push(`${link.code}：${link.in_book.map(item => `${item.unit ? `${item.unit} · ` : ''}${item.lesson}${item.current ? '（本课）' : ''}${item.page ? `（PDF 第 ${item.page} 页）` : ''}`).join('；')}`)
     }
     const lines = out.length ? ['教材里在哪教（本册里教这些要点的课）：', ...out] : []
     if (input.lessonQuotes?.length) lines.push(`本课教材原话：${input.lessonQuotes.map(quote => `「${quote}」`).join(' ')}`)

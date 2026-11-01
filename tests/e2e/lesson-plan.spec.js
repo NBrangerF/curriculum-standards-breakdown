@@ -47,7 +47,7 @@ const readingDraft = {
         literacy: [{ name: '推理意识', look_for: '能用画图说明为什么大小不变' }]
     },
     reading_status: 'ok',
-    links: [{ code: 'MA-S3-NA-01.3', before: [{ code: 'MA-S2-NA-01.3', text: '能初步认识分数和小数', grade: '3–4 年级', reason: '互化和比较要先懂分数小数含义' }], after: [{ code: 'MA-S3-NA-01.5', text: '能进行简单的分数加减', grade: '5–6 年级', reason: '异分母分数加减要先通分' }], in_book: [{ unit: '4 分数的意义和性质', lesson: '约分', page: 70 }], books: 3 }],
+    links: [{ code: 'MA-S3-NA-01.3', before: [{ code: 'MA-S2-NA-01.3', text: '能初步认识分数和小数', grade: '3–4 年级', reason: '互化和比较要先懂分数小数含义' }], after: [{ code: 'MA-S3-NA-01.5', text: '能进行简单的分数加减', grade: '5–6 年级', reason: '异分母分数加减要先通分' }], in_book: [{ unit: '4 分数的意义和性质', lesson: '分数的基本性质', page: 62, current: true }, { unit: '4 分数的意义和性质', lesson: '约分', page: 70 }], books: 3 }],
     standards: [{ code: 'MA-S3-NA-01', title: '数与运算（5–6 年级）', stage_label: '第三学段（5–6 年级）', statement: '', statement_source: '', requirements: ['能比较两个分数的大小。'], guidance: ['注重数的意义。'] }],
     limits: ['不包括将循环小数转化成分数'],
     evidence,
@@ -133,6 +133,8 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     await expect(page.getByText('用教材的折纸活动发现规律，再用画图说明理由')).toBeVisible()
     await expect(page.getByRole('link', { name: 'MA-S2-NA-01.3' })).toHaveAttribute('href', '/standards/MA-S2-NA-01#MA-S2-NA-01.3')
     await expect(page.getByText(/这些内容本课不教、不考/)).toBeVisible()
+    // 本册在哪教: the book's lessons that teach the 要点, this one marked
+    await expect(page.getByText('分数的基本性质（本课）（PDF 62）；约分（PDF 70）')).toBeVisible()
     // 教学过程 in a class of 45: 组织形式, a key question with the expected answers, how the teacher sees the whole class
     await expect(page.getByText('独立→同桌')).toBeVisible()
     await expect(page.getByText('一样大；有人说 2/4 大')).toBeVisible()
@@ -453,6 +455,40 @@ test('when the AI cannot draft, the error points the teacher to the prompt copy'
     expect(skeletonText).toContain('修订版第 31 页')
     expect(skeletonText).toContain('六、评价任务（先定证据，再设计活动）')
     expect(skeletonText).not.toContain('等式的基本性质')
+})
+
+test('when only 当堂练习 fails, the plan stands and the teacher can ask for the exercises again', async ({ page }) => {
+    const practice = []
+    await page.route('**/api/v1/lesson-plans/context?*', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(context)) }))
+    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [{ code: 'MA-S3-NA-01', grade: 2, reason: '比较分数大小', point: 'MA-S3-NA-01.3' }] })) }))
+    await page.route('**/api/v1/lesson-plans/draft', route => {
+        const body = route.request().postDataJSON()
+        if (body.step === 'practice') {
+            practice.push(body)
+            if (practice.length === 1) return route.fulfill({ status: 502, contentType: 'application/json', body: JSON.stringify({ error: { code: 'draft_timeout', message: 'AI 这次没有写出可用的练习题。', details: [] } }) })
+        }
+        const data = body.step === 'frame'
+            ? { step: 'frame', frame, checks: [], evidence, privacy: { redacted: false }, model: 'gpt-5-mini' }
+            : body.step === 'reading'
+            ? readingDraft
+            : body.step === 'practice'
+            ? practiceDraft
+            : { step: 'process', frame, process: processDraft, checks: [], evidence, privacy: { redacted: false }, model: 'gpt-5-mini' }
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(data)) })
+    })
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e&lesson=L1`)
+    await expect(page.getByRole('checkbox', { name: /能用直观的方式表示分数和小数/ })).toBeChecked()
+    await page.getByRole('button', { name: /按选定的 1 条要点起草教案/ }).click()
+    await expect(page.getByRole('heading', { name: '七、教学过程' })).toBeVisible()
+    await expect(page.getByText('这次没写出当堂练习。')).toBeVisible()
+    await page.getByRole('button', { name: '再写一次' }).click()
+    await expect(page.getByText('把 2/3 化成分母是 12 的分数。')).toBeVisible()
+    await expect(page.getByText('这次没写出当堂练习。')).toHaveCount(0)
+    // the second call carries the same lesson, 要点 and objectives
+    expect(practice[1].lesson.lesson_id).toBe('L1')
+    expect(practice[1].indicator_codes).toEqual(['MA-S3-NA-01.3'])
+    expect(practice[1].frame.objectives[0].id).toBe('O1')
+    expect(practice[1].class_size).toBe(45)
 })
 
 test('项目式学习 quotes the 课标 and tells it apart from 跨学科主题学习', async ({ page }) => {

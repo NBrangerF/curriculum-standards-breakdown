@@ -8,7 +8,7 @@ const metaText = plan => {
     return [lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', meta ? `第 ${meta.lesson_index} 课时（共 ${meta.lesson_count} 课时）· ${meta.period_minutes} 分钟` : '', meta?.class_size ? `约 ${meta.class_size} 人` : '', meta?.lesson_type || ''].filter(Boolean).join(' · ')
 }
 const linkLine = entry => `${entry.code}（${entry.grade}）${entry.text}${entry.reason ? `——${entry.reason}` : ''}`
-const bookLine = link => link.in_book.map(entry => `${entry.lesson}${entry.page ? `（PDF ${entry.page}）` : ''}`).join('；')
+const bookLine = link => link.in_book.map(entry => `${entry.lesson}${entry.current ? '（本课）' : ''}${entry.page ? `（PDF ${entry.page}）` : ''}`).join('；')
 const readingOf = plan => ({
     points: new Map((plan.reading?.reading?.points || []).map(item => [item.code, item])),
     links: new Map((plan.reading?.links || []).map(item => [item.code, item]))

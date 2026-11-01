@@ -697,6 +697,9 @@ test('课标解读: the 要点 read for the teacher, with what comes before and 
     assert.ok(off.links[0].after.some((item: any) => item.code === 'MA-S3-NA-01.5'))
     assert.ok(off.limits.some((item: string) => item.includes('不包括将循环小数转化成分数')))
     assert.equal(off.standards[0].code, 'MA-S3-NA-01')
+    // 本册在哪教 from the book's own lesson judgement: every lesson that teaches it, this one marked, no review lessons
+    const inBook = off.links[0].in_book.map((item: any) => `${item.lesson}${item.current ? '*' : ''}`)
+    assert.deepEqual(inBook, ['分数的意义', '分数与除法', '真分数和假分数', '分数的基本性质*', '约分', '通分', '分数和小数的互化'])
 
     const saved = process.env.KEBIAO_LLM_API_KEY
     process.env.KEBIAO_LLM_API_KEY = 'test-secret'
@@ -745,4 +748,15 @@ test('the 教案 heading is the lesson, without 「教学设计（前半部分�
     const request = { step: 'frame', lesson: { title: '分数的基本性质', subject_slug: 'math', grade: 5, edition_id: math5b, lesson_id: fractionLesson.id }, indicator_codes: [LIMITED] }
     const data = (await json(await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': CLASS_IP }, body: JSON.stringify(request) }))).data
     assert.equal(data.frame.title, '《分数的基本性质》第一课时')
+})
+
+test('an objective that takes on a later lesson of the unit is flagged, and the alignment verdict stands', () => {
+    const indicators = [{ code: LIMITED, text: '会比较', pages: [], standard_code: 'MA-S3-NA-01', standard_title: '', stage_label: '' }]
+    const unitLessons = [{ title: '真分数和假分数' }, { title: '分数的基本性质', current: true }, { title: '约分' }, { title: '通分' }, { title: '约分和通分的练习' }, { title: '…' }]
+    const ahead = frame({ objectives: [frame().objectives[0], { ...frame().objectives[1], text: '学生能用通分比较两个异分母分数的大小' }] })
+    const checks = checkPlan(ahead, null, { indicators, standards: [], periodMinutes: 40, unitLessons })
+    assert.deepEqual(checks.filter(item => item.kind === 'later_lesson').map(item => item.message.match(/「(.+?)」/)?.[1]), ['通分'])
+    assert.ok(checks.some(item => item.kind === 'aligned'))
+    // the lesson's own title and earlier lessons are not flagged
+    assert.ok(!checkPlan(frame(), null, { indicators, standards: [], periodMinutes: 40, unitLessons }).some(item => item.kind === 'later_lesson'))
 })

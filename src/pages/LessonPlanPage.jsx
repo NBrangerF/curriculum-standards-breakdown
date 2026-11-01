@@ -48,6 +48,22 @@ async function getJson(url) {
     return payload.data
 }
 
+// the lesson as the draft API takes it
+function draftLesson(lesson) {
+    return {
+        title: lesson.title,
+        ...(lesson.unit_title ? { unit_title: lesson.unit_title.slice(0, 60) } : {}),
+        ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}),
+        ...(lesson.edition_name ? { edition_name: lesson.edition_name } : {}),
+        subject_slug: lesson.subject_slug,
+        grade: lesson.grade || null,
+        ...(lesson.pdf_page ? { pages: `PDF 第 ${lesson.pdf_page} 页起` } : {}),
+        // the book and its 国家平台 lesson: the 课标解读 says where else the book teaches these 要点
+        ...(/^ed_[0-9a-f]+$/u.test(lesson.edition_id || '') ? { edition_id: lesson.edition_id } : {}),
+        ...(lesson.lesson_id ? { lesson_id: String(lesson.lesson_id).slice(0, 60) } : {})
+    }
+}
+
 function readStored() {
     try {
         const history = JSON.parse(window.localStorage.getItem(STORE_KEY) || '[]')
@@ -88,7 +104,7 @@ export default function LessonPlanPage() {
     const [unitPlan, setUnitPlan] = useState(null)
     const [talk, setTalk] = useState(null)
     const [trial, setTrial] = useState(null)
-    // which script is being written: '' | 'talk' (说课稿) | 'trial' (试讲稿)
+    // what is being written after the plan: '' | 'talk' (说课稿) | 'trial' (试讲稿) | 'practice' (当堂练习 again)
     const [talking, setTalking] = useState('')
     const [unitHours, setUnitHours] = useState(0)
     const [hint, setHint] = useState('')
@@ -285,18 +301,7 @@ export default function LessonPlanPage() {
         const lesson = context.lesson
         const subjectName = context.subject_note?.name || subject
         const request = {
-            lesson: {
-                title: lesson.title,
-                ...(lesson.unit_title ? { unit_title: lesson.unit_title.slice(0, 60) } : {}),
-                ...(lesson.textbook_title ? { textbook_title: lesson.textbook_title } : {}),
-                ...(lesson.edition_name ? { edition_name: lesson.edition_name } : {}),
-                subject_slug: lesson.subject_slug,
-                grade: lesson.grade || null,
-                ...(lesson.pdf_page ? { pages: `PDF 第 ${lesson.pdf_page} 页起` } : {}),
-                // the book and its 国家平台 lesson: the 课标解读 says where else the book teaches these 要点
-                ...(/^ed_[0-9a-f]+$/u.test(lesson.edition_id || '') ? { edition_id: lesson.edition_id } : {}),
-                ...(lesson.lesson_id ? { lesson_id: String(lesson.lesson_id).slice(0, 60) } : {})
-            },
+            lesson: draftLesson(lesson),
             indicator_codes: [...selected],
             period_minutes: settings.period,
             lesson_index: Math.min(settings.index, settings.count),
@@ -384,6 +389,30 @@ export default function LessonPlanPage() {
             if (step === 'trial') setTrial(payload.trial)
             else setTalk(payload.talk)
             trackUmamiEvent('lesson_plan_export', { format: step, kind: 'lesson' })
+        } catch (errorValue) {
+            setError(aiError(errorValue))
+        } finally {
+            setTalking('')
+        }
+    }
+
+    // 当堂练习 once more, when its call failed and the rest of the plan came back
+    async function retryPractice() {
+        if (!plan?.frame || talking) return
+        setTalking('practice')
+        setError('')
+        try {
+            const payload = (await postApi('/api/v1/lesson-plans/draft', {
+                step: 'practice',
+                lesson: draftLesson(plan.lesson),
+                indicator_codes: plan.evidence.map(item => item.code),
+                period_minutes: plan.meta?.period_minutes || 40,
+                ...(plan.meta?.class_size ? { class_size: plan.meta.class_size } : {}),
+                frame: plan.frame
+            })).data
+            const next = { ...plan, practice: payload.practice, checks: [...plan.checks, ...payload.checks] }
+            setPlan(next)
+            setStored(writeStored(next))
         } catch (errorValue) {
             setError(aiError(errorValue))
         } finally {
@@ -642,7 +671,7 @@ export default function LessonPlanPage() {
             ) : null}
 
             {unitPlan && isUnit ? <UnitDocument plan={unitPlan} edition={edition} subject={subject} onCopy={async () => { try { await navigator.clipboard.writeText(unitToText(unitPlan)); setCopied(true) } catch { setCopied(false) } }} copied={copied} /> : null}
-            {plan && !isUnit ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} onTalk={makeTalk} talking={talking} /> : null}
+            {plan && !isUnit ? <PlanDocument plan={plan} done={!busy && Boolean(plan.process)} onCopy={copy} copied={copied} onTalk={makeTalk} talking={talking} onPractice={retryPractice} /> : null}
             {talk && plan && !isUnit ? <TalkScriptView talk={talk} title={plan.frame?.title || plan.lesson.title} /> : null}
             {trial && plan && !isUnit ? <TrialScriptView trial={trial} title={plan.frame?.title || plan.lesson.title} /> : null}
         </div>
@@ -899,7 +928,7 @@ function SyncLessons({ context }) {
     )
 }
 
-function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
+function PlanDocument({ plan, done, onCopy, copied, onTalk, talking, onPractice }) {
     const { lesson, frame, process, practice, reading, evidence, checks, meta } = plan
     const objectiveNo = id => id.replace('O', '')
     const metaLine = [lesson.subject_name, lesson.grade ? `${lesson.grade} 年级` : '', lesson.textbook_title ? `${lesson.edition_name || ''}${lesson.textbook_title}` : '', meta ? `第 ${meta.lesson_index} 课时（共 ${meta.lesson_count} 课时）· ${meta.period_minutes} 分钟` : '', meta?.class_size ? `约 ${meta.class_size} 人` : '', meta?.lesson_type || ''].filter(Boolean).join(' · ')
@@ -1035,6 +1064,11 @@ function PlanDocument({ plan, done, onCopy, copied, onTalk, talking }) {
                             </ol>
                             <p className={styles.small}>题目和答案由 AI 起草，课前请核对后再用。</p>
                         </section>
+                    ) : done && onPractice ? (
+                        <section>
+                            <h3>八、当堂练习与检测</h3>
+                            <p className={styles.small}>这次没写出当堂练习。 <button type="button" className="btn btn-ghost" onClick={onPractice} disabled={Boolean(talking)}>{talking === 'practice' ? '正在写当堂练习…' : '再写一次'}</button></p>
+                        </section>
                     ) : null}
                     {process.board.length ? <section><h3>九、板书设计</h3><pre className={styles.board}>{process.board.join('\n')}</pre></section> : null}
                     {process.homework.length ? <section><h3>十、作业设计</h3><ul>{process.homework.map(item => <li key={item.task}><b>【{item.level}】</b>{item.task}{item.minutes ? <small className={styles.minutes}>约 {item.minutes} 分钟</small> : null}</li>)}</ul></section> : null}
@@ -1073,7 +1107,7 @@ function StandardReading({ evidence, reading, core }) {
                                     {point?.avoid ? <div><dt>注意</dt><dd>{point.avoid}</dd></div> : null}
                                     {link?.before.length ? <div><dt>先学</dt><dd><ul className={styles.links}>{link.before.map(entry => <li key={entry.code}>{linkText(entry)}</li>)}</ul></dd></div> : null}
                                     {link?.after.length ? <div><dt>后学</dt><dd><ul className={styles.links}>{link.after.map(entry => <li key={entry.code}>{linkText(entry)}</li>)}</ul></dd></div> : null}
-                                    {link?.in_book.length ? <div><dt>本册在哪教</dt><dd>{link.in_book.map(entry => `${entry.lesson}${entry.page ? `（PDF ${entry.page}）` : ''}`).join('；')}{link.books > 1 ? <small>　另有 {link.books - 1} 本教材也教它</small> : null}</dd></div> : null}
+                                    {link?.in_book.length ? <div><dt>本册在哪教</dt><dd>{link.in_book.map(entry => `${entry.lesson}${entry.current ? '（本课）' : ''}${entry.page ? `（PDF ${entry.page}）` : ''}`).join('；')}{link.books > 1 ? <small>　另有 {link.books - 1} 本教材也教它</small> : null}</dd></div> : null}
                                 </dl>
                             ) : null}
                         </li>

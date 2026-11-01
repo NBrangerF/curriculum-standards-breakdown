@@ -370,10 +370,13 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
     })
 
     // 前后联系 and 教材里在哪教 for the picked 要点: facts from kebiao's data, not from the model
-    async function pointLinks(codes: string[], subjectSlug: string, editionId: string | undefined): Promise<PointLinks[]> {
+    async function pointLinks(codes: string[], subjectSlug: string, editionId: string | undefined, lessonId: string | undefined, title: string): Promise<PointLinks[]> {
         const slug = v2SubjectSlug(subjectSlug)
         const graph = /^[a-z_]+$/u.test(slug) ? await readData<GraphFile>(`v2/graph/${slug}.json`) : null
         const taught = /^[a-z_]+$/u.test(slug) ? await readData<GraphLessonsFile>(`v2/graph/lessons/${slug}.json`) : null
+        const national = editionId ? await nationalFile(editionId) : null
+        const ownLesson = national ? findLesson(national, lessonId, title) : null
+        const ownTitle = ownLesson ? canonicalTitle(ownLesson.title) : ''
         const columnLabel = new Map((graph?.columns || []).map(column => [column.key, column.label]))
         const describe = (code: string, reason: string): PointLink | null => {
             const own = graph?.points[code]
@@ -387,11 +390,22 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             const after = (graph?.edges || []).filter(edge => edge[0] === code).map(edge => describe(edge[1], edge[2])).filter((item): item is PointLink => Boolean(item)).sort(sameSubjectFirst).slice(0, 4)
             const rows = (taught?.points[code] || []).filter(row => row[3] === 'T')
             const inBook: PointLinks['in_book'] = []
-            for (const row of rows) {
-                if (row[7] !== editionId || inBook.some(item => item.lesson === row[2])) continue
-                inBook.push({ unit: row[1], lesson: row[2], page: Number.isInteger(row[6]) ? row[6] : null })
+            if (national) {
+                // the book's own lesson-by-lesson judgement is complete (the graph file keeps a few lessons per 要点);
+                // review lessons are left out and this lesson is marked, so the teacher sees which piece it carries
+                for (const lesson of national.lessons) {
+                    const row = (lesson.align || []).find(item => item[0] === code && item[1] === 'T')
+                    const name = canonicalTitle(lesson.title)
+                    if (!row || /整理|复习/u.test(name) || inBook.some(item => item.lesson === name)) continue
+                    inBook.push({ unit: lesson.chapters[0] || '', lesson: name, page: Number.isInteger(row[4]) ? row[4] : lesson.pdf_page, ...(name === ownTitle ? { current: true } : {}) })
+                }
+            } else {
+                for (const row of rows) {
+                    if (row[7] !== editionId || inBook.some(item => item.lesson === row[2])) continue
+                    inBook.push({ unit: row[1], lesson: row[2], page: Number.isInteger(row[6]) ? row[6] : null })
+                }
             }
-            return { code, before, after, in_book: inBook.slice(0, 6), books: new Set(rows.map(row => row[7])).size }
+            return { code, before, after, in_book: inBook.slice(0, 8), books: new Set(rows.map(row => row[7])).size }
         })
     }
 
@@ -455,7 +469,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             teacherNotes: teacherNotes.text.trim(),
             classSize: body.class_size,
             lessonType: body.lesson_type,
-            links: await pointLinks(indicators.slice(0, 12).map(item => item.code), body.lesson.subject_slug, body.lesson.edition_id),
+            links: await pointLinks(indicators.slice(0, 12).map(item => item.code), body.lesson.subject_slug, body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title),
             lessonQuotes: await lessonQuotes(body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title),
             unitLessons: await unitSequence(body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title)
         }
