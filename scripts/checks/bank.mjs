@@ -57,16 +57,9 @@ export function checkSubject(slug) {
     const items = []
     const seenItems = new Set()
 
-    for (const file of files) {
-        const where = `data/checks/${slug}/${file}`
-        const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'))
-        const { grade, term } = data.book || {}
-        const bookKey = `${grade}${term}`
-        if (!Number.isInteger(grade) || !TERMS[term]) errors.push(`${where}: book needs grade 1–9 and term 上/下`)
-        if (file !== `${grade}${TERMS[term]}.json`) errors.push(`${where}: file name should be ${grade}${TERMS[term]}.json`)
-        const tree = trees.get(bookKey)
-        if (!tree) warnings.push(`${where}: no 人教版 ${bookKey} lesson tree to check units against`)
-
+    // first pass: every misconception of every book, so a question may use one defined in another grade's file
+    const loaded = files.map(file => ({ file, where: `data/checks/${slug}/${file}`, data: JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8')) }))
+    for (const { where, data } of loaded) {
         for (const entry of data.misconceptions || []) {
             const at = `${where} misconception ${entry.id}`
             if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(entry.id || '')) errors.push(`${at}: id must be kebab-case`)
@@ -76,6 +69,15 @@ export function checkSubject(slug) {
             for (const field of ['why', 'move']) if (!bracesBalanced(entry[field])) errors.push(`${at}: unbalanced braces in ${field}`)
             misconceptions.set(entry.id, { ...entry, file: where })
         }
+    }
+
+    for (const { file, where, data } of loaded) {
+        const { grade, term } = data.book || {}
+        const bookKey = `${grade}${term}`
+        if (!Number.isInteger(grade) || !TERMS[term]) errors.push(`${where}: book needs grade 1–9 and term 上/下`)
+        if (file !== `${grade}${TERMS[term]}.json`) errors.push(`${where}: file name should be ${grade}${TERMS[term]}.json`)
+        const tree = trees.get(bookKey)
+        if (!tree) warnings.push(`${where}: no 人教版 ${bookKey} lesson tree to check units against`)
 
         for (const item of data.items || []) {
             const at = `${where} ${item.id || '(no id)'}`
@@ -103,13 +105,14 @@ export function checkSubject(slug) {
             for (const [kind, text] of lines) {
                 if (typeof text !== 'string' || !text.trim()) { err(`empty ${kind}`); continue }
                 if (!bracesBalanced(text)) err(`unbalanced braces in ${kind}: ${text}`)
-                if (plainMath(text).length > LIMIT[kind]) warn(`${kind} is ${plainMath(text).length} chars (limit ${LIMIT[kind]}): ${plainMath(text)}`)
+                const length = plainMath(text).replace(/\s/gu, '').length
+                if (length > LIMIT[kind]) warn(`${kind} is ${length} chars (limit ${LIMIT[kind]}): ${plainMath(text)}`)
             }
 
             // the answer and what each wrong answer means
             const wrong = item.wrong || {}
             const misIds = Object.values(wrong).flat()
-            for (const id of misIds) if (!misconceptions.has(id)) err(`unknown misconception ${id} (define it before the items that use it)`)
+            for (const id of misIds) if (!misconceptions.has(id)) err(`unknown misconception ${id}`)
             if (item.type === 'choice') {
                 const n = (item.options || []).length
                 if (n < 3 || n > 4) err('choice needs 3 or 4 options (fingers 1–4)')
@@ -145,14 +148,15 @@ export function checkSubject(slug) {
             for (const [index, step] of (item.ladder || []).entries()) {
                 if (!step?.q || !step?.a) { err(`ladder ${index + 1} needs q and a`); continue }
                 if (!bracesBalanced(step.q) || !bracesBalanced(step.a)) err(`ladder ${index + 1} has unbalanced braces`)
-                if (plainMath(step.q).length > LIMIT.ladderQ) warn(`ladder ${index + 1} question is ${plainMath(step.q).length} chars`)
-                if (plainMath(step.a).length > LIMIT.ladderA) warn(`ladder ${index + 1} answer is ${plainMath(step.a).length} chars`)
+                if (plainMath(step.q).replace(/\s/gu, '').length > LIMIT.ladderQ) warn(`ladder ${index + 1} question is long: ${plainMath(step.q)}`)
+                if (plainMath(step.a).replace(/\s/gu, '').length > LIMIT.ladderA) warn(`ladder ${index + 1} answer is long: ${plainMath(step.a)}`)
             }
             for (const line of item.verify || []) {
                 const result = verifyLine(line)
                 if (!result.ok) err(`verify "${line}": ${result.error}`)
             }
-            if (!(item.verify || []).length && /\d/u.test(`${item.stem}${(item.options || []).join('')}`)) warn('numbers but no verify line')
+            const sums = `${item.stem}${(item.options || []).join('')}${(item.right || []).join('')}`.replace(/\{[^{}]*\}/gu, '')
+            if (!(item.verify || []).length && /\d\s*[+\-−×÷*/]\s*\d/u.test(sums)) warn('arithmetic but no verify line')
 
             items.push({ ...item, grade, term, book: tree?.edition || null })
         }
