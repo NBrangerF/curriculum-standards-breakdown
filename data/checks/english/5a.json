@@ -1,0 +1,172 @@
+{
+  "book": {"subject": "英语", "grade": 5, "term": "上", "edition": "人教版 PEP（三年级起点）"},
+  "misconceptions": [
+    {"id": "like-as-verb", "name": "把这里的 like 当成“喜欢”", "why": "like 最先学的是“喜欢”，没认出 What's he like? 里的 like 是“像……”，问的是人什么样。", "move": "并排写：What does he like?（他喜欢什么）/ What's he like?（他是什么样的人），圈出 does 和 's 的不同。"},
+    {"id": "one-letter-one-sound", "name": "以为一个字母（组合）只有一种读音", "why": "最先学会一种读音就记牢了，不知道同一个字母或字母组合在不同的词里可以读不同的音。", "move": "给一组词分类：funny、happy、shy、why，按 y 的读音分成两堆，再说说规律。"},
+    {"id": "time-always-at", "name": "以为说时间都用 at", "why": "先学了 at 7 o'clock，就以为说什么时间都用 at。", "move": "画时间“金字塔”：at 钟点，on 某一天（星期、日期），in 月份、季节、上午下午。"},
+    {"id": "modal-plus-s", "name": "情态动词后的动词加了 s", "why": "记住了“主语是他、她，动词加 s”，就在 can、should 后面的动词上也加 s。", "move": "把 can、should 后面的动词圈出来：它们后面永远用原形，主语是谁都不变。"},
+    {"id": "modal-plus-ing", "name": "情态动词后的动词用了 -ing", "why": "swimming、dancing 当作活动的名字记住了，就直接放在 can 后面。", "move": "对比：I like swimming.（喜欢的活动）/ I can swim.（会做的动作），can 后面用原形。"},
+    {"id": "the-before-sports", "name": "球类运动前也加了 the", "why": "记住了 play the pipa，就把 the 也加在 football、ping-pong 前面。", "move": "分两栏：play the + 乐器（pipa、erhu、piano），play + 球类（football、basketball），按栏读一读。"},
+    {"id": "there-have", "name": "把“有”直接说成 have", "why": "汉语一个“有”既表示“拥有”，也表示“某处存在”，就把“房间里有床”说成 there has。", "move": "问：是“谁拥有”还是“某处存在”？某处存在用 there is / there are，谁拥有才用 have / has。"},
+    {"id": "there-be-agreement", "name": "there be 单复数没对上", "why": "there is 说惯了，没看后面的名词是一个还是几个。", "move": "先找 there 后面的名词：一个用 is，几个用 are；再把整句读一遍。"},
+    {"id": "there-answer-it", "name": "Is there 问句用 it 回答", "why": "Is it ...? 用 it 回答，就把 Is there ...? 也照这样答。", "move": "问句里是 there，答句就还用 there：Is there ...? — Yes, there is. / No, there isn't."}
+  ],
+  "items": [
+    {
+      "id": "en-5a-01",
+      "type": "choice",
+      "unit": "Unit 1 What's he like?",
+      "lessons": ["What's he like"],
+      "points": ["EN-S2-LC-01.2", "EN-S2-LK-01.9"],
+      "topic": "问人的样子和性格",
+      "stem": "— What's your music teacher like? — ____",
+      "options": ["She likes music.", "She's kind and funny.", "She's Miss Wang."],
+      "answer": 1,
+      "wrong": {"0": "like-as-verb", "2": "wh-word-mixup"},
+      "right": ["What's ... like? 问“……是什么样的人”，", "要说样子或性格：She's kind and funny."],
+      "typical": ["like 是“喜欢”，就答她喜欢什么：", "She likes music."],
+      "typical_error": "like-as-verb",
+      "ladder": [
+        {"q": "补全：— What's your English teacher like? — He's tall and ____ .（严格的）", "a": "strict"},
+        {"q": "哪一句问 Mike 是什么样的人：What does Mike like? / What's Mike like?", "a": "What's Mike like?"},
+        {"q": "用英语问：你的数学老师是什么样的人？", "a": "What's your maths teacher like?"}
+      ]
+    },
+    {
+      "id": "en-5a-02",
+      "type": "judge",
+      "unit": "Unit 1 What's he like?",
+      "lessons": ["What's he like"],
+      "points": ["EN-S2-LK-01.1", "EN-S2-ST-01.9"],
+      "topic": "字母 y 的两种读音",
+      "stem": "小红这样说，你同意吗？",
+      "work": ["funny 和 shy 都以 y 结尾，", "所以末尾的 y 读音一样。"],
+      "answer": false,
+      "wrong": {"agree": "one-letter-one-sound"},
+      "right": ["funny 有两个音节，末尾的 y 和 happy、sunny 里的一样；", "shy 只有一个音节，y 和 my、why 里的一样。"],
+      "ladder": [
+        {"q": "按 y 的读音分成两组：happy　my　windy　why", "a": "happy, windy；my, why"},
+        {"q": "哪个词的 y 和 fly 里的读音一样：baby　try　sorry", "a": "try"},
+        {"q": "用拼读规则读生词 sly 和 candy：y 各像 my 还是 happy？", "a": "sly 像 my，candy 像 happy"}
+      ]
+    },
+    {
+      "id": "en-5a-03",
+      "type": "choice",
+      "unit": "Unit 2 My week",
+      "lessons": ["My week"],
+      "points": ["EN-S2-LK-01.11"],
+      "topic": "星期几前的介词",
+      "stem": "We have PE ____ Tuesdays.",
+      "options": ["in", "at", "on"],
+      "answer": 2,
+      "wrong": {"0": "zai-always-in", "1": "time-always-at"},
+      "right": ["在星期几用 on：on Tuesdays、on Monday。", "at 用在钟点前，in 用在月份、季节前。"],
+      "typical": ["“在星期二”的“在”就是 in：", "We have PE in Tuesdays."],
+      "typical_error": "zai-always-in",
+      "ladder": [
+        {"q": "补全：I often read books ____ Saturdays.", "a": "on"},
+        {"q": "补全：I get up ____ 6:30 ____ Mondays.", "a": "at，on"},
+        {"q": "用英语回答：What do you have on Fridays?（音乐和体育）", "a": "I have music and PE."}
+      ]
+    },
+    {
+      "id": "en-5a-04",
+      "type": "choice",
+      "unit": "Unit 3 What would you like?",
+      "lessons": ["What would you like"],
+      "points": ["EN-S2-LC-01.5", "EN-S2-LK-01.17"],
+      "topic": "点餐怎样回答",
+      "stem": "选出最合适的回答：— What would you like to drink? — ____",
+      "options": ["I'd like some water.", "Yes, please.", "I like water."],
+      "answer": 0,
+      "wrong": {"1": "wh-yes-no", "2": "would-like-as-like"},
+      "right": ["What would you like ...? 问“想要什么”，", "要说出想要的东西：I'd like some water."],
+      "typical": ["别人请我吃喝，就答：", "Yes, please."],
+      "typical_error": "wh-yes-no",
+      "ladder": [
+        {"q": "补全：— What would you like to eat? — A ____ , please.（三明治）", "a": "sandwich"},
+        {"q": "— Would you like some tea? — ____（不要）", "a": "No, thanks."},
+        {"q": "— What's your favourite food? — 面条，很好吃。用英语回答。", "a": "Noodles. They're delicious."}
+      ]
+    },
+    {
+      "id": "en-5a-05",
+      "type": "choice",
+      "unit": "Unit 4 What can you do?",
+      "lessons": ["What can you do"],
+      "points": ["EN-S2-LK-01.9", "EN-S2-LC-01.2"],
+      "topic": "can 后面用原形",
+      "stem": "Amy 会游泳。选出正确的一句。",
+      "options": ["Amy can swims.", "Amy can swim.", "Amy can swimming."],
+      "answer": 1,
+      "wrong": {"0": "modal-plus-s", "2": "modal-plus-ing"},
+      "right": ["can 后面的动词用原形，主语是谁都不变：", "Amy can swim."],
+      "typical": ["Amy 是“她”，动词要加 s：", "Amy can swims."],
+      "typical_error": "modal-plus-s",
+      "ladder": [
+        {"q": "补全：I can ____ (dance).", "a": "dance"},
+        {"q": "补全：My brother can ____ (cook) Chinese food.", "a": "cook"},
+        {"q": "— Can you swim? — 不会。用英语回答，再说一样你会做的事。", "a": "No, I can't. I can ...（如 draw cartoons）"}
+      ]
+    },
+    {
+      "id": "en-5a-06",
+      "type": "judge",
+      "unit": "Unit 4 What can you do?",
+      "lessons": ["What can you do"],
+      "points": ["EN-S2-LK-01.7"],
+      "topic": "play 后加不加 the",
+      "stem": "Zhang Peng 这样写自己会做的事，你同意吗？",
+      "work": ["I can play the pipa.", "I can play the football, too."],
+      "answer": false,
+      "wrong": {"agree": "the-before-sports"},
+      "right": ["乐器前加 the：play the pipa；", "球类前不加 the：play football。"],
+      "ladder": [
+        {"q": "补全（不需要就写 ×）：He can play ____ basketball.", "a": "×"},
+        {"q": "补全（不需要就写 ×）：I can play ____ erhu. Let's play ____ ping-pong.", "a": "the，×"},
+        {"q": "用英语说：我会弹钢琴，也会打乒乓球。", "a": "I can play the piano. I can play ping-pong, too."}
+      ]
+    },
+    {
+      "id": "en-5a-07",
+      "type": "choice",
+      "unit": "Unit 5 There is a big bed",
+      "lessons": ["There is a big bed"],
+      "points": ["EN-S2-LK-01.9", "EN-S2-LK-01.11"],
+      "topic": "there be 表示“有”",
+      "stem": "我的房间里有一张大床。选出正确的一句。",
+      "options": ["There is a big bed in my room.", "There has a big bed in my room.", "There are a big bed in my room."],
+      "answer": 0,
+      "wrong": {"1": "there-have", "2": "there-be-agreement"},
+      "right": ["说“某处有某物”用 there is / there are；", "a big bed 是一张，用 is。"],
+      "typical": ["“有”就是 have / has：", "There has a big bed in my room."],
+      "typical_error": "there-have",
+      "ladder": [
+        {"q": "补全：There ____ two bikes behind the house.", "a": "are"},
+        {"q": "补全：There ____ a clock on the wall.", "a": "is"},
+        {"q": "用英语说：床的旁边有两盆植物。", "a": "There are two plants beside the bed."}
+      ]
+    },
+    {
+      "id": "en-5a-08",
+      "type": "choice",
+      "unit": "Unit 6 In a nature park",
+      "lessons": ["In a nature park"],
+      "points": ["EN-S2-LK-01.9", "EN-S2-LC-01.2"],
+      "topic": "回答 Is there 问句",
+      "stem": "— Is there a river in the park? — ____（有）",
+      "options": ["Yes, it is.", "Yes, there's.", "Yes, there is.", "Yes, there has."],
+      "answer": 2,
+      "wrong": {"0": "there-answer-it", "1": "short-answer-contraction", "3": "there-have"},
+      "right": ["问句用 Is there，回答也用 there is：", "Yes, there is.（末尾不缩写）"],
+      "typical": ["Is it ...? 答 Yes, it is，", "这句也这样答：Yes, it is."],
+      "typical_error": "there-answer-it",
+      "ladder": [
+        {"q": "补全：— Is there a lake in the park? — No, ____ .", "a": "there isn't"},
+        {"q": "补全：— Are there any tall buildings? — No, ____ .", "a": "there aren't"},
+        {"q": "用英语问：公园里有桥吗？", "a": "Is there a bridge in the park?"}
+      ]
+    }
+  ]
+}

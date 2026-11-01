@@ -1,0 +1,137 @@
+{
+  "book": {"subject": "英语", "grade": 3, "term": "下", "edition": "人教版 PEP（三年级起点）"},
+  "misconceptions": [
+    {"id": "he-she-mixup", "name": "代词不分男女（he/she 混用）", "why": "汉语“他”“她”读音一样，说话时不用分男女，就把 he、she 和 his、her 混着用。", "move": "老师指男生，全班说 he / his；指女生，全班说 she / her；指得快一点，说错的人自己就能听出来。"},
+    {"id": "short-answer-contraction", "name": "简略回答末尾用了缩写", "why": "平时 she is、there is 常缩成 she's、there's，就以为简略回答的末尾也能缩。", "move": "朗读对比：Yes, she is. / Yes, she's. 问：句子停在 's 上听得清吗？句末的 is 要说完整。"},
+    {"id": "has-for-third", "name": "第三人称单数还用 have", "why": "I have、you have 说熟了，没注意主语换成 it、he、she 时要说 has。", "move": "列两行：I / you / we / they have，he / she / it has；拿动物图片让学生用 It has ... 说一说。"},
+    {"id": "be-plus-verb", "name": "实义动词前多加了 be", "why": "把 am、is、are、was 当成每句话都要有的“是”，句子里已经有 has、like、go 这样的动词了还加上。", "move": "问：这句话里已经有动作词了吗？有 has、like、go，就不再加 am、is、are、was。"},
+    {"id": "wh-yes-no", "name": "用 Yes/No 回答特殊疑问句", "why": "一听到问句就先说 Yes 或 No，没注意开头是 where、what 这类疑问词。", "move": "先圈出问句开头的词：Is、Do、Can 开头才答 Yes / No；where、what、when 开头就要说出具体内容。"},
+    {"id": "wh-word-mixup", "name": "听错疑问词，答非所问", "why": "where、what、who 都以 wh 开头，只听出是在提问，没分清问的是什么。", "move": "黑板一角写：what—什么，where—哪里，who—谁，when—什么时候；每听到一个问句，先指出是哪一个。"},
+    {"id": "do-be-short-answer", "name": "Do 问句用 be 动词回答", "why": "汉语答“是的”，就想到 am（是），没注意问句是用 Do 开头的。", "move": "看问句第一个词：Are 开头答 I am / I'm not，Do 开头答 I do / I don't，问句用什么，回答就用什么。"},
+    {"id": "like-no-object", "name": "like 后面漏了宾语", "why": "汉语“是的，我喜欢”“我想要”可以单说，英语 like 后面一定要带上东西。", "move": "追问：喜欢什么？想要什么？说不出东西就别用 like，改说 Yes, I do. 或 Yes, please."},
+    {"id": "plural-s-drop", "name": "照汉语，复数名词没加 s", "why": "汉语“几只风筝”“很多书”名词本身不变，就照着不加 s。", "move": "问：是一个还是好几个？好几个就在名词后面加 s：kites、birds、crayons。"},
+    {"id": "aux-do-drop", "name": "照汉语漏掉助动词 do", "why": "汉语“你看见几只”里没有和 do 对应的词，就把 do 漏掉了。", "move": "把问句拆开读：How many kites / do you see? 后半句和 Do you see ...? 一样，do 不能少。"}
+  ],
+  "items": [
+    {
+      "id": "en-3b-01",
+      "type": "choice",
+      "unit": "Unit 1 Welcome back to school!",
+      "lessons": ["Welcome back to school"],
+      "points": ["EN-S1-LK-01.11", "EN-S1-LS-01.14"],
+      "topic": "介绍新同学",
+      "stem": "向老师介绍新同学 Amy（女孩），选出正确的一句。",
+      "options": ["She's a new student.", "He's a new student.", "She's new student."],
+      "answer": 0,
+      "wrong": {"1": "he-she-mixup", "2": "article-drop"},
+      "right": ["Amy 是女孩，用 she：She's ...", "一个新同学，前面要有 a：a new student。"],
+      "typical": ["汉语“他”“她”是一个音，", "就说：He's a new student."],
+      "typical_error": "he-she-mixup",
+      "ladder": [
+        {"q": "介绍男孩 Mike，补全：____ my friend.（他是）", "a": "He's"},
+        {"q": "补全：She's ____ new student.", "a": "a"},
+        {"q": "介绍女孩 Amy：她来自英国。用英语说一句。", "a": "She's from the UK."}
+      ]
+    },
+    {
+      "id": "en-3b-02",
+      "type": "choice",
+      "unit": "Unit 2 My family",
+      "lessons": ["My family"],
+      "points": ["EN-S1-LK-01.9", "EN-S1-LS-01.11"],
+      "topic": "简略回答 Yes, she is.",
+      "stem": "— Is that woman your mother? — ____（是的）",
+      "options": ["Yes, he is.", "Yes, she's.", "Yes, she is."],
+      "answer": 2,
+      "wrong": {"0": "he-she-mixup", "1": "short-answer-contraction"},
+      "right": ["woman 是女士，用 she；", "简略回答的末尾不缩写：Yes, she is."],
+      "typical": ["she is 可以缩成 she's，", "就答：Yes, she's."],
+      "typical_error": "short-answer-contraction",
+      "ladder": [
+        {"q": "补全：— Is he your father? — Yes, ____ .", "a": "he is"},
+        {"q": "补全：— Is she your sister? — No, ____ .", "a": "she isn't"},
+        {"q": "— Is that man your grandpa? — 是的。用英语回答。", "a": "Yes, he is."}
+      ]
+    },
+    {
+      "id": "en-3b-03",
+      "type": "choice",
+      "unit": "Unit 3 At the zoo",
+      "lessons": ["At the zoo"],
+      "points": ["EN-S1-LS-01.15", "EN-S1-LK-01.11"],
+      "topic": "用 It has 描述动物",
+      "stem": "大象有一个长鼻子。选出正确的一句。",
+      "options": ["It have a long nose.", "It has a long nose.", "It's has a long nose."],
+      "answer": 1,
+      "wrong": {"0": "has-for-third", "2": "be-plus-verb"},
+      "right": ["主语是 it，“有”要用 has：It has a long nose.", "has 已经是动词了，前面不再加 is。"],
+      "typical": ["It's 说得最熟，后面再加 has：", "It's has a long nose."],
+      "typical_error": "be-plus-verb",
+      "ladder": [
+        {"q": "补全：It ____ a short tail.（有）", "a": "has"},
+        {"q": "补全：I ____ a new pencil box.（有）", "a": "have"},
+        {"q": "用英语说说熊猫：它很胖，有一条短尾巴。", "a": "It's fat. It has a short tail."}
+      ]
+    },
+    {
+      "id": "en-3b-04",
+      "type": "choice",
+      "unit": "Unit 4 Where is my car?",
+      "lessons": ["Where is my car"],
+      "points": ["EN-S1-LK-01.9", "EN-S1-LC-02.5"],
+      "topic": "回答 where 问句",
+      "stem": "— Where is my ruler? — ____",
+      "options": ["Yes, it is.", "It's in your pencil box.", "It's my ruler."],
+      "answer": 1,
+      "wrong": {"0": "wh-yes-no", "2": "wh-word-mixup"},
+      "right": ["where 问“在哪里”，要说出地方：", "It's in your pencil box."],
+      "typical": ["听到问句，先说 Yes：", "Yes, it is."],
+      "typical_error": "wh-yes-no",
+      "ladder": [
+        {"q": "补全：— Where is my cap? — It's ____ the chair.（在椅子下面）", "a": "under"},
+        {"q": "补全：— Is it in your desk? — No, ____ .", "a": "it isn't"},
+        {"q": "你的小汽车找不到了，用英语问一问妈妈。", "a": "Mum, where is my car?"}
+      ]
+    },
+    {
+      "id": "en-3b-05",
+      "type": "choice",
+      "unit": "Unit 5 Do you like pears?",
+      "lessons": ["Do you like pears"],
+      "points": ["EN-S1-LS-01.12", "EN-S1-LK-01.9"],
+      "topic": "回答 Do you like",
+      "stem": "— Do you like pears? — ____（喜欢）",
+      "options": ["Yes, I do.", "Yes, I am.", "Yes, I like."],
+      "answer": 0,
+      "wrong": {"1": "do-be-short-answer", "2": "like-no-object"},
+      "right": ["问句用 Do 开头，回答也用 do：Yes, I do.", "不喜欢就说：No, I don't."],
+      "typical": ["“是的，我喜欢”就是：", "Yes, I like."],
+      "typical_error": "like-no-object",
+      "ladder": [
+        {"q": "补全：— Do you like apples? — No, ____ .", "a": "I don't"},
+        {"q": "补全：I like ____ .（香蕉）", "a": "bananas"},
+        {"q": "用英语问同学喜不喜欢葡萄。", "a": "Do you like grapes?"}
+      ]
+    },
+    {
+      "id": "en-3b-06",
+      "type": "choice",
+      "unit": "Unit 6 How many?",
+      "lessons": ["How many"],
+      "points": ["EN-S1-LK-01.9", "EN-S1-LK-01.11"],
+      "topic": "How many 问数量",
+      "stem": "选出正确的问句。",
+      "options": ["How many kite do you see?", "How many kites you see?", "How many kites do you see?"],
+      "answer": 2,
+      "wrong": {"0": "plural-s-drop", "1": "aux-do-drop"},
+      "right": ["how many 问的是好几个，名词加 s：kites；", "后面接 do you see，do 不能少。"],
+      "typical": ["汉语“几只风筝”，风筝不变：", "How many kite do you see?"],
+      "typical_error": "plural-s-drop",
+      "ladder": [
+        {"q": "补全：How many ____ (bird) do you see?", "a": "birds"},
+        {"q": "补全：— How many crayons do you have? — ____ 16.", "a": "I have"},
+        {"q": "用英语问同学有几支铅笔。", "a": "How many pencils do you have?"}
+      ]
+    }
+  ]
+}

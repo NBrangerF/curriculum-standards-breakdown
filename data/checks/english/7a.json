@@ -1,0 +1,217 @@
+{
+  "book": {"subject": "英语", "grade": 7, "term": "上", "edition": "人教版"},
+  "misconceptions": [
+    {"id": "a-an-by-spelling", "name": "看首字母不看读音选 a/an", "why": "只记住“元音字母前用 an”，没注意要看第一个音。", "move": "把字母名读出来：F 读 /ef/，第一个音是元音，所以说 an F。"},
+    {"id": "he-before-noun", "name": "把 he 当成“他的”", "why": "汉语口语说“他名字叫……”，就把 he 直接放在名词前。", "move": "板书两列：I—my，you—your，he—his，she—her，问：名词前用哪一列？"},
+    {"id": "hes-for-his", "name": "以为 He's 是“他的”", "why": "He's 和 his 读音相近，又见过 Tom's 表示“汤姆的”。", "move": "把 He's 还原成 He is 放回句子：He is name is Mike，通吗？"},
+    {"id": "these-singular-noun", "name": "these 后的名词没变复数", "why": "汉语名词没有单复数变化，“这些是我的哥哥”里“哥哥”不变。", "move": "圈出 these，问：几个人？名词要不要加 s？"},
+    {"id": "these-with-is", "name": "these 后面仍用 is", "why": "This is 说熟了，换成 these 时 be 动词没跟着变。", "move": "板书配对 this is / these are，让学生当场把三句单数句改成复数句。"},
+    {"id": "my-without-noun", "name": "把 my 单独用在句末", "why": "my 和 mine 都译成“我的”，没分清 my 后面必须跟名词。", "move": "追问：my 什么？后面没有名词时用 mine，mine = my ruler。"},
+    {"id": "me-for-mine", "name": "把 me 当成“我的”", "why": "常说 It's me（是我），就以为它也能表示“是我的”。", "move": "对比两句：It's me.（是我）It's mine.（是我的）让学生各译成中文。"},
+    {"id": "plural-noun-as-one", "name": "把复数名词当成单数", "why": "没注意 keys 词尾的 s，按一样东西来问、来答。", "move": "先圈出 keys，问：几把钥匙？几样东西问用 are，答用 they。"},
+    {"id": "it-for-plural-things", "name": "回答复数东西也用 it", "why": "以为 it 就是“它”，问什么东西都用 It's 回答。", "move": "问：keys 是一样东西还是几样？几样东西用 they 指代：They're…"},
+    {"id": "does-then-third-person", "name": "does 后的动词还用三单", "why": "记住了主语三单要变，用了 does 后动词又变了一次。", "move": "告诉学生：does 已经表示了三单，后面的动词回到原形：has → have。"},
+    {"id": "like-singular-countable", "name": "泛指可数名词用了单数", "why": "汉语“我喜欢香蕉”里名词不变，不知道泛指一类要用复数。", "move": "问：你喜欢的是“一根香蕉”，还是“香蕉这种水果”？泛指一类用 bananas。"},
+    {"id": "uncountable-noun-plus-s", "name": "不可数名词也加了 s", "why": "把“名词复数加 s”用到了所有名词上。", "move": "分两栏写：能一个一个数的（banana、egg），不能直接数的（bread、milk、rice）。"},
+    {"id": "how-many-for-price", "name": "问价钱用了 how many", "why": "钱要“数”，就以为问多少钱用 how many。", "move": "对比：How many shorts?（几条）How much are the shorts?（多少钱）"},
+    {"id": "shorts-as-one-item", "name": "把 shorts 当成一件用单数", "why": "汉语说“一条短裤”，就以为 shorts 是单数。", "move": "指出 shorts、trousers、socks 词尾都有 s，问：后面用 is 还是 are？"},
+    {"id": "ordinal-just-add-th", "name": "序数词直接在词尾加 th", "why": "只记住“加 th”，没记住 nine、twelve 等要先改拼写。", "move": "板书特殊变化：nine → ninth（去 e），twelve → twelfth（ve 变 f），five → fifth。"},
+    {"id": "in-for-day-afternoon", "name": "看到 afternoon 就用 in", "why": "背熟了 in the afternoon，没注意具体某一天的下午用 on。", "move": "对比：in the afternoon / on Friday afternoon，问：有没有说具体哪一天？"}
+  ],
+  "items": [
+    {
+      "id": "en-7a-01",
+      "type": "write",
+      "unit": "Starter Units",
+      "lessons": ["字母", "What's this in English"],
+      "points": ["EN-S3-LK-01.5", "EN-S3-LK-01.14"],
+      "topic": "字母前用 a 还是 an",
+      "stem": "字母前用 a 还是 an？依次填空：____ F，____ U，____ H",
+      "answer": "an, a, an",
+      "wrong": {"a, an, a": "a-an-by-spelling"},
+      "right": ["看第一个音，不看字母：F /ef/、H /eɪtʃ/ 以元音开头，用 an；", "U /juː/ 以辅音 /j/ 开头，用 a。"],
+      "typical": ["F、H 不是元音字母，用 a；U 是元音字母，用 an", "a F，an U，a H"],
+      "typical_error": "a-an-by-spelling",
+      "ladder": [
+        {"q": "填 a 或 an：____ orange，____ ruler", "a": "an orange，a ruler"},
+        {"q": "填 a 或 an：____ L，____ Q，____ S", "a": "an L，a Q，an S"},
+        {"q": "填 a 或 an：____ hour，____ useful book", "a": "an hour，a useful book"}
+      ]
+    },
+    {
+      "id": "en-7a-02",
+      "type": "choice",
+      "unit": "Unit 1 My name's Gina.",
+      "lessons": ["My name is Gina"],
+      "points": ["EN-S3-LK-01.14"],
+      "topic": "人称代词与物主代词",
+      "stem": "This is my friend. ____ name is Mike.",
+      "options": ["His", "He", "He's"],
+      "answer": 0,
+      "wrong": {"1": "he-before-noun", "2": "hes-for-his"},
+      "right": ["name 前要用形容词性物主代词：he → his。", "His name is Mike.（他的名字叫迈克。）"],
+      "typical": ["He's 就像 Tom's，表示“他的”：", "He's name is Mike."],
+      "typical_error": "hes-for-his",
+      "ladder": [
+        {"q": "____ (she) name is Gina.", "a": "Her"},
+        {"q": "—What's ____ (you) name? —____ (I) name is Tom.", "a": "your；My"},
+        {"q": "填 He's 或 His：____ my brother. ____ name is Bob.", "a": "He's；His"}
+      ]
+    },
+    {
+      "id": "en-7a-03",
+      "type": "choice",
+      "unit": "Unit 2 This is my sister.",
+      "lessons": ["This is my sister"],
+      "points": ["EN-S3-LK-01.13"],
+      "topic": "用 these 介绍家人",
+      "stem": "向同学介绍你的两个哥哥，哪句对？",
+      "options": ["These are my brother.", "These are my brothers.", "These is my brothers."],
+      "answer": 1,
+      "wrong": {"0": "these-singular-noun", "2": "these-with-is"},
+      "right": ["these 指两个以上：be 动词用 are，", "名词也要用复数：These are my brothers."],
+      "typical": ["“这些是我的哥哥”，“哥哥”不用变：", "These are my brother."],
+      "typical_error": "these-singular-noun",
+      "ladder": [
+        {"q": "Those ____ (be) my parents.", "a": "are"},
+        {"q": "These are my ____ (sister).", "a": "sisters"},
+        {"q": "改成复数句：This is my friend.", "a": "These are my friends."}
+      ]
+    },
+    {
+      "id": "en-7a-04",
+      "type": "choice",
+      "unit": "Unit 3 Is this your pencil?",
+      "lessons": ["Is this your pencil"],
+      "points": ["EN-S3-LK-01.14"],
+      "topic": "my、me 还是 mine",
+      "stem": "—Is this your ruler? —Yes, it's ____.",
+      "options": ["my", "me", "mine"],
+      "answer": 2,
+      "wrong": {"0": "my-without-noun", "1": "me-for-mine"},
+      "right": ["空后面没有名词，要用名词性物主代词：", "mine = my ruler。Yes, it's mine."],
+      "typical": ["“我的”就是 my：", "Yes, it's my."],
+      "typical_error": "my-without-noun",
+      "ladder": [
+        {"q": "This pencil isn't ____ (I). It's Tom's.", "a": "mine"},
+        {"q": "—Is this Jenny's eraser? —Yes, it's ____.", "a": "hers"},
+        {"q": "My pen is red. ____ (你的) is blue.", "a": "Yours"}
+      ]
+    },
+    {
+      "id": "en-7a-05",
+      "type": "choice",
+      "unit": "Unit 4 Where's my schoolbag?",
+      "lessons": ["Where's my schoolbag"],
+      "points": ["EN-S3-LK-01.13"],
+      "topic": "问东西在哪里",
+      "stem": "—Where ____ my keys? —____ on the sofa.",
+      "options": ["is; It's", "are; They're", "are; It's"],
+      "answer": 1,
+      "wrong": {"0": "plural-noun-as-one", "2": "it-for-plural-things"},
+      "right": ["keys 是复数：问句用 are，", "答句用 they 指代：They're on the sofa."],
+      "typical": ["问句用了 are，答句还是 It's：", "—Where are my keys? —It's on the sofa."],
+      "typical_error": "it-for-plural-things",
+      "ladder": [
+        {"q": "Where ____ (be) your books?", "a": "are"},
+        {"q": "—Where's my hat? —____ on the bed.", "a": "It's"},
+        {"q": "—Where are your pencils? —____ in my pencil box.", "a": "They're"}
+      ]
+    },
+    {
+      "id": "en-7a-06",
+      "type": "step",
+      "unit": "Unit 5 Do you have a soccer ball?",
+      "lessons": ["Do you have a soccer ball"],
+      "points": ["EN-S3-LC-02.5", "EN-S3-LK-01.13"],
+      "topic": "三单句改一般疑问句",
+      "stem": "小明把 He has a soccer ball. 改成一般疑问句。他从第几步开始错？",
+      "work": ["句中没有 be 动词，要借助助动词 do", "主语 he 是三单，用 Does，放在句首", "has 照抄：Does he has a soccer ball?", "回答：Yes, he does. / No, he doesn't."],
+      "answer": 2,
+      "error": "does-then-third-person",
+      "right": ["用了 Does，后面的动词还原成原形：has → have。", "Does he have a soccer ball?"],
+      "ladder": [
+        {"q": "____ your sister ____ (have) a tennis ball?", "a": "Does；have"},
+        {"q": "改成一般疑问句：Jim likes bananas.", "a": "Does Jim like bananas?"},
+        {"q": "改成否定句：Lucy has a ping-pong bat.", "a": "Lucy doesn't have a ping-pong bat."}
+      ]
+    },
+    {
+      "id": "en-7a-07",
+      "type": "choice",
+      "unit": "Unit 6 Do you like bananas?",
+      "lessons": ["Do you like bananas"],
+      "points": ["EN-S3-LK-01.14"],
+      "topic": "说喜欢的食物",
+      "stem": "“我喜欢香蕉和面包。”哪句对？",
+      "options": ["I like bananas and bread.", "I like banana and bread.", "I like bananas and breads."],
+      "answer": 0,
+      "wrong": {"1": "like-singular-countable", "2": "uncountable-noun-plus-s"},
+      "right": ["泛指一类可数的东西用复数：bananas；", "bread 不可数，不加 s。"],
+      "typical": ["喜欢的东西都加 s：", "I like bananas and breads."],
+      "typical_error": "uncountable-noun-plus-s",
+      "ladder": [
+        {"q": "Do you like ____ (apple)?", "a": "apples"},
+        {"q": "I have some ____ (milk) for breakfast.", "a": "milk"},
+        {"q": "My brother likes ____ (strawberry) and ____ (rice).", "a": "strawberries；rice"}
+      ]
+    },
+    {
+      "id": "en-7a-08",
+      "type": "choice",
+      "unit": "Unit 7 How much are these socks?",
+      "lessons": ["How much are these socks"],
+      "points": ["EN-S3-LC-01.3", "EN-S3-LK-01.13"],
+      "topic": "问短裤的价钱",
+      "stem": "想问“这条短裤多少钱”，哪句对？",
+      "options": ["How many are these shorts?", "How much is this shorts?", "How much are these shorts?"],
+      "answer": 2,
+      "wrong": {"0": "how-many-for-price", "1": "shorts-as-one-item"},
+      "right": ["问价钱用 How much；", "shorts 总是复数形式，要用 these 和 are。"],
+      "typical": ["“一条”短裤是一件，用单数：", "How much is this shorts?"],
+      "typical_error": "shorts-as-one-item",
+      "ladder": [
+        {"q": "How much ____ (be) the green sweater?", "a": "is"},
+        {"q": "—How much are the socks? —____ two dollars.", "a": "They're"},
+        {"q": "How much ____ (be) this pair of trousers?", "a": "is（主语是 pair）"}
+      ]
+    },
+    {
+      "id": "en-7a-09",
+      "type": "write",
+      "unit": "Unit 8 When is your birthday?",
+      "lessons": ["When is your birthday"],
+      "points": ["EN-S3-LK-01.9"],
+      "topic": "序数词的拼写",
+      "stem": "写出序数词：nine → ____，twelve → ____",
+      "answer": "ninth, twelfth",
+      "wrong": {"nineth, twelveth": "ordinal-just-add-th"},
+      "right": ["nine 去掉 e 再加 th：ninth；", "twelve 把 ve 变成 f 再加 th：twelfth。"],
+      "typical": ["序数词就是在后面加 th：nineth，twelveth"],
+      "typical_error": "ordinal-just-add-th",
+      "ladder": [
+        {"q": "five → ____", "a": "fifth"},
+        {"q": "twenty → ____", "a": "twentieth"},
+        {"q": "写成单词：22nd，31st", "a": "twenty-second，thirty-first"}
+      ]
+    },
+    {
+      "id": "en-7a-10",
+      "type": "judge",
+      "unit": "Unit 9 My favorite subject is science.",
+      "lessons": ["My favorite subject is science"],
+      "points": ["EN-S3-LC-01.4"],
+      "topic": "时间介词 in 与 on",
+      "stem": "小红说下面这句话写得对。你同意吗？",
+      "work": ["We have P.E. on Friday afternoon."],
+      "answer": true,
+      "wrong": {"disagree": "in-for-day-afternoon"},
+      "right": ["说具体某一天的上午、下午、晚上用 on，", "on Friday afternoon 没错，小红说得对。"],
+      "ladder": [
+        {"q": "We have music ____ Monday.", "a": "on"},
+        {"q": "I do my homework ____ the evening.", "a": "in"},
+        {"q": "The school trip is ____ the morning of May 2nd.", "a": "on"}
+      ]
+    }
+  ]
+}

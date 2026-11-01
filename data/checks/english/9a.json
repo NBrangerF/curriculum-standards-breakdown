@@ -1,0 +1,91 @@
+{
+  "book": {"subject": "英语", "grade": 9, "term": "上", "edition": "人教版"},
+  "misconceptions": [
+    {"id": "since-with-past-tense", "name": "有 since 却用了一般过去时", "why": "看到“发生了变化”就用过去式，没注意 since 要配现在完成时。", "move": "圈出 since 2015，问：说的是从那时一直到现在吗？到现在就用 have done。"},
+    {"id": "take-place-passive", "name": "take place 用了被动语态", "why": "觉得变化是“被带来的”，不知道 take place、happen 不带宾语，不能用被动。", "move": "问：变化是被谁“发生”的吗？take place、happen 不带宾语，没有被动语态。"},
+    {"id": "has-with-plural-subject", "name": "复数主语用了 has", "why": "只顾判断时态，没回头看主语 changes 是复数。", "move": "圈出主语 changes，问：一个还是很多？复数主语用 have。"},
+    {"id": "perfect-with-past-time", "name": "现在完成时配了过去时间点", "why": "把汉语的“开了”“变了”都译成现在完成时，没注意 two years ago 是过去的一个时间点。", "move": "画时间轴：two years ago、last year、in 2018 是过去的一个点，用一般过去时；since、for 连到现在，才用 have done。"},
+    {"id": "used-to-doing", "name": "used to 后接了 doing", "why": "把 used to do 和 be used to doing 混在一起了。", "move": "对比：used to ride（过去常骑）/ is used to riding（习惯于骑），先看前面有没有 be。"},
+    {"id": "used-to-past-verb", "name": "used to 后用了过去式", "why": "used 已经是过去式，就以为后面的动词也要变。", "move": "提醒：to 后面用动词原形，“过去”已经由 used 表示了。"},
+    {"id": "more-adj-and-more-adj", "name": "长词重复了 more 和形容词", "why": "把 taller and taller 的格式照搬到了长词上。", "move": "板书两种格式：短词 taller and taller；长词 more and more beautiful。"}
+  ],
+  "items": [
+    {
+      "id": "en-9a-01",
+      "type": "choice",
+      "unit": "Unit 1 The Changing World",
+      "lessons": ["What changes have taken place around you"],
+      "points": ["EN-S3-LK-01.14"],
+      "topic": "说家乡的变化",
+      "stem": "Great changes ____ in my hometown since 2015.",
+      "options": ["have taken place", "took place", "have been taken place", "has taken place"],
+      "answer": 0,
+      "wrong": {"1": "since-with-past-tense", "2": "take-place-passive", "3": "has-with-plural-subject"},
+      "right": ["since 2015 说的是从那时到现在，用现在完成时；", "主语 changes 是复数，用 have；take place 没有被动。"],
+      "typical": ["变化是“被带来的”，要用被动：", "have been taken place"],
+      "typical_error": "take-place-passive",
+      "ladder": [
+        {"q": "My town ____ (change) a lot in the past ten years.", "a": "has changed"},
+        {"q": "What ____ (happen) to your hometown since you left?", "a": "has happened"},
+        {"q": "改错：A big change has been taken place in my school.", "a": "has taken place（去掉 been）"}
+      ]
+    },
+    {
+      "id": "en-9a-02",
+      "type": "judge",
+      "unit": "Unit 1 The Changing World",
+      "lessons": ["What changes have taken place around you"],
+      "points": ["EN-S3-LK-01.14"],
+      "topic": "过去时还是完成时",
+      "stem": "小明这样写家乡的变化。你同意吗？",
+      "work": ["A big supermarket has opened in my village two years ago."],
+      "answer": false,
+      "wrong": {"agree": "perfect-with-past-time"},
+      "right": ["two years ago 是过去的一个时间点，要用一般过去时：", "A big supermarket opened in my village two years ago."],
+      "ladder": [
+        {"q": "We ____ (move) to this town in 2018.", "a": "moved"},
+        {"q": "My hometown ____ (change) a lot since I was a child.", "a": "has changed"},
+        {"q": "The new bridge ____ (open) last year, and many people ____ (use) it since then.", "a": "opened；have used"}
+      ]
+    },
+    {
+      "id": "en-9a-03",
+      "type": "write",
+      "unit": "Unit 1 The Changing World",
+      "lessons": ["What changes have taken place around you", "How do changes influence us"],
+      "points": ["EN-S3-LK-01.15"],
+      "topic": "说过去的习惯",
+      "stem": "用括号里的词填空：My grandpa used to ____ (ride) a bike to work. Now he takes the subway.",
+      "answer": "ride",
+      "wrong": {"riding": "used-to-doing", "rode": "used-to-past-verb"},
+      "right": ["used to + 动词原形，表示过去常常做、现在不做了：", "used to ride。"],
+      "typical": ["used 是过去式，后面也用过去式：rode"],
+      "typical_error": "used-to-past-verb",
+      "ladder": [
+        {"q": "There used to ____ (be) a river here.", "a": "be"},
+        {"q": "用 used to 改写：Tom often played football, but he doesn't now.", "a": "Tom used to play football."},
+        {"q": "改成一般疑问句：He used to walk to school.", "a": "Did he use to walk to school?"}
+      ]
+    },
+    {
+      "id": "en-9a-04",
+      "type": "choice",
+      "unit": "Unit 1 The Changing World",
+      "lessons": ["How do changes influence us"],
+      "points": ["EN-S3-LK-01.15"],
+      "topic": "“越来越……”的说法",
+      "stem": "Our city is becoming ____.",
+      "options": ["more beautiful and more beautiful", "more and more beautiful", "beautifuler and beautifuler"],
+      "answer": 1,
+      "wrong": {"0": "more-adj-and-more-adj", "2": "long-adjective-er"},
+      "right": ["“越来越……”用“比较级 and 比较级”；", "长词写成 more and more + 原级：more and more beautiful。"],
+      "typical": ["照着 taller and taller 的样子：", "more beautiful and more beautiful"],
+      "typical_error": "more-adj-and-more-adj",
+      "ladder": [
+        {"q": "The days are getting ____ (long).（越来越长）", "a": "longer and longer"},
+        {"q": "The story is getting ____ (interesting).（越来越有趣）", "a": "more and more interesting"},
+        {"q": "Life in our village is getting ____ (good).（越来越好）", "a": "better and better"}
+      ]
+    }
+  ]
+}

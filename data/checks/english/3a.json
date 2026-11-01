@@ -1,0 +1,155 @@
+{
+  "book": {"subject": "英语", "grade": 3, "term": "上", "edition": "人教版 PEP（三年级起点）"},
+  "misconceptions": [
+    {"id": "person-not-switched", "name": "回答时没把“你/我”换过来", "why": "问句里说 your（你的），回答时照搬下来，没换成 my（我的）。", "move": "两人一组：问的人指着对方说 your name，答的人指着自己说 my name，边指边说。"},
+    {"id": "letter-orientation", "name": "把 b、d、p、q 的方向看反", "why": "b、d、p、q 都是“一竖加一个圈”，只记住了形状，没记住圈在竖的哪一边、竖往上还是往下。", "move": "两手握拳竖起大拇指：左手是 b，右手是 d，合起来像一张床 bed；再比一比 b 和 p，竖往上还是往下。"},
+    {"id": "greeting-reply-mixup", "name": "把几句交际用语的问答配错", "why": "几句问候、道谢的话一起背下来，没把每句问话和它的答话一对一记住。", "move": "把问句和答句做成卡片打乱，同桌两人配对，再对着说一遍。"},
+    {"id": "thanks-for-greeting", "name": "听到客气话都回 Thank you", "why": "Thank you 是最先学会的礼貌话，以为别人说什么客气话，回一句 Thank you 都行。", "move":"告诉学生英语的习惯：对方说 Nice to meet you，就把这句话还给对方，再加上 too。"},
+    {"id": "look-no-at", "name": "照汉语“看我”漏掉 at", "why": "汉语“看”后面直接跟要看的人或东西，英语 look 后面要先加 at。", "move": "把 look at 当成一个整体读：Look at me. Look at the cat. 全班边指边说，at 读重一点。"},
+    {"id": "i-for-me", "name": "“我”不管放哪都用 I", "why": "只学过 I 表示“我”，不知道“我”跟在 at 这类词后面要说成 me。", "move": "对比两句：I look at the cat. / Look at me! 问：“我”在 look 前面，还是在 at 后面？在后面就用 me。"},
+    {"id": "a-before-vowel", "name": "元音音素前仍用 a", "why": "只记住“一个”是 a，没注意 elephant、egg、English 这类词开头的音是元音，要用 an。", "move": "把 a elephant 和 an elephant 各读一遍，问哪个更顺口；再给 egg、duck、apple、cat 分别配上 a 或 an。"},
+    {"id": "article-drop", "name": "照汉语习惯漏掉 a/an", "why": "汉语说“是大象”“是司机”，名词前不用“一个”，就照着漏掉了 a/an。", "move": "说到单个的人或东西时停一下问：几个？一个就先说 a 或 an，再说名词。"},
+    {"id": "echo-reply", "name": "把对方的话原样说回去", "why": "Hello、Good morning、Happy New Year 可以原样回，就以为所有的话都能原样回。", "move": "分两栏：能原样回的（Hello、Good morning、Happy New Year）和不能的（Thank you、Happy birthday），全班把卡片分一分。"},
+    {"id": "thanks-welcome-swap", "name": "该道谢时说了“不客气”", "why": "Thank you 和 You're welcome 总是连在一起出现，没分清谁该说哪一句。", "move": "演一演：送东西的人说 Here you are，收到的人说 Thank you，最后送东西的人才说 You're welcome。"}
+  ],
+  "items": [
+    {
+      "id": "en-3a-01",
+      "type": "judge",
+      "unit": "Unit 1 Hello!",
+      "lessons": ["Hello"],
+      "points": ["EN-S1-LS-01.11", "EN-S1-LK-01.15"],
+      "topic": "问名字怎样回答",
+      "stem": "Sarah 问 Mike 叫什么名字。Mike 这样回答，你同意吗？",
+      "work": ["Sarah: What's your name?", "Mike: Your name's Mike."],
+      "answer": false,
+      "wrong": {"agree": "person-not-switched"},
+      "right": ["问“你的名字”，答“我的名字”：My name's Mike.", "也可以说：I'm Mike."],
+      "ladder": [
+        {"q": "补全：— What's your name? — ____ name's Amy.", "a": "My"},
+        {"q": "补全：— What's ____ name? — My name's Chen Jie.", "a": "your"},
+        {"q": "你想知道新同学的名字，用英语问一句。", "a": "What's your name?"}
+      ]
+    },
+    {
+      "id": "en-3a-02",
+      "type": "choice",
+      "unit": "Unit 1 Hello!",
+      "lessons": ["Hello"],
+      "points": ["EN-S1-LK-01.1", "EN-S1-LS-01.18"],
+      "topic": "大写 B 的小写",
+      "stem": "大写字母 B 的小写是哪一个？",
+      "options": ["d", "p", "b", "q"],
+      "answer": 2,
+      "wrong": {"0": "letter-orientation", "1": "letter-orientation", "3": "letter-orientation"},
+      "right": ["B 的小写是 b：竖在左边，往上伸；圈在右下。", "d 的圈在左边，p 的竖往下伸。"],
+      "typical": ["b 和 d 都是一竖加一个圈，", "我选了 d。"],
+      "typical_error": "letter-orientation",
+      "ladder": [
+        {"q": "写出小写字母：B ____　D ____", "a": "b　d"},
+        {"q": "写出大写字母：b ____　d ____　p ____", "a": "B　D　P"},
+        {"q": "补上第一个字母：_ag（书包）　_og（狗）", "a": "bag　dog"}
+      ]
+    },
+    {
+      "id": "en-3a-03",
+      "type": "choice",
+      "unit": "Unit 2 Colours!",
+      "lessons": ["Colours"],
+      "points": ["EN-S1-LK-01.15", "EN-S1-CA-02.4"],
+      "topic": "初次见面怎样回应",
+      "stem": "Miss Green 对你说：Nice to meet you. 你怎样回答最合适？",
+      "options": ["I'm fine, thank you.", "Nice to meet you, too.", "Thank you."],
+      "answer": 1,
+      "wrong": {"0": "greeting-reply-mixup", "2": "thanks-for-greeting"},
+      "right": ["Nice to meet you. 是“见到你很高兴”，", "把这句话还给对方，再加 too：Nice to meet you, too."],
+      "typical": ["老师说的是客气话，", "我就回：Thank you."],
+      "typical_error": "thanks-for-greeting",
+      "ladder": [
+        {"q": "— Good morning, Miss Green. — ____", "a": "Good morning."},
+        {"q": "— Nice to meet you. — Nice to meet you, ____ .", "a": "too"},
+        {"q": "把妈妈介绍给 Miss Green，用英语说一句。", "a": "Miss Green, this is my mum."}
+      ]
+    },
+    {
+      "id": "en-3a-04",
+      "type": "choice",
+      "unit": "Unit 3 Look at me!",
+      "lessons": ["Look at me"],
+      "points": ["EN-S1-LK-01.9", "EN-S1-LC-01.5"],
+      "topic": "叫别人看自己",
+      "stem": "你想让同学看看你，选出正确的一句。",
+      "options": ["Look at me!", "Look at I!", "Look me!"],
+      "answer": 0,
+      "wrong": {"1": "i-for-me", "2": "look-no-at"},
+      "right": ["look 后面先加 at，再说看谁：Look at me!", "at 后面的“我”说 me，不说 I。"],
+      "typical": ["“看我”就是 look 加 me：", "Look me!"],
+      "typical_error": "look-no-at",
+      "ladder": [
+        {"q": "补全：Look ____ my nose!", "a": "at"},
+        {"q": "补全：Look at ____ !（我）", "a": "me"},
+        {"q": "让同学看你的手，用英语说一句。", "a": "Look at my hand!"}
+      ]
+    },
+    {
+      "id": "en-3a-05",
+      "type": "choice",
+      "unit": "Unit 4 We love animals",
+      "lessons": ["We love animals"],
+      "points": ["EN-S1-LK-01.11", "EN-S1-LK-01.9"],
+      "topic": "a 还是 an",
+      "stem": "（指着一头大象）— What's this? — ____",
+      "options": ["It's a elephant.", "It's elephant.", "It's an elephant."],
+      "answer": 2,
+      "wrong": {"0": "a-before-vowel", "1": "article-drop"},
+      "right": ["elephant 开头的音是元音，前面用 an：It's an elephant.","说一个东西，前面不能什么都不加。"],
+      "typical": ["“一个”就是 a：", "It's a elephant."],
+      "typical_error": "a-before-vowel",
+      "ladder": [
+        {"q": "填 a 或 an：____ cat　____ elephant", "a": "a cat　an elephant"},
+        {"q": "填 a 或 an：____ panda　____ apple", "a": "a panda　an apple"},
+        {"q": "（指着远处的一只猴子）用英语问一问，再答一答。", "a": "What's that? It's a monkey."}
+      ]
+    },
+    {
+      "id": "en-3a-06",
+      "type": "choice",
+      "unit": "Unit 5 Let's eat!",
+      "lessons": ["Let's eat"],
+      "points": ["EN-S1-LK-01.16", "EN-S1-CA-02.4"],
+      "topic": "别人道谢怎样回应",
+      "stem": "你把蛋糕递给 Amy，Amy 说：Thank you. 你接着说：",
+      "options": ["You're welcome.", "Thank you.", "Here you are."],
+      "answer": 0,
+      "wrong": {"1": "echo-reply", "2": "greeting-reply-mixup"},
+      "right": ["别人向你道谢，回答“不客气”：You're welcome.", "Here you are. 是递东西时说的，不用来回答道谢。"],
+      "typical": ["Amy 说 Thank you，", "我也说 Thank you."],
+      "typical_error": "echo-reply",
+      "ladder": [
+        {"q": "妈妈递给你牛奶，说：Here you are. 你说：____", "a": "Thank you."},
+        {"q": "补全：— Thank you. — You're ____ .", "a": "welcome"},
+        {"q": "你想要一些水，用英语有礼貌地说一句。", "a": "Can I have some water, please?（或 I'd like some water, please.）"}
+      ]
+    },
+    {
+      "id": "en-3a-07",
+      "type": "choice",
+      "unit": "Unit 6 Happy birthday!",
+      "lessons": ["Happy birthday"],
+      "points": ["EN-S1-CA-02.4", "EN-S1-LK-01.15"],
+      "topic": "生日祝福怎样回应",
+      "stem": "今天是你的生日。同学说：Happy birthday! 你说：",
+      "options": ["Thank you!", "Happy birthday!", "You're welcome!"],
+      "answer": 0,
+      "wrong": {"1": "echo-reply", "2": "thanks-welcome-swap"},
+      "right": ["别人祝你生日快乐，你要道谢：Thank you!", "过生日的是你，不用把 Happy birthday 祝回去。"],
+      "typical": ["Happy New Year 可以原样回，", "生日也回：Happy birthday!"],
+      "typical_error": "echo-reply",
+      "ladder": [
+        {"q": "— Happy birthday! — ____", "a": "Thank you!"},
+        {"q": "— How old are you? — I'm ____ .（9 岁）", "a": "nine"},
+        {"q": "同学过生日，你送他一份礼物，用英语说两句。", "a": "Happy birthday! This is for you."}
+      ]
+    }
+  ]
+}

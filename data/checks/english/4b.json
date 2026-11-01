@@ -1,0 +1,156 @@
+{
+  "book": {"subject": "英语", "grade": 4, "term": "下", "edition": "人教版 PEP（三年级起点）"},
+  "misconceptions": [
+    {"id": "zai-always-in", "name": "把“在”一律说成 in", "why": "汉语一个“在”既管地点也管时间，就都用 in；英语要分：楼层、星期用 on，钟点用 at，房间里、上午下午用 in。", "move": "画一栋楼和一条时间轴，把例子放进去：on the second floor、on Monday、at 7:00、in the library、in the morning。"},
+    {"id": "cardinal-for-ordinal", "name": "该用序数词时用了基数词", "why": "汉语“二楼”“十二号”里说的是“二”“十二”，就照着用 two、twelve。", "move": "问：是“两层楼”还是“第二层”？说“第几”就用 first、second、third。"},
+    {"id": "time-for-verb", "name": "time for 后面直接跟动作", "why": "It's time for ... 和 It's time to ... 都是“该……了”，没分清 for 后面跟事情，to 后面跟动作。", "move": "分两栏：for + 事情（for lunch、for PE class），to + 动作（to go home、to get up），让学生把卡片放进对的一栏。"},
+    {"id": "to-before-home-there", "name": "there、home 前多加了 to", "why": "go to school、go to the park 说惯了，就以为“回家”“去那儿”也要加 to。", "move": "把 home、there、here 圈出来：它们自己就含有“到……”的意思，前面不加 to：go home、go there。"},
+    {"id": "noun-for-adjective", "name": "天气说成名词（It's sun）", "why": "汉语“晴”“雨”直接放在“天”后面就行，就把 sun、rain 直接放在 It's 后面。", "move": "对照写：sun → sunny，rain → rainy，wind → windy，cloud → cloudy，说天气用右边带 y 的词。"},
+    {"id": "y-no-double", "name": "加 y 时没双写末尾字母", "why": "rainy、windy 都是直接加 y，就没注意 sun 要先双写 n 再加 y。", "move": "按拼读规则读一读 suny：u 会读成字母 U 的名字；要保住 sun 里的短音，就要多写一个 n。"},
+    {"id": "plural-overgeneralize", "name": "复数一律加 s（sheeps）", "why": "大多数名词复数加 s，就把 sheep、fish、child 这些特殊的词也加上 s。", "move": "列一张“特殊复数”表：sheep—sheep、fish—fish、child—children、man—men，每碰到一个就补上。"},
+    {"id": "demonstrative-number", "name": "指好几个东西还用 this/that", "why": "this、that 先学，就以为“这”“那”都用它们，没注意后面是复数名词。", "move": "两两对应：this—these，that—those，看到名词带 s，就换成右边的词。"},
+    {"id": "demonstrative-distance", "name": "远处的东西也用 these", "why": "只记住了复数要换词，没区分近处用 these、远处用 those。", "move": "手放在身边说 these，手指远处说 those；先问远近，再问单复数。"},
+    {"id": "pair-noun-singular", "name": "以为“一条裤子”是单数", "why": "汉语说“一条短裤”“一双鞋”，就以为是一件东西；英语 shorts、pants、shoes 都按复数说。", "move": "拿起一条短裤数一数裤腿：两条，所以是 shorts，配 these、are。"},
+    {"id": "plural-subject-is", "name": "复数主语后用了 is", "why": "is 说得最熟，主语变成复数时没换成 are。", "move": "先找句子的主语，问：一个还是几个？几个就配 are。"},
+    {"id": "how-many-asks-price", "name": "问价钱用了 how many", "why": "汉语都说“多少”，没分清 how many 问几个，how much 问多少钱。", "move": "同一双鞋问两问：How many shoes?（几只）/ How much are the shoes?（多少钱），比一比两个答案。"}
+  ],
+  "items": [
+    {
+      "id": "en-4b-01",
+      "type": "choice",
+      "unit": "Unit 1 My School",
+      "lessons": ["My school"],
+      "points": ["EN-S1-LS-01.14", "EN-S1-LK-01.11"],
+      "topic": "楼层的说法",
+      "stem": "— Where's the library? — ____（在二楼）",
+      "options": ["It's in the second floor.", "It's on the two floor.", "It's on the second floor."],
+      "answer": 2,
+      "wrong": {"0": "zai-always-in", "1": "cardinal-for-ordinal"},
+      "right": ["“第二层”用 second，不用 two；", "在某一层楼用 on：It's on the second floor."],
+      "typical": ["“在”就是 in：", "It's in the second floor."],
+      "typical_error": "zai-always-in",
+      "ladder": [
+        {"q": "补全：The music room is on the ____ floor.（一楼）", "a": "first"},
+        {"q": "补全：The computer room is ____ the second floor.", "a": "on"},
+        {"q": "用英语说：我们的教室在一楼。", "a": "Our classroom is on the first floor."}
+      ]
+    },
+    {
+      "id": "en-4b-02",
+      "type": "choice",
+      "unit": "Unit 2 What time is it?",
+      "lessons": ["What time is it"],
+      "points": ["EN-S1-LS-01.13", "EN-S1-LK-01.9"],
+      "topic": "It's time to / for",
+      "stem": "下午 5 点，该回家了。选出正确的一句。",
+      "options": ["It's time for go home.", "It's time to go home.", "It's time to go to home."],
+      "answer": 1,
+      "wrong": {"0": "time-for-verb", "2": "to-before-home-there"},
+      "right": ["“该做某事了”：It's time to + 动作。", "home 前面不加 to：go home。"],
+      "typical": ["It's time for lunch 能说，", "就说：It's time for go home."],
+      "typical_error": "time-for-verb",
+      "ladder": [
+        {"q": "补全：It's 12 o'clock. It's time ____ lunch.", "a": "for"},
+        {"q": "补全：It's 7 o'clock. It's time to ____ up.", "a": "get"},
+        {"q": "晚上 9 点了，用英语说“该睡觉了”。", "a": "It's time to go to bed.（或 It's time for bed.）"}
+      ]
+    },
+    {
+      "id": "en-4b-03",
+      "type": "write",
+      "unit": "Unit 3 Weather",
+      "lessons": ["Weather"],
+      "points": ["EN-S1-TH-01.17", "EN-S1-LK-01.8"],
+      "topic": "描述天气的词",
+      "stem": "天气预报：北京，晴。用括号里的词填空：It's ____ (sun) in Beijing.",
+      "answer": "sunny",
+      "wrong": {"sun": "noun-for-adjective", "suny": "y-no-double"},
+      "right": ["说天气用带 y 的词：sun → sunny；", "sun 加 y 之前先双写 n。"],
+      "typical": ["“晴”就是 sun：", "It's sun in Beijing."],
+      "typical_error": "noun-for-adjective",
+      "ladder": [
+        {"q": "用括号里的词填空：It's ____ (wind) today.", "a": "windy"},
+        {"q": "用括号里的词填空：It's ____ (cloud) in Shanghai.", "a": "cloudy"},
+        {"q": "— What's the weather like in Harbin? — ____（下雪）", "a": "It's snowy.（或 It's snowing.）"}
+      ]
+    },
+    {
+      "id": "en-4b-04",
+      "type": "judge",
+      "unit": "Unit 4 At the farm",
+      "lessons": ["At the farm"],
+      "points": ["EN-S1-LK-01.8", "EN-S1-LS-01.16"],
+      "topic": "sheep 的复数",
+      "stem": "Mike 在农场写了这句话，你同意吗？",
+      "work": ["Look! I can see five sheep."],
+      "answer": true,
+      "wrong": {"disagree": "plural-overgeneralize"},
+      "right": ["sheep 的复数还是 sheep，不加 s：", "one sheep，five sheep"],
+      "ladder": [
+        {"q": "写出复数：one cow → five ____", "a": "cows"},
+        {"q": "写出复数：one tomato → two ____", "a": "tomatoes"},
+        {"q": "写出复数：one sheep → ten ____　one horse → ten ____", "a": "sheep　horses"}
+      ]
+    },
+    {
+      "id": "en-4b-05",
+      "type": "choice",
+      "unit": "Unit 4 At the farm",
+      "lessons": ["At the farm"],
+      "points": ["EN-S1-LK-01.11", "EN-S1-LK-01.9"],
+      "topic": "these 还是 those",
+      "stem": "Look at ____ cows over there!",
+      "options": ["those", "these", "that"],
+      "answer": 0,
+      "wrong": {"1": "demonstrative-distance", "2": "demonstrative-number"},
+      "right": ["cows 是好几头，over there 在远处：", "远处的好几个用 those。"],
+      "typical": ["cows 是复数，复数就用 these：", "Look at these cows over there!"],
+      "typical_error": "demonstrative-distance",
+      "ladder": [
+        {"q": "（手里拿着几根胡萝卜）补全：____ are carrots.", "a": "These"},
+        {"q": "（指着远处的一匹马）补全：What's ____ ?", "a": "that"},
+        {"q": "（指着远处的几只母鸡）用英语问一问，再答一答。", "a": "What are those? They're hens."}
+      ]
+    },
+    {
+      "id": "en-4b-06",
+      "type": "choice",
+      "unit": "Unit 5 My clothes",
+      "lessons": ["My clothes"],
+      "points": ["EN-S1-LK-01.11", "EN-S1-LS-01.16"],
+      "topic": "短裤按复数说",
+      "stem": "这条短裤太大了。选出正确的一句。",
+      "options": ["These shorts are too big.", "This shorts is too big.", "These shorts is too big."],
+      "answer": 0,
+      "wrong": {"1": "pair-noun-singular", "2": "plural-subject-is"},
+      "right": ["shorts 按复数说，用 these 和 are：", "These shorts are too big."],
+      "typical": ["“一条短裤”是一件，", "This shorts is too big."],
+      "typical_error": "pair-noun-singular",
+      "ladder": [
+        {"q": "补全：____ shoes are nice.（这双）", "a": "These"},
+        {"q": "补全：Those socks ____ yours.", "a": "are"},
+        {"q": "用英语问：那条短裤是谁的？", "a": "Whose shorts are those?"}
+      ]
+    },
+    {
+      "id": "en-4b-07",
+      "type": "choice",
+      "unit": "Unit 6 Shopping",
+      "lessons": ["Shopping"],
+      "points": ["EN-S1-LK-01.9", "EN-S1-LK-01.11"],
+      "topic": "问价钱",
+      "stem": "你想问这双鞋多少钱，选出正确的问句。",
+      "options": ["How much is these shoes?", "How much are these shoes?", "How many are these shoes?"],
+      "answer": 1,
+      "wrong": {"0": "plural-subject-is", "2": "how-many-asks-price"},
+      "right": ["问价钱用 how much；", "shoes 是复数，用 are：How much are these shoes?"],
+      "typical": ["“多少”就是 how many：", "How many are these shoes?"],
+      "typical_error": "how-many-asks-price",
+      "ladder": [
+        {"q": "补全：How much ____ this skirt?", "a": "is"},
+        {"q": "补全：— How much are the socks? — ____ 10 yuan.", "a": "They're"},
+        {"q": "用英语问这件夹克多少钱。", "a": "How much is this jacket?"}
+      ]
+    }
+  ]
+}

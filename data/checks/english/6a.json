@@ -1,0 +1,158 @@
+{
+  "book": {"subject": "英语", "grade": 6, "term": "上", "edition": "人教版 PEP（三年级起点）"},
+  "misconceptions": [
+    {"id": "phrase-part-drop", "name": "方位词组少了 to/of", "why": "next to、in front of 是几个词合起来表示一个位置，只记住了前半截。", "move": "把词组写在一张卡片上整体读：next to、in front of，再换不同的地点各说一句。"},
+    {"id": "prep-chinese-order", "name": "照汉语语序把方位词放后面", "why": "汉语说“在电影院旁边”，方位词在后，就照着说成 the cinema next to。", "move": "告诉学生英语方位词放前面：先说“旁边”，再说“谁的旁边”——next to the cinema。"},
+    {"id": "by-plus-article", "name": "by 和交通工具间加了 a/the", "why": "记住了“单个的东西前要加 a”，就在 by 后面的 bus 前也加上 a；说交通方式时 by 后面直接跟名词。", "move": "对比：by bus（坐公交这种方式）/ take a bus（坐一辆公交），by 后面不加 a、the。"},
+    {"id": "serial-verb", "name": "照汉语把两个动词连用", "why": "汉语“坐公交车去上学”两个动作连着说，就写成 take a bus go to school。", "move": "两种说法选一种：I go to school by bus. / I take a bus to school. 圈出每句里只有一个主要动作词。"},
+    {"id": "going-to-be-drop", "name": "be going to 漏掉了 be", "why": "把 going to 当成“打算”，忘了前面还要 am / is / are。", "move": "把 am going to 当成一个整块：I am going to、he is going to，读三遍再造句。"},
+    {"id": "to-plus-ing", "name": "to 后面的动词用了 -ing", "why": "前面有 going，就把后面的动词也加上 -ing。", "move": "画箭头：going to → 动词原形，to 后面的动词“回到原形”。"},
+    {"id": "3sg-no-s", "name": "动词三单忘加 s", "why": "汉语动词不随“他、她”变化，主语是 he、she 或一个人名时，忘了给动词加 s。", "move": "在主语下画一横：是 he、she、it 或一个人？是就检查动词有没有 s。"},
+    {"id": "3sg-es-rule", "name": "该加 es 的只加了 s", "why": "记住了“三单加 s”，没注意以 ch、sh、s、x、o 结尾的动词要加 es。", "move": "读一读 watchs 和 watches：ch 后面加 es，多出一个音节才读得顺；再变一变 wash、fix，o 结尾的 go、do 也加 es。"},
+    {"id": "does-plus-s", "name": "用了 does，动词还加 s", "why": "知道主语是 he 要“加 s”，用了 does 后又在动词上再加一次。", "move": "告诉学生：s 只能出现一次——有了 does，动词就回到原形：Does he like ...?"},
+    {"id": "do-for-does", "name": "主语是 he/she 还用 do", "why": "Do you ...? 说得最熟，主语换成 he、she 时没把 do 换成 does。", "move": "主语是 he、she 或一个人名，问句开头就用 Does；全班把 Do you / Does he 连起来说几遍。"},
+    {"id": "what-do-vs-doing", "name": "把问职业听成问正在做什么", "why": "do 是“做”，就把 What does he do? 理解成“他在做什么”。", "move": "对比：What does he do?（做什么工作）/ What is he doing?（正在做什么），各配一个答句。"},
+    {"id": "modal-plus-to", "name": "should 后面多加了 to", "why": "want to、have to 说惯了，就在 should 后面也加上 to。", "move": "把 can、should、must 写在一起：它们后面都直接跟动词原形，不加 to。"}
+  ],
+  "items": [
+    {
+      "id": "en-6a-01",
+      "type": "choice",
+      "unit": "Unit 1 How can I get there?",
+      "lessons": ["How can I get there"],
+      "points": ["EN-S2-LK-01.11", "EN-S2-LK-01.16"],
+      "topic": "next to 的用法",
+      "stem": "— Where is the bookstore? — ____（在电影院旁边）",
+      "options": ["It's next to the cinema.", "It's next the cinema.", "It's the cinema next to."],
+      "answer": 0,
+      "wrong": {"1": "phrase-part-drop", "2": "prep-chinese-order"},
+      "right": ["“在……旁边”是 next to，to 不能少；", "方位词放在地点前面：next to the cinema。"],
+      "typical": ["“旁边”就是 next：", "It's next the cinema."],
+      "typical_error": "phrase-part-drop",
+      "ladder": [
+        {"q": "补全：The post office is next ____ the hospital.", "a": "to"},
+        {"q": "补全：The museum is ____ ____ ____ the school.（在……前面）", "a": "in front of"},
+        {"q": "用英语说：科学博物馆就在邮局旁边。", "a": "The science museum is next to the post office."}
+      ]
+    },
+    {
+      "id": "en-6a-02",
+      "type": "choice",
+      "unit": "Unit 2 Ways to go to school",
+      "lessons": ["Ways to go to school"],
+      "points": ["EN-S2-LK-01.9", "EN-S2-LS-01.12"],
+      "topic": "交通方式的说法",
+      "stem": "我坐公交车上学。选出正确的一句。",
+      "options": ["I go to school by a bus.", "I take a bus go to school.", "I go to school by bus."],
+      "answer": 2,
+      "wrong": {"0": "by-plus-article", "1": "serial-verb"},
+      "right": ["说交通方式：by + 交通工具，中间不加 a：by bus；", "也可以说：I take a bus to school."],
+      "typical": ["“坐公交车去上学”：", "I take a bus go to school."],
+      "typical_error": "serial-verb",
+      "ladder": [
+        {"q": "补全：I usually come to school ____ foot.", "a": "on"},
+        {"q": "补全：Mike goes to Beijing ____ train.", "a": "by"},
+        {"q": "— How do you come to school? — 有时坐地铁。用英语回答。", "a": "Sometimes I come by subway."}
+      ]
+    },
+    {
+      "id": "en-6a-03",
+      "type": "choice",
+      "unit": "Unit 3 My weekend plan",
+      "lessons": ["My weekend plan"],
+      "points": ["EN-S2-LK-01.10", "EN-S2-LC-01.2"],
+      "topic": "be going to 说计划",
+      "stem": "补全：I ____ a film tomorrow.（打算去看）",
+      "options": ["going to see", "am going to see", "am going to seeing"],
+      "answer": 1,
+      "wrong": {"0": "going-to-be-drop", "2": "to-plus-ing"},
+      "right": ["打算做某事：am / is / are + going to + 动词原形。", "I am going to see a film tomorrow."],
+      "typical": ["going to 就是“打算”：", "I going to see a film tomorrow."],
+      "typical_error": "going-to-be-drop",
+      "ladder": [
+        {"q": "补全：We ____ going to visit my grandparents.", "a": "are"},
+        {"q": "补全：She is going to ____ (take) a trip.", "a": "take"},
+        {"q": "— What are you going to do this weekend? — 去超市。用英语回答。", "a": "I'm going to go to the supermarket."}
+      ]
+    },
+    {
+      "id": "en-6a-04",
+      "type": "write",
+      "unit": "Unit 4 I have a pen pal",
+      "lessons": ["I have a pen pal"],
+      "points": ["EN-S2-LK-01.9", "EN-S2-LC-01.2"],
+      "topic": "动词三单加 es",
+      "stem": "用括号里的词填空：My pen pal Peter often ____ (watch) films on Saturdays.",
+      "answer": "watches",
+      "wrong": {"watch": "3sg-no-s", "watchs": "3sg-es-rule"},
+      "right": ["主语 Peter 是一个人，动词要用三单；", "watch 以 ch 结尾，加 es：watches。"],
+      "typical": ["我们说 watch films，", "Peter often watch films."],
+      "typical_error": "3sg-no-s",
+      "ladder": [
+        {"q": "用括号里的词填空：He ____ (live) in Sydney.", "a": "lives"},
+        {"q": "用括号里的词填空：She ____ (go) to school by bike.", "a": "goes"},
+        {"q": "用括号里的词填空：My pen pal ____ (study) Chinese.", "a": "studies"}
+      ]
+    },
+    {
+      "id": "en-6a-05",
+      "type": "choice",
+      "unit": "Unit 4 I have a pen pal",
+      "lessons": ["I have a pen pal"],
+      "points": ["EN-S2-LK-01.9", "EN-S2-LC-01.3"],
+      "topic": "用 does 提问",
+      "stem": "问一问：他（Peter）喜欢读故事吗？选出正确的问句。",
+      "options": ["Does he likes reading stories?", "Do he like reading stories?", "Is he like reading stories?", "Does he like reading stories?"],
+      "answer": 3,
+      "wrong": {"0": "does-plus-s", "1": "do-for-does", "2": "be-plus-verb"},
+      "right": ["主语是 he，问句用 Does 开头；", "有了 does，动词用原形：Does he like reading stories?"],
+      "typical": ["he 后面的动词要加 s：", "Does he likes reading stories?"],
+      "typical_error": "does-plus-s",
+      "ladder": [
+        {"q": "补全：— Does she live in China? — Yes, ____ .", "a": "she does"},
+        {"q": "变成问句：He likes doing kung fu.", "a": "Does he like doing kung fu?"},
+        {"q": "变成否定句：Peter lives on a farm.", "a": "Peter doesn't live on a farm."}
+      ]
+    },
+    {
+      "id": "en-6a-06",
+      "type": "choice",
+      "unit": "Unit 5 What does he do?",
+      "lessons": ["What does he do"],
+      "points": ["EN-S2-LC-01.3", "EN-S2-LC-01.2"],
+      "topic": "问职业",
+      "stem": "— What does your mother do? — ____",
+      "options": ["She's cooking.", "She's cook.", "She's a cook."],
+      "answer": 2,
+      "wrong": {"0": "what-do-vs-doing", "1": "article-drop"},
+      "right": ["What does ... do? 问做什么工作，", "答职业，前面加 a：She's a cook."],
+      "typical": ["do 是“做”，就答她正在做什么：", "She's cooking."],
+      "typical_error": "what-do-vs-doing",
+      "ladder": [
+        {"q": "补全：— What does your father do? — He's ____ police officer.", "a": "a"},
+        {"q": "— What is your father doing? — 他在看书。用英语回答。", "a": "He's reading a book."},
+        {"q": "用英语问：他在哪里工作？他怎么去上班？", "a": "Where does he work? How does he go to work?"}
+      ]
+    },
+    {
+      "id": "en-6a-07",
+      "type": "choice",
+      "unit": "Unit 6 How do you feel?",
+      "lessons": ["How do you feel"],
+      "points": ["EN-S2-LK-01.9"],
+      "topic": "should 后面用原形",
+      "stem": "Tom has a bad cold. He should ____ a doctor.",
+      "options": ["see", "sees", "to see", "seeing"],
+      "answer": 0,
+      "wrong": {"1": "modal-plus-s", "2": "modal-plus-to", "3": "modal-plus-ing"},
+      "right": ["should 后面直接跟动词原形，", "主语是谁都不变：He should see a doctor."],
+      "typical": ["主语是 he，动词加 s：", "He should sees a doctor."],
+      "typical_error": "modal-plus-s",
+      "ladder": [
+        {"q": "补全：You should ____ (wear) warm clothes.", "a": "wear"},
+        {"q": "补全：She is angry. She should ____ (take) a deep breath.", "a": "take"},
+        {"q": "朋友为考试担心，用 should 给他一个建议。", "a": "如：You should ask your teacher for help."}
+      ]
+    }
+  ]
+}

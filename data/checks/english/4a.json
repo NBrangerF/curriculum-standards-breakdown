@@ -1,0 +1,150 @@
+{
+  "book": {"subject": "英语", "grade": 4, "term": "上", "edition": "人教版 PEP（三年级起点）"},
+  "misconceptions": [
+    {"id": "magic-e-ignored", "name": "以为词尾不发音的 e 没用", "why": "结尾的 e 不读出来，就以为它不起作用，把前面的 a 还读成 cat 里的音。", "move": "成对读：cap—cape、hat—hate、Sam—same，让学生自己说出：加了 e，a 就读字母 A 的名字。"},
+    {"id": "an-overuse", "name": "学了 an 就到处用", "why": "记住了“有时要用 an”，没弄清只有元音音素开头的词前才用 an。", "move": "先读出名词的第一个音：English 开头是元音，用 an；maths、driver 开头是辅音，用 a。"},
+    {"id": "subject-for-possessive", "name": "用主格代替“……的”", "why": "汉语“她名字”“它妈妈”可以不说“的”，就把 she、it 直接放在名词前。", "move": "列一张对照表：I—my，you—your，he—his，she—her，it—its，名词前面用右边那一列。"},
+    {"id": "hair-countable", "name": "以为“长头发”要说 hairs", "why": "头发有很多根，就当成“好几个”加了 s，不知道说一头头发时 hair 不加 s。", "move": "告诉学生：说一头头发时 hair 不加 s，前面也不加 a，和 milk、water 一样：She has long hair."},
+    {"id": "plural-as-it", "name": "复数的东西还用 it", "why": "It's ... 说得最熟，没注意问的是好几样东西，要用 they。", "move": "看问句：Where is ...? 答 It's ...；Where are ...? 答 They're ...，is 配 it，are 配 they。"},
+    {"id": "be-drop", "name": "照汉语漏掉 am/is/are", "why": "汉语“钥匙在桌上”“我九岁”里没有和 is、are 对应的词，就照着漏掉了。", "move": "让学生找句子里的“小帮手”：They ____ on the table. 没有 are，这句话就不完整。"},
+    {"id": "would-like-as-like", "name": "把“想要”听成“喜欢”", "why": "would like 里有 like，就当成“喜欢”，用回答 Do you like ...? 的方式来答。", "move": "并排写两句：Do you like soup?（喜欢吗）/ Would you like some soup?（要不要来点），分别配上 Yes, I do. 和 Yes, please."}
+  ],
+  "items": [
+    {
+      "id": "en-4a-01",
+      "type": "judge",
+      "unit": "Unit 1 My classroom",
+      "lessons": ["My classroom"],
+      "points": ["EN-S1-LK-01.3", "EN-S1-LK-01.2"],
+      "topic": "a-e 的读音",
+      "stem": "小明这样说，你同意吗？",
+      "work": ["cap 后面加上 e，就成了 cape。", "e 不发音，所以 a 的读音不变。"],
+      "answer": false,
+      "wrong": {"agree": "magic-e-ignored"},
+      "right": ["结尾的 e 不发音，但它让前面的 a 读字母 A 的名字。", "cap 里的 a 和 cat 一样；cape 里的 a 和 cake、name 一样。"],
+      "ladder": [
+        {"q": "圈出 a 读字母 A 名字的词：cat　cake　bag　name", "a": "cake　name"},
+        {"q": "哪个词里的 a 和 face 里的 a 读音一样：bag　make　hand", "a": "make"},
+        {"q": "用拼读规则读生词 gate：a 像 cat 里的，还是像 cake 里的？", "a": "像 cake 里的 a"}
+      ]
+    },
+    {
+      "id": "en-4a-02",
+      "type": "choice",
+      "unit": "Unit 2 My schoolbag",
+      "lessons": ["My schoolbag"],
+      "points": ["EN-S1-LK-01.11", "EN-S1-LS-01.16"],
+      "topic": "an English book",
+      "stem": "I have ____ English book and ____ maths book. 选出正确的一组。",
+      "options": ["a，a", "an，a", "an，an"],
+      "answer": 1,
+      "wrong": {"0": "a-before-vowel", "2": "an-overuse"},
+      "right": ["English 开头的音是元音，用 an；maths 开头是辅音，用 a。","an English book，a maths book"],
+      "typical": ["两本书前面都用 a：", "a English book，a maths book"],
+      "typical_error": "a-before-vowel",
+      "ladder": [
+        {"q": "填 a 或 an：____ storybook　____ English book", "a": "a storybook　an English book"},
+        {"q": "填 a 或 an：____ eraser　____ notebook", "a": "an eraser　a notebook"},
+        {"q": "用英语说说书包里有：一本语文书、一块橡皮、两本故事书。", "a": "a Chinese book, an eraser and two storybooks"}
+      ]
+    },
+    {
+      "id": "en-4a-03",
+      "type": "choice",
+      "unit": "Unit 3 My friends",
+      "lessons": ["My friends"],
+      "points": ["EN-S1-LK-01.11", "EN-S1-LS-01.16"],
+      "topic": "his 还是 her",
+      "stem": "Look at that girl. ____ name is Lily.",
+      "options": ["His", "She", "Her"],
+      "answer": 2,
+      "wrong": {"0": "he-she-mixup", "1": "subject-for-possessive"},
+      "right": ["girl 是女孩，“她的名字”用 her：", "Her name is Lily."],
+      "typical": ["“她名字叫 Lily”：", "She name is Lily."],
+      "typical_error": "subject-for-possessive",
+      "ladder": [
+        {"q": "看着一个男孩说：____ name is Mike.（他的）", "a": "His"},
+        {"q": "补全：I have a good friend. ____ is tall. ____ hair is short.（她）", "a": "She，Her"},
+        {"q": "用英语介绍一位女同学：她很安静，她的名字叫 Amy。", "a": "She's quiet. Her name is Amy."}
+      ]
+    },
+    {
+      "id": "en-4a-04",
+      "type": "judge",
+      "unit": "Unit 3 My friends",
+      "lessons": ["My friends"],
+      "points": ["EN-S1-LK-01.8", "EN-S1-LS-01.16"],
+      "topic": "long hair 不加 s",
+      "stem": "Mike 这样介绍他的好朋友，你同意吗？",
+      "work": ["This is my friend Amy.", "She has long hair."],
+      "answer": true,
+      "wrong": {"disagree": "hair-countable"},
+      "right": ["一头头发看作一个整体，hair 不加 s，前面也不加 a：", "She has long hair."],
+      "ladder": [
+        {"q": "补全：Sarah has ____ hair.（短的）", "a": "short"},
+        {"q": "改错：My brother has short hairs.", "a": "My brother has short hair."},
+        {"q": "用英语介绍一个朋友：她很高，有一头长头发。", "a": "She's tall. She has long hair."}
+      ]
+    },
+    {
+      "id": "en-4a-05",
+      "type": "choice",
+      "unit": "Unit 4 My home",
+      "lessons": ["My home"],
+      "points": ["EN-S1-LK-01.9", "EN-S1-LK-01.11"],
+      "topic": "They're 还是 It's",
+      "stem": "— Where are my keys? — ____（在桌子上）",
+      "options": ["It's on the table.", "They're on the table.", "They on the table."],
+      "answer": 1,
+      "wrong": {"0": "plural-as-it", "2": "be-drop"},
+      "right": ["keys 是好几把钥匙，用 they；", "they 后面的 are 不能少：They're on the table."],
+      "typical": ["找东西就答 It's ...：", "It's on the table."],
+      "typical_error": "plural-as-it",
+      "ladder": [
+        {"q": "补全：— Where is my phone? — ____ on the sofa.", "a": "It's"},
+        {"q": "补全：— Where are my glasses? — ____ in the bedroom.", "a": "They're"},
+        {"q": "— Are they near the phone? — 不是。用英语回答。", "a": "No, they aren't."}
+      ]
+    },
+    {
+      "id": "en-4a-06",
+      "type": "choice",
+      "unit": "Unit 5 Dinner's ready",
+      "lessons": ["Dinner's ready"],
+      "points": ["EN-S1-LK-01.16", "EN-S1-LS-01.12"],
+      "topic": "Would you like 的回答",
+      "stem": "— Would you like some soup? — ____（想要）",
+      "options": ["Yes, I do.", "Yes, I'd like.", "Yes, please."],
+      "answer": 2,
+      "wrong": {"0": "would-like-as-like", "1": "like-no-object"},
+      "right": ["Would you like ...? 是问“要不要来点……”，", "想要就说 Yes, please.，不要就说 No, thanks."],
+      "typical": ["Do you like ...? 答 Yes, I do，", "这句也答：Yes, I do."],
+      "typical_error": "would-like-as-like",
+      "ladder": [
+        {"q": "— Would you like some noodles? — ____（不要）", "a": "No, thanks."},
+        {"q": "补全：— What would you like? — I'd like some ____ .（牛肉）", "a": "beef"},
+        {"q": "请客人吃点鸡肉，用英语问一句。", "a": "Would you like some chicken?"}
+      ]
+    },
+    {
+      "id": "en-4a-07",
+      "type": "choice",
+      "unit": "Unit 6 Meet my family!",
+      "lessons": ["Meet my family"],
+      "points": ["EN-S1-LS-01.11", "EN-S1-LK-01.11"],
+      "topic": "介绍家人的职业",
+      "stem": "介绍叔叔的工作（司机），选出正确的一句。",
+      "options": ["He's driver.", "She's a driver.", "He's an driver.", "He's a driver."],
+      "answer": 3,
+      "wrong": {"0": "article-drop", "1": "he-she-mixup", "2": "an-overuse"},
+      "right": ["叔叔是男的，用 he；", "一名司机，driver 开头是辅音，用 a：He's a driver."],
+      "typical": ["汉语“他是司机”，没有“一个”：", "He's driver."],
+      "typical_error": "article-drop",
+      "ladder": [
+        {"q": "补全：My aunt is ____ nurse.", "a": "a"},
+        {"q": "补全：This is my uncle. ____ is ____ farmer.", "a": "He，a"},
+        {"q": "用英语问同学：你叔叔是做什么工作的？", "a": "What's your uncle's job?"}
+      ]
+    }
+  ]
+}

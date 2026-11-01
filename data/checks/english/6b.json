@@ -1,0 +1,128 @@
+{
+  "book": {"subject": "英语", "grade": 6, "term": "下", "edition": "人教版 PEP（三年级起点）"},
+  "misconceptions": [
+    {"id": "comparative-y-rule", "name": "y 结尾没改 i 就加 er", "why": "记住了“比较级加 er”，没注意辅音字母加 y 结尾的词要先把 y 改成 i。", "move": "列一组：heavy—heavier，funny—funnier，happy—happier，让学生自己说出规律。"},
+    {"id": "comparative-more", "name": "该加 -er 的词用了 more", "why": "汉语“更重”里有个“更”，就想到 more，说成 more heavy；不知道 heavy 加 er 就已经是“更重”。", "move": "拍手数音节：heavy 两拍、以 y 结尾，加 er；beautiful 三拍，才用 more。"},
+    {"id": "comparative-no-change", "name": "有 than 却没用比较级", "why": "汉语“比我重”里“重”不变形，就照着用 heavy。", "move": "看到 than 就停一下：前面的形容词变了没有？taller、heavier。"},
+    {"id": "past-ed-overgeneralize", "name": "不规则动词也加 -ed", "why": "多数动词的过去式加 -ed，就把 go、see、eat 这些不规则动词也加上 -ed（goed、seed）。", "move": "每学一个不规则动词就记成一对：go—went、see—saw、eat—ate，做成卡片随时抽查。"},
+    {"id": "past-tense-drop", "name": "说过去的事动词没变", "why": "汉语说过去的事动词不变，只靠“昨天”“上周”表示时间。", "move": "圈出时间词 last weekend、yesterday、ago，看到它们就检查动词变成过去式没有。"},
+    {"id": "did-plus-past", "name": "用了 did，动词还用过去式", "why": "知道是过去的事，用了 did 又把动词也变成过去式，过去时标了两次。", "move": "告诉学生：过去只标一次——有了 did，动词就回到原形：Did you watch ...?"}
+  ],
+  "items": [
+    {
+      "id": "en-6b-01",
+      "type": "choice",
+      "unit": "Unit 1 How tall are you?",
+      "lessons": ["How tall are you"],
+      "points": ["EN-S2-LK-01.11", "EN-S2-LS-01.19"],
+      "topic": "形容词比较级",
+      "stem": "I'm 45 kg. You're 48 kg. You're ____ than me.",
+      "options": ["heavier", "heavyer", "more heavy", "heavy"],
+      "answer": 0,
+      "wrong": {"1": "comparative-y-rule", "2": "comparative-more", "3": "comparative-no-change"},
+      "right": ["有 than，要用比较级；", "heavy 以“辅音字母 + y”结尾，把 y 改成 i 再加 er：heavier。"],
+      "typical": ["比较级就是加 er：", "heavy + er = heavyer"],
+      "typical_error": "comparative-y-rule",
+      "ladder": [
+        {"q": "补全：I'm 1.5 m. You're 1.6 m. You're ____ (tall) than me.", "a": "taller"},
+        {"q": "补全：This film is ____ (funny) than that one.", "a": "funnier"},
+        {"q": "用英语说：我比我姐姐小两岁。", "a": "I'm two years younger than my sister."}
+      ]
+    },
+    {
+      "id": "en-6b-02",
+      "type": "write",
+      "unit": "Unit 2 Last weekend",
+      "lessons": ["Last weekend"],
+      "points": ["EN-S2-LK-01.10", "EN-S2-LC-01.2"],
+      "topic": "不规则动词过去式",
+      "stem": "用括号里的词填空：I ____ (see) a film last weekend.",
+      "answer": "saw",
+      "wrong": {"seed": "past-ed-overgeneralize", "see": "past-tense-drop"},
+      "right": ["last weekend 说的是过去，动词用过去式；", "see 是不规则动词：see → saw。"],
+      "typical": ["过去式就加 ed：", "see + d = seed"],
+      "typical_error": "past-ed-overgeneralize",
+      "ladder": [
+        {"q": "写出过去式：watch ____　clean ____", "a": "watched　cleaned"},
+        {"q": "写出过去式：go ____　read ____　have ____", "a": "went　read　had"},
+        {"q": "用英语说：上周末我吃了饺子，还看了电视。", "a": "I ate dumplings and watched TV last weekend."}
+      ]
+    },
+    {
+      "id": "en-6b-03",
+      "type": "judge",
+      "unit": "Unit 2 Last weekend",
+      "lessons": ["Last weekend"],
+      "points": ["EN-S2-LK-01.10", "EN-S2-LK-01.9"],
+      "topic": "Did 问句里的动词",
+      "stem": "小林这样写，你同意吗？",
+      "work": ["Did you watched TV last night?"],
+      "answer": false,
+      "wrong": {"agree": "did-plus-past"},
+      "right": ["问句已经用 did 表示过去了，", "后面的动词用原形：Did you watch TV last night?"],
+      "ladder": [
+        {"q": "补全：— Did you clean your room? — Yes, ____ .", "a": "I did"},
+        {"q": "变成问句：She washed her clothes.", "a": "Did she wash her clothes?"},
+        {"q": "变成否定句：I saw a film yesterday.", "a": "I didn't see a film yesterday."}
+      ]
+    },
+    {
+      "id": "en-6b-04",
+      "type": "choice",
+      "unit": "Unit 3 Where did you go?",
+      "lessons": ["Where did you go"],
+      "points": ["EN-S2-LK-01.10", "EN-S2-LS-01.16"],
+      "topic": "go 的过去式",
+      "stem": "补全：Last winter, I ____ to Sanya with my family.",
+      "options": ["goed", "went", "go", "was go"],
+      "answer": 1,
+      "wrong": {"0": "past-ed-overgeneralize", "2": "past-tense-drop", "3": "be-plus-verb"},
+      "right": ["Last winter 说的是过去，go 的过去式是 went：", "I went to Sanya with my family."],
+      "typical": ["过去式就加 ed：", "go + ed = goed"],
+      "typical_error": "past-ed-overgeneralize",
+      "ladder": [
+        {"q": "写出过去式：ride ____　eat ____", "a": "rode　ate"},
+        {"q": "补全：— Where did you go? — I ____ (go) to Beijing.", "a": "went"},
+        {"q": "用英语说：去年夏天我去了新疆，还骑了马。", "a": "Last summer I went to Xinjiang and rode a horse."}
+      ]
+    },
+    {
+      "id": "en-6b-05",
+      "type": "judge",
+      "unit": "Unit 3 Where did you go?",
+      "lessons": ["Where did you go"],
+      "points": ["EN-S2-LK-01.11", "EN-S2-LK-01.9"],
+      "topic": "went there 加不加 to",
+      "stem": "Amy 这样写，你同意吗？",
+      "work": ["Last summer we went to Hainan.", "We went there by plane."],
+      "answer": true,
+      "wrong": {"disagree": "to-before-home-there"},
+      "right": ["there 本身就是“到那里”，前面不加 to：", "went there，就像 go home 一样。"],
+      "ladder": [
+        {"q": "补全（不需要就写 ×）：I went ____ home at 5 o'clock.", "a": "×"},
+        {"q": "补全（不需要就写 ×）：We went ____ the park yesterday.", "a": "to"},
+        {"q": "— How did you go there? — 我们坐火车去的。用英语回答。", "a": "We went there by train."}
+      ]
+    },
+    {
+      "id": "en-6b-06",
+      "type": "choice",
+      "unit": "Unit 4 Then and now",
+      "lessons": ["Then and now"],
+      "points": ["EN-S2-LK-01.10", "EN-S2-LK-01.11"],
+      "topic": "过去有：was / were",
+      "stem": "Twenty years ago, there ____ no computers in our school.",
+      "options": ["was", "had", "were", "are"],
+      "answer": 2,
+      "wrong": {"0": "there-be-agreement", "1": "there-have", "3": "past-tense-drop"},
+      "right": ["说过去“有”用 there was / there were；", "computers 是复数，用 were。"],
+      "typical": ["there 后面先想到 was：", "there was no computers"],
+      "typical_error": "there-be-agreement",
+      "ladder": [
+        {"q": "补全：There ____ a small library in my old school.", "a": "was"},
+        {"q": "补全：Now there ____ many trees on the playground.", "a": "are"},
+        {"q": "用英语说：以前我家附近没有公园，现在有两个。", "a": "There was no park near my home. Now there are two."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "book": {"subject": "英语", "grade": 5, "term": "下", "edition": "人教版 PEP（三年级起点）"},
+  "misconceptions": [
+    {"id": "because-so", "name": "because 和 so 一起用", "why": "汉语习惯说“因为……所以……”，就把 because 和 so 放进同一句。", "move": "告诉学生 because 和 so 只能选一个：I like spring because it's warm. / It's warm, so I like spring."},
+    {"id": "dummy-it-drop", "name": "照汉语漏掉主语 it", "why": "汉语说“因为很暖和”“下雨了”不用主语，英语句子要有主语，说天气、时间就用 it。", "move": "每说一句先问：什么暖和？说天气、时间就用 it 当主语：it's warm、it's rainy。"},
+    {"id": "month-lowercase", "name": "月份首字母没有大写", "why": "汉语没有大小写，只记住了句首大写，不知道月份、星期、人名的首字母也要大写。", "move": "让学生圈出句子里的月份、星期和名字，逐个检查首字母。"},
+    {"id": "month-on", "name": "只说月份时也用 on", "why": "日期前用 on（on May 1st），就以为只说月份也用 on。", "move": "画时间“金字塔”：at 钟点，on 某一天（星期、日期），in 月份、季节；只到月份就用 in。"},
+    {"id": "ordinal-add-th", "name": "直接在基数词后加 th", "why": "多数序数词是“基数词 + th”，就把 twelve、five、nine 也直接加 th，没注意要变形。", "move": "把要变形的挑出来编成一串：one—first，two—second，three—third，five—fifth，eight—eighth，nine—ninth，twelve—twelfth。"},
+    {"id": "mine-my", "name": "单说“我的”时用了 my", "why": "汉语“我的”可以单说，英语 my 后面必须跟名词，单说要用 mine。", "move": "对比：It's my dog. = It's mine. 问：my 后面跟了什么？mine 后面还能再跟词吗？"},
+    {"id": "me-as-mine", "name": "把“我的”说成 me", "why": "汉语“是我的”去掉“的”就成了“是我”，没分清 me（我）和 mine（我的）。", "move": "列三列：I—me—mine，问：“我的”在哪一列？"},
+    {"id": "progressive-be-drop", "name": "进行时漏掉 am/is/are", "why": "觉得 eating 已经表示“正在吃”，就把前面的 are 漏了。", "move": "进行时像两块积木：am / is / are + 动词 -ing，缺一块都不行；让学生在句子里把两块都圈出来。"},
+    {"id": "progressive-bare-verb", "name": "进行时动词没加 -ing", "why": "记住了“正在”要加 are，忘了后面的动词也要变成 -ing。", "move": "进行时像两块积木：am / is / are + 动词 -ing，让学生在句子里把两块都圈出来。"},
+    {"id": "its-apostrophe", "name": "把 its 写成 it's", "why": "Amy's、Mike's 里的 's 表示“的”，its 和 it's 读音又一样，就以为带撇号的 it's 才是“它的”。", "move": "把 it's 换回 it is 读一遍：washing it is face 通不通？不通就用 its。"}
+  ],
+  "items": [
+    {
+      "id": "en-5b-01",
+      "type": "choice",
+      "unit": "Unit 1 My day",
+      "lessons": ["My day"],
+      "points": ["EN-S2-LK-01.11", "EN-S2-TH-01.1"],
+      "topic": "时间介词 at / in",
+      "stem": "I usually eat breakfast ____ 7:00 ____ the morning.",
+      "options": ["at，in", "in，in", "at，at"],
+      "answer": 0,
+      "wrong": {"1": "zai-always-in", "2": "time-always-at"},
+      "right": ["钟点前用 at：at 7:00；", "上午、下午、晚上前用 in：in the morning。"],
+      "typical": ["说时间都用 at：", "at 7:00 at the morning"],
+      "typical_error": "time-always-at",
+      "ladder": [
+        {"q": "补全：I go to bed ____ 9:00.", "a": "at"},
+        {"q": "补全：I do my homework ____ the evening.", "a": "in"},
+        {"q": "用英语回答：When do you get up?（6:30）", "a": "I get up at 6:30."}
+      ]
+    },
+    {
+      "id": "en-5b-02",
+      "type": "choice",
+      "unit": "Unit 2 My favourite season",
+      "lessons": ["My favourite season"],
+      "points": ["EN-S2-LK-01.9", "EN-S2-LS-01.14"],
+      "topic": "用 because 说理由",
+      "stem": "说说你为什么喜欢春天，选出正确的一句。",
+      "options": ["Because it's warm, so I like spring.", "I like spring because is warm.", "I like spring because it's warm."],
+      "answer": 2,
+      "wrong": {"0": "because-so", "1": "dummy-it-drop"},
+      "right": ["because 和 so 只用一个；", "because 后面要有主语：because it's warm。"],
+      "typical": ["“因为……所以……”：", "Because it's warm, so I like spring."],
+      "typical_error": "because-so",
+      "ladder": [
+        {"q": "补全：— Why do you like winter? — ____ I like snow.", "a": "Because"},
+        {"q": "改错：Because it's hot, so I don't like summer.", "a": "去掉 so（或去掉 Because）"},
+        {"q": "用 because 说一句：我最喜欢秋天，因为天气凉爽。", "a": "I like autumn best because it's cool."}
+      ]
+    },
+    {
+      "id": "en-5b-03",
+      "type": "choice",
+      "unit": "Unit 3 My school calendar",
+      "lessons": ["My school calendar"],
+      "points": ["EN-S2-LS-01.19", "EN-S2-LK-01.11"],
+      "topic": "月份的写法和介词",
+      "stem": "学校的郊游在三月。选出完全正确的一句。",
+      "options": ["The school trip is in march.", "The school trip is in March.", "The school trip is on March."],
+      "answer": 1,
+      "wrong": {"0": "month-lowercase", "2": "month-on"},
+      "right": ["月份的首字母大写：March；", "只说月份用 in：in March。"],
+      "typical": ["句首大写了就行：", "The school trip is in march."],
+      "typical_error": "month-lowercase",
+      "ladder": [
+        {"q": "改正书写：the sports meet is in april.", "a": "The sports meet is in April."},
+        {"q": "补全：Tree Planting Day is ____ March 12th.", "a": "on"},
+        {"q": "用英语回答：When is Children's Day?", "a": "It's on June 1st."}
+      ]
+    },
+    {
+      "id": "en-5b-04",
+      "type": "write",
+      "unit": "Unit 4 When is the art show?",
+      "lessons": ["When is the art show"],
+      "points": ["EN-S2-LK-01.7", "EN-S2-LS-01.19"],
+      "topic": "序数词的拼写",
+      "stem": "My birthday is on December 12th. 把 12th 写成英文单词。",
+      "answer": "twelfth",
+      "wrong": {"twelveth": "ordinal-add-th", "twelve": "cardinal-for-ordinal"},
+      "right": ["twelve 变序数词：把 ve 换成 f，再加 th：", "twelve → twelfth"],
+      "typical": ["序数词就是加 th：", "twelve + th = twelveth"],
+      "typical_error": "ordinal-add-th",
+      "ladder": [
+        {"q": "写出英文单词：1st ____　2nd ____　3rd ____", "a": "first　second　third"},
+        {"q": "写出英文单词：5th ____　9th ____", "a": "fifth　ninth"},
+        {"q": "用英语回答：When is National Day?", "a": "It's on October 1st.（October first）"}
+      ]
+    },
+    {
+      "id": "en-5b-05",
+      "type": "choice",
+      "unit": "Unit 5 Whose dog is it?",
+      "lessons": ["Whose dog is it"],
+      "points": ["EN-S2-LK-01.9", "EN-S2-LC-01.2"],
+      "topic": "my 还是 mine",
+      "stem": "— Whose dog is it? — It's ____ .（我的）",
+      "options": ["mine", "my", "me"],
+      "answer": 0,
+      "wrong": {"1": "mine-my", "2": "me-as-mine"},
+      "right": ["“我的”后面没有名词时用 mine：It's mine.", "也可以说 It's my dog.，my 后面要跟名词。"],
+      "typical": ["“我的”就是 my：", "It's my."],
+      "typical_error": "mine-my",
+      "ladder": [
+        {"q": "补全：This is my book. It's ____ .", "a": "mine"},
+        {"q": "补全：— Is that Amy's pen? — Yes, it's ____ .", "a": "hers"},
+        {"q": "用英语回答：Whose pictures are these?（是他们的）", "a": "They're theirs."}
+      ]
+    },
+    {
+      "id": "en-5b-06",
+      "type": "choice",
+      "unit": "Unit 6 Work quietly!",
+      "lessons": ["Work quietly"],
+      "points": ["EN-S1-LK-01.10", "EN-S2-LK-01.11"],
+      "topic": "现在进行时",
+      "stem": "Look! The children ____ lunch now.",
+      "options": ["eating", "are eating", "are eat", "is eating"],
+      "answer": 1,
+      "wrong": {"0": "progressive-be-drop", "2": "progressive-bare-verb", "3": "plural-subject-is"},
+      "right": ["“正在做”= am / is / are + 动词 -ing；", "children 是复数，用 are：are eating。"],
+      "typical": ["eating 就是“正在吃”：", "The children eating lunch now."],
+      "typical_error": "progressive-be-drop",
+      "ladder": [
+        {"q": "补全：Listen! Amy ____ (sing).", "a": "is singing"},
+        {"q": "补全：— What are they doing? — They ____ (read) books.", "a": "are reading"},
+        {"q": "用英语说：我们正在安静地写作业。", "a": "We're doing our homework quietly."}
+      ]
+    },
+    {
+      "id": "en-5b-07",
+      "type": "judge",
+      "unit": "Unit 6 Work quietly!",
+      "lessons": ["Work quietly"],
+      "points": ["EN-S2-LS-01.19", "EN-S2-LK-01.9"],
+      "topic": "its 还是 it's",
+      "stem": "Sarah 这样写，你同意吗？",
+      "work": ["Look! The cat is washing it's face."],
+      "answer": false,
+      "wrong": {"agree": "its-apostrophe"},
+      "right": ["“它的脸”用 its：washing its face。", "it's 是 it is，washing it is face 说不通。"],
+      "ladder": [
+        {"q": "填 its 或 it's：The dog is sleeping in ____ house.", "a": "its"},
+        {"q": "填 its 或 it's：____ time for lunch.", "a": "It's"},
+        {"q": "填 its 或 it's：Look at the dog! ____ playing with ____ ball.", "a": "It's，its"}
+      ]
+    }
+  ]
+}
