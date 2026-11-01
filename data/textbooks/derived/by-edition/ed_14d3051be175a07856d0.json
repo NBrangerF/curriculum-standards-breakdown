@@ -1,31 +1,40 @@
 {
   "alignments": [],
   "audit": {
-    "approved_page_map_count": 77,
-    "approved_toc_entry_count": 3,
+    "approved_page_map_count": 89,
+    "approved_toc_entry_count": 5,
     "candidate_toc_entry_count": 0,
     "numeric_page_offset": 5,
     "numeric_page_offset_confidence": 0.99,
-    "pdf_page_count": 82,
+    "ocr": {
+      "pages_ocrd": 0,
+      "status": "not_requested",
+      "toc_pages": []
+    },
+    "pdf_page_count": 94,
     "toc_candidate_page_count": 0
   },
   "content_alignment": {
     "algorithm_version": "component-evidence-hybrid-v3",
     "alignment_count": 0,
     "automatic_content_unit_count": 0,
-    "content_node_count": 88,
-    "evidence_span_count": 4,
+    "content_node_count": 116,
+    "evidence_span_count": 3,
     "generated_alignment_count": 0,
-    "native_text_ratio": 0.9878,
+    "native_text_ratio": 0.9894,
     "ocr_page_count": 0,
+    "ocr_reused_count": 0,
     "ocr_skipped_count": 0,
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
+    "reconciled_unit_range_count": 0,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
-    "sidecar_path": "derived/textbook-content-v2/8bc38efb62ba2937ddca40ff3661216c1ee9970522323867f26d78cd25eeb301/pages.jsonl",
-    "source_asset_sha256": "8bc38efb62ba2937ddca40ff3661216c1ee9970522323867f26d78cd25eeb301",
+    "sidecar_path": "derived/textbook-content-v2/33689ed0e15e72da7df4ce1a1309dd5d60ce26a59d05f648fcf84160081df235/pages.jsonl",
+    "sidecar_sha256": "706e3cd5d63570d67e357c7c93aa3844b48096e55d9eec12aeb65dbd73ae7d07",
+    "source_asset_sha256": "33689ed0e15e72da7df4ce1a1309dd5d60ce26a59d05f648fcf84160081df235",
+    "unit_range_reconciliation_algorithm": "sidecar-top-heading-unit-range-v2",
     "unit_recovery_native_text_ratio": 1,
     "unit_recovery_reason": "published_toc_available",
     "unit_recovery_status": "not_needed"
@@ -106,7 +115,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ea7862a5bece3061",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": null,
       "pdf_page": 5,
       "pdf_page_end": 5,
       "pdf_page_start": 5,
@@ -114,26 +123,24 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 5 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": null
     },
     {
-      "confidence": 0.92,
-      "end_pdf_page": 74,
-      "end_printed_page": null,
+      "confidence": 0.98,
+      "end_pdf_page": 6,
+      "end_printed_page": "1",
       "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_8e88be79a44deb7f",
+      "kind": "page",
+      "node_id": "tcn_3f9bcb545a73ce85",
       "parent_id": null,
-      "pdf_page": 5,
-      "pdf_page_end": 74,
-      "pdf_page_start": 5,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "Unit 6 Meet my family!",
-      "title": "Unit 6 Meet my family!",
-      "toc_entry_id": "tcu_5282dae0d443594a",
-      "unit_id": "tcu_5282dae0d443594a"
+      "pdf_page": 6,
+      "pdf_page_end": 6,
+      "pdf_page_start": 6,
+      "printed_page": "1",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 6 页",
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -142,7 +149,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_bf726fd5314ac5b4",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": null,
       "pdf_page": 7,
       "pdf_page_end": 7,
       "pdf_page_start": 7,
@@ -150,7 +157,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 7 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -159,7 +166,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9a1904520b7e9b28",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": null,
       "pdf_page": 8,
       "pdf_page_end": 8,
       "pdf_page_start": 8,
@@ -167,7 +174,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 8 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 10,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_65a1716358aaa5c9",
+      "parent_id": null,
+      "pdf_page": 9,
+      "pdf_page_end": 10,
+      "pdf_page_start": 9,
+      "printed_page": "4",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part A How are families different?",
+      "title": "Part A How are families different?",
+      "toc_entry_id": "tcu_1db26d8321f6029b",
+      "unit_id": "tcu_1db26d8321f6029b"
     },
     {
       "confidence": 0.98,
@@ -176,7 +202,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_66da6138fbbc2c85",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_65a1716358aaa5c9",
       "pdf_page": 9,
       "pdf_page_end": 9,
       "pdf_page_start": 9,
@@ -184,7 +210,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 9 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 26,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_75929a9c6f0c16ad",
+      "parent_id": null,
+      "pdf_page": 9,
+      "pdf_page_end": 26,
+      "pdf_page_start": 9,
+      "printed_page": "4",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Unit 1 Helping at home",
+      "title": "Unit 1 Helping at home",
+      "toc_entry_id": "tcu_e702fd793b1a81c4",
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -193,7 +238,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b9174c198e0bd62b",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_65a1716358aaa5c9",
       "pdf_page": 10,
       "pdf_page_end": 10,
       "pdf_page_start": 10,
@@ -201,7 +246,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 10 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -210,7 +255,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d2fac63239333e85",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_75929a9c6f0c16ad",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -218,7 +263,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 11 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 14,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_c845056e5246580f",
+      "parent_id": "tcn_75929a9c6f0c16ad",
+      "pdf_page": 12,
+      "pdf_page_end": 14,
+      "pdf_page_start": 12,
+      "printed_page": "7",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part B How can we help our family?",
+      "title": "Part B How can we help our family?",
+      "toc_entry_id": "tcu_f8efe0b1b8455f67",
+      "unit_id": "tcu_f8efe0b1b8455f67"
     },
     {
       "confidence": 0.98,
@@ -227,7 +291,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5b0ab0856fb6af4f",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_c845056e5246580f",
       "pdf_page": 12,
       "pdf_page_end": 12,
       "pdf_page_start": 12,
@@ -235,7 +299,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 12 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -244,7 +308,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_19c4fc831f69fadd",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_c845056e5246580f",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -252,7 +316,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 13 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -261,7 +325,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fe761d9fdce3b23b",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_c845056e5246580f",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -269,7 +333,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 14 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 16,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_13915b0916023703",
+      "parent_id": "tcn_75929a9c6f0c16ad",
+      "pdf_page": 15,
+      "pdf_page_end": 16,
+      "pdf_page_start": 15,
+      "printed_page": "10",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part C Project: Make a poster of a happy family",
+      "title": "Part C Project: Make a poster of a happy family",
+      "toc_entry_id": "tcu_52c68f7ffbd82b26",
+      "unit_id": "tcu_52c68f7ffbd82b26"
     },
     {
       "confidence": 0.98,
@@ -278,7 +361,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_765228cfd9dabbb7",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_13915b0916023703",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -286,7 +369,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 15 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -295,7 +378,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8eb0d2d86c09d284",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_13915b0916023703",
       "pdf_page": 16,
       "pdf_page_end": 16,
       "pdf_page_start": 16,
@@ -303,7 +386,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 16 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 18,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_3b82c6922afad3d4",
+      "parent_id": "tcn_75929a9c6f0c16ad",
+      "pdf_page": 17,
+      "pdf_page_end": 18,
+      "pdf_page_start": 17,
+      "printed_page": "12",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Reading time",
+      "title": "Reading time",
+      "toc_entry_id": "tcu_4f5c217dff8263b7",
+      "unit_id": "tcu_4f5c217dff8263b7"
     },
     {
       "confidence": 0.98,
@@ -312,7 +414,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_726fb5b66dcc4793",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_3b82c6922afad3d4",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -320,7 +422,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 17 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -329,7 +431,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8c17fdd932b6f18b",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_3b82c6922afad3d4",
       "pdf_page": 18,
       "pdf_page_end": 18,
       "pdf_page_start": 18,
@@ -337,7 +439,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 18 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -346,7 +448,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d833105f751d9320",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_75929a9c6f0c16ad",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -354,7 +456,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 19 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -363,7 +465,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_cc1385af79b5fa4f",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_75929a9c6f0c16ad",
       "pdf_page": 20,
       "pdf_page_end": 20,
       "pdf_page_start": 20,
@@ -371,7 +473,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 20 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -380,7 +482,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8201ff4dd9962c2e",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_75929a9c6f0c16ad",
       "pdf_page": 21,
       "pdf_page_end": 21,
       "pdf_page_start": 21,
@@ -388,7 +490,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 21 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -397,7 +499,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0e9b435ebf7fe77d",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_75929a9c6f0c16ad",
       "pdf_page": 22,
       "pdf_page_end": 22,
       "pdf_page_start": 22,
@@ -405,7 +507,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 22 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -414,7 +516,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e74886232b622f85",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_75929a9c6f0c16ad",
       "pdf_page": 23,
       "pdf_page_end": 23,
       "pdf_page_start": 23,
@@ -422,7 +524,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 23 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -431,7 +533,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_add386b1a6f3eba2",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_75929a9c6f0c16ad",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -439,7 +541,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 24 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -448,7 +550,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5a86e1124afb99f2",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_75929a9c6f0c16ad",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -456,7 +558,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 25 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
     },
     {
       "confidence": 0.98,
@@ -465,7 +567,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e95482f00ae3cf99",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_75929a9c6f0c16ad",
       "pdf_page": 26,
       "pdf_page_end": 26,
       "pdf_page_start": 26,
@@ -473,7 +575,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 26 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_e702fd793b1a81c4"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 30,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_e446def61ff29721",
+      "parent_id": "tcn_d9d1928b1c63e687",
+      "pdf_page": 27,
+      "pdf_page_end": 30,
+      "pdf_page_start": 27,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part C Project: Make a book about your friend",
+      "title": "Part C Project: Make a book about your friend",
+      "toc_entry_id": "tcu_8f5d73937e22fa74",
+      "unit_id": "tcu_8f5d73937e22fa74"
     },
     {
       "confidence": 0.98,
@@ -482,7 +603,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3277fb8a68a2a91a",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_e446def61ff29721",
       "pdf_page": 27,
       "pdf_page_end": 27,
       "pdf_page_start": 27,
@@ -490,7 +611,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 27 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_03e239a754ece27a"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 31,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_d9d1928b1c63e687",
+      "parent_id": null,
+      "pdf_page": 27,
+      "pdf_page_end": 31,
+      "pdf_page_start": 27,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Unit 2 My friends",
+      "title": "Unit 2 My friends",
+      "toc_entry_id": "tcu_03e239a754ece27a",
+      "unit_id": "tcu_03e239a754ece27a"
     },
     {
       "confidence": 0.98,
@@ -499,7 +639,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9a39778b66ed33ac",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_e446def61ff29721",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -507,7 +647,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 28 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_03e239a754ece27a"
     },
     {
       "confidence": 0.98,
@@ -516,7 +656,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_39c6494795ecfed9",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_e446def61ff29721",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -524,7 +664,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 29 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_03e239a754ece27a"
     },
     {
       "confidence": 0.98,
@@ -533,7 +673,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_42bee709ffd585dc",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_e446def61ff29721",
       "pdf_page": 30,
       "pdf_page_end": 30,
       "pdf_page_start": 30,
@@ -541,7 +681,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 30 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_03e239a754ece27a"
     },
     {
       "confidence": 0.98,
@@ -550,7 +690,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_77e4173f608255d2",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_d9d1928b1c63e687",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -558,7 +698,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 31 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_03e239a754ece27a"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 32,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_d329627938f34965",
+      "parent_id": "tcn_fed9525c02ba106e",
+      "pdf_page": 32,
+      "pdf_page_end": 32,
+      "pdf_page_start": 32,
+      "printed_page": "27",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part A What can we see in a community?",
+      "title": "Part A What can we see in a community?",
+      "toc_entry_id": "tcu_9ac0ef7bce7293b3",
+      "unit_id": "tcu_9ac0ef7bce7293b3"
     },
     {
       "confidence": 0.98,
@@ -567,7 +726,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1795b3d8f4d976a7",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_d329627938f34965",
       "pdf_page": 32,
       "pdf_page_end": 32,
       "pdf_page_start": 32,
@@ -575,7 +734,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 32 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 50,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_fed9525c02ba106e",
+      "parent_id": null,
+      "pdf_page": 32,
+      "pdf_page_end": 50,
+      "pdf_page_start": 32,
+      "printed_page": "27",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Unit 3 Places we live in",
+      "title": "Unit 3 Places we live in",
+      "toc_entry_id": "tcu_7153cd135e7f3f17",
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -584,7 +762,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8705211bd002d376",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 33,
       "pdf_page_end": 33,
       "pdf_page_start": 33,
@@ -592,7 +770,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 33 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -601,7 +779,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2d37d0a560494f83",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 34,
       "pdf_page_end": 34,
       "pdf_page_start": 34,
@@ -609,7 +787,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 34 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -618,7 +796,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b462e243f331819d",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 35,
       "pdf_page_end": 35,
       "pdf_page_start": 35,
@@ -626,7 +804,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 35 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 38,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_edaa2037e83b4a71",
+      "parent_id": "tcn_fed9525c02ba106e",
+      "pdf_page": 36,
+      "pdf_page_end": 38,
+      "pdf_page_start": 36,
+      "printed_page": "31",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part B What do people do in a community?",
+      "title": "Part B What do people do in a community?",
+      "toc_entry_id": "tcu_3b053a26c1f08b8e",
+      "unit_id": "tcu_3b053a26c1f08b8e"
     },
     {
       "confidence": 0.98,
@@ -635,7 +832,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_81dc5a8918324df4",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_edaa2037e83b4a71",
       "pdf_page": 36,
       "pdf_page_end": 36,
       "pdf_page_start": 36,
@@ -643,7 +840,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 36 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -652,7 +849,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2f011c459391a831",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_edaa2037e83b4a71",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -660,7 +857,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 37 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -669,7 +866,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8a797dfe8a58f147",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_edaa2037e83b4a71",
       "pdf_page": 38,
       "pdf_page_end": 38,
       "pdf_page_start": 38,
@@ -677,7 +874,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 38 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 40,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_e1e019465e928925",
+      "parent_id": "tcn_fed9525c02ba106e",
+      "pdf_page": 39,
+      "pdf_page_end": 40,
+      "pdf_page_start": 39,
+      "printed_page": "34",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part C Project: Make a dream community mode",
+      "title": "Part C Project: Make a dream community mode",
+      "toc_entry_id": "tcu_e4d93e6844d6fdf2",
+      "unit_id": "tcu_e4d93e6844d6fdf2"
     },
     {
       "confidence": 0.98,
@@ -686,7 +902,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4e8810fa9172325e",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_e1e019465e928925",
       "pdf_page": 39,
       "pdf_page_end": 39,
       "pdf_page_start": 39,
@@ -694,7 +910,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 39 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -703,7 +919,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_18c2b92498f000b0",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_e1e019465e928925",
       "pdf_page": 40,
       "pdf_page_end": 40,
       "pdf_page_start": 40,
@@ -711,7 +927,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 40 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -720,7 +936,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1475f7c13dae29a8",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 41,
       "pdf_page_end": 41,
       "pdf_page_start": 41,
@@ -728,7 +944,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 41 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -737,7 +953,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_38bb532abc7eeefa",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 42,
       "pdf_page_end": 42,
       "pdf_page_start": 42,
@@ -745,7 +961,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 42 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -754,7 +970,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d9ca6125bc61ba27",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 43,
       "pdf_page_end": 43,
       "pdf_page_start": 43,
@@ -762,7 +978,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 43 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -771,7 +987,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d47e6258b0eabece",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -779,7 +995,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 44 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 50,
+      "end_printed_page": "39",
+      "evidence_span_ids": [
+        "tes_0395a0fd0b826605"
+      ],
+      "kind": "section",
+      "node_id": "tcn_065f3628a9ed1a6c",
+      "parent_id": "tcn_fed9525c02ba106e",
+      "pdf_page": 44,
+      "pdf_page_end": 50,
+      "pdf_page_start": 44,
+      "printed_page": "39",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "Reading",
+      "title": "Reading",
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -788,7 +1024,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e235dda0426840f7",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -796,7 +1032,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 45 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -805,7 +1041,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_00480a3b3cc05d2b",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -813,7 +1049,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 46 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -822,7 +1058,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_cbb418b158f72a19",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 47,
       "pdf_page_end": 47,
       "pdf_page_start": 47,
@@ -830,7 +1066,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 47 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -839,7 +1075,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_427cd1ecd793122b",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -847,7 +1083,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 48 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -856,7 +1092,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b8d4c751d0ca224b",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -864,7 +1100,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 49 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
     },
     {
       "confidence": 0.98,
@@ -873,7 +1109,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f42e1d48b07f54c8",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fed9525c02ba106e",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -881,7 +1117,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 50 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_7153cd135e7f3f17"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 52,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_fd68a3c6afd9d8f2",
+      "parent_id": null,
+      "pdf_page": 51,
+      "pdf_page_end": 52,
+      "pdf_page_start": 51,
+      "printed_page": "46",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part C Project: Make a poster of your school helpers",
+      "title": "Part C Project: Make a poster of your school helpers",
+      "toc_entry_id": "tcu_7ecf83044c7e58a0",
+      "unit_id": "tcu_7ecf83044c7e58a0"
     },
     {
       "confidence": 0.98,
@@ -890,7 +1145,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7936991c0b5d86e9",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fd68a3c6afd9d8f2",
       "pdf_page": 51,
       "pdf_page_end": 51,
       "pdf_page_start": 51,
@@ -898,7 +1153,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 51 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_be90d2e7c5ae15ef"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 59,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_5c9ac9404e03244e",
+      "parent_id": null,
+      "pdf_page": 51,
+      "pdf_page_end": 59,
+      "pdf_page_start": 51,
+      "printed_page": "46",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Unit 4 Helping in the community",
+      "title": "Unit 4 Helping in the community",
+      "toc_entry_id": "tcu_be90d2e7c5ae15ef",
+      "unit_id": "tcu_be90d2e7c5ae15ef"
     },
     {
       "confidence": 0.98,
@@ -907,7 +1181,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2d73980b16ffd786",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_fd68a3c6afd9d8f2",
       "pdf_page": 52,
       "pdf_page_end": 52,
       "pdf_page_start": 52,
@@ -915,7 +1189,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 52 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_be90d2e7c5ae15ef"
     },
     {
       "confidence": 0.98,
@@ -924,7 +1198,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_df06e4749245743e",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_5c9ac9404e03244e",
       "pdf_page": 53,
       "pdf_page_end": 53,
       "pdf_page_start": 53,
@@ -932,7 +1206,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 53 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_be90d2e7c5ae15ef"
     },
     {
       "confidence": 0.98,
@@ -941,7 +1215,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2a03afc6a9994d72",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_5c9ac9404e03244e",
       "pdf_page": 54,
       "pdf_page_end": 54,
       "pdf_page_start": 54,
@@ -949,7 +1223,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 54 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_be90d2e7c5ae15ef"
     },
     {
       "confidence": 0.98,
@@ -958,7 +1232,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_57e732fea97a96c6",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_5c9ac9404e03244e",
       "pdf_page": 55,
       "pdf_page_end": 55,
       "pdf_page_start": 55,
@@ -966,7 +1240,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 55 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_be90d2e7c5ae15ef"
     },
     {
       "confidence": 0.98,
@@ -975,7 +1249,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_643debba059af8cc",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_5c9ac9404e03244e",
       "pdf_page": 56,
       "pdf_page_end": 56,
       "pdf_page_start": 56,
@@ -983,7 +1257,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 56 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_be90d2e7c5ae15ef"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 59,
+      "end_printed_page": "51",
+      "evidence_span_ids": [
+        "tes_0cf6678ca5da3d79"
+      ],
+      "kind": "section",
+      "node_id": "tcn_d2fd896ec29ce77d",
+      "parent_id": "tcn_5c9ac9404e03244e",
+      "pdf_page": 56,
+      "pdf_page_end": 59,
+      "pdf_page_start": 56,
+      "printed_page": "51",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "Reading",
+      "title": "Reading",
+      "unit_id": "tcu_be90d2e7c5ae15ef"
     },
     {
       "confidence": 0.98,
@@ -992,7 +1286,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_42d0505e97ad8fd7",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_5c9ac9404e03244e",
       "pdf_page": 57,
       "pdf_page_end": 57,
       "pdf_page_start": 57,
@@ -1000,7 +1294,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 57 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_be90d2e7c5ae15ef"
     },
     {
       "confidence": 0.98,
@@ -1009,7 +1303,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1acd8933ffaf823d",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_5c9ac9404e03244e",
       "pdf_page": 58,
       "pdf_page_end": 58,
       "pdf_page_start": 58,
@@ -1017,7 +1311,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 58 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_be90d2e7c5ae15ef"
     },
     {
       "confidence": 0.98,
@@ -1026,7 +1320,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e8e2068003b4f3c6",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_5c9ac9404e03244e",
       "pdf_page": 59,
       "pdf_page_end": 59,
       "pdf_page_start": 59,
@@ -1034,7 +1328,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 59 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_be90d2e7c5ae15ef"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 62,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_8ea47c8247c2ff9c",
+      "parent_id": "tcn_be0896c3ff0a4477",
+      "pdf_page": 60,
+      "pdf_page_end": 62,
+      "pdf_page_start": 60,
+      "printed_page": "55",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part B What do we do in different weather?",
+      "title": "Part B What do we do in different weather?",
+      "toc_entry_id": "tcu_a5c5765acc30f5f3",
+      "unit_id": "tcu_a5c5765acc30f5f3"
     },
     {
       "confidence": 0.98,
@@ -1043,7 +1356,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_de0890658e5400a0",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_8ea47c8247c2ff9c",
       "pdf_page": 60,
       "pdf_page_end": 60,
       "pdf_page_start": 60,
@@ -1051,7 +1364,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 60 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 71,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_be0896c3ff0a4477",
+      "parent_id": null,
+      "pdf_page": 60,
+      "pdf_page_end": 71,
+      "pdf_page_start": 60,
+      "printed_page": "55",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Unit 5 The weather and us",
+      "title": "Unit 5 The weather and us",
+      "toc_entry_id": "tcu_5b9886c6a75f5a01",
+      "unit_id": "tcu_5b9886c6a75f5a01"
     },
     {
       "confidence": 0.98,
@@ -1060,7 +1392,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9b96ed5eda68ca53",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_8ea47c8247c2ff9c",
       "pdf_page": 61,
       "pdf_page_end": 61,
       "pdf_page_start": 61,
@@ -1068,7 +1400,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 61 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
     },
     {
       "confidence": 0.98,
@@ -1077,7 +1409,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_297a0e00ce514bb1",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_8ea47c8247c2ff9c",
       "pdf_page": 62,
       "pdf_page_end": 62,
       "pdf_page_start": 62,
@@ -1085,7 +1417,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 62 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 64,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_f2e34ba301449412",
+      "parent_id": "tcn_be0896c3ff0a4477",
+      "pdf_page": 63,
+      "pdf_page_end": 64,
+      "pdf_page_start": 63,
+      "printed_page": "58",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part C Project: Make a bad weather reminder",
+      "title": "Part C Project: Make a bad weather reminder",
+      "toc_entry_id": "tcu_3c395b589eaf5310",
+      "unit_id": "tcu_3c395b589eaf5310"
     },
     {
       "confidence": 0.98,
@@ -1094,7 +1445,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_04434c68f255a7be",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_f2e34ba301449412",
       "pdf_page": 63,
       "pdf_page_end": 63,
       "pdf_page_start": 63,
@@ -1102,7 +1453,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 63 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
     },
     {
       "confidence": 0.98,
@@ -1111,7 +1462,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3f60153ea6f593e9",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_f2e34ba301449412",
       "pdf_page": 64,
       "pdf_page_end": 64,
       "pdf_page_start": 64,
@@ -1119,7 +1470,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 64 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
     },
     {
       "confidence": 0.98,
@@ -1128,7 +1479,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_02e4ed8badaf41fd",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_be0896c3ff0a4477",
       "pdf_page": 65,
       "pdf_page_end": 65,
       "pdf_page_start": 65,
@@ -1136,7 +1487,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 65 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
     },
     {
       "confidence": 0.98,
@@ -1145,7 +1496,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_35ba176c362d18d0",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_be0896c3ff0a4477",
       "pdf_page": 66,
       "pdf_page_end": 66,
       "pdf_page_start": 66,
@@ -1153,7 +1504,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 66 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
     },
     {
       "confidence": 0.98,
@@ -1162,7 +1513,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_77aebe6fe885aed0",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_be0896c3ff0a4477",
       "pdf_page": 67,
       "pdf_page_end": 67,
       "pdf_page_start": 67,
@@ -1170,7 +1521,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 67 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
     },
     {
       "confidence": 0.98,
@@ -1179,7 +1530,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c0d819fb915b17b7",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_be0896c3ff0a4477",
       "pdf_page": 68,
       "pdf_page_end": 68,
       "pdf_page_start": 68,
@@ -1187,7 +1538,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 68 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 71,
+      "end_printed_page": "63",
+      "evidence_span_ids": [
+        "tes_82f80acc3b21aff8"
+      ],
+      "kind": "section",
+      "node_id": "tcn_fd72215629f35587",
+      "parent_id": "tcn_be0896c3ff0a4477",
+      "pdf_page": 68,
+      "pdf_page_end": 71,
+      "pdf_page_start": 68,
+      "printed_page": "63",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "Reading",
+      "title": "Reading",
+      "unit_id": "tcu_5b9886c6a75f5a01"
     },
     {
       "confidence": 0.98,
@@ -1196,7 +1567,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b1c3ef696c4cfc7e",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_be0896c3ff0a4477",
       "pdf_page": 69,
       "pdf_page_end": 69,
       "pdf_page_start": 69,
@@ -1204,7 +1575,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 69 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
     },
     {
       "confidence": 0.98,
@@ -1213,7 +1584,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_681930f891eecb94",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_be0896c3ff0a4477",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -1221,7 +1592,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 70 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
     },
     {
       "confidence": 0.98,
@@ -1230,7 +1601,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_90687995a5cf6211",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_be0896c3ff0a4477",
       "pdf_page": 71,
       "pdf_page_end": 71,
       "pdf_page_start": 71,
@@ -1238,7 +1609,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 71 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_5b9886c6a75f5a01"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 74,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_0da078ad02955f2e",
+      "parent_id": null,
+      "pdf_page": 72,
+      "pdf_page_end": 74,
+      "pdf_page_start": 72,
+      "printed_page": "67",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part B What do we do in different seasons?",
+      "title": "Part B What do we do in different seasons?",
+      "toc_entry_id": "tcu_2179f4826ea36d99",
+      "unit_id": "tcu_2179f4826ea36d99"
     },
     {
       "confidence": 0.98,
@@ -1247,7 +1637,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_86e22684e6a9a021",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_0da078ad02955f2e",
       "pdf_page": 72,
       "pdf_page_end": 72,
       "pdf_page_start": 72,
@@ -1255,7 +1645,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 72 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_cc9b60c0eca65bd3"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 78,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_60fd94987e52ccb5",
+      "parent_id": null,
+      "pdf_page": 72,
+      "pdf_page_end": 78,
+      "pdf_page_start": 72,
+      "printed_page": "67",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Unit 6 Changing for the seasons",
+      "title": "Unit 6 Changing for the seasons",
+      "toc_entry_id": "tcu_cc9b60c0eca65bd3",
+      "unit_id": "tcu_cc9b60c0eca65bd3"
     },
     {
       "confidence": 0.98,
@@ -1264,7 +1673,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4813e138d30cedd5",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_0da078ad02955f2e",
       "pdf_page": 73,
       "pdf_page_end": 73,
       "pdf_page_start": 73,
@@ -1272,7 +1681,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 73 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_cc9b60c0eca65bd3"
     },
     {
       "confidence": 0.98,
@@ -1281,7 +1690,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_518bbf59c42f537a",
-      "parent_id": "tcn_8e88be79a44deb7f",
+      "parent_id": "tcn_0da078ad02955f2e",
       "pdf_page": 74,
       "pdf_page_end": 74,
       "pdf_page_start": 74,
@@ -1289,7 +1698,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 74 页",
-      "unit_id": "tcu_5282dae0d443594a"
+      "unit_id": "tcu_cc9b60c0eca65bd3"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 78,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_6c36c5d68ae10837",
+      "parent_id": "tcn_60fd94987e52ccb5",
+      "pdf_page": 75,
+      "pdf_page_end": 78,
+      "pdf_page_start": 75,
+      "printed_page": "70",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "Part C Project: Make a travel card",
+      "title": "Part C Project: Make a travel card",
+      "toc_entry_id": "tcu_e2a95bdb78286c74",
+      "unit_id": "tcu_e2a95bdb78286c74"
     },
     {
       "confidence": 0.98,
@@ -1298,7 +1726,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ca986e5baf74be42",
-      "parent_id": "tcn_9013f004867f4a84",
+      "parent_id": "tcn_6c36c5d68ae10837",
       "pdf_page": 75,
       "pdf_page_end": 75,
       "pdf_page_start": 75,
@@ -1306,46 +1734,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 75 页",
-      "unit_id": "tcu_998ea36105dc5b73"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 75,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_9013f004867f4a84",
-      "parent_id": null,
-      "pdf_page": 75,
-      "pdf_page_end": 75,
-      "pdf_page_start": 75,
-      "printed_page": "70",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "Unit 1",
-      "title": "Unit 1",
-      "toc_entry_id": "tcu_998ea36105dc5b73",
-      "unit_id": "tcu_998ea36105dc5b73"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 75,
-      "end_printed_page": "70",
-      "evidence_span_ids": [
-        "tes_3c2660c3b64ec45f"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_908a8c314688cb8c",
-      "parent_id": "tcn_9013f004867f4a84",
-      "pdf_page": 75,
-      "pdf_page_end": 75,
-      "pdf_page_start": 75,
-      "printed_page": "70",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "Unit 2",
-      "title": "Unit 2",
-      "unit_id": "tcu_998ea36105dc5b73"
+      "unit_id": "tcu_cc9b60c0eca65bd3"
     },
     {
       "confidence": 0.98,
@@ -1354,7 +1743,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b4e155134f83febe",
-      "parent_id": "tcn_891917d69df16c76",
+      "parent_id": "tcn_6c36c5d68ae10837",
       "pdf_page": 76,
       "pdf_page_end": 76,
       "pdf_page_start": 76,
@@ -1362,26 +1751,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 76 页",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 82,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_891917d69df16c76",
-      "parent_id": null,
-      "pdf_page": 76,
-      "pdf_page_end": 82,
-      "pdf_page_start": 76,
-      "printed_page": "71",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "Unit 5",
-      "title": "Unit 5",
-      "toc_entry_id": "tcu_cafa15b3e4a48ff8",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
+      "unit_id": "tcu_cc9b60c0eca65bd3"
     },
     {
       "confidence": 0.98,
@@ -1390,7 +1760,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e6c1a36f9883d501",
-      "parent_id": "tcn_891917d69df16c76",
+      "parent_id": "tcn_6c36c5d68ae10837",
       "pdf_page": 77,
       "pdf_page_end": 77,
       "pdf_page_start": 77,
@@ -1398,7 +1768,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 77 页",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
+      "unit_id": "tcu_cc9b60c0eca65bd3"
     },
     {
       "confidence": 0.98,
@@ -1407,7 +1777,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_799e962d1f67e165",
-      "parent_id": "tcn_891917d69df16c76",
+      "parent_id": "tcn_6c36c5d68ae10837",
       "pdf_page": 78,
       "pdf_page_end": 78,
       "pdf_page_start": 78,
@@ -1415,7 +1785,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 78 页",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
+      "unit_id": "tcu_cc9b60c0eca65bd3"
     },
     {
       "confidence": 0.98,
@@ -1424,7 +1794,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9398b48716dbb3ec",
-      "parent_id": "tcn_891917d69df16c76",
+      "parent_id": null,
       "pdf_page": 79,
       "pdf_page_end": 79,
       "pdf_page_start": 79,
@@ -1432,47 +1802,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 79 页",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 79,
-      "end_printed_page": "74",
-      "evidence_span_ids": [
-        "tes_b2358b2afcd387b3"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_17bbc64a50a6cd59",
-      "parent_id": "tcn_891917d69df16c76",
-      "pdf_page": 79,
-      "pdf_page_end": 79,
-      "pdf_page_start": 79,
-      "printed_page": "74",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "Unit 1 Unit 3",
-      "title": "Unit 1 Unit 3",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 79,
-      "end_printed_page": "74",
-      "evidence_span_ids": [
-        "tes_9d17ef1a4d45aaca"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_4aabf095e85a3506",
-      "parent_id": "tcn_891917d69df16c76",
-      "pdf_page": 79,
-      "pdf_page_end": 79,
-      "pdf_page_start": 79,
-      "printed_page": "74",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "Unit 2 Unit 4",
-      "title": "Unit 2 Unit 4",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -1481,7 +1811,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_92dffd906157860e",
-      "parent_id": "tcn_891917d69df16c76",
+      "parent_id": null,
       "pdf_page": 80,
       "pdf_page_end": 80,
       "pdf_page_start": 80,
@@ -1489,27 +1819,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 80 页",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 82,
-      "end_printed_page": "75",
-      "evidence_span_ids": [
-        "tes_8e6c3ca01501f888"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_80bdf24c948d8f2e",
-      "parent_id": "tcn_891917d69df16c76",
-      "pdf_page": 80,
-      "pdf_page_end": 82,
-      "pdf_page_start": 80,
-      "printed_page": "75",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "Unit 5 Unit 6",
-      "title": "Unit 5 Unit 6",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -1518,7 +1828,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d8f06759bb39e983",
-      "parent_id": "tcn_891917d69df16c76",
+      "parent_id": null,
       "pdf_page": 81,
       "pdf_page_end": 81,
       "pdf_page_start": 81,
@@ -1526,7 +1836,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 81 页",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -1535,7 +1845,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3e169e1a09bf90ae",
-      "parent_id": "tcn_891917d69df16c76",
+      "parent_id": null,
       "pdf_page": 82,
       "pdf_page_end": 82,
       "pdf_page_start": 82,
@@ -1543,122 +1853,301 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 82 页",
-      "unit_id": "tcu_cafa15b3e4a48ff8"
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 83,
+      "end_printed_page": "78",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_70272aba548a33fc",
+      "parent_id": null,
+      "pdf_page": 83,
+      "pdf_page_end": 83,
+      "pdf_page_start": 83,
+      "printed_page": "78",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 83 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 84,
+      "end_printed_page": "79",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_ecdcf130321647d8",
+      "parent_id": null,
+      "pdf_page": 84,
+      "pdf_page_end": 84,
+      "pdf_page_start": 84,
+      "printed_page": "79",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 84 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 85,
+      "end_printed_page": "80",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_b5a1f50682d4b99e",
+      "parent_id": null,
+      "pdf_page": 85,
+      "pdf_page_end": 85,
+      "pdf_page_start": 85,
+      "printed_page": "80",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 85 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 86,
+      "end_printed_page": "81",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_ce0f8d6d103344a5",
+      "parent_id": null,
+      "pdf_page": 86,
+      "pdf_page_end": 86,
+      "pdf_page_start": 86,
+      "printed_page": "81",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 86 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 87,
+      "end_printed_page": "82",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_b673bb1ca3d98b6f",
+      "parent_id": null,
+      "pdf_page": 87,
+      "pdf_page_end": 87,
+      "pdf_page_start": 87,
+      "printed_page": "82",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 87 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 88,
+      "end_printed_page": "83",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_50085005b2e43f1b",
+      "parent_id": null,
+      "pdf_page": 88,
+      "pdf_page_end": 88,
+      "pdf_page_start": 88,
+      "printed_page": "83",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 88 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 89,
+      "end_printed_page": "84",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_9ba404de60c4fa4d",
+      "parent_id": null,
+      "pdf_page": 89,
+      "pdf_page_end": 89,
+      "pdf_page_start": 89,
+      "printed_page": "84",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 89 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 90,
+      "end_printed_page": "85",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_2c38e7f60a8ef462",
+      "parent_id": null,
+      "pdf_page": 90,
+      "pdf_page_end": 90,
+      "pdf_page_start": 90,
+      "printed_page": "85",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 90 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 91,
+      "end_printed_page": "86",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_13e4bb5490f20993",
+      "parent_id": null,
+      "pdf_page": 91,
+      "pdf_page_end": 91,
+      "pdf_page_start": 91,
+      "printed_page": "86",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 91 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 92,
+      "end_printed_page": "87",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_00bcae3a6520011d",
+      "parent_id": null,
+      "pdf_page": 92,
+      "pdf_page_end": 92,
+      "pdf_page_start": 92,
+      "printed_page": "87",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 92 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 93,
+      "end_printed_page": "88",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_c6f2364d36acf4af",
+      "parent_id": null,
+      "pdf_page": 93,
+      "pdf_page_end": 93,
+      "pdf_page_start": 93,
+      "printed_page": "88",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 93 页",
+      "unit_id": null
+    },
+    {
+      "confidence": 0.98,
+      "end_pdf_page": 94,
+      "end_printed_page": "89",
+      "evidence_span_ids": [],
+      "kind": "page",
+      "node_id": "tcn_efae20b6140a0118",
+      "parent_id": null,
+      "pdf_page": 94,
+      "pdf_page_end": 94,
+      "pdf_page_start": 94,
+      "printed_page": "89",
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 94 页",
+      "unit_id": null
     }
   ],
   "edition_id": "ed_14d3051be175a07856d0",
-  "evidence_id": "ctb_96fe1cf7a088",
+  "evidence_id": "external_smartedu_2026_english_primary_grade_4_up",
   "evidence_spans": [
     {
-      "asset_sha256": "8bc38efb62ba2937ddca40ff3661216c1ee9970522323867f26d78cd25eeb301",
+      "asset_sha256": "33689ed0e15e72da7df4ce1a1309dd5d60ce26a59d05f648fcf84160081df235",
       "bbox": {
-        "height": 15,
+        "height": 12,
         "page_height": 737.008,
         "page_width": 521.575,
         "unit": "pdf_point",
-        "width": 45.825,
-        "x": 45.354,
-        "y": 184.29
+        "width": 50.352,
+        "x": 68.031,
+        "y": 86.936
       },
       "edition_id": "ed_14d3051be175a07856d0",
       "evidence_role": "heading",
-      "excerpt": "Unit 2",
-      "excerpt_hash": "13187fcba2c94dbf5b3e53c0cf159cd20455bfc47047afee27857f84eada8d2f",
-      "node_id": "tcn_908a8c314688cb8c",
+      "excerpt": "Reading",
+      "excerpt_hash": "463816d07097e1a7cf27b86cf03082ee49f6ce2d87663cd27a24d7254a83e76a",
+      "node_id": "tcn_065f3628a9ed1a6c",
       "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 75,
-      "printed_page": "70",
+      "pdf_page": 44,
+      "printed_page": "39",
       "role": "heading",
       "source": "pdfjs_text_layer",
-      "span_id": "tes_3c2660c3b64ec45f",
-      "text": "Unit 2",
-      "text_hash": "13187fcba2c94dbf5b3e53c0cf159cd20455bfc47047afee27857f84eada8d2f"
+      "span_id": "tes_0395a0fd0b826605",
+      "text": "Reading",
+      "text_hash": "463816d07097e1a7cf27b86cf03082ee49f6ce2d87663cd27a24d7254a83e76a"
     },
     {
-      "asset_sha256": "8bc38efb62ba2937ddca40ff3661216c1ee9970522323867f26d78cd25eeb301",
+      "asset_sha256": "33689ed0e15e72da7df4ce1a1309dd5d60ce26a59d05f648fcf84160081df235",
       "bbox": {
-        "height": 20,
+        "height": 12,
         "page_height": 737.008,
         "page_width": 521.575,
         "unit": "pdf_point",
-        "width": 265.51,
-        "x": 45.354,
-        "y": 283.887
+        "width": 50.352,
+        "x": 68.031,
+        "y": 86.936
       },
       "edition_id": "ed_14d3051be175a07856d0",
       "evidence_role": "heading",
-      "excerpt": "Unit 2 Unit 4",
-      "excerpt_hash": "9d9302f4ae35d497ac5d64a05c4f21437a5a6c8d22b7b321b6085fd92d51798e",
-      "node_id": "tcn_4aabf095e85a3506",
+      "excerpt": "Reading",
+      "excerpt_hash": "463816d07097e1a7cf27b86cf03082ee49f6ce2d87663cd27a24d7254a83e76a",
+      "node_id": "tcn_d2fd896ec29ce77d",
       "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 79,
-      "printed_page": "74",
+      "pdf_page": 56,
+      "printed_page": "51",
       "role": "heading",
       "source": "pdfjs_text_layer",
-      "span_id": "tes_9d17ef1a4d45aaca",
-      "text": "Unit 2 Unit 4",
-      "text_hash": "9d9302f4ae35d497ac5d64a05c4f21437a5a6c8d22b7b321b6085fd92d51798e"
+      "span_id": "tes_0cf6678ca5da3d79",
+      "text": "Reading",
+      "text_hash": "463816d07097e1a7cf27b86cf03082ee49f6ce2d87663cd27a24d7254a83e76a"
     },
     {
-      "asset_sha256": "8bc38efb62ba2937ddca40ff3661216c1ee9970522323867f26d78cd25eeb301",
+      "asset_sha256": "33689ed0e15e72da7df4ce1a1309dd5d60ce26a59d05f648fcf84160081df235",
       "bbox": {
-        "height": 15,
+        "height": 12,
         "page_height": 737.008,
         "page_width": 521.575,
         "unit": "pdf_point",
-        "width": 265.51,
-        "x": 45.354,
-        "y": 555.887
+        "width": 50.352,
+        "x": 76.535,
+        "y": 86.936
       },
       "edition_id": "ed_14d3051be175a07856d0",
       "evidence_role": "heading",
-      "excerpt": "Unit 1 Unit 3",
-      "excerpt_hash": "10c33e3ee6393385ca68b48e796e4a462ca9d0b9ee3885bca9b020f6af7d5dcd",
-      "node_id": "tcn_17bbc64a50a6cd59",
+      "excerpt": "Reading",
+      "excerpt_hash": "463816d07097e1a7cf27b86cf03082ee49f6ce2d87663cd27a24d7254a83e76a",
+      "node_id": "tcn_fd72215629f35587",
       "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 79,
-      "printed_page": "74",
+      "pdf_page": 68,
+      "printed_page": "63",
       "role": "heading",
       "source": "pdfjs_text_layer",
-      "span_id": "tes_b2358b2afcd387b3",
-      "text": "Unit 1 Unit 3",
-      "text_hash": "10c33e3ee6393385ca68b48e796e4a462ca9d0b9ee3885bca9b020f6af7d5dcd"
-    },
-    {
-      "asset_sha256": "8bc38efb62ba2937ddca40ff3661216c1ee9970522323867f26d78cd25eeb301",
-      "bbox": {
-        "height": 15,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 265.51,
-        "x": 70.866,
-        "y": 662.187
-      },
-      "edition_id": "ed_14d3051be175a07856d0",
-      "evidence_role": "heading",
-      "excerpt": "Unit 5 Unit 6",
-      "excerpt_hash": "551e310b91778bc804f412f659a76f2b0599319724d8ecbaef4cb97801c6190b",
-      "node_id": "tcn_80bdf24c948d8f2e",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 80,
-      "printed_page": "75",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_8e6c3ca01501f888",
-      "text": "Unit 5 Unit 6",
-      "text_hash": "551e310b91778bc804f412f659a76f2b0599319724d8ecbaef4cb97801c6190b"
+      "span_id": "tes_82f80acc3b21aff8",
+      "text": "Reading",
+      "text_hash": "463816d07097e1a7cf27b86cf03082ee49f6ce2d87663cd27a24d7254a83e76a"
     }
   ],
   "extraction": {
-    "average_characters_per_page": 299.8,
-    "extracted_at": "2026-07-17T09:42:14.165878Z",
+    "average_characters_per_page": 446.8,
+    "extracted_at": "2026-11-01T07:29:59.060711Z",
     "notes": [
-      "数字印刷页与 PDF 页偏移 5，由 74 页重复证据支持。",
-      "只有在正文页面直接回查到的标题才自动进入已核对目录。"
+      "数字印刷页与 PDF 页偏移 5，由 82 页重复证据支持。",
+      "目录条目只有在正文页面直接回查，或通过保守的扫描目录识别门槛后，才进入已核对目录。"
     ],
-    "page_count_checked": 82,
-    "pages_with_text": 81
+    "page_count_checked": 94,
+    "pages_with_text": 94
   },
   "page_map": [
     {
@@ -2199,6 +2688,90 @@
       "pdf_page": 82,
       "printed_page": "77",
       "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 78",
+      "pdf_page": 83,
+      "printed_page": "78",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 79",
+      "pdf_page": 84,
+      "printed_page": "79",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 80",
+      "pdf_page": 85,
+      "printed_page": "80",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 81",
+      "pdf_page": 86,
+      "printed_page": "81",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 82",
+      "pdf_page": 87,
+      "printed_page": "82",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 83",
+      "pdf_page": 88,
+      "printed_page": "83",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 84",
+      "pdf_page": 89,
+      "printed_page": "84",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 85",
+      "pdf_page": 90,
+      "printed_page": "85",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 86",
+      "pdf_page": 91,
+      "printed_page": "86",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 87",
+      "pdf_page": 92,
+      "printed_page": "87",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 88",
+      "pdf_page": 93,
+      "printed_page": "88",
+      "review_status": "approved"
+    },
+    {
+      "confidence": 0.99,
+      "label": "印刷页 89",
+      "pdf_page": 94,
+      "printed_page": "89",
+      "review_status": "approved"
     }
   ],
   "schema_version": 2,
@@ -2276,43 +2849,309 @@
   "text_quality": "native_text",
   "toc": [
     {
-      "confidence": 0.92,
-      "end_pdf_page": 74,
-      "entry_id": "tcu_5282dae0d443594a",
+      "confidence": 0.85,
+      "end_pdf_page": 26,
+      "entry_id": "tcu_e702fd793b1a81c4",
       "kind": "unit",
       "level": 1,
       "parent_id": null,
-      "pdf_page": 5,
-      "printed_page": null,
+      "pdf_page": 9,
+      "printed_page": "4",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "Unit 6 Meet my family!"
+      "source": "smartedu_sync_lessons",
+      "source_order": 1,
+      "title": "Unit 1 Helping at home",
+      "toc_pdf_page": null
     },
     {
-      "confidence": 0.98,
-      "end_pdf_page": 75,
-      "entry_id": "tcu_998ea36105dc5b73",
+      "confidence": 0.85,
+      "end_pdf_page": 10,
+      "entry_id": "tcu_1db26d8321f6029b",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_e702fd793b1a81c4",
+      "pdf_page": 9,
+      "printed_page": "4",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 2,
+      "title": "Part A How are families different?",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 14,
+      "entry_id": "tcu_f8efe0b1b8455f67",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_e702fd793b1a81c4",
+      "pdf_page": 12,
+      "printed_page": "7",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 3,
+      "title": "Part B How can we help our family?",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 16,
+      "entry_id": "tcu_52c68f7ffbd82b26",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_e702fd793b1a81c4",
+      "pdf_page": 15,
+      "printed_page": "10",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 4,
+      "title": "Part C Project: Make a poster of a happy family",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 18,
+      "entry_id": "tcu_4f5c217dff8263b7",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_e702fd793b1a81c4",
+      "pdf_page": 17,
+      "printed_page": "12",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 5,
+      "title": "Reading time",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 31,
+      "entry_id": "tcu_03e239a754ece27a",
       "kind": "unit",
       "level": 1,
       "parent_id": null,
+      "pdf_page": 27,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 6,
+      "title": "Unit 2 My friends",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 30,
+      "entry_id": "tcu_8f5d73937e22fa74",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_03e239a754ece27a",
+      "pdf_page": 27,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 7,
+      "title": "Part C Project: Make a book about your friend",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 50,
+      "entry_id": "tcu_7153cd135e7f3f17",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 32,
+      "printed_page": "27",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 8,
+      "title": "Unit 3 Places we live in",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 32,
+      "entry_id": "tcu_9ac0ef7bce7293b3",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_7153cd135e7f3f17",
+      "pdf_page": 32,
+      "printed_page": "27",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 9,
+      "title": "Part A What can we see in a community?",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 38,
+      "entry_id": "tcu_3b053a26c1f08b8e",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_7153cd135e7f3f17",
+      "pdf_page": 36,
+      "printed_page": "31",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 10,
+      "title": "Part B What do people do in a community?",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 40,
+      "entry_id": "tcu_e4d93e6844d6fdf2",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_7153cd135e7f3f17",
+      "pdf_page": 39,
+      "printed_page": "34",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 11,
+      "title": "Part C Project: Make a dream community mode",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 59,
+      "entry_id": "tcu_be90d2e7c5ae15ef",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 51,
+      "printed_page": "46",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 12,
+      "title": "Unit 4 Helping in the community",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 52,
+      "entry_id": "tcu_7ecf83044c7e58a0",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_be90d2e7c5ae15ef",
+      "pdf_page": 51,
+      "printed_page": "46",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 13,
+      "title": "Part C Project: Make a poster of your school helpers",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 71,
+      "entry_id": "tcu_5b9886c6a75f5a01",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 60,
+      "printed_page": "55",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 14,
+      "title": "Unit 5 The weather and us",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 62,
+      "entry_id": "tcu_a5c5765acc30f5f3",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_5b9886c6a75f5a01",
+      "pdf_page": 60,
+      "printed_page": "55",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 15,
+      "title": "Part B What do we do in different weather?",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 64,
+      "entry_id": "tcu_3c395b589eaf5310",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_5b9886c6a75f5a01",
+      "pdf_page": 63,
+      "printed_page": "58",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 16,
+      "title": "Part C Project: Make a bad weather reminder",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 78,
+      "entry_id": "tcu_cc9b60c0eca65bd3",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 72,
+      "printed_page": "67",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 17,
+      "title": "Unit 6 Changing for the seasons",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 74,
+      "entry_id": "tcu_2179f4826ea36d99",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_cc9b60c0eca65bd3",
+      "pdf_page": 72,
+      "printed_page": "67",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 18,
+      "title": "Part B What do we do in different seasons?",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 78,
+      "entry_id": "tcu_e2a95bdb78286c74",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_cc9b60c0eca65bd3",
       "pdf_page": 75,
       "printed_page": "70",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "Unit 1"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 82,
-      "entry_id": "tcu_cafa15b3e4a48ff8",
-      "kind": "unit",
-      "level": 1,
-      "parent_id": null,
-      "pdf_page": 76,
-      "printed_page": "71",
-      "review_status": "approved",
-      "source": "heading_match",
-      "title": "Unit 5"
+      "source": "smartedu_sync_lessons",
+      "source_order": 19,
+      "title": "Part C Project: Make a travel card",
+      "toc_pdf_page": null
     }
-  ]
+  ],
+  "unit_range_reconciliation": {
+    "algorithm_version": "sidecar-top-heading-unit-range-v2",
+    "changed_unit_range_count": 0,
+    "changes": [],
+    "clamped_content_node_range_count": 0,
+    "detached_auxiliary_content_node_count": 0,
+    "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
+    "exact_unit_heading_evidence_count": 0,
+    "inspected_page_count": 94,
+    "provenance": "machine_generated",
+    "publication_gate": false,
+    "reassigned_content_node_count": 0,
+    "review_policy": "automatic_no_human_gate",
+    "schema_version": 1,
+    "sidecar_sha256": "706e3cd5d63570d67e357c7c93aa3844b48096e55d9eec12aeb65dbd73ae7d07",
+    "source_asset_sha256": "33689ed0e15e72da7df4ce1a1309dd5d60ce26a59d05f648fcf84160081df235",
+    "status": "insufficient_boundary_evidence",
+    "top_level_unit_count": 6,
+    "top_line_limit": 4
+  }
 }

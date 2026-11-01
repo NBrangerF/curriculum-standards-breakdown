@@ -43,16 +43,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e0390a56f4115336",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_9_up",
+        "tes_a3e2e7a9641b905b",
+        "textbook-node:tcn_7ca64beedfcbd794",
+        "textbook-unit:tcu_6c71b8800bcd644c"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "证明:∵ 在⊙犗中,犃犅=犃犆,B C∴ 犃犅=犃犆,△犃犅犆是等腰三角形.",
+          "excerpt_hash": "509ee6251a0456e3998d29450eac3a00bd03d9a6a2c95b131b0bde484e4ce77a",
+          "pdf_page": 133,
+          "printed_page": "126",
+          "span_id": "tes_a3e2e7a9641b905b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_bc142ca1103d2bc1"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_bc142ca1103d2bc1",
+          "label": "探索并证明所列几何性质与定理"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_7ca64beedfcbd794",
+      "node_title": "证明:∵ 在⊙犗中,犃犅=犃犆,B C∴ 犃犅=犃犆,△犃犅犆是等腰三角形.",
+      "pdf_page": 133,
+      "printed_page": "126",
+      "publication_status": "published",
+      "rationale": "教材练习“证明:∵ 在⊙犗中,犃犅=犃犆,B C∴ 犃犅=犃犆,△犃犅犆是等腰三角形.”与课标 MA-H4G9-GE-012 的可教学小能力“探索并证明所列几何性质与定理”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6c71b8800bcd644c",
+      "unit_title": "第二十三章 旋转"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_16e637db23d24f61",
@@ -63,7 +118,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_045c4e32dda3"
+        "external_smartedu_2026_math_junior_grade_9_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +130,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d4d9b4cbf0f4520f",
       "textbook_grade": 9,
       "textbook_subject": "数学",

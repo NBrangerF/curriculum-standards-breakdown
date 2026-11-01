@@ -121,16 +121,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_cb49a956267d2496",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_787571113b5e3afdcb08",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_art_junior_grade_9_up",
+        "tes_9d0b4ab08bd10613",
+        "textbook-node:tcn_56992053cb9fee2f",
+        "textbook-unit:tcu_e3b4a819ca4b8808"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "调查研究 制定方案 绘制草图 完成提案设计面世 最后修订 市场调查 沟通提案宣传推广 成品制作 敲定设计 优化设计",
+          "excerpt_hash": "2145ad42563e9b50d7ce3ea6169f7291db87b4bf02029acf4d09d36d083f090c",
+          "pdf_page": 40,
+          "printed_page": "34",
+          "span_id": "tes_9d0b4ab08bd10613"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_18e27ee107506adf"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_18e27ee107506adf",
+          "label": "绘制草图或制作模型"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_56992053cb9fee2f",
+      "node_title": "调查研究 制定方案 绘制草图 完成提案设计面世 最后修订 市场调查 沟通提案宣传推广 成品制作 敲定设计 优化设计",
+      "pdf_page": 40,
+      "printed_page": "34",
+      "publication_status": "published",
+      "rationale": "教材练习“调查研究 制定方案 绘制草图 完成提案设计面世 最后修订 市场调查 沟通提案宣传推广 成品制作 敲定设计 优化设计”与课标 AR-H4G9-CP-020 的可教学小能力“绘制草图或制作模型”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 9,
+      "textbook_subject": "美术",
+      "textbook_title": "美术9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e3b4a819ca4b8808",
+      "unit_title": "第一单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_fe0c6ed788b5e8c1",
@@ -172,7 +227,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_be6c940b05af"
+        "external_smartedu_2026_art_junior_grade_9_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -184,7 +239,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_412bfc529670f62b",
       "textbook_grade": 9,
       "textbook_subject": "美术",
@@ -203,7 +258,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_bc115e35d9a0"
+        "external_smartedu_2026_music_junior_grade_9_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -215,7 +270,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_f08bc8c50fb8301a",
       "textbook_grade": 9,
       "textbook_subject": "音乐",

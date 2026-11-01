@@ -119,16 +119,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 8,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7ac9cef37ae341a3",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f2d970d7f6b6a7a553a8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_2_up",
+        "tes_da942f3d2f3b6914",
+        "textbook-node:tcn_2e296e90e8b0860e",
+        "textbook-unit:tcu_10a4b5f078a88fe3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择自己喜欢的作品,说一说它从哪些角度表现了真情。",
+          "excerpt_hash": "a3bad12c16ea99fd4ec1b76819e7423f336e03dab739763018ebd034c5ce0ccf",
+          "pdf_page": 10,
+          "printed_page": "4",
+          "span_id": "tes_da942f3d2f3b6914"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9b319d09709477e8"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9b319d09709477e8",
+          "label": "说出自己喜欢或需要改进的地方"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2e296e90e8b0860e",
+      "node_title": "选择自己喜欢的作品,说一说它从哪些角度表现了真情。",
+      "pdf_page": 10,
+      "printed_page": "4",
+      "publication_status": "published",
+      "rationale": "教材练习“选择自己喜欢的作品,说一说它从哪些角度表现了真情。”与课标 AR-D1-CP-015 的可教学小能力“说出自己喜欢或需要改进的地方”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 2,
+      "textbook_subject": "美术",
+      "textbook_title": "美术2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_10a4b5f078a88fe3",
+      "unit_title": "人间有真情"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_1fc9b3693b943f36",
@@ -139,7 +194,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_8209ad04b47d"
+        "external_smartedu_2026_music_primary_grade_2_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -151,7 +206,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_0a7833eb0eca0e83",
       "textbook_grade": 2,
       "textbook_subject": "音乐",
@@ -170,7 +225,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_51ecddc37440"
+        "external_smartedu_2026_art_primary_grade_1_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -182,7 +237,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_1dc5a976932b360a",
       "textbook_grade": 1,
       "textbook_subject": "美术",
@@ -201,7 +256,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c5a22ce498b9"
+        "external_smartedu_2026_art_primary_grade_2_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -213,7 +268,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_c1c61f1e18f1f1fd",
       "textbook_grade": 2,
       "textbook_subject": "美术",
@@ -232,7 +287,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_8ff2c02949c7"
+        "external_smartedu_2026_music_primary_grade_1_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -244,7 +299,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_ccea29ff50daf60d",
       "textbook_grade": 1,
       "textbook_subject": "音乐",
@@ -263,7 +318,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_061b98e9e3e0"
+        "external_smartedu_2026_music_primary_grade_1_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -275,7 +330,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_daf0df4eff446a59",
       "textbook_grade": 1,
       "textbook_subject": "音乐",
@@ -294,7 +349,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_04dc110988f2"
+        "external_smartedu_2026_music_primary_grade_2_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -306,7 +361,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_76531f87e68b0f54",
       "textbook_grade": 2,
       "textbook_subject": "音乐",
@@ -325,7 +380,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_1295fe66588a"
+        "external_smartedu_2026_art_primary_grade_1_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -337,7 +392,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_f9d43da1be80535c",
       "textbook_grade": 1,
       "textbook_subject": "美术",
@@ -356,7 +411,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_f5a55ad6fbfb"
+        "external_smartedu_2026_art_primary_grade_2_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -368,7 +423,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_038dd968b19a0b50",
       "textbook_grade": 2,
       "textbook_subject": "美术",

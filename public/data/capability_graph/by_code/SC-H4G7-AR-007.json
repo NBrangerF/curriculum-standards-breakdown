@@ -159,16 +159,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_48872b28df084064",
+      "alignment_type": "practices",
+      "confidence": 0.8768,
+      "coverage": "partial",
+      "edition_id": "ed_913b2b9b81e81dabcf0a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_biology_junior_grade_7_up",
+        "tes_49cec035e6d2d0f8",
+        "textbook-node:tcn_1e514510d18371bf",
+        "textbook-unit:tcu_209992ea6fa4f300"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择健康的生活方式,对预防癌症有重要作用。想一想:我们在日常生活中,怎样做才能预防癌症的发生?",
+          "excerpt_hash": "c9d240a160daeb460e15cb4e6187dfeed979ccb882586fcc663c073a49a2c9c6",
+          "pdf_page": 46,
+          "printed_page": null,
+          "span_id": "tes_49cec035e6d2d0f8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f20f5927cc729500"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f20f5927cc729500",
+          "label": "在任务中表现出健康生活方式并说明选择理由"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1e514510d18371bf",
+      "node_title": "选择健康的生活方式,对预防癌症有重要作用。想一想:我们在日常生活中,怎样做才能预防癌症的发生?",
+      "pdf_page": 46,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材练习“选择健康的生活方式,对预防癌症有重要作用。想一想:我们在日常生活中,怎样做才能预防癌症的发生?”与课标 SC-H4G7-AR-007 的可教学小能力“在任务中表现出健康生活方式并说明选择理由”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "生物学",
+      "textbook_title": "生物学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_209992ea6fa4f300",
+      "unit_title": "第一单元 生物和细胞"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_681f903c440d0ba4",
@@ -179,7 +234,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_7070ee669923"
+        "external_smartedu_2026_biology_junior_grade_7_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -191,7 +246,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_ba775a07035c65ee",
       "textbook_grade": 7,
       "textbook_subject": "生物学",
@@ -210,7 +265,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_b2901b9e06df"
+        "external_smartedu_2026_biology_junior_grade_7_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -222,7 +277,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_3daf5000bc9191a7",
       "textbook_grade": 7,
       "textbook_subject": "生物学",
@@ -241,7 +296,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_ae920aee077f"
+        "external_smartedu_2026_geography_junior_grade_7_up"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -253,7 +308,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_94dc3a2f9a671969",
       "textbook_grade": 7,
       "textbook_subject": "地理",
@@ -272,7 +327,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_ae5d3f924fb1"
+        "external_smartedu_2026_geography_junior_grade_7_down"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -284,7 +339,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_4604008cfd618f79",
       "textbook_grade": 7,
       "textbook_subject": "地理",

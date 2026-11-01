@@ -84,16 +84,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
     "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_fcfee7e8e2e23adc",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_5176fbbfb48b6f094ec5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_junior_grade_8_up",
+        "tes_59d5c2db9f5d97de",
+        "textbook-node:tcn_96cb29b6f727c99a",
+        "textbook-unit:tcu_9498dd5d9c752abc"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2 缤纷的世界美术流派",
+          "excerpt_hash": "e083544c7a1b56660f839a0f9ba7cbc811a93f83271d02dd11a1cf370df111e3",
+          "pdf_page": 13,
+          "printed_page": "7",
+          "span_id": "tes_59d5c2db9f5d97de"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_51d09e215de04053"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_51d09e215de04053",
+          "label": "运用造型元素、形式原理和欣赏方法评述世界美术作品"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_96cb29b6f727c99a",
+      "node_title": "2缤纷的世界美术流派",
+      "pdf_page": 13,
+      "printed_page": "7",
+      "publication_status": "published",
+      "rationale": "教材课文“2缤纷的世界美术流派”与课标 AR-H4G8-CU-004 的可教学小能力“运用造型元素、形式原理和欣赏方法评述世界美术作品”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "美术",
+      "textbook_title": "美术8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9498dd5d9c752abc",
+      "unit_title": "第一单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c8f889a422da03e4",
@@ -104,7 +159,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c4470d97d606"
+        "external_smartedu_2026_music_junior_grade_8_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -116,7 +171,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_49008e32afb1ea73",
       "textbook_grade": 8,
       "textbook_subject": "音乐",
@@ -135,7 +190,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_3f3ef809a59b"
+        "external_smartedu_2026_art_junior_grade_8_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -147,7 +202,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_3937cb93e59941dd",
       "textbook_grade": 8,
       "textbook_subject": "美术",
@@ -166,7 +221,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_5456c0d80ef9"
+        "external_smartedu_2026_art_junior_grade_8_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -178,7 +233,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_66b34c8187cbffd0",
       "textbook_grade": 8,
       "textbook_subject": "美术",
@@ -197,7 +252,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_841b34386a8a"
+        "external_smartedu_2026_music_junior_grade_8_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -209,7 +264,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_e236fa847f007794",
       "textbook_grade": 8,
       "textbook_subject": "音乐",

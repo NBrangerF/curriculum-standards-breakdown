@@ -116,16 +116,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 8,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9b80c9ebd9e87412",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_down",
+        "tes_5ac8e9784abb9f2b",
+        "textbook-node:tcn_88cc3dbebed82d0c",
+        "textbook-unit:tcu_6b924ac128f740cc"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "设计一个造型新颖、有创意的手持小电扇,从美观和实用方面与同学交流设计的巧妙之处。",
+          "excerpt_hash": "023a46e7c9e510a809f3d93865744f590bb5a8f52669433e10c55e76896b2c1a",
+          "pdf_page": 36,
+          "printed_page": "32",
+          "span_id": "tes_5ac8e9784abb9f2b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_7c272232838a3c65"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_7c272232838a3c65",
+          "label": "创作2—3件富有创意的平面、立体或动态美术作品"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_88cc3dbebed82d0c",
+      "node_title": "设计一个造型新颖、有创意的手持小电扇,从美观和实用方面与同学交流设计的巧妙之处。",
+      "pdf_page": 36,
+      "printed_page": "32",
+      "publication_status": "published",
+      "rationale": "教材练习“设计一个造型新颖、有创意的手持小电扇,从美观和实用方面与同学交流设计的巧妙之处。”与课标 AR-D2-AE-003 的可教学小能力“创作2—3件富有创意的平面、立体或动态美术作品”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_6b924ac128f740cc",
+      "unit_title": "学习传统,创意设计"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_49effcac0c67cc77",
@@ -136,7 +191,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_25cc2de0079d"
+        "external_smartedu_2026_art_primary_grade_4_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -148,7 +203,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_fbf879fc86b8f9dd",
       "textbook_grade": 4,
       "textbook_subject": "美术",
@@ -167,7 +222,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c5257fc4696e"
+        "external_smartedu_2026_art_primary_grade_3_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -179,7 +234,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_5773d3c34b5fac1a",
       "textbook_grade": 3,
       "textbook_subject": "美术",
@@ -260,7 +315,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_aa7ce1e8a37f"
+        "external_smartedu_2026_music_primary_grade_3_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -272,7 +327,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_4a0a538012d57261",
       "textbook_grade": 3,
       "textbook_subject": "音乐",
@@ -291,7 +346,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_572122ddff26"
+        "external_smartedu_2026_music_primary_grade_3_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -303,7 +358,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_9a72f44c9f0c7435",
       "textbook_grade": 3,
       "textbook_subject": "音乐",
@@ -353,7 +408,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_aa3aaa5d9032"
+        "external_smartedu_2026_art_primary_grade_3_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -365,7 +420,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_19c3fbbc0c7e7882",
       "textbook_grade": 3,
       "textbook_subject": "美术",

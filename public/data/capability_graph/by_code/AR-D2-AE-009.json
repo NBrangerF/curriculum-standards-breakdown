@@ -43,16 +43,1116 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 8,
-    "specific_count": 0,
+    "specific_count": 20,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e96f02ed39354b96",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_4_up",
+        "tes_3c91c00f047cc255",
+        "textbook-node:tcn_93a75b7682794dba",
+        "textbook-unit:tcu_9fe407777a1cc4fa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择家中厨房有美感的角落,利用多种工具、材料,与线描形式相结合,表现厨房一角,注意物品的前后关系。",
+          "excerpt_hash": "182af16d50a1efd891adad36bb3277a8c7da20d9c50c48654f6b35f0d68bd12e",
+          "pdf_page": 13,
+          "printed_page": "7",
+          "span_id": "tes_3c91c00f047cc255"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_93a75b7682794dba",
+      "node_title": "选择家中厨房有美感的角落,利用多种工具、材料,与线描形式相结合,表现厨房一角,注意物品的前后关系。",
+      "pdf_page": 13,
+      "printed_page": "7",
+      "publication_status": "published",
+      "rationale": "教材练习“选择家中厨房有美感的角落,利用多种工具、材料,与线描形式相结合,表现厨房一角,注意物品的前后关系。”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9fe407777a1cc4fa",
+      "unit_title": "2. 厨房一角"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_103d9103ddde3c82",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_4_up",
+        "tes_dca105c735d25971",
+        "textbook-node:tcn_5293d74b1811a9ed",
+        "textbook-unit:tcu_4212e764a7ded776"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "6 北京的城楼 造型·表现",
+          "excerpt_hash": "bd2e04d055394daa868569008933c3b61e56e7d92924f18842b623ab4a64d1b0",
+          "pdf_page": 16,
+          "printed_page": "10",
+          "span_id": "tes_dca105c735d25971"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5293d74b1811a9ed",
+      "node_title": "6北京的城楼造型·表现",
+      "pdf_page": 16,
+      "printed_page": "10",
+      "publication_status": "published",
+      "rationale": "教材课文“6北京的城楼造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_4212e764a7ded776",
+      "unit_title": "4. 庄严的牌楼"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c9b5cfffa260dbcb",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_4_up",
+        "tes_4cdb513abe3fe9c6",
+        "textbook-node:tcn_57f682907feff38d",
+        "textbook-unit:tcu_4212e764a7ded776"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "5 北京的牌楼 造型·表现",
+          "excerpt_hash": "7b4ed0a433bf76629c8db4bc671809db43be1a314f3353093fe7bb3dc1748fb7",
+          "pdf_page": 16,
+          "printed_page": "10",
+          "span_id": "tes_4cdb513abe3fe9c6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_57f682907feff38d",
+      "node_title": "5北京的牌楼造型·表现",
+      "pdf_page": 16,
+      "printed_page": "10",
+      "publication_status": "published",
+      "rationale": "教材课文“5北京的牌楼造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_4212e764a7ded776",
+      "unit_title": "4. 庄严的牌楼"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5fa22d76cd7a03ae",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_4_up",
+        "tes_01867f8291f2a605",
+        "textbook-node:tcn_8ba57adf504e0fd6",
+        "textbook-unit:tcu_495981651c020649"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "8 出淤泥而不染的荷花 造型·表现",
+          "excerpt_hash": "029927a8c720f0c765079c30e3ef2a9aa811a551019500e8345d60b99035d35c",
+          "pdf_page": 24,
+          "printed_page": "18",
+          "span_id": "tes_01867f8291f2a605"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8ba57adf504e0fd6",
+      "node_title": "8出淤泥而不染的荷花造型·表现",
+      "pdf_page": 24,
+      "printed_page": "18",
+      "publication_status": "published",
+      "rationale": "教材课文“8出淤泥而不染的荷花造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_495981651c020649",
+      "unit_title": "9. 中国画——学画荷花"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_89f23894efb1be58",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_4_up",
+        "tes_1f5050a8c74277a3",
+        "textbook-node:tcn_2f6587130d1fb29f",
+        "textbook-unit:tcu_495981651c020649"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "9 鱼戏莲叶间 造型·表现",
+          "excerpt_hash": "b6734e715526ab53369de143cdc2221d0a13dd48fd773b6c83ae33b95e0f3ced",
+          "pdf_page": 24,
+          "printed_page": "18",
+          "span_id": "tes_1f5050a8c74277a3"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2f6587130d1fb29f",
+      "node_title": "9鱼戏莲叶间造型·表现",
+      "pdf_page": 24,
+      "printed_page": "18",
+      "publication_status": "published",
+      "rationale": "教材课文“9鱼戏莲叶间造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_495981651c020649",
+      "unit_title": "9. 中国画——学画荷花"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5a46989ac6607728",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_4_up",
+        "tes_5a5e8511f3e2f455",
+        "textbook-node:tcn_dc8eb59d3ba28c39",
+        "textbook-unit:tcu_9fe407777a1cc4fa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2 厨房一角 造型·表现",
+          "excerpt_hash": "70a329c0342a4d682b5e6bf6f4f3e2f86037ed23ac24ebc62e5acd2e3b2d7b52",
+          "pdf_page": 8,
+          "printed_page": "2",
+          "span_id": "tes_5a5e8511f3e2f455"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_dc8eb59d3ba28c39",
+      "node_title": "2厨房一角造型·表现",
+      "pdf_page": 8,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材课文“2厨房一角造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9fe407777a1cc4fa",
+      "unit_title": "2. 厨房一角"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_94f4f3d5ad57eb92",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_4_up",
+        "tes_cc0dea3cb4a33e75",
+        "textbook-node:tcn_8fd9ba11a1d94432",
+        "textbook-unit:tcu_9fe407777a1cc4fa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3 玩具伴我们成长 造型·表现",
+          "excerpt_hash": "361b4c9a08188f73c7bfb92e9398b9dfba59c8c0a47db94010fb9322abbbe605",
+          "pdf_page": 8,
+          "printed_page": "2",
+          "span_id": "tes_cc0dea3cb4a33e75"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8fd9ba11a1d94432",
+      "node_title": "3玩具伴我们成长造型·表现",
+      "pdf_page": 8,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材课文“3玩具伴我们成长造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9fe407777a1cc4fa",
+      "unit_title": "2. 厨房一角"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4779b70c2d50d024",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_up",
+        "tes_0102e7ce4e43d142",
+        "textbook-node:tcn_845fdf6969bc7ba8",
+        "textbook-unit:tcu_19526130b5ce2fa2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "8 我喜欢的神话故事 造型·表现",
+          "excerpt_hash": "100c6b7a75e700737ced9417aa232dc91f734eda558654f7b180a0e9a4786abf",
+          "pdf_page": 28,
+          "printed_page": "22",
+          "span_id": "tes_0102e7ce4e43d142"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_845fdf6969bc7ba8",
+      "node_title": "8我喜欢的神话故事造型·表现",
+      "pdf_page": 28,
+      "printed_page": "22",
+      "publication_status": "published",
+      "rationale": "教材课文“8我喜欢的神话故事造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_19526130b5ce2fa2",
+      "unit_title": "神话故事永流传"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_693716f2de7abf0b",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_up",
+        "tes_e0865e1ebecba54b",
+        "textbook-node:tcn_d4918cdc29ce9d5c",
+        "textbook-unit:tcu_54887dd91b5ffb8a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "14 我喜欢的小伙伴 造型·表现",
+          "excerpt_hash": "f7f52073e4b95002aead2d7ec54728c0a244fcce47a554962a99a907b8bcccc6",
+          "pdf_page": 54,
+          "printed_page": "48",
+          "span_id": "tes_e0865e1ebecba54b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d4918cdc29ce9d5c",
+      "node_title": "14我喜欢的小伙伴造型·表现",
+      "pdf_page": 54,
+      "printed_page": "48",
+      "publication_status": "published",
+      "rationale": "教材课文“14我喜欢的小伙伴造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_54887dd91b5ffb8a",
+      "unit_title": "用漫画表现美"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_14b9dd89c98f34ad",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_up",
+        "tes_6579f7e590234123",
+        "textbook-node:tcn_4f17c274bc0c2480",
+        "textbook-unit:tcu_9d2d364d8f2e2553"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2 欢乐的游乐园 造型·表现",
+          "excerpt_hash": "fb6799c2015b74a01ecb83555d40bf7044f4cb8a88e475f9b706a2632cc3325b",
+          "pdf_page": 8,
+          "printed_page": "2",
+          "span_id": "tes_6579f7e590234123"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4f17c274bc0c2480",
+      "node_title": "2欢乐的游乐园造型·表现",
+      "pdf_page": 8,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材课文“2欢乐的游乐园造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9d2d364d8f2e2553",
+      "unit_title": "我的生活多快乐"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ead6377a29f861e8",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_up",
+        "tes_033519654868219c",
+        "textbook-node:tcn_d1fb1cc375ec7c1c",
+        "textbook-unit:tcu_9d2d364d8f2e2553"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3 载歌载舞绘心声 造型·表现",
+          "excerpt_hash": "6175ad9ed37efd17457f98bfa3cca2b24c7f8e01f42845356f5dd215cee6b563",
+          "pdf_page": 8,
+          "printed_page": "2",
+          "span_id": "tes_033519654868219c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d1fb1cc375ec7c1c",
+      "node_title": "3载歌载舞绘心声造型·表现",
+      "pdf_page": 8,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材课文“3载歌载舞绘心声造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_9d2d364d8f2e2553",
+      "unit_title": "我的生活多快乐"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_afb31f0d06da7b6d",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_up",
+        "tes_ab520af240c066d4",
+        "textbook-node:tcn_fa902053df4a349d",
+        "textbook-unit:tcu_ba29de1014773401"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "4 苍劲挺拔的北京古树 造型·表现",
+          "excerpt_hash": "23b95edc39e475f8ea99980b7be2e86a9cb918acb986068f9dc403940d4c2d97",
+          "pdf_page": 18,
+          "printed_page": "12",
+          "span_id": "tes_ab520af240c066d4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_fa902053df4a349d",
+      "node_title": "4苍劲挺拔的北京古树造型·表现",
+      "pdf_page": 18,
+      "printed_page": "12",
+      "publication_status": "published",
+      "rationale": "教材课文“4苍劲挺拔的北京古树造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ba29de1014773401",
+      "unit_title": "北京文化之旅"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d7337f3b8cc745d9",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_44c60d22c78f509e054c",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_up",
+        "tes_7fbee2a3d576a6ef",
+        "textbook-node:tcn_2d8a7e4a94533445",
+        "textbook-unit:tcu_ba29de1014773401"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "5 百艺云集的北京庙会 造型·表现",
+          "excerpt_hash": "07177459bb7bbf3f78bb58d3d78153d62339ce2933e67c937a6dab4a5d487e8e",
+          "pdf_page": 18,
+          "printed_page": "12",
+          "span_id": "tes_7fbee2a3d576a6ef"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2d8a7e4a94533445",
+      "node_title": "5百艺云集的北京庙会造型·表现",
+      "pdf_page": 18,
+      "printed_page": "12",
+      "publication_status": "published",
+      "rationale": "教材课文“5百艺云集的北京庙会造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_ba29de1014773401",
+      "unit_title": "北京文化之旅"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9845a12dc66654ab",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_down",
+        "tes_4366e08deb04661c",
+        "textbook-node:tcn_cc6e171baa447c05",
+        "textbook-unit:tcu_2303ed107bf4ff69"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "11 绘胡同之韵 造型·表现",
+          "excerpt_hash": "1f948f8453ec0d75564c705f6e7d7998d80cf950639a9a30874b29dcc6b3cd07",
+          "pdf_page": 37,
+          "printed_page": "33",
+          "span_id": "tes_4366e08deb04661c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_cc6e171baa447c05",
+      "node_title": "11绘胡同之韵造型·表现",
+      "pdf_page": 37,
+      "printed_page": "33",
+      "publication_status": "published",
+      "rationale": "教材课文“11绘胡同之韵造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_2303ed107bf4ff69",
+      "unit_title": "北京地域名片——胡同"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_2695ccc1646bb8ed",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_down",
+        "tes_e95913060e9edec8",
+        "textbook-node:tcn_4fa11da55548ba46",
+        "textbook-unit:tcu_34e9ab941961877b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2 海洋馆里多欢乐 造型·表现",
+          "excerpt_hash": "9129fcd548552f68c4370df13724bd4abe52f7bb2a15c29792a4311628af543e",
+          "pdf_page": 8,
+          "printed_page": "4",
+          "span_id": "tes_e95913060e9edec8"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4fa11da55548ba46",
+      "node_title": "2海洋馆里多欢乐造型·表现",
+      "pdf_page": 8,
+      "printed_page": "4",
+      "publication_status": "published",
+      "rationale": "教材课文“2海洋馆里多欢乐造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_34e9ab941961877b",
+      "unit_title": "快快乐乐的童年"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5c523d52ffb3642f",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_down",
+        "tes_70ef69c89917c346",
+        "textbook-node:tcn_0282698f6590dc63",
+        "textbook-unit:tcu_34e9ab941961877b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3 欢欢喜喜扭秧歌 造型·表现",
+          "excerpt_hash": "90ed21be7dc69efa5846556aff006b802358c0c1e98462dba73b76259a667c69",
+          "pdf_page": 8,
+          "printed_page": "4",
+          "span_id": "tes_70ef69c89917c346"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0282698f6590dc63",
+      "node_title": "3欢欢喜喜扭秧歌造型·表现",
+      "pdf_page": 8,
+      "printed_page": "4",
+      "publication_status": "published",
+      "rationale": "教材课文“3欢欢喜喜扭秧歌造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_34e9ab941961877b",
+      "unit_title": "快快乐乐的童年"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d88584473a3c8ec2",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_down",
+        "tes_3428b0ef71c96cbc",
+        "textbook-node:tcn_dceb9af284ba84e2",
+        "textbook-unit:tcu_34e9ab941961877b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "4 快乐的童年记忆 造型·表现",
+          "excerpt_hash": "0d5ad5bd6957b58b7c3910e4ee2d14d5746a0cde5f3ce3cab6283171495d3567",
+          "pdf_page": 8,
+          "printed_page": "4",
+          "span_id": "tes_3428b0ef71c96cbc"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_dceb9af284ba84e2",
+      "node_title": "4快乐的童年记忆造型·表现",
+      "pdf_page": 8,
+      "printed_page": "4",
+      "publication_status": "published",
+      "rationale": "教材课文“4快乐的童年记忆造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_34e9ab941961877b",
+      "unit_title": "快快乐乐的童年"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_5e3c3c6e3520487a",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_down",
+        "tes_038c4075870d8265",
+        "textbook-node:tcn_d8d627031db86a11",
+        "textbook-unit:tcu_59800f84701d973e"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "16 多彩颐和园 造型·表现",
+          "excerpt_hash": "f58b92cc0ab7500209b7f875bffb97d8f9e4de5929e111de97de60c74ee8766c",
+          "pdf_page": 54,
+          "printed_page": "50",
+          "span_id": "tes_038c4075870d8265"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d8d627031db86a11",
+      "node_title": "16多彩颐和园造型·表现",
+      "pdf_page": 54,
+      "printed_page": "50",
+      "publication_status": "published",
+      "rationale": "教材课文“16多彩颐和园造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_59800f84701d973e",
+      "unit_title": "颐和园之旅"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_242c25073780d852",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_down",
+        "tes_79eac8cdb35345bd",
+        "textbook-node:tcn_41d87a4d1b7a8f49",
+        "textbook-unit:tcu_c127c54e0f9176da"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "14 展现四季色彩 造型·表现",
+          "excerpt_hash": "014d1aec251ddd843a319458046be573f404ff1a9976fd5dc22f39a734048bab",
+          "pdf_page": 47,
+          "printed_page": "43",
+          "span_id": "tes_79eac8cdb35345bd"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_41d87a4d1b7a8f49",
+      "node_title": "14展现四季色彩造型·表现",
+      "pdf_page": 47,
+      "printed_page": "43",
+      "publication_status": "published",
+      "rationale": "教材课文“14展现四季色彩造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_c127c54e0f9176da",
+      "unit_title": "走进色彩世界"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7271f0f42afb579b",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_3_down",
+        "tes_df7bb9d529e7ddb5",
+        "textbook-node:tcn_726318a4111b69d1",
+        "textbook-unit:tcu_c127c54e0f9176da"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "13 用颜色做游戏 造型·表现",
+          "excerpt_hash": "f5316a846b1e61f2bea2bac83799df128146e07fa6836ddfe3d9b5698fd99987",
+          "pdf_page": 47,
+          "printed_page": "43",
+          "span_id": "tes_df7bb9d529e7ddb5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_9fb5e59d16f6bbd5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_9fb5e59d16f6bbd5",
+          "label": "使用多种工具、材料与媒介进行造型表现"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_726318a4111b69d1",
+      "node_title": "13用颜色做游戏造型·表现",
+      "pdf_page": 47,
+      "printed_page": "43",
+      "publication_status": "published",
+      "rationale": "教材课文“13用颜色做游戏造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "美术",
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_c127c54e0f9176da",
+      "unit_title": "走进色彩世界"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_44888d3565ff7170",
@@ -63,7 +1163,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_25cc2de0079d"
+        "external_smartedu_2026_art_primary_grade_4_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -75,7 +1175,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_fbf879fc86b8f9dd",
       "textbook_grade": 4,
       "textbook_subject": "美术",
@@ -94,7 +1194,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c5257fc4696e"
+        "external_smartedu_2026_art_primary_grade_3_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -106,7 +1206,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_5773d3c34b5fac1a",
       "textbook_grade": 3,
       "textbook_subject": "美术",
@@ -187,7 +1287,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_aa7ce1e8a37f"
+        "external_smartedu_2026_music_primary_grade_3_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -199,7 +1299,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_4a0a538012d57261",
       "textbook_grade": 3,
       "textbook_subject": "音乐",
@@ -218,7 +1318,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_572122ddff26"
+        "external_smartedu_2026_music_primary_grade_3_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -230,7 +1330,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_9a72f44c9f0c7435",
       "textbook_grade": 3,
       "textbook_subject": "音乐",
@@ -280,7 +1380,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_aa3aaa5d9032"
+        "external_smartedu_2026_art_primary_grade_3_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -292,7 +1392,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_19c3fbbc0c7e7882",
       "textbook_grade": 3,
       "textbook_subject": "美术",

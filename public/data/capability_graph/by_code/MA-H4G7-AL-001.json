@@ -116,16 +116,126 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_bb8827e8d17ca096",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_006d5ed61c055eb63857",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_7_up",
+        "tes_15e18a747c379220",
+        "textbook-node:tcn_7e257e94e6ef5a2f",
+        "textbook-unit:tcu_c7588b7dc9a91933"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "回答上面的问题,要用到含有字母的式子,即本章将要研究的代数式.通过对本章的学习,你将进一步体会到代数式可以简明地表示数量和数量关系,为后续学习方程、不等式、函数等打下基础.",
+          "excerpt_hash": "54e8b44516cebbf4e237ea74f59a7c9f0bdf40434f350ab8e892afc07e98ceea",
+          "pdf_page": 75,
+          "printed_page": "67",
+          "span_id": "tes_15e18a747c379220"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d7eeb69fd313c8b5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d7eeb69fd313c8b5",
+          "label": "用代数式、方程、不等式、函数等描述现实问题中的数量关系和变化规律"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_7e257e94e6ef5a2f",
+      "node_title": "回答上面的问题,要用到含有字母的式子,即本章将要研究的代数式.通过对本章的学习,你将进一步体会到代数式可以简明地表示数量和数量关系,为后续学习方程、不等式、函数等打下基础.",
+      "pdf_page": 75,
+      "printed_page": "67",
+      "publication_status": "published",
+      "rationale": "教材练习“回答上面的问题,要用到含有字母的式子,即本章将要研究的代数式.通过对本章的学习,你将进一步体会到代数式可以简明地表示数量和数量关系,为后续学习方程、不等式、函数等打下基础.”与课标 MA-H4G7-AL-001 的可教学小能力“用代数式、方程、不等式、函数等描述现实问题中的数量关系和变化规律”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c7588b7dc9a91933",
+      "unit_title": "第三章 代数式"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_fc95d01f7c6ddd1d",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_4c0f56ba23b5b61f54c0",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_7_down",
+        "tes_3dc3f57e86fbd5ab",
+        "textbook-node:tcn_b3d9ec1fb91050dd",
+        "textbook-unit:tcu_ef12bd715afcf6fe"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "5.2h;等等.这些数据可以帮助人们了解周围世界的现状和变化规律,从而为",
+          "excerpt_hash": "1623a3ec00e8df30f8ecd12e312198a63c9b714ab696a4c02246bc6bfbcbf3e0",
+          "pdf_page": 157,
+          "printed_page": "149",
+          "span_id": "tes_3dc3f57e86fbd5ab"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d7eeb69fd313c8b5"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d7eeb69fd313c8b5",
+          "label": "用代数式、方程、不等式、函数等描述现实问题中的数量关系和变化规律"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b3d9ec1fb91050dd",
+      "node_title": "5.2h;等等.这些数据可以帮助人们了解周围世界的现状和变化规律,从而为",
+      "pdf_page": 157,
+      "printed_page": "149",
+      "publication_status": "published",
+      "rationale": "教材小节“5.2h;等等.这些数据可以帮助人们了解周围世界的现状和变化规律,从而为”与课标 MA-H4G7-AL-001 的可教学小能力“用代数式、方程、不等式、函数等描述现实问题中的数量关系和变化规律”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "数学",
+      "textbook_title": "数学7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_ef12bd715afcf6fe",
+      "unit_title": "第十一章 不等式与不等式组"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_be82b90578afc535",
@@ -136,7 +246,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_48072359f7df"
+        "external_smartedu_2026_math_junior_grade_7_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -148,7 +258,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d6ebc3492905c591",
       "textbook_grade": 7,
       "textbook_subject": "数学",
@@ -167,7 +277,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c5fa3c0e2226"
+        "external_smartedu_2026_math_junior_grade_7_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -179,7 +289,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_05b1d5ed90d78b81",
       "textbook_grade": 7,
       "textbook_subject": "数学",

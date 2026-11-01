@@ -82,16 +82,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_515186e31bef60ba",
+      "alignment_type": "practices",
+      "confidence": 0.8768,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_down",
+        "tes_fa37ec1f6c879952",
+        "textbook-node:tcn_8ab84d3ba0e4ee80",
+        "textbook-unit:tcu_ef8a751d08e114ad"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "探究函数的图象和性质在学习函数时,我们经常利用函数图象研究函数的性质.由解析式画函数图象时,一般采用描点连线法.描出的点越多,画出的函数图象越准确.但是,",
+          "excerpt_hash": "684dd23355e8547f1538e3c49431211f661c87b817d26bcf5ee315346cec9a6c",
+          "pdf_page": 132,
+          "printed_page": "125",
+          "span_id": "tes_fa37ec1f6c879952"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_cbdb60370669368d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_cbdb60370669368d",
+          "label": "画二次函数图象"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8ab84d3ba0e4ee80",
+      "node_title": "探究函数的图象和性质在学习函数时,我们经常利用函数图象研究函数的性质.由解析式画函数图象时,一般采用描点连线法.描出的点越多,画出的函数图象越准确.但是,",
+      "pdf_page": 132,
+      "printed_page": "125",
+      "publication_status": "published",
+      "rationale": "教材练习“探究函数的图象和性质在学习函数时,我们经常利用函数图象研究函数的性质.由解析式画函数图象时,一般采用描点连线法.描出的点越多,画出的函数图象越准确.但是,”与课标 MA-H4G8-AL-026 的可教学小能力“画二次函数图象”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_ef8a751d08e114ad",
+      "unit_title": "第二十三章 一次函数"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7531e0747fc621d0",
@@ -102,7 +157,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_e14d09b0b94a"
+        "external_smartedu_2026_math_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -114,7 +169,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d79076db84511d8a",
       "textbook_grade": 8,
       "textbook_subject": "数学",
@@ -133,7 +188,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_485165afa9c8"
+        "external_smartedu_2026_math_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -145,7 +200,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_8684cc79506c65f5",
       "textbook_grade": 8,
       "textbook_subject": "数学",

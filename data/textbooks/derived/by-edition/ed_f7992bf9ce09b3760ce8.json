@@ -1,85 +1,28 @@
 {
-  "alignments": [
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_5d73b263e23bfe19",
-      "alignment_method": "component_evidence_hybrid",
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "confidence": 0.86,
-      "content_node_kind": "lesson",
-      "content_node_title": "第14课人人爱护公物",
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "end_pdf_page": 59,
-      "evidence_excerpt": "第 14 课 人 人 爱 护 公 物",
-      "evidence_excerpt_hash": "a3cc2eea8a0041bf69107bcd41bfe2873bbac7fac4044e2e96f7f9501110c9d9",
-      "evidence_granularity": "topic_heading",
-      "evidence_id": "external_smartedu_2026_morality_law_primary_grade_1_up",
-      "evidence_level": "L2",
-      "evidence_level_detail": "L2_topic",
-      "evidence_role": "direct_textbook",
-      "evidence_span_ids": [
-        "tes_4804572e9775fdcb"
-      ],
-      "grade_band": "H1",
-      "learning_component_ids": [
-        "lc_6a946c743d314378"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_6a946c743d314378",
-          "label": "说出班级/校园中的常见规则（排队、举手、爱护公物等）"
-        }
-      ],
-      "longest_match_length": 4,
-      "matched_fields": [
-        "learning_components",
-        "standard_context",
-        "textbook_unit"
-      ],
-      "matched_keywords": [
-        "爱护公物",
-        "校园"
-      ],
-      "modifier_conflicts": [],
-      "node_id": "tcn_3c134330c0216fc3",
-      "pdf_page": 57,
-      "printed_page": "52",
-      "provenance": "machine_generated",
-      "publication_status": "published",
-      "rationale": "教材课文“第14课人人爱护公物”与课标 ML-D1-LAW-001 的可教学小能力“说出班级/校园中的常见规则（排队、举手、爱护公物等）”形成页内证据匹配。",
-      "relation_type": "supports",
-      "review_status": "machine_checked",
-      "score": 0.76,
-      "standard_code": "ML-D1-LAW-001",
-      "standard_subdomain": "法治教育",
-      "standard_text": "能说出班级/校园中的常见规则（排队、举手、爱护公物等），理解规则的作用，并能在日常学习生活中自觉遵守。",
-      "standard_title": "能说出班级/校园中的常见规则（排队、举手、爱护公物等）",
-      "subject_slug": "morality_law",
-      "topic_anchor_keywords": [
-        "爱护公物",
-        "校园"
-      ],
-      "topic_anchor_score": 0.76,
-      "unit_id": "tcu_1a420b8aa481394f",
-      "unit_title": "校园生活真快乐"
-    }
-  ],
+  "alignments": [],
   "audit": {
-    "approved_page_map_count": 73,
-    "approved_toc_entry_count": 2,
+    "approved_page_map_count": 65,
+    "approved_toc_entry_count": 20,
     "candidate_toc_entry_count": 0,
+    "machine_checked_toc_entry_count": 0,
     "numeric_page_offset": 5,
     "numeric_page_offset_confidence": 0.99,
-    "pdf_page_count": 78,
+    "ocr": {
+      "pages_ocrd": 0,
+      "status": "not_requested",
+      "toc_pages": []
+    },
+    "pdf_page_count": 70,
+    "published_toc_entry_count": 0,
     "toc_candidate_page_count": 0
   },
   "content_alignment": {
     "algorithm_version": "component-evidence-hybrid-v3",
-    "alignment_count": 1,
+    "alignment_count": 0,
     "automatic_content_unit_count": 0,
-    "content_node_count": 102,
-    "evidence_span_count": 32,
-    "generated_alignment_count": 1,
+    "content_node_count": 104,
+    "evidence_span_count": 16,
+    "generated_alignment_count": 0,
     "native_text_ratio": 0.9571,
     "ocr_page_count": 0,
     "ocr_reused_count": 0,
@@ -87,7 +30,7 @@
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
-    "reconciled_unit_range_count": 0,
+    "reconciled_unit_range_count": 4,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59/pages.jsonl",
@@ -202,13 +145,32 @@
       "unit_id": null
     },
     {
+      "confidence": 0.85,
+      "end_pdf_page": 10,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_ddb3152491534422",
+      "parent_id": null,
+      "pdf_page": 7,
+      "pdf_page_end": 10,
+      "pdf_page_start": 7,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第1课 开开心心上学去",
+      "title": "第1课 开开心心上学去",
+      "toc_entry_id": "tcu_1e4ecb5fb6c4aa56",
+      "unit_id": "tcu_1e4ecb5fb6c4aa56"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 7,
       "end_printed_page": "2",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_017e1bdf0aaa5889",
-      "parent_id": null,
+      "parent_id": "tcn_ddb3152491534422",
       "pdf_page": 7,
       "pdf_page_end": 7,
       "pdf_page_start": 7,
@@ -216,7 +178,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 7 页",
-      "unit_id": null
+      "unit_id": "tcu_1e4ecb5fb6c4aa56"
     },
     {
       "confidence": 0.98,
@@ -225,7 +187,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c34a37b251e97389",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_ddb3152491534422",
       "pdf_page": 8,
       "pdf_page_end": 8,
       "pdf_page_start": 8,
@@ -233,46 +195,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 8 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 9,
-      "end_printed_page": "3",
-      "evidence_span_ids": [
-        "tes_91f30f4520753355"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_61fa6cabc9bbe09a",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
-      "pdf_page": 8,
-      "pdf_page_end": 9,
-      "pdf_page_start": 8,
-      "printed_page": "3",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第一单元 我是小学生啦",
-      "title": "第一单元我是小学生啦",
-      "unit_id": "tcu_8cbc2094df18488d"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 29,
-      "end_printed_page": null,
+      "confidence": 0.85,
+      "end_pdf_page": 23,
+      "end_printed_page": "18",
       "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_b4e17ef9ca0a8655",
+      "node_id": "tcn_073f83b5696cba93",
       "parent_id": null,
       "pdf_page": 8,
-      "pdf_page_end": 29,
+      "pdf_page_end": 23,
       "pdf_page_start": 8,
       "printed_page": "3",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "我是小学生啦",
-      "title": "我是小学生啦",
-      "toc_entry_id": "tcu_8cbc2094df18488d",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "text_excerpt": "第一单元 我是小学生啦",
+      "title": "第一单元 我是小学生啦",
+      "toc_entry_id": "tcu_f90765ff06095fc7",
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -281,7 +223,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_533febafc35ed865",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_ddb3152491534422",
       "pdf_page": 9,
       "pdf_page_end": 9,
       "pdf_page_start": 9,
@@ -289,7 +231,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 9 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -298,7 +240,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_545474f10490018e",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_ddb3152491534422",
       "pdf_page": 10,
       "pdf_page_end": 10,
       "pdf_page_start": 10,
@@ -306,47 +248,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 10 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 10,
+      "end_pdf_page": 11,
       "end_printed_page": "5",
       "evidence_span_ids": [
         "tes_6b215571c9ca8d5f"
       ],
       "kind": "unit",
       "node_id": "tcn_98e85c9f7d510194",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_ddb3152491534422",
       "pdf_page": 10,
-      "pdf_page_end": 10,
+      "pdf_page_end": 11,
       "pdf_page_start": 10,
       "printed_page": "5",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第一单元 我是小学生啦",
       "title": "第一单元我是小学生啦",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 11,
-      "end_printed_page": "6",
-      "evidence_span_ids": [
-        "tes_f3945c7ea5ab815f"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 14,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_7891c3a5041d82de",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "node_id": "tcn_56a34b6b52b88386",
+      "parent_id": "tcn_073f83b5696cba93",
       "pdf_page": 11,
-      "pdf_page_end": 11,
+      "pdf_page_end": 14,
       "pdf_page_start": 11,
       "printed_page": "6",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 2 课 我 向 国 旗 敬 个 礼",
-      "title": "第2课我向国旗敬个礼",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2课 我向国旗敬个礼",
+      "title": "第2课 我向国旗敬个礼",
+      "toc_entry_id": "tcu_1f915ebf07a730de",
+      "unit_id": "tcu_1f915ebf07a730de"
     },
     {
       "confidence": 0.98,
@@ -355,7 +296,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5729ca8e17f70d8b",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_56a34b6b52b88386",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -363,7 +304,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 11 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -372,7 +313,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2b0a7a6bb5d75fd5",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_56a34b6b52b88386",
       "pdf_page": 12,
       "pdf_page_end": 12,
       "pdf_page_start": 12,
@@ -380,7 +321,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 12 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.9,
@@ -391,7 +332,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_4206330bb306ffa0",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_56a34b6b52b88386",
       "pdf_page": 12,
       "pdf_page_end": 13,
       "pdf_page_start": 12,
@@ -400,7 +341,7 @@
       "source": "body_heading",
       "text_excerpt": "第一单元 我是小学生啦",
       "title": "第一单元我是小学生啦",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -409,7 +350,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5c95eea9fa810b06",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_56a34b6b52b88386",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -417,7 +358,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 13 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -426,7 +367,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9b93e0e7ec316453",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_56a34b6b52b88386",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -434,47 +375,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 14 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 14,
+      "end_pdf_page": 19,
       "end_printed_page": "9",
       "evidence_span_ids": [
         "tes_eef8753e60e018f3"
       ],
       "kind": "unit",
       "node_id": "tcn_2ce3329f802e166c",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_56a34b6b52b88386",
       "pdf_page": 14,
-      "pdf_page_end": 14,
+      "pdf_page_end": 19,
       "pdf_page_start": 14,
       "printed_page": "9",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第一单元 我是小学生啦",
       "title": "第一单元我是小学生啦",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
-      "confidence": 0.9,
+      "confidence": 0.85,
       "end_pdf_page": 18,
-      "end_printed_page": "10",
-      "evidence_span_ids": [
-        "tes_4362a0f5cd4dc4d4"
-      ],
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_3897f53aa246e11d",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "node_id": "tcn_339e585ca824fbd1",
+      "parent_id": "tcn_073f83b5696cba93",
       "pdf_page": 15,
       "pdf_page_end": 18,
       "pdf_page_start": 15,
       "printed_page": "10",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 3 课 这 是 我 们 的 校 园",
-      "title": "第3课这是我们的校园",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第3课 这是我们的校园",
+      "title": "第3课 这是我们的校园",
+      "toc_entry_id": "tcu_84aaf0108739aabd",
+      "unit_id": "tcu_84aaf0108739aabd"
     },
     {
       "confidence": 0.98,
@@ -483,7 +423,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9ce6673f5fd19ed1",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_339e585ca824fbd1",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -491,7 +431,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 15 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -500,7 +440,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1bc3c33983fbba30",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_339e585ca824fbd1",
       "pdf_page": 16,
       "pdf_page_end": 16,
       "pdf_page_start": 16,
@@ -508,7 +448,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 16 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -517,7 +457,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_907f6bb7808b2d84",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_339e585ca824fbd1",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -525,7 +465,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 17 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -534,7 +474,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ccce6964daf9e70e",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_339e585ca824fbd1",
       "pdf_page": 18,
       "pdf_page_end": 18,
       "pdf_page_start": 18,
@@ -542,27 +482,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 18 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 19,
-      "end_printed_page": "14",
-      "evidence_span_ids": [
-        "tes_d35166db21c44e86"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 22,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_af027d34582e296a",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "node_id": "tcn_2b9d64460fb6879c",
+      "parent_id": "tcn_073f83b5696cba93",
       "pdf_page": 19,
-      "pdf_page_end": 19,
+      "pdf_page_end": 22,
       "pdf_page_start": 19,
       "printed_page": "14",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 4 课 平 平 安 安 回 家 来",
-      "title": "第4课平平安安回家来",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第4课 平平安安回家来",
+      "title": "第4课 平平安安回家来",
+      "toc_entry_id": "tcu_e4c6afaed4475499",
+      "unit_id": "tcu_e4c6afaed4475499"
     },
     {
       "confidence": 0.98,
@@ -571,7 +510,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_de8ada6cc70abf37",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_2b9d64460fb6879c",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -579,7 +518,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 19 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -588,7 +527,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1ed80426927546cf",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_2b9d64460fb6879c",
       "pdf_page": 20,
       "pdf_page_end": 20,
       "pdf_page_start": 20,
@@ -596,7 +535,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 20 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.9,
@@ -607,7 +546,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_6b7e9a254469697b",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_2b9d64460fb6879c",
       "pdf_page": 20,
       "pdf_page_end": 21,
       "pdf_page_start": 20,
@@ -616,7 +555,7 @@
       "source": "body_heading",
       "text_excerpt": "第一单元 我是小学生啦",
       "title": "第一单元我是小学生啦",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -625,7 +564,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_badbb0ad6a7fcc9c",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_2b9d64460fb6879c",
       "pdf_page": 21,
       "pdf_page_end": 21,
       "pdf_page_start": 21,
@@ -633,7 +572,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 21 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -642,7 +581,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2cd0ff1a09241583",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_2b9d64460fb6879c",
       "pdf_page": 22,
       "pdf_page_end": 22,
       "pdf_page_start": 22,
@@ -650,7 +589,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 22 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.9,
@@ -661,7 +600,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_7e7cb8c5a614c3ff",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_2b9d64460fb6879c",
       "pdf_page": 22,
       "pdf_page_end": 23,
       "pdf_page_start": 22,
@@ -670,7 +609,26 @@
       "source": "body_heading",
       "text_excerpt": "第二单元 过 好 校 园 生 活",
       "title": "第二单元过好校园生活",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 26,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_169d567d3163a65b",
+      "parent_id": null,
+      "pdf_page": 23,
+      "pdf_page_end": 26,
+      "pdf_page_start": 23,
+      "printed_page": "18",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第5课 老师，您好！",
+      "title": "第5课 老师，您好！",
+      "toc_entry_id": "tcu_15e0514a2138e180",
+      "unit_id": "tcu_15e0514a2138e180"
     },
     {
       "confidence": 0.98,
@@ -679,7 +637,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_05dad40f27464d89",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_169d567d3163a65b",
       "pdf_page": 23,
       "pdf_page_end": 23,
       "pdf_page_start": 23,
@@ -687,7 +645,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 23 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_f90765ff06095fc7"
     },
     {
       "confidence": 0.98,
@@ -696,7 +654,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2fd15ab4fc461cf4",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_169d567d3163a65b",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -704,27 +662,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 24 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 25,
-      "end_printed_page": "19",
-      "evidence_span_ids": [
-        "tes_a83792ed4af74837"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 39,
+      "end_printed_page": "34",
+      "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_ed4526673fea13f5",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "node_id": "tcn_b100979efff32405",
+      "parent_id": null,
       "pdf_page": 24,
-      "pdf_page_end": 25,
+      "pdf_page_end": 39,
       "pdf_page_start": 24,
       "printed_page": "19",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第二单元 过好校园生活",
-      "title": "第二单元过好校园生活",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "title": "第二单元 过好校园生活",
+      "toc_entry_id": "tcu_4bb9a6b4ec4cbee7",
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -733,7 +690,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b57be37645337923",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_169d567d3163a65b",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -741,7 +698,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 25 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -750,7 +707,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fc5f1bcaef93385c",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_169d567d3163a65b",
       "pdf_page": 26,
       "pdf_page_end": 26,
       "pdf_page_start": 26,
@@ -758,7 +715,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 26 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.9,
@@ -769,7 +726,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_dec6e500c5b2c79a",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_169d567d3163a65b",
       "pdf_page": 26,
       "pdf_page_end": 27,
       "pdf_page_start": 26,
@@ -778,7 +735,26 @@
       "source": "body_heading",
       "text_excerpt": "第二单元 过好校园生活",
       "title": "第二单元过好校园生活",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 29,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_5accf9a8e65ea656",
+      "parent_id": "tcn_b100979efff32405",
+      "pdf_page": 27,
+      "pdf_page_end": 29,
+      "pdf_page_start": 27,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第6课 拉拉手，交朋友",
+      "title": "第6课 拉拉手，交朋友",
+      "toc_entry_id": "tcu_5eb042b456f85b42",
+      "unit_id": "tcu_5eb042b456f85b42"
     },
     {
       "confidence": 0.98,
@@ -787,7 +763,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b505bf7d0579ffa7",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_5accf9a8e65ea656",
       "pdf_page": 27,
       "pdf_page_end": 27,
       "pdf_page_start": 27,
@@ -795,7 +771,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 27 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -804,7 +780,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a76f4984b8a89574",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_5accf9a8e65ea656",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -812,27 +788,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 28 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 29,
+      "end_pdf_page": 37,
       "end_printed_page": "23",
       "evidence_span_ids": [
         "tes_26623c4816c64c45"
       ],
       "kind": "unit",
       "node_id": "tcn_3fb4c38f8b749a8b",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_5accf9a8e65ea656",
       "pdf_page": 28,
-      "pdf_page_end": 29,
+      "pdf_page_end": 37,
       "pdf_page_start": 28,
       "printed_page": "23",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第二单元 过好校园生活",
       "title": "第二单元过好校园生活",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -841,7 +817,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5cb588e78f405d87",
-      "parent_id": "tcn_b4e17ef9ca0a8655",
+      "parent_id": "tcn_5accf9a8e65ea656",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -849,7 +825,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 29 页",
-      "unit_id": "tcu_8cbc2094df18488d"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 33,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_4b314bc9e52c6266",
+      "parent_id": "tcn_b100979efff32405",
+      "pdf_page": 30,
+      "pdf_page_end": 33,
+      "pdf_page_start": 30,
+      "printed_page": "25",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第7课 上课了，好好学",
+      "title": "第7课 上课了，好好学",
+      "toc_entry_id": "tcu_e8713eb3a895227a",
+      "unit_id": "tcu_e8713eb3a895227a"
     },
     {
       "confidence": 0.98,
@@ -858,7 +853,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_28dfa4531d9f390f",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_4b314bc9e52c6266",
       "pdf_page": 30,
       "pdf_page_end": 30,
       "pdf_page_start": 30,
@@ -866,26 +861,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 30 页",
-      "unit_id": "tcu_1a420b8aa481394f"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 70,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_43e2dfe1a24c2859",
-      "parent_id": null,
-      "pdf_page": 30,
-      "pdf_page_end": 70,
-      "pdf_page_start": 30,
-      "printed_page": "25",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "校园生活真快乐",
-      "title": "校园生活真快乐",
-      "toc_entry_id": "tcu_1a420b8aa481394f",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -894,7 +870,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_510207866fc4f754",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_4b314bc9e52c6266",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -902,7 +878,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 31 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -911,7 +887,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9e3c3a30508ccf34",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_4b314bc9e52c6266",
       "pdf_page": 32,
       "pdf_page_end": 32,
       "pdf_page_start": 32,
@@ -919,7 +895,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 32 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -928,7 +904,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1b232d2092b9d0f1",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_4b314bc9e52c6266",
       "pdf_page": 33,
       "pdf_page_end": 33,
       "pdf_page_start": 33,
@@ -936,27 +912,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 33 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 37,
-      "end_printed_page": "29",
-      "evidence_span_ids": [
-        "tes_8c0a010e3219a0a6"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 38,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_8d5b3909e6951d1e",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_2f31275161d6028f",
+      "parent_id": "tcn_b100979efff32405",
       "pdf_page": 34,
-      "pdf_page_end": 37,
+      "pdf_page_end": 38,
       "pdf_page_start": 34,
       "printed_page": "29",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 8 课 课 余 生 活 真 丰 富",
-      "title": "第8课课余生活真丰富",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第8课 课余生活真丰富",
+      "title": "第8课 课余生活真丰富",
+      "toc_entry_id": "tcu_bac27ba2afc365ad",
+      "unit_id": "tcu_bac27ba2afc365ad"
     },
     {
       "confidence": 0.98,
@@ -965,7 +940,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3868d8a11044d811",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_2f31275161d6028f",
       "pdf_page": 34,
       "pdf_page_end": 34,
       "pdf_page_start": 34,
@@ -973,7 +948,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 34 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -982,7 +957,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1df68f46c8880077",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_2f31275161d6028f",
       "pdf_page": 35,
       "pdf_page_end": 35,
       "pdf_page_start": 35,
@@ -990,7 +965,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 35 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -999,7 +974,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8726bc87d79bbbd1",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_2f31275161d6028f",
       "pdf_page": 36,
       "pdf_page_end": 36,
       "pdf_page_start": 36,
@@ -1007,7 +982,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 36 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -1016,7 +991,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5ca810cbad5a2d3d",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_2f31275161d6028f",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -1024,7 +999,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 37 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -1033,7 +1008,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5f5e889bb5e8f388",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_2f31275161d6028f",
       "pdf_page": 38,
       "pdf_page_end": 38,
       "pdf_page_start": 38,
@@ -1041,47 +1016,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 38 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 38,
+      "end_pdf_page": 39,
       "end_printed_page": "33",
       "evidence_span_ids": [
         "tes_eb54b967662ad785"
       ],
       "kind": "unit",
       "node_id": "tcn_d6edd92d3fc3ad68",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_2f31275161d6028f",
       "pdf_page": 38,
-      "pdf_page_end": 38,
+      "pdf_page_end": 39,
       "pdf_page_start": 38,
       "printed_page": "33",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第三单元 养 成 良 好 习 惯",
       "title": "第三单元养成良好习惯",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 39,
-      "end_printed_page": "34",
-      "evidence_span_ids": [
-        "tes_7a75e95f73b1d1f3"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 41,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_dc59b0407bf15d92",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_55c6ea6f9d66c8b3",
+      "parent_id": null,
       "pdf_page": 39,
-      "pdf_page_end": 39,
+      "pdf_page_end": 41,
       "pdf_page_start": 39,
       "printed_page": "34",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 9 课 作 息 有 规 律",
-      "title": "第9课作息有规律",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第9课 作息有规律",
+      "title": "第9课 作息有规律",
+      "toc_entry_id": "tcu_14d01ea4f4dc152d",
+      "unit_id": "tcu_14d01ea4f4dc152d"
     },
     {
       "confidence": 0.98,
@@ -1090,7 +1064,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6ee5fd586550c1c1",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_55c6ea6f9d66c8b3",
       "pdf_page": 39,
       "pdf_page_end": 39,
       "pdf_page_start": 39,
@@ -1098,7 +1072,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 39 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_4bb9a6b4ec4cbee7"
     },
     {
       "confidence": 0.98,
@@ -1107,7 +1081,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_15edacf9c4a4feee",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_55c6ea6f9d66c8b3",
       "pdf_page": 40,
       "pdf_page_end": 40,
       "pdf_page_start": 40,
@@ -1115,27 +1089,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 40 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 41,
-      "end_printed_page": "35",
-      "evidence_span_ids": [
-        "tes_5553ccbd69b63860"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 53,
+      "end_printed_page": "48",
+      "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_926198445b124355",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_0323392811ed5e92",
+      "parent_id": null,
       "pdf_page": 40,
-      "pdf_page_end": 41,
+      "pdf_page_end": 53,
       "pdf_page_start": 40,
       "printed_page": "35",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第三单元 养成良好习惯",
-      "title": "第三单元养成良好习惯",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "title": "第三单元 养成良好习惯",
+      "toc_entry_id": "tcu_0d8e84f3af6afd43",
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.98,
@@ -1144,7 +1117,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_bba6d659c364c513",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_55c6ea6f9d66c8b3",
       "pdf_page": 41,
       "pdf_page_end": 41,
       "pdf_page_start": 41,
@@ -1152,27 +1125,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 41 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 43,
-      "end_printed_page": "37",
-      "evidence_span_ids": [
-        "tes_31e5efac8aa8305b"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 45,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_a095f5e55e1b6bad",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_51541a3ce89ee025",
+      "parent_id": "tcn_0323392811ed5e92",
       "pdf_page": 42,
-      "pdf_page_end": 43,
+      "pdf_page_end": 45,
       "pdf_page_start": 42,
       "printed_page": "37",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 10 课 吃 饭 有 讲 究",
-      "title": "第10课吃饭有讲究",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第10课 吃饭有讲究",
+      "title": "第10课 吃饭有讲究",
+      "toc_entry_id": "tcu_1a3ade2f5203b930",
+      "unit_id": "tcu_1a3ade2f5203b930"
     },
     {
       "confidence": 0.98,
@@ -1181,7 +1153,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_868c653d08432447",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_51541a3ce89ee025",
       "pdf_page": 42,
       "pdf_page_end": 42,
       "pdf_page_start": 42,
@@ -1189,7 +1161,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 42 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.98,
@@ -1198,7 +1170,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_eb599663189165fc",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_51541a3ce89ee025",
       "pdf_page": 43,
       "pdf_page_end": 43,
       "pdf_page_start": 43,
@@ -1206,7 +1178,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 43 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.98,
@@ -1215,7 +1187,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_26ae216b70c20e1a",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_51541a3ce89ee025",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -1223,27 +1195,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 44 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 45,
+      "end_pdf_page": 47,
       "end_printed_page": "39",
       "evidence_span_ids": [
         "tes_cbe2d08891521656"
       ],
       "kind": "unit",
       "node_id": "tcn_c48dbb876115e309",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_51541a3ce89ee025",
       "pdf_page": 44,
-      "pdf_page_end": 45,
+      "pdf_page_end": 47,
       "pdf_page_start": 44,
       "printed_page": "39",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第三单元 养成良好习惯",
       "title": "第三单元养成良好习惯",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.98,
@@ -1252,7 +1224,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8605973826df405e",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_51541a3ce89ee025",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -1260,27 +1232,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 45 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 47,
-      "end_printed_page": "41",
-      "evidence_span_ids": [
-        "tes_0d5ce72a3c7e330a"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 48,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_8ae6c1a53d24a267",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_9ed8f3c3cf790b7c",
+      "parent_id": "tcn_0323392811ed5e92",
       "pdf_page": 46,
-      "pdf_page_end": 47,
+      "pdf_page_end": 48,
       "pdf_page_start": 46,
       "printed_page": "41",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 11 课 对 人 有 礼 貌",
-      "title": "第11课对人有礼貌",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第11课 对人有礼貌",
+      "title": "第11课 对人有礼貌",
+      "toc_entry_id": "tcu_bc3fefe1f75257be",
+      "unit_id": "tcu_bc3fefe1f75257be"
     },
     {
       "confidence": 0.98,
@@ -1289,7 +1260,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a0e5b65a1f0e1ee4",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_9ed8f3c3cf790b7c",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -1297,7 +1268,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 46 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.98,
@@ -1306,7 +1277,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_598be1b8eb2763bf",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_9ed8f3c3cf790b7c",
       "pdf_page": 47,
       "pdf_page_end": 47,
       "pdf_page_start": 47,
@@ -1314,7 +1285,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 47 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.98,
@@ -1323,7 +1294,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4e8a93161c4b4355",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_9ed8f3c3cf790b7c",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -1331,47 +1302,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 48 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 48,
+      "end_pdf_page": 49,
       "end_printed_page": "43",
       "evidence_span_ids": [
         "tes_6274f1824443501f"
       ],
       "kind": "unit",
       "node_id": "tcn_e81d8dc97477141c",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_9ed8f3c3cf790b7c",
       "pdf_page": 48,
-      "pdf_page_end": 48,
+      "pdf_page_end": 49,
       "pdf_page_start": 48,
       "printed_page": "43",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第三单元 养成良好习惯",
       "title": "第三单元养成良好习惯",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 49,
-      "end_printed_page": "44",
-      "evidence_span_ids": [
-        "tes_3b4966e81f28bc8e"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 52,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_8c1d3218484dc9b2",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_1740dd8f9c5bf506",
+      "parent_id": "tcn_0323392811ed5e92",
       "pdf_page": 49,
-      "pdf_page_end": 49,
+      "pdf_page_end": 52,
       "pdf_page_start": 49,
       "printed_page": "44",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 12 课 玩 也 有 学 问",
-      "title": "第12课玩也有学问",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第12课 玩也有学问",
+      "title": "第12课 玩也有学问",
+      "toc_entry_id": "tcu_d4aaa3f84231d1af",
+      "unit_id": "tcu_d4aaa3f84231d1af"
     },
     {
       "confidence": 0.98,
@@ -1380,7 +1350,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1f84b23381a68a00",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_1740dd8f9c5bf506",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -1388,7 +1358,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 49 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.98,
@@ -1397,7 +1367,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0f96934c1024386e",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_1740dd8f9c5bf506",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -1405,7 +1375,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 50 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.9,
@@ -1416,7 +1386,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_59b2bf75f5c3a6a1",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_1740dd8f9c5bf506",
       "pdf_page": 50,
       "pdf_page_end": 51,
       "pdf_page_start": 50,
@@ -1425,7 +1395,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 养成良好习惯",
       "title": "第三单元养成良好习惯",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.98,
@@ -1434,7 +1404,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_023c07f0f051ca3b",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_1740dd8f9c5bf506",
       "pdf_page": 51,
       "pdf_page_end": 51,
       "pdf_page_start": 51,
@@ -1442,7 +1412,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 51 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.98,
@@ -1451,7 +1421,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d2b13bdc590ab873",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_1740dd8f9c5bf506",
       "pdf_page": 52,
       "pdf_page_end": 52,
       "pdf_page_start": 52,
@@ -1459,47 +1429,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 52 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 52,
+      "end_pdf_page": 53,
       "end_printed_page": "47",
       "evidence_span_ids": [
         "tes_7f2505a6a9abf957"
       ],
       "kind": "unit",
       "node_id": "tcn_a01f32adf532a682",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_1740dd8f9c5bf506",
       "pdf_page": 52,
-      "pdf_page_end": 52,
+      "pdf_page_end": 53,
       "pdf_page_start": 52,
       "printed_page": "47",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第四单元 我 们 讲 文 明",
       "title": "第四单元我们讲文明",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 53,
-      "end_printed_page": "48",
-      "evidence_span_ids": [
-        "tes_b8d84d5c55d98e92"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 56,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_2fa7601b4f9e4d51",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_ec3894bb0a6878f0",
+      "parent_id": null,
       "pdf_page": 53,
-      "pdf_page_end": 53,
+      "pdf_page_end": 56,
       "pdf_page_start": 53,
       "printed_page": "48",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 13 课 我 们 小 点 儿 声",
-      "title": "第13课我们小点儿声",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第13课 我们小点儿声",
+      "title": "第13课 我们小点儿声",
+      "toc_entry_id": "tcu_5430321cba4f0f5e",
+      "unit_id": "tcu_5430321cba4f0f5e"
     },
     {
       "confidence": 0.98,
@@ -1508,7 +1477,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e51dcc809297d0a0",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_ec3894bb0a6878f0",
       "pdf_page": 53,
       "pdf_page_end": 53,
       "pdf_page_start": 53,
@@ -1516,7 +1485,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 53 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_0d8e84f3af6afd43"
     },
     {
       "confidence": 0.98,
@@ -1525,7 +1494,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_52a0fd1cd7563714",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_ec3894bb0a6878f0",
       "pdf_page": 54,
       "pdf_page_end": 54,
       "pdf_page_start": 54,
@@ -1533,27 +1502,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 54 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 55,
-      "end_printed_page": "49",
-      "evidence_span_ids": [
-        "tes_0a6362712b6655ad"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 66,
+      "end_printed_page": "61",
+      "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_4244339da589d33f",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_bc829c8e11067d20",
+      "parent_id": null,
       "pdf_page": 54,
-      "pdf_page_end": 55,
+      "pdf_page_end": 66,
       "pdf_page_start": 54,
       "printed_page": "49",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第四单元 我们讲文明",
-      "title": "第四单元我们讲文明",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "title": "第四单元 我们讲文明",
+      "toc_entry_id": "tcu_483dde9c825d5dd7",
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.98,
@@ -1562,7 +1530,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_533f15f5119e05a5",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_ec3894bb0a6878f0",
       "pdf_page": 55,
       "pdf_page_end": 55,
       "pdf_page_start": 55,
@@ -1570,7 +1538,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 55 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.98,
@@ -1579,7 +1547,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_cc5cb66633da1f48",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_ec3894bb0a6878f0",
       "pdf_page": 56,
       "pdf_page_end": 56,
       "pdf_page_start": 56,
@@ -1587,47 +1555,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 56 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 56,
+      "end_pdf_page": 61,
       "end_printed_page": "51",
       "evidence_span_ids": [
         "tes_33b514494254f562"
       ],
       "kind": "unit",
       "node_id": "tcn_21b39a8a69519829",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_ec3894bb0a6878f0",
       "pdf_page": 56,
-      "pdf_page_end": 56,
+      "pdf_page_end": 61,
       "pdf_page_start": 56,
       "printed_page": "51",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第四单元 我们讲文明",
       "title": "第四单元我们讲文明",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
-      "confidence": 0.9,
+      "confidence": 0.85,
       "end_pdf_page": 59,
-      "end_printed_page": "52",
-      "evidence_span_ids": [
-        "tes_4804572e9775fdcb"
-      ],
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_3c134330c0216fc3",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_52166bfea542ea8b",
+      "parent_id": "tcn_bc829c8e11067d20",
       "pdf_page": 57,
       "pdf_page_end": 59,
       "pdf_page_start": 57,
       "printed_page": "52",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 14 课 人 人 爱 护 公 物",
-      "title": "第14课人人爱护公物",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第14课 人人爱护公物",
+      "title": "第14课 人人爱护公物",
+      "toc_entry_id": "tcu_25d339472a8dd181",
+      "unit_id": "tcu_25d339472a8dd181"
     },
     {
       "confidence": 0.98,
@@ -1636,7 +1603,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a7a84e9092cf4820",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_52166bfea542ea8b",
       "pdf_page": 57,
       "pdf_page_end": 57,
       "pdf_page_start": 57,
@@ -1644,7 +1611,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 57 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.86,
@@ -1655,7 +1622,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_6cb4c95a228feacc",
-      "parent_id": "tcn_3c134330c0216fc3",
+      "parent_id": "tcn_21b39a8a69519829",
       "pdf_page": 58,
       "pdf_page_end": 58,
       "pdf_page_start": 58,
@@ -1664,7 +1631,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "调查人 时间 地点公物 它们怎么样了好 ( √ )",
       "title": "调查人 时间 地点公物 它们怎么样了好 ( √ )",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.98,
@@ -1673,7 +1640,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_32336b3cfd388ef0",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_52166bfea542ea8b",
       "pdf_page": 58,
       "pdf_page_end": 58,
       "pdf_page_start": 58,
@@ -1681,7 +1648,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 58 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.98,
@@ -1690,7 +1657,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e0cffbcd385949d2",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_52166bfea542ea8b",
       "pdf_page": 59,
       "pdf_page_end": 59,
       "pdf_page_start": 59,
@@ -1698,27 +1665,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 59 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 61,
-      "end_printed_page": "55",
-      "evidence_span_ids": [
-        "tes_2fe09fe0dc1ddcea"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 62,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_c4eb1d4ade40183d",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_757d98990f9aebce",
+      "parent_id": "tcn_bc829c8e11067d20",
       "pdf_page": 60,
-      "pdf_page_end": 61,
+      "pdf_page_end": 62,
       "pdf_page_start": 60,
       "printed_page": "55",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 15 课 我 们 不 乱 扔",
-      "title": "第15课我们不乱扔",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第15课 我们不乱扔",
+      "title": "第15课 我们不乱扔",
+      "toc_entry_id": "tcu_5205fff485752287",
+      "unit_id": "tcu_5205fff485752287"
     },
     {
       "confidence": 0.98,
@@ -1727,7 +1693,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4bc7eaea55930950",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_757d98990f9aebce",
       "pdf_page": 60,
       "pdf_page_end": 60,
       "pdf_page_start": 60,
@@ -1735,7 +1701,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 60 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.98,
@@ -1744,7 +1710,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_960775f4a21787dd",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_757d98990f9aebce",
       "pdf_page": 61,
       "pdf_page_end": 61,
       "pdf_page_start": 61,
@@ -1752,7 +1718,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 61 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.98,
@@ -1761,7 +1727,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_27f72df94dc5936e",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_757d98990f9aebce",
       "pdf_page": 62,
       "pdf_page_end": 62,
       "pdf_page_start": 62,
@@ -1769,47 +1735,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 62 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 62,
+      "end_pdf_page": 63,
       "end_printed_page": "57",
       "evidence_span_ids": [
         "tes_3d794148782fbb27"
       ],
       "kind": "unit",
       "node_id": "tcn_d0ead9bd00d56dd6",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_757d98990f9aebce",
       "pdf_page": 62,
-      "pdf_page_end": 62,
+      "pdf_page_end": 63,
       "pdf_page_start": 62,
       "printed_page": "57",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第四单元 我们讲文明",
       "title": "第四单元我们讲文明",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 63,
-      "end_printed_page": "58",
-      "evidence_span_ids": [
-        "tes_625658ca0640f80a"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 66,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_afe1dd5568a7062a",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "node_id": "tcn_97820e95087f2b55",
+      "parent_id": "tcn_bc829c8e11067d20",
       "pdf_page": 63,
-      "pdf_page_end": 63,
+      "pdf_page_end": 66,
       "pdf_page_start": 63,
       "printed_page": "58",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 16 课 大 家 排 好 队",
-      "title": "第16课大家排好队",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第16课 大家排好队",
+      "title": "第16课 大家排好队",
+      "toc_entry_id": "tcu_974c9d33a671c8d9",
+      "unit_id": "tcu_974c9d33a671c8d9"
     },
     {
       "confidence": 0.98,
@@ -1818,7 +1783,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b468584e7a014414",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_97820e95087f2b55",
       "pdf_page": 63,
       "pdf_page_end": 63,
       "pdf_page_start": 63,
@@ -1826,7 +1791,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 63 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.98,
@@ -1835,7 +1800,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a7406fe939a50b10",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_97820e95087f2b55",
       "pdf_page": 64,
       "pdf_page_end": 64,
       "pdf_page_start": 64,
@@ -1843,27 +1808,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 64 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 70,
+      "end_pdf_page": 66,
       "end_printed_page": "59",
       "evidence_span_ids": [
         "tes_44fd99ea0ae1b1c5"
       ],
       "kind": "unit",
       "node_id": "tcn_c90fdac3602e6fec",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_97820e95087f2b55",
       "pdf_page": 64,
-      "pdf_page_end": 70,
+      "pdf_page_end": 66,
       "pdf_page_start": 64,
       "printed_page": "59",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第四单元 我们讲文明",
       "title": "第四单元我们讲文明",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.98,
@@ -1872,7 +1837,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_05e9368b785ef4c5",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_97820e95087f2b55",
       "pdf_page": 65,
       "pdf_page_end": 65,
       "pdf_page_start": 65,
@@ -1880,7 +1845,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 65 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.98,
@@ -1889,7 +1854,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d33c0ff95545fd42",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": "tcn_97820e95087f2b55",
       "pdf_page": 66,
       "pdf_page_end": 66,
       "pdf_page_start": 66,
@@ -1897,7 +1862,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 66 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": "tcu_483dde9c825d5dd7"
     },
     {
       "confidence": 0.98,
@@ -1906,7 +1871,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_787c5f3e38e48ed0",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": null,
       "pdf_page": 68,
       "pdf_page_end": 68,
       "pdf_page_start": 68,
@@ -1914,7 +1879,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 68 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -1923,7 +1888,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_37356b654b5dca76",
-      "parent_id": "tcn_43e2dfe1a24c2859",
+      "parent_id": null,
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -1931,37 +1896,12 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 70 页",
-      "unit_id": "tcu_1a420b8aa481394f"
+      "unit_id": null
     }
   ],
   "edition_id": "ed_f7992bf9ce09b3760ce8",
-  "evidence_id": "ctb_50dfe7e5b313",
+  "evidence_id": "external_smartedu_2026_morality_law_primary_grade_1_up",
   "evidence_spans": [
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 9,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 99,
-        "x": 388.559,
-        "y": 690.758
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第一单元 我是小学生啦",
-      "excerpt_hash": "0dddbd07c507f17d6f856313a34db2d4add3bc372f8dd4276789d7b33f340a4c",
-      "node_id": "tcn_61fa6cabc9bbe09a",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 8,
-      "printed_page": "3",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_91f30f4520753355",
-      "text": "第一单元 我是小学生啦",
-      "text_hash": "0dddbd07c507f17d6f856313a34db2d4add3bc372f8dd4276789d7b33f340a4c"
-    },
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
       "bbox": {
@@ -1986,31 +1926,6 @@
       "span_id": "tes_6b215571c9ca8d5f",
       "text": "第一单元 我是小学生啦",
       "text_hash": "0dddbd07c507f17d6f856313a34db2d4add3bc372f8dd4276789d7b33f340a4c"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 318.626,
-        "x": 51.024,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 2 课 我 向 国 旗 敬 个 礼",
-      "excerpt_hash": "7f7fe48ebd5c0451939a1708efa8099f02921b6e04c0c2c808dd466dbff2185a",
-      "node_id": "tcn_7891c3a5041d82de",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 11,
-      "printed_page": "6",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_f3945c7ea5ab815f",
-      "text": "第 2 课 我 向 国 旗 敬 个 礼",
-      "text_hash": "7f7fe48ebd5c0451939a1708efa8099f02921b6e04c0c2c808dd466dbff2185a"
     },
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
@@ -2061,56 +1976,6 @@
       "span_id": "tes_eef8753e60e018f3",
       "text": "第一单元 我是小学生啦",
       "text_hash": "0dddbd07c507f17d6f856313a34db2d4add3bc372f8dd4276789d7b33f340a4c"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 318.626,
-        "x": 51.024,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 3 课 这 是 我 们 的 校 园",
-      "excerpt_hash": "8ed4c598ed827f28ea0050f96cf4f53e09a0211ad0c3a0ca6e5f223bb441e851",
-      "node_id": "tcn_3897f53aa246e11d",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 15,
-      "printed_page": "10",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_4362a0f5cd4dc4d4",
-      "text": "第 3 课 这 是 我 们 的 校 园",
-      "text_hash": "8ed4c598ed827f28ea0050f96cf4f53e09a0211ad0c3a0ca6e5f223bb441e851"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 318.91,
-        "x": 51.024,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 4 课 平 平 安 安 回 家 来",
-      "excerpt_hash": "f69dafe6ca30c2cf16a10dd9be1c1f2a27203e7b9cf65fb83cc3e1d176fa3114",
-      "node_id": "tcn_af027d34582e296a",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 19,
-      "printed_page": "14",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_d35166db21c44e86",
-      "text": "第 4 课 平 平 安 安 回 家 来",
-      "text_hash": "f69dafe6ca30c2cf16a10dd9be1c1f2a27203e7b9cf65fb83cc3e1d176fa3114"
     },
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
@@ -2177,31 +2042,6 @@
       "evidence_role": "heading",
       "excerpt": "第二单元 过好校园生活",
       "excerpt_hash": "873fd387760c03d06257c63dbd8fc60920cb819eabbc8c3c46350e6535b861a5",
-      "node_id": "tcn_ed4526673fea13f5",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 24,
-      "printed_page": "19",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_a83792ed4af74837",
-      "text": "第二单元 过好校园生活",
-      "text_hash": "873fd387760c03d06257c63dbd8fc60920cb819eabbc8c3c46350e6535b861a5"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 9,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 99,
-        "x": 388.559,
-        "y": 690.758
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第二单元 过好校园生活",
-      "excerpt_hash": "873fd387760c03d06257c63dbd8fc60920cb819eabbc8c3c46350e6535b861a5",
       "node_id": "tcn_dec6e500c5b2c79a",
       "parser_version": "textbook-content-pdfjs-v3",
       "pdf_page": 26,
@@ -2240,31 +2080,6 @@
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
       "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 318.91,
-        "x": 71.433,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 8 课 课 余 生 活 真 丰 富",
-      "excerpt_hash": "e568874fbca20fe2d3c8462efe122c1f485db77b1906cedf6edc055fb9ceb37b",
-      "node_id": "tcn_8d5b3909e6951d1e",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 34,
-      "printed_page": "29",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_8c0a010e3219a0a6",
-      "text": "第 8 课 课 余 生 活 真 丰 富",
-      "text_hash": "e568874fbca20fe2d3c8462efe122c1f485db77b1906cedf6edc055fb9ceb37b"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
         "height": 37.734,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -2286,81 +2101,6 @@
       "span_id": "tes_eb54b967662ad785",
       "text": "第三单元 养 成 良 好 习 惯",
       "text_hash": "34beef32fffb05db61c855b27ece76f87eedb43dace1b6c9ae7bc8687f1eee05"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 251.693,
-        "x": 51.024,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 9 课 作 息 有 规 律",
-      "excerpt_hash": "b23bb9847eca1a1a59c16dc421db1a525db6cdac32fc9de0cfcfc1e2a1e660dd",
-      "node_id": "tcn_dc59b0407bf15d92",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 39,
-      "printed_page": "34",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_7a75e95f73b1d1f3",
-      "text": "第 9 课 作 息 有 规 律",
-      "text_hash": "b23bb9847eca1a1a59c16dc421db1a525db6cdac32fc9de0cfcfc1e2a1e660dd"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 9,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 99,
-        "x": 388.559,
-        "y": 690.758
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第三单元 养成良好习惯",
-      "excerpt_hash": "4ae9006b05352c80e488c29ab597abbe340b1fbc54af059002d40d702ff16805",
-      "node_id": "tcn_926198445b124355",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 40,
-      "printed_page": "35",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_5553ccbd69b63860",
-      "text": "第三单元 养成良好习惯",
-      "text_hash": "4ae9006b05352c80e488c29ab597abbe340b1fbc54af059002d40d702ff16805"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 262.323,
-        "x": 71.575,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 10 课 吃 饭 有 讲 究",
-      "excerpt_hash": "3dc5615b71e202b1b2f57563732d67ddb5664ebcc1f3019abc7b9366fe42b9f5",
-      "node_id": "tcn_a095f5e55e1b6bad",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 42,
-      "printed_page": "37",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_31e5efac8aa8305b",
-      "text": "第 10 课 吃 饭 有 讲 究",
-      "text_hash": "3dc5615b71e202b1b2f57563732d67ddb5664ebcc1f3019abc7b9366fe42b9f5"
     },
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
@@ -2390,31 +2130,6 @@
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
       "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 262.323,
-        "x": 71.575,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 11 课 对 人 有 礼 貌",
-      "excerpt_hash": "bf4eec7d72e51cc6f91812bb94460a84d505ea275362b0928e7f18d184e20c44",
-      "node_id": "tcn_8ae6c1a53d24a267",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 46,
-      "printed_page": "41",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_0d5ce72a3c7e330a",
-      "text": "第 11 课 对 人 有 礼 貌",
-      "text_hash": "bf4eec7d72e51cc6f91812bb94460a84d505ea275362b0928e7f18d184e20c44"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
         "height": 9,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -2436,31 +2151,6 @@
       "span_id": "tes_6274f1824443501f",
       "text": "第三单元 养成良好习惯",
       "text_hash": "4ae9006b05352c80e488c29ab597abbe340b1fbc54af059002d40d702ff16805"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 262.323,
-        "x": 51.024,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 12 课 玩 也 有 学 问",
-      "excerpt_hash": "946f2bd54c9d8bca7b1371059175d264452307fd0a66a289cd01c5c862f9d0fc",
-      "node_id": "tcn_8c1d3218484dc9b2",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 49,
-      "printed_page": "44",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_3b4966e81f28bc8e",
-      "text": "第 12 课 玩 也 有 学 问",
-      "text_hash": "946f2bd54c9d8bca7b1371059175d264452307fd0a66a289cd01c5c862f9d0fc"
     },
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
@@ -2515,56 +2205,6 @@
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
       "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 296.073,
-        "x": 51.024,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 13 课 我 们 小 点 儿 声",
-      "excerpt_hash": "18773504dc9e5e9b3edad3c3da9d5610c496e6b0556e764ebc3b017119e9f2bc",
-      "node_id": "tcn_2fa7601b4f9e4d51",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 53,
-      "printed_page": "48",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_b8d84d5c55d98e92",
-      "text": "第 13 课 我 们 小 点 儿 声",
-      "text_hash": "18773504dc9e5e9b3edad3c3da9d5610c496e6b0556e764ebc3b017119e9f2bc"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 9,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 90,
-        "x": 397.559,
-        "y": 690.758
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第四单元 我们讲文明",
-      "excerpt_hash": "b2207f089e86a7eb7ead09950ffb4ad881e02793605fbb11043f463593b6d5ea",
-      "node_id": "tcn_4244339da589d33f",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 54,
-      "printed_page": "49",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_0a6362712b6655ad",
-      "text": "第四单元 我们讲文明",
-      "text_hash": "b2207f089e86a7eb7ead09950ffb4ad881e02793605fbb11043f463593b6d5ea"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
         "height": 9,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -2586,31 +2226,6 @@
       "span_id": "tes_33b514494254f562",
       "text": "第四单元 我们讲文明",
       "text_hash": "b2207f089e86a7eb7ead09950ffb4ad881e02793605fbb11043f463593b6d5ea"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 296.073,
-        "x": 51.024,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 14 课 人 人 爱 护 公 物",
-      "excerpt_hash": "a3cc2eea8a0041bf69107bcd41bfe2873bbac7fac4044e2e96f7f9501110c9d9",
-      "node_id": "tcn_3c134330c0216fc3",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 57,
-      "printed_page": "52",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_4804572e9775fdcb",
-      "text": "第 14 课 人 人 爱 护 公 物",
-      "text_hash": "a3cc2eea8a0041bf69107bcd41bfe2873bbac7fac4044e2e96f7f9501110c9d9"
     },
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
@@ -2640,31 +2255,6 @@
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
       "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 262.323,
-        "x": 71.575,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 15 课 我 们 不 乱 扔",
-      "excerpt_hash": "37b4f283bcd8f56229c2a2579743d5f8c1aa3d3f6e222d3e2915e4f508fb4b25",
-      "node_id": "tcn_c4eb1d4ade40183d",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 60,
-      "printed_page": "55",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_2fe09fe0dc1ddcea",
-      "text": "第 15 课 我 们 不 乱 扔",
-      "text_hash": "37b4f283bcd8f56229c2a2579743d5f8c1aa3d3f6e222d3e2915e4f508fb4b25"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
         "height": 9,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -2686,31 +2276,6 @@
       "span_id": "tes_3d794148782fbb27",
       "text": "第四单元 我们讲文明",
       "text_hash": "b2207f089e86a7eb7ead09950ffb4ad881e02793605fbb11043f463593b6d5ea"
-    },
-    {
-      "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-      "bbox": {
-        "height": 29.156,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 262.323,
-        "x": 51.024,
-        "y": 640.269
-      },
-      "edition_id": "ed_f7992bf9ce09b3760ce8",
-      "evidence_role": "heading",
-      "excerpt": "第 16 课 大 家 排 好 队",
-      "excerpt_hash": "a6407aaf50ebe0435a023fcd843d06c971c729f71f45df6696f9e5a80d545755",
-      "node_id": "tcn_afe1dd5568a7062a",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 63,
-      "printed_page": "58",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_625658ca0640f80a",
-      "text": "第 16 课 大 家 排 好 队",
-      "text_hash": "a6407aaf50ebe0435a023fcd843d06c971c729f71f45df6696f9e5a80d545755"
     },
     {
       "asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
@@ -2739,14 +2304,14 @@
     }
   ],
   "extraction": {
-    "average_characters_per_page": 143.5,
-    "extracted_at": "2026-07-17T09:42:14.165878Z",
+    "average_characters_per_page": 198.8,
+    "extracted_at": "2026-11-01T07:29:58.757211Z",
     "notes": [
-      "数字印刷页与 PDF 页偏移 5，由 49 页重复证据支持。",
-      "只有在正文页面直接回查到的标题才自动进入已核对目录。"
+      "数字印刷页与 PDF 页偏移 5，由 52 页重复证据支持。",
+      "目录条目只有在正文页面直接回查，或通过保守的扫描目录识别门槛后，才进入已核对目录。"
     ],
-    "page_count_checked": 78,
-    "pages_with_text": 73
+    "page_count_checked": 70,
+    "pages_with_text": 68
   },
   "page_map": [
     {
@@ -3203,62 +2768,6 @@
       "pdf_page": 70,
       "printed_page": "65",
       "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 66",
-      "pdf_page": 71,
-      "printed_page": "66",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 67",
-      "pdf_page": 72,
-      "printed_page": "67",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 68",
-      "pdf_page": 73,
-      "printed_page": "68",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 69",
-      "pdf_page": 74,
-      "printed_page": "69",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 70",
-      "pdf_page": 75,
-      "printed_page": "70",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 71",
-      "pdf_page": 76,
-      "printed_page": "71",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 72",
-      "pdf_page": 77,
-      "printed_page": "72",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 73",
-      "pdf_page": 78,
-      "printed_page": "73",
-      "review_status": "approved"
     }
   ],
   "schema_version": 2,
@@ -3312,53 +2821,643 @@
       ]
     }
   ],
-  "text_quality": "partial_text",
+  "text_quality": "native_text",
   "toc": [
     {
-      "confidence": 0.98,
-      "end_pdf_page": 29,
-      "entry_id": "tcu_8cbc2094df18488d",
+      "confidence": 0.85,
+      "end_pdf_page": 23,
+      "end_printed_page": "18",
+      "entry_id": "tcu_f90765ff06095fc7",
       "kind": "unit",
       "level": 1,
       "parent_id": null,
       "pdf_page": 8,
       "printed_page": "3",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 99,
+            "x": 388.559,
+            "y": 690.758
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 24,
+          "verbatim_title": "第二单元 过好校园生活"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 99,
+            "x": 388.559,
+            "y": 690.758
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 8,
+          "verbatim_title": "第一单元 我是小学生啦"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "我是小学生啦"
+      "source": "smartedu_sync_lessons",
+      "source_order": 1,
+      "title": "第一单元 我是小学生啦",
+      "toc_pdf_page": null
     },
     {
-      "confidence": 0.98,
-      "end_pdf_page": 78,
-      "entry_id": "tcu_1a420b8aa481394f",
+      "confidence": 0.85,
+      "end_pdf_page": 10,
+      "entry_id": "tcu_1e4ecb5fb6c4aa56",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_f90765ff06095fc7",
+      "pdf_page": 7,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 2,
+      "title": "第1课 开开心心上学去",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 14,
+      "entry_id": "tcu_1f915ebf07a730de",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_f90765ff06095fc7",
+      "pdf_page": 11,
+      "printed_page": "6",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 3,
+      "title": "第2课 我向国旗敬个礼",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 18,
+      "entry_id": "tcu_84aaf0108739aabd",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_f90765ff06095fc7",
+      "pdf_page": 15,
+      "printed_page": "10",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 4,
+      "title": "第3课 这是我们的校园",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 22,
+      "entry_id": "tcu_e4c6afaed4475499",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_f90765ff06095fc7",
+      "pdf_page": 19,
+      "printed_page": "14",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 5,
+      "title": "第4课 平平安安回家来",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 39,
+      "end_printed_page": "34",
+      "entry_id": "tcu_4bb9a6b4ec4cbee7",
       "kind": "unit",
       "level": 1,
       "parent_id": null,
+      "pdf_page": 24,
+      "printed_page": "19",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 99,
+            "x": 388.559,
+            "y": 690.758
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 40,
+          "verbatim_title": "第三单元 养成良好习惯"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 99,
+            "x": 388.559,
+            "y": 690.758
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 24,
+          "verbatim_title": "第二单元 过好校园生活"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 6,
+      "title": "第二单元 过好校园生活",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 26,
+      "entry_id": "tcu_15e0514a2138e180",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_4bb9a6b4ec4cbee7",
+      "pdf_page": 23,
+      "printed_page": "18",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 7,
+      "title": "第5课 老师，您好！",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 29,
+      "entry_id": "tcu_5eb042b456f85b42",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_4bb9a6b4ec4cbee7",
+      "pdf_page": 27,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 8,
+      "title": "第6课 拉拉手，交朋友",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 33,
+      "entry_id": "tcu_e8713eb3a895227a",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_4bb9a6b4ec4cbee7",
       "pdf_page": 30,
       "printed_page": "25",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "校园生活真快乐"
+      "source": "smartedu_sync_lessons",
+      "source_order": 9,
+      "title": "第7课 上课了，好好学",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 38,
+      "entry_id": "tcu_bac27ba2afc365ad",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_4bb9a6b4ec4cbee7",
+      "pdf_page": 34,
+      "printed_page": "29",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 10,
+      "title": "第8课 课余生活真丰富",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 53,
+      "end_printed_page": "48",
+      "entry_id": "tcu_0d8e84f3af6afd43",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 40,
+      "printed_page": "35",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 90,
+            "x": 397.559,
+            "y": 690.758
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "第四单元 我们讲文明"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 99,
+            "x": 388.559,
+            "y": 690.758
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 40,
+          "verbatim_title": "第三单元 养成良好习惯"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 11,
+      "title": "第三单元 养成良好习惯",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 41,
+      "entry_id": "tcu_14d01ea4f4dc152d",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0d8e84f3af6afd43",
+      "pdf_page": 39,
+      "printed_page": "34",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 12,
+      "title": "第9课 作息有规律",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 45,
+      "entry_id": "tcu_1a3ade2f5203b930",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0d8e84f3af6afd43",
+      "pdf_page": 42,
+      "printed_page": "37",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 13,
+      "title": "第10课 吃饭有讲究",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 48,
+      "entry_id": "tcu_bc3fefe1f75257be",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0d8e84f3af6afd43",
+      "pdf_page": 46,
+      "printed_page": "41",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 14,
+      "title": "第11课 对人有礼貌",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 52,
+      "entry_id": "tcu_d4aaa3f84231d1af",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0d8e84f3af6afd43",
+      "pdf_page": 49,
+      "printed_page": "44",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 15,
+      "title": "第12课 玩也有学问",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 66,
+      "end_printed_page": "61",
+      "entry_id": "tcu_483dde9c825d5dd7",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 54,
+      "printed_page": "49",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": null,
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 90,
+            "x": 397.559,
+            "y": 690.758
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "第四单元 我们讲文明"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 16,
+      "title": "第四单元 我们讲文明",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 56,
+      "entry_id": "tcu_5430321cba4f0f5e",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_483dde9c825d5dd7",
+      "pdf_page": 53,
+      "printed_page": "48",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 17,
+      "title": "第13课 我们小点儿声",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 59,
+      "entry_id": "tcu_25d339472a8dd181",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_483dde9c825d5dd7",
+      "pdf_page": 57,
+      "printed_page": "52",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 18,
+      "title": "第14课 人人爱护公物",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 62,
+      "entry_id": "tcu_5205fff485752287",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_483dde9c825d5dd7",
+      "pdf_page": 60,
+      "printed_page": "55",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 19,
+      "title": "第15课 我们不乱扔",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 66,
+      "entry_id": "tcu_974c9d33a671c8d9",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_483dde9c825d5dd7",
+      "pdf_page": 63,
+      "printed_page": "58",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 20,
+      "title": "第16课 大家排好队",
+      "toc_pdf_page": null
     }
   ],
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
-    "changed_unit_range_count": 0,
-    "changes": [],
-    "clamped_content_node_range_count": 0,
-    "detached_auxiliary_content_node_count": 0,
+    "auxiliary_boundary_evidence": null,
+    "changed_unit_range_count": 4,
+    "changes": [
+      {
+        "after": {
+          "end_pdf_page": 23,
+          "pdf_page": 8
+        },
+        "before": {
+          "end_pdf_page": 22,
+          "pdf_page": 7
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 99,
+            "x": 388.559,
+            "y": 690.758
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 24,
+          "verbatim_title": "第二单元 过好校园生活"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 99,
+            "x": 388.559,
+            "y": 690.758
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 8,
+          "verbatim_title": "第一单元 我是小学生啦"
+        },
+        "title": "第一单元 我是小学生啦",
+        "unit_id": "tcu_f90765ff06095fc7"
+      },
+      {
+        "after": {
+          "end_pdf_page": 39,
+          "pdf_page": 24
+        },
+        "before": {
+          "end_pdf_page": 38,
+          "pdf_page": 23
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 99,
+            "x": 388.559,
+            "y": 690.758
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 40,
+          "verbatim_title": "第三单元 养成良好习惯"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 99,
+            "x": 388.559,
+            "y": 690.758
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 24,
+          "verbatim_title": "第二单元 过好校园生活"
+        },
+        "title": "第二单元 过好校园生活",
+        "unit_id": "tcu_4bb9a6b4ec4cbee7"
+      },
+      {
+        "after": {
+          "end_pdf_page": 53,
+          "pdf_page": 40
+        },
+        "before": {
+          "end_pdf_page": 52,
+          "pdf_page": 39
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 90,
+            "x": 397.559,
+            "y": 690.758
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "第四单元 我们讲文明"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 99,
+            "x": 388.559,
+            "y": 690.758
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 40,
+          "verbatim_title": "第三单元 养成良好习惯"
+        },
+        "title": "第三单元 养成良好习惯",
+        "unit_id": "tcu_0d8e84f3af6afd43"
+      },
+      {
+        "after": {
+          "end_pdf_page": 66,
+          "pdf_page": 54
+        },
+        "before": {
+          "end_pdf_page": 66,
+          "pdf_page": 53
+        },
+        "end_evidence": null,
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 90,
+            "x": 397.559,
+            "y": 690.758
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "第四单元 我们讲文明"
+        },
+        "title": "第四单元 我们讲文明",
+        "unit_id": "tcu_483dde9c825d5dd7"
+      }
+    ],
+    "clamped_content_node_range_count": 3,
+    "detached_auxiliary_content_node_count": 2,
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
-    "exact_unit_heading_evidence_count": 0,
+    "exact_unit_heading_evidence_count": 4,
     "inspected_page_count": 70,
     "provenance": "machine_generated",
     "publication_gate": false,
-    "reassigned_content_node_count": 0,
+    "reassigned_content_node_count": 89,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 1,
     "sidecar_sha256": "706615c2756b023184b8f86b18f6748883f83b202605f17952b72fd6dce3ffca",
     "source_asset_sha256": "016eb15d6b0d8dd303524c958bdf93a6c95c58d9d25766c052ddebc44c426a59",
-    "status": "insufficient_boundary_evidence",
-    "top_level_unit_count": 2,
+    "status": "reconciled",
+    "top_level_unit_count": 4,
     "top_line_limit": 4
   }
 }

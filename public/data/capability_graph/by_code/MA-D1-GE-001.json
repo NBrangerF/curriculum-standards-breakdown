@@ -121,16 +121,346 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
     "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 6,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1b5f9e5b87e10b54",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0104742f3f9d88bc5c04",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_1_down",
+        "tes_a2f491ad1a16e4e0",
+        "textbook-node:tcn_8ce0599949cdf8f5",
+        "textbook-unit:tcu_2cc23d62116061b2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "4 认识平面图形",
+          "excerpt_hash": "18c89ecf154e8c6824e25716239982ae0a94dfc69ed652186e09b7eba68a823b",
+          "pdf_page": 9,
+          "printed_page": "4",
+          "span_id": "tes_a2f491ad1a16e4e0"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0b6197703ef28407"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0b6197703ef28407",
+          "label": "辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8ce0599949cdf8f5",
+      "node_title": "4认识平面图形",
+      "pdf_page": 9,
+      "printed_page": "4",
+      "publication_status": "published",
+      "rationale": "教材课文“4认识平面图形”与课标 MA-D1-GE-001 的可教学小能力“辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_2cc23d62116061b2",
+      "unit_title": "一、认识平面图形"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_37e4c50daa9ddc85",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0104742f3f9d88bc5c04",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_1_down",
+        "tes_4b0740018a22563c",
+        "textbook-node:tcn_33f05b3375a59020",
+        "textbook-unit:tcu_2cc23d62116061b2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "2 认识平面图形",
+          "excerpt_hash": "0f25ce878cd3efe9507fe43257c3bf45e0f9a5744820c6fbf5fa4ae4f51bf257",
+          "pdf_page": 7,
+          "printed_page": "2",
+          "span_id": "tes_4b0740018a22563c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0b6197703ef28407"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0b6197703ef28407",
+          "label": "辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_33f05b3375a59020",
+      "node_title": "2认识平面图形",
+      "pdf_page": 7,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材课文“2认识平面图形”与课标 MA-D1-GE-001 的可教学小能力“辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_2cc23d62116061b2",
+      "unit_title": "一、认识平面图形"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_cd3373d9682b65bd",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0104742f3f9d88bc5c04",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_1_down",
+        "tes_3f2e4467114e5ba7",
+        "textbook-node:tcn_ee35f6dd61bf1cb9",
+        "textbook-unit:tcu_2cc23d62116061b2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "6 䃑识平面图形",
+          "excerpt_hash": "93339220faba99e1cadd0df3a46d2cb1e967a82d152e640565206157d7251726",
+          "pdf_page": 11,
+          "printed_page": "6",
+          "span_id": "tes_3f2e4467114e5ba7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0b6197703ef28407"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0b6197703ef28407",
+          "label": "辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ee35f6dd61bf1cb9",
+      "node_title": "6䃑识平面图形",
+      "pdf_page": 11,
+      "printed_page": "6",
+      "publication_status": "published",
+      "rationale": "教材课文“6䃑识平面图形”与课标 MA-D1-GE-001 的可教学小能力“辨认长方形、正方形、平行四边形、三角形等平面图形，直观描述这些平面图形特征并能根据描述进行简单分类”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_2cc23d62116061b2",
+      "unit_title": "一、认识平面图形"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_264f32d5ddd2bb16",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_390c425094d7420b8aec",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_1_up",
+        "tes_2a289cd6a19af22a",
+        "textbook-node:tcn_81f1239cda8dec34",
+        "textbook-unit:tcu_108b02001f347d11"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "70 认识立体图形",
+          "excerpt_hash": "63f354d1fc7c91812bd14e3647157ed85f0bd0efe0cacd615aea71fdf99541b1",
+          "pdf_page": 75,
+          "printed_page": "70",
+          "span_id": "tes_2a289cd6a19af22a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f58e9455d92a761b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f58e9455d92a761b",
+          "label": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_81f1239cda8dec34",
+      "node_title": "70认识立体图形",
+      "pdf_page": 75,
+      "printed_page": "70",
+      "publication_status": "published",
+      "rationale": "教材课文“70认识立体图形”与课标 MA-D1-GE-001 的可教学小能力“辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_108b02001f347d11",
+      "unit_title": "三 认识立体图形"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8a411d7a6e55bf05",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_390c425094d7420b8aec",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_1_up",
+        "tes_fea936742083a73c",
+        "textbook-node:tcn_3d71545406eeaab2",
+        "textbook-unit:tcu_108b02001f347d11"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "68 认识立体图形",
+          "excerpt_hash": "13ab0a2099af356472b2763f68cd8ecfcdc468c76e45f36dd10897888e589bdf",
+          "pdf_page": 73,
+          "printed_page": "68",
+          "span_id": "tes_fea936742083a73c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f58e9455d92a761b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f58e9455d92a761b",
+          "label": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3d71545406eeaab2",
+      "node_title": "68认识立体图形",
+      "pdf_page": 73,
+      "printed_page": "68",
+      "publication_status": "published",
+      "rationale": "教材课文“68认识立体图形”与课标 MA-D1-GE-001 的可教学小能力“辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_108b02001f347d11",
+      "unit_title": "三 认识立体图形"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_90efba30fb5bc988",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_390c425094d7420b8aec",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_math_primary_grade_1_up",
+        "tes_893e8e9bb3dd4136",
+        "textbook-node:tcn_60b32a86573e9279",
+        "textbook-unit:tcu_108b02001f347d11"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "72 认识立体图形",
+          "excerpt_hash": "d8f713c458c77f817ae40c627b77c13298c87a1391e91826f254bb6f3991d958",
+          "pdf_page": 77,
+          "printed_page": "72",
+          "span_id": "tes_893e8e9bb3dd4136"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f58e9455d92a761b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f58e9455d92a761b",
+          "label": "辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_60b32a86573e9279",
+      "node_title": "72认识立体图形",
+      "pdf_page": 77,
+      "printed_page": "72",
+      "publication_status": "published",
+      "rationale": "教材课文“72认识立体图形”与课标 MA-D1-GE-001 的可教学小能力“辨认长方体、正方体、圆柱等立体图形，直观描述这些立体图形特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 1,
+      "textbook_subject": "数学",
+      "textbook_title": "数学1年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_108b02001f347d11",
+      "unit_title": "三 认识立体图形"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a379623e105a6614",
@@ -141,7 +471,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_1e657bea201b"
+        "external_smartedu_2026_math_primary_grade_1_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -153,7 +483,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_b5e621d13fc27a93",
       "textbook_grade": 1,
       "textbook_subject": "数学",
@@ -172,7 +502,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_17c68dba255a"
+        "external_smartedu_2026_math_primary_grade_2_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -184,7 +514,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d087e833a9603dd8",
       "textbook_grade": 2,
       "textbook_subject": "数学",
@@ -203,7 +533,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_584787a24f66"
+        "external_smartedu_2026_math_primary_grade_1_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -215,7 +545,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_0092f57d8acf1e62",
       "textbook_grade": 1,
       "textbook_subject": "数学",
@@ -234,7 +564,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_9af3fe885fc8"
+        "external_smartedu_2026_math_primary_grade_2_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -246,7 +576,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_2f6e825185227a9e",
       "textbook_grade": 2,
       "textbook_subject": "数学",

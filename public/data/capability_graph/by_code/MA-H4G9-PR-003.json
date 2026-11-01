@@ -198,16 +198,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_600f2842e9fa5043",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_026e3aaeacf415f2782d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_9_up",
+        "tes_ed6dc5d612fd0d36",
+        "textbook-node:tcn_5e2f5256f7fc5c04",
+        "textbook-unit:tcu_6600d3777aef97b4"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "回答上述问题就要用到二次函数.像学习一次函数一样,本章我们首先讨论什么样的函数是二次函数,然后讨论二次函数的图象和性质,由此加深对一元二次方程的认识,最后运用二次函数分析和解决某些实际问题.通过",
+          "excerpt_hash": "70c81e4c546328e23d6cfee26e9178902c7bdc79f3170c074a8b9b6ccb59b83c",
+          "pdf_page": 36,
+          "printed_page": "29",
+          "span_id": "tes_ed6dc5d612fd0d36"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_05db109c72656bbd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_05db109c72656bbd",
+          "label": "运用数学知识、几何直观、逻辑推理等方法分析和解决问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5e2f5256f7fc5c04",
+      "node_title": "回答上述问题就要用到二次函数.像学习一次函数一样,本章我们首先讨论什么样的函数是二次函数,然后讨论二次函数的图象和性质,由此加深对一元二次方程的认识,最后运用二次函数分析和解决某些实际问题.通过",
+      "pdf_page": 36,
+      "printed_page": "29",
+      "publication_status": "published",
+      "rationale": "教材练习“回答上述问题就要用到二次函数.像学习一次函数一样,本章我们首先讨论什么样的函数是二次函数,然后讨论二次函数的图象和性质,由此加深对一元二次方程的认识,最后运用二次函数分析和解决某些实际问题.通过”与课标 MA-H4G9-PR-003 的可教学小能力“运用数学知识、几何直观、逻辑推理等方法分析和解决问题”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 9,
+      "textbook_subject": "数学",
+      "textbook_title": "数学9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_6600d3777aef97b4",
+      "unit_title": "第二十二章 二次函数"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e8382d15aed2762d",
@@ -218,7 +273,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_045c4e32dda3"
+        "external_smartedu_2026_math_junior_grade_9_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -230,7 +285,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d4d9b4cbf0f4520f",
       "textbook_grade": 9,
       "textbook_subject": "数学",

@@ -43,16 +43,126 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
-    "scope_count": 1,
-    "specific_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
+    "scope_count": 2,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1ef265ff52343f20",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a55f3aca2c3963472bc9",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_primary_grade_4_full",
+        "tes_b90011c03faafdc4",
+        "textbook-node:tcn_61403de4dfbda7a3",
+        "textbook-unit:tcu_da3e4b44a8f22ef4"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据自己的身体状况,随时调整运动强度和运动时长。如",
+          "excerpt_hash": "8568ec3ffe989711bd8f3a28904f1c97cbb6ac0770777671ae9c0bf3606fcb94",
+          "pdf_page": 20,
+          "printed_page": "15",
+          "span_id": "tes_b90011c03faafdc4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d50816cc2acb5326"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d50816cc2acb5326",
+          "label": "持续收集并说明自己的身高和体重变化的关键信息"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_61403de4dfbda7a3",
+      "node_title": "根据自己的身体状况,随时调整运动强度和运动时长。如",
+      "pdf_page": 20,
+      "printed_page": "15",
+      "publication_status": "published",
+      "rationale": "教材学习目标“根据自己的身体状况,随时调整运动强度和运动时长。如”与课标 PE-D2-HB-002 的可教学小能力“持续收集并说明自己的身高和体重变化的关键信息”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康4年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_da3e4b44a8f22ef4",
+      "unit_title": "健康行为与生活方式"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_30447888d5e2bddd",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a55f3aca2c3963472bc9",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_primary_grade_4_full",
+        "tes_f9e96e6159164593",
+        "textbook-node:tcn_4dd71c0b2aaca34f",
+        "textbook-unit:tcu_da3e4b44a8f22ef4"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择适宜的时间和项目,每天参加体育活动至少2小时。",
+          "excerpt_hash": "a73b50715010d7e7c72cefbf30eb2d875dc0d2bfd0ceeb272d8ad7ed47354501",
+          "pdf_page": 25,
+          "printed_page": "20",
+          "span_id": "tes_f9e96e6159164593"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b12c886efbc8b8c9"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b12c886efbc8b8c9",
+          "label": "积极参与多种体育活动"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4dd71c0b2aaca34f",
+      "node_title": "选择适宜的时间和项目,每天参加体育活动至少2小时。",
+      "pdf_page": 25,
+      "printed_page": "20",
+      "publication_status": "published",
+      "rationale": "教材练习“选择适宜的时间和项目,每天参加体育活动至少2小时。”与课标 PE-D2-HB-002 的可教学小能力“积极参与多种体育活动”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康4年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_da3e4b44a8f22ef4",
+      "unit_title": "健康行为与生活方式"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d8a59e8983285a79",
@@ -63,7 +173,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "external_smartedu_pe_primary_grade_3_2022"
+        "external_smartedu_2026_pe_primary_grade_3_full"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -80,6 +190,37 @@
       "textbook_grade": 3,
       "textbook_subject": "体育与健康",
       "textbook_title": "体育与健康3年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
+      "alignment_id": "ca_4bd31594aea17a0b",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a55f3aca2c3963472bc9",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_primary_grade_4_full"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_71a2c7987686fc3e",
+      "textbook_grade": 4,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康4年级全一册",
       "textbook_volume": "全一册",
       "unit_id": null,
       "unit_title": ""

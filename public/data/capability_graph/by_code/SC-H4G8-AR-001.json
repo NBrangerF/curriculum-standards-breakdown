@@ -115,16 +115,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 6,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ff33d8cbf81d7853",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b4de49a3e2e59c9c76bf",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_geography_junior_grade_8_down",
+        "tes_0ba852c586169c1e",
+        "textbook-node:tcn_eedec26f78e40235",
+        "textbook-unit:tcu_8deb8a46ee89411f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据水资源总量和用水总量,可以判断一个地方是否缺水。通过资料分析,认识北京的缺水状况,进而了解缓解北京缺水问题所采取的措施。",
+          "excerpt_hash": "384a96e5504b86918cf60c5e343a6cd9db72fb121a92c4ea89a5f637c88872b0",
+          "pdf_page": 44,
+          "printed_page": null,
+          "span_id": "tes_0ba852c586169c1e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_22229a7384565b27"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_22229a7384565b27",
+          "label": "基于数据和图像资料分析人口、资源和环境问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_eedec26f78e40235",
+      "node_title": "根据水资源总量和用水总量,可以判断一个地方是否缺水。通过资料分析,认识北京的缺水状况,进而了解缓解北京缺水问题所采取的措施。",
+      "pdf_page": 44,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材练习“根据水资源总量和用水总量,可以判断一个地方是否缺水。通过资料分析,认识北京的缺水状况,进而了解缓解北京缺水问题所采取的措施。”与课标 SC-H4G8-AR-001 的可教学小能力“基于数据和图像资料分析人口、资源和环境问题”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "地理",
+      "textbook_title": "地理8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_8deb8a46ee89411f",
+      "unit_title": "第七章 北方地区"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_ba33a1cbfd4e4e7d",
@@ -135,7 +190,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_77ef51325c22"
+        "external_smartedu_2026_biology_junior_grade_8_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -147,7 +202,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_aa920dd0236fd836",
       "textbook_grade": 8,
       "textbook_subject": "生物学",
@@ -166,7 +221,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a871f50d9e2b"
+        "external_smartedu_2026_geography_junior_grade_8_up"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -178,7 +233,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_c38c1b84336fa7fa",
       "textbook_grade": 8,
       "textbook_subject": "地理",
@@ -197,7 +252,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_5f552244f754"
+        "external_smartedu_2026_geography_junior_grade_8_down"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -209,7 +264,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_e4f214193210f062",
       "textbook_grade": 8,
       "textbook_subject": "地理",
@@ -228,7 +283,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_ce524ff21ae1"
+        "external_smartedu_2026_biology_junior_grade_8_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -240,7 +295,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d75ade93cbf14989",
       "textbook_grade": 8,
       "textbook_subject": "生物学",
@@ -259,7 +314,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a0a929bcb6e9"
+        "external_smartedu_2026_physics_junior_grade_8_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -271,7 +326,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_a2e8478f57c656a4",
       "textbook_grade": 8,
       "textbook_subject": "物理",
@@ -290,7 +345,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_ffb2a04886aa"
+        "external_smartedu_2026_physics_junior_grade_8_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -302,7 +357,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_23244c2ebb335c01",
       "textbook_grade": 8,
       "textbook_subject": "物理",

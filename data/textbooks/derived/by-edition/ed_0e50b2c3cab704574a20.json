@@ -59,8 +59,8 @@
         "保护"
       ],
       "topic_anchor_score": 0.76,
-      "unit_id": "tcu_efe3a952c3feef72",
-      "unit_title": "第二单元"
+      "unit_id": "tcu_f61ad38db552dd7e",
+      "unit_title": "第二单元 公共生活靠大家"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
@@ -95,7 +95,8 @@
       "longest_match_length": 4,
       "matched_fields": [
         "learning_components",
-        "standard_context"
+        "standard_context",
+        "textbook_unit"
       ],
       "matched_keywords": [
         "生活中的",
@@ -120,8 +121,8 @@
         "公共"
       ],
       "topic_anchor_score": 0.76,
-      "unit_id": "tcu_efe3a952c3feef72",
-      "unit_title": "第二单元"
+      "unit_id": "tcu_f61ad38db552dd7e",
+      "unit_title": "第二单元 公共生活靠大家"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
@@ -156,10 +157,12 @@
       "longest_match_length": 5,
       "matched_fields": [
         "learning_components",
-        "standard_context"
+        "standard_context",
+        "textbook_unit"
       ],
       "matched_keywords": [
-        "不文明行为"
+        "不文明行为",
+        "公共"
       ],
       "modifier_conflicts": [],
       "node_id": "tcn_f96d3aeb334757e8",
@@ -177,28 +180,36 @@
       "standard_title": "能在公共场所做到文明有序（守规则、礼让、安静、爱护公物）",
       "subject_slug": "morality_law",
       "topic_anchor_keywords": [
-        "不文明行为"
+        "不文明行为",
+        "公共"
       ],
       "topic_anchor_score": 0.88,
-      "unit_id": "tcu_efe3a952c3feef72",
-      "unit_title": "第二单元"
+      "unit_id": "tcu_f61ad38db552dd7e",
+      "unit_title": "第二单元 公共生活靠大家"
     }
   ],
   "audit": {
     "approved_page_map_count": 99,
-    "approved_toc_entry_count": 3,
+    "approved_toc_entry_count": 15,
     "candidate_toc_entry_count": 0,
+    "machine_checked_toc_entry_count": 0,
     "numeric_page_offset": 3,
     "numeric_page_offset_confidence": 0.99,
+    "ocr": {
+      "pages_ocrd": 0,
+      "status": "not_requested",
+      "toc_pages": []
+    },
     "pdf_page_count": 102,
+    "published_toc_entry_count": 0,
     "toc_candidate_page_count": 1
   },
   "content_alignment": {
     "algorithm_version": "component-evidence-hybrid-v3",
     "alignment_count": 3,
     "automatic_content_unit_count": 0,
-    "content_node_count": 179,
-    "evidence_span_count": 75,
+    "content_node_count": 175,
+    "evidence_span_count": 59,
     "generated_alignment_count": 3,
     "native_text_ratio": 0.9902,
     "ocr_page_count": 0,
@@ -207,7 +218,7 @@
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
-    "reconciled_unit_range_count": 0,
+    "reconciled_unit_range_count": 3,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f/pages.jsonl",
@@ -277,7 +288,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b8b22e982b3e834d",
-      "parent_id": null,
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 4,
       "pdf_page_end": 4,
       "pdf_page_start": 4,
@@ -285,7 +296,45 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 4 页",
-      "unit_id": null
+      "unit_id": "tcu_30f1951cc7626f44"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 25,
+      "end_printed_page": "22",
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_838b56de8833d443",
+      "parent_id": null,
+      "pdf_page": 4,
+      "pdf_page_end": 25,
+      "pdf_page_start": 4,
+      "printed_page": "1",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第一单元 我们一家人",
+      "title": "第一单元 我们一家人",
+      "toc_entry_id": "tcu_30f1951cc7626f44",
+      "unit_id": "tcu_30f1951cc7626f44"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 9,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_f0059228e3efb83a",
+      "parent_id": "tcn_838b56de8833d443",
+      "pdf_page": 5,
+      "pdf_page_end": 9,
+      "pdf_page_start": 5,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "1 读懂彼此的心",
+      "title": "1 读懂彼此的心",
+      "toc_entry_id": "tcu_638503cdeeabb742",
+      "unit_id": "tcu_638503cdeeabb742"
     },
     {
       "confidence": 0.98,
@@ -294,7 +343,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_786582ac921f7f87",
-      "parent_id": null,
+      "parent_id": "tcn_f0059228e3efb83a",
       "pdf_page": 5,
       "pdf_page_end": 5,
       "pdf_page_start": 5,
@@ -302,7 +351,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 5 页",
-      "unit_id": null
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -311,7 +360,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_95465dbebdffaede",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_f0059228e3efb83a",
       "pdf_page": 6,
       "pdf_page_end": 6,
       "pdf_page_start": 6,
@@ -319,26 +368,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 6 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 25,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_01fc8a309378d5fa",
-      "parent_id": null,
-      "pdf_page": 6,
-      "pdf_page_end": 25,
-      "pdf_page_start": 6,
-      "printed_page": "3",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第一单元",
-      "title": "第一单元",
-      "toc_entry_id": "tcu_3ff80fbf68e275be",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -347,7 +377,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3a7773f9f65be61a",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_f0059228e3efb83a",
       "pdf_page": 7,
       "pdf_page_end": 7,
       "pdf_page_start": 7,
@@ -355,7 +385,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 7 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -364,7 +394,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d9a8fc2bd9e6f05e",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_f0059228e3efb83a",
       "pdf_page": 8,
       "pdf_page_end": 8,
       "pdf_page_start": 8,
@@ -372,7 +402,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 8 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -381,7 +411,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1d77099f8989b7a3",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_f0059228e3efb83a",
       "pdf_page": 9,
       "pdf_page_end": 9,
       "pdf_page_start": 9,
@@ -389,7 +419,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 9 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -398,7 +428,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_efe3d21fe89dd994",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 10,
       "pdf_page_end": 10,
       "pdf_page_start": 10,
@@ -406,7 +436,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 10 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.96,
@@ -417,7 +447,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_292becd150542fc1",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -426,7 +456,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "注意父母的身体状况 ● 听父母讲担忧和 ● 主动讲自己在学校",
       "title": "注意父母的身体状况 ● 听父母讲担忧和 ● 主动讲自己在学校",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.96,
@@ -437,7 +467,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_daf5685701a2500d",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -446,7 +476,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "观察父母的作息时 ● 听父母讲想法和 ● 外出时讲清地点和 ● 用正常语速和语调",
       "title": "观察父母的作息时 ● 听父母讲想法和 ● 外出时讲清地点和 ● 用正常语速和语调",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.96,
@@ -457,7 +487,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_dfa25b72d76a971f",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -466,7 +496,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "遇到父母不理解或",
       "title": "遇到父母不理解或",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -475,7 +505,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b3f55c5d5ec194a7",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -483,7 +513,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 11 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -492,7 +522,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b3e49166b747b12c",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 12,
       "pdf_page_end": 12,
       "pdf_page_start": 12,
@@ -500,27 +530,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 12 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 18,
-      "end_printed_page": "10",
-      "evidence_span_ids": [
-        "tes_c81ad72549707eaf"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 17,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_918beb8bc8ff34f8",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "node_id": "tcn_bb01c280a97a92e2",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 13,
-      "pdf_page_end": 18,
+      "pdf_page_end": 17,
       "pdf_page_start": 13,
       "printed_page": "10",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "2 让我们的家更美好",
-      "title": "2让我们的家更美好",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "title": "2 让我们的家更美好",
+      "toc_entry_id": "tcu_3d84b10c370d7e38",
+      "unit_id": "tcu_3d84b10c370d7e38"
     },
     {
       "confidence": 0.96,
@@ -531,7 +560,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_a96a9f71780ca914",
-      "parent_id": "tcn_918beb8bc8ff34f8",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -540,7 +569,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "爸爸:经营自家的餐馆, ● 爸 爸: 在 家 种 菜, 从 播",
       "title": "爸爸:经营自家的餐馆, ● 爸 爸: 在 家 种 菜, 从 播",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.96,
@@ -551,7 +580,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_d1d1e22aa73527f0",
-      "parent_id": "tcn_918beb8bc8ff34f8",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -560,7 +589,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "我:收拾自己的房间、洗 ● 我:在家帮忙做家务。农",
       "title": "我:收拾自己的房间、洗 ● 我:在家帮忙做家务。农",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.96,
@@ -571,7 +600,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_d64ccb3e6651973d",
-      "parent_id": "tcn_918beb8bc8ff34f8",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -580,7 +609,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "妈妈:平时上班,还要照 ● 妈 妈: 在 家 照 顾 我 和 生",
       "title": "妈妈:平时上班,还要照 ● 妈 妈: 在 家 照 顾 我 和 生",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -589,7 +618,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d6e34dbe56b7d2ae",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_bb01c280a97a92e2",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -597,7 +626,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 13 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.86,
@@ -608,7 +637,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_4872075f8d57b31d",
-      "parent_id": "tcn_918beb8bc8ff34f8",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -617,7 +646,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "想想今后还可以在哪些方面有提高。",
       "title": "想想今后还可以在哪些方面有提高。",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -626,7 +655,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7cdbd2ee2887ff39",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_bb01c280a97a92e2",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -634,7 +663,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 14 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -643,7 +672,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2061846d35a20615",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_bb01c280a97a92e2",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -651,7 +680,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 15 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -660,7 +689,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ce50902033a6a370",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_bb01c280a97a92e2",
       "pdf_page": 16,
       "pdf_page_end": 16,
       "pdf_page_start": 16,
@@ -668,7 +697,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 16 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -677,7 +706,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1d8fd30d9ec98f37",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_bb01c280a97a92e2",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -685,7 +714,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 17 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -694,7 +723,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a4417688e6253a03",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 18,
       "pdf_page_end": 18,
       "pdf_page_start": 18,
@@ -702,27 +731,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 18 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 24,
-      "end_printed_page": "16",
-      "evidence_span_ids": [
-        "tes_b02f5235243fb0eb"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 23,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_ea97f4ac95f93ea5",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "node_id": "tcn_641ddb83c823ccdb",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 19,
-      "pdf_page_end": 24,
+      "pdf_page_end": 23,
       "pdf_page_start": 19,
       "printed_page": "16",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "3 弘扬优秀家风",
-      "title": "3弘扬优秀家风",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "title": "3 弘扬优秀家风",
+      "toc_entry_id": "tcu_af5c01085053b014",
+      "unit_id": "tcu_af5c01085053b014"
     },
     {
       "confidence": 0.96,
@@ -733,7 +761,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_916b077150f4569a",
-      "parent_id": "tcn_ea97f4ac95f93ea5",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -742,7 +770,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "黎明即起,洒扫庭除,要内外整洁;",
       "title": "黎明即起,洒扫庭除,要内外整洁;",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.96,
@@ -753,7 +781,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_c22c807302ca945b",
-      "parent_id": "tcn_ea97f4ac95f93ea5",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -762,7 +790,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "一粥一饭,当思来处不易;",
       "title": "一粥一饭,当思来处不易;",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -771,7 +799,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7a2fa6eab1c19b43",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_641ddb83c823ccdb",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -779,7 +807,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 19 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -788,7 +816,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b53f020fbb5c1e51",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_641ddb83c823ccdb",
       "pdf_page": 20,
       "pdf_page_end": 20,
       "pdf_page_start": 20,
@@ -796,7 +824,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 20 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -805,7 +833,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8363b5f778baf3e7",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_641ddb83c823ccdb",
       "pdf_page": 21,
       "pdf_page_end": 21,
       "pdf_page_start": 21,
@@ -813,7 +841,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 21 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -822,7 +850,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9c35b4d9bb915f83",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_641ddb83c823ccdb",
       "pdf_page": 22,
       "pdf_page_end": 22,
       "pdf_page_start": 22,
@@ -830,7 +858,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 22 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -839,7 +867,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_633c24631728b536",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_641ddb83c823ccdb",
       "pdf_page": 23,
       "pdf_page_end": 23,
       "pdf_page_start": 23,
@@ -847,7 +875,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 23 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.98,
@@ -856,7 +884,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fc3871d3b6017fda",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -864,7 +892,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 24 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.86,
@@ -875,7 +903,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_38484e81fa76c5b8",
-      "parent_id": "tcn_690cc3d4ea7bee7f",
+      "parent_id": "tcn_838b56de8833d443",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -884,27 +912,26 @@
       "source": "task_verb_pattern",
       "text_excerpt": "阅读图片,根据类别填入相应的公共场所名称。",
       "title": "阅读图片,根据类别填入相应的公共场所名称。",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 25,
-      "end_printed_page": "22",
-      "evidence_span_ids": [
-        "tes_483a2df9acc76a18"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 29,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_690cc3d4ea7bee7f",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "node_id": "tcn_39a0e3dd55305bd7",
+      "parent_id": null,
       "pdf_page": 25,
-      "pdf_page_end": 25,
+      "pdf_page_end": 29,
       "pdf_page_start": 25,
       "printed_page": "22",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "4 我们的公共生活",
-      "title": "4我们的公共生活",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "title": "4 我们的公共生活",
+      "toc_entry_id": "tcu_ce83321b08f5f471",
+      "unit_id": "tcu_ce83321b08f5f471"
     },
     {
       "confidence": 0.98,
@@ -913,7 +940,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_eba89b1a7e40be96",
-      "parent_id": "tcn_01fc8a309378d5fa",
+      "parent_id": "tcn_39a0e3dd55305bd7",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -921,7 +948,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 25 页",
-      "unit_id": "tcu_3ff80fbf68e275be"
+      "unit_id": "tcu_30f1951cc7626f44"
     },
     {
       "confidence": 0.86,
@@ -932,7 +959,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_d76827b023942319",
-      "parent_id": "tcn_4e7a437f4077d3d3",
+      "parent_id": "tcn_39a0e3dd55305bd7",
       "pdf_page": 26,
       "pdf_page_end": 26,
       "pdf_page_start": 26,
@@ -941,7 +968,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "阅读下图,思考不同的选择会带来怎样的结果。",
       "title": "阅读下图,思考不同的选择会带来怎样的结果。",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -950,7 +977,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_003d8bdec79f8f23",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_39a0e3dd55305bd7",
       "pdf_page": 26,
       "pdf_page_end": 26,
       "pdf_page_start": 26,
@@ -958,15 +985,15 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 26 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
-      "confidence": 0.98,
+      "confidence": 0.85,
       "end_pdf_page": 47,
-      "end_printed_page": null,
+      "end_printed_page": "44",
       "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_0e43ef518e3ae563",
+      "node_id": "tcn_8f994332a4f289e3",
       "parent_id": null,
       "pdf_page": 26,
       "pdf_page_end": 47,
@@ -974,30 +1001,10 @@
       "printed_page": "23",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "第二单元",
-      "title": "第二单元",
-      "toc_entry_id": "tcu_efe3a952c3feef72",
-      "unit_id": "tcu_efe3a952c3feef72"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 27,
-      "end_printed_page": "23",
-      "evidence_span_ids": [
-        "tes_4834a082a6ee8407"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_4e7a437f4077d3d3",
-      "parent_id": "tcn_0e43ef518e3ae563",
-      "pdf_page": 26,
-      "pdf_page_end": 27,
-      "pdf_page_start": 26,
-      "printed_page": "23",
-      "review_status": "machine_checked",
-      "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
-      "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "title": "第二单元 公共生活靠大家",
+      "toc_entry_id": "tcu_f61ad38db552dd7e",
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1006,7 +1013,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0ad973f66e8e3efd",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_39a0e3dd55305bd7",
       "pdf_page": 27,
       "pdf_page_end": 27,
       "pdf_page_start": 27,
@@ -1014,7 +1021,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 27 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.86,
@@ -1034,7 +1041,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "想一想,政府提供的公共设施是否与我们个人无关。",
       "title": "想一想,政府提供的公共设施是否与我们个人无关。",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.86,
@@ -1054,7 +1061,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "调查人 调查地点 公共设施 使用现状感言:路灯坏了。天黑时,它不能再给我们光明的指引......",
       "title": "调查人 调查地点 公共设施 使用现状感言:路灯坏了。天黑时,它不能再给我们光明的指引......",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1063,7 +1070,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ee5194ade4659319",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_39a0e3dd55305bd7",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -1071,7 +1078,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 28 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.9,
@@ -1082,7 +1089,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_16ea139a6f046b0a",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_39a0e3dd55305bd7",
       "pdf_page": 28,
       "pdf_page_end": 29,
       "pdf_page_start": 28,
@@ -1091,7 +1098,7 @@
       "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
       "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1100,7 +1107,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_893f6bda843d715b",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_39a0e3dd55305bd7",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -1108,7 +1115,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 29 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1117,7 +1124,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9290745d3ed3e807",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 30,
       "pdf_page_end": 30,
       "pdf_page_start": 30,
@@ -1125,47 +1132,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 30 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 30,
+      "end_pdf_page": 31,
       "end_printed_page": "27",
       "evidence_span_ids": [
         "tes_50d3ea53ad85c7a3"
       ],
       "kind": "unit",
       "node_id": "tcn_30a3e14124a5290e",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 30,
-      "pdf_page_end": 30,
+      "pdf_page_end": 31,
       "pdf_page_start": 30,
       "printed_page": "27",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
       "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 31,
-      "end_printed_page": "28",
-      "evidence_span_ids": [
-        "tes_f2b2b55c573a665d"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 35,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_bfeb8529e569560f",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "node_id": "tcn_4fda219cd46d72bd",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 31,
-      "pdf_page_end": 31,
+      "pdf_page_end": 35,
       "pdf_page_start": 31,
       "printed_page": "28",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "5 建立良好的公共秩序",
-      "title": "5建立良好的公共秩序",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "title": "5 建立良好的公共秩序",
+      "toc_entry_id": "tcu_4246e0c7fcd78c26",
+      "unit_id": "tcu_4246e0c7fcd78c26"
     },
     {
       "confidence": 0.98,
@@ -1174,7 +1180,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4c7e2c625d628af3",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4fda219cd46d72bd",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -1182,7 +1188,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 31 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1191,7 +1197,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e38d0bd92e598b6d",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4fda219cd46d72bd",
       "pdf_page": 32,
       "pdf_page_end": 32,
       "pdf_page_start": 32,
@@ -1199,7 +1205,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 32 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.9,
@@ -1210,7 +1216,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_0bdf46175cb7519a",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4fda219cd46d72bd",
       "pdf_page": 32,
       "pdf_page_end": 33,
       "pdf_page_start": 32,
@@ -1219,7 +1225,7 @@
       "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
       "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.86,
@@ -1239,7 +1245,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "想一想,有了公共标志的提醒,人们是不是就会自觉遵守或维护公共秩序了。",
       "title": "想一想,有了公共标志的提醒,人们是不是就会自觉遵守或维护公共秩序了。",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1248,7 +1254,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8f15636a5796e85d",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4fda219cd46d72bd",
       "pdf_page": 33,
       "pdf_page_end": 33,
       "pdf_page_start": 33,
@@ -1256,7 +1262,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 33 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.86,
@@ -1276,7 +1282,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "想想怎样才能让公共生活中的不和谐少一些。",
       "title": "想想怎样才能让公共生活中的不和谐少一些。",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.86,
@@ -1296,7 +1302,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "阅读图片,说说每幅图中的不文明行为。",
       "title": "阅读图片,说说每幅图中的不文明行为。",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1305,7 +1311,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c8c5e524fd737741",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4fda219cd46d72bd",
       "pdf_page": 34,
       "pdf_page_end": 34,
       "pdf_page_start": 34,
@@ -1313,7 +1319,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 34 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.9,
@@ -1324,7 +1330,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_3be5684c1fcc6708",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4fda219cd46d72bd",
       "pdf_page": 34,
       "pdf_page_end": 35,
       "pdf_page_start": 34,
@@ -1333,7 +1339,7 @@
       "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
       "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1342,7 +1348,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b587e8bec484f9b5",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4fda219cd46d72bd",
       "pdf_page": 35,
       "pdf_page_end": 35,
       "pdf_page_start": 35,
@@ -1350,7 +1356,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 35 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1359,7 +1365,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_80495cce4a8996b5",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 36,
       "pdf_page_end": 36,
       "pdf_page_start": 36,
@@ -1367,47 +1373,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 36 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 36,
+      "end_pdf_page": 37,
       "end_printed_page": "33",
       "evidence_span_ids": [
         "tes_5ee61169ab4944d0"
       ],
       "kind": "unit",
       "node_id": "tcn_084a6374a56439a8",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 36,
-      "pdf_page_end": 36,
+      "pdf_page_end": 37,
       "pdf_page_start": 36,
       "printed_page": "33",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
       "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 37,
-      "end_printed_page": "34",
-      "evidence_span_ids": [
-        "tes_d56de149f9c40d12"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 41,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_4f26cff4e3edae94",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "node_id": "tcn_4d96725033a505cc",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 37,
-      "pdf_page_end": 37,
+      "pdf_page_end": 41,
       "pdf_page_start": 37,
       "printed_page": "34",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "6 我参与 我奉献",
-      "title": "6我参与我奉献",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "title": "6 我参与 我奉献",
+      "toc_entry_id": "tcu_a7081824a3aee65b",
+      "unit_id": "tcu_a7081824a3aee65b"
     },
     {
       "confidence": 0.96,
@@ -1418,7 +1423,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_0e5e5278ef7ada1d",
-      "parent_id": "tcn_4f26cff4e3edae94",
+      "parent_id": "tcn_084a6374a56439a8",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -1427,7 +1432,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "遇到问路的外地人,我们可以",
       "title": "遇到问路的外地人,我们可以",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1436,7 +1441,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_86bfec36bf63440c",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4d96725033a505cc",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -1444,7 +1449,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 37 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1453,7 +1458,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e903c1dc3e4bca62",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4d96725033a505cc",
       "pdf_page": 38,
       "pdf_page_end": 38,
       "pdf_page_start": 38,
@@ -1461,7 +1466,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 38 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.9,
@@ -1472,7 +1477,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_e47eb1df288ffc79",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4d96725033a505cc",
       "pdf_page": 38,
       "pdf_page_end": 39,
       "pdf_page_start": 38,
@@ -1481,7 +1486,7 @@
       "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
       "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.96,
@@ -1501,7 +1506,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "《中华人民共和国未成年人保护法》第七条",
       "title": "《中华人民共和国未成年人保护法》第七条",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.96,
@@ -1521,7 +1526,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "《中华人民共和国残疾人保障法》第七条(节选)",
       "title": "《中华人民共和国残疾人保障法》第七条(节选)",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.96,
@@ -1541,7 +1546,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "《中华人民共和国老年人权益保障法》第三条",
       "title": "《中华人民共和国老年人权益保障法》第三条",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1550,7 +1555,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f2e71633a98eed47",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4d96725033a505cc",
       "pdf_page": 39,
       "pdf_page_end": 39,
       "pdf_page_start": 39,
@@ -1558,7 +1563,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 39 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1567,7 +1572,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9ad67e112af8e45f",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4d96725033a505cc",
       "pdf_page": 40,
       "pdf_page_end": 40,
       "pdf_page_start": 40,
@@ -1575,7 +1580,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 40 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.9,
@@ -1586,7 +1591,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_11389c65a59b00fe",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4d96725033a505cc",
       "pdf_page": 40,
       "pdf_page_end": 41,
       "pdf_page_start": 40,
@@ -1595,7 +1600,7 @@
       "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
       "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1604,7 +1609,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_61477649d6620e8c",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_4d96725033a505cc",
       "pdf_page": 41,
       "pdf_page_end": 41,
       "pdf_page_start": 41,
@@ -1612,7 +1617,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 41 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1621,7 +1626,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c987ea00d294144d",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 42,
       "pdf_page_end": 42,
       "pdf_page_start": 42,
@@ -1629,7 +1634,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 42 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.9,
@@ -1640,7 +1645,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_2be8e9e3dd0d4c45",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 42,
       "pdf_page_end": 43,
       "pdf_page_start": 42,
@@ -1649,7 +1654,7 @@
       "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
       "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1658,7 +1663,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a5228075794d1f18",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 43,
       "pdf_page_end": 43,
       "pdf_page_start": 43,
@@ -1666,7 +1671,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 43 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1675,7 +1680,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4a04b0c710f02dae",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -1683,7 +1688,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 44 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.9,
@@ -1694,7 +1699,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_689b304d69d04293",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 44,
       "pdf_page_end": 45,
       "pdf_page_start": 44,
@@ -1703,7 +1708,7 @@
       "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
       "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1712,7 +1717,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_67fbe9679af0efcd",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -1720,7 +1725,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 45 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1729,7 +1734,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_514e985a261d6b5a",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -1737,47 +1742,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 46 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 46,
+      "end_pdf_page": 47,
       "end_printed_page": "43",
       "evidence_span_ids": [
         "tes_453e843c6b841075"
       ],
       "kind": "unit",
       "node_id": "tcn_0f3f7426a342c854",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_8f994332a4f289e3",
       "pdf_page": 46,
-      "pdf_page_end": 46,
+      "pdf_page_end": 47,
       "pdf_page_start": 46,
       "printed_page": "43",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第二单元 公共生活靠大家",
       "title": "第二单元公共生活靠大家",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 47,
-      "end_printed_page": "44",
-      "evidence_span_ids": [
-        "tes_6260caf2d5a87e01"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 51,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_2fe0daea52c5ea81",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "node_id": "tcn_b07a0725e209e01e",
+      "parent_id": null,
       "pdf_page": 47,
-      "pdf_page_end": 47,
+      "pdf_page_end": 51,
       "pdf_page_start": 47,
       "printed_page": "44",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "7 不甘屈辱 奋勇抗争",
-      "title": "7不甘屈辱奋勇抗争",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "title": "7 不甘屈辱 奋勇抗争",
+      "toc_entry_id": "tcu_0526b02a55307401",
+      "unit_id": "tcu_0526b02a55307401"
     },
     {
       "confidence": 0.98,
@@ -1786,7 +1790,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8cc6b789731493da",
-      "parent_id": "tcn_0e43ef518e3ae563",
+      "parent_id": "tcn_b07a0725e209e01e",
       "pdf_page": 47,
       "pdf_page_end": 47,
       "pdf_page_start": 47,
@@ -1794,7 +1798,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 47 页",
-      "unit_id": "tcu_efe3a952c3feef72"
+      "unit_id": "tcu_f61ad38db552dd7e"
     },
     {
       "confidence": 0.98,
@@ -1803,7 +1807,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2986939cbe3031e9",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_b07a0725e209e01e",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -1811,46 +1815,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 48 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 49,
-      "end_printed_page": "45",
-      "evidence_span_ids": [
-        "tes_b46d18938a2d92f7"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_0a3aede624a85fa7",
-      "parent_id": "tcn_0db4eb4ae02c9804",
-      "pdf_page": 48,
-      "pdf_page_end": 49,
-      "pdf_page_start": 48,
-      "printed_page": "45",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第三单元 百年追梦 复兴中华",
-      "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 102,
-      "end_printed_page": null,
+      "confidence": 0.85,
+      "end_pdf_page": 92,
+      "end_printed_page": "89",
       "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_0db4eb4ae02c9804",
+      "node_id": "tcn_59d70c62a6b20cff",
       "parent_id": null,
       "pdf_page": 48,
-      "pdf_page_end": 102,
+      "pdf_page_end": 92,
       "pdf_page_start": 48,
       "printed_page": "45",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "第三单元",
-      "title": "第三单元",
-      "toc_entry_id": "tcu_742eba78ec936318",
-      "unit_id": "tcu_742eba78ec936318"
+      "text_excerpt": "第三单元 百年追梦 复兴中华",
+      "title": "第三单元 百年追梦 复兴中华",
+      "toc_entry_id": "tcu_9ac02ac4457336eb",
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -1859,7 +1843,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_dd04ecd76e74366c",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_b07a0725e209e01e",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -1867,7 +1851,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 49 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -1876,7 +1860,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_27fa4cdb106f873d",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_b07a0725e209e01e",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -1884,7 +1868,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 50 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -1895,7 +1879,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_f26f2cad9c6c16d8",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_b07a0725e209e01e",
       "pdf_page": 50,
       "pdf_page_end": 51,
       "pdf_page_start": 50,
@@ -1904,7 +1888,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -1913,7 +1897,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3910411f8cac4765",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_b07a0725e209e01e",
       "pdf_page": 51,
       "pdf_page_end": 51,
       "pdf_page_start": 51,
@@ -1921,7 +1905,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 51 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -1930,7 +1914,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6609364cd71f5072",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 52,
       "pdf_page_end": 52,
       "pdf_page_start": 52,
@@ -1938,7 +1922,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 52 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -1949,7 +1933,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_55b907dbd71ce671",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 52,
       "pdf_page_end": 53,
       "pdf_page_start": 52,
@@ -1958,7 +1942,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -1967,7 +1951,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_184d55c5d7702b37",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 53,
       "pdf_page_end": 53,
       "pdf_page_start": 53,
@@ -1975,7 +1959,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 53 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -1984,7 +1968,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2db210f2ce6e490e",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 54,
       "pdf_page_end": 54,
       "pdf_page_start": 54,
@@ -1992,47 +1976,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 54 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 54,
+      "end_pdf_page": 55,
       "end_printed_page": "51",
       "evidence_span_ids": [
         "tes_0fd58201204e315e"
       ],
       "kind": "unit",
       "node_id": "tcn_d5af9f9d0cc5fea9",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 54,
-      "pdf_page_end": 54,
+      "pdf_page_end": 55,
       "pdf_page_start": 54,
       "printed_page": "51",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 55,
-      "end_printed_page": "52",
-      "evidence_span_ids": [
-        "tes_dc2cbf7797c25ac9"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 59,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_0f5c1a605c447a5b",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "node_id": "tcn_c079731552114002",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 55,
-      "pdf_page_end": 55,
+      "pdf_page_end": 59,
       "pdf_page_start": 55,
       "printed_page": "52",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "8 推翻帝制 民族觉醒",
-      "title": "8推翻帝制民族觉醒",
-      "unit_id": "tcu_742eba78ec936318"
+      "title": "8 推翻帝制 民族觉醒",
+      "toc_entry_id": "tcu_6842d5e79b6ffa47",
+      "unit_id": "tcu_6842d5e79b6ffa47"
     },
     {
       "confidence": 0.98,
@@ -2041,7 +2024,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c36b3e5fcce9b027",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_c079731552114002",
       "pdf_page": 55,
       "pdf_page_end": 55,
       "pdf_page_start": 55,
@@ -2049,7 +2032,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 55 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.96,
@@ -2069,7 +2052,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "吾志所向,一往无前,愈挫愈奋,再接再厉。",
       "title": "吾志所向,一往无前,愈挫愈奋,再接再厉。",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.96,
@@ -2089,7 +2072,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "一息尚存,不忘救国。",
       "title": "一息尚存,不忘救国。",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.96,
@@ -2109,7 +2092,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "国家之本,在于人民。",
       "title": "国家之本,在于人民。",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.96,
@@ -2129,7 +2112,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "中国如果强盛起来,我们不但是要恢复民族的地位,还要对于",
       "title": "中国如果强盛起来,我们不但是要恢复民族的地位,还要对于",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2138,7 +2121,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d3b25bff4bec16d6",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_c079731552114002",
       "pdf_page": 56,
       "pdf_page_end": 56,
       "pdf_page_start": 56,
@@ -2146,7 +2129,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 56 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2157,7 +2140,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_b2519bca8e8900bb",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_c079731552114002",
       "pdf_page": 56,
       "pdf_page_end": 57,
       "pdf_page_start": 56,
@@ -2166,7 +2149,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2175,7 +2158,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_14f6698a2e99798c",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_c079731552114002",
       "pdf_page": 57,
       "pdf_page_end": 57,
       "pdf_page_start": 57,
@@ -2183,7 +2166,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 57 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2192,7 +2175,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_619e4f29f63e3a29",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_c079731552114002",
       "pdf_page": 58,
       "pdf_page_end": 58,
       "pdf_page_start": 58,
@@ -2200,7 +2183,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 58 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2211,7 +2194,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_b793e8b7819b9586",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_c079731552114002",
       "pdf_page": 58,
       "pdf_page_end": 59,
       "pdf_page_start": 58,
@@ -2220,7 +2203,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2229,7 +2212,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_adb78aa4cae91181",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_c079731552114002",
       "pdf_page": 59,
       "pdf_page_end": 59,
       "pdf_page_start": 59,
@@ -2237,7 +2220,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 59 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2246,7 +2229,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_58467409cb23cc05",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 60,
       "pdf_page_end": 60,
       "pdf_page_start": 60,
@@ -2254,47 +2237,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 60 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 60,
+      "end_pdf_page": 61,
       "end_printed_page": "57",
       "evidence_span_ids": [
         "tes_a6e5a5c72dd74e97"
       ],
       "kind": "unit",
       "node_id": "tcn_a388825f1daf4a77",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 60,
-      "pdf_page_end": 60,
+      "pdf_page_end": 61,
       "pdf_page_start": 60,
       "printed_page": "57",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 61,
-      "end_printed_page": "58",
-      "evidence_span_ids": [
-        "tes_0b3c08bf45176c3b"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 65,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_76a38b28dd2b503a",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "node_id": "tcn_200e0acfaedb94fa",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 61,
-      "pdf_page_end": 61,
+      "pdf_page_end": 65,
       "pdf_page_start": 61,
       "printed_page": "58",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "9 中国有了共产党",
-      "title": "9中国有了共产党",
-      "unit_id": "tcu_742eba78ec936318"
+      "title": "9 中国有了共产党",
+      "toc_entry_id": "tcu_7a1f52ca1085eddb",
+      "unit_id": "tcu_7a1f52ca1085eddb"
     },
     {
       "confidence": 0.98,
@@ -2303,7 +2285,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d71bc3f37206900d",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_200e0acfaedb94fa",
       "pdf_page": 61,
       "pdf_page_end": 61,
       "pdf_page_start": 61,
@@ -2311,7 +2293,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 61 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2320,7 +2302,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_885595d05db10b80",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_200e0acfaedb94fa",
       "pdf_page": 62,
       "pdf_page_end": 62,
       "pdf_page_start": 62,
@@ -2328,7 +2310,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 62 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2339,7 +2321,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_3de16d8e53a862ec",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_200e0acfaedb94fa",
       "pdf_page": 62,
       "pdf_page_end": 63,
       "pdf_page_start": 62,
@@ -2348,7 +2330,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2357,7 +2339,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f6e02cc6674a3c66",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_200e0acfaedb94fa",
       "pdf_page": 63,
       "pdf_page_end": 63,
       "pdf_page_start": 63,
@@ -2365,7 +2347,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 63 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2374,7 +2356,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a388740677333c57",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_200e0acfaedb94fa",
       "pdf_page": 64,
       "pdf_page_end": 64,
       "pdf_page_start": 64,
@@ -2382,7 +2364,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 64 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2393,7 +2375,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_14049b84957a40b4",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_200e0acfaedb94fa",
       "pdf_page": 64,
       "pdf_page_end": 65,
       "pdf_page_start": 64,
@@ -2402,7 +2384,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2411,7 +2393,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a28834077b9e226b",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_200e0acfaedb94fa",
       "pdf_page": 65,
       "pdf_page_end": 65,
       "pdf_page_start": 65,
@@ -2419,7 +2401,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 65 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2428,7 +2410,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_514e070849dddcff",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 66,
       "pdf_page_end": 66,
       "pdf_page_start": 66,
@@ -2436,7 +2418,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 66 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2447,7 +2429,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_4f0a3aceb412f956",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 66,
       "pdf_page_end": 67,
       "pdf_page_start": 66,
@@ -2456,7 +2438,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2465,7 +2447,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_dc13494380784966",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 67,
       "pdf_page_end": 67,
       "pdf_page_start": 67,
@@ -2473,7 +2455,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 67 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2482,7 +2464,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ade77a46cb079781",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 68,
       "pdf_page_end": 68,
       "pdf_page_start": 68,
@@ -2490,7 +2472,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 68 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2501,7 +2483,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_f86e7d9ea81c6447",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 68,
       "pdf_page_end": 69,
       "pdf_page_start": 68,
@@ -2510,7 +2492,26 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 73,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_ff1dab5d8709247e",
+      "parent_id": "tcn_59d70c62a6b20cff",
+      "pdf_page": 69,
+      "pdf_page_end": 73,
+      "pdf_page_start": 69,
+      "printed_page": "66",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "10 夺取抗日战争和人民解放战争的胜利",
+      "title": "10 夺取抗日战争和人民解放战争的胜利",
+      "toc_entry_id": "tcu_e401aca58c2e1f2e",
+      "unit_id": "tcu_e401aca58c2e1f2e"
     },
     {
       "confidence": 0.98,
@@ -2519,7 +2520,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e0c1983061958103",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_ff1dab5d8709247e",
       "pdf_page": 69,
       "pdf_page_end": 69,
       "pdf_page_start": 69,
@@ -2527,7 +2528,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 69 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2538,7 +2539,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_14e8207bda083c89",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_ff1dab5d8709247e",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -2547,7 +2548,7 @@
       "source": "body_heading",
       "text_excerpt": "30万遇难者纪念墙",
       "title": "30万遇难者纪念墙",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2556,7 +2557,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3f64cc26db9367dc",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_ff1dab5d8709247e",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -2564,7 +2565,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 70 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2575,7 +2576,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_91db1d9e09abeedf",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_ff1dab5d8709247e",
       "pdf_page": 70,
       "pdf_page_end": 71,
       "pdf_page_start": 70,
@@ -2584,7 +2585,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2593,7 +2594,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_316ab0b6117c2e2b",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_ff1dab5d8709247e",
       "pdf_page": 71,
       "pdf_page_end": 71,
       "pdf_page_start": 71,
@@ -2601,7 +2602,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 71 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2610,7 +2611,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f48e386a679a25ce",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_ff1dab5d8709247e",
       "pdf_page": 72,
       "pdf_page_end": 72,
       "pdf_page_start": 72,
@@ -2618,7 +2619,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 72 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2629,7 +2630,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_a41789736e6670f6",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_ff1dab5d8709247e",
       "pdf_page": 72,
       "pdf_page_end": 73,
       "pdf_page_start": 72,
@@ -2638,7 +2639,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2647,7 +2648,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_240f505df91e3c1c",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_ff1dab5d8709247e",
       "pdf_page": 73,
       "pdf_page_end": 73,
       "pdf_page_start": 73,
@@ -2655,7 +2656,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 73 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2664,7 +2665,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_13f8440ad0534789",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 74,
       "pdf_page_end": 74,
       "pdf_page_start": 74,
@@ -2672,7 +2673,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 74 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2683,7 +2684,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_fd2686a61def3261",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 74,
       "pdf_page_end": 75,
       "pdf_page_start": 74,
@@ -2692,7 +2693,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2701,7 +2702,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e7633303a0edeb54",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 75,
       "pdf_page_end": 75,
       "pdf_page_start": 75,
@@ -2709,7 +2710,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 75 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2718,7 +2719,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b20700cfa01f4fca",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 76,
       "pdf_page_end": 76,
       "pdf_page_start": 76,
@@ -2726,7 +2727,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 76 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2737,7 +2738,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_6fe054f243320ac6",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 76,
       "pdf_page_end": 77,
       "pdf_page_start": 76,
@@ -2746,7 +2747,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2755,7 +2756,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ba87ff48819e2385",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 77,
       "pdf_page_end": 77,
       "pdf_page_start": 77,
@@ -2763,7 +2764,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 77 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2772,7 +2773,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9803a3dfafe8e846",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 78,
       "pdf_page_end": 78,
       "pdf_page_start": 78,
@@ -2780,47 +2781,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 78 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 78,
+      "end_pdf_page": 79,
       "end_printed_page": "75",
       "evidence_span_ids": [
         "tes_5253ebad01576ea8"
       ],
       "kind": "unit",
       "node_id": "tcn_7122495c230352be",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 78,
-      "pdf_page_end": 78,
+      "pdf_page_end": 79,
       "pdf_page_start": 78,
       "printed_page": "75",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 79,
-      "end_printed_page": "76",
-      "evidence_span_ids": [
-        "tes_6b8f873376efcaed"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 83,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_de1ff2abc485fcb6",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "node_id": "tcn_586ce864bf119557",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 79,
-      "pdf_page_end": 79,
+      "pdf_page_end": 83,
       "pdf_page_start": 79,
       "printed_page": "76",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "11 屹立在世界的东方",
-      "title": "11屹立在世界的东方",
-      "unit_id": "tcu_742eba78ec936318"
+      "title": "11 屹立在世界的东方",
+      "toc_entry_id": "tcu_a4e05fa79b5f430d",
+      "unit_id": "tcu_a4e05fa79b5f430d"
     },
     {
       "confidence": 0.98,
@@ -2829,7 +2829,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_dc49557f1bc437c6",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_586ce864bf119557",
       "pdf_page": 79,
       "pdf_page_end": 79,
       "pdf_page_start": 79,
@@ -2837,7 +2837,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 79 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2846,7 +2846,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_904d7b8f82c1e541",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_586ce864bf119557",
       "pdf_page": 80,
       "pdf_page_end": 80,
       "pdf_page_start": 80,
@@ -2854,7 +2854,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 80 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2865,7 +2865,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_f79c136ce452dcd2",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_586ce864bf119557",
       "pdf_page": 80,
       "pdf_page_end": 81,
       "pdf_page_start": 80,
@@ -2874,7 +2874,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.86,
@@ -2894,7 +2894,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "观察下面的图片,你发现新中国人民的生活发生了哪些翻天覆地的变化?",
       "title": "观察下面的图片,你发现新中国人民的生活发生了哪些翻天覆地的变化?",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2903,7 +2903,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7e0700cd4c1d681e",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_586ce864bf119557",
       "pdf_page": 81,
       "pdf_page_end": 81,
       "pdf_page_start": 81,
@@ -2911,7 +2911,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 81 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2920,7 +2920,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b880f0cfe70a878c",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_586ce864bf119557",
       "pdf_page": 82,
       "pdf_page_end": 82,
       "pdf_page_start": 82,
@@ -2928,7 +2928,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 82 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2939,7 +2939,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_ef600d8cf54d2ba1",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_586ce864bf119557",
       "pdf_page": 82,
       "pdf_page_end": 83,
       "pdf_page_start": 82,
@@ -2948,7 +2948,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2957,7 +2957,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_54fc447a40b0793c",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_586ce864bf119557",
       "pdf_page": 83,
       "pdf_page_end": 83,
       "pdf_page_start": 83,
@@ -2965,7 +2965,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 83 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -2974,7 +2974,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_acd40035b403a953",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 84,
       "pdf_page_end": 84,
       "pdf_page_start": 84,
@@ -2982,7 +2982,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 84 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -2993,7 +2993,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_1d1f9dbd09d00c96",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 84,
       "pdf_page_end": 85,
       "pdf_page_start": 84,
@@ -3002,7 +3002,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -3011,7 +3011,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c32ac058933e1849",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 85,
       "pdf_page_end": 85,
       "pdf_page_start": 85,
@@ -3019,7 +3019,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 85 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -3028,7 +3028,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5511b4671e9a6bbd",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 86,
       "pdf_page_end": 86,
       "pdf_page_start": 86,
@@ -3036,7 +3036,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 86 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -3047,7 +3047,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_1264ec241e12e61e",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 86,
       "pdf_page_end": 87,
       "pdf_page_start": 86,
@@ -3056,7 +3056,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -3065,7 +3065,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7b5e136bf74a8860",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 87,
       "pdf_page_end": 87,
       "pdf_page_start": 87,
@@ -3073,7 +3073,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 87 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -3082,7 +3082,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a2ce0c566b2cc109",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 88,
       "pdf_page_end": 88,
       "pdf_page_start": 88,
@@ -3090,47 +3090,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 88 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 88,
+      "end_pdf_page": 89,
       "end_printed_page": "85",
       "evidence_span_ids": [
         "tes_9d9afa8997f80d38"
       ],
       "kind": "unit",
       "node_id": "tcn_3f12efbc2274e7b3",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 88,
-      "pdf_page_end": 88,
+      "pdf_page_end": 89,
       "pdf_page_start": 88,
       "printed_page": "85",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 89,
-      "end_printed_page": "86",
-      "evidence_span_ids": [
-        "tes_e3d18e0b04758ac8"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 92,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_99cd4af7ab565b54",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "node_id": "tcn_fd3f9e576e53f546",
+      "parent_id": "tcn_59d70c62a6b20cff",
       "pdf_page": 89,
-      "pdf_page_end": 89,
+      "pdf_page_end": 92,
       "pdf_page_start": 89,
       "printed_page": "86",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "12 富起来到强起来",
-      "title": "12富起来到强起来",
-      "unit_id": "tcu_742eba78ec936318"
+      "title": "12 富起来到强起来",
+      "toc_entry_id": "tcu_a59ecaec151e1545",
+      "unit_id": "tcu_a59ecaec151e1545"
     },
     {
       "confidence": 0.98,
@@ -3139,7 +3138,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b4a30d5f804617e7",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_fd3f9e576e53f546",
       "pdf_page": 89,
       "pdf_page_end": 89,
       "pdf_page_start": 89,
@@ -3147,7 +3146,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 89 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -3156,7 +3155,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ec9251053610a2a6",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_fd3f9e576e53f546",
       "pdf_page": 90,
       "pdf_page_end": 90,
       "pdf_page_start": 90,
@@ -3164,7 +3163,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 90 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
@@ -3175,7 +3174,7 @@
       ],
       "kind": "unit",
       "node_id": "tcn_7f6fbb34140ef49e",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_fd3f9e576e53f546",
       "pdf_page": 90,
       "pdf_page_end": 91,
       "pdf_page_start": 90,
@@ -3184,7 +3183,7 @@
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -3193,7 +3192,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6838ae649ec5a35b",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_fd3f9e576e53f546",
       "pdf_page": 91,
       "pdf_page_end": 91,
       "pdf_page_start": 91,
@@ -3201,7 +3200,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 91 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.86,
@@ -3221,7 +3220,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "结合调查结果,在班里开一次交流会,一起分析这些巨变反映了祖国哪些方面的成就。",
       "title": "结合调查结果,在班里开一次交流会,一起分析这些巨变反映了祖国哪些方面的成就。",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -3230,7 +3229,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8e1e1808e6f53438",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_fd3f9e576e53f546",
       "pdf_page": 92,
       "pdf_page_end": 92,
       "pdf_page_start": 92,
@@ -3238,27 +3237,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 92 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 93,
+      "end_pdf_page": 92,
       "end_printed_page": "89",
       "evidence_span_ids": [
         "tes_1cb9c577ffebafb4"
       ],
       "kind": "unit",
       "node_id": "tcn_bdac8ba4caf2bd98",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": "tcn_fd3f9e576e53f546",
       "pdf_page": 92,
-      "pdf_page_end": 93,
+      "pdf_page_end": 92,
       "pdf_page_start": 92,
       "printed_page": "89",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "第三单元 百年追梦 复兴中华",
       "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": "tcu_9ac02ac4457336eb"
     },
     {
       "confidence": 0.98,
@@ -3267,7 +3266,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c0cf49e044d40965",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": null,
       "pdf_page": 93,
       "pdf_page_end": 93,
       "pdf_page_start": 93,
@@ -3275,27 +3274,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 93 页",
-      "unit_id": "tcu_742eba78ec936318"
-    },
-    {
-      "confidence": 0.86,
-      "end_pdf_page": 94,
-      "end_printed_page": "91",
-      "evidence_span_ids": [
-        "tes_27c8d4585a121366"
-      ],
-      "kind": "exercise",
-      "node_id": "tcn_cd22bfdc7ce93ee9",
-      "parent_id": "tcn_54bf59a581e5ad7f",
-      "pdf_page": 94,
-      "pdf_page_end": 94,
-      "pdf_page_start": 94,
-      "printed_page": "91",
-      "review_status": "machine_checked",
-      "source": "task_verb_pattern",
-      "text_excerpt": "结合自己的经历和体会,说一说为打赢疫情防控阻击战,国家、社会和我们每个人付出了哪些努力,体现了怎样的中国精神?",
-      "title": "结合自己的经历和体会,说一说为打赢疫情防控阻击战,国家、社会和我们每个人付出了哪些努力,体现了怎样的中国精神?",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3304,7 +3283,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0109d6878f37c06d",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": null,
       "pdf_page": 94,
       "pdf_page_end": 94,
       "pdf_page_start": 94,
@@ -3312,27 +3291,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 94 页",
-      "unit_id": "tcu_742eba78ec936318"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 95,
-      "end_printed_page": "91",
-      "evidence_span_ids": [
-        "tes_38673948caf3d28c"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_54bf59a581e5ad7f",
-      "parent_id": "tcn_0db4eb4ae02c9804",
-      "pdf_page": 94,
-      "pdf_page_end": 95,
-      "pdf_page_start": 94,
-      "printed_page": "91",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第三单元 百年追梦 复兴中华",
-      "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3341,7 +3300,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e8a8ed64385e9f71",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": null,
       "pdf_page": 95,
       "pdf_page_end": 95,
       "pdf_page_start": 95,
@@ -3349,7 +3308,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 95 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3358,7 +3317,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9b67c81b06dbbac1",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": null,
       "pdf_page": 96,
       "pdf_page_end": 96,
       "pdf_page_start": 96,
@@ -3366,27 +3325,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 96 页",
-      "unit_id": "tcu_742eba78ec936318"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 97,
-      "end_printed_page": "93",
-      "evidence_span_ids": [
-        "tes_7a9df05ce09e7a8c"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_f76c199062f80c36",
-      "parent_id": "tcn_0db4eb4ae02c9804",
-      "pdf_page": 96,
-      "pdf_page_end": 97,
-      "pdf_page_start": 96,
-      "printed_page": "93",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第三单元 百年追梦 复兴中华",
-      "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3395,7 +3334,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_859441f04f99fc95",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": null,
       "pdf_page": 97,
       "pdf_page_end": 97,
       "pdf_page_start": 97,
@@ -3403,7 +3342,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 97 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3412,7 +3351,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f782cd631930c128",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": null,
       "pdf_page": 98,
       "pdf_page_end": 98,
       "pdf_page_start": 98,
@@ -3420,27 +3359,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 98 页",
-      "unit_id": "tcu_742eba78ec936318"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 102,
-      "end_printed_page": "95",
-      "evidence_span_ids": [
-        "tes_94782a527d76b399"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_6b7a3b8ca71d7e13",
-      "parent_id": "tcn_0db4eb4ae02c9804",
-      "pdf_page": 98,
-      "pdf_page_end": 102,
-      "pdf_page_start": 98,
-      "printed_page": "95",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第三单元 百年追梦 复兴中华",
-      "title": "第三单元百年追梦复兴中华",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3449,7 +3368,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b4e141bb672ce33d",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": null,
       "pdf_page": 100,
       "pdf_page_end": 100,
       "pdf_page_start": 100,
@@ -3457,7 +3376,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 100 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3466,7 +3385,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c2a5e7aa36ddd3d5",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": null,
       "pdf_page": 101,
       "pdf_page_end": 101,
       "pdf_page_start": 101,
@@ -3474,7 +3393,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 101 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3483,7 +3402,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e29b72558aec71bb",
-      "parent_id": "tcn_0db4eb4ae02c9804",
+      "parent_id": null,
       "pdf_page": 102,
       "pdf_page_end": 102,
       "pdf_page_start": 102,
@@ -3491,11 +3410,11 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 102 页",
-      "unit_id": "tcu_742eba78ec936318"
+      "unit_id": null
     }
   ],
   "edition_id": "ed_0e50b2c3cab704574a20",
-  "evidence_id": "ctb_0d4b56c03c3c",
+  "evidence_id": "external_smartedu_2026_morality_law_primary_grade_5_down",
   "evidence_spans": [
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
@@ -3650,31 +3569,6 @@
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
       "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 190.89,
-        "x": 53.757,
-        "y": 639.763
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "2 让我们的家更美好",
-      "excerpt_hash": "0e56add07f43a8266facbaa9fe1f99264207314d75bdc862a96e2b9f6d392601",
-      "node_id": "tcn_918beb8bc8ff34f8",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 13,
-      "printed_page": "10",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_c81ad72549707eaf",
-      "text": "2 让我们的家更美好",
-      "text_hash": "0e56add07f43a8266facbaa9fe1f99264207314d75bdc862a96e2b9f6d392601"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
         "height": 11,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -3721,31 +3615,6 @@
       "span_id": "tes_8336eeb3719a62d6",
       "text": "一粥一饭,当思来处不易;",
       "text_hash": "b1a8379e1a7c99aa89f38f8dc77828ef473d10e3e64080a1300fd2c7158974af"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 148.47,
-        "x": 54.466,
-        "y": 639.816
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "3 弘扬优秀家风",
-      "excerpt_hash": "d8b5d082d0f2521c5ec9c025736cb641982efddb4478c0ab45b7bf30de5fe410",
-      "node_id": "tcn_ea97f4ac95f93ea5",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 19,
-      "printed_page": "16",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_b02f5235243fb0eb",
-      "text": "3 弘扬优秀家风",
-      "text_hash": "d8b5d082d0f2521c5ec9c025736cb641982efddb4478c0ab45b7bf30de5fe410"
     },
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
@@ -3800,31 +3669,6 @@
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
       "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 169.68,
-        "x": 53.757,
-        "y": 639.763
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "4 我们的公共生活",
-      "excerpt_hash": "952e48b819289241ef3de16872409dd996217cc38fe8bb766270706cef6a0c55",
-      "node_id": "tcn_690cc3d4ea7bee7f",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 25,
-      "printed_page": "22",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_483a2df9acc76a18",
-      "text": "4 我们的公共生活",
-      "text_hash": "952e48b819289241ef3de16872409dd996217cc38fe8bb766270706cef6a0c55"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
         "height": 11,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -3846,31 +3690,6 @@
       "span_id": "tes_08873110d88aaec5",
       "text": "阅读下图,思考不同的选择会带来怎样的结果。",
       "text_hash": "1e479934b2b0f9a71bc0a9a8695e786f3ed4bdeded3c1793c27b8d328c833c00"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 9,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 120.026,
-        "x": 364.469,
-        "y": 698.496
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "第二单元 公共生活靠大家",
-      "excerpt_hash": "875321700a809160760ee9ab90fd69156da5947f461ba6e866123fdc5d4c16ca",
-      "node_id": "tcn_4e7a437f4077d3d3",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 26,
-      "printed_page": "23",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_4834a082a6ee8407",
-      "text": "第二单元 公共生活靠大家",
-      "text_hash": "875321700a809160760ee9ab90fd69156da5947f461ba6e866123fdc5d4c16ca"
     },
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
@@ -3971,31 +3790,6 @@
       "span_id": "tes_50d3ea53ad85c7a3",
       "text": "第二单元 公共生活靠大家",
       "text_hash": "875321700a809160760ee9ab90fd69156da5947f461ba6e866123fdc5d4c16ca"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 212.1,
-        "x": 53.757,
-        "y": 639.763
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "5 建立良好的公共秩序",
-      "excerpt_hash": "17fd48f6f2a22d8647268431a5728901e7440b2db9b285d6c3792e23b8ad362f",
-      "node_id": "tcn_bfeb8529e569560f",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 31,
-      "printed_page": "28",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_f2b2b55c573a665d",
-      "text": "5 建立良好的公共秩序",
-      "text_hash": "17fd48f6f2a22d8647268431a5728901e7440b2db9b285d6c3792e23b8ad362f"
     },
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
@@ -4171,31 +3965,6 @@
       "span_id": "tes_4ba22b6777031eab",
       "text": "遇到问路的外地人,我们可以",
       "text_hash": "1b2bd4721f0de4b50c102b8cc27e432007b3ccb6caf23f8a8f64062109258ff0"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 169.68,
-        "x": 53.757,
-        "y": 639.763
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "6 我参与 我奉献",
-      "excerpt_hash": "fbb7c4a6150924ccbc6f61b33227939d46e78714dafe3ed324b196317e607c39",
-      "node_id": "tcn_4f26cff4e3edae94",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 37,
-      "printed_page": "34",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_d56de149f9c40d12",
-      "text": "6 我参与 我奉献",
-      "text_hash": "fbb7c4a6150924ccbc6f61b33227939d46e78714dafe3ed324b196317e607c39"
     },
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
@@ -4400,56 +4169,6 @@
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
       "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 212.1,
-        "x": 53.757,
-        "y": 639.816
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "7 不甘屈辱 奋勇抗争",
-      "excerpt_hash": "0ea42ce5028f03fcf52dfd0ae2df9c6fe59e6290bff1f05194edc04b76e26cc2",
-      "node_id": "tcn_2fe0daea52c5ea81",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 47,
-      "printed_page": "44",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_6260caf2d5a87e01",
-      "text": "7 不甘屈辱 奋勇抗争",
-      "text_hash": "0ea42ce5028f03fcf52dfd0ae2df9c6fe59e6290bff1f05194edc04b76e26cc2"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 9,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 135.438,
-        "x": 349.937,
-        "y": 698.496
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "第三单元 百年追梦 复兴中华",
-      "excerpt_hash": "59fb130d0f0083ab8c3f633ff4b1a66c5da93fa190416bd2c2e6a2c58e18f3a3",
-      "node_id": "tcn_0a3aede624a85fa7",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 48,
-      "printed_page": "45",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_b46d18938a2d92f7",
-      "text": "第三单元 百年追梦 复兴中华",
-      "text_hash": "59fb130d0f0083ab8c3f633ff4b1a66c5da93fa190416bd2c2e6a2c58e18f3a3"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
         "height": 9,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -4521,31 +4240,6 @@
       "span_id": "tes_0fd58201204e315e",
       "text": "第三单元 百年追梦 复兴中华",
       "text_hash": "59fb130d0f0083ab8c3f633ff4b1a66c5da93fa190416bd2c2e6a2c58e18f3a3"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 212.1,
-        "x": 53.757,
-        "y": 639.763
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "8 推翻帝制 民族觉醒",
-      "excerpt_hash": "8f5af2762e884de2ae65aacfa713c846c2111acd60d20e13ae5a9fda64bca38b",
-      "node_id": "tcn_0f5c1a605c447a5b",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 55,
-      "printed_page": "52",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_dc2cbf7797c25ac9",
-      "text": "8 推翻帝制 民族觉醒",
-      "text_hash": "8f5af2762e884de2ae65aacfa713c846c2111acd60d20e13ae5a9fda64bca38b"
     },
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
@@ -4721,31 +4415,6 @@
       "span_id": "tes_a6e5a5c72dd74e97",
       "text": "第三单元 百年追梦 复兴中华",
       "text_hash": "59fb130d0f0083ab8c3f633ff4b1a66c5da93fa190416bd2c2e6a2c58e18f3a3"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 169.68,
-        "x": 53.818,
-        "y": 640.289
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "9 中国有了共产党",
-      "excerpt_hash": "53c6007112748e874a5c9ec2e3bb76db090e26022d0f11f9ff8c4c0feb732a10",
-      "node_id": "tcn_76a38b28dd2b503a",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 61,
-      "printed_page": "58",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_0b3c08bf45176c3b",
-      "text": "9 中国有了共产党",
-      "text_hash": "53c6007112748e874a5c9ec2e3bb76db090e26022d0f11f9ff8c4c0feb732a10"
     },
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
@@ -5000,31 +4669,6 @@
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
       "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 201.6,
-        "x": 53.757,
-        "y": 639.763
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "11 屹立在世界的东方",
-      "excerpt_hash": "06c724241cea383ec33470e88b0d62afaee6ffea00094b5dca889a9b02246e37",
-      "node_id": "tcn_de1ff2abc485fcb6",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 79,
-      "printed_page": "76",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_6b8f873376efcaed",
-      "text": "11 屹立在世界的东方",
-      "text_hash": "06c724241cea383ec33470e88b0d62afaee6ffea00094b5dca889a9b02246e37"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
         "height": 9,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -5175,31 +4819,6 @@
     {
       "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
       "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 180.39,
-        "x": 54.466,
-        "y": 640.289
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "12 富起来到强起来",
-      "excerpt_hash": "d04c4baa0fbe83f9f5e4e8052efc414f372e4ebdd0884264c9cde31bd9a93c3a",
-      "node_id": "tcn_99cd4af7ab565b54",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 89,
-      "printed_page": "86",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_e3d18e0b04758ac8",
-      "text": "12 富起来到强起来",
-      "text_hash": "d04c4baa0fbe83f9f5e4e8052efc414f372e4ebdd0884264c9cde31bd9a93c3a"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
         "height": 9,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -5271,114 +4890,14 @@
       "span_id": "tes_abf0ae0ccd8bd793",
       "text": "结合调查结果,在班里开一次交流会,一起分析这些巨变反映了祖国哪些方面的成就。",
       "text_hash": "53cce7bcd438c3c9119d1b6fc7127a16342a10622adfd32365ba32d09bf5e146"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 11,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 238.022,
-        "x": 134.366,
-        "y": 259.474
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "exercise",
-      "excerpt": "结合自己的经历和体会,说一说为打赢疫情防控阻击战,国家、社会和我们每个人付出了哪些努力,体现了怎样的中国精神?",
-      "excerpt_hash": "132546b286c9b0de3870225379af77acbcad7cd39ee07b4cc3f73d6dd25f81a1",
-      "node_id": "tcn_cd22bfdc7ce93ee9",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 94,
-      "printed_page": "91",
-      "role": "exercise",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_27c8d4585a121366",
-      "text": "结合自己的经历和体会,说一说为打赢疫情防控阻击战,国家、社会和我们每个人付出了哪些努力,体现了怎样的中国精神?",
-      "text_hash": "132546b286c9b0de3870225379af77acbcad7cd39ee07b4cc3f73d6dd25f81a1"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 9,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 135.438,
-        "x": 349.937,
-        "y": 698.496
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "第三单元 百年追梦 复兴中华",
-      "excerpt_hash": "59fb130d0f0083ab8c3f633ff4b1a66c5da93fa190416bd2c2e6a2c58e18f3a3",
-      "node_id": "tcn_54bf59a581e5ad7f",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 94,
-      "printed_page": "91",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_38673948caf3d28c",
-      "text": "第三单元 百年追梦 复兴中华",
-      "text_hash": "59fb130d0f0083ab8c3f633ff4b1a66c5da93fa190416bd2c2e6a2c58e18f3a3"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 9,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 135.438,
-        "x": 349.937,
-        "y": 698.496
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "第三单元 百年追梦 复兴中华",
-      "excerpt_hash": "59fb130d0f0083ab8c3f633ff4b1a66c5da93fa190416bd2c2e6a2c58e18f3a3",
-      "node_id": "tcn_f76c199062f80c36",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 96,
-      "printed_page": "93",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_7a9df05ce09e7a8c",
-      "text": "第三单元 百年追梦 复兴中华",
-      "text_hash": "59fb130d0f0083ab8c3f633ff4b1a66c5da93fa190416bd2c2e6a2c58e18f3a3"
-    },
-    {
-      "asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-      "bbox": {
-        "height": 9,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 135.438,
-        "x": 349.937,
-        "y": 698.496
-      },
-      "edition_id": "ed_0e50b2c3cab704574a20",
-      "evidence_role": "heading",
-      "excerpt": "第三单元 百年追梦 复兴中华",
-      "excerpt_hash": "59fb130d0f0083ab8c3f633ff4b1a66c5da93fa190416bd2c2e6a2c58e18f3a3",
-      "node_id": "tcn_6b7a3b8ca71d7e13",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 98,
-      "printed_page": "95",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_94782a527d76b399",
-      "text": "第三单元 百年追梦 复兴中华",
-      "text_hash": "59fb130d0f0083ab8c3f633ff4b1a66c5da93fa190416bd2c2e6a2c58e18f3a3"
     }
   ],
   "extraction": {
-    "average_characters_per_page": 417.8,
-    "extracted_at": "2026-07-17T09:42:14.165878Z",
+    "average_characters_per_page": 433.6,
+    "extracted_at": "2026-11-01T07:29:59.423426Z",
     "notes": [
       "数字印刷页与 PDF 页偏移 3，由 95 页重复证据支持。",
-      "只有在正文页面直接回查到的标题才自动进入已核对目录。"
+      "目录条目只有在正文页面直接回查，或通过保守的扫描目录识别门槛后，才进入已核对目录。"
     ],
     "page_count_checked": 102,
     "pages_with_text": 101
@@ -6124,62 +5643,478 @@
   "text_quality": "native_text",
   "toc": [
     {
-      "confidence": 0.98,
+      "confidence": 0.85,
       "end_pdf_page": 25,
-      "entry_id": "tcu_3ff80fbf68e275be",
+      "end_printed_page": "22",
+      "entry_id": "tcu_30f1951cc7626f44",
       "kind": "unit",
       "level": 1,
       "parent_id": null,
-      "pdf_page": 6,
-      "printed_page": "3",
+      "pdf_page": 4,
+      "printed_page": "1",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 120.026,
+            "x": 364.469,
+            "y": 698.496
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 26,
+          "verbatim_title": "第二单元 公共生活靠大家"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 17,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 169.983,
+            "x": 201.26,
+            "y": 567.312
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 1,
+          "pdf_page": 4,
+          "verbatim_title": "第一单元 我们一家人"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "第一单元"
+      "source": "smartedu_sync_lessons",
+      "source_order": 1,
+      "title": "第一单元 我们一家人",
+      "toc_pdf_page": null
     },
     {
-      "confidence": 0.98,
+      "confidence": 0.85,
+      "end_pdf_page": 9,
+      "entry_id": "tcu_638503cdeeabb742",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_30f1951cc7626f44",
+      "pdf_page": 5,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 2,
+      "title": "1 读懂彼此的心",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 17,
+      "entry_id": "tcu_3d84b10c370d7e38",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_30f1951cc7626f44",
+      "pdf_page": 13,
+      "printed_page": "10",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 3,
+      "title": "2 让我们的家更美好",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 23,
+      "entry_id": "tcu_af5c01085053b014",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_30f1951cc7626f44",
+      "pdf_page": 19,
+      "printed_page": "16",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 4,
+      "title": "3 弘扬优秀家风",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
       "end_pdf_page": 47,
-      "entry_id": "tcu_efe3a952c3feef72",
+      "end_printed_page": "44",
+      "entry_id": "tcu_f61ad38db552dd7e",
       "kind": "unit",
       "level": 1,
       "parent_id": null,
       "pdf_page": 26,
       "printed_page": "23",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 135.438,
+            "x": 349.937,
+            "y": 698.496
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 48,
+          "verbatim_title": "第三单元 百年追梦 复兴中华"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 120.026,
+            "x": 364.469,
+            "y": 698.496
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 26,
+          "verbatim_title": "第二单元 公共生活靠大家"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "第二单元"
+      "source": "smartedu_sync_lessons",
+      "source_order": 5,
+      "title": "第二单元 公共生活靠大家",
+      "toc_pdf_page": null
     },
     {
-      "confidence": 0.98,
-      "end_pdf_page": 102,
-      "entry_id": "tcu_742eba78ec936318",
+      "confidence": 0.85,
+      "end_pdf_page": 29,
+      "entry_id": "tcu_ce83321b08f5f471",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_f61ad38db552dd7e",
+      "pdf_page": 25,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 6,
+      "title": "4 我们的公共生活",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 35,
+      "entry_id": "tcu_4246e0c7fcd78c26",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_f61ad38db552dd7e",
+      "pdf_page": 31,
+      "printed_page": "28",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 7,
+      "title": "5 建立良好的公共秩序",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 41,
+      "entry_id": "tcu_a7081824a3aee65b",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_f61ad38db552dd7e",
+      "pdf_page": 37,
+      "printed_page": "34",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 8,
+      "title": "6 我参与 我奉献",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 92,
+      "end_printed_page": "89",
+      "entry_id": "tcu_9ac02ac4457336eb",
       "kind": "unit",
       "level": 1,
       "parent_id": null,
       "pdf_page": 48,
       "printed_page": "45",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": null,
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 135.438,
+            "x": 349.937,
+            "y": 698.496
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 48,
+          "verbatim_title": "第三单元 百年追梦 复兴中华"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "第三单元"
+      "source": "smartedu_sync_lessons",
+      "source_order": 9,
+      "title": "第三单元 百年追梦 复兴中华",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 51,
+      "entry_id": "tcu_0526b02a55307401",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9ac02ac4457336eb",
+      "pdf_page": 47,
+      "printed_page": "44",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 10,
+      "title": "7 不甘屈辱 奋勇抗争",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 59,
+      "entry_id": "tcu_6842d5e79b6ffa47",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9ac02ac4457336eb",
+      "pdf_page": 55,
+      "printed_page": "52",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 11,
+      "title": "8 推翻帝制 民族觉醒",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 65,
+      "entry_id": "tcu_7a1f52ca1085eddb",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9ac02ac4457336eb",
+      "pdf_page": 61,
+      "printed_page": "58",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 12,
+      "title": "9 中国有了共产党",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 73,
+      "entry_id": "tcu_e401aca58c2e1f2e",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9ac02ac4457336eb",
+      "pdf_page": 69,
+      "printed_page": "66",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 13,
+      "title": "10 夺取抗日战争和人民解放战争的胜利",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 83,
+      "entry_id": "tcu_a4e05fa79b5f430d",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9ac02ac4457336eb",
+      "pdf_page": 79,
+      "printed_page": "76",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 14,
+      "title": "11 屹立在世界的东方",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 92,
+      "entry_id": "tcu_a59ecaec151e1545",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9ac02ac4457336eb",
+      "pdf_page": 89,
+      "printed_page": "86",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 15,
+      "title": "12 富起来到强起来",
+      "toc_pdf_page": null
     }
   ],
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
-    "changed_unit_range_count": 0,
-    "changes": [],
-    "clamped_content_node_range_count": 0,
+    "auxiliary_boundary_evidence": null,
+    "changed_unit_range_count": 3,
+    "changes": [
+      {
+        "after": {
+          "end_pdf_page": 25,
+          "pdf_page": 4
+        },
+        "before": {
+          "end_pdf_page": 24,
+          "pdf_page": 5
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 120.026,
+            "x": 364.469,
+            "y": 698.496
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 26,
+          "verbatim_title": "第二单元 公共生活靠大家"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 17,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 169.983,
+            "x": 201.26,
+            "y": 567.312
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 1,
+          "pdf_page": 4,
+          "verbatim_title": "第一单元 我们一家人"
+        },
+        "title": "第一单元 我们一家人",
+        "unit_id": "tcu_30f1951cc7626f44"
+      },
+      {
+        "after": {
+          "end_pdf_page": 47,
+          "pdf_page": 26
+        },
+        "before": {
+          "end_pdf_page": 46,
+          "pdf_page": 25
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 135.438,
+            "x": 349.937,
+            "y": 698.496
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 48,
+          "verbatim_title": "第三单元 百年追梦 复兴中华"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 120.026,
+            "x": 364.469,
+            "y": 698.496
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 26,
+          "verbatim_title": "第二单元 公共生活靠大家"
+        },
+        "title": "第二单元 公共生活靠大家",
+        "unit_id": "tcu_f61ad38db552dd7e"
+      },
+      {
+        "after": {
+          "end_pdf_page": 92,
+          "pdf_page": 48
+        },
+        "before": {
+          "end_pdf_page": 92,
+          "pdf_page": 47
+        },
+        "end_evidence": null,
+        "start_evidence": {
+          "bbox": {
+            "height": 9,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 135.438,
+            "x": 349.937,
+            "y": 698.496
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 48,
+          "verbatim_title": "第三单元 百年追梦 复兴中华"
+        },
+        "title": "第三单元 百年追梦 复兴中华",
+        "unit_id": "tcu_9ac02ac4457336eb"
+      }
+    ],
+    "clamped_content_node_range_count": 2,
     "detached_auxiliary_content_node_count": 0,
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
-    "exact_unit_heading_evidence_count": 0,
+    "exact_unit_heading_evidence_count": 3,
     "inspected_page_count": 102,
     "provenance": "machine_generated",
     "publication_gate": false,
-    "reassigned_content_node_count": 0,
+    "reassigned_content_node_count": 89,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 1,
     "sidecar_sha256": "fac94644034b08d27c4081b1515f7fab9c23933723abf8dded35befa285c4037",
     "source_asset_sha256": "24d360be334a6fecd69c14d8d9aa30707a845f8b693303bbb8338980644c0f5f",
-    "status": "insufficient_boundary_evidence",
+    "status": "reconciled",
     "top_level_unit_count": 3,
     "top_line_limit": 4
   }

@@ -47,37 +47,37 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 1,
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 1,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_40e95de5d5f1a451",
-      "alignment_type": "supports",
-      "confidence": 0.92,
+      "alignment_id": "tca_3d6fd19cd8bc6301",
+      "alignment_type": "practices",
+      "confidence": 0.86,
       "coverage": "partial",
       "edition_id": "ed_92369ed68f9321363e22",
       "evidence_basis": "textbook_page_span",
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_ae920aee077f",
-        "tes_b376b11a703be43d",
-        "textbook-node:tcn_12054143879f201f",
-        "textbook-unit:tcu_49ff4bf6e7d27542"
+        "external_smartedu_2026_geography_junior_grade_7_up",
+        "tes_e3898813787fd2a8",
+        "textbook-node:tcn_3dc81ff13269bde5",
+        "textbook-unit:tcu_5465705cb590dc80"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "人类是如何逐步认识地球形状的?",
-          "excerpt_hash": "b5f4d293b092c84bf78c49b6b194dc69875a654bd8fd95e172eb5eb772235b02",
-          "pdf_page": 12,
-          "printed_page": "1",
-          "span_id": "tes_b376b11a703be43d"
+          "excerpt": "制作简易的地球仪地球仪是我们学习地理常用的工具。制作简易地球仪,可以帮助我们更好地认识地球仪上重要的点和线。",
+          "excerpt_hash": "568349e36252d9f8b5992ff8ee38866618a06a4862942772618807a74f00251d",
+          "pdf_page": 19,
+          "printed_page": "14",
+          "span_id": "tes_e3898813787fd2a8"
         }
       ],
       "learning_component_ids": [
@@ -91,22 +91,77 @@
       ],
       "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_12054143879f201f",
-      "node_title": "人类是如何逐步认识地球形状的?",
-      "pdf_page": 12,
-      "printed_page": "1",
+      "node_id": "tcn_3dc81ff13269bde5",
+      "node_title": "制作简易的地球仪地球仪是我们学习地理常用的工具。制作简易地球仪,可以帮助我们更好地认识地球仪上重要的点和线。",
+      "pdf_page": 19,
+      "printed_page": "14",
       "publication_status": "published",
-      "rationale": "教材学习目标“人类是如何逐步认识地球形状的?”与课标 SC-H4G7-SC-041 的可教学小能力“识别并说出人类认识地球形状和大小的历程的关键特征”形成页内证据匹配。",
-      "relation_type": "supports",
+      "rationale": "教材练习“制作简易的地球仪地球仪是我们学习地理常用的工具。制作简易地球仪,可以帮助我们更好地认识地球仪上重要的点和线。”与课标 SC-H4G7-SC-041 的可教学小能力“识别并说出人类认识地球形状和大小的历程的关键特征”形成页内证据匹配。",
+      "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 7,
       "textbook_subject": "地理",
       "textbook_title": "地理7年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_49ff4bf6e7d27542",
-      "unit_title": "第一章"
+      "unit_id": "tcu_5465705cb590dc80",
+      "unit_title": "第一章 地球"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6cf48669f8e9cac0",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_fc41327ff0651b269c88",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_geography_junior_grade_7_down",
+        "tes_96d7438968133d83",
+        "textbook-node:tcn_017a4a12d208525d",
+        "textbook-unit:tcu_ee738412f98bee41"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据纬度差值估算两地间的距离。那 度差计算的距离。",
+          "excerpt_hash": "32ac4298d580210371a53b64bf0884f43281fe3e235bf73721f50e35c5deb33f",
+          "pdf_page": 8,
+          "printed_page": null,
+          "span_id": "tes_96d7438968133d83"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_6eb80108b60c97b0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_6eb80108b60c97b0",
+          "label": "准确说出地球与月球、地球与太阳之间的距离"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_017a4a12d208525d",
+      "node_title": "根据纬度差值估算两地间的距离。那 度差计算的距离。",
+      "pdf_page": 8,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材练习“根据纬度差值估算两地间的距离。那 度差计算的距离。”与课标 SC-H4G7-SC-041 的可教学小能力“准确说出地球与月球、地球与太阳之间的距离”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "地理",
+      "textbook_title": "地理7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_ee738412f98bee41",
+      "unit_title": "第七章 我们生活的大洲——亚洲"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -118,7 +173,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_7070ee669923"
+        "external_smartedu_2026_biology_junior_grade_7_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -130,7 +185,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_ba775a07035c65ee",
       "textbook_grade": 7,
       "textbook_subject": "生物学",
@@ -149,7 +204,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_b2901b9e06df"
+        "external_smartedu_2026_biology_junior_grade_7_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -161,7 +216,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_3daf5000bc9191a7",
       "textbook_grade": 7,
       "textbook_subject": "生物学",
@@ -180,7 +235,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_ae920aee077f"
+        "external_smartedu_2026_geography_junior_grade_7_up"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -192,7 +247,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_94dc3a2f9a671969",
       "textbook_grade": 7,
       "textbook_subject": "地理",
@@ -211,7 +266,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_ae5d3f924fb1"
+        "external_smartedu_2026_geography_junior_grade_7_down"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -223,7 +278,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_4604008cfd618f79",
       "textbook_grade": 7,
       "textbook_subject": "地理",

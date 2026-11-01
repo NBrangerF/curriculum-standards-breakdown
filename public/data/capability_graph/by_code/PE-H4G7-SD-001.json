@@ -43,16 +43,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 1,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1cdff4f88d14037f",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_bebb65c5f3a6a181b33b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_junior_grade_7_full",
+        "tes_78c87f46c5f33091",
+        "textbook-node:tcn_54369307362cfbf7",
+        "textbook-unit:tcu_4dbc9519b2cd3aed"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "讨论:案例中的这两种行为是否符合守正遵规的要求,是否体现了体育精神,是“大智慧”还是“小聪明”?请结合六年级所学的有关“公平竞争”的内容,与同学交流讨论,或围绕这两个案例进行一次辩论赛。",
+          "excerpt_hash": "15f5b85eeb734a1d7dab5cdcbd7853bd029559aaa8a6b77addd38cd1b3d32e83",
+          "pdf_page": 17,
+          "printed_page": "12",
+          "span_id": "tes_78c87f46c5f33091"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_e1ae2877d46467c4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_e1ae2877d46467c4",
+          "label": "表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_54369307362cfbf7",
+      "node_title": "讨论:案例中的这两种行为是否符合守正遵规的要求,是否体现了体育精神,是“大智慧”还是“小聪明”?请结合六年级所学的有关“公平竞争”的内容,与同学交流讨论,或围绕这两个案例进行一次辩论赛。",
+      "pdf_page": 17,
+      "printed_page": "12",
+      "publication_status": "published",
+      "rationale": "教材练习“讨论:案例中的这两种行为是否符合守正遵规的要求,是否体现了体育精神,是“大智慧”还是“小聪明”?请结合六年级所学的有关“公平竞争”的内容,与同学交流讨论,或围绕这两个案例进行一次辩论赛。”与课标 PE-H4G7-SD-001 的可教学小能力“表现出自我保护、情绪调控、沟通合作、公平竞争和勇于拼搏的精神”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康7年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_4dbc9519b2cd3aed",
+      "unit_title": "第一单元 体育文化与体育精神"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_944cfd622c2e67f8",
@@ -63,7 +118,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_7f9265bf475e"
+        "external_smartedu_2026_pe_junior_grade_7_full"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +130,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_fc995ab30b3d79ec",
       "textbook_grade": 7,
       "textbook_subject": "体育与健康",

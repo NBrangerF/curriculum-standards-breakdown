@@ -80,16 +80,181 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 3,
     "scope_count": 1,
-    "specific_count": 0,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0ff3abb8c27694cf",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_4033475eef6d59cd7a75",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_junior_grade_8_full",
+        "tes_95d0492e6c0c404a",
+        "textbook-node:tcn_eda2ac6bef60addf",
+        "textbook-unit:tcu_e949efc4b00cc479"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "通过访问本地的中华传统体育文化传承人,了解、体验和感悟中华传统",
+          "excerpt_hash": "d0810cd621113d2358c221488b2e4fc7e7ef4d24722c6e61bd7ce08a358b7364",
+          "pdf_page": 22,
+          "printed_page": "17",
+          "span_id": "tes_95d0492e6c0c404a"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1d75baf44b1db946"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1d75baf44b1db946",
+          "label": "正确运用所学中华传统体育类运动项目的完整动作技术完成任务"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_eda2ac6bef60addf",
+      "node_title": "通过访问本地的中华传统体育文化传承人,了解、体验和感悟中华传统",
+      "pdf_page": 22,
+      "printed_page": "17",
+      "publication_status": "published",
+      "rationale": "教材学习目标“通过访问本地的中华传统体育文化传承人,了解、体验和感悟中华传统”与课标 PE-H4G8-LM-026 的可教学小能力“正确运用所学中华传统体育类运动项目的完整动作技术完成任务”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康8年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_e949efc4b00cc479",
+      "unit_title": "第一单元 体育文化与体育精神"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_612acb7df46d7836",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_4033475eef6d59cd7a75",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_junior_grade_8_full",
+        "tes_2a3189b6e31a0d75",
+        "textbook-node:tcn_70c31e1e55a7222f",
+        "textbook-unit:tcu_e949efc4b00cc479"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择一种中华传统体育项目,在老师指导下根据学校实际,创新改变比赛方法和规则,在校园中开展对抗赛,使中华传统体育得到传承与发展。",
+          "excerpt_hash": "251672b311031cd951f91564b8ca1b6965ce8936a8e912c1975fe98c714e608d",
+          "pdf_page": 19,
+          "printed_page": "14",
+          "span_id": "tes_2a3189b6e31a0d75"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1d75baf44b1db946"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1d75baf44b1db946",
+          "label": "正确运用所学中华传统体育类运动项目的完整动作技术完成任务"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_70c31e1e55a7222f",
+      "node_title": "选择一种中华传统体育项目,在老师指导下根据学校实际,创新改变比赛方法和规则,在校园中开展对抗赛,使中华传统体育得到传承与发展。",
+      "pdf_page": 19,
+      "printed_page": "14",
+      "publication_status": "published",
+      "rationale": "教材练习“选择一种中华传统体育项目,在老师指导下根据学校实际,创新改变比赛方法和规则,在校园中开展对抗赛,使中华传统体育得到传承与发展。”与课标 PE-H4G8-LM-026 的可教学小能力“正确运用所学中华传统体育类运动项目的完整动作技术完成任务”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康8年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_e949efc4b00cc479",
+      "unit_title": "第一单元 体育文化与体育精神"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6bc7dc4e306f34f1",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_4033475eef6d59cd7a75",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_junior_grade_8_full",
+        "tes_6f82f8fcc9bb1f24",
+        "textbook-node:tcn_175c0a62197983ac",
+        "textbook-unit:tcu_e949efc4b00cc479"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "在学练赛中感受中华传统体育。在学练武术、舞龙等项目过程中,触摸",
+          "excerpt_hash": "3caca82ba098bb7fd4bea8be34fbe25974dd917bd44695ead651c88dc02bcaa6",
+          "pdf_page": 22,
+          "printed_page": "17",
+          "span_id": "tes_6f82f8fcc9bb1f24"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_1d75baf44b1db946"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_1d75baf44b1db946",
+          "label": "正确运用所学中华传统体育类运动项目的完整动作技术完成任务"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_175c0a62197983ac",
+      "node_title": "在学练赛中感受中华传统体育。在学练武术、舞龙等项目过程中,触摸",
+      "pdf_page": 22,
+      "printed_page": "17",
+      "publication_status": "published",
+      "rationale": "教材学习目标“在学练赛中感受中华传统体育。在学练武术、舞龙等项目过程中,触摸”与课标 PE-H4G8-LM-026 的可教学小能力“正确运用所学中华传统体育类运动项目的完整动作技术完成任务”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康8年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_e949efc4b00cc479",
+      "unit_title": "第一单元 体育文化与体育精神"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c3b4d44eb972402e",
@@ -100,7 +265,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_640488b51030"
+        "external_smartedu_2026_pe_junior_grade_8_full"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -112,7 +277,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_b134cd8790a103dd",
       "textbook_grade": 8,
       "textbook_subject": "体育与健康",

@@ -43,16 +43,126 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 1,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_48d20d430bce7b23",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_edad04fc8816a4ef583f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_junior_grade_9_full",
+        "tes_81ac2024c073d8fe",
+        "textbook-node:tcn_f02d3c0b5b79cf4d",
+        "textbook-unit:tcu_0833aed1abb6b8de"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "坚持体育锻炼,使自己更加健康、更具魅力了。",
+          "excerpt_hash": "68e4a1c8133558c1800ebe8bafbf82d6249aa68e2fc903051acdeca7ce96f810",
+          "pdf_page": 8,
+          "printed_page": "3",
+          "span_id": "tes_81ac2024c073d8fe"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3ed8e408036aff4e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3ed8e408036aff4e",
+          "label": "有规律地参与校内外体育锻炼"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f02d3c0b5b79cf4d",
+      "node_title": "坚持体育锻炼,使自己更加健康、更具魅力了。",
+      "pdf_page": 8,
+      "printed_page": "3",
+      "publication_status": "published",
+      "rationale": "教材学习目标“坚持体育锻炼,使自己更加健康、更具魅力了。”与课标 PE-H4G9-HB-003 的可教学小能力“有规律地参与校内外体育锻炼”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 9,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_0833aed1abb6b8de",
+      "unit_title": "第一单元体育文化与体育精神"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_27ce53b0914aec0e",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_edad04fc8816a4ef583f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_junior_grade_9_full",
+        "tes_c660c2e6562a245c",
+        "textbook-node:tcn_ee0a827f9a186151",
+        "textbook-unit:tcu_8e68cdd4a1259872"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "制作倡议书,进行健康宣传。要求信息准确,表述清晰简明,具有一定的吸引力。倡议书可包括以下内容。",
+          "excerpt_hash": "b06fef379104b4430120ec81fbdc918946791dd1e90c8116d68ddd201a2d069a",
+          "pdf_page": 48,
+          "printed_page": "43",
+          "span_id": "tes_c660c2e6562a245c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_efd27fafc49e93db"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_efd27fafc49e93db",
+          "label": "运用健康与安全知识和技能进行健康管理"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ee0a827f9a186151",
+      "node_title": "制作倡议书,进行健康宣传。要求信息准确,表述清晰简明,具有一定的吸引力。倡议书可包括以下内容。",
+      "pdf_page": 48,
+      "printed_page": "43",
+      "publication_status": "published",
+      "rationale": "教材练习“制作倡议书,进行健康宣传。要求信息准确,表述清晰简明,具有一定的吸引力。倡议书可包括以下内容。”与课标 PE-H4G9-HB-003 的可教学小能力“运用健康与安全知识和技能进行健康管理”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 9,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康9年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_8e68cdd4a1259872",
+      "unit_title": "第四单元疾病预防与安全应急"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e29591f40d04a3c9",
@@ -63,7 +173,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_028db4ce8af0"
+        "external_smartedu_2026_pe_junior_grade_9_full"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +185,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_5a8a2e0e888764ac",
       "textbook_grade": 9,
       "textbook_subject": "体育与健康",

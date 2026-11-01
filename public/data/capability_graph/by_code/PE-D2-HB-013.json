@@ -43,16 +43,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
     "page_evidence_count": 0,
-    "scope_count": 1,
-    "specific_count": 0,
+    "scope_count": 2,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8cce74d7cec8cb83",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_a55f3aca2c3963472bc9",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_primary_grade_4_full",
+        "tes_bfc7d1765df062b7",
+        "textbook-node:tcn_adbf3abeacf7e061",
+        "textbook-unit:tcu_924d8ac592206d9e"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "10 冻伤的预防与处理",
+          "excerpt_hash": "a1ba2a061738762a1335bda317a2771d75f7df719eb0bb0692da368a5c0f2125",
+          "pdf_page": 43,
+          "printed_page": "38",
+          "span_id": "tes_bfc7d1765df062b7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b03bf7285c52d541"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b03bf7285c52d541",
+          "label": "识别并说出运动伤病的预防与简单处理方法（热身、放松、扭伤处理等）的关键特征"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_adbf3abeacf7e061",
+      "node_title": "10冻伤的预防与处理",
+      "pdf_page": 43,
+      "printed_page": "38",
+      "publication_status": "published",
+      "rationale": "教材课文“10冻伤的预防与处理”与课标 PE-D2-HB-013 的可教学小能力“识别并说出运动伤病的预防与简单处理方法（热身、放松、扭伤处理等）的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康4年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": "tcu_924d8ac592206d9e",
+      "unit_title": "疾病预防与安全应急"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_c56d75a38c3b0dba",
@@ -63,7 +118,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "external_smartedu_pe_primary_grade_3_2022"
+        "external_smartedu_2026_pe_primary_grade_3_full"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -80,6 +135,37 @@
       "textbook_grade": 3,
       "textbook_subject": "体育与健康",
       "textbook_title": "体育与健康3年级全一册",
+      "textbook_volume": "全一册",
+      "unit_id": null,
+      "unit_title": ""
+    },
+    {
+      "algorithm_version": "full-alignment-scope-preserve-v2",
+      "alignment_id": "ca_ea6aea6237a34d09",
+      "alignment_type": "references",
+      "confidence": null,
+      "coverage": "scope_only",
+      "edition_id": "ed_a55f3aca2c3963472bc9",
+      "evidence_basis": "subject_grade_scope",
+      "evidence_level": "L1_scope",
+      "evidence_refs": [
+        "external_smartedu_2026_pe_primary_grade_4_full"
+      ],
+      "evidence_role": "direct_textbook",
+      "level": "scope",
+      "method": "subject_grade_scope_mapping",
+      "pdf_page": null,
+      "printed_page": null,
+      "publication_status": "published_scope",
+      "rationale": "教材与课标处于同学科、同学段的适用范围；此关系不证明某一单元直接教授该条标准。",
+      "relation_type": "curriculum_scope",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "scope_id": "tcs_71a2c7987686fc3e",
+      "textbook_grade": 4,
+      "textbook_subject": "体育与健康",
+      "textbook_title": "体育与健康4年级全一册",
       "textbook_volume": "全一册",
       "unit_id": null,
       "unit_title": ""

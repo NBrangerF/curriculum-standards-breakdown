@@ -43,16 +43,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a0b58e7eb60fd61c",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_down",
+        "tes_f71929a25639ddd2",
+        "textbook-node:tcn_be2eb30dc4abafd4",
+        "textbook-unit:tcu_c213f68675f7bfe3"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "证明性质定理的逆命题,得到图形的判定定理.在对各种四边形性质的学习中,我们往往是先利用图形直观发现图形的性质,再利用逻辑推理证明得到的结论.这些方法是研究几何图形的常用方法,有利于增强几何直",
+          "excerpt_hash": "ec3c35d37fc95c73a61f159f8281dfc31ec775597b11134c1524681f9e7a2fcb",
+          "pdf_page": 92,
+          "printed_page": "85",
+          "span_id": "tes_f71929a25639ddd2"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_632c79b8a9eb4731"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_632c79b8a9eb4731",
+          "label": "探索并证明平行线的判定和性质定理"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_be2eb30dc4abafd4",
+      "node_title": "证明性质定理的逆命题,得到图形的判定定理.在对各种四边形性质的学习中,我们往往是先利用图形直观发现图形的性质,再利用逻辑推理证明得到的结论.这些方法是研究几何图形的常用方法,有利于增强几何直",
+      "pdf_page": 92,
+      "printed_page": "85",
+      "publication_status": "published",
+      "rationale": "教材练习“证明性质定理的逆命题,得到图形的判定定理.在对各种四边形性质的学习中,我们往往是先利用图形直观发现图形的性质,再利用逻辑推理证明得到的结论.这些方法是研究几何图形的常用方法,有利于增强几何直”与课标 MA-H4G8-GE-008 的可教学小能力“探索并证明平行线的判定和性质定理”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_c213f68675f7bfe3",
+      "unit_title": "第二十一章 四边形"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d26bbec67b7b9173",
@@ -63,7 +118,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_e14d09b0b94a"
+        "external_smartedu_2026_math_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +130,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d79076db84511d8a",
       "textbook_grade": 8,
       "textbook_subject": "数学",
@@ -94,7 +149,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_485165afa9c8"
+        "external_smartedu_2026_math_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -106,7 +161,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_8684cc79506c65f5",
       "textbook_grade": 8,
       "textbook_subject": "数学",

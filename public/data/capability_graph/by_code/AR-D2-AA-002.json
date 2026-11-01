@@ -120,11 +120,11 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 8,
     "specific_count": 1,
     "unit_topic_candidate_count": 0
@@ -132,29 +132,29 @@
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_dcb2e71d2f7cb66d",
-      "alignment_type": "supports",
+      "alignment_id": "tca_0a66a0ee507dad48",
+      "alignment_type": "practices",
       "confidence": 0.86,
       "coverage": "partial",
-      "edition_id": "ed_44c60d22c78f509e054c",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
+      "edition_id": "ed_f7acd88d28a877e8c1e5",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_c5257fc4696e",
-        "tes_25b8467773ee75eb",
-        "textbook-node:tcn_1027d5c0754056d0",
-        "textbook-unit:tcu_f486c68bac469725"
+        "external_smartedu_2026_art_primary_grade_3_down",
+        "tes_77c885e47eb2c2af",
+        "textbook-node:tcn_00c41e19d9291777",
+        "textbook-unit:tcu_34e9ab941961877b"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "1. 课中的民间美术作品有",
-          "excerpt_hash": "da06bbe93f4f3dc32407de4ebe145251a4b47d90345eacff78dbd9f391d5a8b6",
-          "pdf_page": 47,
-          "printed_page": "43",
-          "span_id": "tes_25b8467773ee75eb"
+          "excerpt": "选择一幅自己喜欢的美术作品,从主题、内容、造型、色彩等方面 . 我能感受到生活中的幸福时进行欣赏、评述。 光。□",
+          "excerpt_hash": "f9c65019a9a7b38eaf1dff65a58e64bf0805dc388f207cc679d5e36d8ccb08fc",
+          "pdf_page": 10,
+          "printed_page": "6",
+          "span_id": "tes_77c885e47eb2c2af"
         }
       ],
       "learning_component_ids": [
@@ -166,24 +166,24 @@
           "label": "欣赏与评述中外美术作品"
         }
       ],
-      "level": "unit",
+      "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_1027d5c0754056d0",
-      "node_title": "1课中的民间美术作品有",
-      "pdf_page": 47,
-      "printed_page": "43",
+      "node_id": "tcn_00c41e19d9291777",
+      "node_title": "选择一幅自己喜欢的美术作品,从主题、内容、造型、色彩等方面 . 我能感受到生活中的幸福时进行欣赏、评述。 光。□",
+      "pdf_page": 10,
+      "printed_page": "6",
       "publication_status": "published",
-      "rationale": "教材课文“1课中的民间美术作品有”与课标 AR-D2-AA-002 的可教学小能力“欣赏与评述中外美术作品”形成页内证据匹配。",
-      "relation_type": "supports",
+      "rationale": "教材练习“选择一幅自己喜欢的美术作品,从主题、内容、造型、色彩等方面 . 我能感受到生活中的幸福时进行欣赏、评述。 光。□”与课标 AR-D2-AA-002 的可教学小能力“欣赏与评述中外美术作品”形成页内证据匹配。",
+      "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 3,
       "textbook_subject": "美术",
-      "textbook_title": "美术3年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_f486c68bac469725",
-      "unit_title": "对印版画"
+      "textbook_title": "美术3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_34e9ab941961877b",
+      "unit_title": "快快乐乐的童年"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -195,7 +195,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_25cc2de0079d"
+        "external_smartedu_2026_art_primary_grade_4_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -207,7 +207,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_fbf879fc86b8f9dd",
       "textbook_grade": 4,
       "textbook_subject": "美术",
@@ -226,7 +226,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c5257fc4696e"
+        "external_smartedu_2026_art_primary_grade_3_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -238,7 +238,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_5773d3c34b5fac1a",
       "textbook_grade": 3,
       "textbook_subject": "美术",
@@ -319,7 +319,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_aa7ce1e8a37f"
+        "external_smartedu_2026_music_primary_grade_3_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -331,7 +331,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_4a0a538012d57261",
       "textbook_grade": 3,
       "textbook_subject": "音乐",
@@ -350,7 +350,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_572122ddff26"
+        "external_smartedu_2026_music_primary_grade_3_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -362,7 +362,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_9a72f44c9f0c7435",
       "textbook_grade": 3,
       "textbook_subject": "音乐",
@@ -412,7 +412,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_aa3aaa5d9032"
+        "external_smartedu_2026_art_primary_grade_3_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -424,7 +424,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_19c3fbbc0c7e7882",
       "textbook_grade": 3,
       "textbook_subject": "美术",

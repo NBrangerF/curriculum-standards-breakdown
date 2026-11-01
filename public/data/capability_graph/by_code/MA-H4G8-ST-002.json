@@ -124,16 +124,236 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 4,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 4,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_376464014281a627",
+      "alignment_type": "practices",
+      "confidence": 0.8476,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_down",
+        "tes_665c5bd848ea5440",
+        "textbook-node:tcn_31fbdc5db0be7bce",
+        "textbook-unit:tcu_9911aa3e8fdd4a1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据样本数据计算反映了每个数据与平均数的平均差异程度,能较好 得到的方差,叫作样本地反映出数据的离散程度,是刻画数据离散程度最 方差;根据总体数据计",
+          "excerpt_hash": "3d3635a3099dd3011967cda8c084f0adc82937707765231b30a2e06dac620257",
+          "pdf_page": 176,
+          "printed_page": "169",
+          "span_id": "tes_665c5bd848ea5440"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a201e580fe14a64f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a201e580fe14a64f",
+          "label": "计算平均数、方差、四分位数等统计量"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_31fbdc5db0be7bce",
+      "node_title": "根据样本数据计算反映了每个数据与平均数的平均差异程度,能较好 得到的方差,叫作样本地反映出数据的离散程度,是刻画数据离散程度最 方差;根据总体数据计",
+      "pdf_page": 176,
+      "printed_page": "169",
+      "publication_status": "published",
+      "rationale": "教材练习“根据样本数据计算反映了每个数据与平均数的平均差异程度,能较好 得到的方差,叫作样本地反映出数据的离散程度,是刻画数据离散程度最 方差;根据总体数据计”与课标 MA-H4G8-ST-002 的可教学小能力“计算平均数、方差、四分位数等统计量”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9911aa3e8fdd4a1f",
+      "unit_title": "第二十四章 数据的分析"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4f14826ab57b517d",
+      "alignment_type": "practices",
+      "confidence": 0.8476,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_down",
+        "tes_090c3d79e61b7cdf",
+        "textbook-node:tcn_f5fed6cad51dc487",
+        "textbook-unit:tcu_9911aa3e8fdd4a1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "计算器的使用说明书.通常先按某一功能键,使计算器进入统计状态;然后依次输入数据狓1,狓2,...,狓狀以及它们的权狑1,狑2,...,狑狀;最后按求平均数狓1狑1+狓2狑2+...+狓狀狑狀",
+          "excerpt_hash": "d2a4e503214a8461cb8eaa908001ceb3c0bbccfe537491b34c17360e64d4ad24",
+          "pdf_page": 161,
+          "printed_page": "154",
+          "span_id": "tes_090c3d79e61b7cdf"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a201e580fe14a64f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a201e580fe14a64f",
+          "label": "计算平均数、方差、四分位数等统计量"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f5fed6cad51dc487",
+      "node_title": "计算器的使用说明书.通常先按某一功能键,使计算器进入统计状态;然后依次输入数据狓1,狓2,...,狓狀以及它们的权狑1,狑2,...,狑狀;最后按求平均数狓1狑1+狓2狑2+...+狓狀狑狀",
+      "pdf_page": 161,
+      "printed_page": "154",
+      "publication_status": "published",
+      "rationale": "教材练习“计算器的使用说明书.通常先按某一功能键,使计算器进入统计状态;然后依次输入数据狓1,狓2,...,狓狀以及它们的权狑1,狑2,...,狑狀;最后按求平均数狓1狑1+狓2狑2+...+狓狀狑狀”与课标 MA-H4G8-ST-002 的可教学小能力“计算平均数、方差、四分位数等统计量”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9911aa3e8fdd4a1f",
+      "unit_title": "第二十四章 数据的分析"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_bc5b32f11a1c91a0",
+      "alignment_type": "practices",
+      "confidence": 0.8477,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_down",
+        "tes_5faf7a630b21bbbc",
+        "textbook-node:tcn_303831d22d9e528a",
+        "textbook-unit:tcu_9911aa3e8fdd4a1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据样本数据计算狓1+狓2+...+狓狀 得到的平均数,叫作样狀",
+          "excerpt_hash": "f505602ff78d953901f012c2f1eeeeb6504e710f3313b9d0dfae9f9a327a40ec",
+          "pdf_page": 156,
+          "printed_page": "149",
+          "span_id": "tes_5faf7a630b21bbbc"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a201e580fe14a64f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a201e580fe14a64f",
+          "label": "计算平均数、方差、四分位数等统计量"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_303831d22d9e528a",
+      "node_title": "根据样本数据计算狓1+狓2+...+狓狀 得到的平均数,叫作样狀",
+      "pdf_page": 156,
+      "printed_page": "149",
+      "publication_status": "published",
+      "rationale": "教材练习“根据样本数据计算狓1+狓2+...+狓狀 得到的平均数,叫作样狀”与课标 MA-H4G8-ST-002 的可教学小能力“计算平均数、方差、四分位数等统计量”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9911aa3e8fdd4a1f",
+      "unit_title": "第二十四章 数据的分析"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e6db9ab26a476432",
+      "alignment_type": "practices",
+      "confidence": 0.8473,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_down",
+        "tes_000dbece39e1787d",
+        "textbook-node:tcn_4b4ab8990d1f712c",
+        "textbook-unit:tcu_9911aa3e8fdd4a1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "计算全国的居民人均可支配收入,可先按省份各自计算其人均可支配收入和人数,再利用加权平均数进行计算.这样不仅减少了把各省份所有调查的数据集中在一起的工作,而且分散了计算量.像这样先按数据分组分别计算,再通过一定算法由各",
+          "excerpt_hash": "8d0a2adc9d5442c2d6e4fe800804b30ab2c0ca67d8b9f9b61daf2af1627189f3",
+          "pdf_page": 160,
+          "printed_page": "153",
+          "span_id": "tes_000dbece39e1787d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a201e580fe14a64f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a201e580fe14a64f",
+          "label": "计算平均数、方差、四分位数等统计量"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_4b4ab8990d1f712c",
+      "node_title": "计算全国的居民人均可支配收入,可先按省份各自计算其人均可支配收入和人数,再利用加权平均数进行计算.这样不仅减少了把各省份所有调查的数据集中在一起的工作,而且分散了计算量.像这样先按数据分组分别计算,再通过一定算法由各",
+      "pdf_page": 160,
+      "printed_page": "153",
+      "publication_status": "published",
+      "rationale": "教材练习“计算全国的居民人均可支配收入,可先按省份各自计算其人均可支配收入和人数,再利用加权平均数进行计算.这样不仅减少了把各省份所有调查的数据集中在一起的工作,而且分散了计算量.像这样先按数据分组分别计算,再通过一定算法由各”与课标 MA-H4G8-ST-002 的可教学小能力“计算平均数、方差、四分位数等统计量”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9911aa3e8fdd4a1f",
+      "unit_title": "第二十四章 数据的分析"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_837eecdee6277794",
@@ -144,7 +364,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_e14d09b0b94a"
+        "external_smartedu_2026_math_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -156,7 +376,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d79076db84511d8a",
       "textbook_grade": 8,
       "textbook_subject": "数学",
@@ -175,7 +395,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_485165afa9c8"
+        "external_smartedu_2026_math_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -187,7 +407,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_8684cc79506c65f5",
       "textbook_grade": 8,
       "textbook_subject": "数学",

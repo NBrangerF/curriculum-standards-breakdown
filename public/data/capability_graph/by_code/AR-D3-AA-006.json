@@ -43,16 +43,76 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 8,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_86af5d28b73816f3",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_00452e62b0a9dead1e66",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_6_up",
+        "tes_0eeef9ea41535a07",
+        "textbook-node:tcn_cd2a604020f2d9be",
+        "textbook-unit:tcu_8311e9081bca2b61"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "设计“国潮”服装,借助现代媒体艺术丰富的表现形式,将中华风尚向世界传播!",
+          "excerpt_hash": "4b201966fbd08c509cb33c53aca180b4a83ae13702722dc89c73c8c4b465e2c3",
+          "pdf_page": 50,
+          "printed_page": "45",
+          "span_id": "tes_0eeef9ea41535a07"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_0ab5d7a5573ca9d8",
+        "lc_e3b40cf379f85473"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_0ab5d7a5573ca9d8",
+          "label": "分析舞蹈、戏剧（含戏曲）、影视/数字媒体艺术中音乐的特点与作用"
+        },
+        {
+          "component_id": "lc_e3b40cf379f85473",
+          "label": "辨别代表性戏曲剧种、行当与表现形式"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_cd2a604020f2d9be",
+      "node_title": "设计“国潮”服装,借助现代媒体艺术丰富的表现形式,将中华风尚向世界传播!",
+      "pdf_page": 50,
+      "printed_page": "45",
+      "publication_status": "published",
+      "rationale": "教材练习“设计“国潮”服装,借助现代媒体艺术丰富的表现形式,将中华风尚向世界传播!”与课标 AR-D3-AA-006 的可教学小能力“分析舞蹈、戏剧（含戏曲）、影视/数字媒体艺术中音乐的特点与作用、辨别代表性戏曲剧种、行当与表现形式”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 6,
+      "textbook_subject": "美术",
+      "textbook_title": "美术6年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8311e9081bca2b61",
+      "unit_title": "中华风尚"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_26c0df401a555593",
@@ -63,7 +123,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a500c9f1cd1c"
+        "external_smartedu_2026_art_primary_grade_6_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -75,7 +135,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_1fabba386856d842",
       "textbook_grade": 6,
       "textbook_subject": "美术",
@@ -94,7 +154,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_e4cb7e4583cf"
+        "external_smartedu_2026_art_primary_grade_5_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -106,7 +166,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_98c7d2610118429f",
       "textbook_grade": 5,
       "textbook_subject": "美术",
@@ -280,7 +340,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_118d280cce66"
+        "external_smartedu_2026_music_primary_grade_6_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -292,7 +352,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_8ce6886f94462897",
       "textbook_grade": 6,
       "textbook_subject": "音乐",

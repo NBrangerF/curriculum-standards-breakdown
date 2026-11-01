@@ -83,71 +83,16 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
+    "highest_evidence_level": "L1_scope",
     "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 1,
+    "specific_count": 0,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_7d98512618f5f266",
-      "alignment_type": "supports",
-      "confidence": 0.86,
-      "coverage": "partial",
-      "edition_id": "ed_a8de7020a4602b4d0f3f",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_e14d09b0b94a",
-        "tes_801a47921b3b4509",
-        "textbook-node:tcn_bfacecd20f6fe652",
-        "textbook-unit:tcu_39e7bc2d5f1da96c"
-      ],
-      "evidence_role": "direct_textbook",
-      "evidence_spans": [
-        {
-          "evidence_role": "direct_textbook",
-          "excerpt": "15.1.2 分式的基本性质",
-          "excerpt_hash": "d9167825f8d4a96d5dcb814741c2fbe167547ab8df25f11322be04397ca5935d",
-          "pdf_page": 136,
-          "printed_page": "129",
-          "span_id": "tes_801a47921b3b4509"
-        }
-      ],
-      "learning_component_ids": [
-        "lc_c3423ba290b079d8"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_c3423ba290b079d8",
-          "label": "识别并说出中心对称和中心对称图形概念及基本性质的关键特征"
-        }
-      ],
-      "level": "unit",
-      "method": "component_evidence_hybrid",
-      "node_id": "tcn_bfacecd20f6fe652",
-      "node_title": "15.1.2 分式的基本性质",
-      "pdf_page": 136,
-      "printed_page": "129",
-      "publication_status": "published",
-      "rationale": "教材小节“15.1.2 分式的基本性质”与课标 MA-H4G8-GE-026 的可教学小能力“识别并说出中心对称和中心对称图形概念及基本性质的关键特征”形成页内证据匹配。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 8,
-      "textbook_subject": "数学",
-      "textbook_title": "数学8年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_39e7bc2d5f1da96c",
-      "unit_title": "第十五章 分式"
-    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_626a9d708e701af0",
@@ -158,7 +103,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_e14d09b0b94a"
+        "external_smartedu_2026_math_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -170,7 +115,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d79076db84511d8a",
       "textbook_grade": 8,
       "textbook_subject": "数学",
@@ -189,7 +134,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_485165afa9c8"
+        "external_smartedu_2026_math_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -201,7 +146,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_8684cc79506c65f5",
       "textbook_grade": 8,
       "textbook_subject": "数学",

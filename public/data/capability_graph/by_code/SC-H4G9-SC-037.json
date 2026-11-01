@@ -82,96 +82,41 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "page_aligned",
-    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 1,
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 3,
-    "specific_count": 3,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_6da9f7de6f42a23f",
-      "alignment_type": "practices",
-      "confidence": 0.86,
-      "coverage": "partial",
-      "edition_id": "ed_c14ed4b05364a2e90445",
-      "evidence_basis": "textbook_page_span",
-      "evidence_gap": null,
-      "evidence_level": "L3_page_evidence",
-      "evidence_refs": [
-        "ctb_f0fcd567e766",
-        "tes_9309964d5d34fb98",
-        "textbook-node:tcn_a3cd6db0610e3418",
-        "textbook-unit:tcu_8cddf85672d6624e"
-      ],
-      "evidence_role": "direct_textbook",
-      "evidence_spans": [
-        {
-          "evidence_role": "direct_textbook",
-          "excerpt": "探究并联电路中干路电流与各支路电流的关系1. 设计实验电路。请在下面空白处分别画出用电流表测量A、B、C三点电流的电路图。",
-          "excerpt_hash": "c66a2726945c9d3ff9a0adac2c14c42b957b82aa0d1ece50dacb681f6cd76f15",
-          "pdf_page": 57,
-          "printed_page": "50",
-          "span_id": "tes_9309964d5d34fb98"
-        }
-      ],
-      "learning_component_ids": [
-        "lc_b431ed652e6871f2"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_b431ed652e6871f2",
-          "label": "用电流表和电压表测量"
-        }
-      ],
-      "level": "page",
-      "method": "component_evidence_hybrid",
-      "node_id": "tcn_a3cd6db0610e3418",
-      "node_title": "探究并联电路中干路电流与各支路电流的关系1. 设计实验电路。请在下面空白处分别画出用电流表测量A、B、C三点电流的电路图。",
-      "pdf_page": 57,
-      "printed_page": "50",
-      "publication_status": "published",
-      "rationale": "教材练习“探究并联电路中干路电流与各支路电流的关系1. 设计实验电路。请在下面空白处分别画出用电流表测量A、B、C三点电流的电路图。”与课标 SC-H4G9-SC-037 的可教学小能力“用电流表和电压表测量”形成页内证据匹配。",
-      "relation_type": "practices",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 9,
-      "textbook_subject": "物理",
-      "textbook_title": "物理9年级全一册",
-      "textbook_volume": "全一册",
-      "unit_id": "tcu_8cddf85672d6624e",
-      "unit_title": "第十五章 电流和电路"
-    },
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_6ff9a765d48cb11e",
+      "alignment_id": "tca_11a6a20936a092e5",
       "alignment_type": "supports",
-      "confidence": 0.86,
+      "confidence": 0.92,
       "coverage": "partial",
       "edition_id": "ed_c14ed4b05364a2e90445",
       "evidence_basis": "toc_title",
       "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
       "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctb_f0fcd567e766",
-        "tes_aa3119595f72e17b",
-        "textbook-node:tcn_07572bed69832dc1",
-        "textbook-unit:tcu_8cddf85672d6624e"
+        "external_smartedu_2026_physics_junior_grade_9_full",
+        "tes_5cfe866e8454401e",
+        "textbook-node:tcn_cbcb67297b445714",
+        "textbook-unit:tcu_ae821fc1436f0899"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "3. 用电流表测量电路中的电流",
-          "excerpt_hash": "4fd311106148a86356cc027004f65618d9c630bf40d07e41fd8aa8f6ba894d40",
-          "pdf_page": 54,
-          "printed_page": "47",
-          "span_id": "tes_aa3119595f72e17b"
+          "excerpt": "3. 用电压表测量电压",
+          "excerpt_hash": "89e3b5477f86888dc8ef1423d8d9a832dada73081f01065b73f5254d813acd5b",
+          "pdf_page": 76,
+          "printed_page": "153",
+          "span_id": "tes_5cfe866e8454401e"
         }
       ],
       "learning_component_ids": [
@@ -185,26 +130,26 @@
       ],
       "level": "unit",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_07572bed69832dc1",
-      "node_title": "3用电流表测量电路中的电流",
-      "pdf_page": 54,
-      "printed_page": "47",
+      "node_id": "tcn_cbcb67297b445714",
+      "node_title": "3用电压表测量电压",
+      "pdf_page": 76,
+      "printed_page": "153",
       "publication_status": "published",
-      "rationale": "教材课文“3用电流表测量电路中的电流”与课标 SC-H4G9-SC-037 的可教学小能力“用电流表和电压表测量”形成页内证据匹配。",
+      "rationale": "教材课文“3用电压表测量电压”与课标 SC-H4G9-SC-037 的可教学小能力“用电流表和电压表测量”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 9,
       "textbook_subject": "物理",
       "textbook_title": "物理9年级全一册",
       "textbook_volume": "全一册",
-      "unit_id": "tcu_8cddf85672d6624e",
-      "unit_title": "第十五章 电流和电路"
+      "unit_id": "tcu_ae821fc1436f0899",
+      "unit_title": "第十六章 电压 电阻"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_c82d4b22590ca07b",
+      "alignment_id": "tca_1ad6a88855f0b778",
       "alignment_type": "supports",
       "confidence": 0.86,
       "coverage": "partial",
@@ -213,48 +158,48 @@
       "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
       "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctb_f0fcd567e766",
-        "tes_de2ac51f297d6c94",
-        "textbook-node:tcn_34607b0ee05aef4a",
-        "textbook-unit:tcu_8cddf85672d6624e"
+        "external_smartedu_2026_physics_junior_grade_9_full",
+        "tes_d594016e8da11d39",
+        "textbook-node:tcn_f6af45ec67419017",
+        "textbook-unit:tcu_f6cf5b08bc02522f"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "1. 摩擦起电 两种电荷",
-          "excerpt_hash": "f11e0e86ecaad2409c94546fa978f5749fbff00799b48cf40f2ba4f18ca85a71",
-          "pdf_page": 60,
-          "printed_page": "53",
-          "span_id": "tes_de2ac51f297d6c94"
+          "excerpt": "3. 用电流表测量电流 甲",
+          "excerpt_hash": "89113241b17deec0398ab128a7316883173af9efc57aa24ed4e77e6ae296e018",
+          "pdf_page": 64,
+          "printed_page": null,
+          "span_id": "tes_d594016e8da11d39"
         }
       ],
       "learning_component_ids": [
-        "lc_6e40a811256efb64"
+        "lc_b431ed652e6871f2"
       ],
       "learning_components": [
         {
-          "component_id": "lc_6e40a811256efb64",
-          "label": "准确说出摩擦起电、电荷相互作用、电路组成和电路图"
+          "component_id": "lc_b431ed652e6871f2",
+          "label": "用电流表和电压表测量"
         }
       ],
       "level": "unit",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_34607b0ee05aef4a",
-      "node_title": "1摩擦起电两种电荷",
-      "pdf_page": 60,
-      "printed_page": "53",
+      "node_id": "tcn_f6af45ec67419017",
+      "node_title": "3用电流表测量电流甲",
+      "pdf_page": 64,
+      "printed_page": null,
       "publication_status": "published",
-      "rationale": "教材课文“1摩擦起电两种电荷”与课标 SC-H4G9-SC-037 的可教学小能力“准确说出摩擦起电、电荷相互作用、电路组成和电路图”形成页内证据匹配。",
+      "rationale": "教材课文“3用电流表测量电流甲”与课标 SC-H4G9-SC-037 的可教学小能力“用电流表和电压表测量”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 9,
       "textbook_subject": "物理",
       "textbook_title": "物理9年级全一册",
       "textbook_volume": "全一册",
-      "unit_id": "tcu_8cddf85672d6624e",
+      "unit_id": "tcu_f6cf5b08bc02522f",
       "unit_title": "第十五章 电流和电路"
     },
     {
@@ -267,7 +212,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_91e786746fa4"
+        "external_smartedu_2026_chemistry_junior_grade_9_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -279,7 +224,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_a01eaebee10c3727",
       "textbook_grade": 9,
       "textbook_subject": "化学",
@@ -298,7 +243,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_29dc6f39b08d"
+        "external_smartedu_2026_chemistry_junior_grade_9_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -310,7 +255,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_46b397a7eadfedff",
       "textbook_grade": 9,
       "textbook_subject": "化学",
@@ -329,7 +274,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_f0fcd567e766"
+        "external_smartedu_2026_physics_junior_grade_9_full"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -341,7 +286,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_941308fc63ca2501",
       "textbook_grade": 9,
       "textbook_subject": "物理",

@@ -57,8 +57,8 @@
         "说出自己的"
       ],
       "topic_anchor_score": 0.88,
-      "unit_id": "tcu_def5f17f5dcb972d",
-      "unit_title": "第三单元"
+      "unit_id": "tcu_ca9fe5c960f37593",
+      "unit_title": "第四单元 我们来交往"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
@@ -119,25 +119,32 @@
         "对方"
       ],
       "topic_anchor_score": 0.88,
-      "unit_id": "tcu_def5f17f5dcb972d",
-      "unit_title": "第三单元"
+      "unit_id": "tcu_ca9fe5c960f37593",
+      "unit_title": "第四单元 我们来交往"
     }
   ],
   "audit": {
-    "approved_page_map_count": 93,
-    "approved_toc_entry_count": 4,
+    "approved_page_map_count": 81,
+    "approved_toc_entry_count": 16,
     "candidate_toc_entry_count": 0,
+    "machine_checked_toc_entry_count": 0,
     "numeric_page_offset": 5,
-    "numeric_page_offset_confidence": 0.99,
-    "pdf_page_count": 98,
-    "toc_candidate_page_count": 2
+    "numeric_page_offset_confidence": 0.976,
+    "ocr": {
+      "pages_ocrd": 0,
+      "status": "not_requested",
+      "toc_pages": []
+    },
+    "pdf_page_count": 86,
+    "published_toc_entry_count": 0,
+    "toc_candidate_page_count": 1
   },
   "content_alignment": {
     "algorithm_version": "component-evidence-hybrid-v3",
     "alignment_count": 2,
     "automatic_content_unit_count": 0,
-    "content_node_count": 191,
-    "evidence_span_count": 103,
+    "content_node_count": 184,
+    "evidence_span_count": 84,
     "generated_alignment_count": 2,
     "native_text_ratio": 0.9651,
     "ocr_page_count": 0,
@@ -146,7 +153,7 @@
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
-    "reconciled_unit_range_count": 0,
+    "reconciled_unit_range_count": 4,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896/pages.jsonl",
@@ -233,7 +240,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7b11c446669cd277",
-      "parent_id": null,
+      "parent_id": "tcn_4fac96674559c7c5",
       "pdf_page": 6,
       "pdf_page_end": 6,
       "pdf_page_start": 6,
@@ -241,7 +248,65 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 6 页",
-      "unit_id": null
+      "unit_id": "tcu_4ab06afc0198c3ba"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 17,
+      "end_printed_page": "12",
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_4fac96674559c7c5",
+      "parent_id": null,
+      "pdf_page": 6,
+      "pdf_page_end": 17,
+      "pdf_page_start": 6,
+      "printed_page": "1",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第一单元 共建美好生活",
+      "title": "第一单元 共建美好生活",
+      "toc_entry_id": "tcu_4ab06afc0198c3ba",
+      "unit_id": "tcu_4ab06afc0198c3ba"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 7,
+      "end_printed_page": "2",
+      "evidence_span_ids": [
+        "tes_ed31393d5685b6eb"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_24c9537c9cb64851",
+      "parent_id": "tcn_61c66e8deebea40a",
+      "pdf_page": 7,
+      "pdf_page_end": 7,
+      "pdf_page_start": 7,
+      "printed_page": "2",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "2 第一单元 共建美好生活",
+      "title": "2第一单元共建美好生活",
+      "unit_id": "tcu_4ab06afc0198c3ba"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 11,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_61c66e8deebea40a",
+      "parent_id": "tcn_4fac96674559c7c5",
+      "pdf_page": 7,
+      "pdf_page_end": 11,
+      "pdf_page_start": 7,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第 1 课 我们的生活越来越幸福",
+      "title": "第 1 课 我们的生活越来越幸福",
+      "toc_entry_id": "tcu_9b077b00ca8ba1ee",
+      "unit_id": "tcu_9b077b00ca8ba1ee"
     },
     {
       "confidence": 0.98,
@@ -250,7 +315,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1d21ae3a3cc94558",
-      "parent_id": null,
+      "parent_id": "tcn_61c66e8deebea40a",
       "pdf_page": 7,
       "pdf_page_end": 7,
       "pdf_page_start": 7,
@@ -258,7 +323,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 7 页",
-      "unit_id": null
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.86,
@@ -269,7 +334,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_aec77bcafea40791",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_24c9537c9cb64851",
       "pdf_page": 8,
       "pdf_page_end": 8,
       "pdf_page_start": 8,
@@ -278,7 +343,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "选择一种你喜欢的家乡美食介绍给大家。",
       "title": "选择一种你喜欢的家乡美食介绍给大家。",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.9,
@@ -289,7 +354,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_11649de54dcfc802",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_61c66e8deebea40a",
       "pdf_page": 8,
       "pdf_page_end": 8,
       "pdf_page_start": 8,
@@ -298,7 +363,7 @@
       "source": "body_heading",
       "text_excerpt": "第1 课 我们的生活越来越幸福 3",
       "title": "第1课我们的生活越来越幸福3",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -307,7 +372,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a1ecea3cfbe665c9",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_61c66e8deebea40a",
       "pdf_page": 8,
       "pdf_page_end": 8,
       "pdf_page_start": 8,
@@ -315,26 +380,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 8 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 33,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_41cd5095ade970b3",
-      "parent_id": null,
-      "pdf_page": 8,
-      "pdf_page_end": 33,
-      "pdf_page_start": 8,
-      "printed_page": "3",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第一单元",
-      "title": "第一单元",
-      "toc_entry_id": "tcu_841ec9c3cbfc24b5",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.86,
@@ -354,7 +400,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "说说你的感受。",
       "title": "说说你的感受。",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.9,
@@ -365,7 +411,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_8e654bde9bf3e970",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_61c66e8deebea40a",
       "pdf_page": 9,
       "pdf_page_end": 9,
       "pdf_page_start": 9,
@@ -374,7 +420,7 @@
       "source": "body_heading",
       "text_excerpt": "4 第一单元 共建美好生活",
       "title": "4第一单元共建美好生活",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -383,7 +429,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2cb27eac31c37205",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_61c66e8deebea40a",
       "pdf_page": 9,
       "pdf_page_end": 9,
       "pdf_page_start": 9,
@@ -391,7 +437,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 9 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.9,
@@ -402,7 +448,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_36bc8447220842b9",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_61c66e8deebea40a",
       "pdf_page": 10,
       "pdf_page_end": 10,
       "pdf_page_start": 10,
@@ -411,7 +457,7 @@
       "source": "body_heading",
       "text_excerpt": "第1 课 我们的生活越来越幸福 5",
       "title": "第1课我们的生活越来越幸福5",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -420,7 +466,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f151254d5a723e55",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_61c66e8deebea40a",
       "pdf_page": 10,
       "pdf_page_end": 10,
       "pdf_page_start": 10,
@@ -428,7 +474,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 10 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.9,
@@ -439,7 +485,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_aa61c06a1e3bafd0",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_61c66e8deebea40a",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -448,7 +494,7 @@
       "source": "body_heading",
       "text_excerpt": "6 第一单元 共建美好生活",
       "title": "6第一单元共建美好生活",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -457,7 +503,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d95ded9954e26402",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_61c66e8deebea40a",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -465,7 +511,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 11 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.9,
@@ -476,7 +522,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_9cf1d5d151953504",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_4fac96674559c7c5",
       "pdf_page": 12,
       "pdf_page_end": 12,
       "pdf_page_start": 12,
@@ -485,7 +531,7 @@
       "source": "body_heading",
       "text_excerpt": "第1 课 我们的生活越来越幸福 7",
       "title": "第1课我们的生活越来越幸福7",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -494,7 +540,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6d69edb4261d5636",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_4fac96674559c7c5",
       "pdf_page": 12,
       "pdf_page_end": 12,
       "pdf_page_start": 12,
@@ -502,7 +548,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 12 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.9,
@@ -513,7 +559,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_058685c537476a25",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_4fac96674559c7c5",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -522,7 +568,7 @@
       "source": "body_heading",
       "text_excerpt": "8 第一单元 共建美好生活",
       "title": "8第一单元共建美好生活",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -531,7 +577,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_bd50d7d85020b328",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_4fac96674559c7c5",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -539,27 +585,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 13 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 14,
-      "end_printed_page": "9",
-      "evidence_span_ids": [
-        "tes_48a79f531e2f1d60"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 18,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_88a883b6f8a7e8b9",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "node_id": "tcn_51a53ef5f306b355",
+      "parent_id": "tcn_4fac96674559c7c5",
       "pdf_page": 14,
-      "pdf_page_end": 14,
+      "pdf_page_end": 18,
       "pdf_page_start": 14,
       "printed_page": "9",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第 2 课 幸福生活是奋斗出来的",
-      "title": "第2课幸福生活是奋斗出来的",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "title": "第 2 课 幸福生活是奋斗出来的",
+      "toc_entry_id": "tcu_5e89a3674cf8c0c2",
+      "unit_id": "tcu_5e89a3674cf8c0c2"
     },
     {
       "confidence": 0.9,
@@ -570,7 +615,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_fe707237f0c65106",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_51a53ef5f306b355",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -579,7 +624,7 @@
       "source": "body_heading",
       "text_excerpt": "第2 课 幸福生活是奋斗出来的 9",
       "title": "第2课幸福生活是奋斗出来的9",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -588,7 +633,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_bda6773c9a350655",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_51a53ef5f306b355",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -596,7 +641,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 14 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.9,
@@ -607,7 +652,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_217be904d18d3338",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_51a53ef5f306b355",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -616,7 +661,7 @@
       "source": "body_heading",
       "text_excerpt": "10 第一单元 共建美好生活",
       "title": "10第一单元共建美好生活",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -625,7 +670,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fb7f7c42bdc0442e",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_51a53ef5f306b355",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -633,7 +678,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 15 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.9,
@@ -644,7 +689,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_81762d0b85e8532b",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_51a53ef5f306b355",
       "pdf_page": 16,
       "pdf_page_end": 16,
       "pdf_page_start": 16,
@@ -653,7 +698,7 @@
       "source": "body_heading",
       "text_excerpt": "第2 课 幸福生活是奋斗出来的 11",
       "title": "第2课幸福生活是奋斗出来的11",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -662,7 +707,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_845d1bd84227610b",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_51a53ef5f306b355",
       "pdf_page": 16,
       "pdf_page_end": 16,
       "pdf_page_start": 16,
@@ -670,7 +715,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 16 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.9,
@@ -681,7 +726,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_f1dc55163c42b19f",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_51a53ef5f306b355",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -690,7 +735,7 @@
       "source": "body_heading",
       "text_excerpt": "12 第一单元 共建美好生活",
       "title": "12第一单元共建美好生活",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -699,7 +744,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7731a1c8b25445d6",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_51a53ef5f306b355",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -707,7 +752,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 17 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_4ab06afc0198c3ba"
     },
     {
       "confidence": 0.98,
@@ -716,7 +761,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8d27c575f206709f",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_51a53ef5f306b355",
       "pdf_page": 18,
       "pdf_page_end": 18,
       "pdf_page_start": 18,
@@ -724,27 +769,45 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 18 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 18,
-      "end_printed_page": "13",
-      "evidence_span_ids": [
-        "tes_2be696b364ce424a"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 35,
+      "end_printed_page": "30",
+      "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_67ac846f99b5a373",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "node_id": "tcn_f5cd40a7cb972975",
+      "parent_id": null,
       "pdf_page": 18,
-      "pdf_page_end": 18,
+      "pdf_page_end": 35,
       "pdf_page_start": 18,
       "printed_page": "13",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第二单元 劳动最光荣",
-      "title": "第二单元劳动最光荣",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "title": "第二单元 劳动最光荣",
+      "toc_entry_id": "tcu_5a1ba40a90bd4081",
+      "unit_id": "tcu_5a1ba40a90bd4081"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 23,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_0547f2e78c03adfe",
+      "parent_id": "tcn_f5cd40a7cb972975",
+      "pdf_page": 19,
+      "pdf_page_end": 23,
+      "pdf_page_start": 19,
+      "printed_page": "14",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第 3 课 一切靠劳动",
+      "title": "第 3 课 一切靠劳动",
+      "toc_entry_id": "tcu_314360a787e5dd11",
+      "unit_id": "tcu_314360a787e5dd11"
     },
     {
       "confidence": 0.9,
@@ -755,7 +818,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_6aaed8b75b059a34",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_0547f2e78c03adfe",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -764,27 +827,7 @@
       "source": "body_heading",
       "text_excerpt": "14 第二单元 劳动最光荣",
       "title": "14第二单元劳动最光荣",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 19,
-      "end_printed_page": "14",
-      "evidence_span_ids": [
-        "tes_23dcb2cbf516add8"
-      ],
-      "kind": "lesson",
-      "node_id": "tcn_ad5f465097f4bbfb",
-      "parent_id": "tcn_41cd5095ade970b3",
-      "pdf_page": 19,
-      "pdf_page_end": 19,
-      "pdf_page_start": 19,
-      "printed_page": "14",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 3 课 一切靠劳动",
-      "title": "第3课一切靠劳动",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -793,7 +836,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_156c7702d6895b50",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_0547f2e78c03adfe",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -801,7 +844,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 19 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -812,7 +855,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_91a0bd339738808d",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_0547f2e78c03adfe",
       "pdf_page": 20,
       "pdf_page_end": 20,
       "pdf_page_start": 20,
@@ -821,7 +864,7 @@
       "source": "body_heading",
       "text_excerpt": "第3 课 一切靠劳动 15",
       "title": "第3课一切靠劳动15",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -830,7 +873,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_dc48b47737a8ac59",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_0547f2e78c03adfe",
       "pdf_page": 20,
       "pdf_page_end": 20,
       "pdf_page_start": 20,
@@ -838,7 +881,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 20 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -849,7 +892,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_0bcacf209294372c",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_0547f2e78c03adfe",
       "pdf_page": 21,
       "pdf_page_end": 21,
       "pdf_page_start": 21,
@@ -858,7 +901,7 @@
       "source": "body_heading",
       "text_excerpt": "16 第二单元 劳动最光荣",
       "title": "16第二单元劳动最光荣",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -867,7 +910,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e380dee7bfadc0b2",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_0547f2e78c03adfe",
       "pdf_page": 21,
       "pdf_page_end": 21,
       "pdf_page_start": 21,
@@ -875,7 +918,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 21 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -886,7 +929,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_e53a47cc1b9afba9",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_0547f2e78c03adfe",
       "pdf_page": 22,
       "pdf_page_end": 22,
       "pdf_page_start": 22,
@@ -895,7 +938,7 @@
       "source": "body_heading",
       "text_excerpt": "第3 课 一切靠劳动 17",
       "title": "第3课一切靠劳动17",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -904,7 +947,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1f3af3df0e8a6c0e",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_0547f2e78c03adfe",
       "pdf_page": 22,
       "pdf_page_end": 22,
       "pdf_page_start": 22,
@@ -912,7 +955,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 22 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -923,7 +966,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_a3c731c6bba0e136",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_0547f2e78c03adfe",
       "pdf_page": 23,
       "pdf_page_end": 23,
       "pdf_page_start": 23,
@@ -932,7 +975,7 @@
       "source": "body_heading",
       "text_excerpt": "18 第二单元 劳动最光荣",
       "title": "18第二单元劳动最光荣",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -941,7 +984,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ab1f9e2382b59cba",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_0547f2e78c03adfe",
       "pdf_page": 23,
       "pdf_page_end": 23,
       "pdf_page_start": 23,
@@ -949,7 +992,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 23 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -960,7 +1003,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_a0366bacb9a0fb82",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_f5cd40a7cb972975",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -969,7 +1012,7 @@
       "source": "body_heading",
       "text_excerpt": "第3 课 一切靠劳动 19",
       "title": "第3课一切靠劳动19",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -978,7 +1021,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4d36bce1fdd98968",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_f5cd40a7cb972975",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -986,27 +1029,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 24 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 25,
-      "end_printed_page": "20",
-      "evidence_span_ids": [
-        "tes_34855c169aa8d6e6"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 29,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_64b00a77b3168802",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "node_id": "tcn_a3ee09baee749259",
+      "parent_id": "tcn_f5cd40a7cb972975",
       "pdf_page": 25,
-      "pdf_page_end": 25,
+      "pdf_page_end": 29,
       "pdf_page_start": 25,
       "printed_page": "20",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第 4 课 致敬劳动者",
-      "title": "第4课致敬劳动者",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "title": "第 4 课 致敬劳动者",
+      "toc_entry_id": "tcu_24fb188afa96dc74",
+      "unit_id": "tcu_24fb188afa96dc74"
     },
     {
       "confidence": 0.9,
@@ -1017,7 +1059,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_ee0da8d83f5376d9",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_a3ee09baee749259",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -1026,7 +1068,7 @@
       "source": "body_heading",
       "text_excerpt": "20 第二单元 劳动最光荣",
       "title": "20第二单元劳动最光荣",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1035,7 +1077,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_12c958b01aeb8b8a",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_a3ee09baee749259",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -1043,7 +1085,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 25 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -1054,7 +1096,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_178cf1b6d3482e6f",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_a3ee09baee749259",
       "pdf_page": 26,
       "pdf_page_end": 26,
       "pdf_page_start": 26,
@@ -1063,7 +1105,7 @@
       "source": "body_heading",
       "text_excerpt": "第4 课 致敬劳动者 21",
       "title": "第4课致敬劳动者21",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1072,7 +1114,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4d1e75198bcb7a8b",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_a3ee09baee749259",
       "pdf_page": 26,
       "pdf_page_end": 26,
       "pdf_page_start": 26,
@@ -1080,7 +1122,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 26 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -1091,7 +1133,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_e33eeff41c85508a",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_a3ee09baee749259",
       "pdf_page": 27,
       "pdf_page_end": 27,
       "pdf_page_start": 27,
@@ -1100,7 +1142,7 @@
       "source": "body_heading",
       "text_excerpt": "22 第二单元 劳动最光荣",
       "title": "22第二单元劳动最光荣",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1109,7 +1151,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9f260a43c99fffbc",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_a3ee09baee749259",
       "pdf_page": 27,
       "pdf_page_end": 27,
       "pdf_page_start": 27,
@@ -1117,7 +1159,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 27 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -1128,7 +1170,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_e6f7eae482f769d0",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_a3ee09baee749259",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -1137,7 +1179,7 @@
       "source": "body_heading",
       "text_excerpt": "第4 课 致敬劳动者 23",
       "title": "第4课致敬劳动者23",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1146,7 +1188,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2d6d8f405c0b2b02",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_a3ee09baee749259",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -1154,7 +1196,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 28 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -1165,7 +1207,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_343fee6ff1d0ba09",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_a3ee09baee749259",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -1174,7 +1216,7 @@
       "source": "body_heading",
       "text_excerpt": "24 第二单元 劳动最光荣",
       "title": "24第二单元劳动最光荣",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1183,7 +1225,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6be03a0262388487",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_a3ee09baee749259",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -1191,7 +1233,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 29 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -1202,7 +1244,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_49c5f588eacc1b48",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_9515b4ddeae2aca2",
       "pdf_page": 30,
       "pdf_page_end": 30,
       "pdf_page_start": 30,
@@ -1211,27 +1253,26 @@
       "source": "body_heading",
       "text_excerpt": "第5 课 从小爱劳动 25",
       "title": "第5课从小爱劳动25",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 30,
-      "end_printed_page": "25",
-      "evidence_span_ids": [
-        "tes_2053fb2e87feec76"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 34,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_553b6e8eff900ef6",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "node_id": "tcn_9515b4ddeae2aca2",
+      "parent_id": "tcn_f5cd40a7cb972975",
       "pdf_page": 30,
-      "pdf_page_end": 30,
+      "pdf_page_end": 34,
       "pdf_page_start": 30,
       "printed_page": "25",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第 5 课 从小爱劳动",
-      "title": "第5课从小爱劳动",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "title": "第 5 课 从小爱劳动",
+      "toc_entry_id": "tcu_9b03c8d828b736e6",
+      "unit_id": "tcu_9b03c8d828b736e6"
     },
     {
       "confidence": 0.98,
@@ -1240,7 +1281,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_382668675b40eaf4",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_9515b4ddeae2aca2",
       "pdf_page": 30,
       "pdf_page_end": 30,
       "pdf_page_start": 30,
@@ -1248,7 +1289,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 30 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -1259,7 +1300,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_e12c9543590f7261",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_9515b4ddeae2aca2",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -1268,7 +1309,7 @@
       "source": "body_heading",
       "text_excerpt": "26 第二单元 劳动最光荣",
       "title": "26第二单元劳动最光荣",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1277,7 +1318,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1d9f694f290bc9c3",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_9515b4ddeae2aca2",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -1285,7 +1326,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 31 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -1296,7 +1337,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_8d009ca44d702fab",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_9515b4ddeae2aca2",
       "pdf_page": 32,
       "pdf_page_end": 32,
       "pdf_page_start": 32,
@@ -1305,7 +1346,7 @@
       "source": "body_heading",
       "text_excerpt": "第5 课 从小爱劳动 27",
       "title": "第5课从小爱劳动27",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1314,7 +1355,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_545f6fabd2009f28",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_9515b4ddeae2aca2",
       "pdf_page": 32,
       "pdf_page_end": 32,
       "pdf_page_start": 32,
@@ -1322,7 +1363,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 32 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -1333,7 +1374,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_216dd5aa5404558b",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_9515b4ddeae2aca2",
       "pdf_page": 33,
       "pdf_page_end": 33,
       "pdf_page_start": 33,
@@ -1342,7 +1383,7 @@
       "source": "body_heading",
       "text_excerpt": "28 第二单元 劳动最光荣",
       "title": "28第二单元劳动最光荣",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1351,7 +1392,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8ebff6ca3dbc3c60",
-      "parent_id": "tcn_41cd5095ade970b3",
+      "parent_id": "tcn_9515b4ddeae2aca2",
       "pdf_page": 33,
       "pdf_page_end": 33,
       "pdf_page_start": 33,
@@ -1359,7 +1400,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 33 页",
-      "unit_id": "tcu_841ec9c3cbfc24b5"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -1370,7 +1411,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_40996cbb82ce6713",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_9515b4ddeae2aca2",
       "pdf_page": 34,
       "pdf_page_end": 34,
       "pdf_page_start": 34,
@@ -1379,7 +1420,7 @@
       "source": "body_heading",
       "text_excerpt": "第5 课 从小爱劳动 29",
       "title": "第5课从小爱劳动29",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1388,7 +1429,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_950c4974614b6e17",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_9515b4ddeae2aca2",
       "pdf_page": 34,
       "pdf_page_end": 34,
       "pdf_page_start": 34,
@@ -1396,26 +1437,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 34 页",
-      "unit_id": "tcu_896b3afb36d091a2"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 55,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_c4e25a8ad9d1b755",
-      "parent_id": null,
-      "pdf_page": 34,
-      "pdf_page_end": 55,
-      "pdf_page_start": 34,
-      "printed_page": "29",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第二单元",
-      "title": "第二单元",
-      "toc_entry_id": "tcu_896b3afb36d091a2",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.9,
@@ -1426,7 +1448,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_dd4dde3b7b5440e1",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_f5cd40a7cb972975",
       "pdf_page": 35,
       "pdf_page_end": 35,
       "pdf_page_start": 35,
@@ -1435,7 +1457,7 @@
       "source": "body_heading",
       "text_excerpt": "30 第二单元 劳动最光荣",
       "title": "30第二单元劳动最光荣",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1444,7 +1466,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7ec39ec1b3cf86de",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_f5cd40a7cb972975",
       "pdf_page": 35,
       "pdf_page_end": 35,
       "pdf_page_start": 35,
@@ -1452,7 +1474,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 35 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_5a1ba40a90bd4081"
     },
     {
       "confidence": 0.98,
@@ -1461,7 +1483,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_259d9c9e72dc4a3f",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_5c2881db6aff9ae6",
       "pdf_page": 36,
       "pdf_page_end": 36,
       "pdf_page_start": 36,
@@ -1469,27 +1491,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 36 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 36,
-      "end_printed_page": "31",
-      "evidence_span_ids": [
-        "tes_b7b9afece80894a0"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 53,
+      "end_printed_page": "48",
+      "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_929d249b56a8261a",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "node_id": "tcn_5c2881db6aff9ae6",
+      "parent_id": null,
       "pdf_page": 36,
-      "pdf_page_end": 36,
+      "pdf_page_end": 53,
       "pdf_page_start": 36,
       "printed_page": "31",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第三单元 我是家庭一员",
-      "title": "第三单元我是家庭一员",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "title": "第三单元 我是家庭一员",
+      "toc_entry_id": "tcu_9d8181151fd5339e",
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -1500,7 +1521,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_4357665e4c3fbb0b",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_6a83e499183c294f",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -1509,27 +1530,26 @@
       "source": "body_heading",
       "text_excerpt": "32 第三单元 我是家庭一员",
       "title": "32第三单元我是家庭一员",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 37,
-      "end_printed_page": "32",
-      "evidence_span_ids": [
-        "tes_20f6657094466fd6"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 41,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_b7488e791d5b4f85",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "node_id": "tcn_6a83e499183c294f",
+      "parent_id": "tcn_5c2881db6aff9ae6",
       "pdf_page": 37,
-      "pdf_page_end": 37,
+      "pdf_page_end": 41,
       "pdf_page_start": 37,
       "printed_page": "32",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第 6 课 少让父母操心",
-      "title": "第6课少让父母操心",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "title": "第 6 课 少让父母操心",
+      "toc_entry_id": "tcu_8402ea463a5497d3",
+      "unit_id": "tcu_8402ea463a5497d3"
     },
     {
       "confidence": 0.98,
@@ -1538,7 +1558,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d2227f1cfab46f64",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_6a83e499183c294f",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -1546,7 +1566,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 37 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -1557,7 +1577,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_5ebe8cc544d048da",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_6a83e499183c294f",
       "pdf_page": 38,
       "pdf_page_end": 38,
       "pdf_page_start": 38,
@@ -1566,7 +1586,7 @@
       "source": "body_heading",
       "text_excerpt": "第6课 少让父母操心 33",
       "title": "第6课少让父母操心33",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -1575,7 +1595,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_75f0205ea66de83f",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_6a83e499183c294f",
       "pdf_page": 38,
       "pdf_page_end": 38,
       "pdf_page_start": 38,
@@ -1583,7 +1603,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 38 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -1594,7 +1614,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_701b65bd5d9f3464",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_6a83e499183c294f",
       "pdf_page": 39,
       "pdf_page_end": 39,
       "pdf_page_start": 39,
@@ -1603,7 +1623,7 @@
       "source": "body_heading",
       "text_excerpt": "34 第三单元 我是家庭一员",
       "title": "34第三单元我是家庭一员",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -1612,7 +1632,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1d88fe4397a69f12",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_6a83e499183c294f",
       "pdf_page": 39,
       "pdf_page_end": 39,
       "pdf_page_start": 39,
@@ -1620,7 +1640,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 39 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -1631,7 +1651,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_05e1bbec6bdf31b9",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_6a83e499183c294f",
       "pdf_page": 40,
       "pdf_page_end": 40,
       "pdf_page_start": 40,
@@ -1640,7 +1660,7 @@
       "source": "body_heading",
       "text_excerpt": "第6课 少让父母操心 35",
       "title": "第6课少让父母操心35",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -1649,7 +1669,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_401db9d052165484",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_6a83e499183c294f",
       "pdf_page": 40,
       "pdf_page_end": 40,
       "pdf_page_start": 40,
@@ -1657,7 +1677,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 40 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -1668,7 +1688,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_5b19462c88d635ff",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_6a83e499183c294f",
       "pdf_page": 41,
       "pdf_page_end": 41,
       "pdf_page_start": 41,
@@ -1677,7 +1697,7 @@
       "source": "body_heading",
       "text_excerpt": "36 第三单元 我是家庭一员",
       "title": "36第三单元我是家庭一员",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -1686,7 +1706,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_47efb58527bc3cb3",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_6a83e499183c294f",
       "pdf_page": 41,
       "pdf_page_end": 41,
       "pdf_page_start": 41,
@@ -1694,27 +1714,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 41 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 42,
-      "end_printed_page": "37",
-      "evidence_span_ids": [
-        "tes_16c5a95e8a71ba8f"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 46,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_d29f50671e79b6b6",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "node_id": "tcn_bd4f754c51140d8d",
+      "parent_id": "tcn_5c2881db6aff9ae6",
       "pdf_page": 42,
-      "pdf_page_end": 42,
+      "pdf_page_end": 46,
       "pdf_page_start": 42,
       "printed_page": "37",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第 7 课 我的家庭贡献与责任",
-      "title": "第7课我的家庭贡献与责任",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "title": "第 7 课 我的家庭贡献与责任",
+      "toc_entry_id": "tcu_29afddac1d1f41f0",
+      "unit_id": "tcu_29afddac1d1f41f0"
     },
     {
       "confidence": 0.9,
@@ -1725,7 +1744,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_dc84e83a59831adb",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_bd4f754c51140d8d",
       "pdf_page": 42,
       "pdf_page_end": 42,
       "pdf_page_start": 42,
@@ -1734,7 +1753,7 @@
       "source": "body_heading",
       "text_excerpt": "第7课 我的家庭贡献与责任 37",
       "title": "第7课我的家庭贡献与责任37",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -1743,7 +1762,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_77d3c028a4c2c4e4",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_bd4f754c51140d8d",
       "pdf_page": 42,
       "pdf_page_end": 42,
       "pdf_page_start": 42,
@@ -1751,7 +1770,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 42 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -1762,7 +1781,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_ade395fdb76d8dc1",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_bd4f754c51140d8d",
       "pdf_page": 43,
       "pdf_page_end": 43,
       "pdf_page_start": 43,
@@ -1771,7 +1790,7 @@
       "source": "body_heading",
       "text_excerpt": "38 第三单元 我是家庭一员",
       "title": "38第三单元我是家庭一员",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.96,
@@ -1791,7 +1810,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "我的妙计是......",
       "title": "我的妙计是......",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.96,
@@ -1811,7 +1830,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "我抽取的任务是......",
       "title": "我抽取的任务是......",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -1820,7 +1839,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7eac3f86a90a7250",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_bd4f754c51140d8d",
       "pdf_page": 43,
       "pdf_page_end": 43,
       "pdf_page_start": 43,
@@ -1828,7 +1847,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 43 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -1839,7 +1858,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_a3ee042e3ebfade9",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_bd4f754c51140d8d",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -1848,7 +1867,7 @@
       "source": "body_heading",
       "text_excerpt": "第7课 我的家庭贡献与责任 39",
       "title": "第7课我的家庭贡献与责任39",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -1857,7 +1876,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a6ce98992d7e10e8",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_bd4f754c51140d8d",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -1865,7 +1884,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 44 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -1876,7 +1895,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_3ac43ebdef2151d1",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_bd4f754c51140d8d",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -1885,7 +1904,7 @@
       "source": "body_heading",
       "text_excerpt": "40 第三单元 我是家庭一员",
       "title": "40第三单元我是家庭一员",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -1894,7 +1913,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6801e6a4acd51b5e",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_bd4f754c51140d8d",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -1902,7 +1921,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 45 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -1913,7 +1932,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_914ec71ffed214ac",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_bd4f754c51140d8d",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -1922,7 +1941,7 @@
       "source": "body_heading",
       "text_excerpt": "第7课 我的家庭贡献与责任 41",
       "title": "第7课我的家庭贡献与责任41",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -1931,7 +1950,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_099fcafde68175c1",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_bd4f754c51140d8d",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -1939,7 +1958,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 46 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -1950,7 +1969,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_0e55374380eb9fd9",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_d2d8bc8465fbfa01",
       "pdf_page": 47,
       "pdf_page_end": 47,
       "pdf_page_start": 47,
@@ -1959,27 +1978,26 @@
       "source": "body_heading",
       "text_excerpt": "42 第三单元 我是家庭一员",
       "title": "42第三单元我是家庭一员",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 47,
-      "end_printed_page": "42",
-      "evidence_span_ids": [
-        "tes_1e5215cdeb6ca8ba"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 51,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_e3012e7dc4d4f9f3",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "node_id": "tcn_d2d8bc8465fbfa01",
+      "parent_id": "tcn_5c2881db6aff9ae6",
       "pdf_page": 47,
-      "pdf_page_end": 47,
+      "pdf_page_end": 51,
       "pdf_page_start": 47,
       "printed_page": "42",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第 8 课 弘扬家庭美德",
-      "title": "第8课弘扬家庭美德",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "title": "第 8 课 弘扬家庭美德",
+      "toc_entry_id": "tcu_8fa56deecd6dd6a5",
+      "unit_id": "tcu_8fa56deecd6dd6a5"
     },
     {
       "confidence": 0.98,
@@ -1988,7 +2006,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_248e1d6e0e07829f",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_d2d8bc8465fbfa01",
       "pdf_page": 47,
       "pdf_page_end": 47,
       "pdf_page_start": 47,
@@ -1996,7 +2014,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 47 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -2007,7 +2025,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_e7ed5ccc8d5b3d97",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_d2d8bc8465fbfa01",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -2016,7 +2034,7 @@
       "source": "body_heading",
       "text_excerpt": "第8 课 弘扬家庭美德 43",
       "title": "第8课弘扬家庭美德43",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -2025,7 +2043,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_14c593372346ec90",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_d2d8bc8465fbfa01",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -2033,7 +2051,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 48 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -2044,7 +2062,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_b9f6c48a9661ea58",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_d2d8bc8465fbfa01",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -2053,7 +2071,7 @@
       "source": "body_heading",
       "text_excerpt": "44 第三单元 我是家庭一员",
       "title": "44第三单元我是家庭一员",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -2062,7 +2080,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_60d77315ab5af2cb",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_d2d8bc8465fbfa01",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -2070,7 +2088,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 49 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -2081,7 +2099,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_fbc27e31d5f3f07b",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_d2d8bc8465fbfa01",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -2090,7 +2108,7 @@
       "source": "body_heading",
       "text_excerpt": "第8 课 弘扬家庭美德 45",
       "title": "第8课弘扬家庭美德45",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -2099,7 +2117,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_281bb503b0743744",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_d2d8bc8465fbfa01",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -2107,7 +2125,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 50 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -2118,7 +2136,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_f8e71c4ac2c2c319",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_d2d8bc8465fbfa01",
       "pdf_page": 51,
       "pdf_page_end": 51,
       "pdf_page_start": 51,
@@ -2127,7 +2145,7 @@
       "source": "body_heading",
       "text_excerpt": "46 第三单元 我是家庭一员",
       "title": "46第三单元我是家庭一员",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -2136,7 +2154,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_54cbd0c195c4f67d",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_d2d8bc8465fbfa01",
       "pdf_page": 51,
       "pdf_page_end": 51,
       "pdf_page_start": 51,
@@ -2144,7 +2162,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 51 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -2155,7 +2173,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_80b80752d6146cc1",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_5c2881db6aff9ae6",
       "pdf_page": 52,
       "pdf_page_end": 52,
       "pdf_page_start": 52,
@@ -2164,7 +2182,7 @@
       "source": "body_heading",
       "text_excerpt": "第8 课 弘扬家庭美德 47",
       "title": "第8课弘扬家庭美德47",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -2173,7 +2191,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_86891bcc09b3e2be",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_5c2881db6aff9ae6",
       "pdf_page": 52,
       "pdf_page_end": 52,
       "pdf_page_start": 52,
@@ -2181,7 +2199,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 52 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.9,
@@ -2192,7 +2210,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_1e0a542a0cb975ee",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_5c2881db6aff9ae6",
       "pdf_page": 53,
       "pdf_page_end": 53,
       "pdf_page_start": 53,
@@ -2201,7 +2219,7 @@
       "source": "body_heading",
       "text_excerpt": "48 第三单元 我是家庭一员",
       "title": "48第三单元我是家庭一员",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -2210,7 +2228,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ca7071f2f4157308",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_5c2881db6aff9ae6",
       "pdf_page": 53,
       "pdf_page_end": 53,
       "pdf_page_start": 53,
@@ -2218,7 +2236,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 53 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_9d8181151fd5339e"
     },
     {
       "confidence": 0.98,
@@ -2227,7 +2245,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_60e3a2e8da82ffa8",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 54,
       "pdf_page_end": 54,
       "pdf_page_start": 54,
@@ -2235,47 +2253,45 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 54 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 54,
-      "end_printed_page": "49",
-      "evidence_span_ids": [
-        "tes_3710d39ac3b80297"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 78,
+      "end_printed_page": "73",
+      "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_aab3cda7a2d3ab0d",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "node_id": "tcn_7b28af4f597bf738",
+      "parent_id": null,
       "pdf_page": 54,
-      "pdf_page_end": 54,
+      "pdf_page_end": 78,
       "pdf_page_start": 54,
       "printed_page": "49",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第四单元 我们来交往",
-      "title": "第四单元我们来交往",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "title": "第四单元 我们来交往",
+      "toc_entry_id": "tcu_ca9fe5c960f37593",
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 55,
-      "end_printed_page": "50",
-      "evidence_span_ids": [
-        "tes_5d35b10447ed69ac"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 59,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_3fe0a768f132e6a5",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "node_id": "tcn_2e600ad783c384f5",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 55,
-      "pdf_page_end": 55,
+      "pdf_page_end": 59,
       "pdf_page_start": 55,
       "printed_page": "50",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第 9 课 学会倾听",
-      "title": "第9课学会倾听",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "title": "第 9 课 学会倾听",
+      "toc_entry_id": "tcu_112d6b248152e7ac",
+      "unit_id": "tcu_112d6b248152e7ac"
     },
     {
       "confidence": 0.9,
@@ -2286,7 +2302,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_5fc8e6f07b1184f0",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_2e600ad783c384f5",
       "pdf_page": 55,
       "pdf_page_end": 55,
       "pdf_page_start": 55,
@@ -2295,7 +2311,7 @@
       "source": "body_heading",
       "text_excerpt": "50 第四单元 我们来交往",
       "title": "50第四单元我们来交往",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.96,
@@ -2306,7 +2322,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_4e190bccf3705ec1",
-      "parent_id": "tcn_3fe0a768f132e6a5",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 55,
       "pdf_page_end": 55,
       "pdf_page_start": 55,
@@ -2315,7 +2331,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "学习目标。 习,实现目标。",
       "title": "学习目标。 习,实现目标。",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2324,7 +2340,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7c119b164fd6f33f",
-      "parent_id": "tcn_c4e25a8ad9d1b755",
+      "parent_id": "tcn_2e600ad783c384f5",
       "pdf_page": 55,
       "pdf_page_end": 55,
       "pdf_page_start": 55,
@@ -2332,7 +2348,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 55 页",
-      "unit_id": "tcu_896b3afb36d091a2"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2343,7 +2359,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_0e0fef41691f572a",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_2e600ad783c384f5",
       "pdf_page": 56,
       "pdf_page_end": 56,
       "pdf_page_start": 56,
@@ -2352,7 +2368,7 @@
       "source": "body_heading",
       "text_excerpt": "第9课 学会倾听 51",
       "title": "第9课学会倾听51",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2361,7 +2377,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_981fec94ccaa8499",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_2e600ad783c384f5",
       "pdf_page": 56,
       "pdf_page_end": 56,
       "pdf_page_start": 56,
@@ -2369,26 +2385,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 56 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 75,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_ebeed3401075134d",
-      "parent_id": null,
-      "pdf_page": 56,
-      "pdf_page_end": 75,
-      "pdf_page_start": 56,
-      "printed_page": "51",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第三单元",
-      "title": "第三单元",
-      "toc_entry_id": "tcu_def5f17f5dcb972d",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2399,7 +2396,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_7270a800368da4f6",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_2e600ad783c384f5",
       "pdf_page": 57,
       "pdf_page_end": 57,
       "pdf_page_start": 57,
@@ -2408,7 +2405,7 @@
       "source": "body_heading",
       "text_excerpt": "52 第四单元 我们来交往",
       "title": "52第四单元我们来交往",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2417,7 +2414,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_70ce4178a00e74d2",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_2e600ad783c384f5",
       "pdf_page": 57,
       "pdf_page_end": 57,
       "pdf_page_start": 57,
@@ -2425,7 +2422,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 57 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2436,7 +2433,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_7192abf7a6d0062c",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_2e600ad783c384f5",
       "pdf_page": 58,
       "pdf_page_end": 58,
       "pdf_page_start": 58,
@@ -2445,7 +2442,7 @@
       "source": "body_heading",
       "text_excerpt": "第9课 学会倾听 53",
       "title": "第9课学会倾听53",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.96,
@@ -2465,7 +2462,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "用心听他人的见解、感受、需要和请求。",
       "title": "用心听他人的见解、感受、需要和请求。",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.96,
@@ -2485,7 +2482,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "用点头等方式表示你的认同或礼貌地提出自己的看法。",
       "title": "用点头等方式表示你的认同或礼貌地提出自己的看法。",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.96,
@@ -2505,7 +2502,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "在表达自己的观点前,让他人充分表达。",
       "title": "在表达自己的观点前,让他人充分表达。",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.96,
@@ -2525,7 +2522,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "从对方的发言中把握关键内容,做好回应的准备。",
       "title": "从对方的发言中把握关键内容,做好回应的准备。",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2534,7 +2531,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0822c8454042455c",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_2e600ad783c384f5",
       "pdf_page": 58,
       "pdf_page_end": 58,
       "pdf_page_start": 58,
@@ -2542,7 +2539,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 58 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2553,7 +2550,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_f841ac9f141064ed",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_2e600ad783c384f5",
       "pdf_page": 59,
       "pdf_page_end": 59,
       "pdf_page_start": 59,
@@ -2562,7 +2559,7 @@
       "source": "body_heading",
       "text_excerpt": "54 第四单元 我们来交往",
       "title": "54第四单元我们来交往",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2571,7 +2568,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5e22501bf763341e",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_2e600ad783c384f5",
       "pdf_page": 59,
       "pdf_page_end": 59,
       "pdf_page_start": 59,
@@ -2579,7 +2576,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 59 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2590,7 +2587,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_12950e3c9e6bd475",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 60,
       "pdf_page_end": 60,
       "pdf_page_start": 60,
@@ -2599,7 +2596,7 @@
       "source": "body_heading",
       "text_excerpt": "第9课 学会倾听 55",
       "title": "第9课学会倾听55",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2608,7 +2605,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_abf9c6958581527a",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 60,
       "pdf_page_end": 60,
       "pdf_page_start": 60,
@@ -2616,7 +2613,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 60 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.86,
@@ -2627,7 +2624,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_6aafb165051d6362",
-      "parent_id": "tcn_0462bb61cc64515d",
+      "parent_id": "tcn_12950e3c9e6bd475",
       "pdf_page": 61,
       "pdf_page_end": 61,
       "pdf_page_start": 61,
@@ -2636,27 +2633,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "说说你因不敢表达而对呀,开幕式前讨论时,如果我感到遗憾的事情。",
       "title": "说说你因不敢表达而对呀,开幕式前讨论时,如果我感到遗憾的事情。",
-      "unit_id": "tcu_def5f17f5dcb972d"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 61,
-      "end_printed_page": "56",
-      "evidence_span_ids": [
-        "tes_2c7daf31e6e2e4bc"
-      ],
-      "kind": "lesson",
-      "node_id": "tcn_0462bb61cc64515d",
-      "parent_id": "tcn_ebeed3401075134d",
-      "pdf_page": 61,
-      "pdf_page_end": 61,
-      "pdf_page_start": 61,
-      "printed_page": "56",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 10 课 学会表达",
-      "title": "第10课学会表达",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2667,7 +2644,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_629861ff6f9f5be1",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_74a23ccf73d0b25e",
       "pdf_page": 61,
       "pdf_page_end": 61,
       "pdf_page_start": 61,
@@ -2676,7 +2653,26 @@
       "source": "body_heading",
       "text_excerpt": "56 第四单元 我们来交往",
       "title": "56第四单元我们来交往",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 65,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_74a23ccf73d0b25e",
+      "parent_id": "tcn_7b28af4f597bf738",
+      "pdf_page": 61,
+      "pdf_page_end": 65,
+      "pdf_page_start": 61,
+      "printed_page": "56",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第 10 课 学会表达",
+      "title": "第 10 课 学会表达",
+      "toc_entry_id": "tcu_c05ed583e61dd7df",
+      "unit_id": "tcu_c05ed583e61dd7df"
     },
     {
       "confidence": 0.98,
@@ -2685,7 +2681,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1a99339fb0c232d0",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_74a23ccf73d0b25e",
       "pdf_page": 61,
       "pdf_page_end": 61,
       "pdf_page_start": 61,
@@ -2693,7 +2689,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 61 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2704,7 +2700,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_5acadde212aa869d",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_74a23ccf73d0b25e",
       "pdf_page": 62,
       "pdf_page_end": 62,
       "pdf_page_start": 62,
@@ -2713,7 +2709,7 @@
       "source": "body_heading",
       "text_excerpt": "第10课 学会表达 57",
       "title": "第10课学会表达57",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2722,7 +2718,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c13118bc2d81059b",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_74a23ccf73d0b25e",
       "pdf_page": 62,
       "pdf_page_end": 62,
       "pdf_page_start": 62,
@@ -2730,7 +2726,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 62 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2741,7 +2737,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_242ab79985d2ad3a",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_74a23ccf73d0b25e",
       "pdf_page": 63,
       "pdf_page_end": 63,
       "pdf_page_start": 63,
@@ -2750,7 +2746,7 @@
       "source": "body_heading",
       "text_excerpt": "58 第四单元 我们来交往",
       "title": "58第四单元我们来交往",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2759,7 +2755,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8a19ded6fc3f69e0",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_74a23ccf73d0b25e",
       "pdf_page": 63,
       "pdf_page_end": 63,
       "pdf_page_start": 63,
@@ -2767,7 +2763,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 63 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2778,7 +2774,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_a5837dfeec66ebf9",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_74a23ccf73d0b25e",
       "pdf_page": 64,
       "pdf_page_end": 64,
       "pdf_page_start": 64,
@@ -2787,7 +2783,7 @@
       "source": "body_heading",
       "text_excerpt": "第10课 学会表达 59",
       "title": "第10课学会表达59",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.96,
@@ -2807,7 +2803,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "每个人都有发表自己意见的权利,表达时要自信。",
       "title": "每个人都有发表自己意见的权利,表达时要自信。",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.96,
@@ -2827,7 +2823,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "要说出自己的感受和见解,并让对方能理解。",
       "title": "要说出自己的感受和见解,并让对方能理解。",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.96,
@@ -2847,7 +2843,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "说出自己的观点,有理有据,可以适当辅以手势。",
       "title": "说出自己的观点,有理有据,可以适当辅以手势。",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.96,
@@ -2867,7 +2863,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "说话前作好准备,想一想自己要说什么。",
       "title": "说话前作好准备,想一想自己要说什么。",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2876,7 +2872,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8e623e2a2bf8ed39",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_74a23ccf73d0b25e",
       "pdf_page": 64,
       "pdf_page_end": 64,
       "pdf_page_start": 64,
@@ -2884,7 +2880,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 64 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2895,7 +2891,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_3385dd62cbc8d526",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_74a23ccf73d0b25e",
       "pdf_page": 65,
       "pdf_page_end": 65,
       "pdf_page_start": 65,
@@ -2904,7 +2900,7 @@
       "source": "body_heading",
       "text_excerpt": "60 第四单元 我们来交往",
       "title": "60第四单元我们来交往",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2913,7 +2909,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1314c482de5e13ef",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_74a23ccf73d0b25e",
       "pdf_page": 65,
       "pdf_page_end": 65,
       "pdf_page_start": 65,
@@ -2921,7 +2917,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 65 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -2932,7 +2928,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_b0a1bac5bae4c75d",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 66,
       "pdf_page_end": 66,
       "pdf_page_start": 66,
@@ -2941,7 +2937,7 @@
       "source": "body_heading",
       "text_excerpt": "第10课 学会表达 61",
       "title": "第10课学会表达61",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -2950,7 +2946,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d4a6b0e8249dc61b",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 66,
       "pdf_page_end": 66,
       "pdf_page_start": 66,
@@ -2958,7 +2954,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 66 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 71,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_02cf2f978db2d854",
+      "parent_id": "tcn_7b28af4f597bf738",
+      "pdf_page": 67,
+      "pdf_page_end": 71,
+      "pdf_page_start": 67,
+      "printed_page": "62",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第 11 课 同学要互助",
+      "title": "第 11 课 同学要互助",
+      "toc_entry_id": "tcu_b41431a857cef4ff",
+      "unit_id": "tcu_b41431a857cef4ff"
     },
     {
       "confidence": 0.9,
@@ -2969,7 +2984,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_dce0e90229b2a5c9",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_02cf2f978db2d854",
       "pdf_page": 67,
       "pdf_page_end": 67,
       "pdf_page_start": 67,
@@ -2978,27 +2993,7 @@
       "source": "body_heading",
       "text_excerpt": "62 第四单元 我们来交往",
       "title": "62第四单元我们来交往",
-      "unit_id": "tcu_def5f17f5dcb972d"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 67,
-      "end_printed_page": "62",
-      "evidence_span_ids": [
-        "tes_028d4a3dc82a26a0"
-      ],
-      "kind": "lesson",
-      "node_id": "tcn_fc57e505b79fe3ca",
-      "parent_id": "tcn_ebeed3401075134d",
-      "pdf_page": 67,
-      "pdf_page_end": 67,
-      "pdf_page_start": 67,
-      "printed_page": "62",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 11 课 同学要互助",
-      "title": "第11课同学要互助",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3007,7 +3002,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e1e3c5ce184f0cd9",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_02cf2f978db2d854",
       "pdf_page": 67,
       "pdf_page_end": 67,
       "pdf_page_start": 67,
@@ -3015,7 +3010,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 67 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3026,7 +3021,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_6bec8ca3bdc1b0f5",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_02cf2f978db2d854",
       "pdf_page": 68,
       "pdf_page_end": 68,
       "pdf_page_start": 68,
@@ -3035,7 +3030,7 @@
       "source": "body_heading",
       "text_excerpt": "第11课 同学要互助 63",
       "title": "第11课同学要互助63",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3044,7 +3039,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a309ab17f676bbff",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_02cf2f978db2d854",
       "pdf_page": 68,
       "pdf_page_end": 68,
       "pdf_page_start": 68,
@@ -3052,7 +3047,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 68 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3063,7 +3058,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_c1c2d8cf25436337",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_02cf2f978db2d854",
       "pdf_page": 69,
       "pdf_page_end": 69,
       "pdf_page_start": 69,
@@ -3072,7 +3067,7 @@
       "source": "body_heading",
       "text_excerpt": "64 第四单元 我们来交往",
       "title": "64第四单元我们来交往",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3081,7 +3076,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7e864f2c4079dd03",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_02cf2f978db2d854",
       "pdf_page": 69,
       "pdf_page_end": 69,
       "pdf_page_start": 69,
@@ -3089,7 +3084,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 69 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3100,7 +3095,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_e8846e7ec9d12a69",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_02cf2f978db2d854",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -3109,7 +3104,7 @@
       "source": "body_heading",
       "text_excerpt": "第11课 同学要互助 65",
       "title": "第11课同学要互助65",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3118,7 +3113,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6a517ce7446d36e7",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_02cf2f978db2d854",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -3126,7 +3121,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 70 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3137,7 +3132,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_660f0210c29968c0",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_02cf2f978db2d854",
       "pdf_page": 71,
       "pdf_page_end": 71,
       "pdf_page_start": 71,
@@ -3146,7 +3141,7 @@
       "source": "body_heading",
       "text_excerpt": "66 第四单元 我们来交往",
       "title": "66第四单元我们来交往",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3155,7 +3150,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_288effc2973763f4",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_02cf2f978db2d854",
       "pdf_page": 71,
       "pdf_page_end": 71,
       "pdf_page_start": 71,
@@ -3163,7 +3158,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 71 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3174,7 +3169,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_bc7772b7ef400a7c",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 72,
       "pdf_page_end": 72,
       "pdf_page_start": 72,
@@ -3183,7 +3178,7 @@
       "source": "body_heading",
       "text_excerpt": "第11课 同学要互助 67",
       "title": "第11课同学要互助67",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3192,7 +3187,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a86cfbc9fd5748e6",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 72,
       "pdf_page_end": 72,
       "pdf_page_start": 72,
@@ -3200,7 +3195,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 72 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3211,7 +3206,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_829be0487e6c00ba",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 73,
       "pdf_page_end": 73,
       "pdf_page_start": 73,
@@ -3220,7 +3215,7 @@
       "source": "body_heading",
       "text_excerpt": "68 第四单元 我们来交往",
       "title": "68第四单元我们来交往",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3229,7 +3224,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c803974bdca884ea",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 73,
       "pdf_page_end": 73,
       "pdf_page_start": 73,
@@ -3237,7 +3232,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 73 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3248,7 +3243,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_dcfd46d083bb0f7c",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 74,
       "pdf_page_end": 74,
       "pdf_page_start": 74,
@@ -3257,7 +3252,7 @@
       "source": "body_heading",
       "text_excerpt": "第11课 同学要互助 69",
       "title": "第11课同学要互助69",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3266,7 +3261,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_921be07db72d703e",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_7b28af4f597bf738",
       "pdf_page": 74,
       "pdf_page_end": 74,
       "pdf_page_start": 74,
@@ -3274,7 +3269,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 74 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 78,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_812d48ed89b78624",
+      "parent_id": "tcn_7b28af4f597bf738",
+      "pdf_page": 75,
+      "pdf_page_end": 78,
+      "pdf_page_start": 75,
+      "printed_page": "70",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第 12 课 待人要诚信",
+      "title": "第 12 课 待人要诚信",
+      "toc_entry_id": "tcu_f8461db8e22c8c3a",
+      "unit_id": "tcu_f8461db8e22c8c3a"
     },
     {
       "confidence": 0.9,
@@ -3285,7 +3299,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_8cbb1ece92b0cb35",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_812d48ed89b78624",
       "pdf_page": 75,
       "pdf_page_end": 75,
       "pdf_page_start": 75,
@@ -3294,27 +3308,7 @@
       "source": "body_heading",
       "text_excerpt": "70 第四单元 我们来交往",
       "title": "70第四单元我们来交往",
-      "unit_id": "tcu_def5f17f5dcb972d"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 75,
-      "end_printed_page": "70",
-      "evidence_span_ids": [
-        "tes_b79d934b2607451c"
-      ],
-      "kind": "lesson",
-      "node_id": "tcn_bfcd3a8556931150",
-      "parent_id": "tcn_ebeed3401075134d",
-      "pdf_page": 75,
-      "pdf_page_end": 75,
-      "pdf_page_start": 75,
-      "printed_page": "70",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第 12 课 待人要诚信",
-      "title": "第12课待人要诚信",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3325,7 +3319,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_c74997efde281d19",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_812d48ed89b78624",
       "pdf_page": 75,
       "pdf_page_end": 75,
       "pdf_page_start": 75,
@@ -3334,7 +3328,7 @@
       "source": "body_heading",
       "text_excerpt": "1. 实话实说",
       "title": "1实话实说",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3343,7 +3337,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_cf2f85714e69fb01",
-      "parent_id": "tcn_ebeed3401075134d",
+      "parent_id": "tcn_812d48ed89b78624",
       "pdf_page": 75,
       "pdf_page_end": 75,
       "pdf_page_start": 75,
@@ -3351,7 +3345,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 75 页",
-      "unit_id": "tcu_def5f17f5dcb972d"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3362,7 +3356,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_01d63e582dab2107",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": "tcn_812d48ed89b78624",
       "pdf_page": 76,
       "pdf_page_end": 76,
       "pdf_page_start": 76,
@@ -3371,7 +3365,7 @@
       "source": "body_heading",
       "text_excerpt": "第12课 待人要诚信 71",
       "title": "第12课待人要诚信71",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3380,7 +3374,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d1ee39fa58028504",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": "tcn_812d48ed89b78624",
       "pdf_page": 76,
       "pdf_page_end": 76,
       "pdf_page_start": 76,
@@ -3388,26 +3382,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 76 页",
-      "unit_id": "tcu_683fcdd098d2ff8b"
-    },
-    {
-      "confidence": 0.98,
-      "end_pdf_page": 86,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_e7b7be830251f44d",
-      "parent_id": null,
-      "pdf_page": 76,
-      "pdf_page_end": 86,
-      "pdf_page_start": 76,
-      "printed_page": "71",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第四单元",
-      "title": "第四单元",
-      "toc_entry_id": "tcu_683fcdd098d2ff8b",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3418,7 +3393,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_c4e5a60dc8336da8",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": "tcn_812d48ed89b78624",
       "pdf_page": 77,
       "pdf_page_end": 77,
       "pdf_page_start": 77,
@@ -3427,7 +3402,7 @@
       "source": "body_heading",
       "text_excerpt": "72 第四单元 我们来交往",
       "title": "72第四单元我们来交往",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3436,7 +3411,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fc07fa8454fd55ce",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": "tcn_812d48ed89b78624",
       "pdf_page": 77,
       "pdf_page_end": 77,
       "pdf_page_start": 77,
@@ -3444,7 +3419,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 77 页",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.9,
@@ -3455,7 +3430,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_8c994b3850342ce3",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": "tcn_812d48ed89b78624",
       "pdf_page": 78,
       "pdf_page_end": 78,
       "pdf_page_start": 78,
@@ -3464,7 +3439,7 @@
       "source": "body_heading",
       "text_excerpt": "第12课 待人要诚信 73",
       "title": "第12课待人要诚信73",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3473,7 +3448,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_42e8ce7767e07f05",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": "tcn_812d48ed89b78624",
       "pdf_page": 78,
       "pdf_page_end": 78,
       "pdf_page_start": 78,
@@ -3481,27 +3456,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 78 页",
-      "unit_id": "tcu_683fcdd098d2ff8b"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 79,
-      "end_printed_page": "74",
-      "evidence_span_ids": [
-        "tes_58ef351a9d05761b"
-      ],
-      "kind": "lesson",
-      "node_id": "tcn_cbf403239b534bee",
-      "parent_id": "tcn_e7b7be830251f44d",
-      "pdf_page": 79,
-      "pdf_page_end": 79,
-      "pdf_page_start": 79,
-      "printed_page": "74",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "74 第四单元 我们来交往",
-      "title": "74第四单元我们来交往",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": "tcu_ca9fe5c960f37593"
     },
     {
       "confidence": 0.98,
@@ -3510,7 +3465,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_78f345e5d73a1d0a",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": null,
       "pdf_page": 79,
       "pdf_page_end": 79,
       "pdf_page_start": 79,
@@ -3518,27 +3473,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 79 页",
-      "unit_id": "tcu_683fcdd098d2ff8b"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 80,
-      "end_printed_page": "75",
-      "evidence_span_ids": [
-        "tes_af2e92e417bc7110"
-      ],
-      "kind": "lesson",
-      "node_id": "tcn_375134e58fd10e5a",
-      "parent_id": "tcn_e7b7be830251f44d",
-      "pdf_page": 80,
-      "pdf_page_end": 80,
-      "pdf_page_start": 80,
-      "printed_page": "75",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第12课 待人要诚信 75",
-      "title": "第12课待人要诚信75",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3547,7 +3482,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9584688212621ba8",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": null,
       "pdf_page": 80,
       "pdf_page_end": 80,
       "pdf_page_start": 80,
@@ -3555,47 +3490,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 80 页",
-      "unit_id": "tcu_683fcdd098d2ff8b"
-    },
-    {
-      "confidence": 0.86,
-      "end_pdf_page": 81,
-      "end_printed_page": "76",
-      "evidence_span_ids": [
-        "tes_83cdad9003b558a2"
-      ],
-      "kind": "exercise",
-      "node_id": "tcn_a522fd3b9a059a08",
-      "parent_id": "tcn_375134e58fd10e5a",
-      "pdf_page": 81,
-      "pdf_page_end": 81,
-      "pdf_page_start": 81,
-      "printed_page": "76",
-      "review_status": "machine_checked",
-      "source": "task_verb_pattern",
-      "text_excerpt": "说说自己忘记承诺的事。 怎 样 才 能 信 守 承 诺呢?说说你的好办法。",
-      "title": "说说自己忘记承诺的事。 怎 样 才 能 信 守 承 诺呢?说说你的好办法。",
-      "unit_id": "tcu_683fcdd098d2ff8b"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 81,
-      "end_printed_page": "76",
-      "evidence_span_ids": [
-        "tes_b38137e9dc0d29c7"
-      ],
-      "kind": "lesson",
-      "node_id": "tcn_f70630558732f1f2",
-      "parent_id": "tcn_e7b7be830251f44d",
-      "pdf_page": 81,
-      "pdf_page_end": 81,
-      "pdf_page_start": 81,
-      "printed_page": "76",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "76 第四单元 我们来交往",
-      "title": "76第四单元我们来交往",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3604,7 +3499,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a84c7a5b76d115ff",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": null,
       "pdf_page": 81,
       "pdf_page_end": 81,
       "pdf_page_start": 81,
@@ -3612,47 +3507,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 81 页",
-      "unit_id": "tcu_683fcdd098d2ff8b"
-    },
-    {
-      "confidence": 0.86,
-      "end_pdf_page": 82,
-      "end_printed_page": "77",
-      "evidence_span_ids": [
-        "tes_03238199838495d8"
-      ],
-      "kind": "exercise",
-      "node_id": "tcn_651edfca1bb28413",
-      "parent_id": "tcn_f70630558732f1f2",
-      "pdf_page": 82,
-      "pdf_page_end": 82,
-      "pdf_page_start": 82,
-      "printed_page": "77",
-      "review_status": "machine_checked",
-      "source": "task_verb_pattern",
-      "text_excerpt": "结合自己类似的经历,说说你是怎样克服困难的,跟大家分享你的经验。",
-      "title": "结合自己类似的经历,说说你是怎样克服困难的,跟大家分享你的经验。",
-      "unit_id": "tcu_683fcdd098d2ff8b"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 86,
-      "end_printed_page": "77",
-      "evidence_span_ids": [
-        "tes_891bddf09c5fb6e5"
-      ],
-      "kind": "lesson",
-      "node_id": "tcn_53aaadb77e783c2b",
-      "parent_id": "tcn_e7b7be830251f44d",
-      "pdf_page": 82,
-      "pdf_page_end": 86,
-      "pdf_page_start": 82,
-      "printed_page": "77",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "第12课 待人要诚信 77",
-      "title": "第12课待人要诚信77",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3661,7 +3516,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_06792a791eb92426",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": null,
       "pdf_page": 82,
       "pdf_page_end": 82,
       "pdf_page_start": 82,
@@ -3669,7 +3524,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 82 页",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3678,7 +3533,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c70e45bf2cfff511",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": null,
       "pdf_page": 84,
       "pdf_page_end": 84,
       "pdf_page_start": 84,
@@ -3686,7 +3541,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 84 页",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3695,7 +3550,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0ec49a9c6e11d71a",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": null,
       "pdf_page": 85,
       "pdf_page_end": 85,
       "pdf_page_start": 85,
@@ -3703,7 +3558,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 85 页",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -3712,7 +3567,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4c3de88a887fb696",
-      "parent_id": "tcn_e7b7be830251f44d",
+      "parent_id": null,
       "pdf_page": 86,
       "pdf_page_end": 86,
       "pdf_page_start": 86,
@@ -3720,12 +3575,37 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 86 页",
-      "unit_id": "tcu_683fcdd098d2ff8b"
+      "unit_id": null
     }
   ],
   "edition_id": "ed_abbd5db6223f36ab3c5c",
-  "evidence_id": "ctb_9d06bc550436",
+  "evidence_id": "external_smartedu_2026_morality_law_primary_grade_3_down",
   "evidence_spans": [
+    {
+      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
+      "bbox": {
+        "height": 10.936,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 115.324,
+        "x": 42.315,
+        "y": 29.33
+      },
+      "edition_id": "ed_abbd5db6223f36ab3c5c",
+      "evidence_role": "heading",
+      "excerpt": "2 第一单元 共建美好生活",
+      "excerpt_hash": "36e73d4fec284ded93605bd91ff7bf274250d92c97e402802c4b7e61a0e44979",
+      "node_id": "tcn_24c9537c9cb64851",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 7,
+      "printed_page": "2",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_ed31393d5685b6eb",
+      "text": "2 第一单元 共建美好生活",
+      "text_hash": "36e73d4fec284ded93605bd91ff7bf274250d92c97e402802c4b7e61a0e44979"
+    },
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
       "bbox": {
@@ -3929,31 +3809,6 @@
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
       "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 311.496,
-        "x": 71.567,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 2 课 幸福生活是奋斗出来的",
-      "excerpt_hash": "ae0bd9de46e61ce1ac7bd83804b97a56a981ebb83c9cbeade716eb1b75fed80a",
-      "node_id": "tcn_88a883b6f8a7e8b9",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 14,
-      "printed_page": "9",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_48a79f531e2f1d60",
-      "text": "第 2 课 幸福生活是奋斗出来的",
-      "text_hash": "ae0bd9de46e61ce1ac7bd83804b97a56a981ebb83c9cbeade716eb1b75fed80a"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
         "height": 10.936,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -4050,56 +3905,6 @@
       "span_id": "tes_72a6677ce9df28bc",
       "text": "12 第一单元 共建美好生活",
       "text_hash": "6f2915df9fa49f0c55f975e0419f1a0a02c4b437dc934d92a122c1f56cbb0ac1"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 35.331,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 269.999,
-        "x": 87.56,
-        "y": 617.837
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第二单元 劳动最光荣",
-      "excerpt_hash": "0d0aa351fc4786ef31a3c3696d3b8a85c2c4a2d7c4f64d233a529d273b3066f2",
-      "node_id": "tcn_67ac846f99b5a373",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 18,
-      "printed_page": "13",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_2be696b364ce424a",
-      "text": "第二单元 劳动最光荣",
-      "text_hash": "0d0aa351fc4786ef31a3c3696d3b8a85c2c4a2d7c4f64d233a529d273b3066f2"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 191.496,
-        "x": 50.858,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 3 课 一切靠劳动",
-      "excerpt_hash": "3f541cb2bfffc78a18eea23acc1fb362c9f02ff058f9c4f70111d340761f8205",
-      "node_id": "tcn_ad5f465097f4bbfb",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 19,
-      "printed_page": "14",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_23dcb2cbf516add8",
-      "text": "第 3 课 一切靠劳动",
-      "text_hash": "3f541cb2bfffc78a18eea23acc1fb362c9f02ff058f9c4f70111d340761f8205"
     },
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
@@ -4254,31 +4059,6 @@
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
       "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 191.496,
-        "x": 50.858,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 4 课 致敬劳动者",
-      "excerpt_hash": "fe19bbe75d7ae2b33eca1b35e3a4724f9079aa5fe696a5d5459fde5a6fcd5f28",
-      "node_id": "tcn_64b00a77b3168802",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 25,
-      "printed_page": "20",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_34855c169aa8d6e6",
-      "text": "第 4 课 致敬劳动者",
-      "text_hash": "fe19bbe75d7ae2b33eca1b35e3a4724f9079aa5fe696a5d5459fde5a6fcd5f28"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
         "height": 10.936,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -4400,31 +4180,6 @@
       "span_id": "tes_4cfe32603de4af49",
       "text": "24 第二单元 劳动最光荣",
       "text_hash": "6b791d44dca08492fb510f5d300648b915cfa93cd17ec3013aacfdf3e47a1f50"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 191.496,
-        "x": 71.567,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 5 课 从小爱劳动",
-      "excerpt_hash": "341a5532c86ec2aa8b0b3b414e4d1d0639c17c4a14f495232645464dfdc71303",
-      "node_id": "tcn_553b6e8eff900ef6",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 30,
-      "printed_page": "25",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_2053fb2e87feec76",
-      "text": "第 5 课 从小爱劳动",
-      "text_hash": "341a5532c86ec2aa8b0b3b414e4d1d0639c17c4a14f495232645464dfdc71303"
     },
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
@@ -4579,56 +4334,6 @@
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
       "bbox": {
-        "height": 35.331,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 299.999,
-        "x": 87.56,
-        "y": 617.837
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第三单元 我是家庭一员",
-      "excerpt_hash": "a3fe48a9c3b95ce94ccc8d906b961d994748ebd44e4ef48697607ad5f4ea8ddc",
-      "node_id": "tcn_929d249b56a8261a",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 36,
-      "printed_page": "31",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_b7b9afece80894a0",
-      "text": "第三单元 我是家庭一员",
-      "text_hash": "a3fe48a9c3b95ce94ccc8d906b961d994748ebd44e4ef48697607ad5f4ea8ddc"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 215.496,
-        "x": 50.858,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 6 课 少让父母操心",
-      "excerpt_hash": "cdab77121eef1cb7787448f383e4c2873286b8489b041fe53cc5ae840571d47b",
-      "node_id": "tcn_b7488e791d5b4f85",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 37,
-      "printed_page": "32",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_20f6657094466fd6",
-      "text": "第 6 课 少让父母操心",
-      "text_hash": "cdab77121eef1cb7787448f383e4c2873286b8489b041fe53cc5ae840571d47b"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
         "height": 10.936,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -4750,31 +4455,6 @@
       "span_id": "tes_72474b6f80f0aebe",
       "text": "36 第三单元 我是家庭一员",
       "text_hash": "095734524197d58757d6cf52d2630e470904a84efbff2cad8816e91cc00229c9"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 287.496,
-        "x": 71.567,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 7 课 我的家庭贡献与责任",
-      "excerpt_hash": "a62d86a2d9b69ee1d6303756ad7304c804dd2eead9bdb1fd2def7dc93f3af1a6",
-      "node_id": "tcn_d29f50671e79b6b6",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 42,
-      "printed_page": "37",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_16c5a95e8a71ba8f",
-      "text": "第 7 课 我的家庭贡献与责任",
-      "text_hash": "a62d86a2d9b69ee1d6303756ad7304c804dd2eead9bdb1fd2def7dc93f3af1a6"
     },
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
@@ -4979,31 +4659,6 @@
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
       "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 215.496,
-        "x": 50.858,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 8 课 弘扬家庭美德",
-      "excerpt_hash": "97733c0659f61e7295faa3683940e9ad8e3d2045bcf06caed23bc8cc564f6f5d",
-      "node_id": "tcn_e3012e7dc4d4f9f3",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 47,
-      "printed_page": "42",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_1e5215cdeb6ca8ba",
-      "text": "第 8 课 弘扬家庭美德",
-      "text_hash": "97733c0659f61e7295faa3683940e9ad8e3d2045bcf06caed23bc8cc564f6f5d"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
         "height": 10.936,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -5154,31 +4809,6 @@
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
       "bbox": {
-        "height": 35.331,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 269.999,
-        "x": 87.56,
-        "y": 617.837
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第四单元 我们来交往",
-      "excerpt_hash": "1dba48612b7f4b58a5286a3c10236ad300a2849b195fce1f3483a5e486d0a42d",
-      "node_id": "tcn_aab3cda7a2d3ab0d",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 54,
-      "printed_page": "49",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_3710d39ac3b80297",
-      "text": "第四单元 我们来交往",
-      "text_hash": "1dba48612b7f4b58a5286a3c10236ad300a2849b195fce1f3483a5e486d0a42d"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
         "height": 10.936,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -5200,31 +4830,6 @@
       "span_id": "tes_0eb532c5d5ed1a4a",
       "text": "50 第四单元 我们来交往",
       "text_hash": "fd68deafb01bd27342764e2042418429da3aba43f2bf8575ed7d9962a43d48f9"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 167.496,
-        "x": 50.858,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 9 课 学会倾听",
-      "excerpt_hash": "33edbf9a5b9aeac2dcacaf7d9a151843f0cd89cfdbcf8145b99f1dfa9a24693b",
-      "node_id": "tcn_3fe0a768f132e6a5",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 55,
-      "printed_page": "50",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_5d35b10447ed69ac",
-      "text": "第 9 课 学会倾听",
-      "text_hash": "33edbf9a5b9aeac2dcacaf7d9a151843f0cd89cfdbcf8145b99f1dfa9a24693b"
     },
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
@@ -5475,31 +5080,6 @@
       "span_id": "tes_49fdaebc5c93beb2",
       "text": "第9课 学会倾听 55",
       "text_hash": "dbd88f97a12feac82ed39a887cab38ff074407719412202e4c1b5d96e9ee394b"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 173.166,
-        "x": 50.858,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 10 课 学会表达",
-      "excerpt_hash": "b2701d04f8e0f2d504e8f4f20cd6c1fcaad9c8e09bccd8c2b45432d8d4ecb58d",
-      "node_id": "tcn_0462bb61cc64515d",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 61,
-      "printed_page": "56",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_2c7daf31e6e2e4bc",
-      "text": "第 10 课 学会表达",
-      "text_hash": "b2701d04f8e0f2d504e8f4f20cd6c1fcaad9c8e09bccd8c2b45432d8d4ecb58d"
     },
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
@@ -5779,31 +5359,6 @@
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
       "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 197.166,
-        "x": 50.858,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 11 课 同学要互助",
-      "excerpt_hash": "1d53140e31bd76348ea39f731fa6b1e2bec1460aeb2902efa857b9f098faec51",
-      "node_id": "tcn_fc57e505b79fe3ca",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 67,
-      "printed_page": "62",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_028d4a3dc82a26a0",
-      "text": "第 11 课 同学要互助",
-      "text_hash": "1d53140e31bd76348ea39f731fa6b1e2bec1460aeb2902efa857b9f098faec51"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
         "height": 10.936,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -6029,31 +5584,6 @@
     {
       "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
       "bbox": {
-        "height": 26.167,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 197.166,
-        "x": 50.858,
-        "y": 658.324
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第 12 课 待人要诚信",
-      "excerpt_hash": "deee88bb10374052de350713d943067a337c0217567703bef26c43fa4bc018fe",
-      "node_id": "tcn_bfcd3a8556931150",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 75,
-      "printed_page": "70",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_b79d934b2607451c",
-      "text": "第 12 课 待人要诚信",
-      "text_hash": "deee88bb10374052de350713d943067a337c0217567703bef26c43fa4bc018fe"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
         "height": 10.936,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -6150,167 +5680,17 @@
       "span_id": "tes_150c65f05e1e174c",
       "text": "第12课 待人要诚信 73",
       "text_hash": "c0172999c07f3ce67d53804786aefe3776d8ae3e739d3d94549bc5b197dcbe35"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 10.936,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 112.148,
-        "x": 42.315,
-        "y": 29.33
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "74 第四单元 我们来交往",
-      "excerpt_hash": "d8021165a3fe33db00012ef4567545f0366ff106ab7f2008334da2ce4174c80f",
-      "node_id": "tcn_cbf403239b534bee",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 79,
-      "printed_page": "74",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_58ef351a9d05761b",
-      "text": "74 第四单元 我们来交往",
-      "text_hash": "d8021165a3fe33db00012ef4567545f0366ff106ab7f2008334da2ce4174c80f"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 10.936,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 104.374,
-        "x": 391.696,
-        "y": 29.33
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第12课 待人要诚信 75",
-      "excerpt_hash": "e7ba6a480b7db34c98d4ca6f3d4cf926e51ba1567f01e24462472f5d6e3584f6",
-      "node_id": "tcn_375134e58fd10e5a",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 80,
-      "printed_page": "75",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_af2e92e417bc7110",
-      "text": "第12课 待人要诚信 75",
-      "text_hash": "e7ba6a480b7db34c98d4ca6f3d4cf926e51ba1567f01e24462472f5d6e3584f6"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 12,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 112.608,
-        "x": 294.57,
-        "y": 146.759
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "exercise",
-      "excerpt": "说说自己忘记承诺的事。 怎 样 才 能 信 守 承 诺呢?说说你的好办法。",
-      "excerpt_hash": "3b81c8958fbd903324a15c45ed5c3dc45513820fcf4d31d12ba8f26794cb937b",
-      "node_id": "tcn_a522fd3b9a059a08",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 81,
-      "printed_page": "76",
-      "role": "exercise",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_83cdad9003b558a2",
-      "text": "说说自己忘记承诺的事。 怎 样 才 能 信 守 承 诺呢?说说你的好办法。",
-      "text_hash": "3b81c8958fbd903324a15c45ed5c3dc45513820fcf4d31d12ba8f26794cb937b"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 10.936,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 112.148,
-        "x": 42.315,
-        "y": 29.33
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "76 第四单元 我们来交往",
-      "excerpt_hash": "c08b2b19ca9697fa570231babe97dc374856f939098aa8669c90e3f945a4d5f8",
-      "node_id": "tcn_f70630558732f1f2",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 81,
-      "printed_page": "76",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_b38137e9dc0d29c7",
-      "text": "76 第四单元 我们来交往",
-      "text_hash": "c08b2b19ca9697fa570231babe97dc374856f939098aa8669c90e3f945a4d5f8"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 12,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 196.284,
-        "x": 200.873,
-        "y": 343.053
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "exercise",
-      "excerpt": "结合自己类似的经历,说说你是怎样克服困难的,跟大家分享你的经验。",
-      "excerpt_hash": "9933671896af69a7c18e3e1214f87b47cca5e0b32500f0f35cdf35f564b63ef9",
-      "node_id": "tcn_651edfca1bb28413",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 82,
-      "printed_page": "77",
-      "role": "exercise",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_03238199838495d8",
-      "text": "结合自己类似的经历,说说你是怎样克服困难的,跟大家分享你的经验。",
-      "text_hash": "9933671896af69a7c18e3e1214f87b47cca5e0b32500f0f35cdf35f564b63ef9"
-    },
-    {
-      "asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-      "bbox": {
-        "height": 10.936,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 104.374,
-        "x": 391.696,
-        "y": 29.33
-      },
-      "edition_id": "ed_abbd5db6223f36ab3c5c",
-      "evidence_role": "heading",
-      "excerpt": "第12课 待人要诚信 77",
-      "excerpt_hash": "914a8295599165fdcfa3047a0ef46a68ab2ff991502112bb4c22cea3fcf8c58c",
-      "node_id": "tcn_53aaadb77e783c2b",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 82,
-      "printed_page": "77",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_891bddf09c5fb6e5",
-      "text": "第12课 待人要诚信 77",
-      "text_hash": "914a8295599165fdcfa3047a0ef46a68ab2ff991502112bb4c22cea3fcf8c58c"
     }
   ],
   "extraction": {
-    "average_characters_per_page": 232.6,
-    "extracted_at": "2026-07-17T09:42:14.165878Z",
+    "average_characters_per_page": 261.6,
+    "extracted_at": "2026-11-01T07:29:59.423426Z",
     "notes": [
-      "数字印刷页与 PDF 页偏移 5，由 88 页重复证据支持。",
-      "只有在正文页面直接回查到的标题才自动进入已核对目录。"
+      "数字印刷页与 PDF 页偏移 5，由 41 页重复证据支持。",
+      "目录条目只有在正文页面直接回查，或通过保守的扫描目录识别门槛后，才进入已核对目录。"
     ],
-    "page_count_checked": 98,
-    "pages_with_text": 96
+    "page_count_checked": 86,
+    "pages_with_text": 84
   },
   "page_map": [
     {
@@ -6328,7 +5708,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 3",
       "pdf_page": 8,
       "printed_page": "3",
@@ -6342,7 +5722,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 5",
       "pdf_page": 10,
       "printed_page": "5",
@@ -6356,7 +5736,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 7",
       "pdf_page": 12,
       "printed_page": "7",
@@ -6370,7 +5750,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 9",
       "pdf_page": 14,
       "printed_page": "9",
@@ -6384,7 +5764,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 11",
       "pdf_page": 16,
       "printed_page": "11",
@@ -6398,7 +5778,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 13",
       "pdf_page": 18,
       "printed_page": "13",
@@ -6412,7 +5792,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 15",
       "pdf_page": 20,
       "printed_page": "15",
@@ -6426,7 +5806,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 17",
       "pdf_page": 22,
       "printed_page": "17",
@@ -6440,7 +5820,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 19",
       "pdf_page": 24,
       "printed_page": "19",
@@ -6454,7 +5834,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 21",
       "pdf_page": 26,
       "printed_page": "21",
@@ -6468,7 +5848,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 23",
       "pdf_page": 28,
       "printed_page": "23",
@@ -6482,7 +5862,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 25",
       "pdf_page": 30,
       "printed_page": "25",
@@ -6496,7 +5876,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 27",
       "pdf_page": 32,
       "printed_page": "27",
@@ -6510,7 +5890,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 29",
       "pdf_page": 34,
       "printed_page": "29",
@@ -6538,7 +5918,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 33",
       "pdf_page": 38,
       "printed_page": "33",
@@ -6552,7 +5932,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 35",
       "pdf_page": 40,
       "printed_page": "35",
@@ -6566,7 +5946,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 37",
       "pdf_page": 42,
       "printed_page": "37",
@@ -6580,7 +5960,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 39",
       "pdf_page": 44,
       "printed_page": "39",
@@ -6594,7 +5974,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 41",
       "pdf_page": 46,
       "printed_page": "41",
@@ -6608,7 +5988,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 43",
       "pdf_page": 48,
       "printed_page": "43",
@@ -6622,7 +6002,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 45",
       "pdf_page": 50,
       "printed_page": "45",
@@ -6636,7 +6016,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 47",
       "pdf_page": 52,
       "printed_page": "47",
@@ -6664,7 +6044,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 51",
       "pdf_page": 56,
       "printed_page": "51",
@@ -6678,7 +6058,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 53",
       "pdf_page": 58,
       "printed_page": "53",
@@ -6692,7 +6072,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 55",
       "pdf_page": 60,
       "printed_page": "55",
@@ -6706,7 +6086,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 57",
       "pdf_page": 62,
       "printed_page": "57",
@@ -6720,7 +6100,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 59",
       "pdf_page": 64,
       "printed_page": "59",
@@ -6734,7 +6114,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 61",
       "pdf_page": 66,
       "printed_page": "61",
@@ -6748,7 +6128,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 63",
       "pdf_page": 68,
       "printed_page": "63",
@@ -6762,7 +6142,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 65",
       "pdf_page": 70,
       "printed_page": "65",
@@ -6776,7 +6156,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 67",
       "pdf_page": 72,
       "printed_page": "67",
@@ -6790,7 +6170,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 69",
       "pdf_page": 74,
       "printed_page": "69",
@@ -6804,7 +6184,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 71",
       "pdf_page": 76,
       "printed_page": "71",
@@ -6818,7 +6198,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 73",
       "pdf_page": 78,
       "printed_page": "73",
@@ -6832,7 +6212,7 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 75",
       "pdf_page": 80,
       "printed_page": "75",
@@ -6846,122 +6226,38 @@
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 77",
       "pdf_page": 82,
       "printed_page": "77",
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 78",
       "pdf_page": 83,
       "printed_page": "78",
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 79",
       "pdf_page": 84,
       "printed_page": "79",
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 80",
       "pdf_page": 85,
       "printed_page": "80",
       "review_status": "approved"
     },
     {
-      "confidence": 0.99,
+      "confidence": 0.976,
       "label": "印刷页 81",
       "pdf_page": 86,
       "printed_page": "81",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 82",
-      "pdf_page": 87,
-      "printed_page": "82",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 83",
-      "pdf_page": 88,
-      "printed_page": "83",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 84",
-      "pdf_page": 89,
-      "printed_page": "84",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 85",
-      "pdf_page": 90,
-      "printed_page": "85",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 86",
-      "pdf_page": 91,
-      "printed_page": "86",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 87",
-      "pdf_page": 92,
-      "printed_page": "87",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 88",
-      "pdf_page": 93,
-      "printed_page": "88",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 89",
-      "pdf_page": 94,
-      "printed_page": "89",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 90",
-      "pdf_page": 95,
-      "printed_page": "90",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 91",
-      "pdf_page": 96,
-      "printed_page": "91",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 92",
-      "pdf_page": 97,
-      "printed_page": "92",
-      "review_status": "approved"
-    },
-    {
-      "confidence": 0.99,
-      "label": "印刷页 93",
-      "pdf_page": 98,
-      "printed_page": "93",
       "review_status": "approved"
     }
   ],
@@ -7014,75 +6310,579 @@
   "text_quality": "native_text",
   "toc": [
     {
-      "confidence": 0.98,
-      "end_pdf_page": 33,
-      "entry_id": "tcu_841ec9c3cbfc24b5",
+      "confidence": 0.85,
+      "end_pdf_page": 17,
+      "end_printed_page": "12",
+      "entry_id": "tcu_4ab06afc0198c3ba",
       "kind": "unit",
       "level": 1,
       "parent_id": null,
-      "pdf_page": 8,
-      "printed_page": "3",
+      "pdf_page": 6,
+      "printed_page": "1",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 269.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 18,
+          "verbatim_title": "第二单元 劳动最光荣"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 299.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 6,
+          "verbatim_title": "第一单元 共建美好生活"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "第一单元"
+      "source": "smartedu_sync_lessons",
+      "source_order": 1,
+      "title": "第一单元 共建美好生活",
+      "toc_pdf_page": null
     },
     {
-      "confidence": 0.98,
-      "end_pdf_page": 55,
-      "entry_id": "tcu_896b3afb36d091a2",
-      "kind": "unit",
-      "level": 1,
-      "parent_id": null,
-      "pdf_page": 34,
-      "printed_page": "29",
+      "confidence": 0.85,
+      "end_pdf_page": 11,
+      "entry_id": "tcu_9b077b00ca8ba1ee",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_4ab06afc0198c3ba",
+      "pdf_page": 7,
+      "printed_page": "2",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "第二单元"
+      "source": "smartedu_sync_lessons",
+      "source_order": 2,
+      "title": "第 1 课 我们的生活越来越幸福",
+      "toc_pdf_page": null
     },
     {
-      "confidence": 0.98,
-      "end_pdf_page": 75,
-      "entry_id": "tcu_def5f17f5dcb972d",
-      "kind": "unit",
-      "level": 1,
-      "parent_id": null,
-      "pdf_page": 56,
-      "printed_page": "51",
+      "confidence": 0.85,
+      "end_pdf_page": 18,
+      "entry_id": "tcu_5e89a3674cf8c0c2",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_4ab06afc0198c3ba",
+      "pdf_page": 14,
+      "printed_page": "9",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "第三单元"
+      "source": "smartedu_sync_lessons",
+      "source_order": 3,
+      "title": "第 2 课 幸福生活是奋斗出来的",
+      "toc_pdf_page": null
     },
     {
-      "confidence": 0.98,
-      "end_pdf_page": 98,
-      "entry_id": "tcu_683fcdd098d2ff8b",
+      "confidence": 0.85,
+      "end_pdf_page": 35,
+      "end_printed_page": "30",
+      "entry_id": "tcu_5a1ba40a90bd4081",
       "kind": "unit",
       "level": 1,
       "parent_id": null,
-      "pdf_page": 76,
-      "printed_page": "71",
+      "pdf_page": 18,
+      "printed_page": "13",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 299.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 36,
+          "verbatim_title": "第三单元 我是家庭一员"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 269.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 18,
+          "verbatim_title": "第二单元 劳动最光荣"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "第四单元"
+      "source": "smartedu_sync_lessons",
+      "source_order": 4,
+      "title": "第二单元 劳动最光荣",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 23,
+      "entry_id": "tcu_314360a787e5dd11",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_5a1ba40a90bd4081",
+      "pdf_page": 19,
+      "printed_page": "14",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 5,
+      "title": "第 3 课 一切靠劳动",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 29,
+      "entry_id": "tcu_24fb188afa96dc74",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_5a1ba40a90bd4081",
+      "pdf_page": 25,
+      "printed_page": "20",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 6,
+      "title": "第 4 课 致敬劳动者",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 34,
+      "entry_id": "tcu_9b03c8d828b736e6",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_5a1ba40a90bd4081",
+      "pdf_page": 30,
+      "printed_page": "25",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 7,
+      "title": "第 5 课 从小爱劳动",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 53,
+      "end_printed_page": "48",
+      "entry_id": "tcu_9d8181151fd5339e",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 36,
+      "printed_page": "31",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 269.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "第四单元 我们来交往"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 299.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 36,
+          "verbatim_title": "第三单元 我是家庭一员"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 8,
+      "title": "第三单元 我是家庭一员",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 41,
+      "entry_id": "tcu_8402ea463a5497d3",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9d8181151fd5339e",
+      "pdf_page": 37,
+      "printed_page": "32",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 9,
+      "title": "第 6 课 少让父母操心",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 46,
+      "entry_id": "tcu_29afddac1d1f41f0",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9d8181151fd5339e",
+      "pdf_page": 42,
+      "printed_page": "37",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 10,
+      "title": "第 7 课 我的家庭贡献与责任",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 51,
+      "entry_id": "tcu_8fa56deecd6dd6a5",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9d8181151fd5339e",
+      "pdf_page": 47,
+      "printed_page": "42",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 11,
+      "title": "第 8 课 弘扬家庭美德",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 78,
+      "end_printed_page": "73",
+      "entry_id": "tcu_ca9fe5c960f37593",
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 54,
+      "printed_page": "49",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": null,
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 269.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "第四单元 我们来交往"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 12,
+      "title": "第四单元 我们来交往",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 59,
+      "entry_id": "tcu_112d6b248152e7ac",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_ca9fe5c960f37593",
+      "pdf_page": 55,
+      "printed_page": "50",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 13,
+      "title": "第 9 课 学会倾听",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 65,
+      "entry_id": "tcu_c05ed583e61dd7df",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_ca9fe5c960f37593",
+      "pdf_page": 61,
+      "printed_page": "56",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 14,
+      "title": "第 10 课 学会表达",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 71,
+      "entry_id": "tcu_b41431a857cef4ff",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_ca9fe5c960f37593",
+      "pdf_page": 67,
+      "printed_page": "62",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 15,
+      "title": "第 11 课 同学要互助",
+      "toc_pdf_page": null
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 78,
+      "entry_id": "tcu_f8461db8e22c8c3a",
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_ca9fe5c960f37593",
+      "pdf_page": 75,
+      "printed_page": "70",
+      "review_status": "approved",
+      "source": "smartedu_sync_lessons",
+      "source_order": 16,
+      "title": "第 12 课 待人要诚信",
+      "toc_pdf_page": null
     }
   ],
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
-    "changed_unit_range_count": 0,
-    "changes": [],
-    "clamped_content_node_range_count": 0,
+    "auxiliary_boundary_evidence": null,
+    "changed_unit_range_count": 4,
+    "changes": [
+      {
+        "after": {
+          "end_pdf_page": 17,
+          "pdf_page": 6
+        },
+        "before": {
+          "end_pdf_page": 18,
+          "pdf_page": 7
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 269.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 18,
+          "verbatim_title": "第二单元 劳动最光荣"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 299.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 6,
+          "verbatim_title": "第一单元 共建美好生活"
+        },
+        "title": "第一单元 共建美好生活",
+        "unit_id": "tcu_4ab06afc0198c3ba"
+      },
+      {
+        "after": {
+          "end_pdf_page": 35,
+          "pdf_page": 18
+        },
+        "before": {
+          "end_pdf_page": 36,
+          "pdf_page": 19
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 299.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 36,
+          "verbatim_title": "第三单元 我是家庭一员"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 269.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 18,
+          "verbatim_title": "第二单元 劳动最光荣"
+        },
+        "title": "第二单元 劳动最光荣",
+        "unit_id": "tcu_5a1ba40a90bd4081"
+      },
+      {
+        "after": {
+          "end_pdf_page": 53,
+          "pdf_page": 36
+        },
+        "before": {
+          "end_pdf_page": 54,
+          "pdf_page": 37
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 269.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "第四单元 我们来交往"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 299.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 36,
+          "verbatim_title": "第三单元 我是家庭一员"
+        },
+        "title": "第三单元 我是家庭一员",
+        "unit_id": "tcu_9d8181151fd5339e"
+      },
+      {
+        "after": {
+          "end_pdf_page": 78,
+          "pdf_page": 54
+        },
+        "before": {
+          "end_pdf_page": 78,
+          "pdf_page": 55
+        },
+        "end_evidence": null,
+        "start_evidence": {
+          "bbox": {
+            "height": 35.331,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 269.999,
+            "x": 87.56,
+            "y": 617.837
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 54,
+          "verbatim_title": "第四单元 我们来交往"
+        },
+        "title": "第四单元 我们来交往",
+        "unit_id": "tcu_ca9fe5c960f37593"
+      }
+    ],
+    "clamped_content_node_range_count": 1,
     "detached_auxiliary_content_node_count": 0,
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
-    "exact_unit_heading_evidence_count": 0,
+    "exact_unit_heading_evidence_count": 4,
     "inspected_page_count": 86,
     "provenance": "machine_generated",
     "publication_gate": false,
-    "reassigned_content_node_count": 0,
+    "reassigned_content_node_count": 130,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 1,
     "sidecar_sha256": "e205c38863ee0d832c60fcf34a90b0b27b2d04e66ca8e24589dbcfe03f6be03d",
     "source_asset_sha256": "0190d67ceb539081f72e15209c930f2206e921442dca85e8ee87f436e134a896",
-    "status": "insufficient_boundary_evidence",
+    "status": "reconciled",
     "top_level_unit_count": 4,
     "top_line_limit": 4
   }

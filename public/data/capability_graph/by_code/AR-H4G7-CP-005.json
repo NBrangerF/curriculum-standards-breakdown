@@ -81,16 +81,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_219399a0c8a9142a",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_4e29c3897ac01b25a084",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_art_junior_grade_7_up",
+        "tes_62b7a92b89ffae54",
+        "textbook-node:tcn_0dd17d7fad6750e2",
+        "textbook-unit:tcu_daad4996e1cfd1bb"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "设计草图 绘制正稿 标识设计说明黑白琴键与乐 校园广场雕塑的造型 橙色的中间图形由优美 小 小 的 画符象征着艺术节音 与颜色彰显出校园文化特 的舞蹈姿势与“艺”字结合 板 象 征 着 美 术",
+          "excerpt_hash": "69c76fbac5796f64500929bf1214186ecd81f91f2dbedb0c1e8d79affefbde31",
+          "pdf_page": 46,
+          "printed_page": "40",
+          "span_id": "tes_62b7a92b89ffae54"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f6d7e0a43570a7e1"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f6d7e0a43570a7e1",
+          "label": "积极参与校园文化建设"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_0dd17d7fad6750e2",
+      "node_title": "设计草图 绘制正稿 标识设计说明黑白琴键与乐 校园广场雕塑的造型 橙色的中间图形由优美 小 小 的 画符象征着艺术节音 与颜色彰显出校园文化特 的舞蹈姿势与“艺”字结合 板 象 征 着 美 术",
+      "pdf_page": 46,
+      "printed_page": "40",
+      "publication_status": "published",
+      "rationale": "教材练习“设计草图 绘制正稿 标识设计说明黑白琴键与乐 校园广场雕塑的造型 橙色的中间图形由优美 小 小 的 画符象征着艺术节音 与颜色彰显出校园文化特 的舞蹈姿势与“艺”字结合 板 象 征 着 美 术”与课标 AR-H4G7-CP-005 的可教学小能力“积极参与校园文化建设”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "美术",
+      "textbook_title": "美术7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_daad4996e1cfd1bb",
+      "unit_title": "艺术校园"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_b58f533781c822c6",
@@ -101,7 +156,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a98e81d5ea76"
+        "external_smartedu_2026_music_junior_grade_7_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -113,7 +168,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_5c9c27ac05203638",
       "textbook_grade": 7,
       "textbook_subject": "音乐",
@@ -132,7 +187,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_86eb84faa252"
+        "external_smartedu_2026_art_junior_grade_7_down"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -144,7 +199,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_0805abf2f5db09ed",
       "textbook_grade": 7,
       "textbook_subject": "美术",
@@ -163,7 +218,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_d35e7be5354c"
+        "external_smartedu_2026_art_junior_grade_7_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -175,7 +230,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_a883040b0334e9a7",
       "textbook_grade": 7,
       "textbook_subject": "美术",
@@ -194,7 +249,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a99675852c59"
+        "external_smartedu_2026_music_junior_grade_7_up"
       ],
       "evidence_role": "discipline_textbook",
       "level": "scope",
@@ -206,7 +261,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_b3fadfb25eca49fe",
       "textbook_grade": 7,
       "textbook_subject": "音乐",
