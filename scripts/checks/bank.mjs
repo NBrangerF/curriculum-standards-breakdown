@@ -218,6 +218,15 @@ export function checkSubject(subject) {
         const top = Math.max(0, ...Array.from({ length: n }, (_, k) => answers.filter(a => a === k).length))
         if (answers.length >= 8 && top / answers.length > 1.6 / n) warnings.push(`${n}-option questions: ${top} of ${answers.length} have the right answer in the same place`)
     }
+    // nor should the right option keep being the longest one: test-wise students pick it without thinking
+    const choices = items.filter(item => item.type === 'choice')
+    const longest = choices.filter(item => {
+        const widths = item.options.map(option => widthOf(plain(option)))
+        const max = Math.max(...widths)
+        return widths[item.answer] === max && widths.filter(width => width === max).length === 1
+    }).length
+    const chance = choices.reduce((sum, item) => sum + 1 / item.options.length, 0)
+    if (choices.length >= 10 && longest > chance * 1.5 && longest - chance >= 5) warnings.push(`the right option is the longest in ${longest} of ${choices.length} choice questions (chance ≈ ${Math.round(chance)}); give wrong options the same detail`)
     const judges = items.filter(item => item.type === 'judge')
     if (judges.length >= 8 && judges.filter(item => item.answer).length / judges.length < 0.2) warnings.push('同意吗 questions are almost all 不同意; make some statements correct')
     const used = new Set(items.flatMap(item => [...Object.values(item.wrong || {}).flat(), item.error].filter(Boolean)))

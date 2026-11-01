@@ -65,7 +65,7 @@ export const bookOfKey = (bank, key) => bank?.books?.find(entry => entry.key ===
 export const TYPE_META = {
     choice: { label: '选择', how: '选几，就举几根手指', short: '手势 1–4' },
     judge: { label: '同意吗', how: '同意竖起大拇指，不同意拇指朝下', short: '拇指上下' },
-    step: { label: '哪一步错', how: '从第几步开始错，就举几根手指', short: '手势 1–4' },
+    step: { label: '哪一步错', how: '从第几步开始错，就举几根手指；觉得都对就握拳', short: '手势 1–4' },
     write: { label: '写答案', how: '把答案写在草稿纸上，举起来', short: '草稿纸举起' }
 }
 

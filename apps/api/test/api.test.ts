@@ -1713,12 +1713,28 @@ test('课堂诊断题: /api/v1/checks and the get_check_questions tool', async (
     assert.equal((await get('/api/v1/checks/no-such')).status, 404)
     assert.equal((await get('/api/v1/checks?subject=dance')).status, 404)
 
+    // every subject: by name, by 学段 for subjects without a textbook, by a 要点 of another subject, markup as plain text
+    const english = await json(await get(`/api/v1/checks?subject=${encodeURIComponent('英语')}&grade=5&limit=50`))
+    assert.ok(english.data.length > 0 && english.data.every((item: any) => item.subject_slug === 'english' && item.grade === 5))
+    const labor = await json(await get('/api/v1/checks?subject=labor&grade=4&limit=50'))
+    assert.ok(labor.data.length > 0 && labor.data.every((item: any) => item.grades.includes(4) && item.textbook_unit.startsWith('3–4 年级')))
+    const physics = await json(await get('/api/v1/checks?code=PH-S4-MI-02&limit=5'))
+    assert.ok(physics.data.length > 0 && physics.data.every((item: any) => item.subject_slug === 'physics' && item.present_url.includes('q=ph-')))
+    const chemistry = await json(await get('/api/v1/checks/ch-9a-12'))
+    assert.ok(chemistry.data.options.some((text: string) => text.includes('═点燃═')) && !JSON.stringify(chemistry.data).includes('=['))
+    const everywhere = await json(await get(`/api/v1/checks?q=${encodeURIComponent('密度')}&limit=50`))
+    assert.ok(new Set(everywhere.data.map((item: any) => item.subject_slug)).size >= 1)
+
     const call = async (args: Record<string, unknown>) => json(await mcp({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'get_check_questions', arguments: args } }))
     const tool = await call({ topic: '一元一次方程', limit: 2 })
     assert.equal(tool.result.isError, false)
     assert.equal(tool.result.structuredContent.questions.length, 2)
     assert.match(tool.result.content[0].text, /放映：https:\/\/www\.kebiao\.org\/checks\/present/)
     assert.equal((await call({})).result.isError, true)
+    const other = await call({ subject: '物理', topic: '惯性', limit: 2 })
+    assert.equal(other.result.isError, false)
+    assert.ok(other.result.structuredContent.questions.length > 0 && other.result.structuredContent.questions.every((item: any) => item.subject === '物理'))
+    assert.equal((await call({ subject: '舞蹈', topic: '节奏' })).result.isError, true)
 })
 
 test('MCP transport handles notifications, batches and bad requests', async () => {

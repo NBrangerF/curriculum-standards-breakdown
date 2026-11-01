@@ -7,7 +7,7 @@
     {"id": "perfect-with-past-time", "name": "现在完成时配了过去时间点", "why": "把汉语的“开了”“变了”都译成现在完成时，没注意 two years ago 是过去的一个时间点。", "move": "画时间轴：two years ago、last year、in 2018 是过去的一个点，用一般过去时；since、for 连到现在，才用 have done。"},
     {"id": "used-to-doing", "name": "used to 后接了 doing", "why": "把 used to do 和 be used to doing 混在一起了。", "move": "对比：used to ride（过去常骑）/ is used to riding（习惯于骑），先看前面有没有 be。"},
     {"id": "used-to-past-verb", "name": "used to 后用了过去式", "why": "used 已经是过去式，就以为后面的动词也要变。", "move": "提醒：to 后面用动词原形，“过去”已经由 used 表示了。"},
-    {"id": "more-adj-and-more-adj", "name": "长词重复了 more 和形容词", "why": "把 taller and taller 的格式照搬到了长词上。", "move": "板书两种格式：短词 taller and taller；长词 more and more beautiful。"}
+    {"id": "since-for-period", "name": "把 since 用在一段时间前", "why": "把 since 记成“……以来”，“50 年来”就说成 since 50 years，没分清 since 接时间点、for 接一段时间。", "move": "画时间轴：since 后面是轴上的一个点（since 1976、since I was a child），for 后面是一段长度（for 50 years），让学生把例子放上去。"}
   ],
   "items": [
     {
@@ -64,27 +64,27 @@
       "ladder": [
         {"q": "There used to ____ (be) a river here.", "a": "be"},
         {"q": "用 used to 改写：Tom often played football, but he doesn't now.", "a": "Tom used to play football."},
-        {"q": "改成一般疑问句：He used to walk to school.", "a": "Did he use to walk to school?"}
+        {"q": "用 used to 说一句：这座小镇以前很安静，现在很热闹。", "a": "This town used to be quiet. Now it's busy."}
       ]
     },
     {
       "id": "en-9a-04",
       "type": "choice",
       "unit": "Unit 1 The Changing World",
-      "lessons": ["How do changes influence us"],
-      "points": ["EN-S3-LK-01.15"],
-      "topic": "“越来越……”的说法",
-      "stem": "Our city is becoming ____.",
-      "options": ["more beautiful and more beautiful", "more and more beautiful", "beautifuler and beautifuler"],
-      "answer": 1,
-      "wrong": {"0": "more-adj-and-more-adj", "2": "long-adjective-er"},
-      "right": ["“越来越……”用“比较级 and 比较级”；", "长词写成 more and more + 原级：more and more beautiful。"],
-      "typical": ["照着 taller and taller 的样子：", "more beautiful and more beautiful"],
-      "typical_error": "more-adj-and-more-adj",
+      "lessons": ["What changes have taken place around you"],
+      "points": ["EN-S3-LK-01.14"],
+      "topic": "完成时配 for 还是 since",
+      "stem": "My grandparents have lived in this town ____.",
+      "options": ["since 50 years", "50 years ago", "for 50 years"],
+      "answer": 2,
+      "wrong": {"0": "since-for-period", "1": "perfect-with-past-time"},
+      "right": ["have lived 说的是一直住到现在，后面接一段时间用 for：for 50 years；", "since 后面接时间点：since 1976；ago 只配一般过去时。"],
+      "typical": ["“50 年来”就是 since 50 years：", "have lived in this town since 50 years"],
+      "typical_error": "since-for-period",
       "ladder": [
-        {"q": "The days are getting ____ (long).（越来越长）", "a": "longer and longer"},
-        {"q": "The story is getting ____ (interesting).（越来越有趣）", "a": "more and more interesting"},
-        {"q": "Life in our village is getting ____ (good).（越来越好）", "a": "better and better"}
+        {"q": "填 for 或 since：We have lived in this city ____ 2018.", "a": "since"},
+        {"q": "填 for 或 since：My father has worked in this hospital ____ ten years.", "a": "for"},
+        {"q": "填 for 或 since：My grandpa has lived here ____ he was a child.", "a": "since"}
       ]
     }
   ]

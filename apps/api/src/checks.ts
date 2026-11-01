@@ -44,7 +44,7 @@ type CheckIndex = { subjects: Array<{ slug: string, name: string, code: string, 
 const HOW: Record<CheckItem['type'], string> = {
     choice: '手势 1–4：选几就举几根手指',
     judge: '拇指上下：同意竖起大拇指，不同意拇指朝下',
-    step: '手势 1–4：从第几步开始错就举几根手指',
+    step: '手势 1–4：从第几步开始错就举几根手指；觉得都对就握拳',
     write: '草稿纸：写好后一起举起来'
 }
 

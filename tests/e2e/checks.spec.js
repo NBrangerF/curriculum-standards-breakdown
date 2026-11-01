@@ -86,3 +86,34 @@ test('a math 要点 links to its check questions', async ({ page }) => {
     await expect(page).toHaveURL(/\/checks\?point=MA-S3-NA-01\.\d/u)
     await expect(page.getByRole('heading', { level: 2, name: /课标要点 MA-S3-NA-01\.\d 的诊断题/u })).toBeVisible()
 })
+
+test('every subject has its own bank: 英语 opens on its book and projects its text as written', async ({ page }) => {
+    await page.goto('/checks?subject=english&book=5下')
+    const subjects = page.getByRole('navigation', { name: '选学科' })
+    await expect(subjects.getByRole('button', { name: /英语/u })).toHaveAttribute('aria-pressed', 'true', { timeout: 20_000 })
+    await expect(page.getByRole('heading', { level: 2, name: /Unit 1 My day/u })).toBeVisible()
+    await page.goto('/checks/present?q=en-5b-01')
+    await expect(page.getByRole('region', { name: /第 1 页/u })).toContainText('I usually eat breakfast ____ 7:00', { timeout: 20_000 })
+})
+
+test('a chemistry equation shows its condition over the equals sign, and the slide hides the topic until the reveal', async ({ page }) => {
+    await page.goto('/checks/present?q=ch-9a-12')
+    const question = page.getByRole('region', { name: /第 1 页/u })
+    await expect(question).toContainText('═点燃═', { timeout: 20_000 })
+    await expect(question).not.toContainText('=[')
+    await page.keyboard.press('ArrowRight')
+    await expect(page.getByRole('region', { name: /第 2 页/u }).getByRole('complementary', { name: '正确做法' })).toBeVisible()
+})
+
+test('subjects filed by 学段 open on the grade asked for, and a physics book links to its questions', async ({ page }) => {
+    await page.goto('/checks?subject=labor&grade=4')
+    await expect(page.getByRole('navigation', { name: '选劳动的年级' }).getByRole('button', { name: /3–4年级/u })).toHaveAttribute('aria-pressed', 'true', { timeout: 20_000 })
+    await expect(page.getByText('劳动按课标的学段和学习任务编排')).toBeVisible()
+
+    await page.goto('/textbooks/ed_f0de8cbbeb88661f44d6')
+    const link = page.getByRole('link', { name: '课堂诊断题' })
+    await expect(link).toHaveAttribute('href', '/checks?subject=physics&book=8%E4%B8%8A', { timeout: 20_000 })
+    await link.click()
+    await expect(page.getByRole('navigation', { name: '选学科' }).getByRole('button', { name: /物理/u })).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.getByText('按人教版八年级上册的单元编排。')).toBeVisible()
+})

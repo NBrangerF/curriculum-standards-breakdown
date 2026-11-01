@@ -34,7 +34,9 @@ const routes = [
     ['textbookAlignment', '/textbooks/ed_006d5ed61c055eb63857/standards'],
     ['checks', '/checks?grade=5&term=下'],
     ['checksAfter', '/checks/after?grade=5&term=下'],
-    ['checksPresent', '/checks/present?q=ma-5b-05,ma-5b-09,ma-5b-03']
+    ['checksPresent', '/checks/present?q=ma-5b-05,ma-5b-09,ma-5b-03'],
+    ['checksEnglish', '/checks?subject=english&book=7上'],
+    ['checksPresentChemistry', '/checks/present?q=ch-9a-12,ch-9a-13&with=contrast,ladder']
 ]
 
 const summarizeViolations = violations => violations.map(violation => ({
