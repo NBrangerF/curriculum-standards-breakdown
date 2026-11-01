@@ -26,7 +26,8 @@ test('a station opens its 要点 with its thread and the lessons that teach it',
     await page.getByRole('button', { name: '要点 2' }).click()
     await expect(page).toHaveURL(/focus=MA-S4-NA-07\.2/)
     await expect(page.getByText('能画一次函数的图象', { exact: false }).first()).toBeVisible()
-    await expect(page.getByRole('link', { name: /^人教 8下 · .*正比例函数/ }).first()).toHaveAttribute('href', /^\/textbooks\/ed_[0-9a-f]+\/standards$/)
+    // the 2025 人教 8下 teaches it in 第二十三章 一次函数 · 23.2 一次函数的图象和性质
+    await expect(page.getByRole('link', { name: /^人教 8下 · .*一次函数的图象/ }).first()).toHaveAttribute('href', /^\/textbooks\/ed_[0-9a-f]+\/standards$/)
     await expect(page.getByRole('link', { name: '用它备课 →' })).toHaveAttribute('href', /\/lesson-plan\?mode=topic&subject=.+&grade=8&topic=.+&codes=MA-S4-NA-07\.2/)
     await page.getByRole('button', { name: '← 数学全景' }).click()
     await expect(page).toHaveURL(/\/knowledge-graph\/math$/)
