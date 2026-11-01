@@ -41,20 +41,48 @@ export type Frame = {
     objectives: Objective[]
     key_points: string[]
     difficult_points: string[]
+    // how the 难点 are broken down in class (突破难点的办法)
+    strategies?: string[]
     learner_analysis: string
     prior_knowledge: string[]
     misconceptions: Array<{ text: string, response: string }>
     keywords: Array<{ term: string, definition: string }>
     assessments: Assessment[]
 }
-export type Stage = { name: string, minutes: number, teacher: string, students: string, purpose: string, objective_ids: string[], assessment_ids: string[] }
+// a key question with the answers the teacher expects (typical wrong ones too) and the follow-up
+export type KeyQuestion = { q: string, expect: string, follow: string }
+export type Stage = {
+    name: string
+    minutes: number
+    // 组织形式: 全班 / 同桌 / 四人小组 / 独立, or 「独立→同桌」 for one after the other
+    org?: string
+    teacher: string
+    students: string
+    questions?: KeyQuestion[]
+    // how the teacher sees the whole class's thinking within a minute (手势表决、同桌互查、巡视抽看…)
+    check?: string
+    // what the slower and the faster students get
+    support?: string
+    purpose: string
+    objective_ids: string[]
+    assessment_ids: string[]
+}
 export type Process = {
     stages: Stage[]
-    homework: Array<{ level: string, task: string }>
+    homework: Array<{ level: string, task: string, minutes?: number }>
     board: string[]
     materials: string[]
     safety: string[]
 }
+// 当堂练习与检测: items a teacher can project or print, each with its answer and the 要点 it practises
+export type PracticeItem = { kind: '练习' | '检测', level: string, question: string, answer: string, code: string, objective_id: string }
+export type Practice = { items: PracticeItem[] }
+// 课标解读: the 要点 read for the teacher, so the lesson teaches the 课标 with the textbook rather than the textbook alone
+export type PointReading = { code: string, plain: string, verbs: Array<{ word: string, meaning: string }>, this_lesson: string, textbook: string, avoid: string }
+export type Reading = { points: PointReading[], position: string, literacy: Array<{ name: string, look_for: string }> }
+// what comes before and after a 要点 (kebiao 知识图谱) and where this book teaches it (教材与课标对应)
+export type PointLink = { code: string, text: string, grade: string, reason: string }
+export type PointLinks = { code: string, before: PointLink[], after: PointLink[], in_book: Array<{ unit: string, lesson: string, page: number | null }>, books: number }
 export type PlanCheck = { level: 'ok' | 'warn' | 'risk', kind: string, message: string, quote?: string, code?: string }
 export type DraftInput = {
     lesson: PlanLesson
@@ -66,6 +94,13 @@ export type DraftInput = {
     lessonCount: number
     classNotes: string
     teacherNotes: string
+    // the class as it is: about 45 students in rows unless the teacher says otherwise
+    classSize?: number
+    // 新授课 / 复习课 / 练习课 / 实验课 / 讲评课; '' lets the model judge from the lesson
+    lessonType?: string
+    links?: PointLinks[]
+    // this lesson's own words from the textbook (教材与课标对应 quotes), for 课标解读 and the plan
+    lessonQuotes?: string[]
 }
 
 const str = (value: unknown, max = 400) => String(value ?? '').replace(/\s+/gu, ' ').trim().slice(0, max)
@@ -92,7 +127,41 @@ const VAGUE = /(了解|感受|体会|培养|渗透|提升|增强|激发|感悟|�
 
 export type CheckOptions = { planText?: string, assessmentsPlaced?: boolean }
 
-export function checkPlan(frame: Frame, process: Process | null, input: Pick<DraftInput, 'indicators' | 'standards' | 'periodMinutes'>, options: CheckOptions = {}): PlanCheck[] {
+// a big class in practice: how long students think and do themselves, how often they go into groups, whether the
+// teacher sees the whole class, and homework within 「双减」
+export function classroomChecks(process: Process, periodMinutes: number, grade: number | null | undefined): PlanCheck[] {
+    const checks: PlanCheck[] = []
+    const withOrg = process.stages.filter(stage => stage.org)
+    if (withOrg.length >= Math.ceil(process.stages.length / 2)) {
+        const active = process.stages.filter(stage => /独立|同桌|四人小组/u.test(stage.org || '')).reduce((sum, stage) => sum + stage.minutes, 0)
+        if (periodMinutes && active / periodMinutes < 0.3) checks.push({ level: 'warn', kind: 'student_time', message: `学生独立思考、同桌交流和练习的时间约 ${active} 分钟，不到一节课的三成；可以在讲解前加一次「先试」，或把一段讲解换成练习和反馈。` })
+        const groups = process.stages.filter(stage => /四人小组/u.test(stage.org || ''))
+        if (groups.length > 2) checks.push({ level: 'warn', kind: 'group_work', message: `一节课安排了 ${groups.length} 次小组活动，四十多人的班组织起来很费时间，建议保留最关键的一两次，其余改为同桌交流。` })
+        const long = groups.find(stage => stage.minutes > 8)
+        if (long) checks.push({ level: 'warn', kind: 'group_work', message: `「${long.name}」的小组活动有 ${long.minutes} 分钟；大班的小组活动超过 8 分钟容易散，建议分成两步、中间收一次。` })
+        const unseen = process.stages.filter(stage => /独立|同桌|四人小组/u.test(stage.org || '') && !stage.check).map(stage => stage.name)
+        if (unseen.length) checks.push({ level: 'warn', kind: 'class_check', message: `「${unseen.join('」「')}」让学生自己做，但没写老师怎样看到全班的情况（手势表决、同桌互查、巡视抽看……）。` })
+    }
+    const minutes = process.homework.reduce((sum, item) => sum + (item.minutes || 0), 0)
+    const written = process.homework.filter(item => item.level !== '实践' && /写|做|完成|练习|抄|算|填/u.test(item.task) && !/口头|说给|读给|讲给|听/u.test(item.task))
+    if (grade && grade <= 2 && written.length) checks.push({ level: 'warn', kind: 'homework_load', message: '按「双减」要求，一、二年级不布置家庭书面作业；可以改成口头、阅读或实践类作业。', quote: written[0].task })
+    else if (grade && grade <= 6 && minutes > 20) checks.push({ level: 'warn', kind: 'homework_load', message: `作业预计 ${minutes} 分钟；小学三至六年级每天书面作业合计不超过 60 分钟，一科一般控制在 15 分钟左右。` })
+    else if (grade && grade >= 7 && minutes > 30) checks.push({ level: 'warn', kind: 'homework_load', message: `作业预计 ${minutes} 分钟；初中每天书面作业合计不超过 90 分钟，一科一般控制在 20–25 分钟。` })
+    return checks
+}
+
+// 当堂练习: every 要点 the objectives use has an item, and the last items check whether the objectives were reached
+export function checkPractice(practice: Practice, frame: Frame): PlanCheck[] {
+    const checks: PlanCheck[] = []
+    const cited = [...new Set(frame.objectives.flatMap(item => item.basis))]
+    const practised = new Set(practice.items.map(item => item.code).filter(Boolean))
+    const missing = cited.filter(code => !practised.has(code))
+    if (missing.length) checks.push({ level: 'warn', kind: 'practice_gap', message: `要点 ${missing.join('、')} 没有对应的练习或检测题，课上看不到学生是否学会。` })
+    if (!practice.items.some(item => item.kind === '检测')) checks.push({ level: 'warn', kind: 'practice_gap', message: '没有当堂检测题；建议留 3–5 分钟做两三道检测题，判断目标是否达成。' })
+    return checks
+}
+
+export function checkPlan(frame: Frame, process: Process | null, input: Pick<DraftInput, 'indicators' | 'standards' | 'periodMinutes'> & { lesson?: Pick<PlanLesson, 'grade'> }, options: CheckOptions = {}): PlanCheck[] {
     const checks: PlanCheck[] = []
     const picked = new Set(input.indicators.map(item => item.code))
     const cited = new Set(frame.objectives.flatMap(item => item.basis))
@@ -123,6 +192,7 @@ export function checkPlan(frame: Frame, process: Process | null, input: Pick<Dra
                 checks.push({ level: 'warn', kind: 'assessment_unplaced', message: `评价任务 ${assessment.id} 没有安排在哪个环节完成。`, quote: assessment.task })
             }
         }
+        checks.push(...classroomChecks(process, input.periodMinutes, input.lesson?.grade))
     }
     // 课标 says what is not required; flag a plan that mentions it
     const planText = options.planText ?? JSON.stringify({ frame, process })
@@ -141,9 +211,11 @@ export function checkPlan(frame: Frame, process: Process | null, input: Pick<Dra
             checks.push({ level: 'risk', kind: 'beyond_standard', message: `教案里出现了「${limit.key}」，而课标写明${limit.phrase}，可能超标，请核对。`, quote: limit.source })
         }
     }
-    if (!checks.some(item => item.level !== 'ok')) checks.push({ level: 'ok', kind: 'aligned', message: '每条目标都有课标要点依据、教学环节和评价任务，没有发现超出课标限定的内容。' })
+    // classroom advice (time, groups, homework) does not undo the alignment verdict
+    if (!checks.some(item => item.level !== 'ok' && !CLASSROOM_KINDS.has(item.kind))) checks.push({ level: 'ok', kind: 'aligned', message: '每条目标都有课标要点依据、教学环节和评价任务，没有发现超出课标限定的内容。' })
     return checks
 }
+const CLASSROOM_KINDS = new Set(['student_time', 'group_work', 'class_check', 'homework_load', 'practice_gap'])
 
 // ---------- prompts ----------
 const SHARED_RULES = `规则：
@@ -154,29 +226,126 @@ const SHARED_RULES = `规则：
 5. 用简洁的中文，面向教师；不要写空话套话（如「全面提升核心素养」）。
 6. 不写任何学生的姓名或个人信息。`
 
-const FRAME_INSTRUCTIONS = `你是经验丰富的中小学教研员，帮老师起草一节课的教学设计（前半部分）。按「逆向设计」的顺序：先定目标，再定评价证据。
+const FRAME_INSTRUCTIONS = `你是经验丰富的中小学教研员，帮老师起草一节课的教学设计（前半部分）。按「逆向设计」的顺序：先定目标，再定评价证据。按「课堂实际」设计，给常规大班用，不要理想化。
 ${SHARED_RULES}
 写法要求：
-- objectives：2–4 条。每条以「学生能」开头，写清条件（在什么情境中）、行为（做什么、怎么做）和程度（做到什么程度），用看得见的动词（说出、比较、解释、设计、完成、运用、判断……），不用「了解」「感受」「培养」这类看不见的词。kind 填「知道」「理解」或「能做」。basis 填它依据的要点编码（至少 1 个）。
+- objectives：2–4 条。每条以「学生能」开头，写清条件（在什么情境中）、行为（做什么、怎么做）和程度（做到什么程度），用看得见的动词（说出、比较、解释、设计、完成、运用、判断……），不用「了解」「感受」「培养」这类看不见的词。程度要和要点里的行为词相当（要点写「理解」就不要只写「说出」）。kind 填「知道」「理解」或「能做」。basis 填它依据的要点编码（至少 1 个）。
 - core_understanding：一句话写出学完这节课学生应形成的核心理解（大概念层面的认识），不要只写知识点名称。
 - key_points、difficult_points：各 1–2 条，具体到本课内容。
-- learner_analysis：不超过 120 字，结合老师给的学情；没有学情就写这个年级学生的一般基础和可能的困难。
+- strategies：1–2 条，突破难点的具体办法（用什么例子、什么活动、什么对比）。
+- learner_analysis：不超过 150 字，按大班实际写：多数学生的起点（参考「前后联系」里先学的要点）、容易卡在哪里、学得快和学得慢的学生各需要什么；结合老师给的学情。
 - prior_knowledge：1–4 条，学生学本课前应已掌握的知识或技能。
 - misconceptions：1–3 条，学生对本课内容常见的错误理解（text）和课上的应对（response）。
 - keywords：0–5 个本课关键词及适合学生的解释。
-- assessments：1–4 个评价任务，每条目标至少被一个任务覆盖。task 写学生要完成的任务，evidence 写可以看到或收集到的证据，criteria 写达成标准（可分「达到」「较好」两级）。
-必须只返回一个 JSON 对象：{"title":"…","core_understanding":"…","objectives":[{"id":"O1","text":"…","basis":["…"],"kind":"…"}],"key_points":["…"],"difficult_points":["…"],"learner_analysis":"…","prior_knowledge":["…"],"misconceptions":[{"text":"…","response":"…"}],"keywords":[{"term":"…","definition":"…"}],"assessments":[{"id":"A1","objective_ids":["O1"],"task":"…","evidence":"…","criteria":"…"}]}`
+- assessments：1–4 个评价任务，每条目标至少被一个任务覆盖，45 人左右的班能在课上完成和收集（如当堂检测、同桌互查、作品展示、口头说理抽查）。task 写学生要完成的任务，evidence 写可以看到或收集到的证据，criteria 写达成标准（可分「达到」「较好」两级）。
+必须只返回一个 JSON 对象：{"title":"…","core_understanding":"…","objectives":[{"id":"O1","text":"…","basis":["…"],"kind":"…"}],"key_points":["…"],"difficult_points":["…"],"strategies":["…"],"learner_analysis":"…","prior_knowledge":["…"],"misconceptions":[{"text":"…","response":"…"}],"keywords":[{"term":"…","definition":"…"}],"assessments":[{"id":"A1","objective_ids":["O1"],"task":"…","evidence":"…","criteria":"…"}]}`
 
-const PROCESS_INSTRUCTIONS = `你是经验丰富的中小学教研员。老师已经定好了这节课的目标和评价任务（见「已定的目标与评价」），请写教学过程和作业。
+const PROCESS_INSTRUCTIONS = `你是经验丰富的中小学教研员。老师已经定好了这节课的目标和评价任务（见「已定的目标与评价」），请写教学过程和作业。按「课堂实际」设计，给常规大班用，不要理想化。
 ${SHARED_RULES}
 写法要求：
-- stages：3–7 个环节，按上课顺序，每个环节至少 2 分钟。每个环节的 objective_ids 都要填（导入、小结等环节也填它服务的目标），不能留空。每个环节写 name（环节名）、minutes（分钟，整数）、teacher（教师活动，具体到要问的关键问题或要做的示范）、students（学生活动，具体到学生做什么、产出什么）、purpose（设计意图，一句话）、objective_ids（这个环节推进哪些目标）、assessment_ids（这个环节完成哪些评价任务，可为空）。所有环节分钟数合计必须等于一节课的时长。每条目标至少在一个环节里推进；每个评价任务都要安排在某个环节。
-- 环节里要有学生自己动手、动脑完成的部分，不要整节课都是教师讲授。
-- homework：1–3 条，level 填「基础」「拓展」或「实践」，与目标对应，总量适度。
-- board：板书设计，3–8 行，体现本课结构。
-- materials：教具、学具或材料，0–6 条。
+- stages：4–7 个环节，按上课顺序，每个环节至少 2 分钟，所有环节分钟数合计必须等于一节课的时长。常见顺序（按课型和学科调整）：回顾检测（用前置知识出 2–3 个小问题）→ 情境与问题 → 先试（独立想、同桌说）→ 讲解与示范（从学生的想法讲起，配例题、范例或示范）→ 练习与反馈（从基础到变式）→ 当堂检测 → 小结。
+- 每个环节写：name（环节名）；minutes（分钟，整数）；org（组织形式：全班、同桌、四人小组、独立，先后两种写成「独立→同桌」）；teacher（教师活动：具体到讲什么、示范什么、出示什么，不超过 150 字）；students（学生活动：做什么、产出什么，不超过 100 字）；questions（0–2 个关键问题：q 问题，expect 预设的学生回答（含典型错误），follow 追问或点拨）；check（老师怎样在 1 分钟内看到全班学会没有：手势或卡片表决、同桌互查、巡视抽看、随机点名、板演等；纯讲授的环节留空）；support（照顾差异：给学得慢、学得快的学生的安排；没有就留空）；purpose（设计意图，一句话）；objective_ids（推进哪些目标，不能留空）；assessment_ids（完成哪些评价任务，可为空）。
+- 每条目标至少在一个环节里推进；每个评价任务都要安排在某个环节。
+- 学生独立思考、同桌交流、练习、检测的环节合计约占一节课时间的 40%；小组活动最多 2 次，每次不超过 6 分钟。
+- homework：1–3 条，level 填「基础」（必做）、「提高」（选做）或「实践」，minutes 写预计用时（分钟）。符合「双减」：一、二年级不布置书面作业（可布置口头、实践类）；三至六年级本学科合计一般不超过 15 分钟，初中一般不超过 25 分钟；不布置机械重复的作业。
+- board：板书设计，3–8 行，体现本课结构（知识框架、关键结论、例题要点）。
+- materials：教具、学具或材料，0–6 条，写普通学校有的。
 - safety：涉及实验、工具、运动或外出时写安全提示，0–3 条；没有就返回空数组。
-必须只返回一个 JSON 对象：{"stages":[{"name":"…","minutes":5,"teacher":"…","students":"…","purpose":"…","objective_ids":["O1"],"assessment_ids":[]}],"homework":[{"level":"基础","task":"…"}],"board":["…"],"materials":["…"],"safety":[]}`
+必须只返回一个 JSON 对象：{"stages":[{"name":"…","minutes":5,"org":"全班","teacher":"…","students":"…","questions":[{"q":"…","expect":"…","follow":"…"}],"check":"…","support":"…","purpose":"…","objective_ids":["O1"],"assessment_ids":[]}],"homework":[{"level":"基础","task":"…","minutes":10}],"board":["…"],"materials":["…"],"safety":[]}`
+
+const PRACTICE_INSTRUCTIONS = `你是经验丰富的中小学教研员。老师已经定好了这节课的目标和评价任务（见「已定的目标与评价」），请写课上用的练习题和当堂检测题，老师可以直接投影或印发。
+${SHARED_RULES}
+写法要求：
+- items：4–7 道，按课上使用的顺序。kind 填「练习」或「检测」；最后 2–3 道是「检测」，3–5 分钟能做完，用来判断目标有没有达成。
+- level 填「基础」「变式」或「提高」：练习从基础到变式（换情境、换数据、换问法，抓住不变的本质），至少 1 道「提高」给学得快的学生。
+- question：题目本身，完整、可以直接用；选择题写出选项，需要图的用文字说清图。体育、艺术、实验等以技能为主的课，写成课上的练习任务和检测办法（看什么、怎样算达到）。
+- answer：参考答案；开放题写评分要点。答案必须正确，计算要算对。
+- code：这道题练的要点编码，只能填「依据」里的编码；objective_id：对应的目标编号（O1、O2……）。
+- 题目贴合本课教材内容（可参考「本课教材原话」）和学生年级，不出超出课标的题。
+必须只返回一个 JSON 对象：{"items":[{"kind":"练习","level":"基础","question":"…","answer":"…","code":"…","objective_id":"O1"}]}`
+
+const READING_INSTRUCTIONS = `你是熟悉课程标准的中小学教研员。帮老师读懂这节课依据的课标要点：让老师用教材去教课标要求的东西，而不是只把教材内容讲一遍。「依据」里有要点原文、所在标准、学业要求和教学提示；「前后联系」是学生之前学过的、后面会用到的要点；「教材里在哪教」和「本课教材原话」来自教材。
+规则：
+1. 只解读「依据」里列出的要点，不编造课标内容；引用课标时照抄原文。
+2. 具体到本课，面向老师，用朴素的话；不写空话套话（如「全面提升核心素养」）。
+3. 不写任何学生的姓名或个人信息。
+写法要求：
+- points：「依据」里的每条要点一项，按依据的顺序。
+  - code：要点编码。
+  - plain：用老师听得懂的话说清这条要点要学生最终做到什么（不超过 60 字）。
+  - verbs：1–3 个从要点原文里摘出的关键行为词（word 必须是原文里出现的词，如「理解」「探索」「运用」「说明」），meaning 写它在这里要求做到什么程度、怎样算做到（不超过 40 字）。
+  - this_lesson：本课承担这条要点的哪一部分、做到什么程度，哪些留给后面的课时（不超过 80 字）。
+  - textbook：用教材教：本课教材的例子、活动、习题怎样为这条要点服务；哪些可以换成学生熟悉的情境，哪些需要补充（不超过 100 字）。
+  - avoid：只按教材讲容易出的偏差：漏掉的（比如只练算法不讲道理、只记结论不经历过程）或超出的（课标「不包括」的、后面学段才要求的）（不超过 80 字）。
+- position：这节课在单元和学段里的位置：前面学过什么，这节课为后面哪些内容打基础（不超过 100 字，参考「前后联系」）。
+- literacy：1–3 项，name 只能从「素养名称」里选，look_for 写这节课上看得见的学生表现（不超过 50 字）。
+必须只返回一个 JSON 对象：{"points":[{"code":"…","plain":"…","verbs":[{"word":"…","meaning":"…"}],"this_lesson":"…","textbook":"…","avoid":"…"}],"position":"…","literacy":[{"name":"…","look_for":"…"}]}`
+
+// the 素养 a 课标解读 may name: 数学 by its 主要表现 at the grade (运算能力、推理意识…), other subjects by their 核心素养
+const literacyNames = (input: Pick<DraftInput, 'lesson' | 'subjectNote'>) => [...new Set([...testLiteracy(input), ...(input.subjectNote?.core_literacy || [])])]
+
+// ---------- the class as it is ----------
+// A class of about 45 in rows, one teacher, a fixed period and a syllabus to keep up with. The plan stays explicit
+// teaching at heart and leans a little towards construction: students try and talk before the teacher explains,
+// practise after, and the teacher checks the whole class rather than the raised hands.
+export const DEFAULT_CLASS_SIZE = 45
+export const LESSON_TYPES = ['新授课', '复习课', '练习课', '实验课', '讲评课'] as const
+
+const SUBJECT_MOVES: Record<string, string> = {
+    math: '数学：先让学生尝试再讲例题；练习按「基础—变式—提高」，抓住变化中不变的本质；重视说理和书写规范。',
+    chinese: '语文：以读为本，读—思—议—写结合；问题和任务从文本里来，少串讲，多让学生朗读、批注、表达；落实学习任务群的要求。',
+    english: '英语：在情境中呈现语言，示范后同桌操练，再在小任务里运用；每节课学生都要有听说读写的输出。',
+    science: '科学：先预测、再观察（演示或分组实验）、再解释，讲证据和推理；器材不够时用演示实验加学生记录；写清安全要求。',
+    physics: '物理：从现象和实验出发，先预测再观察再解释，讲证据和推理；器材不够时用演示实验加学生记录；写清安全要求。',
+    chemistry: '化学：从现象和实验出发，先预测再观察再解释，写规范的化学用语；器材不够时用演示实验加学生记录；写清安全要求。',
+    biology: '生物学：从观察和实验出发，讲证据和推理，联系生活和健康；器材不够时用演示、图片、视频加学生记录；写清安全要求。',
+    morality_law: '道德与法治：用真实的生活情境和材料提出问题链，让学生依据材料表达观点、辨析对错，落到行为上；不要只讲道理。',
+    history: '历史：用史料和时间轴，引导学生依据史料说明和解释；问题链从史实到原因、影响；注意时空定位。',
+    geography: '地理：以读图为抓手，从图上获取信息再推理；联系区域实例和生活；问题链从「在哪里」到「为什么」。',
+    pe: '体育与健康：按准备部分—基本部分—结束部分；写清练习密度、运动负荷、队形和器材分配，四十多人一块场地要分组轮换；写清安全要求。',
+    arts: '艺术：欣赏—示范—实践—展评；教师示范要具体到步骤；作品展评用同桌或小组互评加教师点评。',
+    labor: '劳动：任务驱动，教师分步示范，学生跟做再独立完成；写清工具使用和安全要求。',
+    it: '信息科技：任务驱动，教师分步演示，学生跟做再独立完成；考虑一人一机或两人一机，写清操作要求。'
+}
+
+export const v2SubjectSlug = (slug: string) => (['art', 'music'].includes(slug) ? 'arts' : slug)
+
+function classroomBlock(input: DraftInput) {
+    const size = input.classSize || DEFAULT_CLASS_SIZE
+    const lines = [
+        '课堂实际（照这个设计，不要理想化）：',
+        `- 常规大班：约 ${size} 名学生，按排就座，一位老师，每课时 ${input.periodMinutes} 分钟，要完成教材进度。普通教室有投影，实验器材和分组材料有限。`,
+        '- 范式：以教师讲解和示范为主线，往建构的方向偏一点——讲之前先让学生想一想、试一试（独立 1–3 分钟，再同桌交流），老师巡视收集典型想法，讲解从学生的想法讲起；讲之后有练习和反馈。',
+        '- 大班做得到的合作：同桌交流（1–3 分钟）；前后桌四人小组（3–6 分钟，写清分工和要交的成果），一节课最多 2 次。不设计搬桌椅、长时间小组探究、每组轮流上台汇报的环节。',
+        '- 小步讲解：每讲一步就用一个问题或一道小题检查；新内容先给示例（例题、范文、示范动作），再让学生做变式。',
+        '- 看见全班：让学生思考或练习的地方，写清老师怎样在 1 分钟内看到全班的情况，不要只靠举手。',
+        '- 照顾差异：给学得慢的学生支架（提示、半成品、例题对照），给学得快的学生挑战题。'
+    ]
+    const moves = SUBJECT_MOVES[v2SubjectSlug(input.lesson.subject_slug)]
+    if (moves) lines.push(`- ${moves}`)
+    if (input.lessonType) lines.push(`- 课型：${input.lessonType}。`)
+    return lines.join('\n')
+}
+
+function linksBlock(input: DraftInput) {
+    const out: string[] = []
+    for (const link of input.links || []) {
+        const before = link.before.map(item => `${item.code}（${item.grade}）${item.text.slice(0, 40)}${item.reason ? `——${item.reason}` : ''}`)
+        const after = link.after.map(item => `${item.code}（${item.grade}）${item.text.slice(0, 40)}${item.reason ? `——${item.reason}` : ''}`)
+        if (before.length || after.length) out.push(`${link.code}　先学：${before.join('；') || '（无）'}　后学：${after.join('；') || '（无）'}`)
+    }
+    return out.length ? ['前后联系（kebiao 知识图谱：先学 = 学这条要点前要会的，后学 = 后面会用到它的）：', ...out].join('\n') : ''
+}
+
+function bookBlock(input: DraftInput) {
+    const out: string[] = []
+    for (const link of input.links || []) {
+        if (link.in_book.length) out.push(`${link.code}：${link.in_book.map(item => `${item.unit ? `${item.unit} · ` : ''}${item.lesson}${item.page ? `（PDF 第 ${item.page} 页）` : ''}`).join('；')}`)
+    }
+    const lines = out.length ? ['教材里在哪教（本册里教这些要点的课）：', ...out] : []
+    if (input.lessonQuotes?.length) lines.push(`本课教材原话：${input.lessonQuotes.map(quote => `「${quote}」`).join(' ')}`)
+    return lines.join('\n')
+}
 
 function lessonBlock(input: DraftInput) {
     const { lesson } = input
@@ -215,6 +384,57 @@ function teacherBlock(input: DraftInput) {
 }
 
 // ---------- validation ----------
+// 组织形式 as the model writes it (「个人→两人」, 「小组合作」) in the four forms a class of 45 uses
+const ORG_FORMS: Array<[RegExp, string]> = [[/全班|集体|师生/u, '全班'], [/同桌|两人|二人|结对/u, '同桌'], [/小组|四人|前后桌/u, '四人小组'], [/独立|个人|自主|单独/u, '独立']]
+export function orgOf(value: unknown) {
+    const forms: string[] = []
+    for (const part of String(value ?? '').split(/→|->|—>|、|，|,|\/|＋|\+|然后|再/u)) {
+        const form = ORG_FORMS.find(([pattern]) => pattern.test(part))?.[1]
+        if (form && forms.at(-1) !== form) forms.push(form)
+    }
+    return forms.slice(0, 3).join('→')
+}
+
+function validateReading(value: unknown, input: Pick<DraftInput, 'indicators' | 'subjectNote' | 'lesson'>): Reading | null {
+    if (!value || typeof value !== 'object') return null
+    const raw = value as Record<string, unknown>
+    const textOf = new Map(input.indicators.map(item => [item.code, item.text]))
+    const points: PointReading[] = []
+    for (const item of (Array.isArray(raw.points) ? raw.points : []).slice(0, 12)) {
+        const record = (item || {}) as Record<string, unknown>
+        const code = str(record.code, 24)
+        const text = textOf.get(code)
+        if (!text || points.some(point => point.code === code)) continue
+        // a key verb must be the 要点's own word, not one the model brought
+        const verbs = (Array.isArray(record.verbs) ? record.verbs : []).slice(0, 3).map(entry => ({ word: str((entry as Record<string, unknown>)?.word, 12), meaning: str((entry as Record<string, unknown>)?.meaning, 100) })).filter(entry => entry.word && entry.meaning && text.includes(entry.word))
+        const point = { code, plain: str(record.plain, 140), verbs, this_lesson: str(record.this_lesson, 180), textbook: str(record.textbook, 220), avoid: str(record.avoid, 180) }
+        if (point.plain || point.this_lesson || point.textbook) points.push(point)
+    }
+    if (!points.length) return null
+    const allowed = new Set(literacyNames(input))
+    const literacy = (Array.isArray(raw.literacy) ? raw.literacy : []).slice(0, 3).map(entry => ({ name: str((entry as Record<string, unknown>)?.name, 20), look_for: str((entry as Record<string, unknown>)?.look_for, 120) })).filter(entry => entry.name && entry.look_for && (!allowed.size || allowed.has(entry.name)))
+    return { points, position: str(raw.position, 220), literacy }
+}
+
+function validatePractice(value: unknown, frame: Frame, codes: Set<string>): Practice | null {
+    if (!value || typeof value !== 'object') return null
+    const raw = value as Record<string, unknown>
+    const objectiveIds = new Set(frame.objectives.map(item => item.id))
+    const items: PracticeItem[] = (Array.isArray(raw.items) ? raw.items : []).slice(0, 8).map(item => {
+        const record = (item || {}) as Record<string, unknown>
+        const objective = str(record.objective_id, 8)
+        return {
+            kind: (str(record.kind, 4) === '检测' ? '检测' : '练习') as PracticeItem['kind'],
+            level: ['基础', '变式', '提高'].find(level => str(record.level, 6).includes(level)) || '基础',
+            question: str(record.question, 500),
+            answer: str(record.answer, 400),
+            code: codes.has(str(record.code, 24)) ? str(record.code, 24) : '',
+            objective_id: objectiveIds.has(objective) ? objective : ''
+        }
+    }).filter(item => item.question && item.answer)
+    return items.length ? { items } : null
+}
+
 function validateFrame(value: unknown, indicatorCodes: Set<string>): Frame | null {
     if (!value || typeof value !== 'object') return null
     const raw = value as Record<string, unknown>
@@ -241,7 +461,8 @@ function validateFrame(value: unknown, indicatorCodes: Set<string>): Frame | nul
         objectives,
         key_points: strList(raw.key_points, 3),
         difficult_points: strList(raw.difficult_points, 3),
-        learner_analysis: str(raw.learner_analysis, 260),
+        strategies: strList(raw.strategies, 3, 200),
+        learner_analysis: str(raw.learner_analysis, 300),
         prior_knowledge: strList(raw.prior_knowledge, 5),
         misconceptions: (Array.isArray(raw.misconceptions) ? raw.misconceptions : []).slice(0, 3).map(item => ({ text: str((item as Record<string, unknown>)?.text, 160), response: str((item as Record<string, unknown>)?.response, 200) })).filter(item => item.text),
         keywords: (Array.isArray(raw.keywords) ? raw.keywords : []).slice(0, 5).map(item => ({ term: str((item as Record<string, unknown>)?.term, 20), definition: str((item as Record<string, unknown>)?.definition, 120) })).filter(item => item.term),
@@ -265,11 +486,19 @@ function validateProcess(value: unknown, frame: Frame): Process | null {
     const stages: Stage[] = (Array.isArray(raw.stages) ? raw.stages : []).slice(0, 8).map(item => {
         const record = (item || {}) as Record<string, unknown>
         const minutes = Math.round(Number(record.minutes))
+        const questions = (Array.isArray(record.questions) ? record.questions : []).slice(0, 3).map(entry => {
+            const question = (entry || {}) as Record<string, unknown>
+            return { q: str(question.q, 160), expect: str(question.expect, 200), follow: str(question.follow, 160) }
+        }).filter(entry => entry.q)
         return {
             name: str(record.name, 24),
             minutes: Number.isFinite(minutes) && minutes > 0 && minutes < 90 ? minutes : 0,
+            org: orgOf(record.org),
             teacher: str(record.teacher, 420),
             students: str(record.students, 420),
+            questions,
+            check: str(record.check, 160),
+            support: str(record.support, 200),
             purpose: str(record.purpose, 160),
             objective_ids: ids(record.objective_ids, objectiveIds),
             assessment_ids: ids(record.assessment_ids, assessmentIds)
@@ -283,7 +512,11 @@ function validateProcess(value: unknown, frame: Frame): Process | null {
     }
     return {
         stages,
-        homework: (Array.isArray(raw.homework) ? raw.homework : []).slice(0, 3).map(item => ({ level: str((item as Record<string, unknown>)?.level, 6) || '基础', task: str((item as Record<string, unknown>)?.task, 240) })).filter(item => item.task),
+        homework: (Array.isArray(raw.homework) ? raw.homework : []).slice(0, 3).map(item => {
+            const record = (item || {}) as Record<string, unknown>
+            const minutes = Math.round(Number(record.minutes))
+            return { level: str(record.level, 6) || '基础', task: str(record.task, 240), ...(Number.isFinite(minutes) && minutes > 0 && minutes <= 120 ? { minutes } : {}) }
+        }).filter(item => item.task),
         board: strList(raw.board, 8, 60),
         materials: strList(raw.materials, 6, 60),
         safety: strList(raw.safety, 3, 160)
@@ -295,7 +528,7 @@ const frameAdapter = (codes: Set<string>): StructuredLlmAdapter<Frame> => ({
     schema: { type: 'object' },
     instructions: FRAME_INSTRUCTIONS,
     chatInstructions: FRAME_INSTRUCTIONS,
-    maxCompletionTokens: 3000,
+    maxCompletionTokens: 3500,
     validate: value => validateFrame(value, codes)
 })
 
@@ -304,8 +537,27 @@ const processAdapter = (frame: Frame): StructuredLlmAdapter<Process> => ({
     schema: { type: 'object' },
     instructions: PROCESS_INSTRUCTIONS,
     chatInstructions: PROCESS_INSTRUCTIONS,
-    maxCompletionTokens: 3500,
+    // stages now carry key questions, the whole-class check and support: room enough that the JSON is never cut off
+    maxCompletionTokens: 6000,
     validate: value => validateProcess(value, frame)
+})
+
+const readingAdapter = (input: DraftInput): StructuredLlmAdapter<Reading> => ({
+    name: 'kebiao_lesson_reading',
+    schema: { type: 'object' },
+    instructions: READING_INSTRUCTIONS,
+    chatInstructions: READING_INSTRUCTIONS,
+    maxCompletionTokens: 3500,
+    validate: value => validateReading(value, input)
+})
+
+const practiceAdapter = (frame: Frame, codes: Set<string>): StructuredLlmAdapter<Practice> => ({
+    name: 'kebiao_lesson_practice',
+    schema: { type: 'object' },
+    instructions: PRACTICE_INSTRUCTIONS,
+    chatInstructions: PRACTICE_INSTRUCTIONS,
+    maxCompletionTokens: 3500,
+    validate: value => validatePractice(value, frame, codes)
 })
 
 export type DraftResult<T> = { status: LlmStatus, output: T | null, usage: LlmUsage | null, latency_ms: number, model: string | null }
@@ -314,23 +566,43 @@ const DRAFT_TIMEOUT_MS = 45000
 
 export async function draftFrame(input: DraftInput, options: StructuredLlmOptions = {}): Promise<DraftResult<Frame>> {
     const codes = new Set(input.indicators.map(item => item.code))
-    const prompt = [lessonBlock(input), basisBlock(input), teacherBlock(input)].filter(Boolean).join('\n\n')
+    const prompt = [lessonBlock(input), basisBlock(input), linksBlock(input), classroomBlock(input), teacherBlock(input)].filter(Boolean).join('\n\n')
     const run = await runStructuredLlm(prompt, frameAdapter(codes), { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
     return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
 }
 
-export async function draftProcess(input: DraftInput, frame: Frame, options: StructuredLlmOptions = {}): Promise<DraftResult<Process>> {
-    const framed = [
+function frameBlock(frame: Frame) {
+    return [
         '已定的目标与评价：',
         frame.core_understanding ? `核心理解：${frame.core_understanding}` : '',
         ...frame.objectives.map(item => `${item.id}（${item.kind}，依据 ${item.basis.join('、')}）：${item.text}`),
         `重点：${frame.key_points.join('；')}　难点：${frame.difficult_points.join('；')}`,
+        frame.strategies?.length ? `突破难点：${frame.strategies.join('；')}` : '',
         ...frame.assessments.map(item => `${item.id}（评价 ${item.objective_ids.join('、')}）：${item.task}；证据：${item.evidence}`),
         frame.misconceptions.length ? `常见误解：${frame.misconceptions.map(item => item.text).join('；')}` : ''
     ].filter(Boolean).join('\n')
-    const prompt = [lessonBlock(input), basisBlock(input), framed, teacherBlock(input)].filter(Boolean).join('\n\n')
+}
+
+export async function draftProcess(input: DraftInput, frame: Frame, options: StructuredLlmOptions = {}): Promise<DraftResult<Process>> {
+    const prompt = [lessonBlock(input), basisBlock(input), frameBlock(frame), classroomBlock(input), bookBlock(input), teacherBlock(input)].filter(Boolean).join('\n\n')
     const run = await runStructuredLlm(prompt, processAdapter(frame), { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
     if (run.output) fitMinutes(run.output.stages, input.periodMinutes)
+    return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
+
+// 课标解读, asked at the same time as the frame: it needs only the 要点, their links and the textbook
+export async function draftReading(input: DraftInput, options: StructuredLlmOptions = {}): Promise<DraftResult<Reading>> {
+    const names = literacyNames(input)
+    const prompt = [lessonBlock(input), basisBlock(input), linksBlock(input), bookBlock(input), names.length ? `素养名称：${names.join('、')}` : '', teacherBlock(input)].filter(Boolean).join('\n\n')
+    const run = await runStructuredLlm(prompt, readingAdapter(input), { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
+    return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
+}
+
+// 当堂练习与检测, asked at the same time as the process: it needs the objectives
+export async function draftPractice(input: DraftInput, frame: Frame, options: StructuredLlmOptions = {}): Promise<DraftResult<Practice>> {
+    const codes = new Set(input.indicators.map(item => item.code))
+    const prompt = [lessonBlock(input), basisBlock(input), frameBlock(frame), bookBlock(input), teacherBlock(input)].filter(Boolean).join('\n\n')
+    const run = await runStructuredLlm(prompt, practiceAdapter(frame, codes), { ...options, timeoutMs: options.timeoutMs ?? DRAFT_TIMEOUT_MS })
     return { status: run.status, output: run.output, usage: run.usage, latency_ms: run.latency_ms, model: run.model }
 }
 

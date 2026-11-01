@@ -42,6 +42,15 @@ const AI_TIER_LIMITS: Record<AccessTier, number> = {
     admin: 2000
 }
 
+// One AI 教案 is four draft calls (目标与评价 and 课标解读 together, then 教学过程 and 当堂练习 together), and
+// teachers in one school share an address, so drafting has its own budget.
+const AI_DRAFT_TIER_LIMITS: Record<AccessTier, number> = {
+    anonymous: 24,
+    developer: 120,
+    partner: 1200,
+    admin: 4000
+}
+
 // The reader pulls a textbook in many small byte ranges, so asset reads get their own budget.
 const ASSET_TIER_LIMITS: Record<AccessTier, number> = {
     anonymous: 300,
@@ -248,11 +257,12 @@ export const apiAccessMiddleware: MiddlewareHandler<ApiBindings> = async (c, nex
 
 export const rateLimitMiddleware: MiddlewareHandler<ApiBindings> = async (c, next) => {
     const tier = c.get('accessTier') || 'anonymous'
+    const isDraftRoute = c.req.path === '/api/v1/lesson-plans/draft'
     const isAiRoute = AI_ROUTES.has(c.req.path)
     const isAssetRoute = c.req.path.startsWith('/api/v1/textbook-assets/')
     const isToolRoute = c.req.path === '/mcp' || c.req.path === '/api/v1/mcp' || c.req.path.startsWith('/api/v1/plugin/')
-    const policy = isAiRoute ? 'ai' : isAssetRoute ? 'asset' : isToolRoute ? 'tools' : 'general'
-    const limit = isAiRoute ? AI_TIER_LIMITS[tier] : isAssetRoute ? ASSET_TIER_LIMITS[tier] : isToolRoute ? TOOL_TIER_LIMITS[tier] : TIER_LIMITS[tier]
+    const policy = isDraftRoute ? 'ai-draft' : isAiRoute ? 'ai' : isAssetRoute ? 'asset' : isToolRoute ? 'tools' : 'general'
+    const limit = isDraftRoute ? AI_DRAFT_TIER_LIMITS[tier] : isAiRoute ? AI_TIER_LIMITS[tier] : isAssetRoute ? ASSET_TIER_LIMITS[tier] : isToolRoute ? TOOL_TIER_LIMITS[tier] : TIER_LIMITS[tier]
     const now = Date.now()
     const resetAt = Math.ceil(now / 60000) * 60000
     const clientId = c.req.header('x-forwarded-for') || c.req.header('cf-connecting-ip') || 'local'
