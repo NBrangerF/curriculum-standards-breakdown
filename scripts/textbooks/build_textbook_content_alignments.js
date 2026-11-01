@@ -900,8 +900,12 @@ export function buildContentGraph(asset, structure, pages) {
   const spans = []
   const nodes = []
   const nodeByToc = new Map()
+  const lastPage = pages.reduce((max, page) => Math.max(max, Number(page.pdf_page) || 0), 0) || Number.MAX_SAFE_INTEGER
   for (const entry of toc.sort((a, b) => Number(a.pdf_page || 0) - Number(b.pdf_page || 0) || a.entry_id.localeCompare(b.entry_id))) {
     const range = locatableTocRange(entry)
+    // a stored 目录 range from an earlier printing can run past this PDF's last page
+    if (range.start > lastPage) continue
+    range.end = Math.min(range.end, lastPage)
     const nodeId = stableId('tcn', asset.edition_id, 'toc', entry.entry_id)
     const parentId = entry.parent_id ? nodeByToc.get(entry.parent_id) || null : null
     const inferredSpan = entry.source === BODY_INFERRED_UNIT_SOURCE && entry.evidence_text
@@ -1042,7 +1046,7 @@ export function buildContentGraph(asset, structure, pages) {
     const node = contextualNodes[index]
     const next = contextualNodes.slice(index + 1).find(candidate => candidate.unit_id === node.unit_id)
     const unit = toc.find(entry => entry.entry_id === node.unit_id)
-    const unitEnd = locatableTocRange(unit || {})?.end || node.pdf_page
+    const unitEnd = Math.min(locatableTocRange(unit || {})?.end || node.pdf_page, lastPage)
     node.end_pdf_page = next ? Math.max(node.pdf_page, next.pdf_page - 1) : Math.max(node.pdf_page, unitEnd)
   }
 

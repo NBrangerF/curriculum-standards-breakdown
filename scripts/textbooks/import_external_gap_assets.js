@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { createReadStream, createWriteStream, mkdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { copyFileSync, createReadStream, createWriteStream, mkdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { Readable } from 'node:stream'
 import { pipeline } from 'node:stream/promises'
@@ -172,15 +172,20 @@ async function acquireSource({ source, catalog, root, runId, journalPath }) {
     acquisition.source_binary_match = true
     acquisition.source_derivation = 'shared_pdf_exact_download'
     acquisition.source_title = resolved.file.file_name
+  } else if (source.kind === 'local_platform_pdf') {
+    // a 电子教材 PDF taken from the platform's own reader by a signed-in account, already on disk: ingested as is
+    if (statSync(source.local_path).size !== source.source_original_bytes) throw new Error(`${source.source_id}: local file size differs from the platform's`)
+    copyFileSync(source.local_path, stagingPath)
+    acquisition = { source_binary_match: true, source_derivation: 'official_reader_exact_bytes', source_title: source.title }
   } else throw new Error(`Unsupported external source kind: ${source.kind}`)
 
   const lockRow = {
     ...target,
     source_id: source.source_id,
     evidence_id: `external_${source.source_id}`,
-    source_repository: source.kind === 'smartedu_preview_pdf' ? '国家中小学智慧教育平台' : '公开网盘镜像',
+    source_repository: ['smartedu_preview_pdf', 'local_platform_pdf'].includes(source.kind) ? '国家中小学智慧教育平台' : '公开网盘镜像',
     source_commit: null,
-    source_url: source.share_url || `https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=${source.official_catalog_id}`,
+    source_url: source.share_url || `https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=${source.official_catalog_id}${source.kind === 'local_platform_pdf' ? '&catalogType=tchMaterial&subCatalog=dzjc' : ''}`,
     source_detail_url: source.detail_url || source.share_url,
     source_kind: source.kind,
     source_sha1: source.source_sha1 || null,

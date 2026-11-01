@@ -49,7 +49,7 @@ const EDITION_TOKENS = [
     [/统编版/u, ['统编版']],
     [/人教版/u, ['人教版']]
 ]
-const SUBJECT_ALIASES = { 生物学: ['生物学', '生物'], 体育与健康: ['体育与健康', '体育'] }
+const SUBJECT_ALIASES = { 生物学: ['生物学', '生物'], 体育与健康: ['体育与健康', '体育'], 道德与法治: ['道德与法治', '道法'] }
 const GRADE_CN = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九']
 
 const normaliseTitle = title => String(title || '')
@@ -65,7 +65,8 @@ function candidatesFor(book, materials) {
     const grade = `${GRADE_CN[book.grade]}年级`
     const volume = book.volume === '全一册' ? '' : book.volume
     return materials.filter(item => {
-        const title = item.title.replace(/^新教材-/u, '')
+        // 「新教材- 初中历史…」: the platform sometimes leaves a space after the prefix
+        const title = item.title.replace(/^新教材-\s*/u, '')
         if (!title.startsWith(stage) || /五•四学制|五四学制/u.test(title)) return false
         if (!subjects.some(subject => title.includes(subject))) return false
         if (!tokens.some(token => title.includes(token))) return false
