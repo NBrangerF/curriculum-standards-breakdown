@@ -1634,7 +1634,7 @@ test('MCP server answers initialize, ping and tools/list', async () => {
     assert.deepEqual((await json(await mcp({ jsonrpc: '2.0', id: 3, method: 'ping' }))).result, {})
     const list = await json(await mcp({ jsonrpc: '2.0', id: 4, method: 'tools/list' }))
     const names = list.result.tools.map((tool: any) => tool.name)
-    assert.deepEqual(names, ['list_subjects', 'search_standards', 'get_standard', 'list_standards', 'get_stage_goals', 'get_textbook_links', 'find_textbook_chapter', 'compare_versions'])
+    assert.deepEqual(names, ['list_subjects', 'search_standards', 'get_standard', 'list_standards', 'get_stage_goals', 'get_textbook_links', 'find_textbook_chapter', 'get_check_questions', 'compare_versions'])
     for (const tool of list.result.tools) {
         assert.equal(tool.inputSchema.type, 'object')
         assert.equal(tool.annotations.readOnlyHint, true)
@@ -1694,6 +1694,31 @@ test('MCP tools return cited text and structured data', async () => {
     assert.equal(bad.result.isError, true)
     const unknown = await json(await mcp({ jsonrpc: '2.0', id: 9, method: 'tools/call', params: { name: 'no_such_tool', arguments: {} } }))
     assert.equal(unknown.error.code, -32602)
+})
+
+test('课堂诊断题: /api/v1/checks and the get_check_questions tool', async () => {
+    const get = (path: string) => publicApp.request(path, { headers: { 'x-forwarded-for': '198.51.100.140' } })
+    const list = await json(await get('/api/v1/checks?code=MA-S3-NA-01.3&limit=5'))
+    assert.ok(list.meta.total > 0)
+    assert.ok(list.data.every((item: any) => item.points.some((code: string) => code === 'MA-S3-NA-01.3')))
+    const first = list.data[0]
+    assert.match(first.present_url, /^https:\/\/www\.kebiao\.org\/checks\/present\?q=ma-/)
+    assert.ok(first.answer && first.how_to_answer)
+    if (first.type !== 'step') assert.ok(first.wrong_answers.every((wrong: any) => wrong.misconceptions.length && wrong.misconceptions.every((m: any) => m.name && m.why && m.move)))
+
+    const byGrade = await json(await get('/api/v1/checks?grade=7&term=上&limit=50'))
+    assert.ok(byGrade.data.length > 0 && byGrade.data.every((item: any) => item.grade === 7 && item.term === '上'))
+    const one = await json(await get(`/api/v1/checks/${first.id}`))
+    assert.equal(one.data.id, first.id)
+    assert.equal((await get('/api/v1/checks/no-such')).status, 404)
+    assert.equal((await get('/api/v1/checks?subject=history')).status, 404)
+
+    const call = async (args: Record<string, unknown>) => json(await mcp({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'get_check_questions', arguments: args } }))
+    const tool = await call({ topic: '一元一次方程', limit: 2 })
+    assert.equal(tool.result.isError, false)
+    assert.equal(tool.result.structuredContent.questions.length, 2)
+    assert.match(tool.result.content[0].text, /放映：https:\/\/www\.kebiao\.org\/checks\/present/)
+    assert.equal((await call({})).result.isError, true)
 })
 
 test('MCP transport handles notifications, batches and bad requests', async () => {

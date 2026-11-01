@@ -3,6 +3,7 @@
 // Every answer carries the code, the 课标原文 and a link back to kebiao.org.
 import type { FileCurriculumRepository, FileTextbookRepository } from '../../../packages/curriculum-core/src/index.js'
 import { SOURCE_LABEL, V2_CODE, type V2Standard, type V2Store, type V2Subject } from './v2-store.js'
+import { findChecks, plain, presentUrl, publicCheck, type CheckStore } from './checks.js'
 
 export const SITE = 'https://www.kebiao.org'
 
@@ -10,6 +11,7 @@ export interface ToolContext {
     repository: FileCurriculumRepository
     textbookRepository: FileTextbookRepository
     v2: V2Store
+    checks?: CheckStore
 }
 
 type JsonSchema = Record<string, unknown>
@@ -370,6 +372,47 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
                         ...(results.length ? [`${lessons.length ? '另外，' : ''}找到 ${results.length} 个教材章节（对应关系为机器对齐，待核验）：`, ...chapterText] : [])
                     ].join('\n')
                     : `没有找到标题包含「${query}」的教材章节；可以换个写法，或用 search_standards 按内容检索。`
+            }
+        }
+    },
+    {
+        name: 'get_check_questions',
+        title: '课堂诊断题',
+        description: '取数学课堂诊断题：全班用手势、拇指或举草稿纸一起作答的题，每个错误答案对应一种常见错法（为什么会错、课上怎么接），附正确做法和三级阶梯练习，可直接投影放映。按课标要点或标准编码、年级、或关键词查。kebiao 编写，对应人教版教材单元。Whole-class diagnostic questions with misconception-tagged wrong answers.',
+        inputSchema: {
+            type: 'object',
+            properties: {
+                code: { type: 'string', description: '课标要点或标准编码，如 MA-S3-NA-01.3' },
+                grade: { type: 'integer', description: '年级 1–9' },
+                topic: { type: 'string', description: '关键词，如「通分」「一元一次方程」' },
+                limit: { type: 'integer', description: '最多返回几题，默认 3，最多 8' }
+            },
+            additionalProperties: false
+        },
+        async run(args, ctx) {
+            const bank = await ctx.checks?.bank('math')
+            if (!bank) throw new ToolInputError('诊断题暂时不可用。')
+            const code = str(args.code)
+            const topic = str(args.topic)
+            const grade = Number(args.grade) || gradeOf(args.grade) || 0
+            if (!code && !topic && !grade) throw new ToolInputError('请给出课标要点编码、年级或关键词，例如 topic「通分」。')
+            const limit = Math.min(8, Math.max(1, Number(args.limit) || 3))
+            const found = findChecks(bank, { code, grade, q: topic })
+            const shown = found.slice(0, limit).map(item => publicCheck(item, bank))
+            const lines = shown.flatMap((item, index) => [
+                `${index + 1}. 【${item.topic}】${item.textbook_unit}（${item.points.join('、')}）`,
+                `   ${item.stem}${item.work ? ` ${item.work.join(' ')}` : ''}`,
+                ...(item.options || []).map((option, n) => `   ${n + 1}. ${option}`),
+                `   答案：${item.answer}；作答方式：${item.how_to_answer}`,
+                ...item.wrong_answers.map(wrong => `   选「${wrong.answer}」可能是：${wrong.misconceptions.map(m => `${m!.name}（${m!.why} 课上可以：${plain(m!.move)}）`).join('；')}`),
+                ...(item.step_error ? [`   这一步错在：${item.step_error.name}（${item.step_error.why} 课上可以：${plain(item.step_error.move)}）`] : []),
+                `   放映：${item.present_url}`
+            ])
+            return {
+                data: { total: found.length, questions: shown, present_all: shown.length ? presentUrl(shown.map(item => item.id)) : null },
+                text: shown.length
+                    ? [`找到 ${found.length} 道课堂诊断题${found.length > shown.length ? `，列出前 ${shown.length} 道` : ''}：`, ...lines, `一起放映：${presentUrl(shown.map(item => item.id))}`].join('\n')
+                    : '没有找到对应的课堂诊断题。可以换个关键词，或去 https://www.kebiao.org/checks 按年级浏览。'
             }
         }
     },

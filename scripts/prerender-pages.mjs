@@ -58,6 +58,7 @@ const glossary = readJson('glossary.json')
 const concepts = readJson('concepts.json')
 const interdisciplinary = readJson('interdisciplinary.json')
 const experiments = readJson('experiments.json')
+const checks = existsSync(join(DATA, 'checks/math.json')) ? readJson('checks/math.json') : null
 // standard → the textbook units the AI (or the page alignment) tied it to, from build_national_lessons.mjs
 const nationalUnits = new Map(existsSync(join(DATA, 'v2/national-lessons')) ? readdirSync(join(DATA, 'v2/national-lessons')).flatMap(file => Object.entries(readJson(`v2/national-lessons/${file}`).units || {})) : [])
 // 要点 → the lessons that teach it, with the textbook's own words (教材与课标对应, align_textbook_lessons.mjs)
@@ -429,6 +430,31 @@ ${experiments.science.stages.map(item => section(`科学 · ${stage[item.stage]}
 ${experiments.groups.flatMap(group => group.standards.map(standard => section(`${group.subject_slug === 'physics' ? '物理' : '化学'} · ${standard.title}`, `<ol>${standard.items.map(entry => `<li>${esc(entry.text)} ${link(`/standards/${standard.code}#${entry.code}`, entry.code)}</li>`).join('')}</ol>`))).join('')}`, { jsonLd: [breadcrumbs(crumbs)] })
 }
 
+// 课堂诊断: every question as text, by book, with the misconceptions it can show (the page itself is for projecting)
+function checksPages() {
+    if (!checks) return
+    const crumbs = [['首页', '/'], ['课堂诊断', '/checks']]
+    const plainText = text => String(text).replace(/\{([^{}]*)\}/gu, '$1').replace(/\^(\d)/gu, '$1')
+    const books = []
+    for (const item of checks.items) {
+        const key = `${item.grade}${item.term}`
+        let book = books.find(entry => entry.key === key)
+        if (!book) books.push(book = { key, grade: item.grade, term: item.term, items: [] })
+        book.items.push(item)
+    }
+    const misNames = item => [...new Set([...Object.values(item.wrong || {}).flat(), item.error].filter(Boolean))].map(id => checks.misconceptions[id]?.name).filter(Boolean)
+    const gradeName = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九']
+    add(STATIC_PAGE_META['/checks'], `${crumbNav(crumbs)}
+<p class="kbp-kicker">课堂诊断 · 数学 ${checks.items.length} 题 · ${Object.keys(checks.misconceptions).length} 种常见错法</p>
+<h1>上课先问一道题，看清全班怎么想</h1>
+<p class="kbp-lede">${esc(STATIC_PAGE_META['/checks'].description)}</p>
+<p>${link('/checks/after', '批完就用：批完作业，明天开课 5 分钟补上')}</p>
+${books.map(book => section(`人教版${gradeName[book.grade]}年级${book.term}册`, list(book.items.map(item => `<strong>${esc(item.topic)}</strong>（${esc(item.unit)}）：${esc(plainText(item.stem))}<br><span class="kbp-note">能看出：${esc(misNames(item).join('、'))}</span> ${item.points.map(code => link(`/standards/${code.replace(/\.\d+$/u, '')}#${code}`, code)).join(' ')}`)))).join('')}`, { jsonLd: [breadcrumbs(crumbs)] })
+    add(STATIC_PAGE_META['/checks/after'], `${crumbNav([...crumbs, ['批完就用', '/checks/after']])}
+<h1>批完作业，点一下看到的错法，明天开课用 5 分钟补上</h1>
+<p class="kbp-lede">${esc(STATIC_PAGE_META['/checks/after'].description)}</p>`, { jsonLd: [breadcrumbs([...crumbs, ['批完就用', '/checks/after']])] })
+}
+
 function teacherExamPage() {
     const crumbs = [['首页', '/'], ['教资课标速记', '/teacher-exam']]
     const notes = concepts.subjects.filter(subject => subject.ideas)
@@ -466,6 +492,7 @@ learningResourcePages()
 conceptPages()
 interdisciplinaryPage()
 experimentsPage()
+checksPages()
 teacherExamPage()
 staticPages()
 

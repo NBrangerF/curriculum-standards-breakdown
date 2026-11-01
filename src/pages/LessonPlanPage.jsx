@@ -14,6 +14,7 @@ import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
 import { sourceLabel } from '../features/textbooks/alignmentModel'
+import { loadBank, presentHref, questionsForLesson } from '../features/checks/checksData.js'
 
 // the last 10 drafts stay in this browser; the old single-draft key is read once and folded in
 const STORE_KEY = 'kebiao.lessonPlan.history'
@@ -480,6 +481,7 @@ export default function LessonPlanPage() {
                             <Link className={styles.inlineLink} to={`/textbooks/${context.lesson.edition_id}/read?page=${context.lesson.pdf_page}`}>打开原书第 {context.lesson.pdf_page} 页（PDF） <ArrowRightIcon size={14} aria-hidden="true" /></Link>
                         ) : null}
                         <SyncLessons context={context} />
+                        <LessonChecks context={context} selected={selected} />
                     </div>
 
                     <p className={styles.aiStatus} aria-live="polite">
@@ -847,6 +849,29 @@ function PromptCopy({ context, selected, isUnit }) {
 }
 
 // 国家平台同步课, one line under the lesson: this lesson's own when the platform has it, else its unit's first few
+// 课堂诊断题 that fit this lesson (math): one question to project at the start or end of the lesson
+function LessonChecks({ context, selected }) {
+    const [bank, setBank] = useState(null)
+    const isMath = context.lesson.subject_slug === 'math'
+    useEffect(() => {
+        if (!isMath) return undefined
+        let active = true
+        loadBank().then(value => { if (active) setBank(value) }).catch(() => {})
+        return () => { active = false }
+    }, [isMath])
+    if (!isMath || !bank) return null
+    const items = questionsForLesson(bank, { grade: context.lesson.grade, title: context.lesson.title, chapters: [context.lesson.unit_title || ''], points: [...selected] }).slice(0, 3)
+    if (!items.length) return null
+    const back = `${window.location.pathname}${window.location.search}`
+    return (
+        <p className={styles.sync}>
+            <span>课堂诊断题</span>
+            {items.map(item => <Link key={item.id} to={presentHref([item.id], { back })}>{item.topic}</Link>)}
+            <small>上课先问一道，全班手势作答 · <Link to={presentHref(items.map(item => item.id), { title: context.lesson.title, back })}>连着放映</Link></small>
+        </p>
+    )
+}
+
 function SyncLessons({ context }) {
     const own = context.national_lessons.filter(item => item.id === context.lesson.lesson_id)
     const lessons = own.length ? own : context.national_lessons.slice(0, 5)

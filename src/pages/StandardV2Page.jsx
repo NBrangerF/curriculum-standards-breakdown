@@ -7,6 +7,7 @@ import FavoriteButton from '../components/FavoriteButton'
 import ShareStandardButton from '../features/share/ShareStandardButton'
 import StandardTextbookLinks from '../features/textbooks/StandardTextbookLinks'
 import { loadPlatforms, platformsFor } from '../features/learning-resources/platforms'
+import { loadChecksIndex } from '../features/checks/checksData.js'
 import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
 import { v2StandardMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
@@ -41,7 +42,7 @@ function withAdditions(text, added = []) {
 }
 
 // One 要点: the official sentence, its place in the 课标 and, folded away, the kebiao 表现示例.
-function Indicator({ item, dimmed, targeted }) {
+function Indicator({ item, dimmed, targeted, checks = 0 }) {
     const revised = item.check?.status === 'revised'
     return (
         <li id={item.code} className={`${styles.indicator} ${dimmed ? styles.dimmed : ''} ${targeted ? styles.targeted : ''}`}>
@@ -57,6 +58,7 @@ function Indicator({ item, dimmed, targeted }) {
             <p className={styles.indicatorText}>{revised ? withAdditions(item.text, item.check.added) : item.text}</p>
             {item.official_examples ? <p className={styles.officialExample}>{item.official_examples}</p> : null}
             <SourceLine section={item.section} pages={item.pages} check={item.check} />
+            {checks ? <Link className={styles.checkLink} to={`/checks?point=${item.code}`}>课堂诊断题 {checks} 道：上课问一道，看全班怎么想</Link> : null}
             {item.examples.length ? (
                 <details className={styles.examples}>
                     <summary>表现示例 · {item.examples.length} 条 <span>kebiao 整理</span></summary>
@@ -273,6 +275,16 @@ export default function StandardV2Page() {
     const { standard, subject } = state
     usePageMeta(standard && subject ? v2StandardMeta(standard, subject) : null)
 
+    // 课堂诊断题 per 要点 (math only so far): a small index, so other subjects fetch nothing
+    const [checkCounts, setCheckCounts] = useState({})
+    useEffect(() => {
+        let cancelled = false
+        setCheckCounts({})
+        if (!standardCode.startsWith('MA-')) return undefined
+        loadChecksIndex().then(index => { if (!cancelled && index) setCheckCounts(index.by_point || {}) })
+        return () => { cancelled = true }
+    }, [standardCode])
+
     // Open at the 要点 named in the hash (old links land here too).
     useEffect(() => {
         if (state.status !== 'ready' || !target) return undefined
@@ -366,6 +378,7 @@ export default function StandardV2Page() {
                                 item={item}
                                 dimmed={grade > 0 && item.grades?.length > 0 && !item.grades.includes(grade)}
                                 targeted={item.code === target}
+                                checks={checkCounts[item.code]?.length || 0}
                             />
                         ))}
                     </ol>

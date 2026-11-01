@@ -51,6 +51,7 @@ import { resolveDataRoot } from './config.js'
 import { TextbookAssetService } from './textbook-assets.js'
 import { SOURCE_LABEL, createV2Store, v2TextbookItem } from './v2-store.js'
 import { ToolInputError, findTool, type ToolContext } from './ai-tools.js'
+import { createCheckStore, findChecks, publicCheck } from './checks.js'
 import { handleMcp } from './mcp.js'
 import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate, type JudgeResult } from './search-judge.js'
 import { resolvePluginOpenApiPath } from './config.js'
@@ -145,6 +146,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     const textbookAssetService = options.textbookAssetService || new TextbookAssetService()
     const learningResourceRepository = options.learningResourceRepository || new FileLearningResourceRepository(resolveDataRoot())
     const v2 = createV2Store(resolveDataRoot())
+    const checks = createCheckStore(resolveDataRoot())
     // A search candidate as the model reads it: 标准句 and 要点 原文, the 要点 holding the matched words first.
     const judgeCandidates = (results: SmartSearchResult[]) => Promise.all(results.map(async (item): Promise<JudgeCandidate> => {
         const found = await v2.find(item.code)
@@ -203,7 +205,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     }
 
     // AI clients: a remote MCP server (/mcp) and plain GET endpoints for 扣子 / 元器 plugins, over the same tools.
-    const toolContext: ToolContext = { repository, textbookRepository, v2 }
+    const toolContext: ToolContext = { repository, textbookRepository, v2, checks }
     app.on(['GET', 'POST'], ['/mcp', '/api/v1/mcp'], c => handleMcp(c, toolContext))
     const PLUGIN_ROUTES: Record<string, string> = {
         subjects: 'list_subjects', search: 'search_standards', standard: 'get_standard', standards: 'list_standards',
@@ -539,6 +541,25 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         const pilot = (item: { edition_id: string }) => Number(item.edition_id.startsWith('pf_'))
         lessons.sort((a, b) => (a.relation === b.relation ? 0 : a.relation === 'teaches' ? -1 : 1) || pilot(a) - pilot(b) || a.textbook_title.localeCompare(b.textbook_title, 'zh-Hans-CN', { numeric: true }))
         return ok(c, version, lessons, { total: lessons.length, review_status: 'machine_judged' })
+    })
+
+    // 课堂诊断题: whole-class check questions, each wrong answer tied to a misconception (kebiao 编写，数值经程序验算)
+    app.get('/api/v1/checks', async c => {
+        const version = await repository.loadDataVersion()
+        const bank = await checks.bank(c.req.query('subject') || 'math')
+        if (!bank) return apiError(c, 404, 'not_found', '这门学科还没有课堂诊断题。')
+        const grade = Number(c.req.query('grade') || 0)
+        const limit = Math.min(50, Math.max(1, Number(c.req.query('limit') || 20)))
+        const found = findChecks(bank, { code: c.req.query('code') || c.req.query('point') || '', grade: Number.isInteger(grade) ? grade : 0, term: c.req.query('term') || '', q: c.req.query('q') || '' })
+        return ok(c, version, found.slice(0, limit).map(item => publicCheck(item, bank)), { total: found.length, source: 'kebiao 编写的课堂诊断题，题目对应人教版教材单元与课标要点' })
+    })
+
+    app.get('/api/v1/checks/:id', async c => {
+        const version = await repository.loadDataVersion()
+        const bank = await checks.bank('math')
+        const item = bank?.items.find(entry => entry.id === c.req.param('id'))
+        if (!bank || !item) return apiError(c, 404, 'not_found', '未找到这道诊断题。')
+        return ok(c, version, publicCheck(item, bank))
     })
 
     app.get('/api/v1/standards/:code/capability-graph', async c => {

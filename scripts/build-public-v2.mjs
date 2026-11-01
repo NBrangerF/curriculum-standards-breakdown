@@ -270,7 +270,7 @@ writeFileSync('public/llms.txt', `# kebiao 课标
 
 ## 给 AI 用的接口
 
-- [MCP 服务器](${SITE}/mcp): Streamable HTTP（POST JSON-RPC），无需登录；只读工具：检索课标、查看标准、列出标准、学段目标、标准对应的教材、从教材章节找课标、2025 修订对照
+- [MCP 服务器](${SITE}/mcp): Streamable HTTP（POST JSON-RPC），无需登录；只读工具：检索课标、查看标准、列出标准、学段目标、标准对应的教材、从教材章节找课标、2025 修订对照、课堂诊断题
 - [插件 OpenAPI](${SITE}/api/v1/plugin/openapi.yaml): 扣子、腾讯元器等平台可直接导入；每个接口都返回一段可直接引用的 answer
 - [API 文档](${SITE}/api/v1/docs): 完整的课程智能 API
 
@@ -289,6 +289,7 @@ ${subjects.map(s => `- [${s.subject}](${SITE}/subjects/${s.subject_slug}): ${s.s
 - [教资课标速记](${SITE}/teacher-exam): 14 门课程的核心素养和课程理念，标页码
 - [中考复习地图](${SITE}/review): 每条初中课标在七、八、九年级教材哪一单元教过，附学业要求
 - [AI 备课](${SITE}/lesson-plan): 从教材的一课起草有课标依据的教案
+- [课堂诊断](${SITE}/checks): 人教版数学 1–9 年级每册的全班诊断题，全班用手势、拇指或举草稿纸作答，每个错误答案对应一种常见错法（为什么错、课上怎么接），附正确做法、比一比和三级阶梯练习；可投影放映或下载 PPT。API：/api/v1/checks?code=<要点编码>&grade=<年级>&q=<关键词>
 - [站点地图](${SITE}/sitemap.xml)
 
 ## Optional

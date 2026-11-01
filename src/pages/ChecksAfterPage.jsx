@@ -160,11 +160,11 @@ export default function ChecksAfterPage() {
                         {plan.items.length ? (
                             <>
                                 <ol>
-                                    <li><b>开课一问（1 分钟）</b>：{plan.items[0].topic}。全班先想好，听口令一起作答，看“{nameOf(plan.focus[0])}”还有多少人。</li>
+                                    <li><b>开课一问（1 分钟）</b>：{plan.items[0].topic}。全班先想好，听口令一起作答，看「{nameOf(plan.focus[0])}」还有多少人。</li>
                                     <li><b>揭晓（1 分钟）</b>：请答错的同学说想法，再看正确做法。</li>
                                     <li><b>比一比（1 分钟）</b>：两种做法放在一起，问全班哪里不一样。</li>
                                     <li><b>阶梯练习（2 分钟）</b>：全班在练习本上从 ① 做起，做完一题再往下；最后对答案。</li>
-                                    {plan.items[1] ? <li><b>再查一题（课尾 1 分钟）</b>：{plan.items[1].topic}，看“{nameOf(plan.focus[1])}”。</li> : null}
+                                    {plan.items[1] ? <li><b>再查一题（课尾 1 分钟）</b>：{plan.items[1].topic}，看「{nameOf(plan.focus[1])}」。</li> : null}
                                 </ol>
                                 {plan.missing.length ? <p className={styles.note}>{plan.missing.map(nameOf).join('、')}：这次没有放进去（每次最多处理两种，先处理人多的）。</p> : null}
                                 <div className={styles.planActions}>

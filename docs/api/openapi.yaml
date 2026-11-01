@@ -27,6 +27,8 @@ tags:
     description: 教材馆、结构化目录、印刷页映射、配套资源、阅读会话和课标双向关联。
   - name: 学习资源
     description: 已转为简体中文、保留许可与出处，并带片段级课标证据的开放学习材料。
+  - name: 课堂诊断
+    description: 全班作答的课堂诊断题，每个错误答案对应一种常见错法，附课上怎么接和阶梯练习。
   - name: 关系图谱
     description: 已建立的标准进阶分组，以及同领域、同能力的相邻关系。
   - name: 教学规划
@@ -499,6 +501,43 @@ paths:
       responses:
         "200":
           description: 教这条标准或要点的课
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/checks:
+    get:
+      tags: [课堂诊断, 课程标准]
+      operationId: listCheckQuestions
+      summary: 查课堂诊断题
+      description: kebiao 编写的数学课堂诊断题（人教版 1–9 年级）。全班用手势、拇指或举草稿纸一起作答；每个错误答案对应一种常见错法，附为什么会错、课上怎么接、正确做法和三级阶梯练习。present_url 打开可投影的放映页。数值答案经程序验算。
+      security: []
+      parameters:
+        - { name: code, in: query, required: false, schema: { type: string }, description: 课标要点或标准编码，如 MA-S3-NA-01.3 }
+        - { name: grade, in: query, required: false, schema: { type: integer, minimum: 1, maximum: 9 }, description: 年级 }
+        - { name: term, in: query, required: false, schema: { type: string, enum: [上, 下] }, description: 上册或下册 }
+        - { name: q, in: query, required: false, schema: { type: string }, description: 关键词，在课题、单元、题干和课时名中查找 }
+        - { name: limit, in: query, required: false, schema: { type: integer, minimum: 1, maximum: 50, default: 20 } }
+      responses:
+        "200":
+          description: 诊断题列表，meta.total 是符合条件的总数
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ApiResponse" }
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /api/v1/checks/{id}:
+    get:
+      tags: [课堂诊断]
+      operationId: getCheckQuestion
+      summary: 取一道课堂诊断题
+      security: []
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string }, description: 题目编号，如 ma-5b-05 }
+      responses:
+        "200":
+          description: 一道诊断题
           content:
             application/json:
               schema: { $ref: "#/components/schemas/ApiResponse" }

@@ -31,7 +31,10 @@ const routes = [
     ['teacherExam', '/teacher-exam'],
     ['reviewMap', '/review?subject=history'],
     ['guide', '/guide'],
-    ['textbookAlignment', '/textbooks/ed_006d5ed61c055eb63857/standards']
+    ['textbookAlignment', '/textbooks/ed_006d5ed61c055eb63857/standards'],
+    ['checks', '/checks?grade=5&term=下'],
+    ['checksAfter', '/checks/after?grade=5&term=下'],
+    ['checksPresent', '/checks/present?q=ma-5b-05,ma-5b-09,ma-5b-03']
 ]
 
 const summarizeViolations = violations => violations.map(violation => ({

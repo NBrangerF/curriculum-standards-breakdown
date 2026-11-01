@@ -161,6 +161,14 @@ export function checkSubject(slug) {
             items.push({ ...item, grade, term, book: tree?.edition || null })
         }
     }
+    // students learn patterns fast: the right answer should not keep sitting in one place, nor 同意吗 always be 不同意
+    for (const n of [3, 4]) {
+        const answers = items.filter(item => item.type === 'choice' && item.options.length === n).map(item => item.answer)
+        const top = Math.max(0, ...Array.from({ length: n }, (_, k) => answers.filter(a => a === k).length))
+        if (answers.length >= 8 && top / answers.length > 1.6 / n) warnings.push(`${n}-option questions: ${top} of ${answers.length} have the right answer in the same place`)
+    }
+    const judges = items.filter(item => item.type === 'judge')
+    if (judges.length >= 8 && judges.filter(item => item.answer).length / judges.length < 0.2) warnings.push('同意吗 questions are almost all 不同意; make some statements correct')
     const used = new Set(items.flatMap(item => [...Object.values(item.wrong || {}).flat(), item.error].filter(Boolean)))
     for (const id of misconceptions.keys()) if (!used.has(id)) warnings.push(`misconception ${id} is not used by any question`)
     return { subject, slug, items, misconceptions, errors, warnings, files }

@@ -161,6 +161,7 @@ export default function TextbookDetailPage() {
                         <div className={styles.actions}>
                             <Link className="btn btn-primary" to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>用这本书备课 →</Link>
                             {platformUnits.length ? <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/standards`}>课标对应表</Link> : null}
+                            {book.subject === '数学' && book.grade >= 1 && book.grade <= 9 ? <Link className="btn btn-secondary" to={`/checks?grade=${book.grade}&term=${String(book.volume || '').slice(0, 1) || '上'}`}>课堂诊断题</Link> : null}
                             <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/read`}><BookOpenTextIcon size={18} aria-hidden="true" /> 看原书</Link>
                         </div>
                     </div>
