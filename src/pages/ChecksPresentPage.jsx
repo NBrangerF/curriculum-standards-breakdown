@@ -51,11 +51,11 @@ export default function ChecksPresentPage() {
     }
     const download = async tallies => {
         const { downloadPptx } = await import('../features/checks/exportPptx.js')
-        await downloadPptx(slides, { title: title || items[0].topic, misconceptions: bank.misconceptions, tallies, markup: bank.markup })
+        await downloadPptx(slides, { title: title || items[0].unit, misconceptions: bank.misconceptions, tallies, markup: bank.markup })
     }
     return (
         <MarkupContext.Provider value={bank.markup || 'math'}>
-            <Presenter slides={slides} title={title || items[0].topic} misconceptions={bank.misconceptions} onExit={exit} onDownload={download} />
+            <Presenter slides={slides} title={title || items[0].unit} misconceptions={bank.misconceptions} onExit={exit} onDownload={download} />
         </MarkupContext.Provider>
     )
 }

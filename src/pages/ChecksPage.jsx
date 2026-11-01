@@ -61,7 +61,7 @@ export default function ChecksPage() {
     const back = `/checks?${point ? `point=${point}` : `subject=${slug}&book=${encodeURIComponent(bookKey)}`}`
     const toggle = id => setSelected(current => (current.includes(id) ? current.filter(entry => entry !== id) : [...current, id]))
     const chosen = selected.map(id => bank.items.find(item => item.id === id)).filter(Boolean)
-    const deckTitle = chosen.length === 1 ? chosen[0].topic : `${point || `${bank.subject} ${book?.short || ''}`} · 课堂诊断`
+    const deckTitle = chosen.length === 1 ? chosen[0].unit : `${point || `${bank.subject} ${book?.short || ''}`} · 课堂诊断`
     const shortOf = key => bookOfKey(bank, key)?.short || key
     const download = async () => {
         setBusy(true)

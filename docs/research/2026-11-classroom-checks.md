@@ -17,18 +17,20 @@
 
 ## 题库
 
-- 位置：`data/checks/<学科>/<年级><a|b>.json`（a 上册、b 下册），目前只有数学，人教版 1–9 年级 18 册，197 题、291 种错法。
-- 每个文件：`book`、`misconceptions`（id、name、why、move）、`items`。错法可以被其他册的题引用（校验先读全部错法）。
-- 题目字段：`id`（`ma-5b-05`）、`type`、`unit`（人教版单元名的一部分）、`lessons`（课时名关键词）、`points`（v2 要点编码）、`topic`、`stem`、`work`（judge/step）、`options`（choice）、`answer`、`wrong`（答案 → 错法 id，可为数组）、`error`（step 的错法）、`right`（正确做法）、`typical` + `typical_error`（choice/write 的典型错法，用于比一比）、`ladder`（3 级）、`verify`（精确验算）。
-- 数学标记：`{5/6}` 分数，`2{1/3}` 带分数，`x^2`、`a^{n+1}` 上标，`x_1` 下标，`√2`、`√{x+1}` 根号（`src/features/checks/mathText.js`）。
-- 校验：`npm run check:checks`（`scripts/checks/bank.mjs --check`）——要点编码存在、单元是人教版该册的单元、课时关键词能找到、每个错项都有错法、`verify` 用有理数精确计算为真（`scripts/checks/rational.mjs`）、投影文字长度。构建：`build:public-data` 最后一步写 `public/data/checks/{math.json,index.json}`。
-- 加题：在对应册的文件里加题和需要的新错法，跑 `npm run check:checks`，有数值就写 `verify`。
+- 位置：`data/checks/<学科>/<文件>.json`。学科清单、题号前缀、对应的课标文件和教材版本在 `src/features/checks/subjects.js`（校验脚本和页面共用）。怎么写一道题：`data/checks/README.md`。
+- 两种编排（2026-11-01 用户要求“全学科都要有”后扩展）：
+  - 按册：语文、道德与法治、历史（统编版），数学、英语（3–6 年级 PEP、7–9 年级人教版）、物理、化学、生物学、地理（人教版），科学（教科版）。文件名 `5a.json`（五上）、`5b.json`（五下）、`9.json`（全一册）；`unit` 必须是库里这一册的单元（`public/data/textbooks/national-lessons/`）。库里没有目录的册（英语八下、九下，科学三下）不出题；目录不全的册（新版本陆续上线，如语文五上、九上）只给列出的单元出题。
+  - 按学段：信息科技、劳动（库里没有教材）、体育与健康、音乐、美术（各地版本不同，库里目录不全）。文件名 `3-4.json`；艺术用自己的学段 `1-2`、`3-5`、`6-7`、`8-9`。`unit` 是课标这个学段的学习任务、任务群或内容模块。
+- 每个文件：`book`（`{grade, term}` 或 `{band}`）、`misconceptions`（id、name、why、move）、`items`。错法 id 在学科内唯一，可以被同学科其他册的题引用。
+- 题目字段见 README；题号 `<前缀>-<文件名>-NN`（`ma-5b-05`、`ph-9-03`、`la-3-4-02`）。
+- 标记：数学、物理、化学、生物学、科学、地理用数学标记（`{5/6}`、`x^2`、`H_2O`、`Fe^{3+}`、化学方程式条件 `=[点燃]=`、`-[加热]->`，见 `src/features/checks/mathText.js`）；语文、英语、道德与法治、历史、信息科技、体育与健康、音乐、美术、劳动原样显示（页面用 `MarkupContext`，PPT 用 `markup: 'plain'`）。
+- 校验：`npm run check:checks`（`scripts/checks/bank.mjs --check`，`--subject english` 只查一科并列出还没有题的单元）——要点编码存在且属于本学科（音乐只用 AR-…-MU-，美术只用 VA/FM），要点学段和年级相差不超过一年，单元在册目录或学段任务里，每个错项都有错法，`verify` 精确验算为真，投影文字宽度（汉字算 1，字母数字算 0.55），答案位置不集中，同意吗题不全是不同意。构建：`build:public-data` 最后一步写 `public/data/checks/{<学科>.json,index.json}`（index 有每科的册/学段和 `by_point`）。
 
 ## 接口
 
-- 页面：`/checks`（按册、单元选题，`?point=` 按要点）、`/checks/present?q=&with=contrast,ladder[,first]&title=&back=`、`/checks/after`。
-- 入口：备课导航“课堂诊断”；课标页每条要点下“课堂诊断题 n 道”；数学教材页“课堂诊断题”；AI 备课的课时卡片里列出这一课可用的题。
-- API：`GET /api/v1/checks?code=&grade=&term=&q=&limit=`、`GET /api/v1/checks/{id}`；MCP 工具 `get_check_questions`（code / grade / topic）。
+- 页面：`/checks?subject=&book=`（先选学科，再选册或学段、单元；`?grade=&term=` 的旧链接仍可用，`?point=` 按要点）、`/checks/present?q=&with=contrast,ladder[,first]&title=&back=`（一套放映只放一科，按第一个题号定学科）、`/checks/after?subject=&book=&unit=`（记录带学科，只列当前学科的记录）。
+- 入口：备课导航“课堂诊断”；课标页每条要点下“课堂诊断题 n 道”（各学科）；教材页“课堂诊断题”（这一册或它所在学段有题时）；AI 备课的课时卡片里列出这一课可用的题。
+- API：`GET /api/v1/checks?subject=&code=&grade=&term=&q=&limit=`（subject 可写 slug 或学科名；不给 subject 时按 code 判断学科，都不给就在所有学科里找）、`GET /api/v1/checks/{id}`；MCP 工具 `get_check_questions`（subject / code / grade / topic）。
 
 ## 还没做
 

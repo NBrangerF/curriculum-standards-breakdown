@@ -106,7 +106,7 @@ function notesFor(item, misconceptions) {
     if (item.type === 'write') lines.push(`答案：${t(item.answer)}`)
     for (const id of misconceptionsOf(item)) {
         const entry = misconceptions[id]
-        if (entry) lines.push(`· ${entry.name}：${entry.why} 怎么办：${t(entry.move)}`)
+        if (entry) lines.push(`· ${entry.name}：${t(entry.why)} 怎么办：${t(entry.move)}`)
     }
     lines.push('正确做法：' + item.right.map(t).join(' '))
     return lines.join('\n')
@@ -127,12 +127,13 @@ export async function downloadPptx(slides, { title = '课堂诊断', misconcepti
             const slide = frame(pptx)
             slide.addText(`课堂诊断 · 共 ${entry.items.length} 题`, { x: 1, y: 1.4, w: 11, h: 0.5, fontFace: FONT, fontSize: 18, bold: true, color: C.accentStrong })
             slide.addText(title, { x: 1, y: 2.0, w: 11.3, h: 1.4, fontFace: FONT, fontSize: 44, bold: true, color: C.ink, fit: 'shrink' })
-            slide.addText(entry.items.map(question => question.topic).join('　·　'), { x: 1, y: 3.6, w: 11.3, h: 0.9, fontFace: FONT, fontSize: 18, color: C.muted, valign: 'top' })
+            slide.addText([...new Set(entry.items.map(question => question.unit))].join('　·　'), { x: 1, y: 3.6, w: 11.3, h: 0.9, fontFace: FONT, fontSize: 18, color: C.muted, valign: 'top' })
             const hows = [...new Set(entry.items.map(question => TYPE_META[question.type].how))]
             slide.addText(`全班一起作答，先想好，听口令再举：${hows.join('；')}`, { x: 1, y: 5.0, w: 11.3, h: 0.8, fontFace: FONT, fontSize: 16, color: C.ink, fill: { color: C.accentSoft }, margin: 10 })
             slide.addNotes('先让全班看清怎么作答，再进入第 1 题。')
         } else if (entry.kind === 'question') {
-            const slide = frame(pptx, label, item.topic)
+            // no topic before the class answers: it often names the rule being checked
+            const slide = frame(pptx, label)
             stemOf(slide, item)
             const y = workOf(slide, item, { y: 2.35, size: 24 })
             choicesOn(slide, item, { y: item.type === 'judge' ? y : 2.45, revealed: false, misconceptions, tally: tallies[item.id] })

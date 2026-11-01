@@ -34,11 +34,12 @@ function HowToAnswer({ type }) {
     return <span className={styles.how}><Icon weight="bold" aria-hidden="true" />{TYPE_META[type].how}</span>
 }
 
+// the topic often names the rule being checked, so the class sees it only from the reveal on
 function SlideHead({ slide, label }) {
     return (
         <header className={styles.head}>
             <span className={styles.count}>{label || `第 ${slide.n} 题`}{slide.total > 1 ? <small> / 共 {slide.total} 题</small> : null}</span>
-            <span className={styles.topic}>{slide.item?.topic}</span>
+            <span className={styles.topic}>{slide.kind === 'question' ? '' : slide.item?.topic}</span>
         </header>
     )
 }
@@ -248,7 +249,7 @@ function CoverSlide({ slide }) {
             <p className={styles.coverKicker}>课堂诊断 · 共 {slide.items.length} 题</p>
             <h1 className={styles.coverTitle}>{slide.title}</h1>
             <ul className={styles.coverTopics}>
-                {slide.items.map(item => <li key={item.id}>{item.topic}</li>)}
+                {[...new Set(slide.items.map(item => item.unit))].map(unit => <li key={unit}>{unit}</li>)}
             </ul>
             <div className={styles.coverHow}>
                 <p>全班一起作答，先想好，听口令再举：</p>
@@ -270,11 +271,11 @@ function Notes({ slide, misconceptions, onClose }) {
             {item ? (
                 <div className={styles.notesBody}>
                     {item.type === 'step' ? (
-                        <div className={styles.note}><b>第 {item.answer + 1} 步开始错：{misconceptions[item.error]?.name}</b><p>{misconceptions[item.error]?.why}</p><p>怎么办：{misconceptions[item.error]?.move}</p></div>
+                        <div className={styles.note}><b>第 {item.answer + 1} 步开始错：{misconceptions[item.error]?.name}</b><MathText as="p" text={misconceptions[item.error]?.why} /><p>怎么办：<MathText text={misconceptions[item.error]?.move} /></p></div>
                     ) : choicesOf(item).filter(choice => !choice.correct && choice.misconceptions.length).map(choice => (
                         <div key={choice.key} className={styles.note}>
                             <b>{item.type === 'choice' ? `选 ${choice.label}` : item.type === 'judge' ? choice.text : <>写 <MathText text={choice.text} /></>}：{choice.misconceptions.map(id => misconceptions[id]?.name).join('；')}</b>
-                            {choice.misconceptions.map(id => <p key={id}>{misconceptions[id]?.why} 怎么办：{misconceptions[id]?.move}</p>)}
+                            {choice.misconceptions.map(id => <p key={id}><MathText text={misconceptions[id]?.why} /> 怎么办：<MathText text={misconceptions[id]?.move} /></p>)}
                         </div>
                     ))}
                     <p className={styles.noteKeys}>键盘：→ 下一页 · ← 上一页 · C 统计 · 1–4 加一人（Shift 加五人）· T 计时 · B 黑屏 · F 全屏 · N 提示</p>
