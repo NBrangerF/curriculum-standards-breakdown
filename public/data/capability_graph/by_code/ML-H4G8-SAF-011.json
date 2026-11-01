@@ -43,16 +43,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_cb38b5e97d4cd85e",
+      "alignment_type": "practices",
+      "confidence": 0.7971,
+      "coverage": "partial",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_morality_law_junior_grade_8_down",
+        "tes_29263062953f507f",
+        "textbook-node:tcn_279153cfa128afb8",
+        "textbook-unit:tcu_475906fab3e0aec1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "判断他们的观点是否正确,并说明理由。",
+          "excerpt_hash": "4c4f45c1cdd797439f2ab11aaf7a81f82cf125b0aacea1cd8689ceb3d87e0a4e",
+          "pdf_page": 105,
+          "printed_page": "100",
+          "span_id": "tes_29263062953f507f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_207bb43755da94dd"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_207bb43755da94dd",
+          "label": "在判断与行动中表现出正确的人生观和价值观并说明理由"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_279153cfa128afb8",
+      "node_title": "判断他们的观点是否正确,并说明理由。",
+      "pdf_page": 105,
+      "printed_page": "100",
+      "publication_status": "published",
+      "rationale": "教材练习“判断他们的观点是否正确,并说明理由。”与课标 ML-H4G8-SAF-011 的可教学小能力“在判断与行动中表现出正确的人生观和价值观并说明理由”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_475906fab3e0aec1",
+      "unit_title": "第七课"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_fc4e72616211ac73",
@@ -63,7 +118,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_76fc538dd0d1"
+        "external_smartedu_2026_history_junior_grade_8_up"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -75,7 +130,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_262756ea29a61d32",
       "textbook_grade": 8,
       "textbook_subject": "历史",
@@ -94,7 +149,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_d8429e42f96b"
+        "external_smartedu_2026_morality_law_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -106,7 +161,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_9eb2e2a90a705049",
       "textbook_grade": 8,
       "textbook_subject": "道德与法治",
@@ -125,7 +180,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_e8c5c385aafa"
+        "external_smartedu_2026_morality_law_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -137,7 +192,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_b28ec1f6b081b602",
       "textbook_grade": 8,
       "textbook_subject": "道德与法治",
@@ -156,7 +211,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_05dbe85802ac"
+        "external_smartedu_2026_history_junior_grade_8_down"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -168,7 +223,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_c23f52c4ba953c6f",
       "textbook_grade": 8,
       "textbook_subject": "历史",

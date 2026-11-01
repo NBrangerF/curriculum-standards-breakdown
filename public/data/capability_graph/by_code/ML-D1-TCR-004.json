@@ -43,16 +43,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
     "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_4fc0294cb34334f1",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_e0415d58f2a7c2ec1a23",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_morality_law_primary_grade_2_up",
+        "tes_adae46fc85e5a0ec",
+        "textbook-node:tcn_b7d6a28f5753dcf2",
+        "textbook-unit:tcu_3bfd3ff480bb61e9"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第 14 课 我们都是中国人",
+          "excerpt_hash": "6425eeaf6c93f68c6e33d3ba3d4952bd3007349cae9bc127ccf5ce21e27efcca",
+          "pdf_page": 59,
+          "printed_page": "54",
+          "span_id": "tes_adae46fc85e5a0ec"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_bd358154060f28ea"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_bd358154060f28ea",
+          "label": "识别国旗、国徽并在仪式中学唱国歌（或唱出主要旋律/歌词片段），知道自己是中国人，愿意在集体活动中表现庄重与自豪"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b7d6a28f5753dcf2",
+      "node_title": "第14课我们都是中国人",
+      "pdf_page": 59,
+      "printed_page": "54",
+      "publication_status": "published",
+      "rationale": "教材课文“第14课我们都是中国人”与课标 ML-D1-TCR-004 的可教学小能力“识别国旗、国徽并在仪式中学唱国歌（或唱出主要旋律/歌词片段），知道自己是中国人，愿意在集体活动中表现庄重与自豪”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 2,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治2年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_3bfd3ff480bb61e9",
+      "unit_title": "我们生活的地方"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_f9f87f35aa53b672",
@@ -63,7 +118,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_565199064cf5"
+        "external_smartedu_2026_morality_law_primary_grade_2_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +130,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_a8cd1c06fc4166b4",
       "textbook_grade": 2,
       "textbook_subject": "道德与法治",
@@ -94,7 +149,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_17b846efdf7a"
+        "external_smartedu_2026_morality_law_primary_grade_1_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -106,7 +161,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_f9d3a9d4795fb2cf",
       "textbook_grade": 1,
       "textbook_subject": "道德与法治",
@@ -125,7 +180,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_88807fd2045b"
+        "external_smartedu_2026_morality_law_primary_grade_2_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -137,7 +192,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_b0742e693a9d96bc",
       "textbook_grade": 2,
       "textbook_subject": "道德与法治",
@@ -156,7 +211,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_50dfe7e5b313"
+        "external_smartedu_2026_morality_law_primary_grade_1_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -168,7 +223,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_33531b3889df7060",
       "textbook_grade": 1,
       "textbook_subject": "道德与法治",

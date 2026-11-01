@@ -43,16 +43,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d25c6fa022720798",
+      "alignment_type": "practices",
+      "confidence": 0.8768,
+      "coverage": "partial",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_8_up",
+        "tes_39a95f75acaa4343",
+        "textbook-node:tcn_735f0be5bec6af02",
+        "textbook-unit:tcu_7befab0735498bf8"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "阅读红色经典,要注意体会作品的艺术特色。红色经典往往有“文艺为人民大众服务”的自觉意识,善于汲取传统文化和民间文艺的精华,采用人民群众喜闻乐见的写作形式,语言通俗,故事性强,且富于抒情意味。可以和同学",
+          "excerpt_hash": "c63532dce3b9e17e82ba747088d3212d2de4359ec427f449e94052ff67794cde",
+          "pdf_page": 66,
+          "printed_page": "59",
+          "span_id": "tes_39a95f75acaa4343"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4822b3421f0c2c18"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4822b3421f0c2c18",
+          "label": "用具体事例说明作品情感和思想内涵"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_735f0be5bec6af02",
+      "node_title": "阅读红色经典,要注意体会作品的艺术特色。红色经典往往有“文艺为人民大众服务”的自觉意识,善于汲取传统文化和民间文艺的精华,采用人民群众喜闻乐见的写作形式,语言通俗,故事性强,且富于抒情意味。可以和同学",
+      "pdf_page": 66,
+      "printed_page": "59",
+      "publication_status": "published",
+      "rationale": "教材练习“阅读红色经典,要注意体会作品的艺术特色。红色经典往往有“文艺为人民大众服务”的自觉意识,善于汲取传统文化和民间文艺的精华,采用人民群众喜闻乐见的写作形式,语言通俗,故事性强,且富于抒情意味。可以和同学”与课标 CN-H4G8-RE-032 的可教学小能力“用具体事例说明作品情感和思想内涵”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_7befab0735498bf8",
+      "unit_title": "第二单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a28cf923f26131b5",
@@ -63,7 +118,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_f4fb0c2a21f9"
+        "external_smartedu_2026_chinese_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +130,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_0fb7983518710ace",
       "textbook_grade": 8,
       "textbook_subject": "语文",
@@ -94,7 +149,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_be04d8b55a4f"
+        "external_smartedu_2026_chinese_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -106,7 +161,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d5058d79ff37d1bb",
       "textbook_grade": 8,
       "textbook_subject": "语文",

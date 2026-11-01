@@ -122,16 +122,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_e9020faa65c6c1e6",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_6101d4786e6f31ffcbd1",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_9_down",
+        "tes_48286f03dbc04d0e",
+        "textbook-node:tcn_abefcdd73aec276e",
+        "textbook-unit:tcu_320ff4c40cf96030"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "先默读诗歌,给不认识的字注音,了解诗歌的内容,把打动你的诗句",
+          "excerpt_hash": "debb20a3394e100b8023f76c3c3d5b0c5a54faf762bf7c8c02690a362d744549",
+          "pdf_page": 9,
+          "printed_page": "2",
+          "span_id": "tes_48286f03dbc04d0e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_36397b1f2f9b9b9d"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_36397b1f2f9b9b9d",
+          "label": "识别并说出诗歌、散文、小说、戏剧等文学样式的关键特征"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_abefcdd73aec276e",
+      "node_title": "先默读诗歌,给不认识的字注音,了解诗歌的内容,把打动你的诗句",
+      "pdf_page": 9,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材学习目标“先默读诗歌,给不认识的字注音,了解诗歌的内容,把打动你的诗句”与课标 CN-H4G9-RE-004 的可教学小能力“识别并说出诗歌、散文、小说、戏剧等文学样式的关键特征”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_320ff4c40cf96030",
+      "unit_title": "第一单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_e0c037b079f16f7b",
@@ -142,7 +197,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a0230fff243e"
+        "external_smartedu_2026_chinese_junior_grade_9_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -154,7 +209,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_bfec983d3862789b",
       "textbook_grade": 9,
       "textbook_subject": "语文",
@@ -173,7 +228,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_6624003b3319"
+        "external_smartedu_2026_chinese_junior_grade_9_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -185,7 +240,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_ec52c6c49dc65828",
       "textbook_grade": 9,
       "textbook_subject": "语文",

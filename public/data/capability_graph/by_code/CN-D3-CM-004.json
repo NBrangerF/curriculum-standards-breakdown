@@ -87,12 +87,72 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 4,
+    "page_evidence_count": 5,
     "scope_count": 4,
-    "specific_count": 4,
+    "specific_count": 5,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8a5df19301f99cb4",
+      "alignment_type": "supports",
+      "confidence": 0.8906,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_primary_grade_5_up",
+        "tes_3ca03de96fdf71a0",
+        "textbook-node:tcn_8019ed7c3fd2fece",
+        "textbook-unit:tcu_1259afee169519a7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "搜集资料,运用基本的说明方法,把某一种事物介绍清楚。",
+          "excerpt_hash": "980843d205b60bdc7111690989ff1b89b25ea260bdf1ee334f7655cc5fa6cb7d",
+          "pdf_page": 70,
+          "printed_page": "65",
+          "span_id": "tes_3ca03de96fdf71a0"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f6dd99260cfe8183",
+        "lc_962d8a23358d93a1"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f6dd99260cfe8183",
+          "label": "用准确语言清楚介绍、说明事物或程序"
+        },
+        {
+          "component_id": "lc_962d8a23358d93a1",
+          "label": "运用信息解决现实生活中的简单问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8019ed7c3fd2fece",
+      "node_title": "搜集资料,运用基本的说明方法,把某一种事物介绍清楚。",
+      "pdf_page": 70,
+      "printed_page": "65",
+      "publication_status": "published",
+      "rationale": "教材学习目标“搜集资料,运用基本的说明方法,把某一种事物介绍清楚。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_1259afee169519a7",
+      "unit_title": "第五单元"
+    },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_0a76a03796467ac1",
@@ -104,7 +164,7 @@
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_de7e1d7c21bb",
+        "external_smartedu_2026_chinese_primary_grade_5_up",
         "tes_67549f0746cdac51",
         "textbook-node:tcn_588d753c8df7c641",
         "textbook-unit:tcu_1259afee169519a7"
@@ -145,7 +205,7 @@
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 5,
       "textbook_subject": "语文",
       "textbook_title": "语文5年级上册",
@@ -155,29 +215,29 @@
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_4738c7ae7e532109",
+      "alignment_id": "tca_f73e2146f34b89fc",
       "alignment_type": "practices",
-      "confidence": 0.8903,
+      "confidence": 0.928,
       "coverage": "partial",
       "edition_id": "ed_9d4028e2ab482520d0aa",
       "evidence_basis": "textbook_page_span",
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_de7e1d7c21bb",
-        "tes_74d73b13a25bd1b8",
-        "textbook-node:tcn_566597707c788268",
+        "external_smartedu_2026_chinese_primary_grade_5_up",
+        "tes_3a562a848919cea9",
+        "textbook-node:tcn_886760c25712a963",
         "textbook-unit:tcu_1259afee169519a7"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "对照批注和课文内容,说说课文运用了哪些说明方法来介绍鲸的特点。",
-          "excerpt_hash": "6559a1caa1598a1e8fe68348c9360ccf04baf6c65b410ab607d201b60b843731",
-          "pdf_page": 77,
-          "printed_page": "72",
-          "span_id": "tes_74d73b13a25bd1b8"
+          "excerpt": "联系读过的说明性文章,说说这些文章是怎么清楚说明事物特点的。",
+          "excerpt_hash": "a2f1cf7da2e3b6bf6933d260fb37fcb33460929a0e0e5e5f09bea3fbec11cf88",
+          "pdf_page": 75,
+          "printed_page": "70",
+          "span_id": "tes_3a562a848919cea9"
         }
       ],
       "learning_component_ids": [
@@ -196,16 +256,16 @@
       ],
       "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_566597707c788268",
-      "node_title": "对照批注和课文内容,说说课文运用了哪些说明方法来介绍鲸的特点。",
-      "pdf_page": 77,
-      "printed_page": "72",
+      "node_id": "tcn_886760c25712a963",
+      "node_title": "联系读过的说明性文章,说说这些文章是怎么清楚说明事物特点的。",
+      "pdf_page": 75,
+      "printed_page": "70",
       "publication_status": "published",
-      "rationale": "教材练习“对照批注和课文内容,说说课文运用了哪些说明方法来介绍鲸的特点。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
+      "rationale": "教材练习“联系读过的说明性文章,说说这些文章是怎么清楚说明事物特点的。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 5,
       "textbook_subject": "语文",
       "textbook_title": "语文5年级上册",
@@ -215,67 +275,7 @@
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_68c07b8fe047f428",
-      "alignment_type": "supports",
-      "confidence": 0.8906,
-      "coverage": "partial",
-      "edition_id": "ed_9d4028e2ab482520d0aa",
-      "evidence_basis": "textbook_page_span",
-      "evidence_gap": null,
-      "evidence_level": "L3_page_evidence",
-      "evidence_refs": [
-        "ctb_de7e1d7c21bb",
-        "tes_351b8822213cfd7b",
-        "textbook-node:tcn_246d608e602bbddb",
-        "textbook-unit:tcu_1259afee169519a7"
-      ],
-      "evidence_role": "direct_textbook",
-      "evidence_spans": [
-        {
-          "evidence_role": "direct_textbook",
-          "excerpt": "搜集资料,用恰当的说明方法,把某一种事物介绍清楚。",
-          "excerpt_hash": "c3c048c8e4a1ccd8aa3c9a625a32a357e3a9d026976252931c68e9a0e7bf334a",
-          "pdf_page": 70,
-          "printed_page": "65",
-          "span_id": "tes_351b8822213cfd7b"
-        }
-      ],
-      "learning_component_ids": [
-        "lc_f6dd99260cfe8183",
-        "lc_962d8a23358d93a1"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_f6dd99260cfe8183",
-          "label": "用准确语言清楚介绍、说明事物或程序"
-        },
-        {
-          "component_id": "lc_962d8a23358d93a1",
-          "label": "运用信息解决现实生活中的简单问题"
-        }
-      ],
-      "level": "page",
-      "method": "component_evidence_hybrid",
-      "node_id": "tcn_246d608e602bbddb",
-      "node_title": "搜集资料,用恰当的说明方法,把某一种事物介绍清楚。",
-      "pdf_page": 70,
-      "printed_page": "65",
-      "publication_status": "published",
-      "rationale": "教材学习目标“搜集资料,用恰当的说明方法,把某一种事物介绍清楚。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 5,
-      "textbook_subject": "语文",
-      "textbook_title": "语文5年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_1259afee169519a7",
-      "unit_title": "第五单元"
-    },
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_923a4fa843840643",
+      "alignment_id": "tca_399c4504424b691f",
       "alignment_type": "practices",
       "confidence": 0.8903,
       "coverage": "partial",
@@ -284,20 +284,20 @@
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_de7e1d7c21bb",
-        "tes_b465b902498b4d97",
-        "textbook-node:tcn_ecb51015b28d8be0",
+        "external_smartedu_2026_chinese_primary_grade_5_up",
+        "tes_886f7434de90f50f",
+        "textbook-node:tcn_6dae6dbb853bfdca",
         "textbook-unit:tcu_1259afee169519a7"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "说说课文是如何把制作风向袋的过程介绍清楚的。",
-          "excerpt_hash": "6e73da54ce39760ae8e99030a5b55c90767098ccbd9f1a78bc7bcb6505b45e0d",
+          "excerpt": "说说例文运用了哪些说明方法来介绍鲸的特点。",
+          "excerpt_hash": "85175b6ac19c5614e6cb538256d8c818dd66c6be6e53e6b12bb3ace2880568a5",
           "pdf_page": 78,
           "printed_page": "73",
-          "span_id": "tes_b465b902498b4d97"
+          "span_id": "tes_886f7434de90f50f"
         }
       ],
       "learning_component_ids": [
@@ -316,16 +316,76 @@
       ],
       "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_ecb51015b28d8be0",
-      "node_title": "说说课文是如何把制作风向袋的过程介绍清楚的。",
+      "node_id": "tcn_6dae6dbb853bfdca",
+      "node_title": "说说例文运用了哪些说明方法来介绍鲸的特点。",
       "pdf_page": 78,
       "printed_page": "73",
       "publication_status": "published",
-      "rationale": "教材练习“说说课文是如何把制作风向袋的过程介绍清楚的。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
+      "rationale": "教材练习“说说例文运用了哪些说明方法来介绍鲸的特点。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_1259afee169519a7",
+      "unit_title": "第五单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_344ab3e3e476e584",
+      "alignment_type": "practices",
+      "confidence": 0.8903,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_primary_grade_5_up",
+        "tes_c329cb455123f400",
+        "textbook-node:tcn_83a9d02e4e632cc8",
+        "textbook-unit:tcu_1259afee169519a7"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "说说例文是如何把制作风向袋的过程介绍清楚的。",
+          "excerpt_hash": "7bba53dd54b20ecb20f54bc90ee44d6c506fcf820829ab409ce6f466a73188fd",
+          "pdf_page": 79,
+          "printed_page": "74",
+          "span_id": "tes_c329cb455123f400"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f6dd99260cfe8183",
+        "lc_962d8a23358d93a1"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f6dd99260cfe8183",
+          "label": "用准确语言清楚介绍、说明事物或程序"
+        },
+        {
+          "component_id": "lc_962d8a23358d93a1",
+          "label": "运用信息解决现实生活中的简单问题"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_83a9d02e4e632cc8",
+      "node_title": "说说例文是如何把制作风向袋的过程介绍清楚的。",
+      "pdf_page": 79,
+      "printed_page": "74",
+      "publication_status": "published",
+      "rationale": "教材练习“说说例文是如何把制作风向袋的过程介绍清楚的。”与课标 CN-D3-CM-004 的可教学小能力“用准确语言清楚介绍、说明事物或程序、运用信息解决现实生活中的简单问题”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
       "textbook_grade": 5,
       "textbook_subject": "语文",
       "textbook_title": "语文5年级上册",
@@ -343,7 +403,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_55b8f47777bf"
+        "external_smartedu_2026_chinese_primary_grade_6_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -355,7 +415,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_976a991fac37cd16",
       "textbook_grade": 6,
       "textbook_subject": "语文",
@@ -374,7 +434,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_85776c7beb7e"
+        "external_smartedu_2026_chinese_primary_grade_5_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -386,7 +446,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_0586c68945959076",
       "textbook_grade": 5,
       "textbook_subject": "语文",
@@ -405,7 +465,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_de7e1d7c21bb"
+        "external_smartedu_2026_chinese_primary_grade_5_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -417,7 +477,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_7b1d3a1f3d64378c",
       "textbook_grade": 5,
       "textbook_subject": "语文",
@@ -436,7 +496,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_554cb370438d"
+        "external_smartedu_2026_chinese_primary_grade_6_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -448,7 +508,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_9eee8b9cbaa09aef",
       "textbook_grade": 6,
       "textbook_subject": "语文",

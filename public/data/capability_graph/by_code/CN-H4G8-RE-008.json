@@ -44,16 +44,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0159a8a0a1a21f1b",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_8_down",
+        "tes_404e02dd558c5625",
+        "textbook-node:tcn_d1e12ae942ae0b0d",
+        "textbook-unit:tcu_57f449174b31529d"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "根据兴趣,选择《经典常谈》中的一篇深入研读,边读边做好读书笔记,记录下重要的事实、主要的观点和自己的心得。根据读书笔记,向全班同学介绍这一篇中所“谈”的经典。",
+          "excerpt_hash": "57d92bfe8c398e80a600557f2f9feb16b80d4ad8e8bed03f627b34b5be3e3fb3",
+          "pdf_page": 87,
+          "printed_page": "80",
+          "span_id": "tes_404e02dd558c5625"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_b39337b9c2f702e7"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_b39337b9c2f702e7",
+          "label": "根据阅读进度完成读书笔记"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d1e12ae942ae0b0d",
+      "node_title": "根据兴趣,选择《经典常谈》中的一篇深入研读,边读边做好读书笔记,记录下重要的事实、主要的观点和自己的心得。根据读书笔记,向全班同学介绍这一篇中所“谈”的经典。",
+      "pdf_page": 87,
+      "printed_page": "80",
+      "publication_status": "published",
+      "rationale": "教材练习“根据兴趣,选择《经典常谈》中的一篇深入研读,边读边做好读书笔记,记录下重要的事实、主要的观点和自己的心得。根据读书笔记,向全班同学介绍这一篇中所“谈”的经典。”与课标 CN-H4G8-RE-008 的可教学小能力“根据阅读进度完成读书笔记”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_57f449174b31529d",
+      "unit_title": "活动·探究"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_59202134e6de844e",
@@ -64,7 +119,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_f4fb0c2a21f9"
+        "external_smartedu_2026_chinese_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -76,7 +131,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_0fb7983518710ace",
       "textbook_grade": 8,
       "textbook_subject": "语文",
@@ -95,7 +150,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_be04d8b55a4f"
+        "external_smartedu_2026_chinese_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -107,7 +162,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d5058d79ff37d1bb",
       "textbook_grade": 8,
       "textbook_subject": "语文",

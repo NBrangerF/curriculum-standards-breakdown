@@ -48,16 +48,16 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 5,
+    "page_evidence_count": 10,
     "scope_count": 4,
-    "specific_count": 5,
+    "specific_count": 10,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_1a1b93fd851f10a3",
-      "alignment_type": "practices",
+      "alignment_id": "tca_d9197be6f748ef49",
+      "alignment_type": "supports",
       "confidence": 0.8793,
       "coverage": "partial",
       "edition_id": "ed_61e94d087b64c600ad3f",
@@ -65,20 +65,20 @@
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_6679839735c5",
-        "tes_ea7efdae014130c9",
-        "textbook-node:tcn_47ff8f0762f0f822",
-        "textbook-unit:tcu_6a95c1cf3e185b25"
+        "external_smartedu_2026_chinese_primary_grade_4_up",
+        "tes_73b2299b2d62123e",
+        "textbook-node:tcn_607fdd68d0e06f74",
+        "textbook-unit:tcu_54dd95e5e442fa7a"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "默读课文,想想课文讲了哪几件事,再连起来说说课文的主要内容。",
-          "excerpt_hash": "8c743c2db4f685ab96f83fffd449f5c828ad7c7a13b496e1bed38afcd8d95088",
-          "pdf_page": 103,
-          "printed_page": "98",
-          "span_id": "tes_ea7efdae014130c9"
+          "excerpt": "了解故事的起因、经过、结果,学习把握文章的主要内容;",
+          "excerpt_hash": "e0dc533343a8dcb711244c6b3f4409cafc0caecc9f1320b8834a6ff838bfcb9d",
+          "pdf_page": 52,
+          "printed_page": "47",
+          "span_id": "tes_73b2299b2d62123e"
         }
       ],
       "learning_component_ids": [
@@ -92,26 +92,191 @@
       ],
       "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_47ff8f0762f0f822",
+      "node_id": "tcn_607fdd68d0e06f74",
+      "node_title": "了解故事的起因、经过、结果,学习把握文章的主要内容;",
+      "pdf_page": 52,
+      "printed_page": "47",
+      "publication_status": "published",
+      "rationale": "教材学习目标“了解故事的起因、经过、结果,学习把握文章的主要内容;”与课标 CN-D2-RE-001 的可教学小能力“提取主要信息”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_54dd95e5e442fa7a",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_7aed4c75472e8f7d",
+      "alignment_type": "practices",
+      "confidence": 0.8794,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_primary_grade_4_up",
+        "tes_c158fe2a7281f021",
+        "textbook-node:tcn_d9e3c708e5280d45",
+        "textbook-unit:tcu_64d98715a58b4102"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "朗读课文。用自己的话说说课文的主要内容。",
+          "excerpt_hash": "95655be55473f5160713848725295c762084089c13d2d05f189e2e22be93fd80",
+          "pdf_page": 114,
+          "printed_page": "109",
+          "span_id": "tes_c158fe2a7281f021"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c1401f5b5b1773cc"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c1401f5b5b1773cc",
+          "label": "提取主要信息"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_d9e3c708e5280d45",
+      "node_title": "朗读课文。用自己的话说说课文的主要内容。",
+      "pdf_page": 114,
+      "printed_page": "109",
+      "publication_status": "published",
+      "rationale": "教材练习“朗读课文。用自己的话说说课文的主要内容。”与课标 CN-D2-RE-001 的可教学小能力“提取主要信息”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_64d98715a58b4102",
+      "unit_title": "第八单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c5a364deb5a5f304",
+      "alignment_type": "practices",
+      "confidence": 0.8793,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_primary_grade_4_up",
+        "tes_5c38594fbbbd2d1d",
+        "textbook-node:tcn_141babe254a7aa21",
+        "textbook-unit:tcu_64d98715a58b4102"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "默读课文,想想课文讲了哪几件事,再连起来说说课文的主要内容。",
+          "excerpt_hash": "8c743c2db4f685ab96f83fffd449f5c828ad7c7a13b496e1bed38afcd8d95088",
+          "pdf_page": 117,
+          "printed_page": "112",
+          "span_id": "tes_5c38594fbbbd2d1d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c1401f5b5b1773cc"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c1401f5b5b1773cc",
+          "label": "提取主要信息"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_141babe254a7aa21",
       "node_title": "默读课文,想想课文讲了哪几件事,再连起来说说课文的主要内容。",
-      "pdf_page": 103,
-      "printed_page": "98",
+      "pdf_page": 117,
+      "printed_page": "112",
       "publication_status": "published",
       "rationale": "教材练习“默读课文,想想课文讲了哪几件事,再连起来说说课文的主要内容。”与课标 CN-D2-RE-001 的可教学小能力“提取主要信息”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 4,
       "textbook_subject": "语文",
       "textbook_title": "语文4年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_6a95c1cf3e185b25",
-      "unit_title": "第七单元"
+      "unit_id": "tcu_64d98715a58b4102",
+      "unit_title": "第八单元"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_670c3cb9f8e266bc",
+      "alignment_id": "tca_a024e18dc769e643",
+      "alignment_type": "supports",
+      "confidence": 0.8794,
+      "coverage": "partial",
+      "edition_id": "ed_61e94d087b64c600ad3f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_primary_grade_4_up",
+        "tes_356fed1094059407",
+        "textbook-node:tcn_ccee95cd6779c05a",
+        "textbook-unit:tcu_d19ba418879bd67b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "借助关键语句,把握文章的主要内容。",
+          "excerpt_hash": "497d74228a6b2c329cc59a6131081a2b8df542b4279e0b2b74b512967320fc6f",
+          "pdf_page": 78,
+          "printed_page": "73",
+          "span_id": "tes_356fed1094059407"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c1401f5b5b1773cc"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c1401f5b5b1773cc",
+          "label": "提取主要信息"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_ccee95cd6779c05a",
+      "node_title": "借助关键语句,把握文章的主要内容。",
+      "pdf_page": 78,
+      "printed_page": "73",
+      "publication_status": "published",
+      "rationale": "教材学习目标“借助关键语句,把握文章的主要内容。”与课标 CN-D2-RE-001 的可教学小能力“提取主要信息”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "语文",
+      "textbook_title": "语文4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_d19ba418879bd67b",
+      "unit_title": "第六单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_64125b3cd8f1ddce",
       "alignment_type": "practices",
       "confidence": 0.86,
       "coverage": "partial",
@@ -120,20 +285,20 @@
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_334af6341558",
-        "tes_39460714e9d10304",
-        "textbook-node:tcn_d24585ff15322d69",
-        "textbook-unit:tcu_c2374c281a669e73"
+        "external_smartedu_2026_chinese_primary_grade_3_up",
+        "tes_f396cf510d782294",
+        "textbook-node:tcn_ae76ea299a9cc82a",
+        "textbook-unit:tcu_19d3b2dd5c98c4a8"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "阅读童话,我们能交到很多奇特的朋友,经历一些不可思议的事情,还能获得很多启示。",
-          "excerpt_hash": "8bc28a7b87b35ba5847d2da7b24ea8dbcd06d13d104b040b0325927b074e9051",
-          "pdf_page": 46,
-          "printed_page": "41",
-          "span_id": "tes_39460714e9d10304"
+          "excerpt": "阅读童话,构筑充满童心的精神乐园。",
+          "excerpt_hash": "6f5f8333ab43681a60fd9880818448f85f754f4a50b8052b3ef4cfad8b8eb313",
+          "pdf_page": 50,
+          "printed_page": "45",
+          "span_id": "tes_f396cf510d782294"
         }
       ],
       "learning_component_ids": [
@@ -147,22 +312,132 @@
       ],
       "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_d24585ff15322d69",
-      "node_title": "阅读童话,我们能交到很多奇特的朋友,经历一些不可思议的事情,还能获得很多启示。",
-      "pdf_page": 46,
-      "printed_page": "41",
+      "node_id": "tcn_ae76ea299a9cc82a",
+      "node_title": "阅读童话,构筑充满童心的精神乐园。",
+      "pdf_page": 50,
+      "printed_page": "45",
       "publication_status": "published",
-      "rationale": "教材练习“阅读童话,我们能交到很多奇特的朋友,经历一些不可思议的事情,还能获得很多启示。”与课标 CN-D2-RE-001 的可教学小能力“阅读童话、寓言、神话等叙事文本”形成页内证据匹配。",
+      "rationale": "教材练习“阅读童话,构筑充满童心的精神乐园。”与课标 CN-D2-RE-001 的可教学小能力“阅读童话、寓言、神话等叙事文本”形成页内证据匹配。",
       "relation_type": "practices",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 3,
       "textbook_subject": "语文",
       "textbook_title": "语文3年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_c2374c281a669e73",
-      "unit_title": "第三单元"
+      "unit_id": "tcu_19d3b2dd5c98c4a8",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_3f059a3988ff04b9",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_primary_grade_3_up",
+        "tes_fdeedf8412fe40b7",
+        "textbook-node:tcn_70e9d63e93136f2c",
+        "textbook-unit:tcu_19d3b2dd5c98c4a8"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "阅读童话,我们会经历很多不可思议的事情,认识一些令人钦佩的朋友,还能获得很多启示。",
+          "excerpt_hash": "6612d7a723c75fc396de1ea59bc8339f5be9f4350b6700a5f33f75e0f8bacbeb",
+          "pdf_page": 60,
+          "printed_page": "55",
+          "span_id": "tes_fdeedf8412fe40b7"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5c4326401aa8642c"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5c4326401aa8642c",
+          "label": "阅读童话、寓言、神话等叙事文本"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_70e9d63e93136f2c",
+      "node_title": "阅读童话,我们会经历很多不可思议的事情,认识一些令人钦佩的朋友,还能获得很多启示。",
+      "pdf_page": 60,
+      "printed_page": "55",
+      "publication_status": "published",
+      "rationale": "教材练习“阅读童话,我们会经历很多不可思议的事情,认识一些令人钦佩的朋友,还能获得很多启示。”与课标 CN-D2-RE-001 的可教学小能力“阅读童话、寓言、神话等叙事文本”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_19d3b2dd5c98c4a8",
+      "unit_title": "第四单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9661b86dd5c16a57",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_d2ad540d24538183615d",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_primary_grade_3_up",
+        "tes_bad6ab735d111ce4",
+        "textbook-node:tcn_b01c601e969b0e13",
+        "textbook-unit:tcu_19d3b2dd5c98c4a8"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "你读过哪些童话故事?和同学交流你阅读童话的体会。",
+          "excerpt_hash": "ef6647e5fea7d634784d2f67faa8a743b1dc04030654634854a9acd16866dfdc",
+          "pdf_page": 60,
+          "printed_page": "55",
+          "span_id": "tes_bad6ab735d111ce4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_5c4326401aa8642c"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_5c4326401aa8642c",
+          "label": "阅读童话、寓言、神话等叙事文本"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b01c601e969b0e13",
+      "node_title": "你读过哪些童话故事?和同学交流你阅读童话的体会。",
+      "pdf_page": 60,
+      "printed_page": "55",
+      "publication_status": "published",
+      "rationale": "教材练习“你读过哪些童话故事?和同学交流你阅读童话的体会。”与课标 CN-D2-RE-001 的可教学小能力“阅读童话、寓言、神话等叙事文本”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_19d3b2dd5c98c4a8",
+      "unit_title": "第四单元"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
@@ -175,7 +450,7 @@
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_97b49cd39424",
+        "external_smartedu_2026_chinese_primary_grade_4_down",
         "tes_50a77e1bf86772a7",
         "textbook-node:tcn_b3628b053cbec575",
         "textbook-unit:tcu_683ba164b8fee14b"
@@ -211,7 +486,7 @@
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 4,
       "textbook_subject": "语文",
       "textbook_title": "语文4年级下册",
@@ -221,7 +496,7 @@
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_3474a2978741d9a4",
+      "alignment_id": "tca_4db9247ea179090c",
       "alignment_type": "supports",
       "confidence": 0.8794,
       "coverage": "partial",
@@ -230,20 +505,20 @@
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_ddd55c51dcc0",
-        "tes_50675a5a8759d9a8",
-        "textbook-node:tcn_d83f1e8210fedc3f",
+        "external_smartedu_2026_chinese_primary_grade_3_down",
+        "tes_4c7fb0b14981c47d",
+        "textbook-node:tcn_b11e4a134f3879d7",
         "textbook-unit:tcu_cd058d7a6397e2ed"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": ".认真听别人讲故事,记住主要内容。",
-          "excerpt_hash": "b53fbfc67ab030041f57d9eacad2e8719993ed2547ec3b2c6080765e613fb1cd",
-          "pdf_page": 117,
-          "printed_page": "112",
-          "span_id": "tes_50675a5a8759d9a8"
+          "excerpt": "了解故事的主要内容,复述故事。",
+          "excerpt_hash": "6dc7529c2fb09e0ec2c9d6841cbfa845652b5956b8444aa603ac863a335aa784",
+          "pdf_page": 100,
+          "printed_page": "95",
+          "span_id": "tes_4c7fb0b14981c47d"
         }
       ],
       "learning_component_ids": [
@@ -257,16 +532,16 @@
       ],
       "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_d83f1e8210fedc3f",
-      "node_title": ".认真听别人讲故事,记住主要内容。",
-      "pdf_page": 117,
-      "printed_page": "112",
+      "node_id": "tcn_b11e4a134f3879d7",
+      "node_title": "了解故事的主要内容,复述故事。",
+      "pdf_page": 100,
+      "printed_page": "95",
       "publication_status": "published",
-      "rationale": "教材学习目标“.认真听别人讲故事,记住主要内容。”与课标 CN-D2-RE-001 的可教学小能力“提取主要信息”形成页内证据匹配。",
+      "rationale": "教材学习目标“了解故事的主要内容,复述故事。”与课标 CN-D2-RE-001 的可教学小能力“提取主要信息”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 3,
       "textbook_subject": "语文",
       "textbook_title": "语文3年级下册",
@@ -276,7 +551,7 @@
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_a5aa0c0633bd3bb6",
+      "alignment_id": "tca_d8c40481a3d0eaf9",
       "alignment_type": "supports",
       "confidence": 0.8794,
       "coverage": "partial",
@@ -285,20 +560,20 @@
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_ddd55c51dcc0",
-        "tes_041809cc9cebb7a7",
-        "textbook-node:tcn_fc283d54db440227",
+        "external_smartedu_2026_chinese_primary_grade_3_down",
+        "tes_b205659a8b001e3b",
+        "textbook-node:tcn_378e88b17ed9f531",
         "textbook-unit:tcu_cd058d7a6397e2ed"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "了解故事的主要内容,复述故事。",
-          "excerpt_hash": "6dc7529c2fb09e0ec2c9d6841cbfa845652b5956b8444aa603ac863a335aa784",
-          "pdf_page": 102,
-          "printed_page": "97",
-          "span_id": "tes_041809cc9cebb7a7"
+          "excerpt": "认真听别人讲故事,记住主要内容。",
+          "excerpt_hash": "dae3c4e7eb3d6f761438e371c1491420a7dae4d58cb564ef085c548e47bfe0ef",
+          "pdf_page": 112,
+          "printed_page": "107",
+          "span_id": "tes_b205659a8b001e3b"
         }
       ],
       "learning_component_ids": [
@@ -312,16 +587,16 @@
       ],
       "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_fc283d54db440227",
-      "node_title": "了解故事的主要内容,复述故事。",
-      "pdf_page": 102,
-      "printed_page": "97",
+      "node_id": "tcn_378e88b17ed9f531",
+      "node_title": "认真听别人讲故事,记住主要内容。",
+      "pdf_page": 112,
+      "printed_page": "107",
       "publication_status": "published",
-      "rationale": "教材学习目标“了解故事的主要内容,复述故事。”与课标 CN-D2-RE-001 的可教学小能力“提取主要信息”形成页内证据匹配。",
+      "rationale": "教材学习目标“认真听别人讲故事,记住主要内容。”与课标 CN-D2-RE-001 的可教学小能力“提取主要信息”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 3,
       "textbook_subject": "语文",
       "textbook_title": "语文3年级下册",
@@ -339,7 +614,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_6679839735c5"
+        "external_smartedu_2026_chinese_primary_grade_4_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -351,7 +626,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_a9aaea7b7d7bee10",
       "textbook_grade": 4,
       "textbook_subject": "语文",
@@ -370,7 +645,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_334af6341558"
+        "external_smartedu_2026_chinese_primary_grade_3_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -382,7 +657,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_ae7100fbda14f7bd",
       "textbook_grade": 3,
       "textbook_subject": "语文",
@@ -401,7 +676,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_97b49cd39424"
+        "external_smartedu_2026_chinese_primary_grade_4_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -413,7 +688,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_f1323e17e6058c4c",
       "textbook_grade": 4,
       "textbook_subject": "语文",
@@ -432,7 +707,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_ddd55c51dcc0"
+        "external_smartedu_2026_chinese_primary_grade_3_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -444,7 +719,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_61d9923f1ed0457b",
       "textbook_grade": 3,
       "textbook_subject": "语文",

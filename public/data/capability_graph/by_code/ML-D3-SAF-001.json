@@ -86,71 +86,16 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "disposition": "scope_aligned_no_unit_evidence",
+    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
+    "highest_evidence_level": "L1_scope",
     "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 1,
+    "specific_count": 0,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_bb1515dc306e81a5",
-      "alignment_type": "supports",
-      "confidence": 0.92,
-      "coverage": "partial",
-      "edition_id": "ed_4d47affde4a27f50be6c",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "ctb_976cae771845",
-        "tes_e45c9e4f7225fd89",
-        "textbook-node:tcn_c483e3a771102829",
-        "textbook-unit:tcu_3c41cea0b1286499"
-      ],
-      "evidence_role": "direct_textbook",
-      "evidence_spans": [
-        {
-          "evidence_role": "direct_textbook",
-          "excerpt": "3 主动拒绝烟酒与毒品",
-          "excerpt_hash": "bd3f038339dc3bc3fb285d8e05626a0c7ef93b2ccbd3c461144e011c20668fd6",
-          "pdf_page": 21,
-          "printed_page": "18",
-          "span_id": "tes_e45c9e4f7225fd89"
-        }
-      ],
-      "learning_component_ids": [
-        "lc_90536d4beb72ea76"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_90536d4beb72ea76",
-          "label": "说明烟酒与毒品的危害及拒绝原因"
-        }
-      ],
-      "level": "unit",
-      "method": "component_evidence_hybrid",
-      "node_id": "tcn_c483e3a771102829",
-      "node_title": "3主动拒绝烟酒与毒品",
-      "pdf_page": 21,
-      "printed_page": "18",
-      "publication_status": "published",
-      "rationale": "教材课文“3主动拒绝烟酒与毒品”与课标 ML-D3-SAF-001 的可教学小能力“说明烟酒与毒品的危害及拒绝原因”形成页内证据匹配。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
-      "textbook_grade": 5,
-      "textbook_subject": "道德与法治",
-      "textbook_title": "道德与法治5年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_3c41cea0b1286499",
-      "unit_title": "第一单元"
-    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_69bcfa6daca2725f",
@@ -161,7 +106,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_0d4b56c03c3c"
+        "external_smartedu_2026_morality_law_primary_grade_5_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -173,7 +118,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_f543649c0b71f43b",
       "textbook_grade": 5,
       "textbook_subject": "道德与法治",
@@ -192,7 +137,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_63b354a74aec"
+        "external_smartedu_2026_morality_law_primary_grade_6_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -204,7 +149,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_f2273093a9d6cb45",
       "textbook_grade": 6,
       "textbook_subject": "道德与法治",
@@ -223,7 +168,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_02f942c3391d"
+        "external_smartedu_2026_morality_law_primary_grade_6_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -235,7 +180,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_84d4ef0e1dbf301a",
       "textbook_grade": 6,
       "textbook_subject": "道德与法治",
@@ -254,7 +199,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_976cae771845"
+        "external_smartedu_2026_morality_law_primary_grade_5_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -266,7 +211,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_03c92473b367e141",
       "textbook_grade": 5,
       "textbook_subject": "道德与法治",

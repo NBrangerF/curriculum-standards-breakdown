@@ -43,125 +43,180 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 2,
+    "specific_count": 3,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_7e39b4741064fe82",
-      "alignment_type": "supports",
-      "confidence": 0.86,
+      "alignment_id": "tca_23f461630af5cf0d",
+      "alignment_type": "contextualizes",
+      "confidence": 0.92,
       "coverage": "partial",
-      "edition_id": "ed_a179ac6ae22f126e6f2d",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_d8429e42f96b",
-        "tes_1a6776ebbe2e4365",
-        "textbook-node:tcn_1ba95289a1e090dd",
-        "textbook-unit:tcu_a2d894f15525e220"
+        "external_smartedu_2026_history_junior_grade_8_up",
+        "tes_9df4d42b7501fb2d",
+        "textbook-node:tcn_802e0d649bdda239",
+        "textbook-unit:tcu_436d466393071451"
       ],
-      "evidence_role": "direct_textbook",
+      "evidence_role": "contextual_textbook",
       "evidence_spans": [
         {
-          "evidence_role": "direct_textbook",
-          "excerpt": "86 第四单元 维护国家利益",
-          "excerpt_hash": "df5be393eb8c1597c0cf76ac9f1fa53f787df293a6db0e53de948f5681f6bd36",
-          "pdf_page": 91,
-          "printed_page": "86",
-          "span_id": "tes_1a6776ebbe2e4365"
+          "evidence_role": "contextual_textbook",
+          "excerpt": "阅读材料,说说百团大战在全国抗战中的重要意义和影响。",
+          "excerpt_hash": "9306d9dc1cd289ecd19ad49d82e318fb02fd94995e0a59edc6de9044ede68117",
+          "pdf_page": 114,
+          "printed_page": "109",
+          "span_id": "tes_9df4d42b7501fb2d"
         }
       ],
       "learning_component_ids": [
-        "lc_78bbbadcfb3b81f5"
+        "lc_3cd46fdc17a2c2fc"
       ],
       "learning_components": [
         {
-          "component_id": "lc_78bbbadcfb3b81f5",
-          "label": "自觉维护国家统一"
+          "component_id": "lc_3cd46fdc17a2c2fc",
+          "label": "用自己的话解释“和平统一、一国两制”的重要意义"
         }
       ],
-      "level": "unit",
+      "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_1ba95289a1e090dd",
-      "node_title": "86第四单元维护国家利益",
-      "pdf_page": 91,
-      "printed_page": "86",
+      "node_id": "tcn_802e0d649bdda239",
+      "node_title": "阅读材料,说说百团大战在全国抗战中的重要意义和影响。",
+      "pdf_page": 114,
+      "printed_page": "109",
       "publication_status": "published",
-      "rationale": "教材课文“86第四单元维护国家利益”与课标 ML-H4G8-LAW-014 的可教学小能力“自觉维护国家统一”形成页内证据匹配。",
-      "relation_type": "supports",
+      "rationale": "教材练习“阅读材料,说说百团大战在全国抗战中的重要意义和影响。”为课标 ML-H4G8-LAW-014 的可教学小能力“用自己的话解释“和平统一、一国两制”的重要意义”提供学科情境关联。",
+      "relation_type": "contextualizes",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 8,
-      "textbook_subject": "道德与法治",
-      "textbook_title": "道德与法治8年级上册",
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_a2d894f15525e220",
-      "unit_title": "第八课"
+      "unit_id": "tcu_436d466393071451",
+      "unit_title": "第六单元"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_ddb27936fb3d6a3f",
-      "alignment_type": "supports",
+      "alignment_id": "tca_70645568ac72db04",
+      "alignment_type": "practices",
       "confidence": 0.86,
       "coverage": "partial",
-      "edition_id": "ed_a179ac6ae22f126e6f2d",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
+      "edition_id": "ed_b5d06c0cc6e45c5b276f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_d8429e42f96b",
-        "tes_5efa3f030f4e4ae5",
-        "textbook-node:tcn_f6d3d5d3990e1515",
-        "textbook-unit:tcu_f14347e0b0fa8483"
+        "external_smartedu_2026_morality_law_junior_grade_8_down",
+        "tes_85a5132b928706ff",
+        "textbook-node:tcn_e2ea2f840cb799fa",
+        "textbook-unit:tcu_87fc0d86b87bed3b"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "96 第四单元 维护国家利益",
-          "excerpt_hash": "2f7de2bb480f67dfd24f9405c5e523a15033b75e5c58ca042143c2aff30a49de",
-          "pdf_page": 101,
-          "printed_page": "96",
-          "span_id": "tes_5efa3f030f4e4ae5"
+          "excerpt": "结合小凯的故事,说说公民依法服兵役有何重要意义。",
+          "excerpt_hash": "88eafa4e5730ec4b7866da3c7321d44e79cad3469da63125047b8b90f7678675",
+          "pdf_page": 38,
+          "printed_page": "33",
+          "span_id": "tes_85a5132b928706ff"
         }
       ],
       "learning_component_ids": [
-        "lc_78bbbadcfb3b81f5"
+        "lc_3cd46fdc17a2c2fc"
       ],
       "learning_components": [
         {
-          "component_id": "lc_78bbbadcfb3b81f5",
-          "label": "自觉维护国家统一"
+          "component_id": "lc_3cd46fdc17a2c2fc",
+          "label": "用自己的话解释“和平统一、一国两制”的重要意义"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e2ea2f840cb799fa",
+      "node_title": "结合小凯的故事,说说公民依法服兵役有何重要意义。",
+      "pdf_page": 38,
+      "printed_page": "33",
+      "publication_status": "published",
+      "rationale": "教材练习“结合小凯的故事,说说公民依法服兵役有何重要意义。”与课标 ML-H4G8-LAW-014 的可教学小能力“用自己的话解释“和平统一、一国两制”的重要意义”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_87fc0d86b87bed3b",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0f1b8354c2584635",
+      "alignment_type": "contextualizes",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_2860489fc83ddeb6cec5",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_history_junior_grade_8_up",
+        "tes_fe97527dbef0a90c",
+        "textbook-node:tcn_7554954703088abd",
+        "textbook-unit:tcu_9a39701f401e1bff"
+      ],
+      "evidence_role": "contextual_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "contextual_textbook",
+          "excerpt": "96 第六单元 中华民族的抗日战争",
+          "excerpt_hash": "1f15eb0b51aa679c1ab948f4ab94cf88d6a84bbb9eb5f302a2ddb04eb041aae5",
+          "pdf_page": 101,
+          "printed_page": "96",
+          "span_id": "tes_fe97527dbef0a90c"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_ed535f3c2431a75b"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_ed535f3c2431a75b",
+          "label": "识别并说出国家统一是实现中华民族伟大复兴的历史前提和基本保证的关键特征"
         }
       ],
       "level": "unit",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_f6d3d5d3990e1515",
-      "node_title": "96第四单元维护国家利益",
+      "node_id": "tcn_7554954703088abd",
+      "node_title": "96第六单元中华民族的抗日战争",
       "pdf_page": 101,
       "printed_page": "96",
       "publication_status": "published",
-      "rationale": "教材课文“96第四单元维护国家利益”与课标 ML-H4G8-LAW-014 的可教学小能力“自觉维护国家统一”形成页内证据匹配。",
-      "relation_type": "supports",
+      "rationale": "教材课文“96第六单元中华民族的抗日战争”为课标 ML-H4G8-LAW-014 的可教学小能力“识别并说出国家统一是实现中华民族伟大复兴的历史前提和基本保证的关键特征”提供学科情境关联。",
+      "relation_type": "contextualizes",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 8,
-      "textbook_subject": "道德与法治",
-      "textbook_title": "道德与法治8年级上册",
+      "textbook_subject": "历史",
+      "textbook_title": "历史8年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_f14347e0b0fa8483",
-      "unit_title": "第九课"
+      "unit_id": "tcu_9a39701f401e1bff",
+      "unit_title": "第19课 七七事变与全民族抗战"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -173,7 +228,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_76fc538dd0d1"
+        "external_smartedu_2026_history_junior_grade_8_up"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -185,7 +240,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_262756ea29a61d32",
       "textbook_grade": 8,
       "textbook_subject": "历史",
@@ -204,7 +259,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_d8429e42f96b"
+        "external_smartedu_2026_morality_law_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -216,7 +271,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_9eb2e2a90a705049",
       "textbook_grade": 8,
       "textbook_subject": "道德与法治",
@@ -235,7 +290,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_e8c5c385aafa"
+        "external_smartedu_2026_morality_law_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -247,7 +302,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_b28ec1f6b081b602",
       "textbook_grade": 8,
       "textbook_subject": "道德与法治",
@@ -266,7 +321,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_05dbe85802ac"
+        "external_smartedu_2026_history_junior_grade_8_down"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -278,7 +333,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_c23f52c4ba953c6f",
       "textbook_grade": 8,
       "textbook_subject": "历史",

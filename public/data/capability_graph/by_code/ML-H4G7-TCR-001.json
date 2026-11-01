@@ -43,16 +43,291 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 4,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 5,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_11fae00fe04cc3b5",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ad8f66e172211eab925e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_morality_law_junior_grade_7_down",
+        "tes_b29a36dcf4c97fad",
+        "textbook-node:tcn_f91d7cbb1a8fcef4",
+        "textbook-unit:tcu_0a60a4fdd9b6b646"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "民法典中蕴含的中华优秀传统文化元素。",
+          "excerpt_hash": "ed9d2b5aef475e520ae28b5e92b81c6d43c4b2b52b368038646265ae55c26559",
+          "pdf_page": 99,
+          "printed_page": "94",
+          "span_id": "tes_b29a36dcf4c97fad"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4239e2dd71809351"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4239e2dd71809351",
+          "label": "弘扬中华优秀传统文化讲仁爱、重民本、守诚信、崇正义、尚和合、求大同的核心理念"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f91d7cbb1a8fcef4",
+      "node_title": "民法典中蕴含的中华优秀传统文化元素。",
+      "pdf_page": 99,
+      "printed_page": "94",
+      "publication_status": "published",
+      "rationale": "教材学习目标“民法典中蕴含的中华优秀传统文化元素。”与课标 ML-H4G7-TCR-001 的可教学小能力“弘扬中华优秀传统文化讲仁爱、重民本、守诚信、崇正义、尚和合、求大同的核心理念”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_0a60a4fdd9b6b646",
+      "unit_title": "走进法治天地"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c31f663ad6d9d517",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ad8f66e172211eab925e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_morality_law_junior_grade_7_down",
+        "tes_99c63b9c4f6a716d",
+        "textbook-node:tcn_96d6c31ab798800f",
+        "textbook-unit:tcu_7dc29662b716e7eb"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择一项大国重器,说说其命名中蕴含的中华优秀传统文化元素。",
+          "excerpt_hash": "df8e3bcb88ea39528dc44105f16bc64146768569ced2601f368f0f3a770d3757",
+          "pdf_page": 80,
+          "printed_page": "75",
+          "span_id": "tes_99c63b9c4f6a716d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4239e2dd71809351"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4239e2dd71809351",
+          "label": "弘扬中华优秀传统文化讲仁爱、重民本、守诚信、崇正义、尚和合、求大同的核心理念"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_96d6c31ab798800f",
+      "node_title": "选择一项大国重器,说说其命名中蕴含的中华优秀传统文化元素。",
+      "pdf_page": 80,
+      "printed_page": "75",
+      "publication_status": "published",
+      "rationale": "教材练习“选择一项大国重器,说说其命名中蕴含的中华优秀传统文化元素。”与课标 ML-H4G7-TCR-001 的可教学小能力“弘扬中华优秀传统文化讲仁爱、重民本、守诚信、崇正义、尚和合、求大同的核心理念”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_7dc29662b716e7eb",
+      "unit_title": "第八课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d1d461529bfe933a",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ad8f66e172211eab925e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_morality_law_junior_grade_7_down",
+        "tes_fc3568d08c66eb2b",
+        "textbook-node:tcn_1191dba1f5e1541f",
+        "textbook-unit:tcu_7dc29662b716e7eb"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择其中一项作为中华优秀传统文化的“名片”,设计宣传展示方案。",
+          "excerpt_hash": "1c06ae50149c7f7439e5e151b4c8c8212cafb1dc65ab420e124aa4c4d004f40e",
+          "pdf_page": 81,
+          "printed_page": "76",
+          "span_id": "tes_fc3568d08c66eb2b"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4239e2dd71809351"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4239e2dd71809351",
+          "label": "弘扬中华优秀传统文化讲仁爱、重民本、守诚信、崇正义、尚和合、求大同的核心理念"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1191dba1f5e1541f",
+      "node_title": "选择其中一项作为中华优秀传统文化的“名片”,设计宣传展示方案。",
+      "pdf_page": 81,
+      "printed_page": "76",
+      "publication_status": "published",
+      "rationale": "教材练习“选择其中一项作为中华优秀传统文化的“名片”,设计宣传展示方案。”与课标 ML-H4G7-TCR-001 的可教学小能力“弘扬中华优秀传统文化讲仁爱、重民本、守诚信、崇正义、尚和合、求大同的核心理念”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_7dc29662b716e7eb",
+      "unit_title": "第八课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_ed0974324fd70f19",
+      "alignment_type": "practices",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_ad8f66e172211eab925e",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_morality_law_junior_grade_7_down",
+        "tes_1eda382eddf92991",
+        "textbook-node:tcn_aeb78dea1de92abd",
+        "textbook-unit:tcu_7dc29662b716e7eb"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "设计一条能够感受和学习中华优秀传统文化的研学路线,并说说你的设计理由。",
+          "excerpt_hash": "863069e92540af73487712e4067bf829c60b3dc1b78d3b8e79902bf869d30b4a",
+          "pdf_page": 81,
+          "printed_page": "76",
+          "span_id": "tes_1eda382eddf92991"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4239e2dd71809351"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4239e2dd71809351",
+          "label": "弘扬中华优秀传统文化讲仁爱、重民本、守诚信、崇正义、尚和合、求大同的核心理念"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_aeb78dea1de92abd",
+      "node_title": "设计一条能够感受和学习中华优秀传统文化的研学路线,并说说你的设计理由。",
+      "pdf_page": 81,
+      "printed_page": "76",
+      "publication_status": "published",
+      "rationale": "教材练习“设计一条能够感受和学习中华优秀传统文化的研学路线,并说说你的设计理由。”与课标 ML-H4G7-TCR-001 的可教学小能力“弘扬中华优秀传统文化讲仁爱、重民本、守诚信、崇正义、尚和合、求大同的核心理念”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_7dc29662b716e7eb",
+      "unit_title": "第八课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_f0ba70cccb7f5a87",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_ad8f66e172211eab925e",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_morality_law_junior_grade_7_down",
+        "tes_451f56e89f085970",
+        "textbook-node:tcn_595eec8487149aa9",
+        "textbook-unit:tcu_a2364b062ae311b2"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第七课 弘扬中华人文精神",
+          "excerpt_hash": "11bc745eca6ac1974c1ec0f8531fb024f3198a6af94961c481496effde7773f0",
+          "pdf_page": 65,
+          "printed_page": "60",
+          "span_id": "tes_451f56e89f085970"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_4239e2dd71809351"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_4239e2dd71809351",
+          "label": "弘扬中华优秀传统文化讲仁爱、重民本、守诚信、崇正义、尚和合、求大同的核心理念"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_595eec8487149aa9",
+      "node_title": "第七课弘扬中华人文精神",
+      "pdf_page": 65,
+      "printed_page": "60",
+      "publication_status": "published",
+      "rationale": "教材课文“第七课弘扬中华人文精神”与课标 ML-H4G7-TCR-001 的可教学小能力“弘扬中华优秀传统文化讲仁爱、重民本、守诚信、崇正义、尚和合、求大同的核心理念”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_a2364b062ae311b2",
+      "unit_title": "在集体中成长"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_21c322d090406f47",
@@ -63,7 +338,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a1407810561e"
+        "external_smartedu_2026_morality_law_junior_grade_7_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +350,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_fed2028e3cbbb9f4",
       "textbook_grade": 7,
       "textbook_subject": "道德与法治",
@@ -94,7 +369,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_2bfb8dc66618"
+        "external_smartedu_2026_history_junior_grade_7_up"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -106,7 +381,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_eae81c753994e626",
       "textbook_grade": 7,
       "textbook_subject": "历史",
@@ -125,7 +400,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_4f77b2484bc7"
+        "external_smartedu_2026_history_junior_grade_7_down"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -137,7 +412,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d5636bdbaa539717",
       "textbook_grade": 7,
       "textbook_subject": "历史",
@@ -156,7 +431,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_d5a8645a0fdb"
+        "external_smartedu_2026_morality_law_junior_grade_7_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -168,7 +443,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_5f4537a4f0b5552a",
       "textbook_grade": 7,
       "textbook_subject": "道德与法治",

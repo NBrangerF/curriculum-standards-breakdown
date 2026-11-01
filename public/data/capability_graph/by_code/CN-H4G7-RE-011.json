@@ -44,16 +44,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8b2219196e52cf85",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_7_up",
+        "tes_0d0ddf2ceab4e793",
+        "textbook-node:tcn_8704635091e606f3",
+        "textbook-unit:tcu_0e71a89410aac7e1"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "人与自然和谐共生在当下有怎样的意义?",
+          "excerpt_hash": "5009259589ceeac91899e5f2df2ec7442170fe967f38a9acd99b975bbc89a306",
+          "pdf_page": 135,
+          "printed_page": "128",
+          "span_id": "tes_0d0ddf2ceab4e793"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_d8efdc07f3078282"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_d8efdc07f3078282",
+          "label": "阅读表现人与自然的优秀文学作品"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_8704635091e606f3",
+      "node_title": "人与自然和谐共生在当下有怎样的意义?",
+      "pdf_page": 135,
+      "printed_page": "128",
+      "publication_status": "published",
+      "rationale": "教材学习目标“人与自然和谐共生在当下有怎样的意义?”与课标 CN-H4G7-RE-011 的可教学小能力“阅读表现人与自然的优秀文学作品”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_0e71a89410aac7e1",
+      "unit_title": "第五单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_0771b10d239c2392",
@@ -64,7 +119,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_903c001c7bb3"
+        "external_smartedu_2026_chinese_junior_grade_7_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -76,7 +131,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_48c9f38bc8f352d7",
       "textbook_grade": 7,
       "textbook_subject": "语文",
@@ -95,7 +150,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_2cca20691db7"
+        "external_smartedu_2026_chinese_junior_grade_7_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -107,7 +162,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_4f06732182a984b3",
       "textbook_grade": 7,
       "textbook_subject": "语文",

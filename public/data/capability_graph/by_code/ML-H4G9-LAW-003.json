@@ -43,11 +43,11 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "page_aligned",
-    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 1,
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 4,
     "specific_count": 2,
     "unit_topic_candidate_count": 0
@@ -55,29 +55,29 @@
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_66d2976aeeded3c7",
-      "alignment_type": "practices",
-      "confidence": 0.86,
+      "alignment_id": "tca_47ba847d73e2681a",
+      "alignment_type": "supports",
+      "confidence": 0.92,
       "coverage": "partial",
       "edition_id": "ed_1c2f1b2eb35ee43d98b9",
-      "evidence_basis": "textbook_page_span",
-      "evidence_gap": null,
-      "evidence_level": "L3_page_evidence",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctb_bdb26a7ab112",
-        "tes_4d8a6d34012b0304",
-        "textbook-node:tcn_000d2e6adfd247d4",
-        "textbook-unit:tcu_967c6a25f12c2dda"
+        "external_smartedu_2026_morality_law_junior_grade_9_up",
+        "tes_4dd0f8ed553dca35",
+        "textbook-node:tcn_b2cad6757f507d5a",
+        "textbook-unit:tcu_928e345fa9d7c975"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "结合学过的宪法知识,说说为什么社会主义民主的发展需要宪法保障。",
-          "excerpt_hash": "bcfc57930f126e500e2ab48ecd16552675e4d19e4b686b7239decec5bd771aee",
-          "pdf_page": 37,
-          "printed_page": "32",
-          "span_id": "tes_4d8a6d34012b0304"
+          "excerpt": "第二课 坚持以人民为中心",
+          "excerpt_hash": "adcdde28827ad72334d7a5d217af59cc18a8c918ba8acb01f238bc0e9eefea60",
+          "pdf_page": 20,
+          "printed_page": "15",
+          "span_id": "tes_4dd0f8ed553dca35"
         }
       ],
       "learning_component_ids": [
@@ -89,24 +89,24 @@
           "label": "用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心"
         }
       ],
-      "level": "page",
+      "level": "unit",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_000d2e6adfd247d4",
-      "node_title": "结合学过的宪法知识,说说为什么社会主义民主的发展需要宪法保障。",
-      "pdf_page": 37,
-      "printed_page": "32",
+      "node_id": "tcn_b2cad6757f507d5a",
+      "node_title": "第二课坚持以人民为中心",
+      "pdf_page": 20,
+      "printed_page": "15",
       "publication_status": "published",
-      "rationale": "教材练习“结合学过的宪法知识,说说为什么社会主义民主的发展需要宪法保障。”与课标 ML-H4G9-LAW-003 的可教学小能力“用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心”形成页内证据匹配。",
-      "relation_type": "practices",
+      "rationale": "教材课文“第二课坚持以人民为中心”与课标 ML-H4G9-LAW-003 的可教学小能力“用自己的话解释坚持中国特色社会主义法治道路要坚持党的领导、坚持以人民为中心”形成页内证据匹配。",
+      "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 9,
       "textbook_subject": "道德与法治",
       "textbook_title": "道德与法治9年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_967c6a25f12c2dda",
-      "unit_title": "第三课"
+      "unit_id": "tcu_928e345fa9d7c975",
+      "unit_title": "第二课"
     },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
@@ -119,7 +119,7 @@
       "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
       "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctb_b1592b8ddc34",
+        "external_smartedu_2026_history_junior_grade_9_down",
         "tes_0f4a740834228dea",
         "textbook-node:tcn_be70054c9adc7321",
         "textbook-unit:tcu_9ba8f87d861dc98e"
@@ -155,7 +155,7 @@
       "relation_type": "contextualizes",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 9,
       "textbook_subject": "历史",
       "textbook_title": "历史9年级下册",
@@ -173,7 +173,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_bdb26a7ab112"
+        "external_smartedu_2026_morality_law_junior_grade_9_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -185,7 +185,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_95cd8ca38621d636",
       "textbook_grade": 9,
       "textbook_subject": "道德与法治",
@@ -204,7 +204,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_41292e82b853"
+        "external_smartedu_2026_history_junior_grade_9_up"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -216,7 +216,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_c11c5f855e9e4535",
       "textbook_grade": 9,
       "textbook_subject": "历史",
@@ -235,7 +235,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_0c575518c2f4"
+        "external_smartedu_2026_morality_law_junior_grade_9_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -247,7 +247,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_5e5d3fb56db79731",
       "textbook_grade": 9,
       "textbook_subject": "道德与法治",
@@ -266,7 +266,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_b1592b8ddc34"
+        "external_smartedu_2026_history_junior_grade_9_down"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -278,7 +278,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_1bec9ee43164bd5d",
       "textbook_grade": 9,
       "textbook_subject": "历史",

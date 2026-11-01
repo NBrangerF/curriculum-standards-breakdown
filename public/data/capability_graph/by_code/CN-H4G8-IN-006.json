@@ -79,70 +79,315 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "page_aligned",
-    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 1,
+    "highest_evidence_level": "L2_topic",
+    "page_evidence_count": 0,
     "scope_count": 2,
-    "specific_count": 1,
+    "specific_count": 5,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_42333c80e1b00d17",
-      "alignment_type": "practices",
+      "alignment_id": "tca_92cc5b65fdadfa84",
+      "alignment_type": "supports",
       "confidence": 0.86,
       "coverage": "partial",
-      "edition_id": "ed_9670ad85cc6115505caf",
-      "evidence_basis": "textbook_page_span",
-      "evidence_gap": null,
-      "evidence_level": "L3_page_evidence",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctb_be04d8b55a4f",
-        "tes_2706bcb44c8fb182",
-        "textbook-node:tcn_46a210bf45ddb6db",
-        "textbook-unit:tcu_041f911174befe5b"
+        "external_smartedu_2026_chinese_junior_grade_8_down",
+        "tes_9e2753534760eac7",
+        "textbook-node:tcn_40aa306159723aec",
+        "textbook-unit:tcu_3ea568c53e42cd5a"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "选择你熟悉的一座,搜集资料,尽可能实地探访,了解它的建筑特点、相关史实和历史意义,在此基础上,借鉴课文的写法向同学作些介绍,并利用互联网发布自己的文字或音、视频作品。",
-          "excerpt_hash": "a9ca5da702c3351bfc8bcae1ffe8398d2650c3e339c345d1843cde1ef546b4b4",
-          "pdf_page": 122,
-          "printed_page": "115",
-          "span_id": "tes_2706bcb44c8fb182"
+          "excerpt": "56 专题学习活动",
+          "excerpt_hash": "500ddd3632449625e377404a51e4af0fe890fbade28a7802af2e968778b62b43",
+          "pdf_page": 63,
+          "printed_page": "56",
+          "span_id": "tes_9e2753534760eac7"
         }
       ],
       "learning_component_ids": [
+        "lc_018e3748f07e71b2",
         "lc_cd9073488076746f"
       ],
       "learning_components": [
+        {
+          "component_id": "lc_018e3748f07e71b2",
+          "label": "围绕学习活动开展调查"
+        },
         {
           "component_id": "lc_cd9073488076746f",
           "label": "就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题"
         }
       ],
-      "level": "page",
+      "level": "unit",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_46a210bf45ddb6db",
-      "node_title": "选择你熟悉的一座,搜集资料,尽可能实地探访,了解它的建筑特点、相关史实和历史意义,在此基础上,借鉴课文的写法向同学作些介绍,并利用互联网发布自己的文字或音、视频作品。",
-      "pdf_page": 122,
-      "printed_page": "115",
+      "node_id": "tcn_40aa306159723aec",
+      "node_title": "56专题学习活动",
+      "pdf_page": 63,
+      "printed_page": "56",
       "publication_status": "published",
-      "rationale": "教材练习“选择你熟悉的一座,搜集资料,尽可能实地探访,了解它的建筑特点、相关史实和历史意义,在此基础上,借鉴课文的写法向同学作些介绍,并利用互联网发布自己的文字或音、视频作品。”与课标 CN-H4G8-IN-006 的可教学小能力“就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题”形成页内证据匹配。",
-      "relation_type": "practices",
+      "rationale": "教材课文“56专题学习活动”与课标 CN-H4G8-IN-006 的可教学小能力“围绕学习活动开展调查、就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题”形成页内证据匹配。",
+      "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_3ea568c53e42cd5a",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_bdbda3581399d8b6",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_8_down",
+        "tes_a52f147c69601344",
+        "textbook-node:tcn_58044b1e69528e5f",
+        "textbook-unit:tcu_3ea568c53e42cd5a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "58 专题学习活动",
+          "excerpt_hash": "82b104bef7ff3f4c0956ee4810cadce2b6f94ac4f92cfd4abc16b729b9c4b10e",
+          "pdf_page": 65,
+          "printed_page": "58",
+          "span_id": "tes_a52f147c69601344"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_018e3748f07e71b2",
+        "lc_cd9073488076746f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_018e3748f07e71b2",
+          "label": "围绕学习活动开展调查"
+        },
+        {
+          "component_id": "lc_cd9073488076746f",
+          "label": "就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_58044b1e69528e5f",
+      "node_title": "58专题学习活动",
+      "pdf_page": 65,
+      "printed_page": "58",
+      "publication_status": "published",
+      "rationale": "教材课文“58专题学习活动”与课标 CN-H4G8-IN-006 的可教学小能力“围绕学习活动开展调查、就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_3ea568c53e42cd5a",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c1ca45b36c16f15e",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_8_down",
+        "tes_6b41914437c6cf7d",
+        "textbook-node:tcn_2d40e39490005fdc",
+        "textbook-unit:tcu_3ea568c53e42cd5a"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "60 专题学习活动",
+          "excerpt_hash": "ad302e7e1428c075083684723d16455ee80331a69bca889a3ccf7e1ae1865b69",
+          "pdf_page": 67,
+          "printed_page": "60",
+          "span_id": "tes_6b41914437c6cf7d"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_018e3748f07e71b2",
+        "lc_cd9073488076746f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_018e3748f07e71b2",
+          "label": "围绕学习活动开展调查"
+        },
+        {
+          "component_id": "lc_cd9073488076746f",
+          "label": "就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2d40e39490005fdc",
+      "node_title": "60专题学习活动",
+      "pdf_page": 67,
+      "printed_page": "60",
+      "publication_status": "published",
+      "rationale": "教材课文“60专题学习活动”与课标 CN-H4G8-IN-006 的可教学小能力“围绕学习活动开展调查、就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_3ea568c53e42cd5a",
+      "unit_title": "第二单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a5f7fbca01ea6159",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_8_up",
+        "tes_2ce36f7520818e14",
+        "textbook-node:tcn_e78e6e03651cf321",
+        "textbook-unit:tcu_aa01014f8921731e"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "78 专题学习活动",
+          "excerpt_hash": "e1599c43c20275ef71872dfafce61cb6154878cd62dac7cdc6c6a5ab77c81dfb",
+          "pdf_page": 85,
+          "printed_page": "78",
+          "span_id": "tes_2ce36f7520818e14"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_018e3748f07e71b2",
+        "lc_cd9073488076746f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_018e3748f07e71b2",
+          "label": "围绕学习活动开展调查"
+        },
+        {
+          "component_id": "lc_cd9073488076746f",
+          "label": "就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_e78e6e03651cf321",
+      "node_title": "78专题学习活动",
+      "pdf_page": 85,
+      "printed_page": "78",
+      "publication_status": "published",
+      "rationale": "教材课文“78专题学习活动”与课标 CN-H4G8-IN-006 的可教学小能力“围绕学习活动开展调查、就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
       "textbook_grade": 8,
       "textbook_subject": "语文",
       "textbook_title": "语文8年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_041f911174befe5b",
-      "unit_title": "第五单元"
+      "unit_id": "tcu_aa01014f8921731e",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_2554409748a8e76b",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_8_up",
+        "tes_9b6ed46056289091",
+        "textbook-node:tcn_1d2026116ad407a5",
+        "textbook-unit:tcu_aa01014f8921731e"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "80 专题学习活动",
+          "excerpt_hash": "41b3a216e3a0c20221462cb90b6ad8e46823c9463dfb322012741170449b7860",
+          "pdf_page": 87,
+          "printed_page": "80",
+          "span_id": "tes_9b6ed46056289091"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_018e3748f07e71b2",
+        "lc_cd9073488076746f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_018e3748f07e71b2",
+          "label": "围绕学习活动开展调查"
+        },
+        {
+          "component_id": "lc_cd9073488076746f",
+          "label": "就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_1d2026116ad407a5",
+      "node_title": "80专题学习活动",
+      "pdf_page": 87,
+      "printed_page": "80",
+      "publication_status": "published",
+      "rationale": "教材课文“80专题学习活动”与课标 CN-H4G8-IN-006 的可教学小能力“围绕学习活动开展调查、就共同关注的热点问题搜集资料、提取信息、概括观点、确立学习活动主题”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_aa01014f8921731e",
+      "unit_title": "第三单元"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -154,7 +399,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_f4fb0c2a21f9"
+        "external_smartedu_2026_chinese_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -166,7 +411,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_0fb7983518710ace",
       "textbook_grade": 8,
       "textbook_subject": "语文",
@@ -185,7 +430,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_be04d8b55a4f"
+        "external_smartedu_2026_chinese_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -197,7 +442,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d5058d79ff37d1bb",
       "textbook_grade": 8,
       "textbook_subject": "语文",

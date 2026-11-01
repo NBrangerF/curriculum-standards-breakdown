@@ -49,13 +49,13 @@
     "highest_evidence_level": "L2_topic",
     "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 1,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_acfbec4b70eee6c7",
+      "alignment_id": "tca_3a9280d2f4e43a4a",
       "alignment_type": "supports",
       "confidence": 0.92,
       "coverage": "partial",
@@ -64,20 +64,20 @@
       "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
       "evidence_level": "L2_topic",
       "evidence_refs": [
-        "ctb_d8429e42f96b",
-        "tes_8861a1547c2cf8b0",
-        "textbook-node:tcn_2d1f5e30d0fcb426",
-        "textbook-unit:tcu_f14347e0b0fa8483"
+        "external_smartedu_2026_morality_law_junior_grade_8_up",
+        "tes_57c2e093294f9bc2",
+        "textbook-node:tcn_e43161aa02ff09cc",
+        "textbook-unit:tcu_158afb3c8aadf3e6"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "第九课 树立总体国家安全观 97",
-          "excerpt_hash": "5ae99109b58abb90912e77a62278ae21af96db65b60db96de0a8f8ad507017c2",
-          "pdf_page": 102,
-          "printed_page": null,
-          "span_id": "tes_8861a1547c2cf8b0"
+          "excerpt": "第十二课 树立总体国家安全观",
+          "excerpt_hash": "bc6588ac06e2cf8cde61a203749f4b68e5a8a39e8806219934c6ff3219a61ce7",
+          "pdf_page": 109,
+          "printed_page": "104",
+          "span_id": "tes_57c2e093294f9bc2"
         }
       ],
       "learning_component_ids": [
@@ -101,22 +101,87 @@
       ],
       "level": "unit",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_2d1f5e30d0fcb426",
-      "node_title": "第九课树立总体国家安全观97",
-      "pdf_page": 102,
-      "printed_page": null,
+      "node_id": "tcn_e43161aa02ff09cc",
+      "node_title": "第十二课树立总体国家安全观",
+      "pdf_page": 109,
+      "printed_page": "104",
       "publication_status": "published",
-      "rationale": "教材课文“第九课树立总体国家安全观97”与课标 ML-H4G8-LAW-044 的可教学小能力“用自己的话解释总体国家安全观、自觉维护国家安全、准确说出维护国家安全是每个公民的义务”形成页内证据匹配。",
+      "rationale": "教材课文“第十二课树立总体国家安全观”与课标 ML-H4G8-LAW-044 的可教学小能力“用自己的话解释总体国家安全观、自觉维护国家安全、准确说出维护国家安全是每个公民的义务”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 8,
       "textbook_subject": "道德与法治",
       "textbook_title": "道德与法治8年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_f14347e0b0fa8483",
-      "unit_title": "第九课"
+      "unit_id": "tcu_158afb3c8aadf3e6",
+      "unit_title": "第十课"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_8af2755e597d1d54",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_a179ac6ae22f126e6f2d",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_morality_law_junior_grade_8_up",
+        "tes_59b54cb987aa6fa6",
+        "textbook-node:tcn_9aaff770af566435",
+        "textbook-unit:tcu_5e72cc5207798856"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第十二课 树立总体国家安全观 102",
+          "excerpt_hash": "a061483e047a837f7f77054e76b38a5451a4dafbf5eb6b46c83f1e1d428f4480",
+          "pdf_page": 6,
+          "printed_page": null,
+          "span_id": "tes_59b54cb987aa6fa6"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_11a924c9db47bf82",
+        "lc_856541cabab38c81",
+        "lc_d07ebc3d080428ef"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_11a924c9db47bf82",
+          "label": "用自己的话解释总体国家安全观"
+        },
+        {
+          "component_id": "lc_856541cabab38c81",
+          "label": "自觉维护国家安全"
+        },
+        {
+          "component_id": "lc_d07ebc3d080428ef",
+          "label": "准确说出维护国家安全是每个公民的义务"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_9aaff770af566435",
+      "node_title": "第十二课树立总体国家安全观102",
+      "pdf_page": 6,
+      "printed_page": null,
+      "publication_status": "published",
+      "rationale": "教材课文“第十二课树立总体国家安全观102”与课标 ML-H4G8-LAW-044 的可教学小能力“用自己的话解释总体国家安全观、自觉维护国家安全、准确说出维护国家安全是每个公民的义务”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_5e72cc5207798856",
+      "unit_title": "第一单元"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -128,7 +193,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_76fc538dd0d1"
+        "external_smartedu_2026_history_junior_grade_8_up"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -140,7 +205,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_262756ea29a61d32",
       "textbook_grade": 8,
       "textbook_subject": "历史",
@@ -159,7 +224,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_d8429e42f96b"
+        "external_smartedu_2026_morality_law_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -171,7 +236,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_9eb2e2a90a705049",
       "textbook_grade": 8,
       "textbook_subject": "道德与法治",
@@ -190,7 +255,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_e8c5c385aafa"
+        "external_smartedu_2026_morality_law_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -202,7 +267,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_b28ec1f6b081b602",
       "textbook_grade": 8,
       "textbook_subject": "道德与法治",
@@ -221,7 +286,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_05dbe85802ac"
+        "external_smartedu_2026_history_junior_grade_8_down"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -233,7 +298,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_c23f52c4ba953c6f",
       "textbook_grade": 8,
       "textbook_subject": "历史",

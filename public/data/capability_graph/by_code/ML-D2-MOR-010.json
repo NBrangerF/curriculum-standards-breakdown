@@ -79,16 +79,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
     "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_cb23cab0fffd92fb",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_b23dbf8aedd84cd3888f",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_morality_law_primary_grade_4_up",
+        "tes_d8f632d88bdae176",
+        "textbook-node:tcn_c79677209ec6b2e4",
+        "textbook-unit:tcu_8fae6a4bb80332dd"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "第 9 课 安全文明上网",
+          "excerpt_hash": "4e89a217dacfe524c4fa905fdfdd73c7297d26fdc79902cc6cf40ff18ff41087",
+          "pdf_page": 59,
+          "printed_page": "54",
+          "span_id": "tes_d8f632d88bdae176"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_f70cc1e44ab70dbf"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_f70cc1e44ab70dbf",
+          "label": "遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_c79677209ec6b2e4",
+      "node_title": "第9课安全文明上网",
+      "pdf_page": 59,
+      "printed_page": "54",
+      "publication_status": "published",
+      "rationale": "教材课文“第9课安全文明上网”与课标 ML-D2-MOR-010 的可教学小能力“遵守文明上网规则，做到尊重他人、保护隐私与合理使用网络”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8fae6a4bb80332dd",
+      "unit_title": "第三单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_fb41e668573cd496",
@@ -99,7 +154,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_c4a8334099f0"
+        "external_smartedu_2026_morality_law_primary_grade_3_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -111,7 +166,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_4eabffd55a81e2eb",
       "textbook_grade": 3,
       "textbook_subject": "道德与法治",
@@ -130,7 +185,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_2d734af455c0"
+        "external_smartedu_2026_morality_law_primary_grade_4_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -142,7 +197,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_4fcca84971a83ec4",
       "textbook_grade": 4,
       "textbook_subject": "道德与法治",
@@ -161,7 +216,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_9d06bc550436"
+        "external_smartedu_2026_morality_law_primary_grade_3_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -173,7 +228,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_bcb8fe719c29a97c",
       "textbook_grade": 3,
       "textbook_subject": "道德与法治",
@@ -192,7 +247,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_6d8e93064e1f"
+        "external_smartedu_2026_morality_law_primary_grade_4_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -204,7 +259,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_85e4b38d814a5d4c",
       "textbook_grade": 4,
       "textbook_subject": "道德与法治",

@@ -47,15 +47,15 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 1,
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 1,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_5512daea90077efc",
+      "alignment_id": "tca_6a13333428601b9b",
       "alignment_type": "supports",
       "confidence": 0.86,
       "coverage": "partial",
@@ -64,20 +64,20 @@
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_903c001c7bb3",
-        "tes_b469c1b78e828f68",
-        "textbook-node:tcn_6380909460775fda",
-        "textbook-unit:tcu_7e16875e93d78910"
+        "external_smartedu_2026_chinese_junior_grade_7_down",
+        "tes_00acba926dde63ee",
+        "textbook-node:tcn_7d9328e234ab1b74",
+        "textbook-unit:tcu_7d73113aa6c3b1e4"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "“铭”和“说”都是文言文的一种文体。查找资料,说出几篇属于这两",
-          "excerpt_hash": "eec14f75e10927ef8cc63b754d81d0fa1fc4bafc572fe24ecd74c47e54595dd1",
-          "pdf_page": 108,
-          "printed_page": "101",
-          "span_id": "tes_b469c1b78e828f68"
+          "excerpt": "《山海经》是一本什么样的书?查找资料,大致了解这本书的主要",
+          "excerpt_hash": "d14848ef5be9aa93096984d8f3a3e2538107bd76c7aebcb156a618137e75c752",
+          "pdf_page": 67,
+          "printed_page": "60",
+          "span_id": "tes_00acba926dde63ee"
         }
       ],
       "learning_component_ids": [
@@ -91,16 +91,71 @@
       ],
       "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_6380909460775fda",
-      "node_title": "“铭”和“说”都是文言文的一种文体。查找资料,说出几篇属于这两",
-      "pdf_page": 108,
-      "printed_page": "101",
+      "node_id": "tcn_7d9328e234ab1b74",
+      "node_title": "《山海经》是一本什么样的书?查找资料,大致了解这本书的主要",
+      "pdf_page": 67,
+      "printed_page": "60",
       "publication_status": "published",
-      "rationale": "教材学习目标““铭”和“说”都是文言文的一种文体。查找资料,说出几篇属于这两”与课标 CN-H4G7-IN-010 的可教学小能力“正确运用查找资料、引用资料的基本方法完成任务”形成页内证据匹配。",
+      "rationale": "教材学习目标“《山海经》是一本什么样的书?查找资料,大致了解这本书的主要”与课标 CN-H4G7-IN-010 的可教学小能力“正确运用查找资料、引用资料的基本方法完成任务”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_7d73113aa6c3b1e4",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_fa1115b17cb29ef1",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_99938fbe3c9ca232c6d6",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_7_down",
+        "tes_c6436e0934e6dd6e",
+        "textbook-node:tcn_874f9c43227561c4",
+        "textbook-unit:tcu_7e16875e93d78910"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "“铭”和“说”都是文言文中常见的文体。查找资料,了解这两种文体",
+          "excerpt_hash": "bd8e510e7b1d1fe7c02165399481add1a5ce49c01bf664365db64ec924ef8a6d",
+          "pdf_page": 118,
+          "printed_page": "111",
+          "span_id": "tes_c6436e0934e6dd6e"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_90e0b3157fb77498"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_90e0b3157fb77498",
+          "label": "正确运用查找资料、引用资料的基本方法完成任务"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_874f9c43227561c4",
+      "node_title": "“铭”和“说”都是文言文中常见的文体。查找资料,了解这两种文体",
+      "pdf_page": 118,
+      "printed_page": "111",
+      "publication_status": "published",
+      "rationale": "教材学习目标““铭”和“说”都是文言文中常见的文体。查找资料,了解这两种文体”与课标 CN-H4G7-IN-010 的可教学小能力“正确运用查找资料、引用资料的基本方法完成任务”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
       "textbook_grade": 7,
       "textbook_subject": "语文",
       "textbook_title": "语文7年级下册",
@@ -118,7 +173,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_903c001c7bb3"
+        "external_smartedu_2026_chinese_junior_grade_7_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -130,7 +185,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_48c9f38bc8f352d7",
       "textbook_grade": 7,
       "textbook_subject": "语文",
@@ -149,7 +204,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_2cca20691db7"
+        "external_smartedu_2026_chinese_junior_grade_7_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -161,7 +216,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_4f06732182a984b3",
       "textbook_grade": 7,
       "textbook_subject": "语文",

@@ -45,16 +45,126 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0d166698dd5823bc",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_8_down",
+        "tes_ec0f0eb839790daa",
+        "textbook-node:tcn_2616edb63569fbbd",
+        "textbook-unit:tcu_0af71a756603c7aa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "阅读的时候,我们常常会有所触动,或受到一些启发,把这些触动和启发写下来,就是读后感。写读后感可以加深对作品的理解,提高写作能力。",
+          "excerpt_hash": "b6e6bf46fe04198550612d8637eeafd32a0c16d1da41d5398665c91c4f60eb60",
+          "pdf_page": 82,
+          "printed_page": "75",
+          "span_id": "tes_ec0f0eb839790daa"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a2949fdabca0c4a6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a2949fdabca0c4a6",
+          "label": "提高独立写作能力"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2616edb63569fbbd",
+      "node_title": "阅读的时候,我们常常会有所触动,或受到一些启发,把这些触动和启发写下来,就是读后感。写读后感可以加深对作品的理解,提高写作能力。",
+      "pdf_page": 82,
+      "printed_page": "75",
+      "publication_status": "published",
+      "rationale": "教材练习“阅读的时候,我们常常会有所触动,或受到一些启发,把这些触动和启发写下来,就是读后感。写读后感可以加深对作品的理解,提高写作能力。”与课标 CN-H4G8-CM-020 的可教学小能力“提高独立写作能力”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_0af71a756603c7aa",
+      "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_b229356d83ee0944",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_0e9836d1d9ca6a6760c0",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_8_down",
+        "tes_c81dcc7547ea7d47",
+        "textbook-node:tcn_f4c76064d9be0107",
+        "textbook-unit:tcu_0af71a756603c7aa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "写下来,就是读后感。写读后感可以加深对作品的理解,提高写作能力。",
+          "excerpt_hash": "b93571253143c758f2cde807b261be05baa4ecd6183f9e09cbd1f45c197f11b1",
+          "pdf_page": 82,
+          "printed_page": "75",
+          "span_id": "tes_c81dcc7547ea7d47"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a2949fdabca0c4a6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a2949fdabca0c4a6",
+          "label": "提高独立写作能力"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_f4c76064d9be0107",
+      "node_title": "写下来,就是读后感。写读后感可以加深对作品的理解,提高写作能力。",
+      "pdf_page": 82,
+      "printed_page": "75",
+      "publication_status": "published",
+      "rationale": "教材练习“写下来,就是读后感。写读后感可以加深对作品的理解,提高写作能力。”与课标 CN-H4G8-CM-020 的可教学小能力“提高独立写作能力”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_0af71a756603c7aa",
+      "unit_title": "第三单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d6718985e56cb3dd",
@@ -65,7 +175,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_f4fb0c2a21f9"
+        "external_smartedu_2026_chinese_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -77,7 +187,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_0fb7983518710ace",
       "textbook_grade": 8,
       "textbook_subject": "语文",
@@ -96,7 +206,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_be04d8b55a4f"
+        "external_smartedu_2026_chinese_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -108,7 +218,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d5058d79ff37d1bb",
       "textbook_grade": 8,
       "textbook_subject": "语文",

@@ -43,16 +43,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_0c434e5d738ed031",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_fd12a07ca60f79e50bb8",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_primary_grade_3_down",
+        "tes_fafbbd5ca017eefd",
+        "textbook-node:tcn_61c30a4ea3d4bac0",
+        "textbook-unit:tcu_147a85d94b7da766"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "认真倾听,想想别人的建议是否有",
+          "excerpt_hash": "6326c877f80b24c1182aa52ab52fb42fd39b259c564f40b89978eac5dffb3689",
+          "pdf_page": 84,
+          "printed_page": "79",
+          "span_id": "tes_fafbbd5ca017eefd"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_71209538ec8d80e6"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_71209538ec8d80e6",
+          "label": "口语交际中认真倾听、抓住要点并能简要转述"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_61c30a4ea3d4bac0",
+      "node_title": "认真倾听,想想别人的建议是否有",
+      "pdf_page": 84,
+      "printed_page": "79",
+      "publication_status": "published",
+      "rationale": "教材学习目标“认真倾听,想想别人的建议是否有”与课标 CN-D2-CM-001 的可教学小能力“口语交际中认真倾听、抓住要点并能简要转述”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 3,
+      "textbook_subject": "语文",
+      "textbook_title": "语文3年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_147a85d94b7da766",
+      "unit_title": "第六单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_d3a02645df288714",
@@ -63,7 +118,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_6679839735c5"
+        "external_smartedu_2026_chinese_primary_grade_4_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +130,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_a9aaea7b7d7bee10",
       "textbook_grade": 4,
       "textbook_subject": "语文",
@@ -94,7 +149,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_334af6341558"
+        "external_smartedu_2026_chinese_primary_grade_3_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -106,7 +161,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_ae7100fbda14f7bd",
       "textbook_grade": 3,
       "textbook_subject": "语文",
@@ -125,7 +180,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_97b49cd39424"
+        "external_smartedu_2026_chinese_primary_grade_4_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -137,7 +192,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_f1323e17e6058c4c",
       "textbook_grade": 4,
       "textbook_subject": "语文",
@@ -156,7 +211,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_ddd55c51dcc0"
+        "external_smartedu_2026_chinese_primary_grade_3_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -168,7 +223,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_61d9923f1ed0457b",
       "textbook_grade": 3,
       "textbook_subject": "语文",

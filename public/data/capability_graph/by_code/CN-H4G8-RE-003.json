@@ -85,15 +85,15 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 1,
+    "page_evidence_count": 2,
     "scope_count": 2,
-    "specific_count": 1,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_7453a08b4e3ba159",
+      "alignment_id": "tca_e036773a25948cee",
       "alignment_type": "supports",
       "confidence": 0.9398,
       "coverage": "partial",
@@ -102,9 +102,9 @@
       "evidence_gap": null,
       "evidence_level": "L3_page_evidence",
       "evidence_refs": [
-        "ctb_f4fb0c2a21f9",
-        "tes_83dc750ffcd48381",
-        "textbook-node:tcn_25c99fdb33b43a46",
+        "external_smartedu_2026_chinese_junior_grade_8_down",
+        "tes_420d1a9d31bbd899",
+        "textbook-node:tcn_3dc5314900f147ed",
         "textbook-unit:tcu_0af71a756603c7aa"
       ],
       "evidence_role": "direct_textbook",
@@ -113,9 +113,9 @@
           "evidence_role": "direct_textbook",
           "excerpt": "结合注释,通读课文,了解这篇游记的主要内容。",
           "excerpt_hash": "daeb0fc89531e361aa0ec76735ffa539b44edfa9a27f59581c36055446e1af9e",
-          "pdf_page": 65,
-          "printed_page": "58",
-          "span_id": "tes_83dc750ffcd48381"
+          "pdf_page": 73,
+          "printed_page": "66",
+          "span_id": "tes_420d1a9d31bbd899"
         }
       ],
       "learning_component_ids": [
@@ -129,22 +129,77 @@
       ],
       "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_25c99fdb33b43a46",
+      "node_id": "tcn_3dc5314900f147ed",
       "node_title": "结合注释,通读课文,了解这篇游记的主要内容。",
-      "pdf_page": 65,
-      "printed_page": "58",
+      "pdf_page": 73,
+      "printed_page": "66",
       "publication_status": "published",
       "rationale": "教材学习目标“结合注释,通读课文,了解这篇游记的主要内容。”与课标 CN-H4G8-RE-003 的可教学小能力“用自己的话解释和分析主要内容”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "textbook_grade": 8,
       "textbook_subject": "语文",
       "textbook_title": "语文8年级下册",
       "textbook_volume": "下册",
       "unit_id": "tcu_0af71a756603c7aa",
       "unit_title": "第三单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_de54a9812e98d291",
+      "alignment_type": "practices",
+      "confidence": 0.9398,
+      "coverage": "partial",
+      "edition_id": "ed_9670ad85cc6115505caf",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_8_up",
+        "tes_0f57adc4e97f5a90",
+        "textbook-node:tcn_2bd45c639495683d",
+        "textbook-unit:tcu_041f911174befe5b"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "阅读时可以先浏览全文,了解主要内容,再细读文中的重点段落。细读时要抓住其中的关键语句,梳理各部分的主要内容,看看作者是按怎样的顺序来说明的。还要注意作者的遣词造句,体会大量使用四字短语的表达效果。",
+          "excerpt_hash": "aa04512b47485fea632b99cdfa75ffd496219f11dbab61fa2dea7cfd824a79c7",
+          "pdf_page": 135,
+          "printed_page": "128",
+          "span_id": "tes_0f57adc4e97f5a90"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_54a537d7d9621dda"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_54a537d7d9621dda",
+          "label": "用自己的话解释和分析主要内容"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_2bd45c639495683d",
+      "node_title": "阅读时可以先浏览全文,了解主要内容,再细读文中的重点段落。细读时要抓住其中的关键语句,梳理各部分的主要内容,看看作者是按怎样的顺序来说明的。还要注意作者的遣词造句,体会大量使用四字短语的表达效果。",
+      "pdf_page": 135,
+      "printed_page": "128",
+      "publication_status": "published",
+      "rationale": "教材练习“阅读时可以先浏览全文,了解主要内容,再细读文中的重点段落。细读时要抓住其中的关键语句,梳理各部分的主要内容,看看作者是按怎样的顺序来说明的。还要注意作者的遣词造句,体会大量使用四字短语的表达效果。”与课标 CN-H4G8-RE-003 的可教学小能力“用自己的话解释和分析主要内容”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "语文",
+      "textbook_title": "语文8年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_041f911174befe5b",
+      "unit_title": "第五单元"
     },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -156,7 +211,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_f4fb0c2a21f9"
+        "external_smartedu_2026_chinese_junior_grade_8_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -168,7 +223,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_0fb7983518710ace",
       "textbook_grade": 8,
       "textbook_subject": "语文",
@@ -187,7 +242,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_be04d8b55a4f"
+        "external_smartedu_2026_chinese_junior_grade_8_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -199,7 +254,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d5058d79ff37d1bb",
       "textbook_grade": 8,
       "textbook_subject": "语文",

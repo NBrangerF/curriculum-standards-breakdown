@@ -43,16 +43,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_1aff7412ca8a9630",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_258a293644bf7f6dc23f",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_morality_law_junior_grade_7_up",
+        "tes_783327a64f10eda4",
+        "textbook-node:tcn_a4651019abe5dc98",
+        "textbook-unit:tcu_e06f307f82d7a619"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "结合实例,说说在生活中如何提高我们的防护能力。",
+          "excerpt_hash": "644a4846450c845678c0d4d88e3555fc67e56b21f5ed8954c14e3c05a167a7ff",
+          "pdf_page": 77,
+          "printed_page": "72",
+          "span_id": "tes_783327a64f10eda4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_a444b0c46a02c670"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_a444b0c46a02c670",
+          "label": "结合实例理解维护国家安全的重要性"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a4651019abe5dc98",
+      "node_title": "结合实例,说说在生活中如何提高我们的防护能力。",
+      "pdf_page": 77,
+      "printed_page": "72",
+      "publication_status": "published",
+      "rationale": "教材练习“结合实例,说说在生活中如何提高我们的防护能力。”与课标 ML-H4G7-NAT-019 的可教学小能力“结合实例理解维护国家安全的重要性”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "道德与法治",
+      "textbook_title": "道德与法治7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_e06f307f82d7a619",
+      "unit_title": "第七课"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_02a36dbfc5ce2a32",
@@ -63,7 +118,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_a1407810561e"
+        "external_smartedu_2026_morality_law_junior_grade_7_up"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -75,7 +130,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_fed2028e3cbbb9f4",
       "textbook_grade": 7,
       "textbook_subject": "道德与法治",
@@ -94,7 +149,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_2bfb8dc66618"
+        "external_smartedu_2026_history_junior_grade_7_up"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -106,7 +161,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_eae81c753994e626",
       "textbook_grade": 7,
       "textbook_subject": "历史",
@@ -125,7 +180,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_4f77b2484bc7"
+        "external_smartedu_2026_history_junior_grade_7_down"
       ],
       "evidence_role": "adjacent_discipline_textbook",
       "level": "scope",
@@ -137,7 +192,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_d5636bdbaa539717",
       "textbook_grade": 7,
       "textbook_subject": "历史",
@@ -156,7 +211,7 @@
       "evidence_basis": "subject_grade_scope",
       "evidence_level": "L1_scope",
       "evidence_refs": [
-        "ctb_d5a8645a0fdb"
+        "external_smartedu_2026_morality_law_junior_grade_7_down"
       ],
       "evidence_role": "direct_textbook",
       "level": "scope",
@@ -168,7 +223,7 @@
       "relation_type": "curriculum_scope",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
-      "revision_status": "revision_unknown",
+      "revision_status": "current_confirmed",
       "scope_id": "tcs_5f4537a4f0b5552a",
       "textbook_grade": 7,
       "textbook_subject": "道德与法治",
