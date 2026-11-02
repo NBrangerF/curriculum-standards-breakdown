@@ -54,7 +54,7 @@ export interface StructuredLlmResult<T> {
     latency_ms: number
     output: T | null
     usage: LlmUsage | null
-    /** Calls sent for this answer: 2 when runHedgedLlm sent it once more. */
+    /** Calls sent for this answer: 2 when runRetriedLlm sent it once more. */
     attempts?: number
 }
 
@@ -433,39 +433,23 @@ export async function runStructuredLlm<T>(
 }
 
 /**
- * The provider's slow calls are a tail (half answer in 4–6 s, some run past 15 s), and a fresh call usually beats a
- * stuck one. A call still unanswered after `hedgeAfterMs` (or failed before then) is sent once more; the first good
- * answer wins, and both together stay within the original timeout.
+ * A call that fails fast (an error answer or JSON that does not fit, in the first half of its budget) is sent once
+ * more within what is left of the budget. A slow call is not: the provider's calls run 5–12 s on a slow day, and a
+ * second call sent at half the budget then only doubled the load (nearly every check call was sent twice in a test
+ * round, and the second answer almost never came first).
  */
-export async function runHedgedLlm<T>(
+export async function runRetriedLlm<T>(
     input: string,
     adapter: StructuredLlmAdapter<T>,
-    options: StructuredLlmOptions & { hedgeAfterMs: number }
+    options: StructuredLlmOptions
 ): Promise<StructuredLlmResult<T>> {
     const started = performance.now()
     const timeoutMs = options.timeoutMs ?? resolveLlmConfig(options.env).timeoutMs
-    const first = runStructuredLlm(input, adapter, { ...options, timeoutMs })
-    let timer: ReturnType<typeof setTimeout> | undefined
-    const early = await Promise.race([
-        first,
-        new Promise<null>(resolve => { timer = setTimeout(() => resolve(null), options.hedgeAfterMs) })
-    ])
-    clearTimeout(timer)
-    // answered in time, or never sent at all (no key, bad config): nothing to retry
-    if (early && (early.status === 'ok' || early.status === 'disabled' || early.status === 'invalid_config')) return { ...early, attempts: 1 }
-    // what is left of the budget: after the hedge timer, or after a first call that failed early
-    const left = early ? timeoutMs - (performance.now() - started) : timeoutMs - options.hedgeAfterMs
-    const second = runStructuredLlm(input, adapter, { ...options, timeoutMs: Math.max(1000, Math.round(left)) })
-    const attempts = early ? [second] : [first, second]
-    return new Promise(resolve => {
-        let left = attempts.length
-        for (const attempt of attempts) {
-            attempt.then(result => {
-                left -= 1
-                if (result.status === 'ok' || left === 0) resolve({ ...result, attempts: 2 })
-            })
-        }
-    })
+    const first = await runStructuredLlm(input, adapter, { ...options, timeoutMs })
+    const elapsed = performance.now() - started
+    if (!['provider_error', 'invalid_response'].includes(first.status) || elapsed > timeoutMs / 2) return { ...first, attempts: 1 }
+    const second = await runStructuredLlm(input, adapter, { ...options, timeoutMs: Math.max(1000, Math.round(timeoutMs - elapsed)) })
+    return { ...second, attempts: 2 }
 }
 
 const QUERY_INTERPRETATION_ADAPTER: StructuredLlmAdapter<LlmQueryInterpretation> = {
@@ -556,7 +540,7 @@ export async function interpretSearchQueryWithLlm(
         }
     }
     const timeoutMs = options.timeoutMs ?? readQueryTimeoutMs(env)
-    const result = await runHedgedLlm(query, QUERY_INTERPRETATION_ADAPTER, { ...options, timeoutMs, hedgeAfterMs: Math.min(5000, timeoutMs / 2) })
+    const result = await runRetriedLlm(query, QUERY_INTERPRETATION_ADAPTER, { ...options, timeoutMs })
     if (cacheKey && result.status === 'ok' && result.output) {
         options.cache!.set(cacheKey, { protocol: result.protocol, output: result.output })
     }

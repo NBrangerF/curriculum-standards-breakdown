@@ -3,7 +3,7 @@
 // Retrieval finds words; this step checks meaning, so "阅读" in a 英语 standard about 非语言信息 no longer passes
 // for a request that excludes language subjects.
 import { createHash } from 'node:crypto'
-import { LruCache, runHedgedLlm, type LlmStatus, type LlmUsage, type StructuredLlmAdapter, type StructuredLlmOptions } from './llm.js'
+import { LruCache, runRetriedLlm, type LlmStatus, type LlmUsage, type StructuredLlmAdapter, type StructuredLlmOptions } from './llm.js'
 
 export type JudgeCandidate = {
     code: string
@@ -187,10 +187,10 @@ export async function judgeSearchCandidates(
     for (let index = 0; index < fresh.length; index += BATCH_SIZE) batches.push(fresh.slice(index, index + BATCH_SIZE))
     // batches run side by side, so the wait is about one batch however many candidates there are
     const timeoutMs = options.timeoutMs ?? judgeTimeoutMs(options.env || process.env)
-    const runs = await Promise.all(batches.map(batch => runHedgedLlm(
+    const runs = await Promise.all(batches.map(batch => runRetriedLlm(
         [`老师的需要：${query}`, understanding ? `系统的理解：${understanding}` : '', '候选：', ...batch.map(candidate => describe(candidate, query))].filter(Boolean).join('\n\n'),
         adapterFor(batch),
-        { ...options, timeoutMs, hedgeAfterMs: timeoutMs / 2 }
+        { ...options, timeoutMs }
     )))
     for (const run of runs) {
         for (const judgement of run.output || []) {

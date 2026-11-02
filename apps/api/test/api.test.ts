@@ -265,7 +265,7 @@ function hangUntilAborted(onSignal?: (signal: AbortSignal | undefined) => void):
     })
 }
 
-test('LLM query interpreter sends a slow question once more and gives up at its budget of 6–15 s', async t => {
+test('LLM query interpreter aborts after about 10 s and keeps configured budgets between 6 and 15 s', async t => {
     t.mock.timers.enable({ apis: ['setTimeout'] })
     for (const [env, budget] of [[{}, 10000], [{ KEBIAO_LLM_QUERY_TIMEOUT_MS: '60000' }, 15000], [{ KEBIAO_LLM_QUERY_TIMEOUT_MS: '4000' }, 6000]] as const) {
         const signals: AbortSignal[] = []
@@ -273,15 +273,11 @@ test('LLM query interpreter sends a slow question once more and gives up at its 
             env: { KEBIAO_LLM_API_KEY: 'test-secret', ...env },
             fetchImpl: hangUntilAborted(value => { if (value) signals.push(value) })
         })
-        // the second call goes out at min(5 s, half the budget) and ends with the first
-        const hedge = Math.min(5000, budget / 2)
-        t.mock.timers.tick(hedge)
-        await new Promise(resolve => setImmediate(resolve))
-        assert.equal(signals.length, 2)
-        t.mock.timers.tick(budget - hedge - 1)
-        assert.ok(signals.every(signal => !signal.aborted))
+        t.mock.timers.tick(budget - 1)
+        assert.ok(signals.length === 1 && !signals[0].aborted)
         t.mock.timers.tick(1)
-        assert.ok(signals.every(signal => signal.aborted))
+        // a slow question is not sent a second time
+        assert.ok(signals.length === 1 && signals[0].aborted)
         const result = await pending
         assert.equal(result.status, 'timeout')
         assert.equal(result.used, false)
@@ -1288,9 +1284,8 @@ test('semantic search still checks the rule-based candidates when the model time
         })
         assert.equal(response.status, 200)
         const body = await json(response)
-        // the question is sent once more halfway through its budget; the check started right after retrieval
-        assert.deepEqual(events.filter(event => event !== 'check'), ['read:start', 'retrieval', 'read:start'])
-        assert.ok(events.indexOf('check') > events.indexOf('retrieval') && events.indexOf('check') < events.lastIndexOf('read:start'))
+        assert.deepEqual(events.filter(event => event !== 'check'), ['read:start', 'retrieval'])
+        assert.ok(events.includes('check'))
         assert.equal(body.data.query_interpretation.status, 'timeout')
         assert.equal(body.meta.query_interpreter, 'deterministic_fallback')
         // the check ran alongside the question reading, so the wait is still about the question budget
@@ -1913,19 +1908,26 @@ test('search judge turns a match into 0 when its quote is not in the standard', 
     assert.equal(unrelated.judgements.get('SC-S2-TE-01')?.grade, 0)
 })
 
-test('a check call that hangs is sent once more at half its budget, and the second answer is used', async () => {
-    let calls = 0
+test('a check call that fails fast is sent once more, and a slow one is not', async () => {
     const candidates = [{ code: 'MA-S3-NA-01', subject: '数学', stage: '5–6 年级', title: '标准', statement: '能比较分数的大小并说明理由', indicators: [{ code: 'MA-S3-NA-01.1', text: '能比较分数的大小' }] }]
     const answer = fakeModel(code => ({ grade: 2, reason: '理由', aspect: '比较分数', point: `${code}.1` }))
-    const started = performance.now()
-    const result = await judgeSearchCandidates('分数', '', candidates, {
-        env: { KEBIAO_LLM_API_KEY: 'test-secret', KEBIAO_LLM_JUDGE_TIMEOUT_MS: '3000' },
-        fetchImpl: (input, init) => (calls++ === 0 ? hangUntilAborted()(input, init) : answer(input, init))
+    let calls = 0
+    const retried = await judgeSearchCandidates('分数', '', candidates, {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        fetchImpl: (input, init) => (calls++ === 0 ? Promise.resolve(new Response('busy', { status: 502 })) : answer(input, init))
     })
     assert.equal(calls, 2)
-    assert.equal(result.status, 'ok')
-    assert.equal(result.judgements.get('MA-S3-NA-01')?.grade, 2)
-    assert.ok(performance.now() - started < 2900)
+    assert.equal(retried.status, 'ok')
+    assert.equal(retried.retries, 1)
+    assert.equal(retried.judgements.get('MA-S3-NA-01')?.grade, 2)
+    calls = 0
+    const slow = await judgeSearchCandidates('分数', '', candidates, {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret', KEBIAO_LLM_JUDGE_TIMEOUT_MS: '3000' },
+        fetchImpl: (input, init) => { calls += 1; return hangUntilAborted()(input, init) }
+    })
+    assert.equal(calls, 1)
+    assert.equal(slow.status, 'timeout')
+    assert.deepEqual(slow.calls, { timeout: 1 })
 })
 
 test('smart search drops what the model judges off-topic and shows its reasons', async t => {
