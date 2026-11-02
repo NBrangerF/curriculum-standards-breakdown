@@ -69,7 +69,7 @@ grade=0：要点原文没有写到这件事。不要推测“要先读懂才能�
 先找 quote：要点原文里直接写这件事的那几个字，逐字照抄 4～20 个字，如“识读简单的示意图”“会查找资料”。找不到这样的字句就给 0；理由要靠“涉及”“需要”“含……要素”“有助于”才能连上的，说明原文没写，也给 0。
 grade=0 时 reason、aspect、quote、point 都填空字符串，只给 code 和 grade。
 reason：一个短语，不超过 20 个汉字，说原文写了什么，如“识读简单的示意图并参考流程制作”；不要复述老师的问题。
-aspect：2～8 个字，这件事在本学科里的说法，如“识读乐谱”“读统计图”“在线搜索信息”。
+aspect：2～8 个字，用 quote 里的词说这件事在本学科里叫什么，如 quote“识读简单乐谱”→aspect“识读乐谱”，quote“会查找资料”→aspect“查找资料”。
 point：最符合的那条要点编码（如 MA-S3-NA-01.2）；没有就填空字符串。
 每个候选都必须给出一条判断，只用给出的编码，不得编造。`
 
@@ -141,13 +141,17 @@ function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> 
                 const wanted = plainText(quote)
                 const holder = wanted.length >= 2 ? candidate.indicators.find(item => plainText(item.text).includes(wanted)) : undefined
                 const quoted = Boolean(holder) || (wanted.length >= 2 && plainText(candidate.statement).includes(wanted))
-                const kept = grade > 0 && quoted ? grade as 1 | 2 : 0
+                // the aspect names the match in the quote's own words; one that shares no word with it (「音乐内容理解」
+                // for 「能表达自己的观演感受」) shows the quote is not evidence of what the teacher asked for
+                const aspect = String(record.aspect || '').trim().slice(0, 12)
+                const grounded = !plainText(aspect) || [...pairsOf(aspect)].some(pair => wanted.includes(pair))
+                const kept = grade > 0 && quoted && grounded ? grade as 1 | 2 : 0
                 out.push({
                     code,
                     grade: kept,
                     reason: kept ? String(record.reason || '').trim().slice(0, 60) : '',
                     point: kept ? holder?.code || named : null,
-                    aspect: kept ? String(record.aspect || '').trim().slice(0, 12) : '',
+                    aspect: kept ? aspect : '',
                     quote: kept ? quote.slice(0, 40) : ''
                 })
             }

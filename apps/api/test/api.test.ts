@@ -1209,7 +1209,7 @@ function tracedSearchApp(events: string[]) {
 }
 
 // A stand-in model for the search route: it reads the question (after `delay` ms, or never with 'hang') and checks every
-// candidate it is sent as 相关 with the aspect 读图.
+// candidate it is sent as 相关, quoting and naming the first words of its 标准 sentence.
 function routeModel(events: string[], interpret: Record<string, unknown> | 'hang', delay = 400): typeof fetch {
     return async (input, init) => {
         const body = JSON.parse(String(init?.body))
@@ -1219,7 +1219,7 @@ function routeModel(events: string[], interpret: Record<string, unknown> | 'hang
             const user = String(body.messages[1].content)
             const codes = [...user.matchAll(/【([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2})】/gu)].map(([, code]) => code)
             return Response.json({
-                choices: [{ message: { content: JSON.stringify({ judgements: codes.map(code => ({ code, grade: 1, reason: '相关', aspect: '读图', quote: quoteFor(user, code), point: '' })) }) } }],
+                choices: [{ message: { content: JSON.stringify({ judgements: codes.map(code => ({ code, grade: 1, reason: '相关', aspect: quoteFor(user, code), quote: quoteFor(user, code), point: '' })) }) } }],
                 usage: { prompt_tokens: 100, completion_tokens: 50, total_tokens: 150 }
             })
         }
@@ -1264,7 +1264,7 @@ test('semantic search checks the rule-based candidates while the model reads the
         assert.equal(first.data.relevance_check.status, 'ok')
         assert.equal(first.data.relevance_check.read, first.data.search_scope.standards)
         assert.ok(first.data.results.length > 0)
-        assert.ok(first.data.results.every((item: any) => item.checked_by_ai && item.ai_aspect === '读图' && item.standard.subject_slug !== 'chinese'))
+        assert.ok(first.data.results.every((item: any) => item.checked_by_ai && item.ai_aspect && item.ai_aspect === item.matched_point?.quote && item.standard.subject_slug !== 'chinese'))
         assert.match(first.data.coverage_note, /AI 逐条读了1–2 年级、\d+ 个学科的全部 \d+ 条标准的要点原文/)
 
         events.length = 0
@@ -1876,7 +1876,7 @@ test('search judge grades candidates in parallel batches and ignores codes it wa
     const calls: string[] = []
     const result = await judgeSearchCandidates('分数', '', candidates, {
         env: { KEBIAO_LLM_API_KEY: 'test-secret' },
-        fetchImpl: fakeModel((code, index) => ({ grade: index % 3, reason: '理由', aspect: '读图', point: index === 0 ? `${code}.1` : 'MA-S1-XX-01.1' }), calls)
+        fetchImpl: fakeModel((code, index) => ({ grade: index % 3, reason: '理由', aspect: '比较分数', point: index === 0 ? `${code}.1` : 'MA-S1-XX-01.1' }), calls)
     })
     assert.equal(calls.length, 2)
     assert.equal(result.status, 'ok')
@@ -1885,7 +1885,7 @@ test('search judge grades candidates in parallel batches and ignores codes it wa
     // an off-topic verdict keeps nothing but its grade
     assert.deepEqual(result.judgements.get('MA-S3-NA-01'), { code: 'MA-S3-NA-01', grade: 0, reason: '', point: null, aspect: '', quote: '' })
     // a match keeps its aspect and quote; the closest 要点 is the one holding the quote, never another standard's
-    assert.equal(result.judgements.get('MA-S3-NA-02')?.aspect, '读图')
+    assert.equal(result.judgements.get('MA-S3-NA-02')?.aspect, '比较分数')
     assert.equal(result.judgements.get('MA-S3-NA-02')?.quote, '能比较分')
     assert.equal(result.judgements.get('MA-S3-NA-02')?.point, 'MA-S3-NA-02.1')
     assert.equal(result.usage?.total_tokens, 300)
@@ -1905,12 +1905,18 @@ test('search judge turns a match into 0 when its quote is not in the standard', 
     })
     assert.equal(real.judgements.get('SC-S2-TE-01')?.grade, 2)
     assert.equal(real.judgements.get('SC-S2-TE-01')?.point, 'SC-S2-TE-01.2')
+    // a real quote with an aspect that shares no word with it is not evidence of the match
+    const unrelated = await judgeSearchCandidates('跟阅读有关的标准', '', candidates, {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        fetchImpl: fakeModel(() => ({ grade: 1, reason: '涉及说明材料', aspect: '读技术说明', point: '', quote: '举例说出工具在生产和生活中的应用' }))
+    })
+    assert.equal(unrelated.judgements.get('SC-S2-TE-01')?.grade, 0)
 })
 
 test('a check call that hangs is sent once more at half its budget, and the second answer is used', async () => {
     let calls = 0
     const candidates = [{ code: 'MA-S3-NA-01', subject: '数学', stage: '5–6 年级', title: '标准', statement: '能比较分数的大小并说明理由', indicators: [{ code: 'MA-S3-NA-01.1', text: '能比较分数的大小' }] }]
-    const answer = fakeModel(code => ({ grade: 2, reason: '理由', aspect: '读图', point: `${code}.1` }))
+    const answer = fakeModel(code => ({ grade: 2, reason: '理由', aspect: '比较分数', point: `${code}.1` }))
     const started = performance.now()
     const result = await judgeSearchCandidates('分数', '', candidates, {
         env: { KEBIAO_LLM_API_KEY: 'test-secret', KEBIAO_LLM_JUDGE_TIMEOUT_MS: '3000' },
