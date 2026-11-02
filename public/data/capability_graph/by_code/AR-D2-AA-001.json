@@ -80,16 +80,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
     "page_evidence_count": 0,
     "scope_count": 8,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_858ec9bd64904a27",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_4_up",
+        "tes_1db00345407bffe5",
+        "textbook-node:tcn_a7f03fcf5f700979",
+        "textbook-unit:tcu_8e2d17514bde1faa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "3. 我能在走访后表达自己的收获",
+          "excerpt_hash": "d265348280bdb0a25b30456d8d2ccdedb131c2b4da03d25b0a4c6537d5a3bc42",
+          "pdf_page": 58,
+          "printed_page": "52",
+          "span_id": "tes_1db00345407bffe5"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_3da61ba5f9fa36d4"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_3da61ba5f9fa36d4",
+          "label": "用恰当词语表达自己的情绪体验与审美感受"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_a7f03fcf5f700979",
+      "node_title": "3我能在走访后表达自己的收获",
+      "pdf_page": 58,
+      "printed_page": "52",
+      "publication_status": "published",
+      "rationale": "教材课文“3我能在走访后表达自己的收获”与课标 AR-D2-AA-001 的可教学小能力“用恰当词语表达自己的情绪体验与审美感受”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8e2d17514bde1faa",
+      "unit_title": "第六单元 多姿多彩的民间美术"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_3106f4e49635655e",

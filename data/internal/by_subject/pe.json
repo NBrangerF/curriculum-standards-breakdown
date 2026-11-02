@@ -1,5 +1,5 @@
 {
-  "capability_graph_build_id": "capability-graph-4f2588e6-4f44a9f16b-794e0d54d6",
+  "capability_graph_build_id": "capability-graph-4f2588e6-4f44a9f16b-b846d0b0a9",
   "capability_graph_schema_version": "1.1.0",
   "columns": [
     "art_discipline",
@@ -8445,7 +8445,7 @@
             "external_smartedu_2026_pe_primary_grade_4_full",
             "tes_b90011c03faafdc4",
             "textbook-node:tcn_61403de4dfbda7a3",
-            "textbook-unit:tcu_da3e4b44a8f22ef4"
+            "textbook-unit:tcu_1dc19f957a94a6e2"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -8483,8 +8483,8 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康4年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_da3e4b44a8f22ef4",
-          "unit_title": "健康行为与生活方式"
+          "unit_id": "tcu_1dc19f957a94a6e2",
+          "unit_title": "第二单元 健康行为与生活方式"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -8500,7 +8500,7 @@
             "external_smartedu_2026_pe_primary_grade_4_full",
             "tes_f9e96e6159164593",
             "textbook-node:tcn_4dd71c0b2aaca34f",
-            "textbook-unit:tcu_da3e4b44a8f22ef4"
+            "textbook-unit:tcu_1dc19f957a94a6e2"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -8538,8 +8538,8 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康4年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_da3e4b44a8f22ef4",
-          "unit_title": "健康行为与生活方式"
+          "unit_id": "tcu_1dc19f957a94a6e2",
+          "unit_title": "第二单元 健康行为与生活方式"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -11778,71 +11778,16 @@
       "context": "课堂",
       "curriculum_alignment_summary": {
         "candidate_count": 0,
-        "disposition": "unit_aligned",
-        "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+        "disposition": "scope_aligned_no_unit_evidence",
+        "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
         "gap_reason": null,
-        "highest_evidence_level": "L2_topic",
+        "highest_evidence_level": "L1_scope",
         "page_evidence_count": 0,
         "scope_count": 2,
-        "specific_count": 1,
+        "specific_count": 0,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
-        {
-          "algorithm_version": "component-evidence-hybrid-v3",
-          "alignment_id": "tca_8cce74d7cec8cb83",
-          "alignment_type": "supports",
-          "confidence": 0.86,
-          "coverage": "partial",
-          "edition_id": "ed_a55f3aca2c3963472bc9",
-          "evidence_basis": "toc_title",
-          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-          "evidence_level": "L2_topic",
-          "evidence_refs": [
-            "external_smartedu_2026_pe_primary_grade_4_full",
-            "tes_bfc7d1765df062b7",
-            "textbook-node:tcn_adbf3abeacf7e061",
-            "textbook-unit:tcu_924d8ac592206d9e"
-          ],
-          "evidence_role": "direct_textbook",
-          "evidence_spans": [
-            {
-              "evidence_role": "direct_textbook",
-              "excerpt": "10 冻伤的预防与处理",
-              "excerpt_hash": "a1ba2a061738762a1335bda317a2771d75f7df719eb0bb0692da368a5c0f2125",
-              "pdf_page": 43,
-              "printed_page": "38",
-              "span_id": "tes_bfc7d1765df062b7"
-            }
-          ],
-          "learning_component_ids": [
-            "lc_b03bf7285c52d541"
-          ],
-          "learning_components": [
-            {
-              "component_id": "lc_b03bf7285c52d541",
-              "label": "识别并说出运动伤病的预防与简单处理方法（热身、放松、扭伤处理等）的关键特征"
-            }
-          ],
-          "level": "unit",
-          "method": "component_evidence_hybrid",
-          "node_id": "tcn_adbf3abeacf7e061",
-          "node_title": "10冻伤的预防与处理",
-          "pdf_page": 43,
-          "printed_page": "38",
-          "publication_status": "published",
-          "rationale": "教材课文“10冻伤的预防与处理”与课标 PE-D2-HB-013 的可教学小能力“识别并说出运动伤病的预防与简单处理方法（热身、放松、扭伤处理等）的关键特征”形成页内证据匹配。",
-          "relation_type": "supports",
-          "resource_type": "student_textbook",
-          "review_status": "machine_checked",
-          "revision_status": "current_confirmed",
-          "textbook_grade": 4,
-          "textbook_subject": "体育与健康",
-          "textbook_title": "体育与健康4年级全一册",
-          "textbook_volume": "全一册",
-          "unit_id": "tcu_924d8ac592206d9e",
-          "unit_title": "疾病预防与安全应急"
-        },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
           "alignment_id": "ca_c56d75a38c3b0dba",
@@ -13245,7 +13190,7 @@
             "external_smartedu_2026_pe_primary_grade_4_full",
             "tes_6a60f7882bdaa6e7",
             "textbook-node:tcn_0add9bf9c9a5f3d8",
-            "textbook-unit:tcu_da3e4b44a8f22ef4"
+            "textbook-unit:tcu_1dc19f957a94a6e2"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -13283,8 +13228,8 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康4年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_da3e4b44a8f22ef4",
-          "unit_title": "健康行为与生活方式"
+          "unit_id": "tcu_1dc19f957a94a6e2",
+          "unit_title": "第二单元 健康行为与生活方式"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -19816,71 +19761,16 @@
       "context": "课堂/家庭",
       "curriculum_alignment_summary": {
         "candidate_count": 0,
-        "disposition": "unit_aligned",
-        "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+        "disposition": "scope_aligned_no_unit_evidence",
+        "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
         "gap_reason": null,
-        "highest_evidence_level": "L2_topic",
+        "highest_evidence_level": "L1_scope",
         "page_evidence_count": 0,
         "scope_count": 2,
-        "specific_count": 1,
+        "specific_count": 0,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
-        {
-          "algorithm_version": "component-evidence-hybrid-v3",
-          "alignment_id": "tca_53138bb88fe10f1b",
-          "alignment_type": "supports",
-          "confidence": 0.86,
-          "coverage": "partial",
-          "edition_id": "ed_f29b2a400362deb01c18",
-          "evidence_basis": "toc_title",
-          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-          "evidence_level": "L2_topic",
-          "evidence_refs": [
-            "external_smartedu_2026_pe_primary_grade_5_full",
-            "tes_67e6a8d0e705807a",
-            "textbook-node:tcn_7a37289c250ac854",
-            "textbook-unit:tcu_4c6106c28182cdae"
-          ],
-          "evidence_role": "direct_textbook",
-          "evidence_spans": [
-            {
-              "evidence_role": "direct_textbook",
-              "excerpt": "6 视力不良的防控",
-              "excerpt_hash": "47962a3318ef7a5c941c6f32539a8da93320a5e958ecef6e660575f60ac66a4d",
-              "pdf_page": 37,
-              "printed_page": "32",
-              "span_id": "tes_67e6a8d0e705807a"
-            }
-          ],
-          "learning_component_ids": [
-            "lc_8fbf8f5536a89e0c"
-          ],
-          "learning_components": [
-            {
-              "component_id": "lc_8fbf8f5536a89e0c",
-              "label": "用自己的话解释视力不良对生活质量与运动参与的影响"
-            }
-          ],
-          "level": "unit",
-          "method": "component_evidence_hybrid",
-          "node_id": "tcn_7a37289c250ac854",
-          "node_title": "6视力不良的防控",
-          "pdf_page": 37,
-          "printed_page": "32",
-          "publication_status": "published",
-          "rationale": "教材课文“6视力不良的防控”与课标 PE-D3-HB-010 的可教学小能力“用自己的话解释视力不良对生活质量与运动参与的影响”形成页内证据匹配。",
-          "relation_type": "supports",
-          "resource_type": "student_textbook",
-          "review_status": "machine_checked",
-          "revision_status": "current_confirmed",
-          "textbook_grade": 5,
-          "textbook_subject": "体育与健康",
-          "textbook_title": "体育与健康5年级全一册",
-          "textbook_volume": "全一册",
-          "unit_id": "tcu_4c6106c28182cdae",
-          "unit_title": "体育文化与体育精神"
-        },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
           "alignment_id": "ca_33978b88fbbecca5",
@@ -20192,7 +20082,7 @@
             "external_smartedu_2026_pe_primary_grade_5_full",
             "tes_c8a7df854e65d3fc",
             "textbook-node:tcn_1201a11759d4c9e6",
-            "textbook-unit:tcu_f824028c55823a51"
+            "textbook-unit:tcu_e0baf2cba8da1c69"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -20230,8 +20120,8 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康5年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_f824028c55823a51",
-          "unit_title": "疾病预防与安全应急"
+          "unit_id": "tcu_e0baf2cba8da1c69",
+          "unit_title": "第四单元 疾病预防与安全应急"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -21432,71 +21322,16 @@
       "context": "健康课/安全教育周",
       "curriculum_alignment_summary": {
         "candidate_count": 0,
-        "disposition": "unit_aligned",
-        "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+        "disposition": "scope_aligned_no_unit_evidence",
+        "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
         "gap_reason": null,
-        "highest_evidence_level": "L2_topic",
+        "highest_evidence_level": "L1_scope",
         "page_evidence_count": 0,
         "scope_count": 2,
-        "specific_count": 1,
+        "specific_count": 0,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
-        {
-          "algorithm_version": "component-evidence-hybrid-v3",
-          "alignment_id": "tca_7d98a6368cf012e0",
-          "alignment_type": "supports",
-          "confidence": 0.92,
-          "coverage": "partial",
-          "edition_id": "ed_8bab438fd4937fe33573",
-          "evidence_basis": "toc_title",
-          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-          "evidence_level": "L2_topic",
-          "evidence_refs": [
-            "external_smartedu_2026_pe_primary_grade_6_full",
-            "tes_2b0dd535c0771cc0",
-            "textbook-node:tcn_e45c032b2649d700",
-            "textbook-unit:tcu_d7e7231d1c14800e"
-          ],
-          "evidence_role": "direct_textbook",
-          "evidence_spans": [
-            {
-              "evidence_role": "direct_textbook",
-              "excerpt": "9 心肺复苏的方法",
-              "excerpt_hash": "731283e3befdd2993908bead51de02f0fb0476721319df21f2a9e5e64d584bbf",
-              "pdf_page": 55,
-              "printed_page": null,
-              "span_id": "tes_2b0dd535c0771cc0"
-            }
-          ],
-          "learning_component_ids": [
-            "lc_3b88079635583eb5"
-          ],
-          "learning_components": [
-            {
-              "component_id": "lc_3b88079635583eb5",
-              "label": "准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练"
-            }
-          ],
-          "level": "unit",
-          "method": "component_evidence_hybrid",
-          "node_id": "tcn_e45c032b2649d700",
-          "node_title": "9心肺复苏的方法",
-          "pdf_page": 55,
-          "printed_page": null,
-          "publication_status": "published",
-          "rationale": "教材课文“9心肺复苏的方法”与课标 PE-D3-HB-015 的可教学小能力“准确说出骨折和心肺复苏的处理原则与正确处理方法，在教师指导下能完成模拟演练”形成页内证据匹配。",
-          "relation_type": "supports",
-          "resource_type": "student_textbook",
-          "review_status": "machine_checked",
-          "revision_status": "current_confirmed",
-          "textbook_grade": 6,
-          "textbook_subject": "体育与健康",
-          "textbook_title": "体育与健康6年级全一册",
-          "textbook_volume": "全一册",
-          "unit_id": "tcu_d7e7231d1c14800e",
-          "unit_title": "健康行为与生活方式"
-        },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
           "alignment_id": "ca_61146057a5bd30ba",
@@ -21813,7 +21648,7 @@
             "external_smartedu_2026_pe_primary_grade_5_full",
             "tes_939be567ac7ec76d",
             "textbook-node:tcn_29b9aa3326cd6da5",
-            "textbook-unit:tcu_4c6106c28182cdae"
+            "textbook-unit:tcu_e74381a0b3ca7bb2"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -21856,8 +21691,8 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康5年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_4c6106c28182cdae",
-          "unit_title": "体育文化与体育精神"
+          "unit_id": "tcu_e74381a0b3ca7bb2",
+          "unit_title": "第一单元 体育文化与体育精神"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -69224,61 +69059,6 @@
       "curriculum_alignments": [
         {
           "algorithm_version": "component-evidence-hybrid-v3",
-          "alignment_id": "tca_48d20d430bce7b23",
-          "alignment_type": "supports",
-          "confidence": 0.86,
-          "coverage": "partial",
-          "edition_id": "ed_edad04fc8816a4ef583f",
-          "evidence_basis": "textbook_page_span",
-          "evidence_gap": null,
-          "evidence_level": "L3_page_evidence",
-          "evidence_refs": [
-            "external_smartedu_2026_pe_junior_grade_9_full",
-            "tes_81ac2024c073d8fe",
-            "textbook-node:tcn_f02d3c0b5b79cf4d",
-            "textbook-unit:tcu_0833aed1abb6b8de"
-          ],
-          "evidence_role": "direct_textbook",
-          "evidence_spans": [
-            {
-              "evidence_role": "direct_textbook",
-              "excerpt": "坚持体育锻炼,使自己更加健康、更具魅力了。",
-              "excerpt_hash": "68e4a1c8133558c1800ebe8bafbf82d6249aa68e2fc903051acdeca7ce96f810",
-              "pdf_page": 8,
-              "printed_page": "3",
-              "span_id": "tes_81ac2024c073d8fe"
-            }
-          ],
-          "learning_component_ids": [
-            "lc_3ed8e408036aff4e"
-          ],
-          "learning_components": [
-            {
-              "component_id": "lc_3ed8e408036aff4e",
-              "label": "有规律地参与校内外体育锻炼"
-            }
-          ],
-          "level": "page",
-          "method": "component_evidence_hybrid",
-          "node_id": "tcn_f02d3c0b5b79cf4d",
-          "node_title": "坚持体育锻炼,使自己更加健康、更具魅力了。",
-          "pdf_page": 8,
-          "printed_page": "3",
-          "publication_status": "published",
-          "rationale": "教材学习目标“坚持体育锻炼,使自己更加健康、更具魅力了。”与课标 PE-H4G9-HB-003 的可教学小能力“有规律地参与校内外体育锻炼”形成页内证据匹配。",
-          "relation_type": "supports",
-          "resource_type": "student_textbook",
-          "review_status": "machine_checked",
-          "revision_status": "current_confirmed",
-          "textbook_grade": 9,
-          "textbook_subject": "体育与健康",
-          "textbook_title": "体育与健康9年级全一册",
-          "textbook_volume": "全一册",
-          "unit_id": "tcu_0833aed1abb6b8de",
-          "unit_title": "第一单元体育文化与体育精神"
-        },
-        {
-          "algorithm_version": "component-evidence-hybrid-v3",
           "alignment_id": "tca_27ce53b0914aec0e",
           "alignment_type": "practices",
           "confidence": 0.86,
@@ -69291,7 +69071,7 @@
             "external_smartedu_2026_pe_junior_grade_9_full",
             "tes_c660c2e6562a245c",
             "textbook-node:tcn_ee0a827f9a186151",
-            "textbook-unit:tcu_8e68cdd4a1259872"
+            "textbook-unit:tcu_2d67178c9a834131"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -69329,8 +69109,63 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康9年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_8e68cdd4a1259872",
-          "unit_title": "第四单元疾病预防与安全应急"
+          "unit_id": "tcu_2d67178c9a834131",
+          "unit_title": "第四单元 疾病预防与安全应急"
+        },
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_48d20d430bce7b23",
+          "alignment_type": "supports",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_edad04fc8816a4ef583f",
+          "evidence_basis": "textbook_page_span",
+          "evidence_gap": null,
+          "evidence_level": "L3_page_evidence",
+          "evidence_refs": [
+            "external_smartedu_2026_pe_junior_grade_9_full",
+            "tes_81ac2024c073d8fe",
+            "textbook-node:tcn_f02d3c0b5b79cf4d",
+            "textbook-unit:tcu_cc3109c9c3fd5b36"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "坚持体育锻炼,使自己更加健康、更具魅力了。",
+              "excerpt_hash": "68e4a1c8133558c1800ebe8bafbf82d6249aa68e2fc903051acdeca7ce96f810",
+              "pdf_page": 8,
+              "printed_page": "3",
+              "span_id": "tes_81ac2024c073d8fe"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_3ed8e408036aff4e"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_3ed8e408036aff4e",
+              "label": "有规律地参与校内外体育锻炼"
+            }
+          ],
+          "level": "page",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_f02d3c0b5b79cf4d",
+          "node_title": "坚持体育锻炼,使自己更加健康、更具魅力了。",
+          "pdf_page": 8,
+          "printed_page": "3",
+          "publication_status": "published",
+          "rationale": "教材学习目标“坚持体育锻炼,使自己更加健康、更具魅力了。”与课标 PE-H4G9-HB-003 的可教学小能力“有规律地参与校内外体育锻炼”形成页内证据匹配。",
+          "relation_type": "supports",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 9,
+          "textbook_subject": "体育与健康",
+          "textbook_title": "体育与健康9年级全一册",
+          "textbook_volume": "全一册",
+          "unit_id": "tcu_cc3109c9c3fd5b36",
+          "unit_title": "第一单元 体育文化与体育精神"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -69750,61 +69585,6 @@
       "curriculum_alignments": [
         {
           "algorithm_version": "component-evidence-hybrid-v3",
-          "alignment_id": "tca_3201f858a9257d9c",
-          "alignment_type": "practices",
-          "confidence": 0.92,
-          "coverage": "partial",
-          "edition_id": "ed_edad04fc8816a4ef583f",
-          "evidence_basis": "textbook_page_span",
-          "evidence_gap": null,
-          "evidence_level": "L3_page_evidence",
-          "evidence_refs": [
-            "external_smartedu_2026_pe_junior_grade_9_full",
-            "tes_353ea4e3c06f9f3f",
-            "textbook-node:tcn_527b94c4114b03b5",
-            "textbook-unit:tcu_0833aed1abb6b8de"
-          ],
-          "evidence_role": "direct_textbook",
-          "evidence_spans": [
-            {
-              "evidence_role": "direct_textbook",
-              "excerpt": "判断能力,应积极参加球类等对抗类运动项目,参加体育运动,促进大脑功能",
-              "excerpt_hash": "71f266859b3382f7daa87a8676e6f58e956abc12c3b9c62365d0d1f7443b128c",
-              "pdf_page": 9,
-              "printed_page": "4",
-              "span_id": "tes_353ea4e3c06f9f3f"
-            }
-          ],
-          "learning_component_ids": [
-            "lc_8cfa0998269895f8"
-          ],
-          "learning_components": [
-            {
-              "component_id": "lc_8cfa0998269895f8",
-              "label": "正确运用所学田径类运动项目的完整动作技术完成任务"
-            }
-          ],
-          "level": "page",
-          "method": "component_evidence_hybrid",
-          "node_id": "tcn_527b94c4114b03b5",
-          "node_title": "判断能力,应积极参加球类等对抗类运动项目,参加体育运动,促进大脑功能",
-          "pdf_page": 9,
-          "printed_page": "4",
-          "publication_status": "published",
-          "rationale": "教材练习“判断能力,应积极参加球类等对抗类运动项目,参加体育运动,促进大脑功能”与课标 PE-H4G9-HB-006 的可教学小能力“正确运用所学田径类运动项目的完整动作技术完成任务”形成页内证据匹配。",
-          "relation_type": "practices",
-          "resource_type": "student_textbook",
-          "review_status": "machine_checked",
-          "revision_status": "current_confirmed",
-          "textbook_grade": 9,
-          "textbook_subject": "体育与健康",
-          "textbook_title": "体育与健康9年级全一册",
-          "textbook_volume": "全一册",
-          "unit_id": "tcu_0833aed1abb6b8de",
-          "unit_title": "第一单元体育文化与体育精神"
-        },
-        {
-          "algorithm_version": "component-evidence-hybrid-v3",
           "alignment_id": "tca_5cd3898f09f74e7d",
           "alignment_type": "practices",
           "confidence": 0.86,
@@ -69817,7 +69597,7 @@
             "external_smartedu_2026_pe_junior_grade_9_full",
             "tes_84f93e88770e6b4d",
             "textbook-node:tcn_e336be15e30a5464",
-            "textbook-unit:tcu_8e68cdd4a1259872"
+            "textbook-unit:tcu_2d67178c9a834131"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -69855,8 +69635,63 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康9年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_8e68cdd4a1259872",
-          "unit_title": "第四单元疾病预防与安全应急"
+          "unit_id": "tcu_2d67178c9a834131",
+          "unit_title": "第四单元 疾病预防与安全应急"
+        },
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_3201f858a9257d9c",
+          "alignment_type": "practices",
+          "confidence": 0.92,
+          "coverage": "partial",
+          "edition_id": "ed_edad04fc8816a4ef583f",
+          "evidence_basis": "textbook_page_span",
+          "evidence_gap": null,
+          "evidence_level": "L3_page_evidence",
+          "evidence_refs": [
+            "external_smartedu_2026_pe_junior_grade_9_full",
+            "tes_353ea4e3c06f9f3f",
+            "textbook-node:tcn_527b94c4114b03b5",
+            "textbook-unit:tcu_cc3109c9c3fd5b36"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "判断能力,应积极参加球类等对抗类运动项目,参加体育运动,促进大脑功能",
+              "excerpt_hash": "71f266859b3382f7daa87a8676e6f58e956abc12c3b9c62365d0d1f7443b128c",
+              "pdf_page": 9,
+              "printed_page": "4",
+              "span_id": "tes_353ea4e3c06f9f3f"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_8cfa0998269895f8"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_8cfa0998269895f8",
+              "label": "正确运用所学田径类运动项目的完整动作技术完成任务"
+            }
+          ],
+          "level": "page",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_527b94c4114b03b5",
+          "node_title": "判断能力,应积极参加球类等对抗类运动项目,参加体育运动,促进大脑功能",
+          "pdf_page": 9,
+          "printed_page": "4",
+          "publication_status": "published",
+          "rationale": "教材练习“判断能力,应积极参加球类等对抗类运动项目,参加体育运动,促进大脑功能”与课标 PE-H4G9-HB-006 的可教学小能力“正确运用所学田径类运动项目的完整动作技术完成任务”形成页内证据匹配。",
+          "relation_type": "practices",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 9,
+          "textbook_subject": "体育与健康",
+          "textbook_title": "体育与健康9年级全一册",
+          "textbook_volume": "全一册",
+          "unit_id": "tcu_cc3109c9c3fd5b36",
+          "unit_title": "第一单元 体育文化与体育精神"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -70707,7 +70542,7 @@
         "highest_evidence_level": "L3_page_evidence",
         "page_evidence_count": 4,
         "scope_count": 1,
-        "specific_count": 5,
+        "specific_count": 4,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
@@ -70725,7 +70560,7 @@
             "external_smartedu_2026_pe_junior_grade_9_full",
             "tes_8a6bf2a60b0f0d3f",
             "textbook-node:tcn_644267d622447c0b",
-            "textbook-unit:tcu_0833aed1abb6b8de"
+            "textbook-unit:tcu_cc3109c9c3fd5b36"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -70768,8 +70603,8 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康9年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_0833aed1abb6b8de",
-          "unit_title": "第一单元体育文化与体育精神"
+          "unit_id": "tcu_cc3109c9c3fd5b36",
+          "unit_title": "第一单元 体育文化与体育精神"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -70785,7 +70620,7 @@
             "external_smartedu_2026_pe_junior_grade_9_full",
             "tes_97709d8448763d4c",
             "textbook-node:tcn_aa2b4d29b6372ccd",
-            "textbook-unit:tcu_0833aed1abb6b8de"
+            "textbook-unit:tcu_cc3109c9c3fd5b36"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -70828,8 +70663,8 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康9年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_0833aed1abb6b8de",
-          "unit_title": "第一单元体育文化与体育精神"
+          "unit_id": "tcu_cc3109c9c3fd5b36",
+          "unit_title": "第一单元 体育文化与体育精神"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -70845,7 +70680,7 @@
             "external_smartedu_2026_pe_junior_grade_9_full",
             "tes_0df4ba5be7a79c65",
             "textbook-node:tcn_7d24c69400fd2ff1",
-            "textbook-unit:tcu_0833aed1abb6b8de"
+            "textbook-unit:tcu_cc3109c9c3fd5b36"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -70888,8 +70723,8 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康9年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_0833aed1abb6b8de",
-          "unit_title": "第一单元体育文化与体育精神"
+          "unit_id": "tcu_cc3109c9c3fd5b36",
+          "unit_title": "第一单元 体育文化与体育精神"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -70905,7 +70740,7 @@
             "external_smartedu_2026_pe_junior_grade_9_full",
             "tes_353ea4e3c06f9f3f",
             "textbook-node:tcn_527b94c4114b03b5",
-            "textbook-unit:tcu_0833aed1abb6b8de"
+            "textbook-unit:tcu_cc3109c9c3fd5b36"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -70948,68 +70783,8 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康9年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_0833aed1abb6b8de",
-          "unit_title": "第一单元体育文化与体育精神"
-        },
-        {
-          "algorithm_version": "component-evidence-hybrid-v3",
-          "alignment_id": "tca_d79dac9da46ca1c1",
-          "alignment_type": "supports",
-          "confidence": 0.86,
-          "coverage": "partial",
-          "edition_id": "ed_edad04fc8816a4ef583f",
-          "evidence_basis": "toc_title",
-          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-          "evidence_level": "L2_topic",
-          "evidence_refs": [
-            "external_smartedu_2026_pe_junior_grade_9_full",
-            "tes_038ef1c4873a5f01",
-            "textbook-node:tcn_1947326d6ca21e7e",
-            "textbook-unit:tcu_0833aed1abb6b8de"
-          ],
-          "evidence_role": "direct_textbook",
-          "evidence_spans": [
-            {
-              "evidence_role": "direct_textbook",
-              "excerpt": "1 体育运动助力精彩人生",
-              "excerpt_hash": "71b976bc69fedb132d99394d896a5f031f31d9fe556c0acd11a1739c8a6f82a3",
-              "pdf_page": 7,
-              "printed_page": "2",
-              "span_id": "tes_038ef1c4873a5f01"
-            }
-          ],
-          "learning_component_ids": [
-            "lc_a080b2e7b7a8d668",
-            "lc_a1ad289a24109f69"
-          ],
-          "learning_components": [
-            {
-              "component_id": "lc_a080b2e7b7a8d668",
-              "label": "正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务"
-            },
-            {
-              "component_id": "lc_a1ad289a24109f69",
-              "label": "用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用"
-            }
-          ],
-          "level": "unit",
-          "method": "component_evidence_hybrid",
-          "node_id": "tcn_1947326d6ca21e7e",
-          "node_title": "1体育运动助力精彩人生",
-          "pdf_page": 7,
-          "printed_page": "2",
-          "publication_status": "published",
-          "rationale": "教材课文“1体育运动助力精彩人生”与课标 PE-H4G9-HB-012 的可教学小能力“正确运用体育运动中体温、脉搏等自我测评和监控方法完成任务、用自己的话解释体育运动对促进大脑健康、调控情绪、释放压力、预防焦虑和抑郁的作用”形成页内证据匹配。",
-          "relation_type": "supports",
-          "resource_type": "student_textbook",
-          "review_status": "machine_checked",
-          "revision_status": "current_confirmed",
-          "textbook_grade": 9,
-          "textbook_subject": "体育与健康",
-          "textbook_title": "体育与健康9年级全一册",
-          "textbook_volume": "全一册",
-          "unit_id": "tcu_0833aed1abb6b8de",
-          "unit_title": "第一单元体育文化与体育精神"
+          "unit_id": "tcu_cc3109c9c3fd5b36",
+          "unit_title": "第一单元 体育文化与体育精神"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -72208,61 +71983,6 @@
       "curriculum_alignments": [
         {
           "algorithm_version": "component-evidence-hybrid-v3",
-          "alignment_id": "tca_f0ee2b637cf80f6d",
-          "alignment_type": "supports",
-          "confidence": 0.86,
-          "coverage": "partial",
-          "edition_id": "ed_edad04fc8816a4ef583f",
-          "evidence_basis": "textbook_page_span",
-          "evidence_gap": null,
-          "evidence_level": "L3_page_evidence",
-          "evidence_refs": [
-            "external_smartedu_2026_pe_junior_grade_9_full",
-            "tes_c034c9b103c78eea",
-            "textbook-node:tcn_24e75c3234f899c3",
-            "textbook-unit:tcu_0833aed1abb6b8de"
-          ],
-          "evidence_role": "direct_textbook",
-          "evidence_spans": [
-            {
-              "evidence_role": "direct_textbook",
-              "excerpt": "在参加适宜的体育活动后,感觉注意力更集中、精力更充沛,学习效率更高了。",
-              "excerpt_hash": "c87eb081a74d72c5521219c9f36f960c7c7db2f19dd8ca686c75fd007a04b2c9",
-              "pdf_page": 8,
-              "printed_page": "3",
-              "span_id": "tes_c034c9b103c78eea"
-            }
-          ],
-          "learning_component_ids": [
-            "lc_07c8d6a4c9613d1d"
-          ],
-          "learning_components": [
-            {
-              "component_id": "lc_07c8d6a4c9613d1d",
-              "label": "积极应对体育活动中遇到的困难"
-            }
-          ],
-          "level": "page",
-          "method": "component_evidence_hybrid",
-          "node_id": "tcn_24e75c3234f899c3",
-          "node_title": "在参加适宜的体育活动后,感觉注意力更集中、精力更充沛,学习效率更高了。",
-          "pdf_page": 8,
-          "printed_page": "3",
-          "publication_status": "published",
-          "rationale": "教材学习目标“在参加适宜的体育活动后,感觉注意力更集中、精力更充沛,学习效率更高了。”与课标 PE-H4G9-SD-003 的可教学小能力“积极应对体育活动中遇到的困难”形成页内证据匹配。",
-          "relation_type": "supports",
-          "resource_type": "student_textbook",
-          "review_status": "machine_checked",
-          "revision_status": "current_confirmed",
-          "textbook_grade": 9,
-          "textbook_subject": "体育与健康",
-          "textbook_title": "体育与健康9年级全一册",
-          "textbook_volume": "全一册",
-          "unit_id": "tcu_0833aed1abb6b8de",
-          "unit_title": "第一单元体育文化与体育精神"
-        },
-        {
-          "algorithm_version": "component-evidence-hybrid-v3",
           "alignment_id": "tca_5df6ccb5e142b7c7",
           "alignment_type": "supports",
           "confidence": 0.86,
@@ -72275,7 +71995,7 @@
             "external_smartedu_2026_pe_junior_grade_9_full",
             "tes_6b0a6c44a986209f",
             "textbook-node:tcn_f94bd760a75ddcff",
-            "textbook-unit:tcu_e37cc61c2ae62802"
+            "textbook-unit:tcu_532f8788e5005d71"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -72313,8 +72033,63 @@
           "textbook_subject": "体育与健康",
           "textbook_title": "体育与健康9年级全一册",
           "textbook_volume": "全一册",
-          "unit_id": "tcu_e37cc61c2ae62802",
-          "unit_title": "第三单元心理健康与社会适应"
+          "unit_id": "tcu_532f8788e5005d71",
+          "unit_title": "第三单元 心理健康与社会适应"
+        },
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_f0ee2b637cf80f6d",
+          "alignment_type": "supports",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_edad04fc8816a4ef583f",
+          "evidence_basis": "textbook_page_span",
+          "evidence_gap": null,
+          "evidence_level": "L3_page_evidence",
+          "evidence_refs": [
+            "external_smartedu_2026_pe_junior_grade_9_full",
+            "tes_c034c9b103c78eea",
+            "textbook-node:tcn_24e75c3234f899c3",
+            "textbook-unit:tcu_cc3109c9c3fd5b36"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "在参加适宜的体育活动后,感觉注意力更集中、精力更充沛,学习效率更高了。",
+              "excerpt_hash": "c87eb081a74d72c5521219c9f36f960c7c7db2f19dd8ca686c75fd007a04b2c9",
+              "pdf_page": 8,
+              "printed_page": "3",
+              "span_id": "tes_c034c9b103c78eea"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_07c8d6a4c9613d1d"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_07c8d6a4c9613d1d",
+              "label": "积极应对体育活动中遇到的困难"
+            }
+          ],
+          "level": "page",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_24e75c3234f899c3",
+          "node_title": "在参加适宜的体育活动后,感觉注意力更集中、精力更充沛,学习效率更高了。",
+          "pdf_page": 8,
+          "printed_page": "3",
+          "publication_status": "published",
+          "rationale": "教材学习目标“在参加适宜的体育活动后,感觉注意力更集中、精力更充沛,学习效率更高了。”与课标 PE-H4G9-SD-003 的可教学小能力“积极应对体育活动中遇到的困难”形成页内证据匹配。",
+          "relation_type": "supports",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 9,
+          "textbook_subject": "体育与健康",
+          "textbook_title": "体育与健康9年级全一册",
+          "textbook_volume": "全一册",
+          "unit_id": "tcu_cc3109c9c3fd5b36",
+          "unit_title": "第一单元 体育文化与体育精神"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -74553,71 +74328,16 @@
       "context": "健康教育的学业质量合格标准，水平四。",
       "curriculum_alignment_summary": {
         "candidate_count": 0,
-        "disposition": "unit_aligned",
-        "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+        "disposition": "scope_aligned_no_unit_evidence",
+        "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
         "gap_reason": null,
-        "highest_evidence_level": "L2_topic",
+        "highest_evidence_level": "L1_scope",
         "page_evidence_count": 0,
         "scope_count": 1,
-        "specific_count": 1,
+        "specific_count": 0,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
-        {
-          "algorithm_version": "component-evidence-hybrid-v3",
-          "alignment_id": "tca_149232f13311786d",
-          "alignment_type": "supports",
-          "confidence": 0.86,
-          "coverage": "partial",
-          "edition_id": "ed_edad04fc8816a4ef583f",
-          "evidence_basis": "toc_title",
-          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-          "evidence_level": "L2_topic",
-          "evidence_refs": [
-            "external_smartedu_2026_pe_junior_grade_9_full",
-            "tes_1e1b589ecf527f45",
-            "textbook-node:tcn_9f39fbe368f7d938",
-            "textbook-unit:tcu_f26cb3d864d73efc"
-          ],
-          "evidence_role": "direct_textbook",
-          "evidence_spans": [
-            {
-              "evidence_role": "direct_textbook",
-              "excerpt": "2 好视力护航职业发展",
-              "excerpt_hash": "a999bff9b42acaca0bcb5becf84e188b857bf58143580a48c219bc968282ef6f",
-              "pdf_page": 15,
-              "printed_page": "10",
-              "span_id": "tes_1e1b589ecf527f45"
-            }
-          ],
-          "learning_component_ids": [
-            "lc_23ab09be90848cad"
-          ],
-          "learning_components": [
-            {
-              "component_id": "lc_23ab09be90848cad",
-              "label": "描述视力不良对职业发展的影响，积极保护视力"
-            }
-          ],
-          "level": "unit",
-          "method": "component_evidence_hybrid",
-          "node_id": "tcn_9f39fbe368f7d938",
-          "node_title": "2好视力护航职业发展",
-          "pdf_page": 15,
-          "printed_page": "10",
-          "publication_status": "published",
-          "rationale": "教材课文“2好视力护航职业发展”与课标 PE-H4G9-HB-001 的可教学小能力“描述视力不良对职业发展的影响，积极保护视力”形成页内证据匹配。",
-          "relation_type": "supports",
-          "resource_type": "student_textbook",
-          "review_status": "machine_checked",
-          "revision_status": "current_confirmed",
-          "textbook_grade": 9,
-          "textbook_subject": "体育与健康",
-          "textbook_title": "体育与健康9年级全一册",
-          "textbook_volume": "全一册",
-          "unit_id": "tcu_f26cb3d864d73efc",
-          "unit_title": "第二单元健康行为与生活方式"
-        },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
           "alignment_id": "ca_1d2f993bc8b1750a",

@@ -276,8 +276,8 @@
     "algorithm_version": "component-evidence-hybrid-v3",
     "alignment_count": 4,
     "automatic_content_unit_count": 0,
-    "content_node_count": 125,
-    "evidence_span_count": 46,
+    "content_node_count": 124,
+    "evidence_span_count": 45,
     "generated_alignment_count": 4,
     "native_text_ratio": 0.9701,
     "ocr_page_count": 0,
@@ -286,7 +286,7 @@
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
-    "reconciled_unit_range_count": 1,
+    "reconciled_unit_range_count": 0,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/cde6da9542abc7444e13688bbe8169efd1beb9631049be67c989743a1555f2c6/pages.jsonl",
@@ -373,7 +373,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_12427f16bfd9e9d9",
-      "parent_id": "tcn_b4b4a5958dd66fce",
+      "parent_id": null,
       "pdf_page": 5,
       "pdf_page_end": 5,
       "pdf_page_start": 5,
@@ -381,26 +381,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 5 页",
-      "unit_id": "tcu_4dbc9519b2cd3aed"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 22,
-      "end_printed_page": "17",
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_b4b4a5958dd66fce",
-      "parent_id": null,
-      "pdf_page": 5,
-      "pdf_page_end": 22,
-      "pdf_page_start": 5,
-      "printed_page": "2",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第一单元 体育文化与体育精神",
-      "title": "第一单元 体育文化与体育精神",
-      "toc_entry_id": "tcu_4dbc9519b2cd3aed",
-      "unit_id": "tcu_4dbc9519b2cd3aed"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -409,7 +390,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fb251d29fd85b67c",
-      "parent_id": "tcn_b4b4a5958dd66fce",
+      "parent_id": null,
       "pdf_page": 6,
       "pdf_page_end": 6,
       "pdf_page_start": 6,
@@ -417,7 +398,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 6 页",
-      "unit_id": "tcu_4dbc9519b2cd3aed"
+      "unit_id": null
     },
     {
       "confidence": 0.85,
@@ -456,23 +437,22 @@
       "unit_id": "tcu_4dbc9519b2cd3aed"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 9,
-      "end_printed_page": "2",
-      "evidence_span_ids": [
-        "tes_8423bbbfbecf0b3d"
-      ],
+      "confidence": 0.85,
+      "end_pdf_page": 22,
+      "end_printed_page": "17",
+      "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_e5b969625b33a81d",
-      "parent_id": "tcn_7d8c13c66b9c6915",
+      "node_id": "tcn_b4b4a5958dd66fce",
+      "parent_id": null,
       "pdf_page": 7,
-      "pdf_page_end": 9,
+      "pdf_page_end": 22,
       "pdf_page_start": 7,
       "printed_page": "2",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第一单元 体育文化与体育精神",
-      "title": "第一单元体育文化与体育精神",
+      "title": "第一单元 体育文化与体育精神",
+      "toc_entry_id": "tcu_4dbc9519b2cd3aed",
       "unit_id": "tcu_4dbc9519b2cd3aed"
     },
     {
@@ -2592,31 +2572,6 @@
     {
       "asset_sha256": "cde6da9542abc7444e13688bbe8169efd1beb9631049be67c989743a1555f2c6",
       "bbox": {
-        "height": 27.661,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 354.331,
-        "x": 53.858,
-        "y": 650.641
-      },
-      "edition_id": "ed_bebb65c5f3a6a181b33b",
-      "evidence_role": "heading",
-      "excerpt": "第一单元 体育文化与体育精神",
-      "excerpt_hash": "b77a469e17cfe4003ffe8f23d2987906e0f823ec632f14402c7b574b3e6f10de",
-      "node_id": "tcn_e5b969625b33a81d",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 7,
-      "printed_page": "2",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_8423bbbfbecf0b3d",
-      "text": "第一单元 体育文化与体育精神",
-      "text_hash": "b77a469e17cfe4003ffe8f23d2987906e0f823ec632f14402c7b574b3e6f10de"
-    },
-    {
-      "asset_sha256": "cde6da9542abc7444e13688bbe8169efd1beb9631049be67c989743a1555f2c6",
-      "bbox": {
         "height": 15.868,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -4252,7 +4207,7 @@
       "kind": "unit",
       "level": 1,
       "parent_id": null,
-      "pdf_page": 5,
+      "pdf_page": 7,
       "printed_page": "2",
       "range_provenance": {
         "algorithm_version": "sidecar-top-heading-unit-range-v2",
@@ -4278,18 +4233,18 @@
         "review_policy": "automatic_no_human_gate",
         "start_evidence": {
           "bbox": {
-            "height": 18,
+            "height": 27.661,
             "page_height": 737.008,
             "page_width": 521.575,
             "unit": "pdf_point",
-            "width": 287.244,
-            "x": 101.31,
-            "y": 556.279
+            "width": 354.331,
+            "x": 53.858,
+            "y": 650.641
           },
           "evidence_type": "unit_heading",
           "extraction_method": "pdfjs_text_layer",
-          "line_index": 1,
-          "pdf_page": 5,
+          "line_index": 0,
+          "pdf_page": 7,
           "verbatim_title": "第一单元 体育文化与体育精神"
         }
       },
@@ -4581,53 +4536,8 @@
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
     "auxiliary_boundary_evidence": null,
-    "changed_unit_range_count": 1,
-    "changes": [
-      {
-        "after": {
-          "end_pdf_page": 22,
-          "pdf_page": 5
-        },
-        "before": {
-          "end_pdf_page": 22,
-          "pdf_page": 7
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 27.661,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 354.331,
-            "x": 53.858,
-            "y": 650.641
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 23,
-          "verbatim_title": "第二单元 健康行为与生活方式"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 18,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 287.244,
-            "x": 101.31,
-            "y": 556.279
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 1,
-          "pdf_page": 5,
-          "verbatim_title": "第一单元 体育文化与体育精神"
-        },
-        "title": "第一单元 体育文化与体育精神",
-        "unit_id": "tcu_4dbc9519b2cd3aed"
-      }
-    ],
+    "changed_unit_range_count": 0,
+    "changes": [],
     "clamped_content_node_range_count": 0,
     "detached_auxiliary_content_node_count": 0,
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
@@ -4635,7 +4545,7 @@
     "inspected_page_count": 67,
     "provenance": "machine_generated",
     "publication_gate": false,
-    "reassigned_content_node_count": 65,
+    "reassigned_content_node_count": 64,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 1,
     "sidecar_sha256": "873052b5e2affdfba9cf896e87f1ee221c92755564d500dfd401590543360839",

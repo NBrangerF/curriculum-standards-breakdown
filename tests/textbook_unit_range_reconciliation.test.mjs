@@ -203,6 +203,16 @@ test('body mentions and titles below the top-line evidence window do not move bo
   assert.equal(result.report.auxiliary_boundary_evidence, null)
 })
 
+test('a unit title listed near the top of the 目录 page does not move the unit onto it', () => {
+  const contents = { edition_id: 'ed_contents_fixture', toc: [unit('unit_1', '第一单元 体育文化与体育精神', 7, 18), unit('unit_2', '第二单元 健康行为与生活方式', 19, 42)] }
+  const result = reconcileTextbookUnitRanges(contents, [
+    page(5, ['目 录', '第一单元 体育文化与体育精神', '1 公平竞争，追求卓越', '第二单元 健康行为与生活方式']),
+    page(7, ['第一单元 体育文化与体育精神', '1 公平竞争，追求卓越']),
+    page(19, ['第二单元 健康行为与生活方式'])
+  ])
+  assert.deepEqual(result.structure.toc.map(entry => [entry.pdf_page, entry.end_pdf_page]), [[7, 18], [19, 42]])
+})
+
 test('duplicate or invalid sidecar pages fail closed', () => {
   assert.throws(
     () => reconcileTextbookUnitRanges(structure, [page(28, ['UNIT 3']), page(28, ['UNIT 3'])]),

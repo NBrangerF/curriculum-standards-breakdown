@@ -161,9 +161,14 @@ function headingEvidence(page, line, evidenceType) {
   }
 }
 
+// A 目录 page lists every unit title, often as a line of its own near the top; a unit never starts there.
+function isContentsPage(page) {
+  return topLines(page, 3).some(line => /^(?:目\s*录|CONTENTS)$/u.test(line.normalized_title))
+}
+
 function firstExactHeading(pages, normalizedTitle, minimumPage, maximumPage, topLineLimit) {
   for (const page of pages) {
-    if (page.pdf_page < minimumPage || page.pdf_page > maximumPage) continue
+    if (page.pdf_page < minimumPage || page.pdf_page > maximumPage || isContentsPage(page)) continue
     const line = topLines(page, topLineLimit).find(candidate => candidate.normalized_title === normalizedTitle)
     if (line) return headingEvidence(page, line, 'unit_heading')
   }

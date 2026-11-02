@@ -44,16 +44,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 8,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_9d551c029c1f0f7c",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_26d72869b7188e2196d2",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_art_primary_grade_4_up",
+        "tes_1a1f67579eecf187",
+        "textbook-node:tcn_3bafd5461ea9674e",
+        "textbook-unit:tcu_8e2d17514bde1faa"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "想一想,民间艺术在当下生活中怎样焕发出新的光彩? 带有民间美术元素的城市雕塑52",
+          "excerpt_hash": "6c53deb4f0149c79cc277478c769a8a8a48a1bc0ca4351af07438bd776240db7",
+          "pdf_page": 58,
+          "printed_page": "52",
+          "span_id": "tes_1a1f67579eecf187"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_2adaf5c28e05923e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_2adaf5c28e05923e",
+          "label": "说出2—3种中国民间美术的类别（如剪纸、皮影、年画、泥塑、刺绣、蜡染等）"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3bafd5461ea9674e",
+      "node_title": "想一想,民间艺术在当下生活中怎样焕发出新的光彩? 带有民间美术元素的城市雕塑52",
+      "pdf_page": 58,
+      "printed_page": "52",
+      "publication_status": "published",
+      "rationale": "教材练习“想一想,民间艺术在当下生活中怎样焕发出新的光彩? 带有民间美术元素的城市雕塑52”与课标 AR-D2-CU-006 的可教学小能力“说出2—3种中国民间美术的类别（如剪纸、皮影、年画、泥塑、刺绣、蜡染等）”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 4,
+      "textbook_subject": "美术",
+      "textbook_title": "美术4年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_8e2d17514bde1faa",
+      "unit_title": "第六单元 多姿多彩的民间美术"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_173639c19cb4c027",

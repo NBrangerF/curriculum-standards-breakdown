@@ -1,5 +1,5 @@
 {
-  "capability_graph_build_id": "capability-graph-4f2588e6-4f44a9f16b-794e0d54d6",
+  "capability_graph_build_id": "capability-graph-4f2588e6-4f44a9f16b-b846d0b0a9",
   "capability_graph_schema_version": "1.1.0",
   "columns": [
     "art_discipline",
@@ -899,16 +899,71 @@
       "context": "在“听辨—动作—语言”链条中建立基本听觉分辨能力。",
       "curriculum_alignment_summary": {
         "candidate_count": 0,
-        "disposition": "scope_aligned_no_unit_evidence",
-        "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+        "disposition": "page_aligned",
+        "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
         "gap_reason": null,
-        "highest_evidence_level": "L1_scope",
-        "page_evidence_count": 0,
+        "highest_evidence_level": "L3_page_evidence",
+        "page_evidence_count": 1,
         "scope_count": 8,
-        "specific_count": 0,
+        "specific_count": 1,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_ba60f346e38f7b3c",
+          "alignment_type": "practices",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_ad1a73f100e4c37bdf97",
+          "evidence_basis": "textbook_page_span",
+          "evidence_gap": null,
+          "evidence_level": "L3_page_evidence",
+          "evidence_refs": [
+            "external_smartedu_2026_music_primary_grade_1_down",
+            "tes_13edfe501f3ac40f",
+            "textbook-node:tcn_187f28e9e0ec8c13",
+            "textbook-unit:tcu_9821925096001ff6"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "想一想,哪些打击乐器适合为歌曲《布谷》伴奏。",
+              "excerpt_hash": "950eaee1ed0cf4d924847484a98ab72126171d88fd50ccca10d251788a120791",
+              "pdf_page": 13,
+              "printed_page": "5",
+              "span_id": "tes_13edfe501f3ac40f"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_4568f9d5558e8d5e"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_4568f9d5558e8d5e",
+              "label": "听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色"
+            }
+          ],
+          "level": "page",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_187f28e9e0ec8c13",
+          "node_title": "想一想,哪些打击乐器适合为歌曲《布谷》伴奏。",
+          "pdf_page": 13,
+          "printed_page": "5",
+          "publication_status": "published",
+          "rationale": "教材练习“想一想,哪些打击乐器适合为歌曲《布谷》伴奏。”与课标 AR-D1-AA-008 的可教学小能力“听辨童声、女声和男声音色及常见打击乐器与其他常见乐器音色”形成页内证据匹配。",
+          "relation_type": "practices",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 1,
+          "textbook_subject": "音乐",
+          "textbook_title": "音乐1年级下册",
+          "textbook_volume": "下册",
+          "unit_id": "tcu_9821925096001ff6",
+          "unit_title": "第一单元 春天"
+        },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
           "alignment_id": "ca_3ea0b89d4dcaccd4",
@@ -21596,16 +21651,71 @@
       "context": "把听赏放进真实情境（开幕式音乐、影视配乐、节日音乐），让学生理解“音乐如何影响情绪与场景”。",
       "curriculum_alignment_summary": {
         "candidate_count": 0,
-        "disposition": "scope_aligned_no_unit_evidence",
-        "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+        "disposition": "unit_aligned",
+        "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
         "gap_reason": null,
-        "highest_evidence_level": "L1_scope",
+        "highest_evidence_level": "L2_topic",
         "page_evidence_count": 0,
         "scope_count": 8,
-        "specific_count": 0,
+        "specific_count": 1,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_858ec9bd64904a27",
+          "alignment_type": "supports",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_26d72869b7188e2196d2",
+          "evidence_basis": "toc_title",
+          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+          "evidence_level": "L2_topic",
+          "evidence_refs": [
+            "external_smartedu_2026_art_primary_grade_4_up",
+            "tes_1db00345407bffe5",
+            "textbook-node:tcn_a7f03fcf5f700979",
+            "textbook-unit:tcu_8e2d17514bde1faa"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "3. 我能在走访后表达自己的收获",
+              "excerpt_hash": "d265348280bdb0a25b30456d8d2ccdedb131c2b4da03d25b0a4c6537d5a3bc42",
+              "pdf_page": 58,
+              "printed_page": "52",
+              "span_id": "tes_1db00345407bffe5"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_3da61ba5f9fa36d4"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_3da61ba5f9fa36d4",
+              "label": "用恰当词语表达自己的情绪体验与审美感受"
+            }
+          ],
+          "level": "unit",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_a7f03fcf5f700979",
+          "node_title": "3我能在走访后表达自己的收获",
+          "pdf_page": 58,
+          "printed_page": "52",
+          "publication_status": "published",
+          "rationale": "教材课文“3我能在走访后表达自己的收获”与课标 AR-D2-AA-001 的可教学小能力“用恰当词语表达自己的情绪体验与审美感受”形成页内证据匹配。",
+          "relation_type": "supports",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 4,
+          "textbook_subject": "美术",
+          "textbook_title": "美术4年级上册",
+          "textbook_volume": "上册",
+          "unit_id": "tcu_8e2d17514bde1faa",
+          "unit_title": "第六单元 多姿多彩的民间美术"
+        },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
           "alignment_id": "ca_3106f4e49635655e",
@@ -23321,7 +23431,7 @@
             "external_smartedu_2026_art_primary_grade_4_up",
             "tes_bf38c871e57b9ec1",
             "textbook-node:tcn_7fd671ddf5a4b39d",
-            "textbook-unit:tcu_9fe407777a1cc4fa"
+            "textbook-unit:tcu_f72f7deee11e0adc"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -23359,8 +23469,8 @@
           "textbook_subject": "美术",
           "textbook_title": "美术4年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_9fe407777a1cc4fa",
-          "unit_title": "2. 厨房一角"
+          "unit_id": "tcu_f72f7deee11e0adc",
+          "unit_title": "第一单元 平凡事物 趣味生活"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -23376,7 +23486,7 @@
             "external_smartedu_2026_music_primary_grade_3_up",
             "tes_08dd145106455c5c",
             "textbook-node:tcn_643150ef8f7722ba",
-            "textbook-unit:tcu_3a5c36242afd8e33"
+            "textbook-unit:tcu_209476d30a6e0a52"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -23414,8 +23524,8 @@
           "textbook_subject": "音乐",
           "textbook_title": "音乐3年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_3a5c36242afd8e33",
-          "unit_title": "钟声"
+          "unit_id": "tcu_209476d30a6e0a52",
+          "unit_title": "第五单元 钟声"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -32228,7 +32338,7 @@
             "external_smartedu_2026_music_primary_grade_3_up",
             "tes_08dd145106455c5c",
             "textbook-node:tcn_643150ef8f7722ba",
-            "textbook-unit:tcu_3a5c36242afd8e33"
+            "textbook-unit:tcu_209476d30a6e0a52"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -32266,8 +32376,8 @@
           "textbook_subject": "音乐",
           "textbook_title": "音乐3年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_3a5c36242afd8e33",
-          "unit_title": "钟声"
+          "unit_id": "tcu_209476d30a6e0a52",
+          "unit_title": "第五单元 钟声"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -33430,12 +33540,67 @@
         "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
         "gap_reason": null,
         "highest_evidence_level": "L3_page_evidence",
-        "page_evidence_count": 1,
+        "page_evidence_count": 2,
         "scope_count": 8,
-        "specific_count": 1,
+        "specific_count": 2,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_a35dfecb90950b2a",
+          "alignment_type": "practices",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_26d72869b7188e2196d2",
+          "evidence_basis": "textbook_page_span",
+          "evidence_gap": null,
+          "evidence_level": "L3_page_evidence",
+          "evidence_refs": [
+            "external_smartedu_2026_art_primary_grade_4_up",
+            "tes_8c57f5e51c8d45d4",
+            "textbook-node:tcn_a966b8a72092e79a",
+            "textbook-unit:tcu_7e3ecf95bfc50984"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "想一想,我们还能用哪些有创意的形式来宣传当代建筑中的艺术",
+              "excerpt_hash": "6d64eaf5a7cb620d0d76ed994838acf01f37d7c44416fcdd2418713d751e3d01",
+              "pdf_page": 43,
+              "printed_page": "37",
+              "span_id": "tes_8c57f5e51c8d45d4"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_7c272232838a3c65"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_7c272232838a3c65",
+              "label": "创作2—3件富有创意的平面、立体或动态美术作品"
+            }
+          ],
+          "level": "page",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_a966b8a72092e79a",
+          "node_title": "想一想,我们还能用哪些有创意的形式来宣传当代建筑中的艺术",
+          "pdf_page": 43,
+          "printed_page": "37",
+          "publication_status": "published",
+          "rationale": "教材练习“想一想,我们还能用哪些有创意的形式来宣传当代建筑中的艺术”与课标 AR-D2-AE-003 的可教学小能力“创作2—3件富有创意的平面、立体或动态美术作品”形成页内证据匹配。",
+          "relation_type": "practices",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 4,
+          "textbook_subject": "美术",
+          "textbook_title": "美术4年级上册",
+          "textbook_volume": "上册",
+          "unit_id": "tcu_7e3ecf95bfc50984",
+          "unit_title": "第四单元 玩转科技 创艺无限"
+        },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
           "alignment_id": "tca_9b80c9ebd9e87412",
@@ -34593,7 +34758,7 @@
         "highest_evidence_level": "L3_page_evidence",
         "page_evidence_count": 1,
         "scope_count": 8,
-        "specific_count": 20,
+        "specific_count": 21,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
@@ -34611,7 +34776,7 @@
             "external_smartedu_2026_art_primary_grade_4_up",
             "tes_3c91c00f047cc255",
             "textbook-node:tcn_93a75b7682794dba",
-            "textbook-unit:tcu_9fe407777a1cc4fa"
+            "textbook-unit:tcu_f72f7deee11e0adc"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -34649,8 +34814,8 @@
           "textbook_subject": "美术",
           "textbook_title": "美术4年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_9fe407777a1cc4fa",
-          "unit_title": "2. 厨房一角"
+          "unit_id": "tcu_f72f7deee11e0adc",
+          "unit_title": "第一单元 平凡事物 趣味生活"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -34666,7 +34831,7 @@
             "external_smartedu_2026_art_primary_grade_4_up",
             "tes_dca105c735d25971",
             "textbook-node:tcn_5293d74b1811a9ed",
-            "textbook-unit:tcu_4212e764a7ded776"
+            "textbook-unit:tcu_4d09cd7136788c2c"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -34704,8 +34869,8 @@
           "textbook_subject": "美术",
           "textbook_title": "美术4年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_4212e764a7ded776",
-          "unit_title": "4. 庄严的牌楼"
+          "unit_id": "tcu_4d09cd7136788c2c",
+          "unit_title": "第二单元 走京城 赏古建"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -34721,7 +34886,7 @@
             "external_smartedu_2026_art_primary_grade_4_up",
             "tes_4cdb513abe3fe9c6",
             "textbook-node:tcn_57f682907feff38d",
-            "textbook-unit:tcu_4212e764a7ded776"
+            "textbook-unit:tcu_4d09cd7136788c2c"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -34759,8 +34924,63 @@
           "textbook_subject": "美术",
           "textbook_title": "美术4年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_4212e764a7ded776",
-          "unit_title": "4. 庄严的牌楼"
+          "unit_id": "tcu_4d09cd7136788c2c",
+          "unit_title": "第二单元 走京城 赏古建"
+        },
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_3c586e38f3c9680c",
+          "alignment_type": "supports",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_26d72869b7188e2196d2",
+          "evidence_basis": "toc_title",
+          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+          "evidence_level": "L2_topic",
+          "evidence_refs": [
+            "external_smartedu_2026_art_primary_grade_4_up",
+            "tes_bf312d5b0c9ea905",
+            "textbook-node:tcn_fa97176e848a97bc",
+            "textbook-unit:tcu_7e3ecf95bfc50984"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "11 科学与幻想之旅 造型·表现",
+              "excerpt_hash": "d3b483c28107da4e272f4068030e9911c63b6afec8d78c9af2c3236dee790abf",
+              "pdf_page": 34,
+              "printed_page": "28",
+              "span_id": "tes_bf312d5b0c9ea905"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_9fb5e59d16f6bbd5"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_9fb5e59d16f6bbd5",
+              "label": "使用多种工具、材料与媒介进行造型表现"
+            }
+          ],
+          "level": "unit",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_fa97176e848a97bc",
+          "node_title": "11科学与幻想之旅造型·表现",
+          "pdf_page": 34,
+          "printed_page": "28",
+          "publication_status": "published",
+          "rationale": "教材课文“11科学与幻想之旅造型·表现”与课标 AR-D2-AE-009 的可教学小能力“使用多种工具、材料与媒介进行造型表现”形成页内证据匹配。",
+          "relation_type": "supports",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 4,
+          "textbook_subject": "美术",
+          "textbook_title": "美术4年级上册",
+          "textbook_volume": "上册",
+          "unit_id": "tcu_7e3ecf95bfc50984",
+          "unit_title": "第四单元 玩转科技 创艺无限"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -34776,7 +34996,7 @@
             "external_smartedu_2026_art_primary_grade_4_up",
             "tes_01867f8291f2a605",
             "textbook-node:tcn_8ba57adf504e0fd6",
-            "textbook-unit:tcu_495981651c020649"
+            "textbook-unit:tcu_f28d9154df9815c0"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -34814,8 +35034,8 @@
           "textbook_subject": "美术",
           "textbook_title": "美术4年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_495981651c020649",
-          "unit_title": "9. 中国画——学画荷花"
+          "unit_id": "tcu_f28d9154df9815c0",
+          "unit_title": "第三单元 笔墨意趣"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -34831,7 +35051,7 @@
             "external_smartedu_2026_art_primary_grade_4_up",
             "tes_1f5050a8c74277a3",
             "textbook-node:tcn_2f6587130d1fb29f",
-            "textbook-unit:tcu_495981651c020649"
+            "textbook-unit:tcu_f28d9154df9815c0"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -34869,8 +35089,8 @@
           "textbook_subject": "美术",
           "textbook_title": "美术4年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_495981651c020649",
-          "unit_title": "9. 中国画——学画荷花"
+          "unit_id": "tcu_f28d9154df9815c0",
+          "unit_title": "第三单元 笔墨意趣"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -34886,7 +35106,7 @@
             "external_smartedu_2026_art_primary_grade_4_up",
             "tes_5a5e8511f3e2f455",
             "textbook-node:tcn_dc8eb59d3ba28c39",
-            "textbook-unit:tcu_9fe407777a1cc4fa"
+            "textbook-unit:tcu_f72f7deee11e0adc"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -34924,8 +35144,8 @@
           "textbook_subject": "美术",
           "textbook_title": "美术4年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_9fe407777a1cc4fa",
-          "unit_title": "2. 厨房一角"
+          "unit_id": "tcu_f72f7deee11e0adc",
+          "unit_title": "第一单元 平凡事物 趣味生活"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -34941,7 +35161,7 @@
             "external_smartedu_2026_art_primary_grade_4_up",
             "tes_cc0dea3cb4a33e75",
             "textbook-node:tcn_8fd9ba11a1d94432",
-            "textbook-unit:tcu_9fe407777a1cc4fa"
+            "textbook-unit:tcu_f72f7deee11e0adc"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -34979,8 +35199,8 @@
           "textbook_subject": "美术",
           "textbook_title": "美术4年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_9fe407777a1cc4fa",
-          "unit_title": "2. 厨房一角"
+          "unit_id": "tcu_f72f7deee11e0adc",
+          "unit_title": "第一单元 平凡事物 趣味生活"
         },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
@@ -42821,10 +43041,175 @@
         "highest_evidence_level": "L2_topic",
         "page_evidence_count": 0,
         "scope_count": 8,
-        "specific_count": 5,
+        "specific_count": 8,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_a7847b69d74eb83a",
+          "alignment_type": "supports",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_26d72869b7188e2196d2",
+          "evidence_basis": "toc_title",
+          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+          "evidence_level": "L2_topic",
+          "evidence_refs": [
+            "external_smartedu_2026_art_primary_grade_4_up",
+            "tes_3ffb15050403b89d",
+            "textbook-node:tcn_11c043aa956df0a7",
+            "textbook-unit:tcu_3351034876cac3ed"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "15 我是环保小卫士 综合·探索",
+              "excerpt_hash": "c1b791442050afb4e11aeba55727089fa9b3f0cc535dc6eb51e2d5275b6c49e6",
+              "pdf_page": 44,
+              "printed_page": "38",
+              "span_id": "tes_3ffb15050403b89d"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_7d89b3c63b565cb3"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_7d89b3c63b565cb3",
+              "label": "在综合探索活动中能主动学习与探究"
+            }
+          ],
+          "level": "unit",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_11c043aa956df0a7",
+          "node_title": "15我是环保小卫士综合·探索",
+          "pdf_page": 44,
+          "printed_page": "38",
+          "publication_status": "published",
+          "rationale": "教材课文“15我是环保小卫士综合·探索”与课标 AR-D2-CP-020 的可教学小能力“在综合探索活动中能主动学习与探究”形成页内证据匹配。",
+          "relation_type": "supports",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 4,
+          "textbook_subject": "美术",
+          "textbook_title": "美术4年级上册",
+          "textbook_volume": "上册",
+          "unit_id": "tcu_3351034876cac3ed",
+          "unit_title": "第五单元 巧手创造 绿色生活"
+        },
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_b5d6080310f96e5a",
+          "alignment_type": "supports",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_26d72869b7188e2196d2",
+          "evidence_basis": "toc_title",
+          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+          "evidence_level": "L2_topic",
+          "evidence_refs": [
+            "external_smartedu_2026_art_primary_grade_4_up",
+            "tes_f28d121e724b01e6",
+            "textbook-node:tcn_5e64803e6bd909ae",
+            "textbook-unit:tcu_7e3ecf95bfc50984"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "12 建筑艺术与科技 综合·探索",
+              "excerpt_hash": "3b05aea4de5e003999371c4f7d894d942cdf22d6076a38f1b48bc9af37208181",
+              "pdf_page": 34,
+              "printed_page": "28",
+              "span_id": "tes_f28d121e724b01e6"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_7d89b3c63b565cb3"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_7d89b3c63b565cb3",
+              "label": "在综合探索活动中能主动学习与探究"
+            }
+          ],
+          "level": "unit",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_5e64803e6bd909ae",
+          "node_title": "12建筑艺术与科技综合·探索",
+          "pdf_page": 34,
+          "printed_page": "28",
+          "publication_status": "published",
+          "rationale": "教材课文“12建筑艺术与科技综合·探索”与课标 AR-D2-CP-020 的可教学小能力“在综合探索活动中能主动学习与探究”形成页内证据匹配。",
+          "relation_type": "supports",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 4,
+          "textbook_subject": "美术",
+          "textbook_title": "美术4年级上册",
+          "textbook_volume": "上册",
+          "unit_id": "tcu_7e3ecf95bfc50984",
+          "unit_title": "第四单元 玩转科技 创艺无限"
+        },
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_4ddf3470ac15a979",
+          "alignment_type": "supports",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_26d72869b7188e2196d2",
+          "evidence_basis": "toc_title",
+          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+          "evidence_level": "L2_topic",
+          "evidence_refs": [
+            "external_smartedu_2026_art_primary_grade_4_up",
+            "tes_51c159c9bb7dae81",
+            "textbook-node:tcn_f099e3c872faa9e9",
+            "textbook-unit:tcu_8e2d17514bde1faa"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "16 走访民间艺人 综合·探索",
+              "excerpt_hash": "8f24bacbe1fd1917ce478e96f35395f01264f4443e60527a9daa3796c7716fc7",
+              "pdf_page": 55,
+              "printed_page": "49",
+              "span_id": "tes_51c159c9bb7dae81"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_7d89b3c63b565cb3"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_7d89b3c63b565cb3",
+              "label": "在综合探索活动中能主动学习与探究"
+            }
+          ],
+          "level": "unit",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_f099e3c872faa9e9",
+          "node_title": "16走访民间艺人综合·探索",
+          "pdf_page": 55,
+          "printed_page": "49",
+          "publication_status": "published",
+          "rationale": "教材课文“16走访民间艺人综合·探索”与课标 AR-D2-CP-020 的可教学小能力“在综合探索活动中能主动学习与探究”形成页内证据匹配。",
+          "relation_type": "supports",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 4,
+          "textbook_subject": "美术",
+          "textbook_title": "美术4年级上册",
+          "textbook_volume": "上册",
+          "unit_id": "tcu_8e2d17514bde1faa",
+          "unit_title": "第六单元 多姿多彩的民间美术"
+        },
         {
           "algorithm_version": "component-evidence-hybrid-v3",
           "alignment_id": "tca_5a66782c345d83ed",
@@ -44272,7 +44657,7 @@
         "highest_evidence_level": "L2_topic",
         "page_evidence_count": 0,
         "scope_count": 8,
-        "specific_count": 1,
+        "specific_count": 2,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
@@ -44290,7 +44675,7 @@
             "external_smartedu_2026_art_primary_grade_4_up",
             "tes_ab588a1293820e00",
             "textbook-node:tcn_ebb19768d6c7bb78",
-            "textbook-unit:tcu_4212e764a7ded776"
+            "textbook-unit:tcu_4d09cd7136788c2c"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -44328,8 +44713,63 @@
           "textbook_subject": "美术",
           "textbook_title": "美术4年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_4212e764a7ded776",
-          "unit_title": "4. 庄严的牌楼"
+          "unit_id": "tcu_4d09cd7136788c2c",
+          "unit_title": "第二单元 走京城 赏古建"
+        },
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_2fc18c3468a7af9a",
+          "alignment_type": "supports",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_26d72869b7188e2196d2",
+          "evidence_basis": "toc_title",
+          "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+          "evidence_level": "L2_topic",
+          "evidence_refs": [
+            "external_smartedu_2026_art_primary_grade_4_up",
+            "tes_c04b7d5eca508dc6",
+            "textbook-node:tcn_9b287aedddb00421",
+            "textbook-unit:tcu_f28d9154df9815c0"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "3. 我了解中国画借物抒情的艺术",
+              "excerpt_hash": "67d30bd887098f60bfc8ad8bed5322b4986c5e4b6252ef21d23619a2ee341411",
+              "pdf_page": 31,
+              "printed_page": "25",
+              "span_id": "tes_c04b7d5eca508dc6"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_1a0ea5c279b4e7f0"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_1a0ea5c279b4e7f0",
+              "label": "初步识别并说出中国传统音乐的常见形态与特点（如节奏、节拍、曲调、结构等）的关键特征"
+            }
+          ],
+          "level": "unit",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_9b287aedddb00421",
+          "node_title": "3我了解中国画借物抒情的艺术",
+          "pdf_page": 31,
+          "printed_page": "25",
+          "publication_status": "published",
+          "rationale": "教材课文“3我了解中国画借物抒情的艺术”与课标 AR-D2-CU-004 的可教学小能力“初步识别并说出中国传统音乐的常见形态与特点（如节奏、节拍、曲调、结构等）的关键特征”形成页内证据匹配。",
+          "relation_type": "supports",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 4,
+          "textbook_subject": "美术",
+          "textbook_title": "美术4年级上册",
+          "textbook_volume": "上册",
+          "unit_id": "tcu_f28d9154df9815c0",
+          "unit_title": "第三单元 笔墨意趣"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -47123,16 +47563,71 @@
       "context": "连接非遗与生活文化，增强文化自信。",
       "curriculum_alignment_summary": {
         "candidate_count": 0,
-        "disposition": "scope_aligned_no_unit_evidence",
-        "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+        "disposition": "page_aligned",
+        "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
         "gap_reason": null,
-        "highest_evidence_level": "L1_scope",
-        "page_evidence_count": 0,
+        "highest_evidence_level": "L3_page_evidence",
+        "page_evidence_count": 1,
         "scope_count": 8,
-        "specific_count": 0,
+        "specific_count": 1,
         "unit_topic_candidate_count": 0
       },
       "curriculum_alignments": [
+        {
+          "algorithm_version": "component-evidence-hybrid-v3",
+          "alignment_id": "tca_9d551c029c1f0f7c",
+          "alignment_type": "practices",
+          "confidence": 0.86,
+          "coverage": "partial",
+          "edition_id": "ed_26d72869b7188e2196d2",
+          "evidence_basis": "textbook_page_span",
+          "evidence_gap": null,
+          "evidence_level": "L3_page_evidence",
+          "evidence_refs": [
+            "external_smartedu_2026_art_primary_grade_4_up",
+            "tes_1a1f67579eecf187",
+            "textbook-node:tcn_3bafd5461ea9674e",
+            "textbook-unit:tcu_8e2d17514bde1faa"
+          ],
+          "evidence_role": "direct_textbook",
+          "evidence_spans": [
+            {
+              "evidence_role": "direct_textbook",
+              "excerpt": "想一想,民间艺术在当下生活中怎样焕发出新的光彩? 带有民间美术元素的城市雕塑52",
+              "excerpt_hash": "6c53deb4f0149c79cc277478c769a8a8a48a1bc0ca4351af07438bd776240db7",
+              "pdf_page": 58,
+              "printed_page": "52",
+              "span_id": "tes_1a1f67579eecf187"
+            }
+          ],
+          "learning_component_ids": [
+            "lc_2adaf5c28e05923e"
+          ],
+          "learning_components": [
+            {
+              "component_id": "lc_2adaf5c28e05923e",
+              "label": "说出2—3种中国民间美术的类别（如剪纸、皮影、年画、泥塑、刺绣、蜡染等）"
+            }
+          ],
+          "level": "page",
+          "method": "component_evidence_hybrid",
+          "node_id": "tcn_3bafd5461ea9674e",
+          "node_title": "想一想,民间艺术在当下生活中怎样焕发出新的光彩? 带有民间美术元素的城市雕塑52",
+          "pdf_page": 58,
+          "printed_page": "52",
+          "publication_status": "published",
+          "rationale": "教材练习“想一想,民间艺术在当下生活中怎样焕发出新的光彩? 带有民间美术元素的城市雕塑52”与课标 AR-D2-CU-006 的可教学小能力“说出2—3种中国民间美术的类别（如剪纸、皮影、年画、泥塑、刺绣、蜡染等）”形成页内证据匹配。",
+          "relation_type": "practices",
+          "resource_type": "student_textbook",
+          "review_status": "machine_checked",
+          "revision_status": "current_confirmed",
+          "textbook_grade": 4,
+          "textbook_subject": "美术",
+          "textbook_title": "美术4年级上册",
+          "textbook_volume": "上册",
+          "unit_id": "tcu_8e2d17514bde1faa",
+          "unit_title": "第六单元 多姿多彩的民间美术"
+        },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
           "alignment_id": "ca_173639c19cb4c027",
@@ -164438,7 +164933,7 @@
             "external_smartedu_2026_art_junior_grade_9_up",
             "tes_aa7f405f2a79409b",
             "textbook-node:tcn_28db14aaf15f611b",
-            "textbook-unit:tcu_e3b4a819ca4b8808"
+            "textbook-unit:tcu_c6edef2f0b192fa4"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -164476,8 +164971,8 @@
           "textbook_subject": "美术",
           "textbook_title": "美术9年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_e3b4a819ca4b8808",
-          "unit_title": "第一单元"
+          "unit_id": "tcu_c6edef2f0b192fa4",
+          "unit_title": "第二单元 非遗与佳节"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",
@@ -192336,7 +192831,7 @@
             "external_smartedu_2026_art_junior_grade_9_up",
             "tes_9d0b4ab08bd10613",
             "textbook-node:tcn_56992053cb9fee2f",
-            "textbook-unit:tcu_e3b4a819ca4b8808"
+            "textbook-unit:tcu_f5d76da132c488e7"
           ],
           "evidence_role": "direct_textbook",
           "evidence_spans": [
@@ -192374,8 +192869,8 @@
           "textbook_subject": "美术",
           "textbook_title": "美术9年级上册",
           "textbook_volume": "上册",
-          "unit_id": "tcu_e3b4a819ca4b8808",
-          "unit_title": "第一单元"
+          "unit_id": "tcu_f5d76da132c488e7",
+          "unit_title": "第三单元 设计之用"
         },
         {
           "algorithm_version": "full-alignment-scope-preserve-v2",

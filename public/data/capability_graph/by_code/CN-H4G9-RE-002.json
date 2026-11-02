@@ -85,12 +85,67 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 4,
+    "page_evidence_count": 5,
     "scope_count": 2,
-    "specific_count": 4,
+    "specific_count": 5,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_727ecbf0cf72b58c",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_5f396a0577c0d6a9df8a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_9_up",
+        "tes_c06aa08398739fc0",
+        "textbook-node:tcn_b462fc8a8099ad16",
+        "textbook-unit:tcu_c421395eb769b317"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "通读课文,圈画出文中表达观点的句子,想想这些观点之间有什么样",
+          "excerpt_hash": "88179475e8b5c90f1254abc44053287814f6f7ae49bdebf8016d4fcb286ffcd7",
+          "pdf_page": 119,
+          "printed_page": "112",
+          "span_id": "tes_c06aa08398739fc0"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_62c7044dd04a2bd3"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_62c7044dd04a2bd3",
+          "label": "在通读课文基础上理清思路"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b462fc8a8099ad16",
+      "node_title": "通读课文,圈画出文中表达观点的句子,想想这些观点之间有什么样",
+      "pdf_page": 119,
+      "printed_page": "112",
+      "publication_status": "published",
+      "rationale": "教材学习目标“通读课文,圈画出文中表达观点的句子,想想这些观点之间有什么样”与课标 CN-H4G9-RE-002 的可教学小能力“在通读课文基础上理清思路”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_c421395eb769b317",
+      "unit_title": "第五单元"
+    },
     {
       "algorithm_version": "component-evidence-hybrid-v3",
       "alignment_id": "tca_1a9ce57069ee7b4e",

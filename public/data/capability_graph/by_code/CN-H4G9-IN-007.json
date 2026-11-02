@@ -82,16 +82,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_d2bc6bd12fea6c71",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_5f396a0577c0d6a9df8a",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_9_up",
+        "tes_797b0f222e9a8653",
+        "textbook-node:tcn_b64e0a2ea95da831",
+        "textbook-unit:tcu_63fbe8743f51d394"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "选择自己喜爱的一部中国文学作品,与《简·爱》进行比较阅读。可以选取如人物成长、女性形象、爱情观念、抒情方式、心理描写等角度进行比较,也可自行选择角度。班级可就此展开讨论,进行思想的交锋和口才的锻炼。",
+          "excerpt_hash": "d3747b4eb9d200b389c0e88dc8b47d8db7db7e9789f8981bff0d0b881090bd65",
+          "pdf_page": 117,
+          "printed_page": "110",
+          "span_id": "tes_797b0f222e9a8653"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_06d9666e51b2590f"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_06d9666e51b2590f",
+          "label": "广泛阅读古今中外诗歌、小说、散文、戏剧等文学作品"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b64e0a2ea95da831",
+      "node_title": "选择自己喜爱的一部中国文学作品,与《简·爱》进行比较阅读。可以选取如人物成长、女性形象、爱情观念、抒情方式、心理描写等角度进行比较,也可自行选择角度。班级可就此展开讨论,进行思想的交锋和口才的锻炼。",
+      "pdf_page": 117,
+      "printed_page": "110",
+      "publication_status": "published",
+      "rationale": "教材练习“选择自己喜爱的一部中国文学作品,与《简·爱》进行比较阅读。可以选取如人物成长、女性形象、爱情观念、抒情方式、心理描写等角度进行比较,也可自行选择角度。班级可就此展开讨论,进行思想的交锋和口才的锻炼。”与课标 CN-H4G9-IN-007 的可教学小能力“广泛阅读古今中外诗歌、小说、散文、戏剧等文学作品”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 9,
+      "textbook_subject": "语文",
+      "textbook_title": "语文9年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_63fbe8743f51d394",
+      "unit_title": "第四单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_7510a625e20e1f0d",

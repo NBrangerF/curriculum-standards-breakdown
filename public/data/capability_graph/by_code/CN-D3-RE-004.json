@@ -43,16 +43,126 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 2,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 2,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_586a8a09feba131e",
+      "alignment_type": "supports",
+      "confidence": 0.92,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_primary_grade_5_up",
+        "tes_d94f396b0ea78e55",
+        "textbook-node:tcn_5a51c54538506eb5",
+        "textbook-unit:tcu_a0ca1f522b61e668"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "运用多种方法品味文章语言,记录阅读感受。",
+          "excerpt_hash": "7866cf18405599c8bd88e4d3b5213c319d210e88ee520b0dccea86efea0ca1c9",
+          "pdf_page": 96,
+          "printed_page": "91",
+          "span_id": "tes_d94f396b0ea78e55"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_936152703d62ba30"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_936152703d62ba30",
+          "label": "品味作品中重要语句和富有表现力的语言，用圈点、批注等方式记录阅读感受"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_5a51c54538506eb5",
+      "node_title": "运用多种方法品味文章语言,记录阅读感受。",
+      "pdf_page": 96,
+      "printed_page": "91",
+      "publication_status": "published",
+      "rationale": "教材学习目标“运用多种方法品味文章语言,记录阅读感受。”与课标 CN-D3-RE-004 的可教学小能力“品味作品中重要语句和富有表现力的语言，用圈点、批注等方式记录阅读感受”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_a0ca1f522b61e668",
+      "unit_title": "第七单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_c890fdffe6669cfc",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_9d4028e2ab482520d0aa",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_primary_grade_5_up",
+        "tes_e4d759cffa8e399f",
+        "textbook-node:tcn_432bbd0321bc0daa",
+        "textbook-unit:tcu_a0ca1f522b61e668"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "读读文中的批注,说说你受到的启发,再试着把自己的阅读感受记录下来。",
+          "excerpt_hash": "6ee2aaba35088f9aa2e4e30285e9fcb9c40e4c3d323bb420a842d6e6c4358b84",
+          "pdf_page": 100,
+          "printed_page": "95",
+          "span_id": "tes_e4d759cffa8e399f"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_936152703d62ba30"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_936152703d62ba30",
+          "label": "品味作品中重要语句和富有表现力的语言，用圈点、批注等方式记录阅读感受"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_432bbd0321bc0daa",
+      "node_title": "读读文中的批注,说说你受到的启发,再试着把自己的阅读感受记录下来。",
+      "pdf_page": 100,
+      "printed_page": "95",
+      "publication_status": "published",
+      "rationale": "教材练习“读读文中的批注,说说你受到的启发,再试着把自己的阅读感受记录下来。”与课标 CN-D3-RE-004 的可教学小能力“品味作品中重要语句和富有表现力的语言，用圈点、批注等方式记录阅读感受”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 5,
+      "textbook_subject": "语文",
+      "textbook_title": "语文5年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_a0ca1f522b61e668",
+      "unit_title": "第七单元"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_a83c5ff99139b6c2",

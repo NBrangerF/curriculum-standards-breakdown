@@ -36,9 +36,15 @@ function pageOffset(pages) {
     return [...votes].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null
 }
 
+// A two-column 目录 page (统编 语文 1–6) reaches the page text as lines that run across both columns, a page number in
+// the middle of the line (「1 桂花雨……2 口语交际 讲民间故事……45」); its titles and pages cannot be paired from that
+// text. scripts/textbooks/printed_toc.mjs reads such pages from positioned PDF text instead.
+const MERGED_COLUMNS = /[.…·]{3,}\s*\d{1,3}\s+[^\d\s.…·]/u
+
 export function readContents(pages) {
     const start = pages.findIndex(p => p.pdf_page <= 14 && /目\s*录/u.test(p.text.slice(0, 40)))
     if (start < 0) return []
+    if (pages.slice(start, start + 3).flatMap(p => p.text.split('\n')).filter(line => MERGED_COLUMNS.test(line)).length >= 2) return []
     const offset = pageOffset(pages)
     // a book whose text layer repeats every run three times: most longer words on the contents pages are triples
     const words = pages.slice(start, start + 3).flatMap(p => p.text.split(/\s+/u)).filter(w => w.length >= 6)

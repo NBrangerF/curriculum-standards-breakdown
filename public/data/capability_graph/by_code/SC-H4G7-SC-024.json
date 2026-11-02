@@ -159,96 +159,41 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "unit_aligned",
-    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L2_topic",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 4,
-    "specific_count": 2,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
     {
       "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_341b18167774ab29",
-      "alignment_type": "supports",
-      "confidence": 0.86,
-      "coverage": "partial",
-      "edition_id": "ed_913b2b9b81e81dabcf0a",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
-      "evidence_refs": [
-        "external_smartedu_2026_biology_junior_grade_7_up",
-        "tes_7d51428653397cb9",
-        "textbook-node:tcn_b757395ff7b49c25",
-        "textbook-unit:tcu_ae9bc6e20b3c14ed"
-      ],
-      "evidence_role": "direct_textbook",
-      "evidence_spans": [
-        {
-          "evidence_role": "direct_textbook",
-          "excerpt": "第二节 脊椎动物",
-          "excerpt_hash": "995389a29407918a1ed0bcb44f9b113282a7615353b08b854a020654d45f957e",
-          "pdf_page": 88,
-          "printed_page": null,
-          "span_id": "tes_7d51428653397cb9"
-        }
-      ],
-      "learning_component_ids": [
-        "lc_093d673ba8462bd7"
-      ],
-      "learning_components": [
-        {
-          "component_id": "lc_093d673ba8462bd7",
-          "label": "观察无脊椎动物和脊椎动物"
-        }
-      ],
-      "level": "unit",
-      "method": "component_evidence_hybrid",
-      "node_id": "tcn_b757395ff7b49c25",
-      "node_title": "第二节脊椎动物",
-      "pdf_page": 88,
-      "printed_page": null,
-      "publication_status": "published",
-      "rationale": "教材小节“第二节脊椎动物”与课标 SC-H4G7-SC-024 的可教学小能力“观察无脊椎动物和脊椎动物”形成页内证据匹配。",
-      "relation_type": "supports",
-      "resource_type": "student_textbook",
-      "review_status": "machine_checked",
-      "revision_status": "current_confirmed",
-      "textbook_grade": 7,
-      "textbook_subject": "生物学",
-      "textbook_title": "生物学7年级上册",
-      "textbook_volume": "上册",
-      "unit_id": "tcu_ae9bc6e20b3c14ed",
-      "unit_title": "第二单元 多种多样的生物"
-    },
-    {
-      "algorithm_version": "component-evidence-hybrid-v3",
-      "alignment_id": "tca_ffce42a4cce981e9",
+      "alignment_id": "tca_0013c0718f933283",
       "alignment_type": "supports",
       "confidence": 0.92,
       "coverage": "partial",
       "edition_id": "ed_913b2b9b81e81dabcf0a",
-      "evidence_basis": "toc_title",
-      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
-      "evidence_level": "L2_topic",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
       "evidence_refs": [
         "external_smartedu_2026_biology_junior_grade_7_up",
-        "tes_1b4149c0edeb2875",
-        "textbook-node:tcn_7bc647e6bb6be358",
-        "textbook-unit:tcu_ae9bc6e20b3c14ed"
+        "tes_b055494406892b1e",
+        "textbook-node:tcn_7a4fd70879f52830",
+        "textbook-unit:tcu_fe7c16bdcd74af44"
       ],
       "evidence_role": "direct_textbook",
       "evidence_spans": [
         {
           "evidence_role": "direct_textbook",
-          "excerpt": "第一节 无脊椎动物",
-          "excerpt_hash": "25a1e18a9232a165c5ca1c73c3f0a788f5ef0d5d444e0f115884b2ceb17a3701",
-          "pdf_page": 82,
+          "excerpt": "藻 类: 结 构 简 单, 无 ● 无 脊 椎 动 物 包 括 刺 胞 动 物、 ● 细菌:单细胞,",
+          "excerpt_hash": "b73d90b6dd40505eb4950b3fb8512828f908b5a68e52992f869afd63925c0516",
+          "pdf_page": 142,
           "printed_page": null,
-          "span_id": "tes_1b4149c0edeb2875"
+          "span_id": "tes_b055494406892b1e"
         }
       ],
       "learning_component_ids": [
@@ -260,14 +205,14 @@
           "label": "观察无脊椎动物和脊椎动物"
         }
       ],
-      "level": "unit",
+      "level": "page",
       "method": "component_evidence_hybrid",
-      "node_id": "tcn_7bc647e6bb6be358",
-      "node_title": "第一节无脊椎动物",
-      "pdf_page": 82,
+      "node_id": "tcn_7a4fd70879f52830",
+      "node_title": "藻 类: 结 构 简 单, 无 ● 无 脊 椎 动 物 包 括 刺 胞 动 物、 ● 细菌:单细胞,",
+      "pdf_page": 142,
       "printed_page": null,
       "publication_status": "published",
-      "rationale": "教材小节“第一节无脊椎动物”与课标 SC-H4G7-SC-024 的可教学小能力“观察无脊椎动物和脊椎动物”形成页内证据匹配。",
+      "rationale": "教材学习目标“藻 类: 结 构 简 单, 无 ● 无 脊 椎 动 物 包 括 刺 胞 动 物、 ● 细菌:单细胞,”与课标 SC-H4G7-SC-024 的可教学小能力“观察无脊椎动物和脊椎动物”形成页内证据匹配。",
       "relation_type": "supports",
       "resource_type": "student_textbook",
       "review_status": "machine_checked",
@@ -276,7 +221,7 @@
       "textbook_subject": "生物学",
       "textbook_title": "生物学7年级上册",
       "textbook_volume": "上册",
-      "unit_id": "tcu_ae9bc6e20b3c14ed",
+      "unit_id": "tcu_fe7c16bdcd74af44",
       "unit_title": "第二单元 多种多样的生物"
     },
     {

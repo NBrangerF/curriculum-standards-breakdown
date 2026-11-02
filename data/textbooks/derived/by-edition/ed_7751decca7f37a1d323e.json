@@ -234,7 +234,7 @@
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
-    "reconciled_unit_range_count": 1,
+    "reconciled_unit_range_count": 0,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/7c2d6eea39b95f226d19584c78014ba5ccc40830721d6236cf19f9487f677d9d/pages.jsonl",
@@ -304,7 +304,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f2c40e0a8387862b",
-      "parent_id": "tcn_9c0404375239991a",
+      "parent_id": null,
       "pdf_page": 5,
       "pdf_page_end": 5,
       "pdf_page_start": 5,
@@ -312,26 +312,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 5 页",
-      "unit_id": "tcu_d27be630a5323837"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 32,
-      "end_printed_page": "27",
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_9c0404375239991a",
-      "parent_id": null,
-      "pdf_page": 5,
-      "pdf_page_end": 32,
-      "pdf_page_start": 5,
-      "printed_page": "2",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第一单元 同伴与交往",
-      "title": "第一单元 同伴与交往",
-      "toc_entry_id": "tcu_d27be630a5323837",
-      "unit_id": "tcu_d27be630a5323837"
+      "unit_id": null
     },
     {
       "confidence": 0.98,
@@ -340,7 +321,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_27a9e1f6326db9b8",
-      "parent_id": "tcn_9c0404375239991a",
+      "parent_id": null,
       "pdf_page": 6,
       "pdf_page_end": 6,
       "pdf_page_start": 6,
@@ -348,7 +329,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 6 页",
-      "unit_id": "tcu_d27be630a5323837"
+      "unit_id": null
     },
     {
       "confidence": 0.86,
@@ -359,7 +340,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_f5e3b6d559b191a3",
-      "parent_id": "tcn_9c0404375239991a",
+      "parent_id": "tcn_5f37b5259632130e",
       "pdf_page": 7,
       "pdf_page_end": 7,
       "pdf_page_start": 7,
@@ -377,7 +358,7 @@
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_5f37b5259632130e",
-      "parent_id": "tcn_9c0404375239991a",
+      "parent_id": null,
       "pdf_page": 7,
       "pdf_page_end": 11,
       "pdf_page_start": 7,
@@ -404,6 +385,25 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 7 页",
+      "unit_id": "tcu_d27be630a5323837"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 32,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_9c0404375239991a",
+      "parent_id": null,
+      "pdf_page": 7,
+      "pdf_page_end": 32,
+      "pdf_page_start": 7,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第一单元 同伴与交往",
+      "title": "第一单元 同伴与交往",
+      "toc_entry_id": "tcu_d27be630a5323837",
       "unit_id": "tcu_d27be630a5323837"
     },
     {
@@ -500,7 +500,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_535fc3573b342838",
-      "parent_id": "tcn_9c0404375239991a",
+      "parent_id": "tcn_5f37b5259632130e",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -813,7 +813,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_b1d5c3f633c92b5e",
-      "parent_id": "tcn_9c0404375239991a",
+      "parent_id": "tcn_5f37b5259632130e",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -884,7 +884,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_199ab14a99c1a4b6",
-      "parent_id": "tcn_9c0404375239991a",
+      "parent_id": "tcn_5f37b5259632130e",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -3714,39 +3714,12 @@
     {
       "confidence": 0.85,
       "end_pdf_page": 32,
-      "end_printed_page": "27",
       "entry_id": "tcu_d27be630a5323837",
       "kind": "unit",
       "level": 1,
       "parent_id": null,
-      "pdf_page": 5,
+      "pdf_page": 7,
       "printed_page": "2",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": null,
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 18,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 171.972,
-            "x": 135.007,
-            "y": 543.275
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 1,
-          "pdf_page": 5,
-          "verbatim_title": "第一单元 同伴与交往"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
       "source": "smartedu_sync_lessons",
       "source_order": 1,
@@ -3981,52 +3954,21 @@
   ],
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
-    "auxiliary_boundary_evidence": null,
-    "changed_unit_range_count": 1,
-    "changes": [
-      {
-        "after": {
-          "end_pdf_page": 32,
-          "pdf_page": 5
-        },
-        "before": {
-          "end_pdf_page": 32,
-          "pdf_page": 7
-        },
-        "end_evidence": null,
-        "start_evidence": {
-          "bbox": {
-            "height": 18,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 171.972,
-            "x": 135.007,
-            "y": 543.275
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 1,
-          "pdf_page": 5,
-          "verbatim_title": "第一单元 同伴与交往"
-        },
-        "title": "第一单元 同伴与交往",
-        "unit_id": "tcu_d27be630a5323837"
-      }
-    ],
-    "clamped_content_node_range_count": 3,
+    "changed_unit_range_count": 0,
+    "changes": [],
+    "clamped_content_node_range_count": 0,
     "detached_auxiliary_content_node_count": 0,
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
-    "exact_unit_heading_evidence_count": 1,
+    "exact_unit_heading_evidence_count": 0,
     "inspected_page_count": 103,
     "provenance": "machine_generated",
     "publication_gate": false,
-    "reassigned_content_node_count": 76,
+    "reassigned_content_node_count": 0,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 1,
     "sidecar_sha256": "52d0785eb1c135e1fcfe95d4d113d1caaee823edefef585d70a0ba2545ffa7f9",
     "source_asset_sha256": "7c2d6eea39b95f226d19584c78014ba5ccc40830721d6236cf19f9487f677d9d",
-    "status": "reconciled",
+    "status": "insufficient_boundary_evidence",
     "top_level_unit_count": 4,
     "top_line_limit": 4
   }

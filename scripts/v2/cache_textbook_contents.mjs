@@ -12,6 +12,13 @@ const OUT = 'data/v2/textbook_contents.json'
 const out = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : {}
 let read = 0
 for (const b of books) {
+    // a book whose stored toc was read from its printed 目录 (toc_from_printed_contents.mjs) needs no copy here: the
+    // deploy build reads that toc, lessons included
+    const structure = `data/textbooks/derived/by-edition/${b.edition_id}.json`
+    if (existsSync(structure) && JSON.parse(readFileSync(structure, 'utf8')).toc?.some(entry => entry.source === 'printed_toc')) {
+        delete out[b.edition_id]
+        continue
+    }
     const pages = pagesFor(registry, b.edition_id)
     if (!pages) continue
     const contents = readContents(pages)

@@ -2,8 +2,9 @@
   "alignments": [],
   "audit": {
     "approved_page_map_count": 64,
-    "approved_toc_entry_count": 10,
+    "approved_toc_entry_count": 43,
     "candidate_toc_entry_count": 0,
+    "machine_checked_toc_entry_count": 0,
     "numeric_page_offset": 8,
     "numeric_page_offset_confidence": 0.99,
     "ocr": {
@@ -12,14 +13,15 @@
       "toc_pages": []
     },
     "pdf_page_count": 72,
+    "published_toc_entry_count": 0,
     "toc_candidate_page_count": 0
   },
   "content_alignment": {
     "algorithm_version": "component-evidence-hybrid-v3",
     "alignment_count": 0,
     "automatic_content_unit_count": 0,
-    "content_node_count": 75,
-    "evidence_span_count": 2,
+    "content_node_count": 114,
+    "evidence_span_count": 0,
     "generated_alignment_count": 0,
     "native_text_ratio": 0.7778,
     "ocr_page_count": 0,
@@ -177,13 +179,32 @@
       "unit_id": null
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 11,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_330753746f5a2a16",
+      "parent_id": null,
+      "pdf_page": 10,
+      "pdf_page_end": 11,
+      "pdf_page_start": 10,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "唱歌 小树快长高",
+      "title": "唱歌 小树快长高",
+      "toc_entry_id": "tcu_242a2fb0720ab930",
+      "unit_id": "tcu_242a2fb0720ab930"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 10,
       "end_printed_page": "2",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_37b6c54f749d9f40",
-      "parent_id": null,
+      "parent_id": "tcn_330753746f5a2a16",
       "pdf_page": 10,
       "pdf_page_end": 10,
       "pdf_page_start": 10,
@@ -191,7 +212,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 10 页",
-      "unit_id": null
+      "unit_id": "tcu_9bbad0444b3db013"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 17,
+      "end_printed_page": "9",
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_e437e7412e80c916",
+      "parent_id": null,
+      "pdf_page": 10,
+      "pdf_page_end": 17,
+      "pdf_page_start": 10,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第一单元 绿色的祝福",
+      "title": "第一单元 绿色的祝福",
+      "toc_entry_id": "tcu_9bbad0444b3db013",
+      "unit_id": "tcu_9bbad0444b3db013"
     },
     {
       "confidence": 0.98,
@@ -200,7 +240,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fadb0c702fa10b36",
-      "parent_id": null,
+      "parent_id": "tcn_330753746f5a2a16",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -208,7 +248,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 11 页",
-      "unit_id": null
+      "unit_id": "tcu_9bbad0444b3db013"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 13,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_fb6465620844537c",
+      "parent_id": "tcn_e437e7412e80c916",
+      "pdf_page": 12,
+      "pdf_page_end": 13,
+      "pdf_page_start": 12,
+      "printed_page": "4",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "大树妈妈",
+      "title": "大树妈妈",
+      "toc_entry_id": "tcu_68d090f2bc43b609",
+      "unit_id": "tcu_68d090f2bc43b609"
     },
     {
       "confidence": 0.98,
@@ -217,7 +276,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7505b96394eceb0e",
-      "parent_id": null,
+      "parent_id": "tcn_fb6465620844537c",
       "pdf_page": 12,
       "pdf_page_end": 12,
       "pdf_page_start": 12,
@@ -225,7 +284,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 12 页",
-      "unit_id": null
+      "unit_id": "tcu_9bbad0444b3db013"
     },
     {
       "confidence": 0.98,
@@ -234,7 +293,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_111919805ab4c8e8",
-      "parent_id": null,
+      "parent_id": "tcn_fb6465620844537c",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -242,7 +301,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 13 页",
-      "unit_id": null
+      "unit_id": "tcu_9bbad0444b3db013"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 14,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_360e65da43f4f662",
+      "parent_id": "tcn_e437e7412e80c916",
+      "pdf_page": 14,
+      "pdf_page_end": 14,
+      "pdf_page_start": 14,
+      "printed_page": "6",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "郊游",
+      "title": "郊游",
+      "toc_entry_id": "tcu_093802f24eefab42",
+      "unit_id": "tcu_093802f24eefab42"
     },
     {
       "confidence": 0.98,
@@ -251,7 +329,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ec904bffb1b49213",
-      "parent_id": null,
+      "parent_id": "tcn_360e65da43f4f662",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -259,7 +337,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 14 页",
-      "unit_id": null
+      "unit_id": "tcu_9bbad0444b3db013"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 15,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_fc74c12f6a315eda",
+      "parent_id": "tcn_e437e7412e80c916",
+      "pdf_page": 15,
+      "pdf_page_end": 15,
+      "pdf_page_start": 15,
+      "printed_page": "7",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "聆听 春之歌",
+      "title": "聆听 春之歌",
+      "toc_entry_id": "tcu_0e714dc5a39d1b30",
+      "unit_id": "tcu_0e714dc5a39d1b30"
     },
     {
       "confidence": 0.98,
@@ -268,7 +365,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0a5678c30603b15f",
-      "parent_id": null,
+      "parent_id": "tcn_fc74c12f6a315eda",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -276,7 +373,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 15 页",
-      "unit_id": null
+      "unit_id": "tcu_9bbad0444b3db013"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 17,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_55a5c757cc264af7",
+      "parent_id": "tcn_e437e7412e80c916",
+      "pdf_page": 16,
+      "pdf_page_end": 17,
+      "pdf_page_start": 16,
+      "printed_page": "8",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "绿色的祖国",
+      "title": "绿色的祖国",
+      "toc_entry_id": "tcu_ffb088f857a0e46e",
+      "unit_id": "tcu_ffb088f857a0e46e"
     },
     {
       "confidence": 0.98,
@@ -285,7 +401,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_150b2d96ff1c585e",
-      "parent_id": null,
+      "parent_id": "tcn_55a5c757cc264af7",
       "pdf_page": 16,
       "pdf_page_end": 16,
       "pdf_page_start": 16,
@@ -293,7 +409,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 16 页",
-      "unit_id": null
+      "unit_id": "tcu_9bbad0444b3db013"
     },
     {
       "confidence": 0.98,
@@ -302,7 +418,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_47e540b02c793bb6",
-      "parent_id": null,
+      "parent_id": "tcn_55a5c757cc264af7",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -310,7 +426,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 17 页",
-      "unit_id": null
+      "unit_id": "tcu_9bbad0444b3db013"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 19,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_4537079400063b38",
+      "parent_id": "tcn_fca06039969a1572",
+      "pdf_page": 18,
+      "pdf_page_end": 19,
+      "pdf_page_start": 18,
+      "printed_page": "10",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "唱歌 共产儿童团歌",
+      "title": "唱歌 共产儿童团歌",
+      "toc_entry_id": "tcu_443d83c56a0254c2",
+      "unit_id": "tcu_443d83c56a0254c2"
     },
     {
       "confidence": 0.98,
@@ -319,7 +454,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_558ed0e8425762c7",
-      "parent_id": "tcn_20ee92a04bbc9ca7",
+      "parent_id": "tcn_4537079400063b38",
       "pdf_page": 18,
       "pdf_page_end": 18,
       "pdf_page_start": 18,
@@ -327,15 +462,15 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 18 页",
-      "unit_id": "tcu_10795d9c01d41c09"
+      "unit_id": "tcu_0c0ee199e7392561"
     },
     {
-      "confidence": 0.98,
+      "confidence": 0.95,
       "end_pdf_page": 25,
-      "end_printed_page": null,
+      "end_printed_page": "17",
       "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_20ee92a04bbc9ca7",
+      "node_id": "tcn_fca06039969a1572",
       "parent_id": null,
       "pdf_page": 18,
       "pdf_page_end": 25,
@@ -343,30 +478,10 @@
       "printed_page": "10",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "难忘的歌",
-      "title": "难忘的歌",
-      "toc_entry_id": "tcu_10795d9c01d41c09",
-      "unit_id": "tcu_10795d9c01d41c09"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 25,
-      "end_printed_page": "10",
-      "evidence_span_ids": [
-        "tes_cd69bc56add2ace6"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_29b7df3dad180a98",
-      "parent_id": "tcn_20ee92a04bbc9ca7",
-      "pdf_page": 18,
-      "pdf_page_end": 25,
-      "pdf_page_start": 18,
-      "printed_page": "10",
-      "review_status": "machine_checked",
-      "source": "body_heading",
       "text_excerpt": "第二单元 难忘的歌",
-      "title": "第二单元难忘的歌",
-      "unit_id": "tcu_10795d9c01d41c09"
+      "title": "第二单元 难忘的歌",
+      "toc_entry_id": "tcu_0c0ee199e7392561",
+      "unit_id": "tcu_0c0ee199e7392561"
     },
     {
       "confidence": 0.98,
@@ -375,7 +490,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_aee17c9ed76c533e",
-      "parent_id": "tcn_20ee92a04bbc9ca7",
+      "parent_id": "tcn_4537079400063b38",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -383,7 +498,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 19 页",
-      "unit_id": "tcu_10795d9c01d41c09"
+      "unit_id": "tcu_0c0ee199e7392561"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 21,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_6b51b7214b61f6f9",
+      "parent_id": "tcn_fca06039969a1572",
+      "pdf_page": 20,
+      "pdf_page_end": 21,
+      "pdf_page_start": 20,
+      "printed_page": "12",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "卖报歌",
+      "title": "卖报歌",
+      "toc_entry_id": "tcu_28d101b84dae690b",
+      "unit_id": "tcu_28d101b84dae690b"
     },
     {
       "confidence": 0.98,
@@ -392,7 +526,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_244cb71b99fb1282",
-      "parent_id": "tcn_20ee92a04bbc9ca7",
+      "parent_id": "tcn_6b51b7214b61f6f9",
       "pdf_page": 20,
       "pdf_page_end": 20,
       "pdf_page_start": 20,
@@ -400,7 +534,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 20 页",
-      "unit_id": "tcu_10795d9c01d41c09"
+      "unit_id": "tcu_0c0ee199e7392561"
     },
     {
       "confidence": 0.98,
@@ -409,7 +543,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3f0272ea507c1170",
-      "parent_id": "tcn_20ee92a04bbc9ca7",
+      "parent_id": "tcn_6b51b7214b61f6f9",
       "pdf_page": 21,
       "pdf_page_end": 21,
       "pdf_page_start": 21,
@@ -417,7 +551,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 21 页",
-      "unit_id": "tcu_10795d9c01d41c09"
+      "unit_id": "tcu_0c0ee199e7392561"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 22,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_c97d6da4a27a2998",
+      "parent_id": "tcn_fca06039969a1572",
+      "pdf_page": 22,
+      "pdf_page_end": 22,
+      "pdf_page_start": 22,
+      "printed_page": "14",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "情境表演 小小报童",
+      "title": "情境表演 小小报童",
+      "toc_entry_id": "tcu_ad0ca5de2c91b562",
+      "unit_id": "tcu_ad0ca5de2c91b562"
     },
     {
       "confidence": 0.98,
@@ -426,7 +579,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_68aaf1b895d12b67",
-      "parent_id": "tcn_20ee92a04bbc9ca7",
+      "parent_id": "tcn_c97d6da4a27a2998",
       "pdf_page": 22,
       "pdf_page_end": 22,
       "pdf_page_start": 22,
@@ -434,7 +587,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 22 页",
-      "unit_id": "tcu_10795d9c01d41c09"
+      "unit_id": "tcu_0c0ee199e7392561"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 23,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_56f2bef215dd6e6f",
+      "parent_id": "tcn_fca06039969a1572",
+      "pdf_page": 23,
+      "pdf_page_end": 23,
+      "pdf_page_start": 23,
+      "printed_page": "15",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "聆听 酸枣刺",
+      "title": "聆听 酸枣刺",
+      "toc_entry_id": "tcu_025d84dadbf96e29",
+      "unit_id": "tcu_025d84dadbf96e29"
     },
     {
       "confidence": 0.98,
@@ -443,7 +615,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ba07a067edd473a3",
-      "parent_id": "tcn_20ee92a04bbc9ca7",
+      "parent_id": "tcn_56f2bef215dd6e6f",
       "pdf_page": 23,
       "pdf_page_end": 23,
       "pdf_page_start": 23,
@@ -451,7 +623,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 23 页",
-      "unit_id": "tcu_10795d9c01d41c09"
+      "unit_id": "tcu_0c0ee199e7392561"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 25,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_8e7531ed51540485",
+      "parent_id": "tcn_fca06039969a1572",
+      "pdf_page": 24,
+      "pdf_page_end": 25,
+      "pdf_page_start": 24,
+      "printed_page": "16",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "中国少年先锋队队歌",
+      "title": "中国少年先锋队队歌",
+      "toc_entry_id": "tcu_44bd30cf65286356",
+      "unit_id": "tcu_44bd30cf65286356"
     },
     {
       "confidence": 0.98,
@@ -460,7 +651,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3b5a7e509f19dc11",
-      "parent_id": "tcn_20ee92a04bbc9ca7",
+      "parent_id": "tcn_8e7531ed51540485",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -468,7 +659,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 24 页",
-      "unit_id": "tcu_10795d9c01d41c09"
+      "unit_id": "tcu_0c0ee199e7392561"
     },
     {
       "confidence": 0.98,
@@ -477,7 +668,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ac47b73dd54c4195",
-      "parent_id": "tcn_20ee92a04bbc9ca7",
+      "parent_id": "tcn_8e7531ed51540485",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -485,7 +676,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 25 页",
-      "unit_id": "tcu_10795d9c01d41c09"
+      "unit_id": "tcu_0c0ee199e7392561"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 26,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_64629eb5dddaa203",
+      "parent_id": null,
+      "pdf_page": 26,
+      "pdf_page_end": 26,
+      "pdf_page_start": 26,
+      "printed_page": "18",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "唱歌 小蜜蜂",
+      "title": "唱歌 小蜜蜂",
+      "toc_entry_id": "tcu_2ea0675501fd2171",
+      "unit_id": "tcu_2ea0675501fd2171"
     },
     {
       "confidence": 0.98,
@@ -494,7 +704,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3d34f660814704cb",
-      "parent_id": null,
+      "parent_id": "tcn_64629eb5dddaa203",
       "pdf_page": 26,
       "pdf_page_end": 26,
       "pdf_page_start": 26,
@@ -502,7 +712,45 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 26 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 37,
+      "end_printed_page": "29",
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_928408e6b7ae2160",
+      "parent_id": null,
+      "pdf_page": 26,
+      "pdf_page_end": 37,
+      "pdf_page_start": 26,
+      "printed_page": "18",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第三单元 飞呀飞",
+      "title": "第三单元 飞呀飞",
+      "toc_entry_id": "tcu_9e35d153eed01895",
+      "unit_id": "tcu_9e35d153eed01895"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 27,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_08becb9693881eba",
+      "parent_id": "tcn_928408e6b7ae2160",
+      "pdf_page": 27,
+      "pdf_page_end": 27,
+      "pdf_page_start": 27,
+      "printed_page": "19",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "飞飞曲",
+      "title": "飞飞曲",
+      "toc_entry_id": "tcu_0c977aa357933f64",
+      "unit_id": "tcu_0c977aa357933f64"
     },
     {
       "confidence": 0.98,
@@ -511,7 +759,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_99a79d764cae5fef",
-      "parent_id": null,
+      "parent_id": "tcn_08becb9693881eba",
       "pdf_page": 27,
       "pdf_page_end": 27,
       "pdf_page_start": 27,
@@ -519,7 +767,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 27 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 31,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_c5d63b47aba0e430",
+      "parent_id": "tcn_928408e6b7ae2160",
+      "pdf_page": 28,
+      "pdf_page_end": 31,
+      "pdf_page_start": 28,
+      "printed_page": "20",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "小小音乐剧 麻雀与小孩",
+      "title": "小小音乐剧 麻雀与小孩",
+      "toc_entry_id": "tcu_69ae2094fb266820",
+      "unit_id": "tcu_69ae2094fb266820"
     },
     {
       "confidence": 0.98,
@@ -528,7 +795,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a335c3d10726d41e",
-      "parent_id": null,
+      "parent_id": "tcn_c5d63b47aba0e430",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -536,7 +803,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 28 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
     },
     {
       "confidence": 0.98,
@@ -545,7 +812,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_95091be2ac128519",
-      "parent_id": null,
+      "parent_id": "tcn_c5d63b47aba0e430",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -553,7 +820,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 29 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
     },
     {
       "confidence": 0.98,
@@ -562,7 +829,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_dfb92f85c0b8f4c8",
-      "parent_id": null,
+      "parent_id": "tcn_c5d63b47aba0e430",
       "pdf_page": 30,
       "pdf_page_end": 30,
       "pdf_page_start": 30,
@@ -570,7 +837,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 30 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
     },
     {
       "confidence": 0.98,
@@ -579,7 +846,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9dc69e05e6733379",
-      "parent_id": null,
+      "parent_id": "tcn_c5d63b47aba0e430",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -587,7 +854,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 31 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 32,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_74c64a190eb8b1b9",
+      "parent_id": "tcn_928408e6b7ae2160",
+      "pdf_page": 32,
+      "pdf_page_end": 32,
+      "pdf_page_start": 32,
+      "printed_page": "24",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "聆听 蝴蝶",
+      "title": "聆听 蝴蝶",
+      "toc_entry_id": "tcu_a0117fa141d67f3a",
+      "unit_id": "tcu_a0117fa141d67f3a"
     },
     {
       "confidence": 0.98,
@@ -596,7 +882,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5040cd71854dbd62",
-      "parent_id": null,
+      "parent_id": "tcn_74c64a190eb8b1b9",
       "pdf_page": 32,
       "pdf_page_end": 32,
       "pdf_page_start": 32,
@@ -604,7 +890,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 32 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 33,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_c85c42068d073b84",
+      "parent_id": "tcn_928408e6b7ae2160",
+      "pdf_page": 33,
+      "pdf_page_end": 33,
+      "pdf_page_start": 33,
+      "printed_page": "25",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "蜜蜂",
+      "title": "蜜蜂",
+      "toc_entry_id": "tcu_ac8c17a8539528bf",
+      "unit_id": "tcu_ac8c17a8539528bf"
     },
     {
       "confidence": 0.98,
@@ -613,7 +918,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f6d0254c4387ad4e",
-      "parent_id": null,
+      "parent_id": "tcn_c85c42068d073b84",
       "pdf_page": 33,
       "pdf_page_end": 33,
       "pdf_page_start": 33,
@@ -621,7 +926,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 33 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 37,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_8314f0247b95ffb9",
+      "parent_id": "tcn_928408e6b7ae2160",
+      "pdf_page": 34,
+      "pdf_page_end": 37,
+      "pdf_page_start": 34,
+      "printed_page": "26",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "采茶扑蝶",
+      "title": "采茶扑蝶",
+      "toc_entry_id": "tcu_31324db57c4bbe21",
+      "unit_id": "tcu_31324db57c4bbe21"
     },
     {
       "confidence": 0.98,
@@ -630,7 +954,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c64a12a8e45e34e3",
-      "parent_id": null,
+      "parent_id": "tcn_8314f0247b95ffb9",
       "pdf_page": 34,
       "pdf_page_end": 34,
       "pdf_page_start": 34,
@@ -638,7 +962,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 34 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
     },
     {
       "confidence": 0.98,
@@ -647,7 +971,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0176648e0d880206",
-      "parent_id": null,
+      "parent_id": "tcn_8314f0247b95ffb9",
       "pdf_page": 35,
       "pdf_page_end": 35,
       "pdf_page_start": 35,
@@ -655,7 +979,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 35 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
     },
     {
       "confidence": 0.98,
@@ -664,7 +988,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d2ebfe7a0d76eebb",
-      "parent_id": null,
+      "parent_id": "tcn_8314f0247b95ffb9",
       "pdf_page": 36,
       "pdf_page_end": 36,
       "pdf_page_start": 36,
@@ -672,7 +996,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 36 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
     },
     {
       "confidence": 0.98,
@@ -681,7 +1005,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0964b6fb802ee9be",
-      "parent_id": null,
+      "parent_id": "tcn_8314f0247b95ffb9",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -689,7 +1013,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 37 页",
-      "unit_id": null
+      "unit_id": "tcu_9e35d153eed01895"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 39,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_07e125f034d35d21",
+      "parent_id": null,
+      "pdf_page": 38,
+      "pdf_page_end": 39,
+      "pdf_page_start": 38,
+      "printed_page": "30",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "唱歌 我的家在日喀则",
+      "title": "唱歌 我的家在日喀则",
+      "toc_entry_id": "tcu_280237640597cda7",
+      "unit_id": "tcu_280237640597cda7"
     },
     {
       "confidence": 0.98,
@@ -698,7 +1041,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2d7ff0c29b2efe2c",
-      "parent_id": null,
+      "parent_id": "tcn_07e125f034d35d21",
       "pdf_page": 38,
       "pdf_page_end": 38,
       "pdf_page_start": 38,
@@ -706,7 +1049,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 38 页",
-      "unit_id": null
+      "unit_id": "tcu_6b2676422d13779b"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 47,
+      "end_printed_page": "39",
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_b2034e3387c5f9eb",
+      "parent_id": null,
+      "pdf_page": 38,
+      "pdf_page_end": 47,
+      "pdf_page_start": 38,
+      "printed_page": "30",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第四单元 美丽家园",
+      "title": "第四单元 美丽家园",
+      "toc_entry_id": "tcu_6b2676422d13779b",
+      "unit_id": "tcu_6b2676422d13779b"
     },
     {
       "confidence": 0.98,
@@ -715,7 +1077,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b8fcaf8abeab5a8a",
-      "parent_id": null,
+      "parent_id": "tcn_07e125f034d35d21",
       "pdf_page": 39,
       "pdf_page_end": 39,
       "pdf_page_start": 39,
@@ -723,7 +1085,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 39 页",
-      "unit_id": null
+      "unit_id": "tcu_6b2676422d13779b"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 41,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_b5676d8118997652",
+      "parent_id": "tcn_b2034e3387c5f9eb",
+      "pdf_page": 40,
+      "pdf_page_end": 41,
+      "pdf_page_start": 40,
+      "printed_page": "32",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "草原上",
+      "title": "草原上",
+      "toc_entry_id": "tcu_46dc72ce2879b5a1",
+      "unit_id": "tcu_46dc72ce2879b5a1"
     },
     {
       "confidence": 0.98,
@@ -732,7 +1113,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5259fcb639be5ed0",
-      "parent_id": null,
+      "parent_id": "tcn_b5676d8118997652",
       "pdf_page": 40,
       "pdf_page_end": 40,
       "pdf_page_start": 40,
@@ -740,7 +1121,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 40 页",
-      "unit_id": null
+      "unit_id": "tcu_6b2676422d13779b"
     },
     {
       "confidence": 0.98,
@@ -749,7 +1130,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_770661915e2ad6a7",
-      "parent_id": null,
+      "parent_id": "tcn_b5676d8118997652",
       "pdf_page": 41,
       "pdf_page_end": 41,
       "pdf_page_start": 41,
@@ -757,7 +1138,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 41 页",
-      "unit_id": null
+      "unit_id": "tcu_6b2676422d13779b"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 43,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_a18960203a1b2b22",
+      "parent_id": "tcn_b2034e3387c5f9eb",
+      "pdf_page": 42,
+      "pdf_page_end": 43,
+      "pdf_page_start": 42,
+      "printed_page": "34",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "聆听 新疆舞曲第一号",
+      "title": "聆听 新疆舞曲第一号",
+      "toc_entry_id": "tcu_fdd9e3d3c851bd60",
+      "unit_id": "tcu_fdd9e3d3c851bd60"
     },
     {
       "confidence": 0.98,
@@ -766,7 +1166,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_322460462b1d7114",
-      "parent_id": null,
+      "parent_id": "tcn_a18960203a1b2b22",
       "pdf_page": 42,
       "pdf_page_end": 42,
       "pdf_page_start": 42,
@@ -774,7 +1174,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 42 页",
-      "unit_id": null
+      "unit_id": "tcu_6b2676422d13779b"
     },
     {
       "confidence": 0.98,
@@ -783,7 +1183,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0ee50729ed7efcf8",
-      "parent_id": null,
+      "parent_id": "tcn_a18960203a1b2b22",
       "pdf_page": 43,
       "pdf_page_end": 43,
       "pdf_page_start": 43,
@@ -791,7 +1191,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 43 页",
-      "unit_id": null
+      "unit_id": "tcu_6b2676422d13779b"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 45,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_9a758df1fb6c5979",
+      "parent_id": "tcn_b2034e3387c5f9eb",
+      "pdf_page": 44,
+      "pdf_page_end": 45,
+      "pdf_page_start": 44,
+      "printed_page": "36",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "我是人民小骑兵",
+      "title": "我是人民小骑兵",
+      "toc_entry_id": "tcu_9601cd9df85de107",
+      "unit_id": "tcu_9601cd9df85de107"
     },
     {
       "confidence": 0.98,
@@ -800,7 +1219,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3232981a4f7480aa",
-      "parent_id": null,
+      "parent_id": "tcn_9a758df1fb6c5979",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -808,7 +1227,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 44 页",
-      "unit_id": null
+      "unit_id": "tcu_6b2676422d13779b"
     },
     {
       "confidence": 0.98,
@@ -817,7 +1236,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ca8cef27a9711ef3",
-      "parent_id": null,
+      "parent_id": "tcn_9a758df1fb6c5979",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -825,7 +1244,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 45 页",
-      "unit_id": null
+      "unit_id": "tcu_6b2676422d13779b"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 46,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_ec017160fa6f0715",
+      "parent_id": "tcn_b2034e3387c5f9eb",
+      "pdf_page": 46,
+      "pdf_page_end": 46,
+      "pdf_page_start": 46,
+      "printed_page": "38",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "音乐游戏 跳房子",
+      "title": "音乐游戏 跳房子",
+      "toc_entry_id": "tcu_7b99551d00f224d4",
+      "unit_id": "tcu_7b99551d00f224d4"
     },
     {
       "confidence": 0.98,
@@ -834,7 +1272,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c7152785edad6561",
-      "parent_id": null,
+      "parent_id": "tcn_ec017160fa6f0715",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -842,7 +1280,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 46 页",
-      "unit_id": null
+      "unit_id": "tcu_6b2676422d13779b"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 47,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_e5f29e34c745c920",
+      "parent_id": "tcn_b2034e3387c5f9eb",
+      "pdf_page": 47,
+      "pdf_page_end": 47,
+      "pdf_page_start": 47,
+      "printed_page": "39",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "涂圈圈",
+      "title": "涂圈圈",
+      "toc_entry_id": "tcu_1e34e583e2a38592",
+      "unit_id": "tcu_1e34e583e2a38592"
     },
     {
       "confidence": 0.98,
@@ -851,7 +1308,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_986dc840073615b0",
-      "parent_id": null,
+      "parent_id": "tcn_e5f29e34c745c920",
       "pdf_page": 47,
       "pdf_page_end": 47,
       "pdf_page_start": 47,
@@ -859,7 +1316,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 47 页",
-      "unit_id": null
+      "unit_id": "tcu_6b2676422d13779b"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 49,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_a05c4a6758381606",
+      "parent_id": null,
+      "pdf_page": 48,
+      "pdf_page_end": 49,
+      "pdf_page_start": 48,
+      "printed_page": "40",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "唱歌 新疆是个好地方",
+      "title": "唱歌 新疆是个好地方",
+      "toc_entry_id": "tcu_315f8d83382d0618",
+      "unit_id": "tcu_315f8d83382d0618"
     },
     {
       "confidence": 0.98,
@@ -868,7 +1344,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fbb2fc2f70070444",
-      "parent_id": "tcn_003b4d2443052f0a",
+      "parent_id": "tcn_a05c4a6758381606",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -876,15 +1352,15 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 48 页",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "unit_id": "tcu_6df9c2d60cf81cc6"
     },
     {
-      "confidence": 0.98,
+      "confidence": 0.95,
       "end_pdf_page": 57,
-      "end_printed_page": null,
+      "end_printed_page": "49",
       "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_003b4d2443052f0a",
+      "node_id": "tcn_dc32544a047affed",
       "parent_id": null,
       "pdf_page": 48,
       "pdf_page_end": 57,
@@ -892,30 +1368,10 @@
       "printed_page": "40",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "快乐的舞蹈",
-      "title": "快乐的舞蹈",
-      "toc_entry_id": "tcu_6b226e116e64bd61",
-      "unit_id": "tcu_6b226e116e64bd61"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 57,
-      "end_printed_page": "40",
-      "evidence_span_ids": [
-        "tes_f97c36b3b5330d40"
-      ],
-      "kind": "unit",
-      "node_id": "tcn_46f5404d4cb7dfc8",
-      "parent_id": "tcn_003b4d2443052f0a",
-      "pdf_page": 48,
-      "pdf_page_end": 57,
-      "pdf_page_start": 48,
-      "printed_page": "40",
-      "review_status": "machine_checked",
-      "source": "body_heading",
       "text_excerpt": "第五单元 快乐的舞蹈",
-      "title": "第五单元快乐的舞蹈",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "title": "第五单元 快乐的舞蹈",
+      "toc_entry_id": "tcu_6df9c2d60cf81cc6",
+      "unit_id": "tcu_6df9c2d60cf81cc6"
     },
     {
       "confidence": 0.98,
@@ -924,7 +1380,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_82d0f51bcdcf096e",
-      "parent_id": "tcn_003b4d2443052f0a",
+      "parent_id": "tcn_a05c4a6758381606",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -932,7 +1388,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 49 页",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "unit_id": "tcu_6df9c2d60cf81cc6"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 51,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_49e0e762f84065d7",
+      "parent_id": "tcn_dc32544a047affed",
+      "pdf_page": 50,
+      "pdf_page_end": 51,
+      "pdf_page_start": 50,
+      "printed_page": "42",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "金孔雀轻轻跳",
+      "title": "金孔雀轻轻跳",
+      "toc_entry_id": "tcu_cc81ff37aa39eaf0",
+      "unit_id": "tcu_cc81ff37aa39eaf0"
     },
     {
       "confidence": 0.98,
@@ -941,7 +1416,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_edcf1473e642b48d",
-      "parent_id": "tcn_003b4d2443052f0a",
+      "parent_id": "tcn_49e0e762f84065d7",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -949,7 +1424,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 50 页",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "unit_id": "tcu_6df9c2d60cf81cc6"
     },
     {
       "confidence": 0.98,
@@ -958,7 +1433,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_908b8ff84de0e84d",
-      "parent_id": "tcn_003b4d2443052f0a",
+      "parent_id": "tcn_49e0e762f84065d7",
       "pdf_page": 51,
       "pdf_page_end": 51,
       "pdf_page_start": 51,
@@ -966,7 +1441,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 51 页",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "unit_id": "tcu_6df9c2d60cf81cc6"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 53,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_182543e34f9b49f7",
+      "parent_id": "tcn_dc32544a047affed",
+      "pdf_page": 52,
+      "pdf_page_end": 53,
+      "pdf_page_start": 52,
+      "printed_page": "44",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "聆听 单簧管波尔卡",
+      "title": "聆听 单簧管波尔卡",
+      "toc_entry_id": "tcu_636d25fe59686a9f",
+      "unit_id": "tcu_636d25fe59686a9f"
     },
     {
       "confidence": 0.98,
@@ -975,7 +1469,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3b66b31b5c4e416c",
-      "parent_id": "tcn_003b4d2443052f0a",
+      "parent_id": "tcn_182543e34f9b49f7",
       "pdf_page": 52,
       "pdf_page_end": 52,
       "pdf_page_start": 52,
@@ -983,7 +1477,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 52 页",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "unit_id": "tcu_6df9c2d60cf81cc6"
     },
     {
       "confidence": 0.98,
@@ -992,7 +1486,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_143e63a41b18de21",
-      "parent_id": "tcn_003b4d2443052f0a",
+      "parent_id": "tcn_182543e34f9b49f7",
       "pdf_page": 53,
       "pdf_page_end": 53,
       "pdf_page_start": 53,
@@ -1000,7 +1494,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 53 页",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "unit_id": "tcu_6df9c2d60cf81cc6"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 55,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_88c6276e03512415",
+      "parent_id": "tcn_dc32544a047affed",
+      "pdf_page": 54,
+      "pdf_page_end": 55,
+      "pdf_page_start": 54,
+      "printed_page": "46",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "加伏特舞曲",
+      "title": "加伏特舞曲",
+      "toc_entry_id": "tcu_c9672c1be70822b9",
+      "unit_id": "tcu_c9672c1be70822b9"
     },
     {
       "confidence": 0.98,
@@ -1009,7 +1522,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_08aca3a05a5128b6",
-      "parent_id": "tcn_003b4d2443052f0a",
+      "parent_id": "tcn_88c6276e03512415",
       "pdf_page": 54,
       "pdf_page_end": 54,
       "pdf_page_start": 54,
@@ -1017,7 +1530,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 54 页",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "unit_id": "tcu_6df9c2d60cf81cc6"
     },
     {
       "confidence": 0.98,
@@ -1026,7 +1539,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d3624527359b652a",
-      "parent_id": "tcn_003b4d2443052f0a",
+      "parent_id": "tcn_88c6276e03512415",
       "pdf_page": 55,
       "pdf_page_end": 55,
       "pdf_page_start": 55,
@@ -1034,7 +1547,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 55 页",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "unit_id": "tcu_6df9c2d60cf81cc6"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 56,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_16708e7ce3481f95",
+      "parent_id": "tcn_dc32544a047affed",
+      "pdf_page": 56,
+      "pdf_page_end": 56,
+      "pdf_page_start": 56,
+      "printed_page": "48",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "霍拉舞曲",
+      "title": "霍拉舞曲",
+      "toc_entry_id": "tcu_d5294c24c011442b",
+      "unit_id": "tcu_d5294c24c011442b"
     },
     {
       "confidence": 0.98,
@@ -1043,7 +1575,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c20825095a5e781c",
-      "parent_id": "tcn_003b4d2443052f0a",
+      "parent_id": "tcn_16708e7ce3481f95",
       "pdf_page": 56,
       "pdf_page_end": 56,
       "pdf_page_start": 56,
@@ -1051,7 +1583,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 56 页",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "unit_id": "tcu_6df9c2d60cf81cc6"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 57,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_071219a438d4b4ac",
+      "parent_id": "tcn_dc32544a047affed",
+      "pdf_page": 57,
+      "pdf_page_end": 57,
+      "pdf_page_start": 57,
+      "printed_page": "49",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "音乐游戏 阿西里西",
+      "title": "音乐游戏 阿西里西",
+      "toc_entry_id": "tcu_e41850f5c197fbcf",
+      "unit_id": "tcu_e41850f5c197fbcf"
     },
     {
       "confidence": 0.98,
@@ -1060,7 +1611,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7b1205ba7391fbaf",
-      "parent_id": "tcn_003b4d2443052f0a",
+      "parent_id": "tcn_071219a438d4b4ac",
       "pdf_page": 57,
       "pdf_page_end": 57,
       "pdf_page_start": 57,
@@ -1068,7 +1619,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 57 页",
-      "unit_id": "tcu_6b226e116e64bd61"
+      "unit_id": "tcu_6df9c2d60cf81cc6"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 59,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_93de89767f8ce4fc",
+      "parent_id": "tcn_fcd2f0391dcf1005",
+      "pdf_page": 58,
+      "pdf_page_end": 59,
+      "pdf_page_start": 58,
+      "printed_page": "50",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "唱歌 表花",
+      "title": "唱歌 表花",
+      "toc_entry_id": "tcu_da82f6365e489637",
+      "unit_id": "tcu_da82f6365e489637"
     },
     {
       "confidence": 0.98,
@@ -1077,7 +1647,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d39593724ebdc376",
-      "parent_id": null,
+      "parent_id": "tcn_93de89767f8ce4fc",
       "pdf_page": 58,
       "pdf_page_end": 58,
       "pdf_page_start": 58,
@@ -1085,7 +1655,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 58 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 72,
+      "end_printed_page": "64",
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_fcd2f0391dcf1005",
+      "parent_id": null,
+      "pdf_page": 58,
+      "pdf_page_end": 72,
+      "pdf_page_start": 58,
+      "printed_page": "50",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第六单元 龙里格龙",
+      "title": "第六单元 龙里格龙",
+      "toc_entry_id": "tcu_24a54d31ef4d16be",
+      "unit_id": "tcu_24a54d31ef4d16be"
     },
     {
       "confidence": 0.98,
@@ -1094,7 +1683,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6f00983151d42bf2",
-      "parent_id": null,
+      "parent_id": "tcn_93de89767f8ce4fc",
       "pdf_page": 59,
       "pdf_page_end": 59,
       "pdf_page_start": 59,
@@ -1102,7 +1691,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 59 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 61,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_d03b72116a1ffc56",
+      "parent_id": "tcn_fcd2f0391dcf1005",
+      "pdf_page": 60,
+      "pdf_page_end": 61,
+      "pdf_page_start": 60,
+      "printed_page": "52",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "报灯名",
+      "title": "报灯名",
+      "toc_entry_id": "tcu_45f8dd9a98e5a8c6",
+      "unit_id": "tcu_45f8dd9a98e5a8c6"
     },
     {
       "confidence": 0.98,
@@ -1111,7 +1719,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_898d68888fc113fd",
-      "parent_id": null,
+      "parent_id": "tcn_d03b72116a1ffc56",
       "pdf_page": 60,
       "pdf_page_end": 60,
       "pdf_page_start": 60,
@@ -1119,7 +1727,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 60 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
     },
     {
       "confidence": 0.98,
@@ -1128,7 +1736,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_199451a73a7b6d0f",
-      "parent_id": null,
+      "parent_id": "tcn_d03b72116a1ffc56",
       "pdf_page": 61,
       "pdf_page_end": 61,
       "pdf_page_start": 61,
@@ -1136,7 +1744,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 61 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 62,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_929cafbd0b02333a",
+      "parent_id": "tcn_fcd2f0391dcf1005",
+      "pdf_page": 62,
+      "pdf_page_end": 62,
+      "pdf_page_start": 62,
+      "printed_page": "54",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "聆听 龙里格龙",
+      "title": "聆听 龙里格龙",
+      "toc_entry_id": "tcu_b0faedd427727ed1",
+      "unit_id": "tcu_b0faedd427727ed1"
     },
     {
       "confidence": 0.98,
@@ -1145,7 +1772,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_823386c551a3a18c",
-      "parent_id": null,
+      "parent_id": "tcn_929cafbd0b02333a",
       "pdf_page": 62,
       "pdf_page_end": 62,
       "pdf_page_start": 62,
@@ -1153,7 +1780,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 62 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 63,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_e434bfbe45ec8cb0",
+      "parent_id": "tcn_fcd2f0391dcf1005",
+      "pdf_page": 63,
+      "pdf_page_end": 63,
+      "pdf_page_start": 63,
+      "printed_page": "55",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "大闹天宫（片段）",
+      "title": "大闹天宫（片段）",
+      "toc_entry_id": "tcu_316468aee2f209e8",
+      "unit_id": "tcu_316468aee2f209e8"
     },
     {
       "confidence": 0.98,
@@ -1162,7 +1808,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d65a1ddc02cb2e86",
-      "parent_id": null,
+      "parent_id": "tcn_e434bfbe45ec8cb0",
       "pdf_page": 63,
       "pdf_page_end": 63,
       "pdf_page_start": 63,
@@ -1170,7 +1816,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 63 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 64,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_1d3fed7d2c3e5c04",
+      "parent_id": "tcn_fcd2f0391dcf1005",
+      "pdf_page": 64,
+      "pdf_page_end": 64,
+      "pdf_page_start": 64,
+      "printed_page": "56",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "演奏 敲锣打鼓",
+      "title": "演奏 敲锣打鼓",
+      "toc_entry_id": "tcu_e69d5bca29096faa",
+      "unit_id": "tcu_e69d5bca29096faa"
     },
     {
       "confidence": 0.98,
@@ -1179,7 +1844,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4edd2e8bd8033b03",
-      "parent_id": null,
+      "parent_id": "tcn_1d3fed7d2c3e5c04",
       "pdf_page": 64,
       "pdf_page_end": 64,
       "pdf_page_start": 64,
@@ -1187,7 +1852,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 64 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 66,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_72fc072e94bb9b1c",
+      "parent_id": "tcn_fcd2f0391dcf1005",
+      "pdf_page": 65,
+      "pdf_page_end": 66,
+      "pdf_page_start": 65,
+      "printed_page": "57",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "综合评价（二）",
+      "title": "综合评价（二）",
+      "toc_entry_id": "tcu_5e35929089701030",
+      "unit_id": "tcu_5e35929089701030"
     },
     {
       "confidence": 0.98,
@@ -1196,7 +1880,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3fde4d84db841dbb",
-      "parent_id": null,
+      "parent_id": "tcn_72fc072e94bb9b1c",
       "pdf_page": 65,
       "pdf_page_end": 65,
       "pdf_page_start": 65,
@@ -1204,7 +1888,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 65 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
     },
     {
       "confidence": 0.98,
@@ -1213,7 +1897,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1fd08e306cbe7d6a",
-      "parent_id": null,
+      "parent_id": "tcn_72fc072e94bb9b1c",
       "pdf_page": 66,
       "pdf_page_end": 66,
       "pdf_page_start": 66,
@@ -1221,7 +1905,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 66 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 67,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_c19f33c7b427342d",
+      "parent_id": "tcn_fcd2f0391dcf1005",
+      "pdf_page": 67,
+      "pdf_page_end": 67,
+      "pdf_page_start": 67,
+      "printed_page": "59",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "唱歌 我爱北京天安门",
+      "title": "唱歌 我爱北京天安门",
+      "toc_entry_id": "tcu_168f1f36e2ba8bf6",
+      "unit_id": "tcu_168f1f36e2ba8bf6"
     },
     {
       "confidence": 0.98,
@@ -1230,7 +1933,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d7d993c53b162677",
-      "parent_id": null,
+      "parent_id": "tcn_c19f33c7b427342d",
       "pdf_page": 67,
       "pdf_page_end": 67,
       "pdf_page_start": 67,
@@ -1238,7 +1941,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 67 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 68,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_9f9179d4f4f86245",
+      "parent_id": "tcn_fcd2f0391dcf1005",
+      "pdf_page": 68,
+      "pdf_page_end": 68,
+      "pdf_page_start": 68,
+      "printed_page": "60",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "草原就是我的家",
+      "title": "草原就是我的家",
+      "toc_entry_id": "tcu_e04630aefc82bc01",
+      "unit_id": "tcu_e04630aefc82bc01"
     },
     {
       "confidence": 0.98,
@@ -1247,7 +1969,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_646997ac1a2924f0",
-      "parent_id": null,
+      "parent_id": "tcn_9f9179d4f4f86245",
       "pdf_page": 68,
       "pdf_page_end": 68,
       "pdf_page_start": 68,
@@ -1255,7 +1977,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 68 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 72,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_06129f03c9e6ed3b",
+      "parent_id": "tcn_fcd2f0391dcf1005",
+      "pdf_page": 69,
+      "pdf_page_end": 72,
+      "pdf_page_start": 69,
+      "printed_page": "61",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "我爱雪莲花",
+      "title": "我爱雪莲花",
+      "toc_entry_id": "tcu_44cb4c671a8fd56e",
+      "unit_id": "tcu_44cb4c671a8fd56e"
     },
     {
       "confidence": 0.98,
@@ -1264,7 +2005,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c858a195d6f2bcfe",
-      "parent_id": null,
+      "parent_id": "tcn_06129f03c9e6ed3b",
       "pdf_page": 69,
       "pdf_page_end": 69,
       "pdf_page_start": 69,
@@ -1272,7 +2013,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 69 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
     },
     {
       "confidence": 0.98,
@@ -1281,7 +2022,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_18bd243c1784e296",
-      "parent_id": null,
+      "parent_id": "tcn_06129f03c9e6ed3b",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -1289,7 +2030,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 70 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
     },
     {
       "confidence": 0.98,
@@ -1298,7 +2039,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_12ff3a50d8552c3d",
-      "parent_id": null,
+      "parent_id": "tcn_06129f03c9e6ed3b",
       "pdf_page": 71,
       "pdf_page_end": 71,
       "pdf_page_start": 71,
@@ -1306,7 +2047,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 71 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
     },
     {
       "confidence": 0.98,
@@ -1315,7 +2056,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_94f0b5374eb18c3a",
-      "parent_id": null,
+      "parent_id": "tcn_06129f03c9e6ed3b",
       "pdf_page": 72,
       "pdf_page_end": 72,
       "pdf_page_start": 72,
@@ -1323,63 +2064,12 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 72 页",
-      "unit_id": null
+      "unit_id": "tcu_24a54d31ef4d16be"
     }
   ],
   "edition_id": "ed_bd2b80ffa90783d7b872",
   "evidence_id": "external_smartedu_2026_music_primary_grade_2_down",
-  "evidence_spans": [
-    {
-      "asset_sha256": "fe90a27863bc8e6b9e3d666cc591cbe06a02b29a339382af1e082bdf9d0227d3",
-      "bbox": {
-        "height": 22,
-        "page_height": 737.008,
-        "page_width": 524.409,
-        "unit": "pdf_point",
-        "width": 198,
-        "x": 156.827,
-        "y": 667.61
-      },
-      "edition_id": "ed_bd2b80ffa90783d7b872",
-      "evidence_role": "heading",
-      "excerpt": "第二单元 难忘的歌",
-      "excerpt_hash": "f34f70a3311247168a1aaf3b1af032e99142b97753bea5468ee132c6a2029744",
-      "node_id": "tcn_29b7df3dad180a98",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 18,
-      "printed_page": "10",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_cd69bc56add2ace6",
-      "text": "第二单元 难忘的歌",
-      "text_hash": "f34f70a3311247168a1aaf3b1af032e99142b97753bea5468ee132c6a2029744"
-    },
-    {
-      "asset_sha256": "fe90a27863bc8e6b9e3d666cc591cbe06a02b29a339382af1e082bdf9d0227d3",
-      "bbox": {
-        "height": 22,
-        "page_height": 737.008,
-        "page_width": 524.409,
-        "unit": "pdf_point",
-        "width": 220,
-        "x": 146.536,
-        "y": 666.901
-      },
-      "edition_id": "ed_bd2b80ffa90783d7b872",
-      "evidence_role": "heading",
-      "excerpt": "第五单元 快乐的舞蹈",
-      "excerpt_hash": "608aefc8fffffc5ecb4750fc406727fa8fc6eb5da86803fc0723b1914bf7cf2d",
-      "node_id": "tcn_46f5404d4cb7dfc8",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 48,
-      "printed_page": "40",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_f97c36b3b5330d40",
-      "text": "第五单元 快乐的舞蹈",
-      "text_hash": "608aefc8fffffc5ecb4750fc406727fa8fc6eb5da86803fc0723b1914bf7cf2d"
-    }
-  ],
+  "evidence_spans": [],
   "extraction": {
     "average_characters_per_page": 88.9,
     "extracted_at": "2026-11-01T07:29:59.423426Z",
@@ -1840,6 +2530,47 @@
       "review_status": "approved"
     }
   ],
+  "printed_toc": {
+    "algorithm_version": "printed-toc-v1",
+    "approved_entry_count": 43,
+    "contents_pdf_pages": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "decision": "more_units",
+    "evidence_policy": "printed_contents_page_number_and_title_at_page_top",
+    "page_offset_source": "page_map",
+    "parsed_entry_count": 45,
+    "provenance": "machine_generated",
+    "replaced_toc": {
+      "entries": 2,
+      "last_pdf_page": 48,
+      "sources": [
+        "heading_match"
+      ],
+      "units": 2
+    },
+    "reused_entry_id_count": 0,
+    "review_policy": "automatic_no_human_gate",
+    "unverified_entries": [
+      {
+        "kind": "lesson",
+        "reason": "title_not_at_top_of_page",
+        "title": "能力进阶 1 2 3 5",
+        "toc_pdf_page": 7,
+        "toc_printed_page": "6"
+      },
+      {
+        "kind": "lesson",
+        "reason": "title_not_at_top_of_page",
+        "title": "八分休止符综合评价（一）",
+        "toc_pdf_page": 7,
+        "toc_printed_page": "28"
+      }
+    ]
+  },
   "schema_version": 2,
   "standard_scopes": [
     {
@@ -1900,50 +2631,1208 @@
   "text_quality": "partial_text",
   "toc": [
     {
-      "confidence": 0.98,
+      "confidence": 0.95,
+      "end_pdf_page": 17,
+      "end_printed_page": "9",
+      "entry_id": "tcu_9bbad0444b3db013",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 10,
+        "verbatim_title": "第一单元 绿色的祝福"
+      },
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 10,
+      "printed_page": "2",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 198,
+            "x": 156.827,
+            "y": 667.61
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 18,
+          "verbatim_title": "第二单元 难忘的歌"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 220,
+            "x": 146.536,
+            "y": 667.61
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 10,
+          "verbatim_title": "第一单元 绿色的祝福"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 1,
+      "title": "第一单元 绿色的祝福",
+      "toc_pdf_page": 6,
+      "toc_printed_page": null
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 11,
+      "entry_id": "tcu_242a2fb0720ab930",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 10,
+        "verbatim_title": "小树快长高"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9bbad0444b3db013",
+      "pdf_page": 10,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 2,
+      "title": "唱歌 小树快长高",
+      "toc_pdf_page": 6,
+      "toc_printed_page": "2"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 13,
+      "entry_id": "tcu_68d090f2bc43b609",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 12,
+        "verbatim_title": "大树妈妈"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9bbad0444b3db013",
+      "pdf_page": 12,
+      "printed_page": "4",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 3,
+      "title": "大树妈妈",
+      "toc_pdf_page": 6,
+      "toc_printed_page": "4"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 14,
+      "entry_id": "tcu_093802f24eefab42",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 14,
+        "verbatim_title": "郊游"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9bbad0444b3db013",
+      "pdf_page": 14,
+      "printed_page": "6",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 4,
+      "title": "郊游",
+      "toc_pdf_page": 6,
+      "toc_printed_page": "6"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 15,
+      "entry_id": "tcu_0e714dc5a39d1b30",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 15,
+        "verbatim_title": "春之歌"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9bbad0444b3db013",
+      "pdf_page": 15,
+      "printed_page": "7",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 5,
+      "title": "聆听 春之歌",
+      "toc_pdf_page": 6,
+      "toc_printed_page": "7"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 17,
+      "entry_id": "tcu_ffb088f857a0e46e",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 16,
+        "verbatim_title": "绿色的祖国"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9bbad0444b3db013",
+      "pdf_page": 16,
+      "printed_page": "8",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 6,
+      "title": "绿色的祖国",
+      "toc_pdf_page": 6,
+      "toc_printed_page": "8"
+    },
+    {
+      "confidence": 0.95,
       "end_pdf_page": 25,
-      "entry_id": "tcu_10795d9c01d41c09",
+      "end_printed_page": "17",
+      "entry_id": "tcu_0c0ee199e7392561",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 18,
+        "verbatim_title": "第二单元 难忘的歌"
+      },
       "kind": "unit",
       "level": 1,
       "parent_id": null,
       "pdf_page": 18,
       "printed_page": "10",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 176,
+            "x": 168.536,
+            "y": 666.901
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 26,
+          "verbatim_title": "第三单元 飞呀飞"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 198,
+            "x": 156.827,
+            "y": 667.61
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 18,
+          "verbatim_title": "第二单元 难忘的歌"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "难忘的歌"
+      "source": "printed_toc",
+      "source_order": 7,
+      "title": "第二单元 难忘的歌",
+      "toc_pdf_page": 7,
+      "toc_printed_page": null
     },
     {
-      "confidence": 0.98,
+      "confidence": 0.95,
+      "end_pdf_page": 19,
+      "entry_id": "tcu_443d83c56a0254c2",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 18,
+        "verbatim_title": "共产儿童团歌"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0c0ee199e7392561",
+      "pdf_page": 18,
+      "printed_page": "10",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 8,
+      "title": "唱歌 共产儿童团歌",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "10"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 21,
+      "entry_id": "tcu_28d101b84dae690b",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 20,
+        "verbatim_title": "卖报歌"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0c0ee199e7392561",
+      "pdf_page": 20,
+      "printed_page": "12",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 9,
+      "title": "卖报歌",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "12"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 22,
+      "entry_id": "tcu_ad0ca5de2c91b562",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 22,
+        "verbatim_title": "情境表演"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0c0ee199e7392561",
+      "pdf_page": 22,
+      "printed_page": "14",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 10,
+      "title": "情境表演 小小报童",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "14"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 23,
+      "entry_id": "tcu_025d84dadbf96e29",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 23,
+        "verbatim_title": "酸枣刺"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0c0ee199e7392561",
+      "pdf_page": 23,
+      "printed_page": "15",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 11,
+      "title": "聆听 酸枣刺",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "15"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 25,
+      "entry_id": "tcu_44bd30cf65286356",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 24,
+        "verbatim_title": "中国少年先锋队队歌"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_0c0ee199e7392561",
+      "pdf_page": 24,
+      "printed_page": "16",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 12,
+      "title": "中国少年先锋队队歌",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "16"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 37,
+      "end_printed_page": "29",
+      "entry_id": "tcu_9e35d153eed01895",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 26,
+        "verbatim_title": "第三单元 飞呀飞"
+      },
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 26,
+      "printed_page": "18",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 198,
+            "x": 157.536,
+            "y": 666.901
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 38,
+          "verbatim_title": "第四单元 美丽家园"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 176,
+            "x": 168.536,
+            "y": 666.901
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 26,
+          "verbatim_title": "第三单元 飞呀飞"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 13,
+      "title": "第三单元 飞呀飞",
+      "toc_pdf_page": 7,
+      "toc_printed_page": null
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 26,
+      "entry_id": "tcu_2ea0675501fd2171",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 26,
+        "verbatim_title": "小蜜蜂"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9e35d153eed01895",
+      "pdf_page": 26,
+      "printed_page": "18",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 14,
+      "title": "唱歌 小蜜蜂",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "18"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 27,
+      "entry_id": "tcu_0c977aa357933f64",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 27,
+        "verbatim_title": "飞飞曲"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9e35d153eed01895",
+      "pdf_page": 27,
+      "printed_page": "19",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 15,
+      "title": "飞飞曲",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "19"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 31,
+      "entry_id": "tcu_69ae2094fb266820",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 28,
+        "verbatim_title": "小小音乐剧"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9e35d153eed01895",
+      "pdf_page": 28,
+      "printed_page": "20",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 16,
+      "title": "小小音乐剧 麻雀与小孩",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "20"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 32,
+      "entry_id": "tcu_a0117fa141d67f3a",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 32,
+        "verbatim_title": "蝴蝶"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9e35d153eed01895",
+      "pdf_page": 32,
+      "printed_page": "24",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 17,
+      "title": "聆听 蝴蝶",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "24"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 33,
+      "entry_id": "tcu_ac8c17a8539528bf",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 33,
+        "verbatim_title": "蜜蜂"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9e35d153eed01895",
+      "pdf_page": 33,
+      "printed_page": "25",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 18,
+      "title": "蜜蜂",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "25"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 37,
+      "entry_id": "tcu_31324db57c4bbe21",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 34,
+        "verbatim_title": "采茶扑蝶"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_9e35d153eed01895",
+      "pdf_page": 34,
+      "printed_page": "26",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 19,
+      "title": "采茶扑蝶",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "26"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 47,
+      "end_printed_page": "39",
+      "entry_id": "tcu_6b2676422d13779b",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 38,
+        "verbatim_title": "第四单元 美丽家园"
+      },
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 38,
+      "printed_page": "30",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 220,
+            "x": 146.536,
+            "y": 666.901
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 48,
+          "verbatim_title": "第五单元 快乐的舞蹈"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 198,
+            "x": 157.536,
+            "y": 666.901
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 38,
+          "verbatim_title": "第四单元 美丽家园"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 20,
+      "title": "第四单元 美丽家园",
+      "toc_pdf_page": 8,
+      "toc_printed_page": null
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 39,
+      "entry_id": "tcu_280237640597cda7",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 38,
+        "verbatim_title": "我的家在日喀则"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6b2676422d13779b",
+      "pdf_page": 38,
+      "printed_page": "30",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 21,
+      "title": "唱歌 我的家在日喀则",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "30"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 41,
+      "entry_id": "tcu_46dc72ce2879b5a1",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 40,
+        "verbatim_title": "草 原 上"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6b2676422d13779b",
+      "pdf_page": 40,
+      "printed_page": "32",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 22,
+      "title": "草原上",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "32"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 43,
+      "entry_id": "tcu_fdd9e3d3c851bd60",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 42,
+        "verbatim_title": "新疆舞曲第一号"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6b2676422d13779b",
+      "pdf_page": 42,
+      "printed_page": "34",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 23,
+      "title": "聆听 新疆舞曲第一号",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "34"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 45,
+      "entry_id": "tcu_9601cd9df85de107",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 44,
+        "verbatim_title": "我是人民小骑兵"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6b2676422d13779b",
+      "pdf_page": 44,
+      "printed_page": "36",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 24,
+      "title": "我是人民小骑兵",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "36"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 46,
+      "entry_id": "tcu_7b99551d00f224d4",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 46,
+        "verbatim_title": "音乐游戏"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6b2676422d13779b",
+      "pdf_page": 46,
+      "printed_page": "38",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 25,
+      "title": "音乐游戏 跳房子",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "38"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 47,
+      "entry_id": "tcu_1e34e583e2a38592",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 47,
+        "verbatim_title": "涂圈圈"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6b2676422d13779b",
+      "pdf_page": 47,
+      "printed_page": "39",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 26,
+      "title": "涂圈圈",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "39"
+    },
+    {
+      "confidence": 0.95,
       "end_pdf_page": 57,
-      "entry_id": "tcu_6b226e116e64bd61",
+      "end_printed_page": "49",
+      "entry_id": "tcu_6df9c2d60cf81cc6",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 48,
+        "verbatim_title": "第五单元 快乐的舞蹈"
+      },
       "kind": "unit",
       "level": 1,
       "parent_id": null,
       "pdf_page": 48,
       "printed_page": "40",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 198,
+            "x": 157.536,
+            "y": 666.901
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 58,
+          "verbatim_title": "第六单元 龙里格龙"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 220,
+            "x": 146.536,
+            "y": 666.901
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 48,
+          "verbatim_title": "第五单元 快乐的舞蹈"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "heading_match",
-      "title": "快乐的舞蹈"
+      "source": "printed_toc",
+      "source_order": 27,
+      "title": "第五单元 快乐的舞蹈",
+      "toc_pdf_page": 8,
+      "toc_printed_page": null
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 49,
+      "entry_id": "tcu_315f8d83382d0618",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 48,
+        "verbatim_title": "新疆是个好地方"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6df9c2d60cf81cc6",
+      "pdf_page": 48,
+      "printed_page": "40",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 28,
+      "title": "唱歌 新疆是个好地方",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "40"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 51,
+      "entry_id": "tcu_cc81ff37aa39eaf0",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 50,
+        "verbatim_title": "金孔雀轻轻跳"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6df9c2d60cf81cc6",
+      "pdf_page": 50,
+      "printed_page": "42",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 29,
+      "title": "金孔雀轻轻跳",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "42"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 53,
+      "entry_id": "tcu_636d25fe59686a9f",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 52,
+        "verbatim_title": "单簧管波尔卡"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6df9c2d60cf81cc6",
+      "pdf_page": 52,
+      "printed_page": "44",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 30,
+      "title": "聆听 单簧管波尔卡",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "44"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 55,
+      "entry_id": "tcu_c9672c1be70822b9",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 54,
+        "verbatim_title": "加伏特舞曲"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6df9c2d60cf81cc6",
+      "pdf_page": 54,
+      "printed_page": "46",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 31,
+      "title": "加伏特舞曲",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "46"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 56,
+      "entry_id": "tcu_d5294c24c011442b",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 56,
+        "verbatim_title": "霍拉舞曲"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6df9c2d60cf81cc6",
+      "pdf_page": 56,
+      "printed_page": "48",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 32,
+      "title": "霍拉舞曲",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "48"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 57,
+      "entry_id": "tcu_e41850f5c197fbcf",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 57,
+        "verbatim_title": "音乐游戏"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_6df9c2d60cf81cc6",
+      "pdf_page": 57,
+      "printed_page": "49",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 33,
+      "title": "音乐游戏 阿西里西",
+      "toc_pdf_page": 8,
+      "toc_printed_page": "49"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 72,
+      "end_printed_page": "64",
+      "entry_id": "tcu_24a54d31ef4d16be",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 58,
+        "verbatim_title": "第六单元 龙里格龙"
+      },
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 58,
+      "printed_page": "50",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": null,
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 22,
+            "page_height": 737.008,
+            "page_width": 524.409,
+            "unit": "pdf_point",
+            "width": 198,
+            "x": 157.536,
+            "y": 666.901
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 58,
+          "verbatim_title": "第六单元 龙里格龙"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 34,
+      "title": "第六单元 龙里格龙",
+      "toc_pdf_page": 9,
+      "toc_printed_page": null
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 59,
+      "entry_id": "tcu_da82f6365e489637",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 58,
+        "verbatim_title": "表花"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24a54d31ef4d16be",
+      "pdf_page": 58,
+      "printed_page": "50",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 35,
+      "title": "唱歌 表花",
+      "toc_pdf_page": 9,
+      "toc_printed_page": "50"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 61,
+      "entry_id": "tcu_45f8dd9a98e5a8c6",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 60,
+        "verbatim_title": "报 灯 名"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24a54d31ef4d16be",
+      "pdf_page": 60,
+      "printed_page": "52",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 36,
+      "title": "报灯名",
+      "toc_pdf_page": 9,
+      "toc_printed_page": "52"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 62,
+      "entry_id": "tcu_b0faedd427727ed1",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 62,
+        "verbatim_title": "龙里格龙"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24a54d31ef4d16be",
+      "pdf_page": 62,
+      "printed_page": "54",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 37,
+      "title": "聆听 龙里格龙",
+      "toc_pdf_page": 9,
+      "toc_printed_page": "54"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 63,
+      "entry_id": "tcu_316468aee2f209e8",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 63,
+        "verbatim_title": "大闹天宫(片段)"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24a54d31ef4d16be",
+      "pdf_page": 63,
+      "printed_page": "55",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 38,
+      "title": "大闹天宫（片段）",
+      "toc_pdf_page": 9,
+      "toc_printed_page": "55"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 64,
+      "entry_id": "tcu_e69d5bca29096faa",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 64,
+        "verbatim_title": "敲锣打鼓"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24a54d31ef4d16be",
+      "pdf_page": 64,
+      "printed_page": "56",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 39,
+      "title": "演奏 敲锣打鼓",
+      "toc_pdf_page": 9,
+      "toc_printed_page": "56"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 66,
+      "entry_id": "tcu_5e35929089701030",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 65,
+        "verbatim_title": "综合评价(二)"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24a54d31ef4d16be",
+      "pdf_page": 65,
+      "printed_page": "57",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 40,
+      "title": "综合评价（二）",
+      "toc_pdf_page": 9,
+      "toc_printed_page": "57"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 67,
+      "entry_id": "tcu_168f1f36e2ba8bf6",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 67,
+        "verbatim_title": "我爱北京天安门"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24a54d31ef4d16be",
+      "pdf_page": 67,
+      "printed_page": "59",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 41,
+      "title": "唱歌 我爱北京天安门",
+      "toc_pdf_page": 9,
+      "toc_printed_page": "59"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 68,
+      "entry_id": "tcu_e04630aefc82bc01",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 68,
+        "verbatim_title": "草原就是我的家"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24a54d31ef4d16be",
+      "pdf_page": 68,
+      "printed_page": "60",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 42,
+      "title": "草原就是我的家",
+      "toc_pdf_page": 9,
+      "toc_printed_page": "60"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 72,
+      "entry_id": "tcu_44cb4c671a8fd56e",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 69,
+        "verbatim_title": "我爱雪莲花"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_24a54d31ef4d16be",
+      "pdf_page": 69,
+      "printed_page": "61",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 43,
+      "title": "我爱雪莲花",
+      "toc_pdf_page": 9,
+      "toc_printed_page": "61"
     }
   ],
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
+    "auxiliary_boundary_evidence": null,
     "changed_unit_range_count": 0,
     "changes": [],
     "clamped_content_node_range_count": 0,
     "detached_auxiliary_content_node_count": 0,
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
-    "exact_unit_heading_evidence_count": 0,
+    "exact_unit_heading_evidence_count": 6,
     "inspected_page_count": 72,
     "provenance": "machine_generated",
     "publication_gate": false,
-    "reassigned_content_node_count": 0,
+    "reassigned_content_node_count": 100,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 1,
     "sidecar_sha256": "2cc804872b9d13a7fd17ee3f677a1d16862997710977614128a5be9a3877bfce",
     "source_asset_sha256": "fe90a27863bc8e6b9e3d666cc591cbe06a02b29a339382af1e082bdf9d0227d3",
-    "status": "insufficient_boundary_evidence",
-    "top_level_unit_count": 2,
+    "status": "reconciled",
+    "top_level_unit_count": 6,
     "top_line_limit": 4
   }
 }

@@ -106,7 +106,7 @@
     "textbooks:public:audit": "node --test tests/textbook_public_bbox_audit.test.mjs && node scripts/textbooks/audit_textbook_public_data.js",
     "textbooks:resources:build": "node scripts/textbooks/build_textbook_resource_catalog.js",
     "textbooks:resources:audit": "node scripts/textbooks/audit_textbook_resource_catalog.js",
-    "textbooks:resources:test": "node --test tests/textbook_resource_pipeline.test.mjs tests/textbook_support_resource_readability.test.mjs",
+    "textbooks:resources:test": "node --test tests/textbook_resource_pipeline.test.mjs tests/textbook_support_resource_readability.test.mjs tests/printed_toc.test.mjs",
     "textbooks:resources:import": "node scripts/textbooks/import_textbook_resources.js",
     "learning-resources:build": "tsx scripts/learning-resources/build-curated-catalog.mjs",
     "learning-resources:check": "tsx scripts/learning-resources/build-curated-catalog.mjs --check",
