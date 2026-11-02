@@ -1908,6 +1908,18 @@ test('search judge turns a match into 0 when its quote is not in the standard', 
     assert.equal(unrelated.judgements.get('SC-S2-TE-01')?.grade, 0)
 })
 
+test('the check lists only matches: a complete answer marks the rest 0, and an empty list is an answer', async () => {
+    const candidates = [1, 2, 3].map(k => ({ code: `MA-S3-NA-0${k}`, subject: '数学', stage: '5–6 年级', title: `标准${k}`, statement: '能比较分数的大小并说明理由', indicators: [{ code: `MA-S3-NA-0${k}.1`, text: '能比较分数的大小' }] }))
+    const answer = (judgements: unknown[]): typeof fetch => async () => Response.json({ choices: [{ message: { content: JSON.stringify({ judgements }) } }], usage: { prompt_tokens: 100, completion_tokens: 20, total_tokens: 120 } })
+    const env = { KEBIAO_LLM_API_KEY: 'test-secret' }
+    const one = await judgeSearchCandidates('分数', '', candidates, { env, fetchImpl: answer([{ code: 'MA-S3-NA-02', grade: 2, reason: '比较分数大小', aspect: '比较分数', quote: '能比较分数的大小', point: '' }]) })
+    assert.equal(one.status, 'ok')
+    assert.deepEqual([...one.judgements.values()].map(judgement => [judgement.code, judgement.grade]), [['MA-S3-NA-02', 2], ['MA-S3-NA-01', 0], ['MA-S3-NA-03', 0]])
+    const none = await judgeSearchCandidates('分数', '', candidates, { env, fetchImpl: answer([]) })
+    assert.equal(none.status, 'ok')
+    assert.ok(none.judgements.size === 3 && [...none.judgements.values()].every(judgement => judgement.grade === 0))
+})
+
 test('a check call that fails fast is sent once more, and a slow one is not', async () => {
     const candidates = [{ code: 'MA-S3-NA-01', subject: '数学', stage: '5–6 年级', title: '标准', statement: '能比较分数的大小并说明理由', indicators: [{ code: 'MA-S3-NA-01.1', text: '能比较分数的大小' }] }]
     const answer = fakeModel(code => ({ grade: 2, reason: '理由', aspect: '比较分数', point: `${code}.1` }))

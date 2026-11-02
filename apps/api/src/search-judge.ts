@@ -71,11 +71,10 @@ const INSTRUCTIONS = `你是 kebiao 的课标检索核对员。老师用一句�
 grade=2：quote 写的就是学生要做的这件事。
 grade=1：quote 写的也是这件事本身，只是它在要点里占比很小，或只是为别的目标服务的手段（例如为了解月球而“利用图片资料”）。
 grade=0：找不到这样的 quote；或理由要靠“涉及”“需要”“含……要素”“有助于”才能连上；或 quote 写的是相近但不同的事——问阅读时，表达、展示、观察、测量、评价、欣赏、交流、倾听都不算；问表达时，阅读、观察不算。
-grade=0 时 reason、aspect、quote、point 都填空字符串，只给 code 和 grade。
 reason：不超过 16 个汉字，说原文写了什么，如“识读示意图后按流程制作”；不要复述老师的问题。
 aspect：2～8 个字，用 quote 里的词说这件事在本学科里叫什么，如 quote“识读简单乐谱”→aspect“识读乐谱”。
 point：quote 所在的要点编码（如 MA-S3-NA-01.2）；quote 来自标准句时填空字符串。
-每个候选都必须给出一条判断，只用给出的编码，不得编造。`
+只列出 grade 为 1 或 2 的候选；不符合的不要列出，没列出的就是 0。都不符合时返回空列表。只用给出的编码，不得编造。`
 
 const CHAT_INSTRUCTIONS = `${INSTRUCTIONS}
 必须只返回一个 JSON 对象：{"judgements":[{"code":"…","grade":0|1|2,"reason":"…","aspect":"…","quote":"…","point":"…"}]}。`
@@ -129,6 +128,8 @@ function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> 
         validate(value) {
             const list = value && typeof value === 'object' ? (value as Record<string, unknown>).judgements : null
             if (!Array.isArray(list)) return null
+            // only matches are listed (a line per reject was most of a call's output, and its time); a complete answer
+            // marks every candidate it leaves out as 0
             const out: Judgement[] = []
             for (const item of list) {
                 if (!item || typeof item !== 'object') continue
@@ -159,7 +160,10 @@ function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> 
                     quote: kept ? quote.slice(0, 40) : ''
                 })
             }
-            return out.length ? out : null
+            for (const code of byCode.keys()) {
+                if (!out.some(judgement => judgement.code === code)) out.push({ code, grade: 0, reason: '', point: null, aspect: '', quote: '' })
+            }
+            return out
         }
     }
 }
