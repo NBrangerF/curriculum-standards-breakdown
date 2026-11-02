@@ -428,6 +428,42 @@ export async function runStructuredLlm<T>(
     }
 }
 
+/**
+ * The provider's slow calls are a tail (half answer in 4–6 s, some run past 15 s), and a fresh call usually beats a
+ * stuck one. A call still unanswered after `hedgeAfterMs` (or failed before then) is sent once more; the first good
+ * answer wins, and both together stay within the original timeout.
+ */
+export async function runHedgedLlm<T>(
+    input: string,
+    adapter: StructuredLlmAdapter<T>,
+    options: StructuredLlmOptions & { hedgeAfterMs: number }
+): Promise<StructuredLlmResult<T>> {
+    const started = performance.now()
+    const timeoutMs = options.timeoutMs ?? resolveLlmConfig(options.env).timeoutMs
+    const first = runStructuredLlm(input, adapter, { ...options, timeoutMs })
+    let timer: ReturnType<typeof setTimeout> | undefined
+    const early = await Promise.race([
+        first,
+        new Promise<null>(resolve => { timer = setTimeout(() => resolve(null), options.hedgeAfterMs) })
+    ])
+    clearTimeout(timer)
+    // answered in time, or never sent at all (no key, bad config): nothing to retry
+    if (early && (early.status === 'ok' || early.status === 'disabled' || early.status === 'invalid_config')) return early
+    // what is left of the budget: after the hedge timer, or after a first call that failed early
+    const left = early ? timeoutMs - (performance.now() - started) : timeoutMs - options.hedgeAfterMs
+    const second = runStructuredLlm(input, adapter, { ...options, timeoutMs: Math.max(1000, Math.round(left)) })
+    const attempts = early ? [second] : [first, second]
+    return new Promise(resolve => {
+        let left = attempts.length
+        for (const attempt of attempts) {
+            attempt.then(result => {
+                left -= 1
+                if (result.status === 'ok' || left === 0) resolve(result)
+            })
+        }
+    })
+}
+
 const QUERY_INTERPRETATION_ADAPTER: StructuredLlmAdapter<LlmQueryInterpretation> = {
     name: 'kebiao_query_interpretation',
     schema: OUTPUT_SCHEMA,
@@ -515,10 +551,8 @@ export async function interpretSearchQueryWithLlm(
             cached: true
         }
     }
-    const result = await runStructuredLlm(query, QUERY_INTERPRETATION_ADAPTER, {
-        ...options,
-        timeoutMs: options.timeoutMs ?? readQueryTimeoutMs(env)
-    })
+    const timeoutMs = options.timeoutMs ?? readQueryTimeoutMs(env)
+    const result = await runHedgedLlm(query, QUERY_INTERPRETATION_ADAPTER, { ...options, timeoutMs, hedgeAfterMs: Math.min(5000, timeoutMs / 2) })
     if (cacheKey && result.status === 'ok' && result.output) {
         options.cache!.set(cacheKey, { protocol: result.protocol, output: result.output })
     }

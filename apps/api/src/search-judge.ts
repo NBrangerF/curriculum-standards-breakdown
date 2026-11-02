@@ -3,7 +3,7 @@
 // Retrieval finds words; this step checks meaning, so "阅读" in a 英语 standard about 非语言信息 no longer passes
 // for a request that excludes language subjects.
 import { createHash } from 'node:crypto'
-import { LruCache, runStructuredLlm, type LlmStatus, type LlmUsage, type StructuredLlmAdapter, type StructuredLlmOptions } from './llm.js'
+import { LruCache, runHedgedLlm, type LlmStatus, type LlmUsage, type StructuredLlmAdapter, type StructuredLlmOptions } from './llm.js'
 
 export type JudgeCandidate = {
     code: string
@@ -61,13 +61,14 @@ const SCHEMA = {
 
 // Teachers often ask for a competency across subjects (阅读, 表达, 合作…). The 课标 rarely use the teacher's word for it:
 // 阅读 is 识读乐谱 in 音乐 and 读统计图 in 数学. The model is told so, or it passes over most of what the teacher wants.
-const INSTRUCTIONS = `你是 kebiao 的课标检索核对员。老师用一句话描述要找的课程标准；下面给出若干候选标准（编码、学科、学段、标准名、标准句和要点原文）。候选是按系统识别出的学段、学科筛选出来的；有的学科学段划分更宽（如艺术按 3–5 年级编排），不要因此判 0，但违反老师明确说的学段、学科或排除条件时判 0。逐条判断每个候选是否符合老师的需要：
-grade=2：某条要点要学生做的事，就是老师要找的内容。老师常问跨学科的能力或主题（阅读、表达、合作、探究、数据等），课标在各学科里会换成本学科的说法：例如“阅读”在音乐里是识读乐谱，在数学里是读统计图、查找资料，在劳动里是识读示意图，在信息科技里是在线搜索、获取信息；“表达”在数学里是用统计图表示数据，在美术里是用视觉形象表达想法。这样的要点也是直接对应。
-grade=1：相关：要点原文里有具体内容涉及老师要找的事，但只是其中一部分，或只是完成别的任务的手段。
-grade=0：不符合：只是字面上有相同的词而意思不同；要点里找不到这件事，只能说“可能涉及”“间接相关”；或违反了老师说的条件。
-reason：不超过 25 个汉字，写判断依据，点明是哪方面内容；不要复述老师的问题，不要以“该标准”开头。
-aspect：grade 为 1 或 2 时，用 2～8 个字写它在本学科里的具体形式，如“识读乐谱”“读统计图”“在线搜索信息”；grade=0 填空字符串。
-point：最符合需要的那条要点编码（如 MA-S3-NA-01.2）；没有合适的要点填空字符串。
+const INSTRUCTIONS = `你是 kebiao 的课标检索核对员。老师用一句话描述要找的课程标准；下面给出若干候选标准（编码、学科、学段、标准名、标准句和要点原文）。候选是按系统识别出的学段、学科筛选出来的；有的学科学段划分更宽（如艺术按 3–5 年级编排），不要因此判 0，但违反老师明确说的学段、学科或排除条件时判 0。逐条判断每个候选：
+grade=2：某条要点原文写明学生要做老师要找的事。老师常问跨学科的能力或主题（阅读、表达、合作、探究、数据等），课标在各学科里会换成本学科的说法，这也算：例如“阅读”在音乐里是识读乐谱，在数学里是读统计图、查找资料，在劳动里是识读示意图，在信息科技里是在线搜索获取信息；“表达”在数学里是用统计图表示数据，在美术里是用视觉形象表达想法。
+grade=1：要点原文写到了这件事，但它只是要点里的一小部分，或只是为别的目标服务的手段（例如为了解月球而利用图片资料）。
+grade=0：要点原文没有写到这件事。不要推测“要先读懂才能做”“了解就要阅读”“涉及理解”——原文没写的都给 0。相近但不同的事也给 0：问阅读时，表达、展示、观察、测量、评价不算；问表达时，阅读、观察不算。
+grade=0 时 reason、aspect、point 都填空字符串，只给 code 和 grade。
+reason：一个短语，不超过 20 个汉字，说原文写了什么，如“识读简单的示意图并参考流程制作”；不要复述老师的问题。
+aspect：2～8 个字，这件事在本学科里的说法，如“识读乐谱”“读统计图”“在线搜索信息”。
+point：最符合的那条要点编码（如 MA-S3-NA-01.2）；没有就填空字符串。
 每个候选都必须给出一条判断，只用给出的编码，不得编造。`
 
 const CHAT_INSTRUCTIONS = `${INSTRUCTIONS}
@@ -162,10 +163,11 @@ export async function judgeSearchCandidates(
     const batches: JudgeCandidate[][] = []
     for (let index = 0; index < fresh.length; index += BATCH_SIZE) batches.push(fresh.slice(index, index + BATCH_SIZE))
     // batches run side by side, so the wait is about one batch however many candidates there are
-    const runs = await Promise.all(batches.map(batch => runStructuredLlm(
+    const timeoutMs = options.timeoutMs ?? judgeTimeoutMs(options.env || process.env)
+    const runs = await Promise.all(batches.map(batch => runHedgedLlm(
         [`老师的需要：${query}`, understanding ? `系统的理解：${understanding}` : '', '候选：', ...batch.map(candidate => describe(candidate, query))].filter(Boolean).join('\n\n'),
         adapterFor(batch),
-        { ...options, timeoutMs: options.timeoutMs ?? judgeTimeoutMs(options.env || process.env) }
+        { ...options, timeoutMs, hedgeAfterMs: timeoutMs / 2 }
     )))
     for (const run of runs) {
         for (const judgement of run.output || []) {
