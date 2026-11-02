@@ -200,6 +200,9 @@ function applyJudgements(pool: SmartSearchResponse, judge: JudgeResult | null, s
     }).sort((left, right) => rank(left) - rank(right))
     const dropped = pool.results.length - kept.length
     const offTopic = pool.results.filter(item => judge.judgements.get(item.code)?.grade === 0).length
+    // only a subject whose every standard was read can be said to have nothing on the question
+    const subjectOf = (item: SmartSearchResult) => String((item.standard as Record<string, unknown>).subject_slug || '')
+    const readSubjects = (pool.search_scope?.subjects || []).filter(slug => pool.results.filter(item => subjectOf(item) === slug).every(item => judge.judgements.has(item.code)))
     const direct = kept.filter(item => item.match_strength === 'direct').length
     const scope = pool.search_scope
     // a scope read whole is shown whole, grouped by subject on the page
@@ -215,7 +218,8 @@ function applyJudgements(pool: SmartSearchResponse, judge: JudgeResult | null, s
         omitted_low_relevance: pool.omitted_low_relevance + dropped,
         relevance_summary: { direct, supporting: kept.length - direct },
         coverage_note: `AI 逐条读了${read}的要点原文：${direct} 条直接对应，${kept.length - direct} 条相关，${offTopic} 条不切题，已略去。${kept.length > limit ? `下面列出前 ${limit} 条。` : ''}${unread ? `有 ${unread} 条 AI 没来得及核对${scope?.complete ? '，其中原文没有检索词的未列出' : '，已标出'}。` : ''}`,
-        relevance_check: { status: judge.status, model: judge.model, latency_ms: judge.latency_ms, read: pool.results.length - unread, kept: kept.length, dropped }
+        relevance_check: { status: judge.status, model: judge.model, latency_ms: judge.latency_ms, read: pool.results.length - unread, kept: kept.length, dropped },
+        ...(pool.search_scope ? { search_scope: { ...pool.search_scope, read_subjects: readSubjects } } : {})
     }
 }
 

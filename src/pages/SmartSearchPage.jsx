@@ -303,10 +303,11 @@ function SmartSearchPage() {
     const subjectGroups = checked ? groupBySubject(result.results) : []
     const grouped = subjectGroups.length > 1
     const rankOf = item => (result?.results || []).indexOf(item) + 1
-    // a scope read whole can say where nothing was found: 「道德与法治、体育与健康」 have no 3–4 年级 reading requirement
+    // a scope read whole can say where nothing was found (「道德与法治、体育与健康」 have no 3–4 年级 reading
+    // requirement), but only for the subjects whose every standard the check read
     const scope = result?.search_scope
     const emptySubjects = checked && scope?.complete
-        ? scope.subjects.filter(slug => !subjectGroups.some(group => group.slug === slug)).map(slug => SUBJECT_LABELS[slug] || slug)
+        ? (scope.read_subjects || []).filter(slug => !subjectGroups.some(group => group.slug === slug)).map(slug => SUBJECT_LABELS[slug] || slug)
         : []
     const modelMissed = result && !checked && interpretation.status && interpretation.status !== 'disabled'
     const visibleWarnings = (result?.warnings || []).filter(warning => !warning.includes('AI 查询理解暂不可用') && !warning.includes('可识别个人信息'))

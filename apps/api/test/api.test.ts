@@ -1272,6 +1272,25 @@ test('semantic search checks the rule-based candidates while the model reads the
     })
 })
 
+test('a scope read only in part names as empty only the subjects it read to the end', async () => {
+    const events: string[] = []
+    const searchApp = tracedSearchApp(events)
+    const answer = routeModel(events, { core_terms: ['阅读'], intent_summary: '三四年级非语言学科的阅读' }, 10)
+    // every check call holding a 劳动 standard hangs
+    const llm: typeof fetch = (input, init) => (String(init?.body).includes('【LA-') ? hangUntilAborted()(input, init) : answer(input, init))
+    await withLiveLlm(llm, { KEBIAO_LLM_JUDGE_TIMEOUT_MS: '3000' }, async () => {
+        const body = await json(await searchApp.request('/api/v1/standards/semantic-search', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', 'x-forwarded-for': 'smart-search-partial-scope-test' },
+            body: JSON.stringify({ query: '3–4 年级非语言类学科当中，跟阅读有关的课程标准' })
+        }))
+        assert.equal(body.data.search_scope.complete, true)
+        assert.equal(body.data.relevance_check.status, 'partial')
+        assert.ok(!body.data.search_scope.read_subjects.includes('labor'))
+        assert.ok(body.data.search_scope.read_subjects.includes('math'))
+    })
+})
+
 test('semantic search still checks the rule-based candidates when the model times out on the question', async () => {
     const events: string[] = []
     const searchApp = tracedSearchApp(events)

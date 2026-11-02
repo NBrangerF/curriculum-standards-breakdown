@@ -500,8 +500,9 @@ export interface SmartSearchResponse extends JsonObject {
     query_interpretation?: JsonObject
     /** The model's check of each candidate against the request (apps/api/src/search-judge.ts). */
     relevance_check?: JsonObject
-    /** The standards passing the 学段 and 学科 filters; `complete` when every one of them is among the results. */
-    search_scope?: { standards: number, subjects: string[], complete: boolean }
+    /** The standards passing the 学段 and 学科 filters; `complete` when every one of them is among the results, and
+     *  `read_subjects` the subjects whose standards the model read every one of (a check can time out part-way). */
+    search_scope?: { standards: number, subjects: string[], complete: boolean, read_subjects?: string[] }
     warnings: string[]
 }
 

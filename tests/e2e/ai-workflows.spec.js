@@ -389,7 +389,8 @@ test('smart search groups a checked answer across subjects and names the subject
             relevance_summary: { direct: 3, supporting: 1 },
             coverage_note: 'AI 逐条读了3–4 年级、5 个学科的全部 54 条标准的要点原文：3 条直接对应，1 条相关，50 条不切题，已略去。',
             relevance_check: { status: 'ok', model: 'gpt-5-mini', latency_ms: 8000, read: 54, kept: 4, dropped: 50 },
-            search_scope: { standards: 54, subjects: ['math', 'morality_law', 'pe', 'arts', 'labor'], complete: true },
+            // 科学 was not read to the end, so it is not named as having nothing
+            search_scope: { standards: 54, subjects: ['math', 'morality_law', 'science', 'pe', 'arts', 'labor'], complete: true, read_subjects: ['math', 'morality_law', 'pe', 'arts', 'labor'] },
             relevance_version: 'topic-evidence-v1',
             retrieval_version: 'trusted-hybrid-v1',
             semantic_provider: 'none',
