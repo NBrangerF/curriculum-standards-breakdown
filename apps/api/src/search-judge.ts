@@ -2,6 +2,9 @@
 // says whether it is what they asked for (2), related (1) or off-topic (0), with a short reason and the best 要点.
 // Retrieval finds words; this step checks meaning, so "阅读" in a 英语 standard about 非语言信息 no longer passes
 // for a request that excludes language subjects.
+// Two modes: 'search' (AI 检索) lists only matches, each with a quote from the 要点 that must be in its text; 'pick'
+// (AI 备课 choosing a lesson's 要点) keeps the earlier form, a verdict and reason for every candidate, because the
+// page shows why a standard the textbook alignment named does not fit.
 import { createHash } from 'node:crypto'
 import { LruCache, runRetriedLlm, type LlmStatus, type LlmUsage, type StructuredLlmAdapter, type StructuredLlmOptions } from './llm.js'
 
@@ -15,6 +18,7 @@ export type JudgeCandidate = {
 }
 
 export type Judgement = { code: string, grade: 0 | 1 | 2, reason: string, point: string | null, aspect: string, quote: string }
+export type JudgeMode = 'search' | 'pick'
 
 export type JudgeResult = {
     used: boolean
@@ -37,6 +41,40 @@ export function judgeTimeoutMs(env: NodeJS.ProcessEnv = process.env) {
     const parsed = Number(env.KEBIAO_LLM_JUDGE_TIMEOUT_MS)
     return Number.isInteger(parsed) ? Math.max(3000, Math.min(TIMEOUT_MS, parsed)) : TIMEOUT_MS
 }
+
+const PICK_SCHEMA = {
+    type: 'object',
+    additionalProperties: false,
+    properties: {
+        judgements: {
+            type: 'array',
+            maxItems: BATCH_SIZE,
+            items: {
+                type: 'object',
+                additionalProperties: false,
+                properties: {
+                    code: { type: 'string', maxLength: 24 },
+                    grade: { type: 'integer', enum: [0, 1, 2] },
+                    reason: { type: 'string', maxLength: 60 },
+                    point: { type: 'string', maxLength: 24 }
+                },
+                required: ['code', 'grade', 'reason', 'point']
+            }
+        }
+    },
+    required: ['judgements']
+} as const
+
+const PICK_INSTRUCTIONS = `你是 kebiao 的课标检索核对员。老师用一句话描述要找的课程标准；下面给出若干候选标准（编码、学科、学段、标准名、标准句和要点原文）。逐条判断每个候选是否符合老师的需要：
+grade=2：这条标准或其中某条要点直接就是老师要找的内容；
+grade=1：相关，要点原文里有具体的相关内容，可作参考或延伸，但不是直接对应；
+grade=0：不符合——只是字面上有相同的词而意思不同，或违反了老师说的学科、学段、排除条件；只能说“可能涉及”“间接相关”的牵强联系也给 0。
+reason 用不超过 25 个汉字写判断依据，点明是哪方面内容；不要复述老师的问题，不要以“该标准”开头。
+point 填最符合需要的那条要点编码（如 MA-S3-NA-01.2）；没有合适的要点填空字符串。
+每个候选都必须给出一条判断，只用给出的编码，不得编造。`
+
+const PICK_CHAT_INSTRUCTIONS = `${PICK_INSTRUCTIONS}
+必须只返回一个 JSON 对象：{"judgements":[{"code":"…","grade":0|1|2,"reason":"…","point":"…"}]}。`
 
 const SCHEMA = {
     type: 'object',
@@ -80,6 +118,7 @@ const CHAT_INSTRUCTIONS = `${INSTRUCTIONS}
 必须只返回一个 JSON 对象：{"judgements":[{"code":"…","grade":0|1|2,"reason":"…","aspect":"…","quote":"…","point":"…"}]}。`
 
 export const SEARCH_JUDGE_PROMPT_VERSION = createHash('sha256').update(JSON.stringify([INSTRUCTIONS, CHAT_INSTRUCTIONS, SCHEMA])).digest('hex').slice(0, 12)
+const PICK_PROMPT_VERSION = createHash('sha256').update(JSON.stringify([PICK_INSTRUCTIONS, PICK_CHAT_INSTRUCTIONS, PICK_SCHEMA])).digest('hex').slice(0, 12)
 
 const clip = (text: string, length: number) => (text.length > length ? `${text.slice(0, length)}…` : text)
 
@@ -116,6 +155,35 @@ function describe(candidate: JudgeCandidate, query: string) {
 // Quotes are compared without spaces and punctuation: the model drops a comma or turns 「」 into “”.
 const plainText = (text: string) => text.replace(/[\s\p{P}\p{S}]/gu, '')
 
+// the model sometimes lists two 要点 in one field ("GE-S4-RE-04.3, GE-S4-RE-04.4"): keep the first real one
+const firstPoint = (value: unknown, points: Set<string> | undefined) => String(value || '').split(/[\s,，、;；]+/u).find(item => points?.has(item)) || null
+
+// 'pick': a verdict for every candidate, as the model gave it
+function pickAdapter(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> {
+    const points = new Map(batch.map(candidate => [candidate.code, new Set(candidate.indicators.map(item => item.code))]))
+    return {
+        name: 'kebiao_search_judge',
+        schema: PICK_SCHEMA,
+        instructions: PICK_INSTRUCTIONS,
+        chatInstructions: PICK_CHAT_INSTRUCTIONS,
+        maxCompletionTokens: 1600,
+        validate(value) {
+            const list = value && typeof value === 'object' ? (value as Record<string, unknown>).judgements : null
+            if (!Array.isArray(list)) return null
+            const out: Judgement[] = []
+            for (const item of list) {
+                if (!item || typeof item !== 'object') continue
+                const record = item as Record<string, unknown>
+                const code = String(record.code || '').trim()
+                const grade = Number(record.grade)
+                if (!points.has(code) || ![0, 1, 2].includes(grade) || out.some(j => j.code === code)) continue
+                out.push({ code, grade: grade as 0 | 1 | 2, reason: String(record.reason || '').trim().slice(0, 60), point: firstPoint(record.point, points.get(code)), aspect: '', quote: '' })
+            }
+            return out.length ? out : null
+        }
+    }
+}
+
 function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> {
     const points = new Map(batch.map(candidate => [candidate.code, new Set(candidate.indicators.map(item => item.code))]))
     const byCode = new Map(batch.map(candidate => [candidate.code, candidate]))
@@ -137,8 +205,7 @@ function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> 
                 const code = String(record.code || '').trim()
                 const grade = Number(record.grade)
                 if (!points.has(code) || ![0, 1, 2].includes(grade) || out.some(j => j.code === code)) continue
-                // the model sometimes lists two 要点 in one field ("GE-S4-RE-04.3, GE-S4-RE-04.4"): keep the first real one
-                const named = String(record.point || '').split(/[\s,，、;；]+/u).find(item => points.get(code)?.has(item)) || null
+                const named = firstPoint(record.point, points.get(code))
                 // a match stands only on words the 课标 actually has: a quote that is not in the text is an invented
                 // link ("要先读懂才能做"), so the verdict becomes 0; the 要点 holding the quote is the closest one
                 const candidate = byCode.get(code)!
@@ -170,20 +237,21 @@ function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> 
 
 export const searchJudgeCache = new LruCache<Judgement>(4000, 6 * 60 * 60 * 1000)
 
-const cacheKey = (model: string, query: string, code: string) => [model, SEARCH_JUDGE_PROMPT_VERSION, query.replace(/\s+/gu, ' ').trim(), code].join('\u0000')
+const cacheKey = (model: string, mode: JudgeMode, query: string, code: string) => [model, mode === 'pick' ? PICK_PROMPT_VERSION : SEARCH_JUDGE_PROMPT_VERSION, query.replace(/\s+/gu, ' ').trim(), code].join('\u0000')
 
 export async function judgeSearchCandidates(
     query: string,
     understanding: string,
     candidates: JudgeCandidate[],
-    options: StructuredLlmOptions & { cache?: LruCache<Judgement> } = {}
+    options: StructuredLlmOptions & { cache?: LruCache<Judgement>, mode?: JudgeMode } = {}
 ): Promise<JudgeResult> {
     const started = performance.now()
+    const mode = options.mode || 'search'
     const model = String((options.env || process.env).KEBIAO_LLM_MODEL || 'gpt-5-mini').trim() || 'gpt-5-mini'
     const judgements = new Map<string, Judgement>()
     const fresh: JudgeCandidate[] = []
     for (const candidate of candidates) {
-        const hit = options.cache?.get(cacheKey(model, query, candidate.code))
+        const hit = options.cache?.get(cacheKey(model, mode, query, candidate.code))
         if (hit) judgements.set(candidate.code, hit)
         else fresh.push(candidate)
     }
@@ -193,13 +261,13 @@ export async function judgeSearchCandidates(
     const timeoutMs = options.timeoutMs ?? judgeTimeoutMs(options.env || process.env)
     const runs = await Promise.all(batches.map(batch => runRetriedLlm(
         [`老师的需要：${query}`, understanding ? `系统的理解：${understanding}` : '', '候选：', ...batch.map(candidate => describe(candidate, query))].filter(Boolean).join('\n\n'),
-        adapterFor(batch),
+        mode === 'pick' ? pickAdapter(batch) : adapterFor(batch),
         { ...options, timeoutMs }
     )))
     for (const run of runs) {
         for (const judgement of run.output || []) {
             judgements.set(judgement.code, judgement)
-            options.cache?.set(cacheKey(model, query, judgement.code), judgement)
+            options.cache?.set(cacheKey(model, mode, query, judgement.code), judgement)
         }
     }
     const usage = runs.reduce<LlmUsage | null>((sum, run) => run.usage

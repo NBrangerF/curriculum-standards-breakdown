@@ -645,7 +645,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             hintText ? `老师补充：${hintText}` : ''
         ].filter(Boolean).join('，')
         // the teacher is already waiting on this step, so it can wait longer than AI 检索 when the model is slow
-        const judge = await judgeSearchCandidates(query, '', candidates, { cache: searchJudgeCache, timeoutMs: 25000 })
+        const judge = await judgeSearchCandidates(query, '', candidates, { cache: searchJudgeCache, timeoutMs: 25000, mode: 'pick' })
         // every judgement comes back: grade 0 carries the reason a machine-aligned standard does not fit
         let picks = [...judge.judgements.values()].sort((a, b) => b.grade - a.grade)
         // more 直接对应 than the page ticks (3, or 6 for a unit): one more call puts the most specific first
