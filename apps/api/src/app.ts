@@ -171,7 +171,8 @@ function applyJudgements(pool: SmartSearchResponse, judge: JudgeResult | null, s
         const results = pool.results.filter(evidenced)
         return { ...pool, results: results.slice(0, shown), coverage_note: coverageNoteFor(pool.relevant_candidates, shown) }
     }
-    const texts = new Map(candidates.flatMap(candidate => candidate.indicators.map(item => [item.code, item.text] as const)))
+    // 要点 by code, and each standard's own sentence under its code for a quote taken from it
+    const texts = new Map(candidates.flatMap(candidate => [[candidate.code, candidate.statement] as const, ...candidate.indicators.map(item => [item.code, item.text] as const)]))
     const rank = (item: SmartSearchResult) => (item.match_strength === 'direct' ? 0 : 2) + (item.checked_by_ai ? 0 : 1)
     let unread = 0
     const kept = pool.results.flatMap((item): SmartSearchResult[] => {
@@ -186,7 +187,10 @@ function applyJudgements(pool: SmartSearchResponse, judge: JudgeResult | null, s
             match_strength: verdict.grade === 2 ? 'direct' : 'supporting',
             relevance_reason: verdict.reason || item.relevance_reason,
             checked_by_ai: true,
-            matched_point: verdict.point && texts.has(verdict.point) ? { code: verdict.point, text: texts.get(verdict.point)! } : null,
+            matched_point: (() => {
+                const code = verdict.point && texts.has(verdict.point) ? verdict.point : verdict.quote ? item.code : null
+                return code && texts.has(code) ? { code, text: texts.get(code)!, ...(verdict.quote ? { quote: verdict.quote } : {}) } : null
+            })(),
             ...(verdict.aspect ? { ai_aspect: verdict.aspect } : {})
         }]
     }).sort((left, right) => rank(left) - rank(right))
@@ -865,7 +869,9 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         // readings timed out in late October.
         const llm = resolveLlmConfig()
         const check = llm.enabled && llm.valid ? new CandidateCheck(privacy.text, judgeCandidates) : null
-        check?.read(poolOf(deterministic).results, deterministic.understanding_summary)
+        // only a scope read whole: there the model's reading rarely adds a candidate, while for a wide question its
+        // candidates differ (6 of 36 shared for 「初中非语言类…阅读」) and two rounds at once slow the provider down
+        if (deterministic.search_scope?.complete) check?.read(deterministic.results, deterministic.understanding_summary)
         const interpretation = await interpretationRequest
         const aiInterpretation = interpretation.interpretation
         // With the model's reading of the question, its topic words replace the parsed ones and its wider phrasings may

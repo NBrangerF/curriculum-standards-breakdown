@@ -1216,9 +1216,10 @@ function routeModel(events: string[], interpret: Record<string, unknown> | 'hang
         const system = String(body.messages[0].content)
         if (system.includes('核对员')) {
             events.push('check')
-            const codes = [...String(body.messages[1].content).matchAll(/【([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2})】/gu)].map(([, code]) => code)
+            const user = String(body.messages[1].content)
+            const codes = [...user.matchAll(/【([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2})】/gu)].map(([, code]) => code)
             return Response.json({
-                choices: [{ message: { content: JSON.stringify({ judgements: codes.map(code => ({ code, grade: 1, reason: '相关', aspect: '读图', point: '' })) }) } }],
+                choices: [{ message: { content: JSON.stringify({ judgements: codes.map(code => ({ code, grade: 1, reason: '相关', aspect: '读图', quote: quoteFor(user, code), point: '' })) }) } }],
                 usage: { prompt_tokens: 100, completion_tokens: 50, total_tokens: 150 }
             })
         }
@@ -1851,21 +1852,27 @@ test('MCP and plugin routes get the larger tools rate budget', async () => {
 })
 
 // A stand-in model: reads the question (查询理解器) or grades candidates (核对员) the way the prompts ask.
-function fakeModel(verdict: (code: string, index: number) => { grade: number, reason: string, point: string, aspect?: string }, calls: string[] = []): typeof fetch {
+// What a model would quote from a candidate it was sent: the first four characters of its 标准 sentence.
+function quoteFor(user: string, code: string) {
+    const block = user.split('【').find(part => part.startsWith(`${code}】`)) || ''
+    return (block.match(/标准：(.{4})/u) || [])[1] || ''
+}
+
+function fakeModel(verdict: (code: string, index: number) => { grade: number, reason: string, point: string, aspect?: string, quote?: string }, calls: string[] = []): typeof fetch {
     return async (_input, init) => {
         const body = JSON.parse(String(init?.body))
         const system = String(body.messages[0].content)
         const user = String(body.messages[1].content)
         calls.push(system.includes('核对员') ? 'judge' : 'interpret')
         const content = system.includes('核对员')
-            ? { judgements: [...user.matchAll(/【([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2})】/gu)].map(([, code], index) => ({ code, ...verdict(code, index) })).concat([{ code: 'XX-S9-ZZ-99', grade: 2, reason: '编造', point: '' }]) }
+            ? { judgements: [...user.matchAll(/【([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2})】/gu)].map(([, code], index) => ({ code, quote: quoteFor(user, code), ...verdict(code, index) })).concat([{ code: 'XX-S9-ZZ-99', grade: 2, reason: '编造', point: '', quote: '编造' }]) }
             : { subjects: [], excluded_subjects: ['chinese', 'english'], grade_bands: [], skills: [], core_terms: ['阅读'], expanded_terms: ['读图', '史料'], constraint_evidence: [{ kind: 'excluded_subject', value: 'chinese', evidence_span: '非语言类' }, { kind: 'excluded_subject', value: 'english', evidence_span: '非语言类' }], ambiguities: [], clarification_question: '', intent_summary: '语言学科以外与阅读有关的标准', warnings: [] }
         return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 100, completion_tokens: 50, total_tokens: 150 } }), { status: 200, headers: { 'content-type': 'application/json' } })
     }
 }
 
 test('search judge grades candidates in parallel batches and ignores codes it was not given', async () => {
-    const candidates = Array.from({ length: 12 }, (_, k) => ({ code: `MA-S3-NA-${String(k + 1).padStart(2, '0')}`, subject: '数学', stage: '5–6 年级', title: `标准${k}`, statement: '……', indicators: [{ code: `MA-S3-NA-${String(k + 1).padStart(2, '0')}.1`, text: '……' }] }))
+    const candidates = Array.from({ length: 12 }, (_, k) => ({ code: `MA-S3-NA-${String(k + 1).padStart(2, '0')}`, subject: '数学', stage: '5–6 年级', title: `标准${k}`, statement: '能比较分数的大小并说明理由', indicators: [{ code: `MA-S3-NA-${String(k + 1).padStart(2, '0')}.1`, text: '能比较分数的大小' }] }))
     const calls: string[] = []
     const result = await judgeSearchCandidates('分数', '', candidates, {
         env: { KEBIAO_LLM_API_KEY: 'test-secret' },
@@ -1875,18 +1882,34 @@ test('search judge grades candidates in parallel batches and ignores codes it wa
     assert.equal(result.status, 'ok')
     assert.equal(result.judgements.size, 12)
     assert.equal(result.judgements.has('XX-S9-ZZ-99'), false)
-    assert.equal(result.judgements.get('MA-S3-NA-01')?.point, 'MA-S3-NA-01.1')
-    // the aspect is kept for a match and cleared for an off-topic verdict
+    // an off-topic verdict keeps nothing but its grade
+    assert.deepEqual(result.judgements.get('MA-S3-NA-01'), { code: 'MA-S3-NA-01', grade: 0, reason: '', point: null, aspect: '', quote: '' })
+    // a match keeps its aspect and quote; the closest 要点 is the one holding the quote, never another standard's
     assert.equal(result.judgements.get('MA-S3-NA-02')?.aspect, '读图')
-    assert.equal(result.judgements.get('MA-S3-NA-01')?.aspect, '')
-    // a 要点 of another standard is not accepted as the closest 要点
-    assert.equal(result.judgements.get('MA-S3-NA-02')?.point, null)
+    assert.equal(result.judgements.get('MA-S3-NA-02')?.quote, '能比较分')
+    assert.equal(result.judgements.get('MA-S3-NA-02')?.point, 'MA-S3-NA-02.1')
     assert.equal(result.usage?.total_tokens, 300)
+})
+
+test('search judge turns a match into 0 when its quote is not in the standard', async () => {
+    const candidates = [{ code: 'SC-S2-TE-01', subject: '科学', stage: '3–4 年级', title: '技术、工程与社会', statement: '区别天然材料和人造材料，举例说出工具的应用', indicators: [{ code: 'SC-S2-TE-01.2', text: '举例说出工具在生产和生活中的应用' }] }]
+    const invented = await judgeSearchCandidates('跟阅读有关的标准', '', candidates, {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        fetchImpl: fakeModel(() => ({ grade: 1, reason: '涉及阅读说明材料', aspect: '读技术说明', point: 'SC-S2-TE-01.2', quote: '需读懂说明材料' }))
+    })
+    assert.equal(invented.judgements.get('SC-S2-TE-01')?.grade, 0)
+    // punctuation and spacing in a quote do not matter
+    const real = await judgeSearchCandidates('跟工具有关的标准', '', candidates, {
+        env: { KEBIAO_LLM_API_KEY: 'test-secret' },
+        fetchImpl: fakeModel(() => ({ grade: 2, reason: '举例说出工具的应用', aspect: '工具应用', point: '', quote: '工具 在生产、和生活中' }))
+    })
+    assert.equal(real.judgements.get('SC-S2-TE-01')?.grade, 2)
+    assert.equal(real.judgements.get('SC-S2-TE-01')?.point, 'SC-S2-TE-01.2')
 })
 
 test('a check call that hangs is sent once more at half its budget, and the second answer is used', async () => {
     let calls = 0
-    const candidates = [{ code: 'MA-S3-NA-01', subject: '数学', stage: '5–6 年级', title: '标准', statement: '……', indicators: [{ code: 'MA-S3-NA-01.1', text: '……' }] }]
+    const candidates = [{ code: 'MA-S3-NA-01', subject: '数学', stage: '5–6 年级', title: '标准', statement: '能比较分数的大小并说明理由', indicators: [{ code: 'MA-S3-NA-01.1', text: '能比较分数的大小' }] }]
     const answer = fakeModel(code => ({ grade: 2, reason: '理由', aspect: '读图', point: `${code}.1` }))
     const started = performance.now()
     const result = await judgeSearchCandidates('分数', '', candidates, {

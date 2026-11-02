@@ -442,8 +442,8 @@ export interface SmartSearchResult {
     standard: JsonObject
     /** Set when the model read this candidate: its verdict replaced the word-match label and reason. */
     checked_by_ai?: boolean
-    /** The 要点 the model found closest to the request. */
-    matched_point?: { code: string, text: string } | null
+    /** The 要点 the model found closest to the request, and the words of it the model quoted as its evidence. */
+    matched_point?: { code: string, text: string, quote?: string } | null
     /** How the request shows up in this standard, in the model's words (「识读乐谱」「读统计图」). */
     ai_aspect?: string
 }

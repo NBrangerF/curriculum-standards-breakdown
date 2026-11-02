@@ -101,7 +101,7 @@ function ResultItem({ item, rank, saved, onSave, onPreview, showStrength = false
                 <dl className={styles.evidence}>
                     <div>
                         <dt>最相关的要点<span>{item.matched_point.code}</span></dt>
-                        <dd><Marked text={item.matched_point.text} terms={item.matched_concepts || []} /></dd>
+                        <dd><Marked text={item.matched_point.text} terms={[...(item.matched_concepts || []), ...(item.matched_point.quote ? [item.matched_point.quote] : [])]} /></dd>
                     </div>
                 </dl>
             ) : item.matched_fields?.length ? (

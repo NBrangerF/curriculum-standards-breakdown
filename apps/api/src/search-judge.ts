@@ -14,7 +14,7 @@ export type JudgeCandidate = {
     indicators: Array<{ code: string, text: string }>
 }
 
-export type Judgement = { code: string, grade: 0 | 1 | 2, reason: string, point: string | null, aspect: string }
+export type Judgement = { code: string, grade: 0 | 1 | 2, reason: string, point: string | null, aspect: string, quote: string }
 
 export type JudgeResult = {
     used: boolean
@@ -50,9 +50,10 @@ const SCHEMA = {
                     grade: { type: 'integer', enum: [0, 1, 2] },
                     reason: { type: 'string', maxLength: 60 },
                     aspect: { type: 'string', maxLength: 16 },
+                    quote: { type: 'string', maxLength: 40 },
                     point: { type: 'string', maxLength: 24 }
                 },
-                required: ['code', 'grade', 'reason', 'aspect', 'point']
+                required: ['code', 'grade', 'reason', 'aspect', 'quote', 'point']
             }
         }
     },
@@ -65,14 +66,15 @@ const INSTRUCTIONS = `你是 kebiao 的课标检索核对员。老师用一句�
 grade=2：某条要点原文写明学生要做老师要找的事。老师常问跨学科的能力或主题（阅读、表达、合作、探究、数据等），课标在各学科里会换成本学科的说法，这也算：例如“阅读”在音乐里是识读乐谱，在数学里是读统计图、查找资料，在劳动里是识读示意图，在信息科技里是在线搜索获取信息；“表达”在数学里是用统计图表示数据，在美术里是用视觉形象表达想法。
 grade=1：要点原文写到了这件事，但它只是要点里的一小部分，或只是为别的目标服务的手段（例如为了解月球而利用图片资料）。
 grade=0：要点原文没有写到这件事。不要推测“要先读懂才能做”“了解就要阅读”“涉及理解”——原文没写的都给 0。相近但不同的事也给 0：问阅读时，表达、展示、观察、测量、评价不算；问表达时，阅读、观察不算。
-grade=0 时 reason、aspect、point 都填空字符串，只给 code 和 grade。
+先找 quote：要点原文里直接写这件事的那几个字，逐字照抄 4～20 个字，如“识读简单的示意图”“会查找资料”。找不到这样的字句就给 0；理由要靠“涉及”“需要”“含……要素”“有助于”才能连上的，说明原文没写，也给 0。
+grade=0 时 reason、aspect、quote、point 都填空字符串，只给 code 和 grade。
 reason：一个短语，不超过 20 个汉字，说原文写了什么，如“识读简单的示意图并参考流程制作”；不要复述老师的问题。
 aspect：2～8 个字，这件事在本学科里的说法，如“识读乐谱”“读统计图”“在线搜索信息”。
 point：最符合的那条要点编码（如 MA-S3-NA-01.2）；没有就填空字符串。
 每个候选都必须给出一条判断，只用给出的编码，不得编造。`
 
 const CHAT_INSTRUCTIONS = `${INSTRUCTIONS}
-必须只返回一个 JSON 对象：{"judgements":[{"code":"…","grade":0|1|2,"reason":"…","aspect":"…","point":"…"}]}。`
+必须只返回一个 JSON 对象：{"judgements":[{"code":"…","grade":0|1|2,"reason":"…","aspect":"…","quote":"…","point":"…"}]}。`
 
 export const SEARCH_JUDGE_PROMPT_VERSION = createHash('sha256').update(JSON.stringify([INSTRUCTIONS, CHAT_INSTRUCTIONS, SCHEMA])).digest('hex').slice(0, 12)
 
@@ -108,8 +110,12 @@ function describe(candidate: JudgeCandidate, query: string) {
     ].join('\n')
 }
 
+// Quotes are compared without spaces and punctuation: the model drops a comma or turns 「」 into “”.
+const plainText = (text: string) => text.replace(/[\s\p{P}\p{S}]/gu, '')
+
 function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> {
     const points = new Map(batch.map(candidate => [candidate.code, new Set(candidate.indicators.map(item => item.code))]))
+    const byCode = new Map(batch.map(candidate => [candidate.code, candidate]))
     return {
         name: 'kebiao_search_judge',
         schema: SCHEMA,
@@ -127,13 +133,22 @@ function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> 
                 const grade = Number(record.grade)
                 if (!points.has(code) || ![0, 1, 2].includes(grade) || out.some(j => j.code === code)) continue
                 // the model sometimes lists two 要点 in one field ("GE-S4-RE-04.3, GE-S4-RE-04.4"): keep the first real one
-                const point = String(record.point || '').split(/[\s,，、;；]+/u).find(item => points.get(code)?.has(item)) || null
+                const named = String(record.point || '').split(/[\s,，、;；]+/u).find(item => points.get(code)?.has(item)) || null
+                // a match stands only on words the 课标 actually has: a quote that is not in the text is an invented
+                // link ("要先读懂才能做"), so the verdict becomes 0; the 要点 holding the quote is the closest one
+                const candidate = byCode.get(code)!
+                const quote = String(record.quote || '').trim()
+                const wanted = plainText(quote)
+                const holder = wanted.length >= 2 ? candidate.indicators.find(item => plainText(item.text).includes(wanted)) : undefined
+                const quoted = Boolean(holder) || (wanted.length >= 2 && plainText(candidate.statement).includes(wanted))
+                const kept = grade > 0 && quoted ? grade as 1 | 2 : 0
                 out.push({
                     code,
-                    grade: grade as 0 | 1 | 2,
-                    reason: String(record.reason || '').trim().slice(0, 60),
-                    point,
-                    aspect: grade > 0 ? String(record.aspect || '').trim().slice(0, 12) : ''
+                    grade: kept,
+                    reason: kept ? String(record.reason || '').trim().slice(0, 60) : '',
+                    point: kept ? holder?.code || named : null,
+                    aspect: kept ? String(record.aspect || '').trim().slice(0, 12) : '',
+                    quote: kept ? quote.slice(0, 40) : ''
                 })
             }
             return out.length ? out : null

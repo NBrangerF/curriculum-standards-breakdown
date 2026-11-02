@@ -366,7 +366,7 @@ test('smart search groups a checked answer across subjects and names the subject
         checked_by_ai: true,
         ai_aspect: aspect,
         relevance_reason: `要求${aspect}`,
-        matched_point: { code: `${code}.1`, text: `${title}的要点原文` },
+        matched_point: { code: `${code}.1`, text: `要点原文：${title}的要求`, quote: title },
         standard: { ...candidate.standard, code, subject, subject_slug, grade: '3–4 年级', grade_band: 'H2', standard_title: title }
     })
     await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({
@@ -408,4 +408,7 @@ test('smart search groups a checked answer across subjects and names the subject
     await expect(page.getByText('壹 · 直接对应')).toHaveCount(0)
     await expect(page.getByText('逐条读过、没有找到相关要求的学科：道德与法治、体育与健康。')).toBeVisible()
     await expect(page.locator('[aria-label="已识别的条件，点按可移除或恢复"]')).toContainText('3–4 年级')
+    // the words the model quoted as its evidence are marked in the 要点
+    await expect(page.locator('[data-search-result] mark').filter({ hasText: '识读示意图' })).toHaveCount(0)
+    await expect(page.locator('[data-search-result] mark').filter({ hasText: '传统工艺制作' })).toHaveCount(1)
 })
