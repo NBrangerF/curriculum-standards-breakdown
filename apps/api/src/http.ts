@@ -26,6 +26,12 @@ export interface AiMetrics {
     total_tokens: number
     judge_status?: string
     judge_latency_ms?: number
+    /** candidates the check read, how its calls ended ("ok:6,timeout:1"), and calls sent a second time */
+    judge_read?: number
+    judge_calls?: string
+    judge_retries?: number
+    /** 2 when the question reading was sent a second time */
+    read_attempts?: number
 }
 
 const TIER_LIMITS: Record<AccessTier, number> = {

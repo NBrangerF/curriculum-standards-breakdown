@@ -404,6 +404,9 @@ test('smart search groups a checked answer across subjects and names the subject
     await expect(page.getByText('直接对应 1 · 相关 1')).toBeVisible()
     await expect(page.getByLabel('数学里的说法')).toContainText('读统计图')
     await expect(page.getByLabel('数学里的说法')).toContainText('查找资料')
+    // a subject's partial matches stay folded under its direct ones
+    await expect(page.locator('[data-search-result="supporting"]')).toBeHidden()
+    await page.getByText('还有 1 条可能相关').click()
     await expect(page.locator('[data-search-result="supporting"]').getByText('相关', { exact: true })).toBeVisible()
     await expect(page.getByText('壹 · 直接对应')).toHaveCount(0)
     await expect(page.getByText('逐条读过、没有找到相关要求的学科：道德与法治、体育与健康。')).toBeVisible()

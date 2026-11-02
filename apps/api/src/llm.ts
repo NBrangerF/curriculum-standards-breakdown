@@ -36,6 +36,8 @@ export interface LlmInterpretationResult {
     interpretation: LlmQueryInterpretation | null
     usage: LlmUsage | null
     cached: boolean
+    /** 2 when the question was sent a second time */
+    attempts?: number
 }
 
 export interface LlmUsage {
@@ -52,6 +54,8 @@ export interface StructuredLlmResult<T> {
     latency_ms: number
     output: T | null
     usage: LlmUsage | null
+    /** Calls sent for this answer: 2 when runHedgedLlm sent it once more. */
+    attempts?: number
 }
 
 export interface StructuredLlmAdapter<T> {
@@ -448,7 +452,7 @@ export async function runHedgedLlm<T>(
     ])
     clearTimeout(timer)
     // answered in time, or never sent at all (no key, bad config): nothing to retry
-    if (early && (early.status === 'ok' || early.status === 'disabled' || early.status === 'invalid_config')) return early
+    if (early && (early.status === 'ok' || early.status === 'disabled' || early.status === 'invalid_config')) return { ...early, attempts: 1 }
     // what is left of the budget: after the hedge timer, or after a first call that failed early
     const left = early ? timeoutMs - (performance.now() - started) : timeoutMs - options.hedgeAfterMs
     const second = runStructuredLlm(input, adapter, { ...options, timeoutMs: Math.max(1000, Math.round(left)) })
@@ -458,7 +462,7 @@ export async function runHedgedLlm<T>(
         for (const attempt of attempts) {
             attempt.then(result => {
                 left -= 1
-                if (result.status === 'ok' || left === 0) resolve(result)
+                if (result.status === 'ok' || left === 0) resolve({ ...result, attempts: 2 })
             })
         }
     })
@@ -561,9 +565,11 @@ export async function interpretSearchQueryWithLlm(
         status: result.status,
         model: result.model,
         protocol: result.protocol,
-        latency_ms: result.latency_ms,
+        // the whole wait, first call included, when the question was sent twice
+        latency_ms: Math.round((performance.now() - started) * 100) / 100,
         interpretation: result.output ? enforceConstraintEvidence(query, result.output) : null,
         usage: result.usage,
-        cached: false
+        cached: false,
+        attempts: result.attempts
     }
 }

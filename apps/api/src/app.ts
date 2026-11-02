@@ -147,6 +147,8 @@ class CandidateCheck {
         for (const run of runs) for (const [code, verdict] of run.judgements) judgements.set(code, verdict)
         const read = wanted.filter(item => judgements.has(item.code)).length
         const failed = runs.find(run => run.status !== 'ok' && run.status !== 'partial')
+        const calls: Record<string, number> = {}
+        for (const run of runs) for (const [status, count] of Object.entries(run.calls)) calls[status] = (calls[status] || 0) + count
         const usage = runs.reduce<JudgeResult['usage']>((sum, run) => run.usage
             ? { input_tokens: (sum?.input_tokens || 0) + run.usage.input_tokens, output_tokens: (sum?.output_tokens || 0) + run.usage.output_tokens, total_tokens: (sum?.total_tokens || 0) + run.usage.total_tokens }
             : sum, null)
@@ -156,7 +158,9 @@ class CandidateCheck {
             model: runs[0]?.model ?? null,
             latency_ms: Math.round((performance.now() - this.started) * 100) / 100,
             usage,
-            judgements
+            judgements,
+            calls,
+            retries: runs.reduce((sum, run) => sum + run.retries, 0)
         }
     }
 }
@@ -907,7 +911,14 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
             input_tokens: (interpretation.usage?.input_tokens || 0) + (judge?.usage?.input_tokens || 0),
             output_tokens: (interpretation.usage?.output_tokens || 0) + (judge?.usage?.output_tokens || 0),
             total_tokens: (interpretation.usage?.total_tokens || 0) + (judge?.usage?.total_tokens || 0),
-            ...(judge ? { judge_status: judge.status, judge_latency_ms: judge.latency_ms } : {})
+            read_attempts: interpretation.attempts ?? 1,
+            ...(judge ? {
+                judge_status: judge.status,
+                judge_latency_ms: judge.latency_ms,
+                judge_read: pool.results.filter(item => judge.judgements.has(item.code)).length,
+                judge_calls: Object.entries(judge.calls).map(([status, count]) => `${status}:${count}`).join(','),
+                judge_retries: judge.retries
+            } : {})
         })
         const ambiguities = aiInterpretation?.ambiguities || []
         const clarificationQuestion = aiInterpretation?.clarification_question || ''

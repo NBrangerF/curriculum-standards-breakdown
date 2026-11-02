@@ -397,9 +397,20 @@ function SmartSearchPage() {
                                             {group.aspects.length ? (
                                                 <p className={styles.aspects} aria-label={`${group.subject}里的说法`}>{group.aspects.map(aspect => <span key={aspect}>{aspect}</span>)}</p>
                                             ) : null}
-                                            <ol className={kb.list}>
-                                                {group.items.map(item => <ResultItem key={item.code} item={item} rank={rankOf(item)} saved={saved.has(item.code)} onSave={save} onPreview={openPreview} showStrength />)}
-                                            </ol>
+                                            {group.direct ? (
+                                                <ol className={kb.list}>
+                                                    {group.items.filter(item => item.match_strength === 'direct').map(item => <ResultItem key={item.code} item={item} rank={rankOf(item)} saved={saved.has(item.code)} onSave={save} onPreview={openPreview} showStrength />)}
+                                                </ol>
+                                            ) : null}
+                                            {/* what the check found only partly about the question stays folded under the direct matches */}
+                                            {group.items.length > group.direct ? (
+                                                <details className={styles.moreRelated}>
+                                                    <summary>{group.direct ? `还有 ${group.items.length - group.direct} 条可能相关` : `${group.items.length} 条可能相关`}</summary>
+                                                    <ol className={kb.list}>
+                                                        {group.items.filter(item => item.match_strength !== 'direct').map(item => <ResultItem key={item.code} item={item} rank={rankOf(item)} saved={saved.has(item.code)} onSave={save} onPreview={openPreview} showStrength />)}
+                                                    </ol>
+                                                </details>
+                                            ) : null}
                                         </section>
                                     )) : null}
 

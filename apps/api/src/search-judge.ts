@@ -23,6 +23,9 @@ export type JudgeResult = {
     latency_ms: number
     usage: LlmUsage | null
     judgements: Map<string, Judgement>
+    /** How the calls ended (ok, timeout, provider_error…), and how many were sent a second time. */
+    calls: Record<string, number>
+    retries: number
 }
 
 // smaller batches answer sooner, and one slow call holds back fewer candidates
@@ -50,7 +53,7 @@ const SCHEMA = {
                     grade: { type: 'integer', enum: [0, 1, 2] },
                     reason: { type: 'string', maxLength: 60 },
                     aspect: { type: 'string', maxLength: 16 },
-                    quote: { type: 'string', maxLength: 40 },
+                    quote: { type: 'string', maxLength: 24 },
                     point: { type: 'string', maxLength: 24 }
                 },
                 required: ['code', 'grade', 'reason', 'aspect', 'quote', 'point']
@@ -62,15 +65,16 @@ const SCHEMA = {
 
 // Teachers often ask for a competency across subjects (阅读, 表达, 合作…). The 课标 rarely use the teacher's word for it:
 // 阅读 is 识读乐谱 in 音乐 and 读统计图 in 数学. The model is told so, or it passes over most of what the teacher wants.
-const INSTRUCTIONS = `你是 kebiao 的课标检索核对员。老师用一句话描述要找的课程标准；下面给出若干候选标准（编码、学科、学段、标准名、标准句和要点原文）。候选是按系统识别出的学段、学科筛选出来的；有的学科学段划分更宽（如艺术按 3–5 年级编排），不要因此判 0，但违反老师明确说的学段、学科或排除条件时判 0。逐条判断每个候选：
-grade=2：某条要点原文写明学生要做老师要找的事。老师常问跨学科的能力或主题（阅读、表达、合作、探究、数据等），课标在各学科里会换成本学科的说法，这也算：例如“阅读”在音乐里是识读乐谱，在数学里是读统计图、查找资料，在劳动里是识读示意图，在信息科技里是在线搜索获取信息；“表达”在数学里是用统计图表示数据，在美术里是用视觉形象表达想法。
-grade=1：要点原文写到了这件事，但它只是要点里的一小部分，或只是为别的目标服务的手段（例如为了解月球而利用图片资料）。
-grade=0：要点原文没有写到这件事。不要推测“要先读懂才能做”“了解就要阅读”“涉及理解”——原文没写的都给 0。相近但不同的事也给 0：问阅读时，表达、展示、观察、测量、评价不算；问表达时，阅读、观察不算。
-先找 quote：要点原文里直接写这件事的那几个字，逐字照抄 4～20 个字，如“识读简单的示意图”“会查找资料”。找不到这样的字句就给 0；理由要靠“涉及”“需要”“含……要素”“有助于”才能连上的，说明原文没写，也给 0。
+const INSTRUCTIONS = `你是 kebiao 的课标检索核对员。老师用一句话描述要找的课程标准；下面给出若干候选标准（编码、学科、学段、标准名、标准句和要点原文）。候选是按系统识别出的学段、学科筛选出来的；有的学科学段划分更宽（如艺术按 3–5 年级编排），不要因此判 0，但违反老师明确说的学段、学科或排除条件时判 0。
+老师常问跨学科的能力或主题（阅读、表达、合作、探究、数据等），课标在各学科里会换成本学科的说法：例如“阅读”在音乐里是识读乐谱，在数学里是读统计图、查找资料，在劳动里是识读示意图，在信息科技里是在线搜索获取信息；“表达”在数学里是用统计图表示数据，在美术里是用视觉形象表达想法。
+逐条判断每个候选，先找 quote：要点原文里直接写这件事（或它在本学科的说法）的最短字句，逐字照抄，不超过 12 个字，如“识读简单的示意图”“会查找资料”。
+grade=2：quote 写的就是学生要做的这件事。
+grade=1：quote 写的也是这件事本身，只是它在要点里占比很小，或只是为别的目标服务的手段（例如为了解月球而“利用图片资料”）。
+grade=0：找不到这样的 quote；或理由要靠“涉及”“需要”“含……要素”“有助于”才能连上；或 quote 写的是相近但不同的事——问阅读时，表达、展示、观察、测量、评价、欣赏、交流、倾听都不算；问表达时，阅读、观察不算。
 grade=0 时 reason、aspect、quote、point 都填空字符串，只给 code 和 grade。
-reason：一个短语，不超过 20 个汉字，说原文写了什么，如“识读简单的示意图并参考流程制作”；不要复述老师的问题。
-aspect：2～8 个字，用 quote 里的词说这件事在本学科里叫什么，如 quote“识读简单乐谱”→aspect“识读乐谱”，quote“会查找资料”→aspect“查找资料”。
-point：最符合的那条要点编码（如 MA-S3-NA-01.2）；没有就填空字符串。
+reason：不超过 16 个汉字，说原文写了什么，如“识读示意图后按流程制作”；不要复述老师的问题。
+aspect：2～8 个字，用 quote 里的词说这件事在本学科里叫什么，如 quote“识读简单乐谱”→aspect“识读乐谱”。
+point：quote 所在的要点编码（如 MA-S3-NA-01.2）；quote 来自标准句时填空字符串。
 每个候选都必须给出一条判断，只用给出的编码，不得编造。`
 
 const CHAT_INSTRUCTIONS = `${INSTRUCTIONS}
@@ -199,12 +203,16 @@ export async function judgeSearchCandidates(
         : sum, null)
     const failed = runs.filter(run => run.status !== 'ok')
     const status: JudgeResult['status'] = !runs.length || !failed.length ? 'ok' : failed.length < runs.length ? 'partial' : failed[0].status
+    const calls: Record<string, number> = {}
+    for (const run of runs) calls[run.status] = (calls[run.status] || 0) + 1
     return {
         used: judgements.size > 0,
         status,
         model: runs[0]?.model ?? model,
         latency_ms: Math.round((performance.now() - started) * 100) / 100,
         usage,
-        judgements
+        judgements,
+        calls,
+        retries: runs.filter(run => (run.attempts || 1) > 1).length
     }
 }
