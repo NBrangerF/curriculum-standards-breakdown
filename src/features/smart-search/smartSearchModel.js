@@ -80,6 +80,25 @@ export function understoodConstraints(result) {
     return chips
 }
 
+/**
+ * Checked results by subject, for an answer that spans several: subjects with direct matches first, each listing its
+ * direct matches before the related ones, with the model's words for how the question shows up there (`aspects`).
+ */
+export function groupBySubject(results) {
+    const groups = new Map()
+    for (const item of results || []) {
+        const slug = item.standard?.subject_slug || ''
+        if (!groups.has(slug)) groups.set(slug, { slug, subject: item.standard?.subject || SUBJECT_LABELS[slug] || slug, items: [] })
+        groups.get(slug).items.push(item)
+    }
+    return [...groups.values()].map(group => {
+        const items = [...group.items].sort((left, right) => Number(right.match_strength === 'direct') - Number(left.match_strength === 'direct'))
+        const direct = items.filter(item => item.match_strength === 'direct').length
+        const aspects = [...new Set(items.map(item => item.ai_aspect).filter(Boolean))].slice(0, 6)
+        return { ...group, items, direct, aspects }
+    }).sort((left, right) => right.direct - left.direct || right.items.length - left.items.length)
+}
+
 export function isIgnored(ignored, chip) {
     return (ignored[chip.kind] || []).includes(chip.value)
 }

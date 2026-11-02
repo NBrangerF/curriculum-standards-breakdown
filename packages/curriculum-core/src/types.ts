@@ -392,6 +392,9 @@ export interface SmartSearchRequest extends StandardFilters {
     prefer_inferred_terms?: boolean
     /** Keep expansion terms that do not contain a topic term; a later relevance check filters what they bring in. */
     loose_expansion?: boolean
+    /** When at most this many standards pass the 学段 and 学科 filters, return every one of them (word matches first), so
+     *  a later check can read the whole scope instead of only what shares words with the question. */
+    scope_all?: number
     ignored_constraints?: SmartSearchIgnoredConstraints
     include?: Fieldset[]
     limit?: number
@@ -441,6 +444,8 @@ export interface SmartSearchResult {
     checked_by_ai?: boolean
     /** The 要点 the model found closest to the request. */
     matched_point?: { code: string, text: string } | null
+    /** How the request shows up in this standard, in the model's words (「识读乐谱」「读统计图」). */
+    ai_aspect?: string
 }
 
 export interface SmartSearchQueryPlanConflict extends JsonObject {
@@ -495,6 +500,8 @@ export interface SmartSearchResponse extends JsonObject {
     query_interpretation?: JsonObject
     /** The model's check of each candidate against the request (apps/api/src/search-judge.ts). */
     relevance_check?: JsonObject
+    /** The standards passing the 学段 and 学科 filters; `complete` when every one of them is among the results. */
+    search_scope?: { standards: number, subjects: string[], complete: boolean }
     warnings: string[]
 }
 

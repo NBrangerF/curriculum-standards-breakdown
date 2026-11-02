@@ -283,6 +283,51 @@ test('natural-language query plan preserves explicit grade and exclusion constra
     assert.ok(result.results.every(item => item.standard.subject_slug !== 'chinese'))
 })
 
+test('grades are read however teachers type them, and the words around a request are not topics', () => {
+    const cases: Array<[string, string[], string[]]> = [
+        ['请给到我 3–4 年级\n非语言类学科当中，跟阅读有关的课程标准', ['H2'], ['阅读']],
+        ['３－４年级数学', ['H2'], []],
+        ['3~4年级科学观察', ['H2'], ['观察']],
+        ['三至四年级道德与法治规则意识', ['H2'], ['规则意识', '规则', '意识']],
+        ['请帮我找一下 4 年级 科学 天气', ['H2'], ['天气']],
+        ['小学中年级跟合作学习有关的标准', ['H2'], ['合作']],
+        ['小学中段 数学 统计', ['H2'], ['统计']],
+        ['低年级劳动与整理收纳有关', ['H1'], ['整理收纳', '整理', '收纳']],
+        ['小学高年级 写作', ['H3'], ['写作']],
+        ['小学阶段跟阅读有关的标准', ['H1', 'H2', 'H3'], ['阅读']],
+        ['2-3年级的观察活动', ['H1', 'H2'], ['观察']],
+        ['初三年级物理实验', ['H4'], ['实验']],
+        ['给我列出初二物理里和实验探究有关的要求', ['H4'], ['实验探究', '实验', '探究']]
+    ]
+    for (const [query, grades, topics] of cases) {
+        const parsed = parseSmartSearchQuery(query)
+        assert.deepEqual(parsed.grade_bands, grades, query)
+        assert.deepEqual(parsed.core_terms, topics, query)
+    }
+    assert.deepEqual(parseSmartSearchQuery('请给到我 3–4 年级 非语言类学科当中，跟阅读有关的课程标准').excluded_subjects, ['chinese', 'english'])
+})
+
+test('a small scope comes back whole so the model can read every standard in it', async () => {
+    const repository = new FileCurriculumRepository(publicDataRoot)
+    const query = '3–4 年级非语言类学科当中，跟阅读有关的课程标准'
+    const whole = await repository.smartSearchStandards({ query, limit: 5, scope_all: 72 })
+    assert.equal(whole.search_scope?.complete, true)
+    assert.equal(whole.results.length, whole.search_scope?.standards)
+    assert.ok(whole.results.every(item => !['chinese', 'english'].includes(String(item.standard.subject_slug))))
+    // no 3–4 年级 standard outside 语文 and 英语 says 阅读 (they say 识读乐谱, 统计图, 示意图…): word search alone finds nothing
+    assert.ok(whole.results.every(item => item.score === 0))
+    assert.ok(whole.results.some(item => item.code === 'LA-S2-PL-02'))
+    // word matches come first, the rest of the scope after them with a score of 0
+    const mixed = await repository.smartSearchStandards({ query: '3–4 年级非语言类学科里和识读、资料有关的标准', limit: 5, scope_all: 72 })
+    const firstUnmatched = mixed.results.findIndex(item => item.score === 0)
+    assert.ok(firstUnmatched > 0 && mixed.results.slice(firstUnmatched).every(item => item.score === 0))
+    assert.equal(mixed.results.length, whole.results.length)
+    const capped = await repository.smartSearchStandards({ query, limit: 5, scope_all: 10 })
+    assert.equal(capped.search_scope?.complete, false)
+    assert.equal(capped.search_scope?.standards, whole.search_scope?.standards)
+    assert.ok(capped.results.length <= 5 && capped.results.every(item => item.score > 0))
+})
+
 test('smart search excludes fields quarantined from RAG evidence', () => {
     const response = smartSearchStandards([{
         code: 'SC-TEST-001',

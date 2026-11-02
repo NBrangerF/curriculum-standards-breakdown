@@ -51,5 +51,15 @@
     "expected_core_terms": ["分数", "基本性质"],
     "forbidden_core_terms": ["基本"],
     "expected_codes": ["MA-S3-NA-01"]
+  },
+  {
+    "id": "natural-en-dash-grade-non-language-reading",
+    "query": "请给到我 3–4 年级\n非语言类学科当中，跟阅读有关的课程标准",
+    "natural_only": true,
+    "expected_grade_bands": ["H2"],
+    "expected_excluded_subjects": ["chinese", "english"],
+    "expected_core_terms": ["阅读"],
+    "forbidden_core_terms": ["请给到我", "3–4", "当中"],
+    "expect_empty": true
   }
 ]

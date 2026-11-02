@@ -10,7 +10,9 @@ import {
     FIELD_LABELS,
     NO_IGNORED,
     PROVENANCE_LABELS,
+    SUBJECT_LABELS,
     friendlySearchError,
+    groupBySubject,
     hasIgnored,
     isIgnored,
     subjectColor,
@@ -29,12 +31,12 @@ import {
 } from '../observability/umamiTelemetry.js'
 import styles from './SmartSearchPage.module.css'
 
-// The model reads the question (3–5 s), retrieval takes well under a second, then the model reads every candidate's
-// 要点 (5–10 s more); a search usually takes 10–20 s in all.
+// The model reads the question (3–7 s) while it already reads the candidates the rules found (5–12 s); what its reading
+// of the question adds is read after that. A search usually takes 10–20 s in all.
 const STAGES = [
     { label: 'AI 读懂你的问题：学段、学科、要排除的、主题', at: 0 },
-    { label: '在全部课标中找出候选', at: 4000 },
-    { label: 'AI 逐条读候选的要点原文，判断是否切题', at: 5000 }
+    { label: '按学段、学科圈出要读的课标', at: 1500 },
+    { label: 'AI 逐条读候选的要点原文，判断是否切题', at: 3000 }
 ]
 
 function SearchProgress() {
@@ -80,13 +82,14 @@ function TaughtIn({ code }) {
     )
 }
 
-function ResultItem({ item, rank, saved, onSave, onPreview }) {
+function ResultItem({ item, rank, saved, onSave, onPreview, showStrength = false }) {
     const standard = item.standard || {}
     const open = () => onPreview(item, rank)
     return (
         <li className={styles.result} data-search-result={item.match_strength} style={{ '--c': subjectColor(standard.subject_slug) }}>
             <p className={styles.resultMeta}>
                 <i aria-hidden="true" />
+                {showStrength ? <span className={styles.strength} data-strength={item.match_strength}>{item.match_strength === 'direct' ? '直接对应' : '相关'}</span> : null}
                 <span>{[standard.subject, standard.grade, standard.domain].filter(Boolean).join(' · ')}</span>
                 <code>{item.code}</code>
             </p>
@@ -296,6 +299,15 @@ function SmartSearchPage() {
     const supportingCount = relevance.supporting ?? supportingResults.length
     const totalRelevant = result?.relevant_candidates ?? directCount + supportingCount
     const checked = Boolean(result?.relevance_check)
+    // an answer across several subjects reads by subject; one subject keeps the 直接对应 / 相关 sections
+    const subjectGroups = checked ? groupBySubject(result.results) : []
+    const grouped = subjectGroups.length > 1
+    const rankOf = item => (result?.results || []).indexOf(item) + 1
+    // a scope read whole can say where nothing was found: 「道德与法治、体育与健康」 have no 3–4 年级 reading requirement
+    const scope = result?.search_scope
+    const emptySubjects = checked && scope?.complete
+        ? scope.subjects.filter(slug => !subjectGroups.some(group => group.slug === slug)).map(slug => SUBJECT_LABELS[slug] || slug)
+        : []
     const modelMissed = result && !checked && interpretation.status && interpretation.status !== 'disabled'
     const visibleWarnings = (result?.warnings || []).filter(warning => !warning.includes('AI 查询理解暂不可用') && !warning.includes('可识别个人信息'))
     const friendly = error ? friendlySearchError(error) : null
@@ -374,7 +386,24 @@ function SmartSearchPage() {
                                     {result.coverage_note ? <p className={styles.coverage}>{result.coverage_note}</p> : null}
                                     {visibleWarnings.map(warning => <p className={styles.note} key={warning}>{warning}</p>)}
 
-                                    {directResults.length ? (
+                                    {grouped ? subjectGroups.map(group => (
+                                        <section key={group.slug} className={styles.group} aria-labelledby={`subject-results-${group.slug}`}>
+                                            <SectionHead
+                                                kicker={group.direct ? `直接对应 ${group.direct} · 相关 ${group.items.length - group.direct}` : `相关 ${group.items.length}`}
+                                                title={group.subject}
+                                                size="sm"
+                                                id={`subject-results-${group.slug}`}
+                                            />
+                                            {group.aspects.length ? (
+                                                <p className={styles.aspects} aria-label={`${group.subject}里的说法`}>{group.aspects.map(aspect => <span key={aspect}>{aspect}</span>)}</p>
+                                            ) : null}
+                                            <ol className={kb.list}>
+                                                {group.items.map(item => <ResultItem key={item.code} item={item} rank={rankOf(item)} saved={saved.has(item.code)} onSave={save} onPreview={openPreview} showStrength />)}
+                                            </ol>
+                                        </section>
+                                    )) : null}
+
+                                    {!grouped && directResults.length ? (
                                         <section className={styles.group} aria-labelledby="direct-results-title">
                                             <SectionHead kicker="壹 · 直接对应" title={`${directResults.length} 条直接对应课标`} size="sm" id="direct-results-title" />
                                             <ol className={kb.list}>
@@ -383,7 +412,7 @@ function SmartSearchPage() {
                                         </section>
                                     ) : null}
 
-                                    {supportingResults.length ? (
+                                    {!grouped && supportingResults.length ? (
                                         <details className={styles.supporting}>
                                             <summary>
                                                 <span className={kb.kicker}>{checked ? '贰 · 相关' : '贰 · 教学延伸'}</span>
@@ -394,6 +423,10 @@ function SmartSearchPage() {
                                                 {supportingResults.map((item, index) => <ResultItem key={item.code} item={item} rank={directResults.length + index + 1} saved={saved.has(item.code)} onSave={save} onPreview={openPreview} />)}
                                             </ol>
                                         </details>
+                                    ) : null}
+
+                                    {emptySubjects.length && result.results.length ? (
+                                        <p className={styles.note}>逐条读过、没有找到相关要求的学科：{emptySubjects.join('、')}。</p>
                                     ) : null}
 
                                     {!result.results.length ? (

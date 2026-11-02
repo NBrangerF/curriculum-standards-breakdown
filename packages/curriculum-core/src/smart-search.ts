@@ -49,13 +49,45 @@ const SKILL_ALIASES: Record<string, string[]> = {
     TS7: ['全球公民', '可持续发展', '伦理', '责任', '文化理解']
 }
 
-const GRADE_PATTERNS: Array<[RegExp, string]> = [
-    [/(?:一|1)\s*[-—至到]\s*(?:二|2)年级|一二年级|第一学段|G\s*1\s*[-—至到]\s*2|(?:小学)?(?:一|二|1|2)年级/iu, 'H1'],
-    [/(?:三|3)\s*[-—至到]\s*(?:四|4)年级|三四年级|第二学段|G\s*3\s*[-—至到]\s*4|(?:小学)?(?:三|四|3|4)年级/iu, 'H2'],
-    [/(?:五|5)\s*[-—至到]\s*(?:六|6)年级|五六年级|第三学段|G\s*5\s*[-—至到]\s*6|(?:小学)?(?:五|六|5|6)年级/iu, 'H3'],
-    // The 2025 standards set one 7–9 学段; a grade inside it filters to that 学段.
-    [/(?:七|八|九|7|8|9)年级|初[一二三中]|第四学段|H4(?:G[789])?/i, 'H4']
+// Grades as teachers type them: 「3–4 年级」「３－４年级」「三至四年级」「三、四年级」「三四年级」「4 年级」. The text is
+// normalized first (full-width forms, every dash and tilde to "-"), so one pattern covers each spelling.
+const GRADE_NUMERAL = '[1-9一二三四五六七八九]'
+const GRADE_RANGE = new RegExp(`(${GRADE_NUMERAL})\\s*(?:-|至|到|、|和)\\s*(${GRADE_NUMERAL})\\s*年级`, 'gu')
+const GRADE_PAIR = /([一二三四五六七八九])([一二三四五六七八九])年级/gu
+// 「初三年级」 is grade 9, not 3
+const GRADE_SINGLE = new RegExp(`(?<![\\d十初高])(${GRADE_NUMERAL})\\s*年级`, 'gu')
+// 学段 names and the words for parts of 小学: 低年级 1–2, 中年级 3–4, 高年级 5–6. The 2025 standards set one 7–9 学段, so a
+// grade inside it filters to that 学段.
+const GRADE_WORDS: Array<[RegExp, string[]]> = [
+    [/第一学段|g\s*1\s*-\s*2|低年级|小学低段|低段(?:学生|年级)/iu, ['H1']],
+    [/第二学段|g\s*3\s*-\s*4|(?<!初)中年级|小学中段|中段(?:学生|年级)/iu, ['H2']],
+    [/中高年级|小学中高段/u, ['H2', 'H3']],
+    [/第三学段|g\s*5\s*-\s*6|(?<!初中)高年级|小学高段|高段(?:学生|年级)/iu, ['H3']],
+    [/初[一二三中]|第四学段|h4(?:g[789])?/iu, ['H4']]
 ]
+const GRADE_DIGITS: Record<string, number> = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9 }
+const bandOfGrade = (grade: number) => (grade <= 2 ? 'H1' : grade <= 4 ? 'H2' : grade <= 6 ? 'H3' : 'H4')
+const gradeOf = (numeral: string) => GRADE_DIGITS[numeral] || Number(numeral)
+
+/** Full-width letters and digits to ASCII, and every dash or tilde to "-". */
+function normalizeQueryText(value: unknown): string {
+    return String(value || '').normalize('NFKC').replace(/[‐‑‒–—―−~〜]/gu, '-')
+}
+
+/** The 学段 a question names, in H1–H4; 「小学」 alone means all three primary 学段. */
+function gradeBandsOf(query: string): string[] {
+    const text = normalizeQueryText(query)
+    const bands: string[] = []
+    for (const match of text.matchAll(GRADE_RANGE)) {
+        const [from, to] = [gradeOf(match[1]), gradeOf(match[2])].sort((left, right) => left - right)
+        for (let grade = from; grade <= to; grade += 1) bands.push(bandOfGrade(grade))
+    }
+    for (const match of text.matchAll(GRADE_PAIR)) bands.push(bandOfGrade(gradeOf(match[1])), bandOfGrade(gradeOf(match[2])))
+    for (const match of text.replace(GRADE_RANGE, ' ').matchAll(GRADE_SINGLE)) bands.push(bandOfGrade(gradeOf(match[1])))
+    for (const [pattern, values] of GRADE_WORDS) if (pattern.test(text)) bands.push(...values)
+    if (/小学/u.test(text) && !bands.some(band => band !== 'H4')) bands.push('H1', 'H2', 'H3')
+    return ['H1', 'H2', 'H3', 'H4'].filter(band => bands.includes(band))
+}
 
 // A filter on the 7–9 学段 (H4) also matches old per-grade records (H4G7–9), and the other way round.
 const bandMatches = (bands: string[], recordBand: string) => bands.some(band => band === recordBand
@@ -82,7 +114,10 @@ const QUERY_SCAFFOLDING = [
     // connectives and question words: "但是非语文或者英语学科" leaves no topic behind
     '但是', '可是', '不过', '或者', '还是', '而且', '或是', '哪些', '什么', '有哪些', '有没有', '一下', '的',
     // a teacher's question around the topic: 「怎么教圆的面积」 is about 圆的面积
-    '怎么教', '怎样教', '如何教', '怎么', '怎样'
+    '怎么教', '怎样教', '如何教', '怎么', '怎样',
+    // the request around it: 「请给到我…当中…的课程标准」; 小学 is a 学段 (see gradeBandsOf)
+    '请给到我', '给到我', '请给我', '给我', '请问', '请列出', '找一下', '找找', '找出', '推荐', '当中',
+    '小学阶段', '初中阶段', '小学', '所有', '全部', '一些'
 ].sort((left, right) => right.length - left.length)
 const SEARCH_FIELDS: Array<[string, number]> = [
     ['standard', 1],
@@ -146,9 +181,11 @@ function replaceGlobally(text: string, pattern: RegExp): string {
 }
 
 function stripQueryScaffolding(value: string): string {
-    let semantic = value.toLowerCase()
+    let semantic = normalizeQueryText(value).toLowerCase()
     semantic = semantic.replace(/\b[a-z]{2,8}(?:-[a-z0-9]{1,12}){2,}\b/giu, ' ')
-    for (const [pattern] of GRADE_PATTERNS) semantic = replaceGlobally(semantic, pattern)
+    for (const pattern of [GRADE_RANGE, GRADE_PAIR, GRADE_SINGLE, ...GRADE_WORDS.map(([pattern]) => pattern)]) {
+        semantic = replaceGlobally(semantic, pattern)
+    }
     const aliases = unique([...Object.values(SUBJECT_ALIASES).flat(), ...Object.values(SUBJECT_GROUPS).flatMap(group => group.aliases)])
         .sort((left, right) => right.length - left.length)
     for (const alias of aliases) {
@@ -225,7 +262,7 @@ function fieldTrust(record: StandardRecord, field: string) {
 
 export function parseSmartSearchQuery(query: string) {
     const text = String(query || '').trim()
-    const gradeBands = GRADE_PATTERNS.filter(([pattern]) => pattern.test(text)).map(([, band]) => band)
+    const gradeBands = gradeBandsOf(text)
     const subjectIntent = detectSubjectIntent(text)
     const coreTerms = extractCoreTerms(text)
     return {
@@ -526,11 +563,23 @@ export function smartSearchStandards(
         direct: relevant.filter(result => result.match_strength === 'direct').length,
         supporting: relevant.filter(result => result.match_strength === 'supporting').length
     }
-    const results = relevant
-        .slice(0, limit)
+    // A small scope (「3–4 年级、语文以外」 is 54 standards) is returned whole: a competency like 阅读 hides behind subject
+    // words (识读乐谱, 统计图, 示意图) that share nothing with the question, and the check reads every standard instead.
+    const wholeScope = Boolean(request.scope_all && candidates.length <= request.scope_all)
+    const relevantCodes = new Set(relevant.map(result => result.code))
+    const scopeOnly = wholeScope
+        ? candidates
+            .filter(record => !relevantCodes.has(String(record.code)))
+            .map(record => ({
+                ...scoreRecord(record, coreTerms, expansionTerms, filters, rankingProfile, request.include),
+                score: 0,
+                relevance_reason: '学段、学科符合，原文里没有检索词；由 AI 逐条核对。'
+            }))
+        : []
+    const results = [...(wholeScope ? relevant : relevant.slice(0, limit)), ...scopeOnly]
         .map(result => ({
             ...result,
-            match_strength: result.match_strength as SmartSearchResult['match_strength']
+            match_strength: (result.match_strength === 'direct' ? 'direct' : 'supporting') as SmartSearchResult['match_strength']
         }))
     const omittedLowRelevance = Math.max(0, candidates.length - relevant.length)
     const coverageNote = coverageNoteFor(relevant.length, limit)
@@ -570,6 +619,11 @@ export function smartSearchStandards(
         relevance_version: SMART_SEARCH_RELEVANCE_VERSION,
         retrieval_version: 'trusted-hybrid-v1',
         semantic_provider: 'none',
+        search_scope: {
+            standards: candidates.length,
+            subjects: unique(candidates.map(record => String(record.subject_slug))),
+            complete: wholeScope
+        },
         warnings: unique(warnings)
     }
 }

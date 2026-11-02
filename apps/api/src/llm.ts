@@ -115,11 +115,11 @@ const OUTPUT_SCHEMA = {
 
 const INSTRUCTIONS = `你是 kebiao 的课程标准查询理解器。只分析用户查询，不回答问题，也不生成课程标准编码或课程事实。
 	返回严格符合给定 JSON Schema 的对象。core_terms 只填写用户真正要查找的核心主题概念，例如查询“除了语文之外跟阅读相关”时填写“阅读”，不得填写学科、学段、课标、相关、要求、目标、能力、教学、学习等筛选词或泛词。
-	expanded_terms 填写课标原文里表达同一主题时可能用到的具体说法，可以不含核心词，例如“阅读”在各学科里可写“读图、史料、科普读物、获取信息、说明书”；不得复述整段查询，不得用“理解、要求、目标、能力”等泛词补足数量。无法可靠提取核心主题时返回空数组。
+	expanded_terms 填写课标原文里表达同一主题时可能用到的具体说法，可以不含核心词，例如“阅读”在各学科里可写“识读乐谱、统计图、示意图、查找资料、获取信息、读图、史料”；不得复述整段查询，不得用“理解、要求、目标、能力”等泛词补足数量。无法可靠提取核心主题时返回空数组。
 	subjects 表示用户明确要求包含的学科；excluded_subjects 表示“除了语文”“排除数学”“非英语”等明确排除的学科，同一学科不得同时出现在二者中。
 	学科类别要展开成具体学科：语言类=chinese、english；理科=math、science、physics、chemistry、biology；文科=chinese、english、morality_law、history、geography；艺体=arts、pe。“非语言类”“语言类以外”“不要语言学科”表示排除 chinese 和 english，evidence_span 填“非语言类”这类原文片段。
 	“但是”“或者”“有关的”等连接词和否定词不是主题，不得写进 core_terms。
-	学段映射必须严格使用：H1=第一学段=1-2年级=G1-2；H2=第二学段=3-4年级=G3-4；H3=第三学段=5-6年级=G5-6；H4=第四学段=7-9年级=七年级/八年级/九年级/初中。
+	学段映射必须严格使用：H1=第一学段=1-2年级=G1-2=低年级；H2=第二学段=3-4年级=G3-4=中年级；H3=第三学段=5-6年级=G5-6=高年级；H4=第四学段=7-9年级=七年级/八年级/九年级/初中；只说“小学”时填 H1、H2、H3。
 	grade_bands、skills 只在用户意图明确时填写。无法可靠判断时返回空数组。
 	每个 subjects、excluded_subjects、grade_bands 值都必须在 constraint_evidence 中提供 kind、value 和用户原文中逐字存在的 evidence_span；没有原文证据时不得输出该约束。
 	如果用户表达真的存在歧义，把原因写入 ambiguities，并只提出一个简短 clarification_question；不要猜测。没有歧义时返回空数组和空字符串。
@@ -211,8 +211,9 @@ function validateInterpretation(value: unknown): LlmQueryInterpretation | null {
     }
 }
 
+// Spacing and dash style are not evidence: the model quotes 「3–4 年级」 back as 「3-4年级」.
 function normalizeEvidenceText(value: string) {
-    return value.toLowerCase().normalize('NFKC').replace(/[—–−]/gu, '-').replace(/\s+/gu, ' ').trim()
+    return value.toLowerCase().normalize('NFKC').replace(/[‐‑‒–—―−~〜]/gu, '-').replace(/\s+/gu, '')
 }
 
 function enforceConstraintEvidence(query: string, interpretation: LlmQueryInterpretation): LlmQueryInterpretation {
@@ -432,7 +433,8 @@ const QUERY_INTERPRETATION_ADAPTER: StructuredLlmAdapter<LlmQueryInterpretation>
     schema: OUTPUT_SCHEMA,
     instructions: INSTRUCTIONS,
     chatInstructions: CHAT_JSON_INSTRUCTIONS,
-    maxCompletionTokens: 400,
+    // a full answer (eight expansions, three quoted spans) runs near 400 tokens, and a cut-off answer is invalid JSON
+    maxCompletionTokens: 700,
     validate: validateInterpretation
 }
 

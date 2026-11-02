@@ -14,7 +14,7 @@ export type JudgeCandidate = {
     indicators: Array<{ code: string, text: string }>
 }
 
-export type Judgement = { code: string, grade: 0 | 1 | 2, reason: string, point: string | null }
+export type Judgement = { code: string, grade: 0 | 1 | 2, reason: string, point: string | null, aspect: string }
 
 export type JudgeResult = {
     used: boolean
@@ -28,6 +28,12 @@ export type JudgeResult = {
 // smaller batches answer sooner, and one slow call holds back fewer candidates
 const BATCH_SIZE = 8
 const TIMEOUT_MS = 15000
+
+/** Each call waits up to 15 s; KEBIAO_LLM_JUDGE_TIMEOUT_MS can shorten that to between 3 and 15 s. */
+export function judgeTimeoutMs(env: NodeJS.ProcessEnv = process.env) {
+    const parsed = Number(env.KEBIAO_LLM_JUDGE_TIMEOUT_MS)
+    return Number.isInteger(parsed) ? Math.max(3000, Math.min(TIMEOUT_MS, parsed)) : TIMEOUT_MS
+}
 
 const SCHEMA = {
     type: 'object',
@@ -43,25 +49,29 @@ const SCHEMA = {
                     code: { type: 'string', maxLength: 24 },
                     grade: { type: 'integer', enum: [0, 1, 2] },
                     reason: { type: 'string', maxLength: 60 },
+                    aspect: { type: 'string', maxLength: 16 },
                     point: { type: 'string', maxLength: 24 }
                 },
-                required: ['code', 'grade', 'reason', 'point']
+                required: ['code', 'grade', 'reason', 'aspect', 'point']
             }
         }
     },
     required: ['judgements']
 } as const
 
-const INSTRUCTIONS = `你是 kebiao 的课标检索核对员。老师用一句话描述要找的课程标准；下面给出若干候选标准（编码、学科、学段、标准名、标准句和要点原文）。逐条判断每个候选是否符合老师的需要：
-grade=2：这条标准或其中某条要点直接就是老师要找的内容；
-grade=1：相关，要点原文里有具体的相关内容，可作参考或延伸，但不是直接对应；
-grade=0：不符合——只是字面上有相同的词而意思不同，或违反了老师说的学科、学段、排除条件；只能说“可能涉及”“间接相关”的牵强联系也给 0。
-reason 用不超过 25 个汉字写判断依据，点明是哪方面内容；不要复述老师的问题，不要以“该标准”开头。
-point 填最符合需要的那条要点编码（如 MA-S3-NA-01.2）；没有合适的要点填空字符串。
+// Teachers often ask for a competency across subjects (阅读, 表达, 合作…). The 课标 rarely use the teacher's word for it:
+// 阅读 is 识读乐谱 in 音乐 and 读统计图 in 数学. The model is told so, or it passes over most of what the teacher wants.
+const INSTRUCTIONS = `你是 kebiao 的课标检索核对员。老师用一句话描述要找的课程标准；下面给出若干候选标准（编码、学科、学段、标准名、标准句和要点原文）。候选是按系统识别出的学段、学科筛选出来的；有的学科学段划分更宽（如艺术按 3–5 年级编排），不要因此判 0，但违反老师明确说的学段、学科或排除条件时判 0。逐条判断每个候选是否符合老师的需要：
+grade=2：某条要点要学生做的事，就是老师要找的内容。老师常问跨学科的能力或主题（阅读、表达、合作、探究、数据等），课标在各学科里会换成本学科的说法：例如“阅读”在音乐里是识读乐谱，在数学里是读统计图、查找资料，在劳动里是识读示意图，在信息科技里是在线搜索、获取信息；“表达”在数学里是用统计图表示数据，在美术里是用视觉形象表达想法。这样的要点也是直接对应。
+grade=1：相关：要点原文里有具体内容涉及老师要找的事，但只是其中一部分，或只是完成别的任务的手段。
+grade=0：不符合：只是字面上有相同的词而意思不同；要点里找不到这件事，只能说“可能涉及”“间接相关”；或违反了老师说的条件。
+reason：不超过 25 个汉字，写判断依据，点明是哪方面内容；不要复述老师的问题，不要以“该标准”开头。
+aspect：grade 为 1 或 2 时，用 2～8 个字写它在本学科里的具体形式，如“识读乐谱”“读统计图”“在线搜索信息”；grade=0 填空字符串。
+point：最符合需要的那条要点编码（如 MA-S3-NA-01.2）；没有合适的要点填空字符串。
 每个候选都必须给出一条判断，只用给出的编码，不得编造。`
 
 const CHAT_INSTRUCTIONS = `${INSTRUCTIONS}
-必须只返回一个 JSON 对象：{"judgements":[{"code":"…","grade":0|1|2,"reason":"…","point":"…"}]}。`
+必须只返回一个 JSON 对象：{"judgements":[{"code":"…","grade":0|1|2,"reason":"…","aspect":"…","point":"…"}]}。`
 
 export const SEARCH_JUDGE_PROMPT_VERSION = createHash('sha256').update(JSON.stringify([INSTRUCTIONS, CHAT_INSTRUCTIONS, SCHEMA])).digest('hex').slice(0, 12)
 
@@ -121,7 +131,8 @@ function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> 
                     code,
                     grade: grade as 0 | 1 | 2,
                     reason: String(record.reason || '').trim().slice(0, 60),
-                    point
+                    point,
+                    aspect: grade > 0 ? String(record.aspect || '').trim().slice(0, 12) : ''
                 })
             }
             return out.length ? out : null
@@ -154,7 +165,7 @@ export async function judgeSearchCandidates(
     const runs = await Promise.all(batches.map(batch => runStructuredLlm(
         [`老师的需要：${query}`, understanding ? `系统的理解：${understanding}` : '', '候选：', ...batch.map(candidate => describe(candidate, query))].filter(Boolean).join('\n\n'),
         adapterFor(batch),
-        { ...options, timeoutMs: options.timeoutMs ?? TIMEOUT_MS }
+        { ...options, timeoutMs: options.timeoutMs ?? judgeTimeoutMs(options.env || process.env) }
     )))
     for (const run of runs) {
         for (const judgement of run.output || []) {

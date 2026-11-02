@@ -44,7 +44,7 @@ import {
 } from './http.js'
 import { resolveOpenApiPath, resolveSwaggerUiAssetPath } from './config.js'
 import { renderApiDocsPage } from './docs-page.js'
-import { interpretSearchQueryWithLlm, queryInterpretationCache } from './llm.js'
+import { interpretSearchQueryWithLlm, queryInterpretationCache, resolveLlmConfig } from './llm.js'
 import { redactSensitiveText } from './ai-privacy.js'
 import { parsePlanWithLlm } from './plan-llm.js'
 import { resolveDataRoot } from './config.js'
@@ -53,7 +53,7 @@ import { SOURCE_LABEL, createV2Store, v2TextbookItem } from './v2-store.js'
 import { ToolInputError, findTool, type ToolContext } from './ai-tools.js'
 import { createCheckStore, findChecks, publicCheck } from './checks.js'
 import { handleMcp } from './mcp.js'
-import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate, type JudgeResult } from './search-judge.js'
+import { judgeSearchCandidates, judgeTimeoutMs, searchJudgeCache, type JudgeCandidate, type JudgeResult, type Judgement } from './search-judge.js'
 import { resolvePluginOpenApiPath } from './config.js'
 import { registerLessonPlanRoutes } from './lesson-plan-routes.js'
 
@@ -93,6 +93,11 @@ export interface CurriculumAppOptions {
 // How many retrieved candidates the model reads for a search, chosen from the best JUDGE_FETCH.
 const JUDGE_POOL = 36
 const JUDGE_FETCH = 120
+// A scope this small is read whole: 「3–4 年级、语文和英语以外」 is 54 standards, 7 calls of 8.
+const SCOPE_ALL = 72
+// Checks that can only start once the model has read the question get what is left of this, so a search ends near 20 s.
+const SEARCH_BUDGET_MS = 22000
+const SCOPE_GRADE_LABELS: Record<string, string> = { H1: '1–2 年级', H2: '3–4 年级', H3: '5–6 年级', H4: '7–9 年级' }
 
 // A broad question matches many subjects; the model reads the best few of each subject before more of any one,
 // so one subject full of the same word does not crowd out the others. Retrieval order is kept.
@@ -109,34 +114,100 @@ function diversePool(results: SmartSearchResult[], size: number) {
     return results.filter(item => picked.has(item))
 }
 
-// The model's verdicts become the result: 2 → 直接对应, 1 → 相关, 0 → left out with its reason dropped. A candidate a
-// failed batch never read keeps its word-match label and comes after the checked ones of the same kind.
+// What the model reads: the whole scope when retrieval returned it, else the best of each subject.
+const poolOf = (retrieved: SmartSearchResponse): SmartSearchResponse => retrieved.search_scope?.complete
+    ? retrieved
+    : { ...retrieved, results: diversePool(retrieved.results, JUDGE_POOL) }
+
+// The model's check for one search. Candidates are sent as they become known: the rule-based ones at once, while the
+// model is still reading the question, and the ones its reading adds afterwards. A code is read once.
+class CandidateCheck {
+    private readonly runs: Array<Promise<JudgeResult>> = []
+    private readonly sent = new Set<string>()
+    private readonly started = performance.now()
+    readonly candidates: JudgeCandidate[] = []
+
+    constructor(private readonly query: string, private readonly describe: (items: SmartSearchResult[]) => Promise<JudgeCandidate[]>) {}
+
+    read(items: SmartSearchResult[], understanding: string, timeoutMs?: number) {
+        const fresh = items.filter(item => !this.sent.has(item.code))
+        if (!fresh.length) return
+        for (const item of fresh) this.sent.add(item.code)
+        this.runs.push(this.describe(fresh).then(candidates => {
+            this.candidates.push(...candidates)
+            return judgeSearchCandidates(this.query, understanding, candidates, { cache: searchJudgeCache, timeoutMs })
+        }))
+    }
+
+    /** The verdicts for the codes shown; ok when every one of them was read. */
+    async result(wanted: SmartSearchResult[]): Promise<JudgeResult | null> {
+        if (!this.runs.length) return null
+        const runs = await Promise.all(this.runs)
+        const judgements = new Map<string, Judgement>()
+        for (const run of runs) for (const [code, verdict] of run.judgements) judgements.set(code, verdict)
+        const read = wanted.filter(item => judgements.has(item.code)).length
+        const failed = runs.find(run => run.status !== 'ok' && run.status !== 'partial')
+        const usage = runs.reduce<JudgeResult['usage']>((sum, run) => run.usage
+            ? { input_tokens: (sum?.input_tokens || 0) + run.usage.input_tokens, output_tokens: (sum?.output_tokens || 0) + run.usage.output_tokens, total_tokens: (sum?.total_tokens || 0) + run.usage.total_tokens }
+            : sum, null)
+        return {
+            used: read > 0,
+            status: read === wanted.length ? 'ok' : read > 0 ? 'partial' : (failed?.status || 'partial'),
+            model: runs[0]?.model ?? null,
+            latency_ms: Math.round((performance.now() - this.started) * 100) / 100,
+            usage,
+            judgements
+        }
+    }
+}
+
+// The model's verdicts become the result: 2 → 直接对应, 1 → 相关, 0 → left out with its reason dropped. A candidate it
+// never read keeps its word-match label and comes after the checked ones of the same kind; one that only came in with
+// the whole scope (no word of the question in it) is left out unread.
 function applyJudgements(pool: SmartSearchResponse, judge: JudgeResult | null, shown: number, candidates: JudgeCandidate[]): SmartSearchResponse {
-    if (!judge?.used) return { ...pool, results: pool.results.slice(0, shown), coverage_note: coverageNoteFor(pool.relevant_candidates, shown) }
+    // retrieval gives a standard that only came in with the whole scope a score of 0
+    const evidenced = (item: SmartSearchResult) => item.score > 0
+    if (!judge?.used) {
+        const results = pool.results.filter(evidenced)
+        return { ...pool, results: results.slice(0, shown), coverage_note: coverageNoteFor(pool.relevant_candidates, shown) }
+    }
     const texts = new Map(candidates.flatMap(candidate => candidate.indicators.map(item => [item.code, item.text] as const)))
     const rank = (item: SmartSearchResult) => (item.match_strength === 'direct' ? 0 : 2) + (item.checked_by_ai ? 0 : 1)
+    let unread = 0
     const kept = pool.results.flatMap((item): SmartSearchResult[] => {
         const verdict = judge.judgements.get(item.code)
-        if (!verdict) return [{ ...item, relevance_reason: `AI 没来得及核对这一条；${item.relevance_reason}` }]
+        if (!verdict) {
+            unread += 1
+            return evidenced(item) ? [{ ...item, relevance_reason: `AI 没来得及核对这一条；${item.relevance_reason}` }] : []
+        }
         if (verdict.grade === 0) return []
         return [{
             ...item,
             match_strength: verdict.grade === 2 ? 'direct' : 'supporting',
             relevance_reason: verdict.reason || item.relevance_reason,
             checked_by_ai: true,
-            matched_point: verdict.point && texts.has(verdict.point) ? { code: verdict.point, text: texts.get(verdict.point)! } : null
+            matched_point: verdict.point && texts.has(verdict.point) ? { code: verdict.point, text: texts.get(verdict.point)! } : null,
+            ...(verdict.aspect ? { ai_aspect: verdict.aspect } : {})
         }]
     }).sort((left, right) => rank(left) - rank(right))
     const dropped = pool.results.length - kept.length
+    const offTopic = pool.results.filter(item => judge.judgements.get(item.code)?.grade === 0).length
     const direct = kept.filter(item => item.match_strength === 'direct').length
+    const scope = pool.search_scope
+    // a scope read whole is shown whole, grouped by subject on the page
+    const limit = scope?.complete ? Math.max(shown, 48) : shown
+    const bands = ((pool.applied_filters as Record<string, unknown>).grade_bands as string[] | undefined) || []
+    const read = scope?.complete
+        ? `${bands.map(band => SCOPE_GRADE_LABELS[band] || band).join('、')}${bands.length ? '、' : ''}${scope.subjects.length} 个学科的全部 ${scope.standards} 条标准`
+        : `最相关的 ${pool.results.length} 条候选`
     return {
         ...pool,
-        results: kept.slice(0, shown),
+        results: kept.slice(0, limit),
         relevant_candidates: kept.length,
         omitted_low_relevance: pool.omitted_low_relevance + dropped,
         relevance_summary: { direct, supporting: kept.length - direct },
-        coverage_note: `AI 逐条读了最相关的 ${pool.results.length} 条候选的要点原文：${direct} 条直接对应，${kept.length - direct} 条相关，${dropped} 条不切题，已略去。${kept.length > shown ? `下面列出前 ${shown} 条。` : ''}${judge.status === 'partial' ? `有 ${pool.results.length - judge.judgements.size} 条 AI 没来得及核对，已标出。` : ''}`,
-        relevance_check: { status: judge.status, model: judge.model, latency_ms: judge.latency_ms, read: judge.judgements.size, kept: kept.length, dropped }
+        coverage_note: `AI 逐条读了${read}的要点原文：${direct} 条直接对应，${kept.length - direct} 条相关，${offTopic} 条不切题，已略去。${kept.length > limit ? `下面列出前 ${limit} 条。` : ''}${unread ? `有 ${unread} 条 AI 没来得及核对${scope?.complete ? '，其中原文没有检索词的未列出' : '，已标出'}。` : ''}`,
+        relevance_check: { status: judge.status, model: judge.model, latency_ms: judge.latency_ms, read: pool.results.length - unread, kept: kept.length, dropped }
     }
 }
 
@@ -787,11 +858,18 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         const shown = parsed.data.limit ?? 24
         // The model call starts first; loading and the rule-based retrieval run while it is in flight.
         const interpretationRequest = interpretSearchQueryWithLlm(privacy.text, { cache: queryInterpretationCache })
-        const deterministicRequest = repository.smartSearchStandards({ ...parsed.data, limit: JUDGE_FETCH })
-        const [interpretation, deterministic] = await Promise.all([interpretationRequest, deterministicRequest])
+        const deterministic = await repository.smartSearchStandards({ ...parsed.data, limit: JUDGE_FETCH, scope_all: SCOPE_ALL })
+        // The check reads the question itself, so it starts on the rule-based candidates without waiting for the model's
+        // reading of the question. A search whose 学段 and 学科 the rules already read (most of them) is then about one model
+        // call long, and a model that is too slow on the question still checks what is shown. One in four question
+        // readings timed out in late October.
+        const llm = resolveLlmConfig()
+        const check = llm.enabled && llm.valid ? new CandidateCheck(privacy.text, judgeCandidates) : null
+        check?.read(poolOf(deterministic).results, deterministic.understanding_summary)
+        const interpretation = await interpretationRequest
         const aiInterpretation = interpretation.interpretation
         // With the model's reading of the question, its topic words replace the parsed ones and its wider phrasings may
-        // bring in candidates; the check below reads every candidate before it is shown. Without it the rule-based result stands.
+        // bring in candidates; the check reads every candidate before it is shown. Without it the rule-based result stands.
         const retrieved = aiInterpretation
             ? await repository.smartSearchStandards({
                 ...parsed.data,
@@ -802,17 +880,15 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
                 query_expansion_terms: aiInterpretation.expanded_terms,
                 prefer_inferred_terms: true,
                 loose_expansion: true,
-                limit: JUDGE_FETCH
+                limit: JUDGE_FETCH,
+                scope_all: SCOPE_ALL
             })
             : deterministic
-        // only after the model read the question: if it failed or timed out there, a second call would most likely
-        // do the same and double the wait
-        const checkable = interpretation.status === 'ok' && retrieved.results.length > 0
-        const pool = checkable ? { ...retrieved, results: diversePool(retrieved.results, JUDGE_POOL) } : retrieved
-        const candidates = checkable ? await judgeCandidates(pool.results) : []
-        const judge = checkable
-            ? await judgeSearchCandidates(privacy.text, aiInterpretation?.intent_summary || pool.understanding_summary, candidates, { cache: searchJudgeCache })
-            : null
+        const pool = poolOf(retrieved)
+        const late = Math.min(judgeTimeoutMs(), Math.max(5000, SEARCH_BUDGET_MS - (performance.now() - started)))
+        check?.read(pool.results, aiInterpretation?.intent_summary || pool.understanding_summary, late)
+        const judge = check ? await check.result(pool.results) : null
+        const candidates = check?.candidates || []
         const result = applyJudgements(pool, judge, shown, candidates)
         c.set('aiMetrics', {
             feature: 'query_interpretation',

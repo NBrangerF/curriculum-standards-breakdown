@@ -354,3 +354,58 @@ test('smart search results say which textbook units teach the standard', async (
     await expect(result.getByText('教材里在哪教')).toBeVisible()
     await expect(result.getByRole('link', { name: /历史8年级上册 · 第三单元/ })).toHaveAttribute('href', /\/textbook-units\//)
 })
+
+test('smart search groups a checked answer across subjects and names the subjects where nothing was found', async ({ page }) => {
+    const checkedItem = (code, subject, subject_slug, title, strength, aspect) => ({
+        ...candidate,
+        code,
+        score: 0,
+        match_strength: strength,
+        matched_concepts: [],
+        matched_fields: [],
+        checked_by_ai: true,
+        ai_aspect: aspect,
+        relevance_reason: `要求${aspect}`,
+        matched_point: { code: `${code}.1`, text: `${title}的要点原文` },
+        standard: { ...candidate.standard, code, subject, subject_slug, grade: '3–4 年级', grade_band: 'H2', standard_title: title }
+    })
+    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify(envelope({
+            query: '3–4 年级非语言类学科跟阅读有关的课程标准',
+            parsed_query: { subjects: [], excluded_subjects: ['chinese', 'english'], grade_bands: ['H2'], skills: [], core_terms: ['阅读'] },
+            applied_filters: { subjects: [], excluded_subjects: ['chinese', 'english'], grade_bands: ['H2'], skills: [] },
+            query_plan: { version: 'nlq-v2', normalized_query: '3–4 年级非语言类学科跟阅读有关的课程标准', topics: [{ value: '阅读', source: 'explicit_text', confidence: 1 }], resolved_constraints: { subjects: [], excluded_subjects: ['chinese', 'english'], grade_bands: ['H2'], domains: [], skills: [] }, conflicts: [], ambiguities: [], needs_clarification: false, clarification_question: null },
+            understanding_summary: '我理解你要查找小学 3–4 年级，排除语文、英语，主题为阅读的课程标准。',
+            results: [
+                checkedItem('AR-S2-MU-02', '艺术', 'arts', '独唱与合作演唱', 'direct', '识读乐谱'),
+                checkedItem('MA-S2-SP-01', '数学', 'math', '数据的收集、整理与表达', 'direct', '读统计图'),
+                checkedItem('MA-S2-IP-01', '数学', 'math', '综合与实践', 'supporting', '查找资料'),
+                checkedItem('LA-S2-PL-02', '劳动', 'labor', '传统工艺制作', 'direct', '识读示意图')
+            ],
+            total_candidates: 54,
+            relevant_candidates: 4,
+            omitted_low_relevance: 50,
+            relevance_summary: { direct: 3, supporting: 1 },
+            coverage_note: 'AI 逐条读了3–4 年级、5 个学科的全部 54 条标准的要点原文：3 条直接对应，1 条相关，50 条不切题，已略去。',
+            relevance_check: { status: 'ok', model: 'gpt-5-mini', latency_ms: 8000, read: 54, kept: 4, dropped: 50 },
+            search_scope: { standards: 54, subjects: ['math', 'morality_law', 'pe', 'arts', 'labor'], complete: true },
+            relevance_version: 'topic-evidence-v1',
+            retrieval_version: 'trusted-hybrid-v1',
+            semantic_provider: 'none',
+            query_interpretation: { used: true, status: 'ok', model: 'gpt-5-mini', excluded_subjects: ['chinese', 'english'], grade_bands: ['H2'], core_terms: ['阅读'], expanded_terms: [], privacy: { redacted: false, redaction_count: 0, categories: [] } },
+            warnings: []
+        }))
+    }))
+    await page.goto('/smart-search?q=3–4 年级非语言类学科跟阅读有关的课程标准')
+    // one section per subject, the one with the most direct matches first
+    const headings = page.getByRole('heading', { level: 2 }).filter({ hasText: /^(艺术|数学|劳动)$/u })
+    await expect(headings).toHaveText(['数学', '艺术', '劳动'])
+    await expect(page.getByText('直接对应 1 · 相关 1')).toBeVisible()
+    await expect(page.getByLabel('数学里的说法')).toContainText('读统计图')
+    await expect(page.getByLabel('数学里的说法')).toContainText('查找资料')
+    await expect(page.locator('[data-search-result="supporting"]').getByText('相关', { exact: true })).toBeVisible()
+    await expect(page.getByText('壹 · 直接对应')).toHaveCount(0)
+    await expect(page.getByText('逐条读过、没有找到相关要求的学科：道德与法治、体育与健康。')).toBeVisible()
+    await expect(page.locator('[aria-label="已识别的条件，点按可移除或恢复"]')).toContainText('3–4 年级')
+})
