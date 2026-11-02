@@ -192,7 +192,10 @@ function adapterFor(batch: JudgeCandidate[]): StructuredLlmAdapter<Judgement[]> 
         schema: SCHEMA,
         instructions: INSTRUCTIONS,
         chatInstructions: CHAT_INSTRUCTIONS,
-        maxCompletionTokens: 1600,
+        // with minimal reasoning the model skipped plain matches from one run to the next (「识读简单的示意图」 for 阅读,
+        // the prompt's own example); a little reasoning reads the batch more evenly. Its tokens count against the cap.
+        reasoningEffort: 'low',
+        maxCompletionTokens: 3000,
         validate(value) {
             const list = value && typeof value === 'object' ? (value as Record<string, unknown>).judgements : null
             if (!Array.isArray(list)) return null
