@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/csr/ArrowRight'
 import { ArrowUpRightIcon } from '@phosphor-icons/react/dist/csr/ArrowUpRight'
@@ -13,30 +13,22 @@ import styles from './ConceptsPage.module.css'
 
 const stageLabel = stage => `${stage.replace('-', '–')} 年级`
 
-// The two levels of the tree, named the way the 课标 names them, where it does.
-const LEVELS = { chinese: { group: '语文实践', row: '学习任务群' } }
-
-// A row with several standards of one stage (语文's 学段要求) lists them by stage, numbered as the 课标 numbers them.
-const repeatsStage = child => new Set(child.standards.map(([, stage]) => stage)).size < child.standards.length
-function byStage(standards) {
-    const stages = new Map()
-    for (const standard of standards) stages.set(standard[1], [...(stages.get(standard[1]) || []), standard])
-    return [...stages]
-}
+// The two levels of the tree, named the way the 课标 names them, where it does. 语文's groups hold two kinds of rows:
+// its 学习任务群 (codes …-TG-…) and the items of its 学段要求, which kebiao names.
+const LEVELS = { chinese: { group: '语文实践', rows: [['学习任务群', code => /-TG-/u.test(code)], ['学段要求', code => !/-TG-/u.test(code)]] } }
 
 function SkeletonTree({ subject }) {
     const levels = LEVELS[subject.slug]
     return (
         <div className={styles.tree}>
             {subject.groups.map(group => {
-                const rows = group.children.filter(child => !repeatsStage(child))
-                const goals = group.children.filter(repeatsStage)
+                const parts = levels ? levels.rows.map(([label, test]) => [label, group.children.filter(child => test(child.standards[0][0]))]) : [[null, group.children]]
                 return (
                     <section key={group.name} className={styles.treeGroup} aria-label={group.name}>
                         <h3>{group.name}{levels ? <small>{levels.group}</small> : null}</h3>
-                        {rows.length ? (
-                            <>
-                                {levels ? <p className={styles.treeLabel}>{levels.row}</p> : null}
+                        {parts.filter(([, rows]) => rows.length).map(([label, rows]) => (
+                            <Fragment key={label || 'rows'}>
+                                {label ? <p className={styles.treeLabel}>{label}</p> : null}
                                 <ul>
                                     {rows.map(child => (
                                         <li key={child.name} className={styles.treeRow}>
@@ -49,22 +41,7 @@ function SkeletonTree({ subject }) {
                                         </li>
                                     ))}
                                 </ul>
-                            </>
-                        ) : null}
-                        {goals.map(child => (
-                            <div key={child.name}>
-                                <p className={styles.treeLabel}>{child.name}</p>
-                                <ul className={styles.goalStages}>
-                                    {byStage(child.standards).map(([stage, standards]) => (
-                                        <li key={stage}>
-                                            <span>{stageLabel(stage)}</span>
-                                            {standards.map(([code, , count], index) => (
-                                                <Link key={code} to={`/standards/${code}`} aria-label={`${group.name} · ${child.name} ${index + 1}（${stageLabel(stage)}）`} title={`${code} · ${count} 条要点`}>{index + 1}</Link>
-                                            ))}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                            </Fragment>
                         ))}
                     </section>
                 )
@@ -107,7 +84,7 @@ export default function SubjectSkeletonPage() {
                 <section className={styles.section} aria-labelledby="skeleton-tree">
                     <h2 id="skeleton-tree">全部条目，按课标的结构排</h2>
                     <p className={styles.small}>{LEVELS[subject.slug]
-                        ? `按${LEVELS[subject.slug].group}分组，组里是${LEVELS[subject.slug].row}和学段要求。点年级或序号，打开那一条标准。`
+                        ? `按${LEVELS[subject.slug].group}分组，组里是${LEVELS[subject.slug].rows.map(([label]) => label).join('和')}。点年级，打开那一条标准。`
                         : '每一行是课标里的一个内容单元，点年级打开那一条标准。'}</p>
                     <SkeletonTree subject={subject} />
                     <Link className={styles.more} to={`/subjects/${subject.slug}`}>在星图里看{subject.name} <ArrowRightIcon size={15} aria-hidden="true" /></Link>

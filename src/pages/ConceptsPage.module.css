@@ -672,9 +672,10 @@
     gap: 0.35rem;
 }
 
-.treeStages a,
-.goalStages a {
+.treeStages a {
+    padding: 0.15rem 0.55rem;
     border: 1px solid var(--kb-line-strong);
+    border-radius: var(--radius-full, 999px);
     color: var(--kb-mist);
     font-family: var(--font-mono);
     font-size: 0.74rem;
@@ -682,48 +683,10 @@
     white-space: nowrap;
 }
 
-.treeStages a {
-    padding: 0.15rem 0.55rem;
-    border-radius: var(--radius-full, 999px);
-}
-
 .treeStages a:hover,
-.treeStages a:focus-visible,
-.goalStages a:hover,
-.goalStages a:focus-visible {
+.treeStages a:focus-visible {
     border-color: var(--subject-color);
     color: var(--kb-moon);
-}
-
-/* 学段要求: a stage, then its numbered standards */
-.treeGroup .goalStages {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid var(--kb-line);
-}
-
-.goalStages li {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.goalStages span {
-    margin-right: 0.2rem;
-    color: var(--kb-mist);
-    font-size: 0.85rem;
-    white-space: nowrap;
-}
-
-.goalStages a {
-    display: inline-grid;
-    width: 1.75rem;
-    height: 1.75rem;
-    place-items: center;
-    border-radius: 50%;
 }
 
 .more {

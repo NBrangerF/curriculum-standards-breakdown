@@ -450,3 +450,14 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
 ]
 
 export const findTool = (name: string) => KEBIAO_TOOLS.find(tool => tool.name === name) || null
+
+/** Every answer leads back to kebiao.org, so a teacher reading an agent's reply can check the source. */
+export function withKebiaoLink(text: string) {
+    return /kebiao\.org/u.test(text) ? text : `${text}\n来源：kebiao 课标 ${SITE}`
+}
+
+/** Runs a tool for MCP and the plugin API alike. */
+export async function runTool(tool: KebiaoTool, args: Record<string, unknown>, ctx: ToolContext) {
+    const out = await tool.run(args, ctx)
+    return { ...out, text: withKebiaoLink(out.text) }
+}

@@ -83,6 +83,7 @@ function publicStandard(s, oldCodes) {
         level1: s.level1,
         ...(s.theme ? { theme: s.theme } : {}),
         level2: s.level2,
+        ...(s.name_source ? { name_source: s.name_source } : {}),
         title: s.title,
         statement: s.statement,
         statement_source: s.statement_source,
@@ -102,6 +103,7 @@ function publicStandard(s, oldCodes) {
             legacy_codes: i.legacy_codes,
             examples: i.examples.map(example)
         })),
+        ...(s.intro ? { intro: s.intro.map(officialItem) } : {}),
         requirements: (s.requirements || []).map(officialItem),
         guidance: (s.guidance || []).map(officialItem),
         examples: s.examples.map(example),
@@ -271,7 +273,8 @@ writeFileSync('public/llms.txt', `# kebiao 课标
 ## 给 AI 用的接口
 
 - [MCP 服务器](${SITE}/mcp): Streamable HTTP（POST JSON-RPC），无需登录；只读工具：检索课标、查看标准、列出标准、学段目标、标准对应的教材、从教材章节找课标、2025 修订对照、课堂诊断题
-- [插件 OpenAPI](${SITE}/api/v1/plugin/openapi.yaml): 扣子、腾讯元器等平台可直接导入；每个接口都返回一段可直接引用的 answer
+- [插件 OpenAPI](${SITE}/api/v1/plugin/openapi.yaml): 扣子、文心等只能接 API 的平台可直接导入；每个接口都返回一段可直接引用的 answer
+- [在 AI 里用 kebiao](${SITE}/ai): WorkBuddy、扣子、魔搭、Claude 等的接入配置和三条备课提示词
 - [API 文档](${SITE}/api/v1/docs): 完整的课程智能 API
 
 ## 学科

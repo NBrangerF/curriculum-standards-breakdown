@@ -243,8 +243,9 @@ test('概念词典: a word is found by any of its names; a term page lists the o
     await expect(practice.getByRole('heading', { name: /识字与写字/ })).toContainText('语文实践')
     await expect(practice.getByText('学习任务群', { exact: true })).toBeVisible()
     await expect(practice.getByRole('link', { name: '1–2 年级' }).first()).toHaveAttribute('href', '/standards/CN-S1-TG-01')
-    // 学段要求: several standards a stage, numbered as the 课标 numbers them
-    await expect(practice.getByRole('link', { name: '识字与写字 · 学段要求 4（1–2 年级）' })).toHaveAttribute('href', '/standards/CN-S1-LW-04')
+    // 学段要求: each item is a row under its own (kebiao) name
+    await expect(practice.getByText('学段要求', { exact: true })).toBeVisible()
+    await expect(practice.getByRole('listitem').filter({ hasText: '独立识字与查字典' }).getByRole('link', { name: '1–2 年级' })).toHaveAttribute('href', '/standards/CN-S1-LW-04')
 })
 
 test('the AI reads the grade\'s standards for a lesson; the teacher hint reruns only that step', async ({ page }) => {
@@ -385,6 +386,18 @@ test('a standard page lists, under each 要点, the lessons that teach it', asyn
     // a wrong one can be reported with the standard filled in
     await section.getByRole('link', { name: '告诉我们' }).click()
     await expect(page.getByLabel(/关联条目代码/)).toHaveValue('HI-S4-MC-02')
+})
+
+test('语文: a 学段要求 standard is named for its content, and a task group keeps its official introduction', async ({ page }) => {
+    await page.goto('/standards/CN-S1-LW-02')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('汉语拼音')
+    await expect(page.getByText('标准名为 kebiao 整理 · 标准句为课标原文 · 学段要求 · 识字与写字 · 第 2 条')).toBeVisible()
+    await page.goto('/standards/CN-S2-TG-05')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('整本书阅读')
+    await expect(page.getByText(/^标准句为 kebiao 整理/)).toBeVisible()
+    const intro = page.locator('#standard-intro')
+    await expect(intro.getByRole('heading', { name: '学习任务群说明' })).toBeVisible()
+    await expect(intro.getByText(/^本学习任务群旨在/)).toBeVisible()
 })
 
 test('a standard page copies its 要点 as a prompt for the teacher\'s own AI', async ({ page }) => {
@@ -534,4 +547,31 @@ test('AI 备课: a lesson judged on its own pages is ticked at once, with the te
     await page.getByRole('button', { name: '重新找' }).click()
     await expect(page.getByRole('checkbox', { name: /等式的基本性质/ })).toBeChecked()
     expect(picks).toBe(1)
+})
+
+test('AI 备课: lessons the 国家平台 list lacks come from the book\'s own 目录', async ({ page }) => {
+    const contexts = []
+    const tocLessons = [
+        { id: 'tcu_1', title: '通分', chapters: ['4 分数的意义和性质'], pdf_page: 70, materials: [], url: null, toc: true },
+        // a 目录 unit with no lessons under it is its one item
+        { id: 'tcu_2', title: '5 图形的运动（三）', chapters: ['5 图形的运动（三）'], pdf_page: 80, materials: [], url: null, toc: true }
+    ]
+    let listed = { platform_title: '小学数学人教版五年级下册', confidence: 'text', lessons: [{ id: 'L1', title: '分数的基本性质', chapters: ['4 分数的意义和性质'], pdf_page: 62, materials: [], url: 'https://basic.smartedu.cn/syncClassroom/classActivity?activityId=L1' }, ...tocLessons] }
+    await page.route('**/api/v1/lesson-plans/textbooks/*/lessons', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(listed)) }))
+    await page.route('**/api/v1/lesson-plans/context?*', route => {
+        contexts.push(new URL(route.request().url()).search)
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ ...context, lesson: { ...lesson, title: '通分', lesson_id: 'tcu_1' }, national_lessons: [] })) })
+    })
+    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [] })) }))
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e`)
+    await expect(page.getByText('课时目录来自国家中小学智慧教育平台「小学数学人教版五年级下册」，平台缺的课按这本书自己的目录补上。')).toBeVisible()
+    const picker = page.getByRole('combobox', { name: '哪一课' })
+    await expect(picker.locator('option')).toHaveText(['选择一课，或整个单元', '◆ 整个单元：单元整体设计', '分数的基本性质', '通分', '5 图形的运动（三）'])
+    await picker.selectOption('tcu_1')
+    await expect.poll(() => contexts.at(-1)).toContain('lesson_id=tcu_1')
+    await expect(page.locator('#lp-basis')).toBeVisible()
+
+    listed = { platform_title: null, confidence: null, lessons: tocLessons }
+    await page.reload()
+    await expect(page.getByText('课按这本书自己的目录列出，国家平台没有这一册的同步课。')).toBeVisible()
 })

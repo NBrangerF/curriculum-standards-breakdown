@@ -8,7 +8,7 @@ export const V2_STANDARDS_DOC = '义务教育课程标准（2022年版2025年修
 
 // Share-card URLs carry a version that changes with the data or the card design
 // (bump CARD_DESIGN after changing apps/cards/src/render.ts), so caches pick up new images.
-export const CARD_DESIGN = 'c3'
+export const CARD_DESIGN = 'c4'
 export function cardVersion(dataVersion) {
     let hash = 2166136261
     for (const char of `${dataVersion}:${CARD_DESIGN}`) hash = Math.imul(hash ^ char.charCodeAt(0), 16777619)
@@ -209,6 +209,7 @@ export const STATIC_PAGE_META = {
     '/experiments': page('必做实验清单：科学、物理、化学课标规定的学生必做实验', '科学课标附录 4 的 1–9 年级学生必做探究实践活动 126 项，物理测量类、探究类必做实验 18 项，化学必做实验 8 项。每项标出课标页码，附同名的国家平台同步课，可直接交给 AI 备课。', '/experiments'),
     '/interdisciplinary': page('跨学科主题库：课标给出的跨学科主题学习主题', '各门课程用不少于 10% 的课时设计跨学科主题学习。这里收集历史、地理、体育与健康课标给出的 37 个参考主题，以及语文、数学、信息科技、物理、化学、生物学、美术课标里的跨学科学习要求；按学科和年级筛选，每个主题标出课标页码，可直接交给 AI 备课。', '/interdisciplinary'),
     '/glossary': page('术语表', '课标、学段、领域、可迁移技能等 kebiao 常用概念的解释与示例。', '/glossary'),
+    '/ai': page('在 AI 里用 kebiao：让 WorkBuddy、扣子等 AI 引用课标原文', '把 kebiao 课标接进 WorkBuddy、扣子、魔搭、Claude 等 AI 工具：查到的每条课标都带编码、原文、页码和链接。附自定义连接器配置和三条备课提示词，免费、只读、不用登录。', '/ai'),
     '/api': page('开放 API', '用 REST API 查询义务教育课程标准、可迁移技能和教材对照，可接入备课工具、智能体和 MCP。', '/api'),
     '/contact': page('联系我们', '反馈 kebiao 的数据问题、提出合作或接入需求。', '/contact'),
     '/smart-search': page('智能检索', '用一句话描述教学内容或学习目标，找到最相关的义务教育课程标准条目。', '/smart-search'),

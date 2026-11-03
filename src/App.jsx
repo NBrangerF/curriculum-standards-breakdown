@@ -53,6 +53,7 @@ const ExperimentsPage = lazy(() => import('./pages/ExperimentsPage'))
 const TeacherExamPage = lazy(() => import('./pages/TeacherExamPage'))
 const KnowledgeGraphPage = lazy(() => import('./pages/KnowledgeGraphPage'))
 const GuidePage = lazy(() => import('./pages/GuidePage'))
+const AiConnectPage = lazy(() => import('./pages/AiConnectPage'))
 const StandardsHubPage = lazy(() => import('./pages/StandardsHubPage'))
 const ChecksPage = lazy(() => import('./pages/ChecksPage'))
 const ChecksAfterPage = lazy(() => import('./pages/ChecksAfterPage'))
@@ -129,6 +130,7 @@ function App() {
                     <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />
                     <Route path="/lesson-plan" element={route('lessonPlan', lazyPage(<LessonPlanPage />, '正在打开 AI 备课'))} />
                     <Route path="/guide" element={route('guide', lazyPage(<GuidePage />, '正在打开上手指南'))} />
+                    <Route path="/ai" element={route('ai', lazyPage(<AiConnectPage />, '正在打开在 AI 里用 kebiao'))} />
                     <Route path="/checks" element={route('checks', lazyPage(<ChecksPage />, '正在打开课堂诊断'))} />
                     <Route path="/checks/after" element={route('checksAfter', lazyPage(<ChecksAfterPage />, '正在打开批完就用'))} />
                     <Route path="/checks/present" element={route('checksPresent', lazyPage(<ChecksPresentPage />, '正在准备放映'))} />

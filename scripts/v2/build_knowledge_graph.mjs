@@ -263,27 +263,15 @@ for (const slug of SUBJECTS) {
     const outPoints = {}
     const outLessons = {}
     const outStandards = {}
-    // where one stage has several standards of the same theme (语文's 学段要求 1, 2, 3…), a station is named by the
-    // first words of its own sentence: 「喜欢学习汉字」, 「喜欢阅读」
-    const sameTheme = new Map()
     for (const standard of subject.standards) {
-        const key = `${standard.stage}|${standard.level1}|${standard.level2}`
-        sameTheme.set(key, (sameTheme.get(key) || 0) + 1)
-    }
-    const stationTitle = standard => {
-        if (sameTheme.get(`${standard.stage}|${standard.level1}|${standard.level2}`) < 2) return standard.level2
-        const clause = String(standard.statement || standard.indicators[0]?.text || '').split(/[，。；：]/u).find(part => part.trim()) || standard.level2
-        return clip(clause, 14)
-    }
-    for (const standard of subject.standards) {
-        outStandards[standard.code] = { title: stationTitle(standard), stage: standard.stage, lane: laneOfStandard.get(standard.code), points: standard.indicators.map(point => point.code) }
+        outStandards[standard.code] = { title: standard.level2, stage: standard.stage, lane: laneOfStandard.get(standard.code), points: standard.indicators.map(point => point.code) }
         for (const point of standard.indicators) {
             const { column } = points.get(point.code)
             const { les, tags, n } = lessonsOf(point.code)
             outPoints[point.code] = { t: point.text, std: standard.code, col: column, sec: point.section || null, pg: point.pages || [], gb: point.grade_basis || null, tags, n }
             if (les.length) outLessons[point.code] = les
             const taughtTitles = [...new Set(les.filter(row => row[3] === 'T').map(row => row[2].replace(LESSON_NUMBER, '')))].slice(0, 4)
-            search.push([point.code, column, clip(point.text, 56), stationTitle(standard), taughtTitles.join('｜')])
+            search.push([point.code, column, clip(point.text, 56), standard.level2, taughtTitles.join('｜')])
         }
     }
     const mine = new Set(Object.keys(outPoints))

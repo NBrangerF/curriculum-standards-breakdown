@@ -5,6 +5,7 @@
 //   verbatim   — each 要点 matches its source lines in the 2025 revision (dice ≥ 0.95, after the checked OCR fixes) and has a page
 //   coverage   — every official clause of the anchor layer is used by some standard, 要点 or 学业要求
 //   structure  — every standard has a statement and ≥ 1 要点; codes are unique and well formed; stages are the subject's own
+//   names      — pages name a standard by its level2, so it is not a 课标 section label (学段要求…) and is unique within its stage and level1
 //   legacy     — every old code has a destination, and the destination exists
 //   grades     — junior 要点 grades sit inside 7–9 and name their textbook basis
 //   review     — revised / OCR-doubt sentences not yet listed in docs/data/v2/reviewed/<slug>.tsv (warning)
@@ -27,6 +28,7 @@ const COVERAGE = {
     math: e => e.part === '课程内容' && (e.section === '学业要求' || (e.stage === '7-9' && e.section === '内容要求'))
 }
 const SUSPECT = /[A-Za-z%"”［］�•]/u
+const SECTION_LABEL = /^(?:学段要求|学段目标|学业要求|内容要求|学习内容|教学提示|学业质量|课程目标|课程内容)$/u
 const FORMULA = /pH|DNA|X射线|[HCNOPSKI]、|I等|Na|Al|Si|Cl|Ca|Fe|Cu|Ag|一二•九|\d+%|y=k\/x|y=kx\+b|y=kx|y\/x=k|y=a\(x−h\)²\+k|\(a[+±−]b\)[^，]*|sinA|cosA|tanA|k[≠＞＜]0|“[^”]*”/gu
 
 const slugs = process.argv.slice(2).length ? process.argv.slice(2) : readdirSync('data/v2/by_subject').map(f => f.replace(/\.json$/u, ''))
@@ -51,6 +53,7 @@ for (const slug of slugs) {
     const used = new Set()
     const stageCodes = STAGES[slug] || STAGES.default
     const claim = code => { if (codes.has(code)) errors.push(`duplicate code ${code}`); codes.add(code) }
+    const names = new Map()
     for (const s of data.standards) {
         claim(s.code)
         const m = s.code.match(/^([A-Z]{2})-(S\d)-([A-Z]{2})-(\d{2})$/u)
@@ -58,6 +61,16 @@ for (const slug of slugs) {
         if (stageCodes[s.stage] !== s.stage_code || (m && m[2] !== s.stage_code)) errors.push(`${s.code}: stage ${s.stage} does not match ${s.stage_code}`)
         if (!s.statement) errors.push(`${s.code}: no statement`)
         if (!s.indicators.length) errors.push(`${s.code}: no 要点`)
+        if (SECTION_LABEL.test(s.level2 || '')) errors.push(`${s.code}: named after a 课标 section (${s.level2})`)
+        const name = `${s.stage}|${s.level1}|${s.level2}`
+        if (names.has(name)) errors.push(`${s.code}: same name as ${names.get(name)} (${s.level2})`)
+        names.set(name, s.code)
+        // 语文's task groups keep their official introduction beside the kebiao statement.
+        for (const q of s.intro || []) {
+            if (!q.pages?.length) errors.push(`${s.code}: intro without a page`)
+            const src = grams(sourceText(q.source_ids || []))
+            if (Math.max(dice(grams(q.text), src), recall(grams(q.text), src)) < 0.95) errors.push(`${s.code}: intro differs from its source lines`)
+        }
         if (s.statement_source === 'official') {
             if (!s.statement_pages.length) errors.push(`${s.code}: official statement without a page`)
             s.statement_source_ids.forEach(id => used.add(id))

@@ -50,7 +50,7 @@ import { parsePlanWithLlm } from './plan-llm.js'
 import { resolveDataRoot } from './config.js'
 import { TextbookAssetService } from './textbook-assets.js'
 import { SOURCE_LABEL, createV2Store, v2TextbookItem } from './v2-store.js'
-import { ToolInputError, findTool, type ToolContext } from './ai-tools.js'
+import { ToolInputError, findTool, runTool, type ToolContext } from './ai-tools.js'
 import { createCheckStore, findChecks, publicCheck } from './checks.js'
 import { handleMcp } from './mcp.js'
 import { judgeSearchCandidates, judgeTimeoutMs, searchJudgeCache, type JudgeCandidate, type JudgeResult, type Judgement } from './search-judge.js'
@@ -292,7 +292,8 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     app.on(['GET', 'POST'], ['/mcp', '/api/v1/mcp'], c => handleMcp(c, toolContext))
     const PLUGIN_ROUTES: Record<string, string> = {
         subjects: 'list_subjects', search: 'search_standards', standard: 'get_standard', standards: 'list_standards',
-        'stage-goals': 'get_stage_goals', textbooks: 'get_textbook_links', 'textbook-chapter': 'find_textbook_chapter', changes: 'compare_versions'
+        'stage-goals': 'get_stage_goals', textbooks: 'get_textbook_links', 'textbook-chapter': 'find_textbook_chapter', changes: 'compare_versions',
+        checks: 'get_check_questions'
     }
     app.get('/api/v1/plugin/openapi.yaml', async c => {
         c.header('content-type', 'application/yaml; charset=utf-8')
@@ -303,8 +304,9 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         if (!tool) return c.json({ error: '没有这个接口。' }, 404)
         const args: Record<string, unknown> = { ...c.req.query() }
         if (args.limit) args.limit = Number(args.limit)
+        if (args.grade) args.grade = Number(args.grade)
         try {
-            const out = await tool.run(args, toolContext)
+            const out = await runTool(tool, args, toolContext)
             // `answer` is the same text an MCP client gets: ready to quote, with codes, 原文 and links
             return c.json({ ...(out.data as Record<string, unknown>), answer: out.text })
         } catch (error) {

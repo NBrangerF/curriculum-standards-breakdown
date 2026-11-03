@@ -204,9 +204,9 @@ function standardPage({ standard, subject }) {
     const siblings = subject.standards
         .filter(other => other.code !== standard.code && other.stage_code === standard.stage_code && other.level1 === standard.level1)
         .slice(0, 12).map(other => `${link(`/standards/${other.code}`, other.level2)} <span class="kbp-code">${esc(other.code)}</span>`)
-    const statementNote = standard.statement_source === 'official'
+    const statementNote = (standard.name_source === 'kebiao' ? '标准名为 kebiao 整理 · ' : '') + (standard.statement_source === 'official'
         ? ['标准句为课标原文', standard.statement_section, pagesNote(standard.statement_pages)].filter(Boolean).join(' · ')
-        : '标准句为 kebiao 整理，用课标原词概括本单元；原文见下列要点。'
+        : '标准句为 kebiao 整理，用课标原词概括本单元；原文见下列要点。')
     const main = `${crumbNav(crumbs)}
 <p class="kbp-kicker">${esc([subject.subject, stage, standard.level1, standard.theme].filter(Boolean).join(' · '))}</p>
 <h1>${esc(standard.level2)}</h1>
@@ -214,6 +214,7 @@ function standardPage({ standard, subject }) {
 <blockquote>${esc(standard.statement)}</blockquote>
 <p class="kbp-note">${esc(statementNote)}</p>
 ${section(`要点（${standard.indicators.length} 条，课标原文）`, `<ol>${indicators}</ol>`)}
+${section('学习任务群说明', official(standard.intro || []))}
 ${section('学业要求', official(standard.requirements))}
 ${section('教学提示', official(standard.guidance))}
 ${standard.examples.length ? section('表现示例（kebiao 整理）', list(standard.examples.map(example => esc(example.text)))) : ''}
@@ -515,6 +516,7 @@ function staticPages() {
     const terms = glossary.terms || []
     add(STATIC_PAGE_META['/glossary'], `<h1>术语表</h1>${terms.map(term => `<section><h2>${esc(term.term)}</h2><p>${esc(term.definition)}</p></section>`).join('')}`)
     add(STATIC_PAGE_META['/api'], `<h1>开放 API</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/api'].description)}</p><p>${link('/api/v1/docs', '查看 API 文档')}</p>`)
+    add(STATIC_PAGE_META['/ai'], `<h1>让你常用的 AI 引用课标原文</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/ai'].description)}</p><p>MCP 服务器地址：https://www.kebiao.org/mcp（Streamable HTTP，无需 API Key）。在 WorkBuddy 的「连接器 → 自定义连接器」里粘贴配置即可；扣子、魔搭、Claude、Cursor 也能接。</p><p>${link('/lesson-plan', 'AI 备课')} · ${link('/api', '开放 API')}</p>`)
     add(STATIC_PAGE_META['/contact'], `<h1>联系我们</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/contact'].description)}</p>`)
     add(STATIC_PAGE_META['/lesson-plan'], `<h1>AI 备课：从教材的一课起草有课标依据的教案</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/lesson-plan'].description)}</p><p>AI 只按你勾选的课标要点写，每条目标标出依据编码；写完后逐条核验：有没有超出课标写明的限定，目标有没有对应的教学环节和评价任务。可复制、下载 Word、打印。</p>`)
     add(STATIC_PAGE_META['/guide'], `<h1>五分钟学会用 kebiao 备课</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/guide'].description)}</p><p>${link('/lesson-plan', 'AI 备课')} · ${link('/knowledge-graph', '知识图谱')} · ${link('/concepts', '概念词典')} · ${link('/experiments', '必做实验清单')}</p>`)

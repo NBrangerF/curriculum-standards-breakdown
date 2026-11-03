@@ -43,6 +43,14 @@ function aiError(errorValue, drafting = false) {
     return errorValue.message
 }
 
+// where the picker's lessons come from: the 国家平台 list, and the book's own 目录 for what the list lacks
+function lessonSource({ platform_title: platform, confidence, lessons }) {
+    const fromToc = lessons.some(item => item.toc)
+    const edition = confidence === 'edition' ? '平台这一册的版本可能和你手上的不同，请留意课题是否一致。' : ''
+    if (!lessons.some(item => !item.toc)) return '课按这本书自己的目录列出，国家平台没有这一册的同步课。'
+    return `课时目录来自国家中小学智慧教育平台「${platform}」${fromToc ? '，平台缺的课按这本书自己的目录补上' : ''}。${edition}`
+}
+
 async function getJson(url) {
     const response = await fetch(url)
     const payload = await response.json().catch(() => null)
@@ -508,7 +516,8 @@ export default function LessonPlanPage() {
                                     <option value="">{!edition ? '先选教材' : !lessons ? '正在读取目录…' : lessonGroups.length ? '选择一课，或整个单元' : '这册暂无课时目录，请改用「直接写课题」'}</option>
                                     {lessonGroups.map(group => (
                                         <optgroup key={group.name} label={group.name}>
-                                            {group.name !== '其他' ? <option value={`chapter::${group.name}`}>◆ 整个单元：单元整体设计</option> : null}
+                                            {/* a 目录 unit with no lessons under it is offered as the one item; there is no unit of lessons to design */}
+                                            {group.name !== '其他' && !(group.items.length === 1 && group.items[0].title === group.name) ? <option value={`chapter::${group.name}`}>◆ 整个单元：单元整体设计</option> : null}
                                             {group.items.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}
                                         </optgroup>
                                     ))}
@@ -517,7 +526,7 @@ export default function LessonPlanPage() {
                         </>
                     )}
                 </div>
-                {!freeMode && lessons?.platform_title ? <p className={styles.small}>课时目录来自国家中小学智慧教育平台「{lessons.platform_title}」。{lessons.confidence === 'edition' ? '平台这一册的版本可能和你手上的不同，请留意课题是否一致。' : ''}</p> : null}
+                {!freeMode && lessons?.lessons?.length ? <p className={styles.small}>{lessonSource(lessons)}</p> : null}
             </section>
 
             {contextError ? <p className={styles.error} role="alert">{contextError}</p> : null}

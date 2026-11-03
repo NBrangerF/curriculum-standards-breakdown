@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: kebiao 课标
-  version: 1.0.0
+  version: 1.1.0
   description: |
     中国义务教育课程标准（2022年版2025年修订）的检索与查证插件：14 门学科，每条标准对应一个学段的一个内容单元，要点逐字取自课标原文并标明页码。
     每个接口都返回 answer 字段：一段可直接引用的中文说明，带编码、要点原文和 kebiao.org 链接。请引用编码和原文，不要编造编码或改写原文。
@@ -160,6 +160,54 @@ paths:
       responses:
         '200':
           description: 修订对照
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Answer' }
+  /api/v1/plugin/subjects:
+    get:
+      operationId: list_subjects
+      summary: 列出学科
+      description: 列出收录的 14 门义务教育课程标准学科、各学科的学段和标准、要点条数。
+      responses:
+        '200':
+          description: 学科列表
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Answer' }
+  /api/v1/plugin/checks:
+    get:
+      operationId: get_check_questions
+      summary: 课堂诊断题
+      description: 取全班一起作答的课堂诊断题，每个错误答案对应一种常见错法（为什么会错、课上怎么接），附放映链接。按学科、课标编码、年级或关键词查，至少给编码、年级、关键词中的一个。
+      parameters:
+        - name: subject
+          in: query
+          required: false
+          description: 学科，例如「数学」「英语」
+          schema: { type: string }
+        - name: code
+          in: query
+          required: false
+          description: 课标要点或标准编码，例如 MA-S3-NA-01.3
+          schema: { type: string }
+        - name: grade
+          in: query
+          required: false
+          description: 年级 1–9
+          schema: { type: integer }
+        - name: topic
+          in: query
+          required: false
+          description: 关键词，例如「通分」「密度」「一般过去时」
+          schema: { type: string }
+        - name: limit
+          in: query
+          required: false
+          description: 最多返回几题，默认 3，最多 8
+          schema: { type: integer }
+      responses:
+        '200':
+          description: 诊断题
           content:
             application/json:
               schema: { $ref: '#/components/schemas/Answer' }

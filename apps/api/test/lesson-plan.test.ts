@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
+import { tocLessons } from '../src/lesson-plan-routes.js'
 import { checkPlan, checkPractice, checkTest, classroomChecks, fitHours, fitMinutes, limitsOf, orgOf, sanitiseProcess, splitTest, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
 
 const publicDataRoot = resolve(process.cwd(), '../../public/data')
@@ -763,4 +764,70 @@ test('an objective that takes on a later lesson of the unit is flagged, and the 
     assert.ok(checks.some(item => item.kind === 'aligned'))
     // the lesson's own title and earlier lessons are not flagged
     assert.ok(!checkPlan(frame(), null, { indicators, standards: [], periodMinutes: 40, unitLessons }).some(item => item.kind === 'later_lesson'))
+})
+
+test('the book\'s 目录 fills what the 国家平台 list lacks: a missing unit whole, a linked unit\'s missing lessons', () => {
+    const toc = [
+        { entry_id: 'u1', kind: 'unit', parent_id: null, title: '第一单元', pdf_page: 6, end_pdf_page: 17 },
+        { entry_id: 'l1', kind: 'lesson', parent_id: 'u1', title: '1 桂花雨', pdf_page: 7 },
+        { entry_id: 'l2', kind: 'lesson', parent_id: 'u1', title: '习作：我的心爱之物', pdf_page: 15 },
+        { entry_id: 'u2', kind: 'unit', parent_id: null, title: '第二单元', pdf_page: 18, end_pdf_page: 37 },
+        { entry_id: 'l3', kind: 'lesson', parent_id: 'u2', title: '5 将相和', pdf_page: 22 },
+        // a part of a lesson is not a lesson of its own
+        { entry_id: 's1', kind: 'section', parent_id: 'l3', title: '完璧归赵', pdf_page: 22 },
+        { entry_id: 'u3', kind: 'unit', parent_id: null, title: '第三单元 民间故事', pdf_page: 38, end_pdf_page: 50 },
+        // named only by its number, with nothing under it: nothing to plan from
+        { entry_id: 'u4', kind: 'unit', parent_id: null, title: '第四单元', pdf_page: 51, end_pdf_page: 60 },
+        { entry_id: 'a1', kind: 'appendix', parent_id: null, title: '识字表', pdf_page: 61 }
+    ]
+    const platform = [{ id: 'p1', title: '1 桂花雨', chapters: ['第一单元', '阅读'], pdf_page: 7, unit_id: 'l1', materials: ['课件'], hours: 1 }]
+    const added = tocLessons(platform, toc)
+    assert.deepEqual(added.map(item => [item.id, item.title, item.chapters[0]]), [['l2', '习作：我的心爱之物', '第一单元'], ['l3', '5 将相和', '第二单元'], ['u3', '第三单元 民间故事', '第三单元 民间故事']])
+    assert.ok(added.every(item => item.toc && item.unit_id === item.id && !item.materials.length))
+    // platform lessons not linked to the 目录 keep their unit as it is; a chapter with the same number is the same unit
+    const unlinked = [{ ...platform[0], unit_id: null, pdf_page: null }, { id: 'p2', title: '将相和（第一课时）', chapters: ['第二单元 将相和'], pdf_page: null, unit_id: null, materials: [], hours: 1 }]
+    assert.deepEqual(tocLessons(unlinked, toc).map(item => item.id), ['u3'])
+    // 第二十七章 is not 第二十五章
+    const chapters = [{ entry_id: 'c25', kind: 'chapter', parent_id: null, title: '第二十五章 一元二次方程', pdf_page: 8, end_pdf_page: 35 }, { entry_id: 'c27', kind: 'chapter', parent_id: null, title: '第二十七章 反比例函数', pdf_page: 70, end_pdf_page: 97 }, { entry_id: 'c27.1', kind: 'section', parent_id: 'c27', title: '27.1 反比例函数的概念', pdf_page: 71 }]
+    assert.deepEqual(tocLessons([{ id: 'p3', title: '配方法', chapters: ['第二十五章 概率初步'], pdf_page: null, unit_id: null, materials: [], hours: 1 }], chapters).map(item => item.id), ['c27.1'])
+    // one entry is not a 目录 to pick from
+    assert.deepEqual(tocLessons([], [{ entry_id: 'u9', kind: 'unit', parent_id: null, title: '书法和篆刻的魅力', pdf_page: 6, end_pdf_page: 6 }, ...toc.filter(entry => entry.entry_id === 'u4')]), [])
+})
+
+const TOC_IP = '203.0.113.46'
+const get = async (path: string) => json(await app.request(path, { headers: { 'x-forwarded-for': TOC_IP } }))
+
+test('AI 备课 lesson list: the 国家平台 lessons first and unchanged, then what the book\'s own 目录 adds', async t => {
+    const platform = (await get(`/api/v1/lesson-plans/textbooks/${math5b}/lessons`)).data
+    assert.deepEqual(platform.lessons.filter((item: any) => !item.toc).map((item: any) => item.id), national.lessons.map((item: any) => item.id))
+    assert.ok(platform.lessons.filter((item: any) => !item.toc).every((item: any) => item.url.startsWith('https://basic.smartedu.cn/')))
+
+    // 语文5上: the platform lists only 第一单元's lessons; the other seven units come from the 目录, in book order
+    const chinese5a = books.find((book: any) => book.title === '语文5年级上册' && book.edition_name === '统编版').edition_id
+    const listed = (await get(`/api/v1/lesson-plans/textbooks/${chinese5a}/lessons`)).data
+    const record = JSON.parse(await readFile(resolve(publicDataRoot, `textbooks/by-edition/${chinese5a}.json`), 'utf8'))
+    assert.deepEqual([...new Set(listed.lessons.map((item: any) => item.chapters[0]))], record.toc.filter((entry: any) => entry.kind === 'unit').map((entry: any) => entry.title))
+    const fromToc = listed.lessons.filter((item: any) => item.toc)
+    assert.ok(fromToc.length > 30 && fromToc.every((item: any) => item.url === null && item.id.startsWith('tcu_')))
+
+    // a 目录 lesson opens like a platform one: its unit, its standards, and no 同步课 where the platform has none
+    const lesson = fromToc.find((item: any) => item.title === '5 将相和')
+    const context = (await get(`/api/v1/lesson-plans/context?edition_id=${chinese5a}&lesson_id=${lesson.id}`)).data
+    assert.equal(context.lesson.title, '5 将相和')
+    assert.equal(context.lesson.unit_title, '第二单元')
+    assert.equal(context.lesson.lesson_id, lesson.id)
+    assert.ok(context.standards.length)
+    assert.deepEqual(context.national_lessons, [])
+    const unit = (await get(`/api/v1/lesson-plans/context?edition_id=${chinese5a}&chapter=${encodeURIComponent('第二单元')}`)).data
+    assert.deepEqual(unit.unit_lessons.map((item: any) => item.id), fromToc.filter((item: any) => item.chapters[0] === '第二单元').map((item: any) => item.id))
+
+    // the plan knows the rest of the unit
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const calls: string[] = []
+    t.mock.method(globalThis, 'fetch', fakeModel(calls))
+    const point = context.standards[0].indicators[0].code
+    await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': TOC_IP }, body: JSON.stringify({ step: 'frame', lesson: { title: '5 将相和', unit_title: '第二单元', subject_slug: 'chinese', grade: 5, edition_id: chinese5a, lesson_id: lesson.id }, indicator_codes: [point] }) })
+    assert.match(calls[0], /本单元的课（教材顺序）：4 冀中的地道战 → 「5 将相和」（本课） → 6 什么比猎豹的速度更快/)
 })

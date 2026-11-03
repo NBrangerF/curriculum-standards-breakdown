@@ -2,11 +2,11 @@
 // Clients POST JSON-RPC messages; there is no session and no server-sent stream, since every tool is a
 // read-only lookup that answers at once. Spec: https://modelcontextprotocol.io/specification
 import type { Context } from 'hono'
-import { KEBIAO_TOOLS, ToolInputError, findTool, SITE, type ToolContext } from './ai-tools.js'
+import { KEBIAO_TOOLS, ToolInputError, findTool, runTool, SITE, type ToolContext } from './ai-tools.js'
 
 const SUPPORTED_VERSIONS = ['2025-06-18', '2025-03-26', '2024-11-05']
 export const MAX_BATCH = 20
-const SERVER_INFO = { name: 'kebiao', title: 'kebiao 课标', version: '1.0.0', websiteUrl: SITE }
+const SERVER_INFO = { name: 'kebiao', title: 'kebiao 课标', version: '1.1.0', websiteUrl: SITE }
 const INSTRUCTIONS = [
     'kebiao 是中国义务教育课程标准（2022年版2025年修订）的结构化索引：14 门学科，每条标准对应一个学段的一个内容单元，下列「要点」逐字取自课标原文并标明页码。',
     '回答课标问题时：先用 search_standards 或 find_textbook_chapter 找到条目，再用 get_standard 看原文；引用时给出编码、要点原文和链接，不要编造编码或改写原文。',
@@ -48,7 +48,7 @@ async function answer(message: JsonRpcMessage, ctx: ToolContext) {
             if (!tool) return failure(id, -32602, `Unknown tool: ${String(message.params?.name || '')}`)
             const args = (message.params?.arguments && typeof message.params.arguments === 'object') ? message.params.arguments as Record<string, unknown> : {}
             try {
-                const out = await tool.run(args, ctx)
+                const out = await runTool(tool, args, ctx)
                 return result(id, { content: [{ type: 'text', text: out.text }], structuredContent: out.data, isError: false })
             } catch (error) {
                 // A caller mistake is a tool result the model can read and correct; anything else is an internal error.

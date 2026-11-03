@@ -481,9 +481,11 @@ function buildGeneric() {
 }
 
 
-// 语文（沿用现有结构，docs/STANDARDS_METHOD_V2.md §4）：一级是语文实践，两类标准都用课标原文。
-//   学段要求：每条编号条目是一条标准（原句），条目里的各句是要点；二级记作「学段要求」。
-//   学习任务群：学段 × 任务群是一条标准，标准句是任务群说明的首句（「本学习任务群旨在……」），要点是本学段的学习内容条目；
+// 语文（沿用现有结构，docs/STANDARDS_METHOD_V2.md §4）：一级是语文实践，要点都是课标原文。
+//   学段要求：每条编号条目是一条标准（原句），条目里的各句是要点。课标只给序号，标准名由 kebiao 用原词起
+//   （docs/data/v2/units/chinese-names.tsv，7–9 年级沿用旧版名称）。
+//   学习任务群：学段 × 任务群是一条标准，要点是本学段的学习内容条目。任务群说明不分学段，所以标准句由 kebiao 用本学段
+//   学习内容的原词概括（docs/data/v2/summaries/chinese.tsv），说明首句（「本学习任务群旨在……」）单列为 intro；
 //   一级按任务群的主要语文实践归（kebiao 判断，见 CN_GROUP_PRACTICE）。
 // 学习内容和学段要求条目之间不是一一对应，不硬挂。
 const CN_PRACTICE = { 识字与写字: 'LW', 阅读与鉴赏: 'RA', 表达与交流: 'EC', 梳理与探究: 'IN' }
@@ -534,6 +536,8 @@ function buildChinese() {
     units.sort((a, b) => order.indexOf(a.stage) - order.indexOf(b.stage) || (a.kind === b.kind ? 0 : a.kind === 'goal' ? -1 : 1) || (a.kind === 'goal' ? Object.keys(CN_PRACTICE).indexOf(a.practice) - Object.keys(CN_PRACTICE).indexOf(b.practice) || a.n - b.n : groupOrder.indexOf(a.group) - groupOrder.indexOf(b.group)))
     const counters = new Map()
     const junior = st => (st === '7-9' ? { grades: [7, 8, 9], grade_basis: null } : {})
+    const names = new Map(readTsv('docs/data/v2/units/chinese-names.tsv').map(([stage, practice, n, name, , lead]) => [`${stage}|${practice}|${n}`, { name, lead }]))
+    const summaries = new Map(readTsv('docs/data/v2/summaries/chinese.tsv').map(([stage, group, text]) => [`${stage}|${group}`, text]))
     const standards = units.map(u => {
         const sc = stageCode('chinese', u.stage)
         const abbr = u.kind === 'goal' ? CN_PRACTICE[u.practice] : 'TG'
@@ -543,9 +547,12 @@ function buildChinese() {
         const base = { code, subject: '语文', subject_slug: 'chinese', stage: u.stage, stage_code: sc, grades: gradesOf(u.stage), level1: u.practice }
         if (u.kind === 'goal') {
             const st = make(u)
+            const named = names.get(`${u.stage}|${u.practice}|${u.n}`)
+            if (!named) throw new Error(`no name in docs/data/v2/units/chinese-names.tsv for ${u.stage} ${u.practice} ${u.n}`)
+            if (!st.text.startsWith(named.lead)) throw new Error(`chinese-names.tsv ${u.stage} ${u.practice} ${u.n} expects 「${named.lead}」, the item starts 「${st.text.slice(0, 12)}」`)
             return {
-                ...base, level2: '学段要求', title: `${u.practice} · 学段要求 ${u.n}（${u.stage.replace('-', '–')} 年级）`,
-                statement: st.text, statement_source: 'official', statement_section: `学段要求 · ${u.practice}`,
+                ...base, level2: named.name, name_source: 'kebiao', title: `${named.name}（${u.stage.replace('-', '–')} 年级）`,
+                statement: st.text, statement_source: 'official', statement_section: `学段要求 · ${u.practice} · 第 ${u.n} 条`,
                 statement_pages: u.pages, statement_source_ids: u.ids, statement_check: st.check,
                 indicators: splitSentences(st.text).map((t, i) => ({ code: `${code}.${i + 1}`, text: t, section: '学段要求', pages: u.pages, source_ids: u.ids, check: st.check, ...junior(u.stage) })),
                 guidance: []
@@ -553,13 +560,16 @@ function buildChinese() {
         }
         const intro = groupIntro.get(u.group) || []
         const introText = intro.map(e => e.text).join('')
-        const st = make({ text: `${introText.split('。')[0]}。`, ids: intro.map(e => e.id), pages: [...new Set(intro.map(e => e.page))] })
+        const first = make({ text: `${introText.split('。')[0]}。`, ids: intro.map(e => e.id), pages: [...new Set(intro.map(e => e.page))] })
         if (!intro.length) problems.push(`no introduction for ${u.group}`)
+        const summary = summaries.get(`${u.stage}|${u.group}`)
+        if (!summary) throw new Error(`no statement in docs/data/v2/summaries/chinese.tsv for ${u.stage} ${u.group}`)
         return {
             ...base, level2: u.group, title: `${u.group}（${u.stage.replace('-', '–')} 年级）`,
-            statement: st.text, statement_source: 'official', statement_section: '学习任务群说明',
-            statement_pages: st.pages, statement_source_ids: st.source_ids, statement_check: st.check,
+            statement: summary, statement_source: 'kebiao_summary', statement_section: null,
+            statement_pages: [], statement_source_ids: [], statement_check: null,
             indicators: u.paras.map((p, i) => ({ code: `${code}.${i + 1}`, ...make(p), section: '学习内容', ...junior(u.stage) })),
+            intro: [{ ...first, section: '学习任务群说明' }],
             guidance: []
         }
     })

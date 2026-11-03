@@ -1,11 +1,11 @@
 # 让 AI 用上 kebiao 课标
 
-kebiao 给 AI 提供三个入口，都免费、只读、无需登录：
+kebiao 给 AI 提供三个入口，都免费、只读、无需登录。给老师看的接入说明在网站的 https://www.kebiao.org/ai （WorkBuddy 配置和三条提示词）。
 
 | 入口 | 地址 | 给谁用 |
 | --- | --- | --- |
-| MCP 服务器 | `https://www.kebiao.org/mcp` | Claude、Cursor、Cherry Studio、VS Code 等客户端；扣子、元器、ModelScope 也能直接接 |
-| 插件 OpenAPI | `https://www.kebiao.org/api/v1/plugin/openapi.yaml` | 接不了 MCP 时的备用：扣子、元器的 API 插件，文心智能体等 |
+| MCP 服务器 | `https://www.kebiao.org/mcp` | WorkBuddy、Claude、Cursor、Cherry Studio、VS Code 等客户端；扣子、魔搭也能直接接 |
+| 插件 OpenAPI | `https://www.kebiao.org/api/v1/plugin/openapi.yaml` | 接不了 MCP 时的备用：扣子的 API 插件、文心智能体等 |
 | llms.txt | `https://www.kebiao.org/llms.txt` | 会读网站说明的 AI 和爬虫 |
 
 两套接口背后是同一组工具（`apps/api/src/ai-tools.ts`），回答内容一致：
@@ -20,8 +20,9 @@ kebiao 给 AI 提供三个入口，都免费、只读、无需登录：
 | `get_textbook_links` | `GET /api/v1/plugin/textbooks?code=` | 一条标准对应的教材章节 |
 | `find_textbook_chapter` | `GET /api/v1/plugin/textbook-chapter?query=` | 从教材章节标题找课标 |
 | `compare_versions` | `GET /api/v1/plugin/changes?code=` | 2025 修订改了哪些要点 |
+| `get_check_questions` | `GET /api/v1/plugin/checks?subject=&grade=&topic=&code=` | 课堂诊断题：全班作答，每个错误答案对应一种常见错法 |
 
-每个插件接口都返回 `answer` 字段：一段可直接引用的中文，带编码、要点原文和链接。MCP 工具把同样的文字放在 `content` 里，结构化数据放在 `structuredContent` 里。
+每个插件接口都返回 `answer` 字段：一段可直接引用的中文，带编码、要点原文和链接。MCP 工具把同样的文字放在 `content` 里，结构化数据放在 `structuredContent` 里。每个回答都至少带一个 kebiao.org 链接（`runTool` 兜底补「来源」一行），让老师能回到网站核对。
 
 速率：MCP 和插件接口匿名每个来源 IP 每分钟 300 次；同样的插件请求会被 CDN 缓存一天。
 
@@ -61,6 +62,33 @@ curl -s https://www.kebiao.org/mcp -H 'content-type: application/json' -H 'accep
 
 ---
 
+## 一·五、WorkBuddy（腾讯）连接器和技能
+
+两个包都在 `docs/ai/workbuddy/`，按 open.workbuddy.cn 的文档（2026-11）组织：
+
+- `connector/kebiao/`：连接器包，打成 zip 上传。
+  - `connector-meta.json`：名称、中英文描述（各 20–100 字符）、`source: kebiao`、中英文示例；`minWorkbuddyVersion` 为 4.24.0。
+  - `mcp.json`：`type` 写 `streamableHttp`（驼峰）。
+  - `icon.svg`：kebiao 合文标志。
+  - `skills/kebiao-standards/SKILL.md`：随连接器加载的工具说明。
+- `skill/kebiao-lesson-prep/SKILL.md`：独立技能「课标对齐备课」，zip 里只放 SKILL.md。
+  - 流程是先查依据交给老师确认，再写教案并逐条标依据；也能只核对老师的教案，不重写。
+  - 头像用另一个图形 `icon.svg`（书 + 对勾），因为连接器和技能不能用同一个图形。
+
+**上架**：个人实名认证（二代身份证 + 人脸），类目「教育服务 › 教育信息展示」。审核通过后在「待发布」里点发布。
+
+**更新**：改文件，`version` 加一，重新打包提审。
+
+**停服或换地址**：至少提前 20 个工作日通知（开发者公约 §2.3.4）。
+
+**老师自己接**：在 WorkBuddy「连接器 → 自定义连接器」粘贴配置。
+
+```json
+{"mcpServers":{"kebiao":{"type":"streamableHttp","url":"https://www.kebiao.org/mcp"}}}
+```
+
+**魔搭的写法不同**：服务配置的 `type` 是 `streamable_http`（下划线）。
+
 ## 二、扣子（Coze）插件
 
 需要你的扣子账号（coze.cn）。插件和智能体在「扣子开发平台」（旧版）里管理；如果打开的是「扣子编程」新版首页，点右上角「回到旧版」。
@@ -69,18 +97,18 @@ curl -s https://www.kebiao.org/mcp -H 'content-type: application/json' -H 'accep
 
 1. 顶部选工作空间 → 左侧「资源库」→ 右上角「+资源」→「插件」。
 2. 类型选 **MCP**。插件名称「kebiao 课标」，一句话介绍和描述用第六节的文案，图标上传 `public/apple-touch-icon.png`；插件 URL 填 `https://www.kebiao.org/mcp`，授权方式选「不需要授权」。
-3. 确认后扣子会自动同步 8 个工具。试运行 `search_standards`，`query` 填「分数的大小比较」，返回里有编码和要点原文就算通过。
+3. 确认后扣子会自动同步 9 个工具。试运行 `search_standards`，`query` 填「分数的大小比较」，返回里有编码和要点原文就算通过。
 4. 右上角「发布」。问到是否收集个人信息时选不收集：这些工具不需要用户的任何个人信息。
 
-**备用：导入 OpenAPI**（MCP 类型不可用时）：同一入口点右上角「导入」→「URL 和原始数据」→ 填 `https://www.kebiao.org/api/v1/plugin/openapi.yaml` → 授权方式「不需要授权」。导入的 7 个工具默认没启用：逐个打开「启用」，点「调试」通过后再「发布」。
+**备用：导入 OpenAPI**（MCP 类型不可用时）：同一入口点右上角「导入」→「URL 和原始数据」→ 填 `https://www.kebiao.org/api/v1/plugin/openapi.yaml` → 授权方式「不需要授权」。导入的 9 个工具默认没启用：逐个打开「启用」，点「调试」通过后再「发布」。
 
 **上架插件商店**：资源库里找到插件点「上架插件」（或左侧「更多 → 社区 → 插件市场 → 上架插件」），填描述、使用说明和分类后提交。扣子插件商店和企业插件商店只能选一个，选扣子插件商店。插件以后有改动，先在插件页重新发布，再到插件市场的详情页点「提交更新」。
 
 **做一个「课标助手」智能体**：新建智能体 → 人设与回复逻辑粘贴第四节的提示词 → 技能 → 插件里添加「kebiao 课标」的全部工具 → 开场白和预置问题用第四节的示例 → 发布。渠道可选扣子商店、飞书、微信（客服、服务号、订阅号）、抖音和微信小程序、API。每次发布先过扣子审核，再过各渠道审核。
 
-## 三、腾讯元器插件
+## 三、腾讯元器插件（已停服，不再接入）
 
-需要你的元器账号（yuanqi.tencent.com）。元器里能被别人找到的是智能体；插件给你自己的智能体用。
+腾讯元器 2026-10-29 起停止新建、11-09 停服。下面的步骤只留作记录。
 
 **接入插件**，两种方式按要做的智能体选：
 
@@ -172,7 +200,7 @@ mcp-publisher publish docs/ai/server.json
 - **名称**：kebiao 课标 / kebiao-curriculum-standards
 - **一句话介绍**：中国义务教育课程标准（2022年版2025年修订）的检索与查证：14 门学科，要点逐字取自课标原文并标明页码。
 - **英文一句话**（英文目录用，100 字符内）：Search and cite China's compulsory-education curriculum standards (2022, rev. 2025), 14 subjects.
-- **介绍**：kebiao 把义务教育 14 门学科的课程标准整理成「标准 → 要点」两层：每条标准对应一个学段的一个内容单元，要点逐字取自课标原文并标明页码，旧版编码可以跳到新标准。MCP 服务器提供 8 个只读工具：检索课标、查看标准、列出标准、学段目标、标准对应的教材、从教材章节找课标、2025 修订对照。适合备课、写教案、做单元设计时查依据。
+- **介绍**：kebiao 把义务教育 14 门学科的课程标准整理成「标准 → 要点」两层：每条标准对应一个学段的一个内容单元，要点逐字取自课标原文并标明页码，旧版编码可以跳到新标准。MCP 服务器提供 9 个只读工具：检索课标、查看标准、列出标准、列出学科、学段目标、标准对应的教材、从教材章节找课标、2025 修订对照、课堂诊断题。每个回答都带 kebiao.org 链接。适合备课、写教案、做单元设计时查依据。
 - **连接方式**：Streamable HTTP，`https://www.kebiao.org/mcp`，无需 API Key
 - **标签**：教育、课程标准、K12、中文、备课
 - **主页**：https://www.kebiao.org
