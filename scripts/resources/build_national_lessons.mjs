@@ -273,7 +273,8 @@ export function buildNationalLessons() {
             unit_id: null,
             materials: lesson.materials.filter(item => MATERIALS.includes(item)),
             hours: lesson.hours,
-            ...(judged.lessons[lesson.id] ? { align: reviewed(record.edition_id, lesson, (judged.lessons[lesson.id].m || []).filter(evidenced).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest])) } : {})
+            ...(judged.lessons[lesson.id] ? { align: reviewed(record.edition_id, lesson, (judged.lessons[lesson.id].m || []).filter(evidenced).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest])) } : {}),
+            ...(goalsFor(record.edition_id)[lesson.id] ? { goals: goalsFor(record.edition_id)[lesson.id] } : {})
         }))
         writeFileSync(path.join(OUT, `${record.edition_id}.json`), `${JSON.stringify({ edition_id: record.edition_id, textbook_title: record.textbook_title, platform_title: record.platform_title, platform_textbook_id: record.platform_textbook_id, platform_only: true, confidence: 'edition', tree: record.tree, lessons })}\n`)
         platformBooks.push({ edition_id: record.edition_id, title: record.textbook_title, edition_name: record.edition_name, subject: record.subject, subject_slug: record.subject_slug, grade: record.grade, volume: record.volume, platform_title: record.platform_title, lessons: lessons.length })
@@ -350,12 +351,20 @@ export function buildNationalLessons() {
     rmSync(subjectOut, { recursive: true, force: true })
     mkdirSync(subjectOut, { recursive: true })
     for (const [prefix, standards] of Object.entries(bySubject)) {
+        // the standard page opens the first three lessons with objectives on each 要点 and shows only those objectives,
+        // so only they are kept here (as [目标, 依据要点, 课标原词]); the book's own file has the rest
         const listedGoals = {}
-        for (const rows of Object.values(pointsBySubject[prefix] || {})) for (const row of rows) {
-            const goals = goalsFor(row[0])[row[3]]
-            if (goals) listedGoals[row[3]] = goals
+        for (const [point, rows] of Object.entries(pointsBySubject[prefix] || {})) {
+            let open = 0
+            for (const row of rows) {
+                const items = (goalsFor(row[0])[row[3]]?.items || []).filter(item => item[1].includes(point))
+                if (!items.length) continue
+                const kept = (listedGoals[row[3]] ??= { items: [] }).items
+                for (const [text, basis, from] of items) if (!kept.some(item => item[0] === text)) kept.push([text, basis, from])
+                if (++open === 3) break
+            }
         }
-        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards, unit_fields: ['edition_id', 'textbook_title', 'unit', 'unit_id', 'via_ai'], units: unitsBySubject[prefix] || {}, point_fields: ['edition_id', 'textbook_title', 'unit', 'lesson_id', 'lesson_title', 'relation', 'quote', 'source', 'pdf_page', 'unit_id'], points: pointsBySubject[prefix] || {}, goal_fields: ['text', 'basis', 'from', 'show'], goals: listedGoals })}\n`)
+        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards, unit_fields: ['edition_id', 'textbook_title', 'unit', 'unit_id', 'via_ai'], units: unitsBySubject[prefix] || {}, point_fields: ['edition_id', 'textbook_title', 'unit', 'lesson_id', 'lesson_title', 'relation', 'quote', 'source', 'pdf_page', 'unit_id'], points: pointsBySubject[prefix] || {}, goal_fields: ['text', 'basis', 'from'], goals: listedGoals })}\n`)
     }
     const coverage = buildCoverage(bookPoints)
     return { editions: Object.keys(index.editions).length, lessons: lessonTotal, standards: byStandard.size, coverage }
