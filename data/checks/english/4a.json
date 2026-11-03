@@ -7,13 +7,15 @@
     {"id": "hair-countable", "name": "以为“长头发”要说 hairs", "why": "头发有很多根，就当成“好几个”加了 s，不知道说一头头发时 hair 不加 s。", "move": "告诉学生：说一头头发时 hair 不加 s，前面也不加 a，和 milk、water 一样：She has long hair."},
     {"id": "plural-as-it", "name": "复数的东西还用 it", "why": "It's ... 说得最熟，没注意说的是好几样东西，要用 they。", "move": "先问说的是几样东西：一件外套用 It's ...，一双袜子、几把钥匙用 They're ...，is 配 it，are 配 they。"},
     {"id": "be-drop", "name": "照汉语漏掉 am/is/are", "why": "汉语“它们很暖和”“我九岁”里没有和 is、are 对应的词，就照着漏掉了。", "move": "让学生找句子里的“小帮手”：They ____ warm. 没有 are，这句话就不完整。"},
-    {"id": "would-like-as-like", "name": "把“想要”听成“喜欢”", "why": "would like 里有 like，就当成“喜欢”，用回答 Do you like ...? 的方式来答。", "move": "并排写两句：Do you like soup?（喜欢吗）/ Would you like some soup?（要不要来点），分别配上 Yes, I do. 和 Yes, please."}
+    {"id": "would-like-as-like", "name": "把“想要”听成“喜欢”", "why": "would like 里有 like，就当成“喜欢”，用回答 Do you like ...? 的方式来答。", "move": "并排写两句：Do you like soup?（喜欢吗）/ Would you like some soup?（要不要来点），分别配上 Yes, I do. 和 Yes, please."},
+    {"id": "dont-for-cant-4a", "name": "用 don't 给 can 变否定", "why": "见过用 don't 表示“不”，以为说“不”都在前面加 don't，就把“不能”说成 don't can。", "move": "把 can 和 can't 写成一对：can 自己加 n't 就是否定，前面不再加 don't，读一读 We can't play."}
   ],
   "items": [
     {
       "id": "en-4a-02",
       "type": "choice",
       "unit": "Unit 1 Helping at home",
+      "lesson": "Part A How are families different?",
       "lessons": ["How are families different"],
       "points": ["EN-S1-LK-01.11", "EN-S1-LS-01.16"],
       "topic": "an office worker",
@@ -34,6 +36,7 @@
       "id": "en-4a-03",
       "type": "choice",
       "unit": "Unit 2 My friends",
+      "lesson": "Part A Who are your friends?",
       "lessons": ["Who are your friends"],
       "points": ["EN-S1-LK-01.11", "EN-S1-LS-01.16"],
       "topic": "his 还是 her",
@@ -54,6 +57,7 @@
       "id": "en-4a-04",
       "type": "judge",
       "unit": "Unit 2 My friends",
+      "lesson": "Part B How do we choose our friends?",
       "lessons": ["How do we choose our friends"],
       "points": ["EN-S1-LK-01.8", "EN-S1-LS-01.16"],
       "topic": "long hair 不加 s",
@@ -72,6 +76,7 @@
       "id": "en-4a-05",
       "type": "choice",
       "unit": "Unit 6 Changing for the seasons",
+      "lesson": "Part A What do we wear in different seasons?",
       "lessons": ["What do we wear in different seasons"],
       "points": ["EN-S1-LK-01.9", "EN-S1-LK-01.11"],
       "topic": "They're 还是 It's",
@@ -85,13 +90,14 @@
       "ladder": [
         {"q": "补全：I like this coat. ____ warm.", "a": "It's"},
         {"q": "补全：Look at these shirts. ____ nice.", "a": "They're"},
-        {"q": "— Whose socks are these? — 是我的。用英语回答。", "a": "They're mine."}
+        {"q": "— Whose socks are these? — 是 Sarah 的。用英语回答。", "a": "They're Sarah's."}
       ]
     },
     {
       "id": "en-4a-07",
       "type": "choice",
       "unit": "Unit 4 Helping in the community",
+      "lesson": "Part A What jobs are important in a community?",
       "lessons": ["What jobs are important"],
       "points": ["EN-S1-LS-01.11", "EN-S1-LK-01.11"],
       "topic": "介绍家人的职业",
@@ -112,6 +118,7 @@
       "id": "en-4a-08",
       "type": "write",
       "unit": "Unit 5 The weather and us",
+      "lesson": "Part A How can the weather be different?",
       "lessons": ["How can the weather be different"],
       "points": ["EN-S1-TH-01.17", "EN-S1-LK-01.8"],
       "topic": "描述天气的词",
@@ -125,6 +132,130 @@
         {"q": "用括号里的词填空：It's ____ (wind) today.", "a": "windy"},
         {"q": "用括号里的词填空：It's ____ (cloud) in Shanghai.", "a": "cloudy"},
         {"q": "— What's the weather like in Harbin? — ____（下雪）", "a": "It's snowy.（或 It's snowing.）"}
+      ]
+    },
+    {
+      "id": "en-4a-09",
+      "type": "choice",
+      "unit": "Unit 1 Helping at home",
+      "lesson": "Part B How can we help our family?",
+      "lessons": ["How can we help our family"],
+      "points": ["EN-S1-LK-01.11", "EN-S1-TH-01.5"],
+      "topic": "can 后面用原形",
+      "stem": "Mike 说：I can cook dinner. 用 he 介绍他：He ____ dinner.",
+      "options": ["can cook", "can cooks", "cans cook"],
+      "answer": 0,
+      "wrong": {"1": "modal-plus-s", "2": "s-added-to-can"},
+      "right": ["can 后面的动词用原形，主语换成 he 也不变：", "He can cook dinner."],
+      "typical": ["主语是 he，动词就加 s：", "He can cooks dinner."],
+      "typical_error": "modal-plus-s",
+      "ladder": [
+        {"q": "补全：She can ____ (wash) the dishes.", "a": "wash"},
+        {"q": "改错：My brother can looks after the baby.", "a": "My brother can look after the baby."},
+        {"q": "用英语说：他会扫地，也会照顾妹妹。", "a": "He can sweep the floor. He can look after his sister too."}
+      ]
+    },
+    {
+      "id": "en-4a-10",
+      "type": "judge",
+      "unit": "Unit 3 Places we live in",
+      "lesson": "Part A What can we see in a community?",
+      "lessons": ["What can we see in a community"],
+      "points": ["EN-S1-LK-01.11", "EN-S1-TH-01.10"],
+      "topic": "There is 表示“有”",
+      "stem": "Tom 这样介绍他的社区，你同意吗？",
+      "work": ["There has a big park in my community.", "I often run there with my dog."],
+      "answer": false,
+      "wrong": {"agree": "there-have"},
+      "right": ["说“某个地方有某物”用 there is：", "There is a big park in my community."],
+      "ladder": [
+        {"q": "补全：____ ____ a shop in my community.（有）", "a": "There is"},
+        {"q": "改错：There has a bus stop near my home.", "a": "There is a bus stop near my home."},
+        {"q": "用英语说：我们社区有一家商店，还有一个公共汽车站。", "a": "There is a shop. There is also a bus stop."}
+      ]
+    },
+    {
+      "id": "en-4a-11",
+      "type": "choice",
+      "unit": "Unit 3 Places we live in",
+      "lesson": "Part B What do people do in a community?",
+      "lessons": ["What do people do in a community"],
+      "points": ["EN-S1-LK-01.11", "EN-S1-TH-01.10"],
+      "topic": "There are + 复数",
+      "stem": "我们社区里有两个操场。选出正确的一句。",
+      "options": ["There is two playgrounds.", "There are two playgrounds.", "There are two playground.", "There have two playgrounds."],
+      "answer": 1,
+      "wrong": {"0": "there-be-agreement", "2": "plural-s-drop", "3": "there-have"},
+      "right": ["两个操场是复数：there 后面用 are，playground 加 s。", "There are two playgrounds."],
+      "typical": ["There is 说惯了，没看后面是几个：", "There is two playgrounds."],
+      "typical_error": "there-be-agreement",
+      "ladder": [
+        {"q": "补全：There ____ a gym in my community.", "a": "is"},
+        {"q": "补全：There ____ three shops near my home.", "a": "are"},
+        {"q": "用英语说：商店里有很多衣服。", "a": "There are many clothes in the shop."}
+      ]
+    },
+    {
+      "id": "en-4a-12",
+      "type": "choice",
+      "unit": "Unit 4 Helping in the community",
+      "lesson": "Part B How can young people help their community?",
+      "lessons": ["How can young people help their community"],
+      "points": ["EN-S1-LK-01.10", "EN-S1-LS-01.16"],
+      "topic": "正在做：is + -ing",
+      "stem": "看图：在养老院里，Mike 正在扫地。Look! Mike ____ the floor.",
+      "options": ["sweeping", "sweeps", "is sweeping", "is sweep"],
+      "answer": 2,
+      "wrong": {"0": "progressive-be-drop", "1": "simple-for-progressive", "3": "progressive-bare-verb"},
+      "right": ["Look! 说的是此刻正在发生的事：is + sweeping。", "Mike is sweeping the floor."],
+      "typical": ["“正在扫地”就是 sweeping the floor：", "Mike sweeping the floor."],
+      "typical_error": "progressive-be-drop",
+      "ladder": [
+        {"q": "补全：Look! Sarah is ____ (read) a story to the kids.", "a": "reading"},
+        {"q": "补全：Look! Amy and John ____ washing the windows.", "a": "are"},
+        {"q": "用英语说：看！陈杰正在做饭。", "a": "Look! Chen Jie is cooking."}
+      ]
+    },
+    {
+      "id": "en-4a-13",
+      "type": "choice",
+      "unit": "Unit 5 The weather and us",
+      "lesson": "Part B What do we do in different weather?",
+      "lessons": ["What do we do in different weather"],
+      "points": ["EN-S1-TH-01.17", "EN-S1-LK-01.11"],
+      "topic": "不能做：can't + 原形",
+      "stem": "今天下大雪，我们不能去公园。选出正确的一句。",
+      "options": ["We can't go to the park.", "We don't can go to the park.", "We can't to go to the park."],
+      "answer": 0,
+      "wrong": {"1": "dont-for-cant-4a", "2": "can-to-verb"},
+      "right": ["can 的否定就是 can't，后面直接跟动词原形：", "We can't go to the park."],
+      "typical": ["“不能”就是 don't 加 can：", "We don't can go to the park."],
+      "typical_error": "dont-for-cant-4a",
+      "ladder": [
+        {"q": "补全：It's rainy. We ____ play outside.（不能）", "a": "can't"},
+        {"q": "改错：It's windy. We can't to play basketball.", "a": "It's windy. We can't play basketball."},
+        {"q": "用英语说：下雨了，我们不能出去，但可以在家画画。", "a": "It's rainy. We can't go out. But we can draw at home."}
+      ]
+    },
+    {
+      "id": "en-4a-14",
+      "type": "choice",
+      "unit": "Unit 6 Changing for the seasons",
+      "lesson": "Part B What do we do in different seasons?",
+      "lessons": ["What do we do in different seasons"],
+      "points": ["EN-S1-TH-01.18", "EN-S1-LK-01.9"],
+      "topic": "Which season 怎么答",
+      "stem": "— Which season do you like? — ____",
+      "options": ["Yes, I do. I like it very much.", "Autumn. I can fly a kite.", "It's cold and snowy today."],
+      "answer": 1,
+      "wrong": {"0": "wh-yes-no", "2": "wh-word-mixup"},
+      "right": ["Which season 问的是哪个季节，先说出季节：", "Autumn. I can fly a kite."],
+      "typical": ["听到 do you like 就先说 Yes：", "Yes, I do. I like it very much."],
+      "typical_error": "wh-yes-no",
+      "ladder": [
+        {"q": "— Which season do you like? — ____（夏天）", "a": "Summer."},
+        {"q": "— Do you like winter? — ____（是的）", "a": "Yes, I do."},
+        {"q": "用英语问同学喜欢哪个季节，再替他答：秋天，可以去散步。", "a": "Which season do you like? Autumn. I can take a walk."}
       ]
     }
   ]

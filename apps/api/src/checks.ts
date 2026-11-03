@@ -14,6 +14,7 @@ export type CheckItem = {
     grades?: number[]
     term: string
     unit: string
+    lesson?: string
     lessons?: string[]
     points: string[]
     topic: string
@@ -135,6 +136,7 @@ export function publicCheck(item: CheckItem, bank: CheckBank) {
         grades: item.grades,
         term: item.term,
         textbook_unit: book?.edition === '课标' ? `${book.label} · ${item.unit}` : `${book?.edition || ''} ${book?.short || item.book} ${item.unit}`.trim(),
+        textbook_lesson: item.lesson,
         points: item.points,
         topic: item.topic,
         stem: p(item.stem),
@@ -157,7 +159,7 @@ export function findChecks(bank: CheckBank, { code = '', grade = 0, term = '', q
         if (upper && !item.points.some(point => point === upper || point.replace(/\.\d+$/u, '') === upper)) return false
         if (grade && !(item.grades || [item.grade]).includes(grade)) return false
         if (term && !item.grades && item.term !== term) return false
-        if (word && ![item.topic, item.unit, item.stem, ...(item.lessons || [])].some(text => plain(text, bank.markup).includes(word))) return false
+        if (word && ![item.topic, item.unit, item.lesson || '', item.stem, ...(item.lessons || [])].some(text => plain(text, bank.markup).includes(word))) return false
         return true
     })
 }

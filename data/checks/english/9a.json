@@ -7,13 +7,17 @@
     {"id": "perfect-with-past-time", "name": "现在完成时配了过去时间点", "why": "把汉语的“开了”“变了”都译成现在完成时，没注意 two years ago 是过去的一个时间点。", "move": "画时间轴：two years ago、last year、in 2018 是过去的一个点，用一般过去时；since、for 连到现在，才用 have done。"},
     {"id": "used-to-doing", "name": "used to 后接了 doing", "why": "把 used to do 和 be used to doing 混在一起了。", "move": "对比：used to ride（过去常骑）/ is used to riding（习惯于骑），先看前面有没有 be。"},
     {"id": "used-to-past-verb", "name": "used to 后用了过去式", "why": "used 已经是过去式，就以为后面的动词也要变。", "move": "提醒：to 后面用动词原形，“过去”已经由 used 表示了。"},
-    {"id": "since-for-period", "name": "把 since 用在一段时间前", "why": "把 since 记成“……以来”，“50 年来”就说成 since 50 years，没分清 since 接时间点、for 接一段时间。", "move": "画时间轴：since 后面是轴上的一个点（since 1976、since I was a child），for 后面是一段长度（for 50 years），让学生把例子放上去。"}
+    {"id": "since-for-period", "name": "把 since 用在一段时间前", "why": "把 since 记成“……以来”，“50 年来”就说成 since 50 years，没分清 since 接时间点、for 接一段时间。", "move": "画时间轴：since 后面是轴上的一个点（since 1976、since I was a child），for 后面是一段长度（for 50 years），让学生把例子放上去。"},
+    {"id": "used-to-still-now-9a", "name": "以为 used to 指现在还这样", "why": "把 used to 只记成“常常”，没注意它说的是过去，暗含“现在不这样了”。", "move": "画一条时间轴，used to 只画在过去一段，问：现在那一段还有吗？"},
+    {"id": "used-to-accustomed-9a", "name": "把 used to 读成“习惯于”", "why": "和刚学过的 be used to（习惯于）混在一起，没看前面有没有 be。", "move": "把 used to have 和 are used to having 并排写，圈出 be，问：哪句有 be？"},
+    {"id": "used-to-be-used-for-9a", "name": "把 used to 读成“被用来”", "why": "看到 used 就想到 use（用），把整句理解成“某物被用来……”。", "move": "问：句子里是谁“被用”了吗？把 used to 换成“以前”读一遍，看通不通。"}
   ],
   "items": [
     {
       "id": "en-9a-01",
       "type": "choice",
       "unit": "Unit 1 The Changing World",
+      "lesson": "Section A What changes have taken place around you?",
       "lessons": ["What changes have taken place around you"],
       "points": ["EN-S3-LK-01.14"],
       "topic": "说家乡的变化",
@@ -34,6 +38,7 @@
       "id": "en-9a-02",
       "type": "judge",
       "unit": "Unit 1 The Changing World",
+      "lesson": "Section A What changes have taken place around you?",
       "lessons": ["What changes have taken place around you"],
       "points": ["EN-S3-LK-01.14"],
       "topic": "过去时还是完成时",
@@ -52,6 +57,7 @@
       "id": "en-9a-03",
       "type": "write",
       "unit": "Unit 1 The Changing World",
+      "lesson": "Section A What changes have taken place around you?",
       "lessons": ["What changes have taken place around you", "How do changes influence us"],
       "points": ["EN-S3-LK-01.15"],
       "topic": "说过去的习惯",
@@ -71,6 +77,7 @@
       "id": "en-9a-04",
       "type": "choice",
       "unit": "Unit 1 The Changing World",
+      "lesson": "Section A What changes have taken place around you?",
       "lessons": ["What changes have taken place around you"],
       "points": ["EN-S3-LK-01.14"],
       "topic": "完成时配 for 还是 since",
@@ -85,6 +92,46 @@
         {"q": "填 for 或 since：We have lived in this city ____ 2018.", "a": "since"},
         {"q": "填 for 或 since：My father has worked in this hospital ____ ten years.", "a": "for"},
         {"q": "填 for 或 since：My grandpa has lived here ____ he was a child.", "a": "since"}
+      ]
+    },
+    {
+      "id": "en-9a-05",
+      "type": "choice",
+      "unit": "Unit 1 The Changing World",
+      "lesson": "Section B How do changes influence us?",
+      "lessons": ["How do changes influence us"],
+      "points": ["EN-S3-LK-01.8", "EN-S3-LS-01.29"],
+      "topic": "读懂 used to 的意思",
+      "stem": "读句子：My town used to have only one small shop. 这句话的意思是：",
+      "options": ["镇上一直到今天都只有一家小商店", "镇上的人早就习惯那家小商店了", "镇上把那家小商店用来干别的", "过去只有一家小商店，现在不同了"],
+      "answer": 3,
+      "wrong": {"0": "used-to-still-now-9a", "1": "used-to-accustomed-9a", "2": "used-to-be-used-for-9a"},
+      "right": ["used to + 动词原形：过去常常是这样，现在不再这样；", "读报道时，used to 后面常接着 now 说现在的样子。"],
+      "typical": ["used to 就是“常常”：镇上一直只有一家小商店"],
+      "typical_error": "used-to-still-now-9a",
+      "ladder": [
+        {"q": "There used to be a river here. 现在这里还有河吗？", "a": "没有了（以前有，现在没有）"},
+        {"q": "哪句说“现在习惯早起”？A. I used to get up early. B. I am used to getting up early.", "a": "B"},
+        {"q": "用 used to 和 now 写两句：以前骑车上学，现在坐公交。", "a": "I used to ride a bike to school. Now I take a bus."}
+      ]
+    },
+    {
+      "id": "en-9a-06",
+      "type": "step",
+      "unit": "Unit 1 The Changing World",
+      "lesson": "Section B How do changes influence us?",
+      "lessons": ["How do changes influence us"],
+      "points": ["EN-S3-LK-01.15", "EN-S3-LS-01.68"],
+      "topic": "写我的变化用对时态",
+      "stem": "小林写 Changes in My Life，写了四句。他从第几句开始用错时态？",
+      "work": ["In primary school, I used to go home for lunch.", "Now I have lunch at school with my classmates.", "Since I started junior high, I learned to cook.", "I have grown taller, so my old bike is too small."],
+      "answer": 2,
+      "error": "since-with-past-tense",
+      "right": ["第 3 句有 since，说的是从上初中一直到现在，要用现在完成时：", "Since I started junior high, I have learned to cook."],
+      "ladder": [
+        {"q": "My family ____ (live) in this flat since 2020.", "a": "has lived"},
+        {"q": "We ____ (move) to a bigger flat last year.", "a": "moved"},
+        {"q": "改错：Since I came to this school, I joined two clubs.", "a": "joined → have joined"}
       ]
     }
   ]

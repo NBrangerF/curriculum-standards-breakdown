@@ -24,7 +24,12 @@ const LIMIT = { stem: 70, option: 26, work: 34, right: 44, ladderQ: 56, ladderA:
 
 const readJson = file => JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'))
 const squash = text => String(text).replace(/[\s、，,（）()·—\-－]/gu, '')
+// lesson titles also drop the 选读 star and "3." numbering dots
+const lessonKey = text => squash(text).replace(/[*＊.．]/gu, '')
 export const widthOf = text => [...String(text)].reduce((sum, char) => sum + (/[\u0000-ɏ -⁯]/u.test(char) ? 0.55 : 1), 0)
+
+// a 目录's top level: 单元 in most books, 章 in 数学/理科
+const TOP_KINDS = new Set(['unit', 'chapter'])
 
 export function libraryBooks(subject) {
     // the subject's volumes of the bank's editions in the library: book key → { edition_id, edition, units, titles, lessons }
@@ -43,27 +48,35 @@ export function libraryBooks(subject) {
             titles.push(...lessons.lessons.map(lesson => lesson.title))
             tree = {
                 units: lessons.tree.map(node => node.title).filter(title => title !== '其他'),
-                lessons: lessons.tree.flatMap(node => (node.children || []).map(child => child.title)),
+                // every level under a unit: some trees nest 课文 under 阅读/写作 headings
+                lessons: lessons.tree.flatMap(node => { const out = []; const down = nodes => nodes.forEach(child => { out.push(child.title); down(child.children || []) }); down(node.children || []); return out }),
                 titles
             }
         }
         // a 目录 read from the book's own pages wins: a 同步课 list can belong to an older printing
         let printed = null
+        let syncLessons = []
         const contents = path.join(ROOT, `public/data/textbooks/by-edition/${book.edition_id}.json`)
         if (fs.existsSync(contents)) {
-            const toc = (JSON.parse(fs.readFileSync(contents, 'utf8')).toc || []).filter(node => node.title && node.review_status !== 'rejected' && node.source !== 'smartedu_sync_lessons')
+            const all = (JSON.parse(fs.readFileSync(contents, 'utf8')).toc || []).filter(node => node.title && node.review_status !== 'rejected')
+            syncLessons = all.filter(node => node.source === 'smartedu_sync_lessons' && !TOP_KINDS.has(node.kind)).map(node => node.title)
+            const toc = all.filter(node => node.source !== 'smartedu_sync_lessons')
             if (toc.length >= 3) printed = {
-                units: toc.filter(node => node.kind === 'unit').map(node => node.title),
-                lessons: toc.filter(node => node.kind !== 'unit').map(node => node.title),
+                units: toc.filter(node => TOP_KINDS.has(node.kind)).map(node => node.title),
+                lessons: toc.filter(node => !TOP_KINDS.has(node.kind) && node.kind !== 'appendix').map(node => node.title),
                 titles: toc.map(node => node.title)
             }
         }
-        // a 目录 the reader garbled (repeated or bare "Unit 3" titles) loses to the 同步课 list
-        const garbled = list => new Set(list.map(squash)).size < list.length || list.filter(title => /^(Unit\s*\d+\s*)+$/iu.test(title.trim())).length > list.length / 2
+        // a 目录 the reader garbled (repeated, bare or out-of-order "Unit 3" titles, or under half the 同步课 units) loses to the 同步课 list
+        const numbers = list => list.map(title => Number(title.match(/^Unit\s*(\d+)/iu)?.[1])).filter(Boolean)
+        const garbled = list => new Set(list.map(squash)).size < list.length || list.filter(title => /^(Unit\s*\d+\s*)+$/iu.test(title.trim())).length > list.length / 2 || list.length < tree.units.length / 2 || numbers(list).some((n, i, all) => i && n <= all[i - 1])
         const source = printed && !(tree && garbled(printed.units)) ? printed : tree
         if (source) {
             entry.units = source.units.length ? source.units : null
-            entry.lessons = source.lessons
+            // lesson titles: the chosen list first (it sets the order), then the other lists, which are often finer
+            entry.lessons = [...new Set([...source.lessons, ...((source === printed ? tree : printed)?.lessons || []), ...syncLessons])]
+            // a list with under two lessons a unit (a 目录 of units and appendices) can't vouch for a lesson title
+            entry.lessonsChecked = entry.lessons.length >= 2 * Math.max(entry.units?.length || 0, 5)
             // lessons keywords may match either list (the 同步课 titles are often finer)
             entry.titles = [...(printed?.titles || []), ...(tree?.titles || [])]
         }
@@ -170,9 +183,14 @@ export function checkSubject(subject) {
             if (item.lesson !== undefined) {
                 if (typeof item.lesson !== 'string' || !item.lesson.trim()) err('lesson must be the lesson title')
                 else if (volume?.lessons?.length) {
-                    const index = volume.lessons.findIndex(title => squash(title).includes(squash(item.lesson)) || squash(item.lesson).includes(squash(title)))
-                    if (index < 0) warn(`lesson "${item.lesson}" is not a lesson title in ${volume.edition} ${book.key}`)
-                    else lessonOrder = index
+                    const key = lessonKey(item.lesson)
+                    const exact = volume.lessons.findIndex(title => lessonKey(title) === key)
+                    const index = exact >= 0 ? exact : volume.lessons.findIndex(title => lessonKey(title) && (lessonKey(title).includes(key) || key.includes(lessonKey(title))))
+                    // a one-lesson unit (数学广角, 观察物体) is named by the unit itself
+                    const wholeUnit = (volume.units || []).some(title => lessonKey(title).includes(key))
+                    if (index >= 0) lessonOrder = index
+                    else if (wholeUnit) lessonOrder = -1
+                    else if (volume.lessonsChecked) warn(`lesson "${item.lesson}" is not a lesson title in ${volume.edition} ${book.key}`)
                 }
             }
             if (volume?.units && Array.isArray(item.lessons) && item.lessons.length) {

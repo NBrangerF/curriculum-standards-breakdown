@@ -68,7 +68,9 @@ export default function ChecksAfterPage() {
     const bookKey = useMemo(() => (ready ? pickBook(bank, { book: params.get('book') || '', grade: params.get('grade') || '', term: params.get('term') || '', myBook }) : ''), [ready, bank, params, myBook])
     const book = ready ? bookOfKey(bank, bookKey) : null
     const units = useMemo(() => (ready ? unitsOf(questionsForBook(bank, bookKey)) : []), [ready, bank, bookKey])
-    const unitName = units.some(unit => unit.unit === params.get('unit')) ? params.get('unit') : units[0]?.unit || ''
+    // a saved link may name the unit without its number ("分数的意义和性质" for "4 分数的意义和性质")
+    const asked = (params.get('unit') || '').replace(/\s/gu, '')
+    const unitName = (units.find(unit => unit.unit === params.get('unit')) || (asked && units.find(unit => unit.unit.replace(/\s/gu, '').includes(asked))) || units[0])?.unit || ''
     const unit = units.find(entry => entry.unit === unitName)
     const unitMisconceptions = useMemo(() => [...new Set((unit?.items || []).flatMap(misconceptionsOf))], [unit])
 

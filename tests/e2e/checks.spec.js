@@ -72,10 +72,10 @@ test('批完就用 turns what was seen into tomorrow\'s slides and keeps a recor
     await row.getByRole('button', { name: '一大半' }).click()
     await page.getByRole('button', { name: '生成明天开课 5 分钟' }).click()
     const plan = page.getByRole('region', { name: '明天开课 5 分钟' })
-    await expect(plan).toContainText('异分母分数比较大小')
+    await expect(plan).toContainText('分数的基本性质')
     await expect(plan.getByRole('link', { name: '投影放映' })).toHaveAttribute('href', /with=contrast%2Cladder%2Cfirst/u)
     await expect(page.getByRole('heading', { name: '最近的记录' })).toBeVisible()
-    await expect(page.getByRole('link', { name: '回看：再查一次' })).toHaveAttribute('href', /q=ma-5b-08/u)
+    await expect(page.getByRole('link', { name: '回看：再查一次' })).toHaveAttribute('href', /q=ma-5b-05/u)
 })
 
 test('a math 要点 links to its check questions', async ({ page }) => {
