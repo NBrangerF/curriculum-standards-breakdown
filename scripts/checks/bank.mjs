@@ -3,6 +3,7 @@
 //   node scripts/checks/bank.mjs                                   check, then write public/data/checks/{<subject>.json,index.json}
 //   node scripts/checks/bank.mjs --check                           check only (exit 1 on any error)
 //   node scripts/checks/bank.mjs --check --subject physics,english check some subjects, and list units without questions
+//   node scripts/checks/bank.mjs --check --subject chinese --file data/checks/chinese/4a.json   report one file only
 // A question is a whole-class check for a projector: one stem, a way for 40–60 students to answer at once
 // (fingers 1–4, thumbs up/down, or an answer held up on scrap paper), the misconception behind each wrong answer,
 // the correct working, and a three-step 阶梯练习 for the next day. How to write one: data/checks/README.md.
@@ -25,20 +26,46 @@ const readJson = file => JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8
 const squash = text => String(text).replace(/[\s、，,（）()·—\-－]/gu, '')
 export const widthOf = text => [...String(text)].reduce((sum, char) => sum + (/[\u0000-ɏ -⁯]/u.test(char) ? 0.55 : 1), 0)
 
-function libraryBooks(subject) {
-    // the subject's volumes of the bank's editions in the library: book key → { edition_id, edition, units, titles }
+export function libraryBooks(subject) {
+    // the subject's volumes of the bank's editions in the library: book key → { edition_id, edition, units, titles, lessons }
     const books = new Map()
     for (const book of readJson('public/data/textbooks/index.json').items) {
         if (book.subject_slug !== subject.slug || !(subject.editions || []).includes(book.edition_name)) continue
         const key = `${book.grade}${TERM_OF_VOLUME[book.volume] || ''}`
-        const entry = { edition_id: book.edition_id, edition: book.edition_name, units: null, titles: [] }
+        const entry = { edition_id: book.edition_id, edition: book.edition_name, units: null, titles: [], lessons: [] }
+        let tree = null
         const file = path.join(ROOT, `public/data/textbooks/national-lessons/${book.edition_id}.json`)
         if (fs.existsSync(file)) {
             const lessons = JSON.parse(fs.readFileSync(file, 'utf8'))
-            const walk = nodes => nodes.forEach(node => { entry.titles.push(node.title); walk(node.children || []) })
+            const titles = []
+            const walk = nodes => nodes.forEach(node => { titles.push(node.title); walk(node.children || []) })
             walk(lessons.tree)
-            entry.units = lessons.tree.map(node => node.title).filter(title => title !== '其他')
-            entry.titles.push(...lessons.lessons.map(lesson => lesson.title))
+            titles.push(...lessons.lessons.map(lesson => lesson.title))
+            tree = {
+                units: lessons.tree.map(node => node.title).filter(title => title !== '其他'),
+                lessons: lessons.tree.flatMap(node => (node.children || []).map(child => child.title)),
+                titles
+            }
+        }
+        // a 目录 read from the book's own pages wins: a 同步课 list can belong to an older printing
+        let printed = null
+        const contents = path.join(ROOT, `public/data/textbooks/by-edition/${book.edition_id}.json`)
+        if (fs.existsSync(contents)) {
+            const toc = (JSON.parse(fs.readFileSync(contents, 'utf8')).toc || []).filter(node => node.title && node.review_status !== 'rejected' && node.source !== 'smartedu_sync_lessons')
+            if (toc.length >= 3) printed = {
+                units: toc.filter(node => node.kind === 'unit').map(node => node.title),
+                lessons: toc.filter(node => node.kind !== 'unit').map(node => node.title),
+                titles: toc.map(node => node.title)
+            }
+        }
+        // a 目录 the reader garbled (repeated or bare "Unit 3" titles) loses to the 同步课 list
+        const garbled = list => new Set(list.map(squash)).size < list.length || list.filter(title => /^(Unit\s*\d+\s*)+$/iu.test(title.trim())).length > list.length / 2
+        const source = printed && !(tree && garbled(printed.units)) ? printed : tree
+        if (source) {
+            entry.units = source.units.length ? source.units : null
+            entry.lessons = source.lessons
+            // lessons keywords may match either list (the 同步课 titles are often finer)
+            entry.titles = [...(printed?.titles || []), ...(tree?.titles || [])]
         }
         books.set(key, entry)
     }
@@ -138,6 +165,16 @@ export function checkSubject(subject) {
                     unitOrder = units.indexOf(unit)
                 }
             }
+            // the one 课文/课/节 a question belongs to, named as the book names it
+            let lessonOrder = 999
+            if (item.lesson !== undefined) {
+                if (typeof item.lesson !== 'string' || !item.lesson.trim()) err('lesson must be the lesson title')
+                else if (volume?.lessons?.length) {
+                    const index = volume.lessons.findIndex(title => squash(title).includes(squash(item.lesson)) || squash(item.lesson).includes(squash(title)))
+                    if (index < 0) warn(`lesson "${item.lesson}" is not a lesson title in ${volume.edition} ${book.key}`)
+                    else lessonOrder = index
+                }
+            }
             if (volume?.units && Array.isArray(item.lessons) && item.lessons.length) {
                 const hits = item.lessons.filter(keyword => volume.titles.some(title => squash(title).includes(squash(keyword))))
                 if (!hits.length) warn(`no lesson title in ${volume.edition} ${book.key} contains any of ${item.lessons.join(' / ')}`)
@@ -208,7 +245,7 @@ export function checkSubject(subject) {
             }
 
             const extra = subject.bands ? { grades: book.grades } : {}
-            items.push({ ...item, book: book.key, grade: book.grade, term: book.term, ...extra, edition_id: volume?.edition_id || null, unitOrder })
+            items.push({ ...item, book: book.key, grade: book.grade, term: book.term, ...extra, edition_id: volume?.edition_id || null, unitOrder, lessonOrder })
             count += 1
         }
         if (units) {
@@ -241,9 +278,9 @@ export function checkSubject(subject) {
 }
 
 function publicSubject({ subject, items, books, misconceptions }) {
-    // book by book, units in the book's own order, then by id
+    // book by book, units and lessons in the book's own order, then by id
     const order = item => item.grade * 10 + TERM_ORDER[item.term]
-    const sorted = [...items].sort((a, b) => order(a) - order(b) || a.unitOrder - b.unitOrder || a.id.localeCompare(b.id, 'en', { numeric: true }))
+    const sorted = [...items].sort((a, b) => order(a) - order(b) || a.unitOrder - b.unitOrder || a.lessonOrder - b.lessonOrder || a.id.localeCompare(b.id, 'en', { numeric: true }))
     const editions = [...new Set(books.map(book => book.edition))].join('、')
     return {
         schema: 2,
@@ -254,7 +291,7 @@ function publicSubject({ subject, items, books, misconceptions }) {
         note: `kebiao 编写的课堂诊断题。每个错误选项对应一种常见错法${subject.sums ? '；数值答案经程序验算' : ''}。题目对应课标要点与${subject.bands ? '课标的学段内容' : `${editions}教材单元`}。`,
         books: books.map(({ key, label, short, grade, grades, term, edition, edition_id, count }) => ({ key, label, short, grade, grades, term, edition, edition_id, count })),
         misconceptions: Object.fromEntries([...misconceptions].map(([id, { name, why, move }]) => [id, { name, why, move }])),
-        items: sorted.map(({ verify, unitOrder, ...item }) => ({ ...item, verified: (verify || []).length }))
+        items: sorted.map(({ verify, unitOrder, lessonOrder, ...item }) => ({ ...item, verified: (verify || []).length }))
     }
 }
 
@@ -266,16 +303,23 @@ function main() {
     for (const slug of only) if (!CHECK_SUBJECTS.some(subject => subject.slug === slug)) { console.error(`unknown subject ${slug}`); process.exit(1) }
     const subjects = CHECK_SUBJECTS.filter(subject => !only.length || only.includes(subject.slug))
     const results = subjects.map(checkSubject).filter(result => result.files.length || only.length)
+    // --file: report one file (and the subject-wide notes), e.g. while others are still editing theirs
+    const fileFlag = args.indexOf('--file')
+    const onlyFile = fileFlag >= 0 ? path.relative(ROOT, path.resolve(args[fileFlag + 1] || '')) : null
+    const mine = message => !onlyFile || message.startsWith(onlyFile) || !message.startsWith('data/checks/')
     let failed = false
     for (const result of results) {
+        result.errors = result.errors.filter(mine)
+        result.warnings = result.warnings.filter(mine)
         for (const warning of result.warnings) console.warn(`warn  ${warning}`)
         for (const error of result.errors) console.error(`error ${error}`)
-        if (only.length) for (const note of result.notes) console.log(`note  ${note}`)
+        if (only.length) for (const note of result.notes.filter(mine)) console.log(`note  ${note}`)
         console.log(`${result.subject.name}: ${result.items.length} questions, ${result.misconceptions.size} misconceptions in ${result.files.length} files; ${result.errors.length} errors, ${result.warnings.length} warnings`)
         if (result.errors.length) failed = true
     }
     if (failed) process.exit(1)
     if (checkOnly) return
+    if (onlyFile) { console.error('build all files at once: drop --file'); process.exit(1) }
     if (only.length) { console.error('build all subjects at once: drop --subject'); process.exit(1) }
     const out = path.join(ROOT, 'public/data/checks')
     fs.mkdirSync(out, { recursive: true })

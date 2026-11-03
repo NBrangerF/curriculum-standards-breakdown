@@ -19,6 +19,7 @@ export default function QuestionCard({ item, misconceptions, selected, onToggle,
         <article className={`${styles.card} ${selected ? styles.selected : ''}`} aria-labelledby={`q-${item.id}`}>
             <header className={styles.head}>
                 <span className={styles.type}>{TYPE_META[item.type].short}</span>
+                {item.lesson ? <span className={styles.lesson}>{item.lesson}</span> : null}
                 <Heading id={`q-${item.id}`} className={styles.topic}>{item.topic}</Heading>
             </header>
             <div className={styles.slip}>
