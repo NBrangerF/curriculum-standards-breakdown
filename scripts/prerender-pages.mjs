@@ -204,9 +204,9 @@ function standardPage({ standard, subject }) {
     const siblings = subject.standards
         .filter(other => other.code !== standard.code && other.stage_code === standard.stage_code && other.level1 === standard.level1)
         .slice(0, 12).map(other => `${link(`/standards/${other.code}`, other.level2)} <span class="kbp-code">${esc(other.code)}</span>`)
-    const statementNote = standard.statement_source === 'official'
+    const statementNote = (standard.name_source === 'kebiao' ? '标准名为 kebiao 整理 · ' : '') + (standard.statement_source === 'official'
         ? ['标准句为课标原文', standard.statement_section, pagesNote(standard.statement_pages)].filter(Boolean).join(' · ')
-        : '标准句为 kebiao 整理，用课标原词概括本单元；原文见下列要点。'
+        : '标准句为 kebiao 整理，用课标原词概括本单元；原文见下列要点。')
     const main = `${crumbNav(crumbs)}
 <p class="kbp-kicker">${esc([subject.subject, stage, standard.level1, standard.theme].filter(Boolean).join(' · '))}</p>
 <h1>${esc(standard.level2)}</h1>
@@ -214,6 +214,7 @@ function standardPage({ standard, subject }) {
 <blockquote>${esc(standard.statement)}</blockquote>
 <p class="kbp-note">${esc(statementNote)}</p>
 ${section(`要点（${standard.indicators.length} 条，课标原文）`, `<ol>${indicators}</ol>`)}
+${section('学习任务群说明', official(standard.intro || []))}
 ${section('学业要求', official(standard.requirements))}
 ${section('教学提示', official(standard.guidance))}
 ${standard.examples.length ? section('表现示例（kebiao 整理）', list(standard.examples.map(example => esc(example.text)))) : ''}

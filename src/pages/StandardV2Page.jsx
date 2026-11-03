@@ -343,6 +343,7 @@ export default function StandardV2Page() {
                     <h1 className={styles.title}>{standard.level2}</h1>
                     <p className={styles.statement}>{standard.statement}</p>
                     <p className={styles.statementSource}>
+                        {standard.name_source === 'kebiao' ? '标准名为 kebiao 整理 · ' : ''}
                         {official
                             ? ['标准句为课标原文', standard.statement_section, pagesLabel(standard.statement_pages)].filter(Boolean).join(' · ')
                             : '标准句为 kebiao 整理：用课标原词概括本单元，原文见下列要点'}
@@ -385,6 +386,7 @@ export default function StandardV2Page() {
                     </ol>
                 </section>
 
+                <OfficialList title="学习任务群说明" items={standard.intro} id="standard-intro" />
                 <OfficialList title="学业要求" items={standard.requirements} id="standard-requirements" />
                 <OfficialList title="教学提示" items={standard.guidance} id="standard-guidance" />
 

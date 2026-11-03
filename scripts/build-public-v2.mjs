@@ -83,6 +83,7 @@ function publicStandard(s, oldCodes) {
         level1: s.level1,
         ...(s.theme ? { theme: s.theme } : {}),
         level2: s.level2,
+        ...(s.name_source ? { name_source: s.name_source } : {}),
         title: s.title,
         statement: s.statement,
         statement_source: s.statement_source,
@@ -102,6 +103,7 @@ function publicStandard(s, oldCodes) {
             legacy_codes: i.legacy_codes,
             examples: i.examples.map(example)
         })),
+        ...(s.intro ? { intro: s.intro.map(officialItem) } : {}),
         requirements: (s.requirements || []).map(officialItem),
         guidance: (s.guidance || []).map(officialItem),
         examples: s.examples.map(example),

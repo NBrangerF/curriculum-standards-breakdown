@@ -29,6 +29,9 @@ const unitName = t => String(t || '').replace(/^(?:学习)?任务群\s*\d+[：:]
 const stageOf = r => (r.grade_band || '').startsWith('H4') ? '7-9' : r.grade_range
 const standards = units.standards.map(s => ({ ...s, examples: [], indicators: s.indicators.map(i => ({ ...i, legacy_codes: [], examples: [] })) }))
 const findStandard = (stage, unit) => standards.find(s => s.stage === stage && s.level2 === unit)
+// The sentence old records are matched against: 语文's task groups carry a kebiao statement and keep their official
+// introduction in intro, which is what the old records were matched to before.
+const matchText = s => s.intro?.length ? s.intro.map(q => q.text).join('') : s.statement
 // Old records use 1-2 / 3-4 / 5-6 and H4G7–9; a subject with other official stages (艺术 3-5, 6-7, 8-9) maps
 // them by grade, so an old 5-6 record may land in 3-5 or 6-7.
 const candidateStages = r => {
@@ -61,7 +64,7 @@ for (const r of legacy) {
         const quotes0 = [...String(v.reason).matchAll(/「([^」]{3,})」/gu)].map(m => m[1])
         let top = null
         for (const cand of standards.filter(x => stages.includes(x.stage))) {
-            const pieces = [cand.statement, ...cand.indicators.map(i => i.text + (i.official_examples || '')), ...(cand.requirements || []).map(q => q.text)]
+            const pieces = [matchText(cand), ...cand.indicators.map(i => i.text + (i.official_examples || '')), ...(cand.requirements || []).map(q => q.text)]
             const quoted = quotes0.length ? Math.max(0, ...pieces.flatMap(t => quotes0.map(q => recall(grams(q), grams(t))))) : 0
             const clauseScore = Math.max(0, ...pieces.flatMap(t => t.split(/[，、；：。]/u).filter(c => c.length >= 3).map(c => recall(grams(c), og))))
             const score = Math.max(quoted >= 0.8 ? 1 + quoted : 0, recall(og, grams(pieces.join(''))), clauseScore * 0.9)
@@ -89,7 +92,7 @@ for (const r of legacy) {
         const score = quoted >= 0.8 ? 1 + quoted : Math.max(recall(ig, g), recall(g, ig), clauseScore * 0.9)
         if (!best || score > best.score) best = { ind, score }
     }
-    const statementScore = Math.max(recall(grams(std.statement), g), recall(g, grams(std.statement)))
+    const statementScore = Math.max(recall(grams(matchText(std)), g), recall(g, grams(matchText(std))))
     // An old record whose clauses land on different indicators summarises the whole unit: link it to the standard.
     const landing = new Set(String(r.standard).split(/[；。]/u).filter(c => c.length >= 6).map(c => {
         const cg = grams(c)
@@ -101,7 +104,7 @@ for (const r of legacy) {
     const home = !spans && best && best.score >= Math.max(0.35, statementScore) ? best.ind : null
     // The user's wording becomes a 表现示例 when it adds something to the official text; an old record that only
     // restates official clauses (e.g. a junior clause filed under the wrong grade) just joins the indicator.
-    const official = grams([std.statement, ...std.indicators.map(i => i.text + (i.official_examples || '')), ...(std.requirements || []).map(q => q.text)].join(''))
+    const official = grams([matchText(std), ...std.indicators.map(i => i.text + (i.official_examples || '')), ...(std.requirements || []).map(q => q.text)].join(''))
     // A restage inside one v2 stage (junior records filed under the wrong grade) only moves the grade, which now
     // lives on the indicator, so it counts as keep.
     const movedStage = v.verdict === 'restage' && stage !== stageOf(r) || Boolean(target)

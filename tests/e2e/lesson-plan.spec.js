@@ -243,8 +243,9 @@ test('概念词典: a word is found by any of its names; a term page lists the o
     await expect(practice.getByRole('heading', { name: /识字与写字/ })).toContainText('语文实践')
     await expect(practice.getByText('学习任务群', { exact: true })).toBeVisible()
     await expect(practice.getByRole('link', { name: '1–2 年级' }).first()).toHaveAttribute('href', '/standards/CN-S1-TG-01')
-    // 学段要求: several standards a stage, numbered as the 课标 numbers them
-    await expect(practice.getByRole('link', { name: '识字与写字 · 学段要求 4（1–2 年级）' })).toHaveAttribute('href', '/standards/CN-S1-LW-04')
+    // 学段要求: each item is a row under its own (kebiao) name
+    await expect(practice.getByText('学段要求', { exact: true })).toBeVisible()
+    await expect(practice.getByRole('listitem').filter({ hasText: '独立识字与查字典' }).getByRole('link', { name: '1–2 年级' })).toHaveAttribute('href', '/standards/CN-S1-LW-04')
 })
 
 test('the AI reads the grade\'s standards for a lesson; the teacher hint reruns only that step', async ({ page }) => {
@@ -385,6 +386,18 @@ test('a standard page lists, under each 要点, the lessons that teach it', asyn
     // a wrong one can be reported with the standard filled in
     await section.getByRole('link', { name: '告诉我们' }).click()
     await expect(page.getByLabel(/关联条目代码/)).toHaveValue('HI-S4-MC-02')
+})
+
+test('语文: a 学段要求 standard is named for its content, and a task group keeps its official introduction', async ({ page }) => {
+    await page.goto('/standards/CN-S1-LW-02')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('汉语拼音')
+    await expect(page.getByText('标准名为 kebiao 整理 · 标准句为课标原文 · 学段要求 · 识字与写字 · 第 2 条')).toBeVisible()
+    await page.goto('/standards/CN-S2-TG-05')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('整本书阅读')
+    await expect(page.getByText(/^标准句为 kebiao 整理/)).toBeVisible()
+    const intro = page.locator('#standard-intro')
+    await expect(intro.getByRole('heading', { name: '学习任务群说明' })).toBeVisible()
+    await expect(intro.getByText(/^本学习任务群旨在/)).toBeVisible()
 })
 
 test('a standard page copies its 要点 as a prompt for the teacher\'s own AI', async ({ page }) => {

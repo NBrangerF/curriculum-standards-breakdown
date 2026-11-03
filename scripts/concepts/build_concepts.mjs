@@ -11,7 +11,9 @@ const MENTION_LIMIT = 8
 // Words too common to show where they appear (情境 and 核心素养 appear in most standards).
 const NO_MENTIONS = new Set(['core-literacy', 'real-context', 'content-academic-guidance', 'kebiao-structure', 'learning-objective', 'backward-design', 'structured-content'])
 
+// 语文's task-group introduction (official) leads, so an excerpt never starts inside the kebiao statement.
 const textOf = standard => [
+    ...(standard.intro || []).map(item => item.text),
     standard.statement,
     ...(standard.indicators || []).map(item => item.text),
     ...(standard.requirements || []).map(item => item.text || item),
