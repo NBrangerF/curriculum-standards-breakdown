@@ -57,6 +57,7 @@ export function v2TextbookItem(code: string, link: V2TextbookLink) {
     }
 }
 
+export type LessonGoals = { take: string, later: string, items: Array<[string, string[], string, string]> }
 export type V2Store = ReturnType<typeof createV2Store>
 
 export function createV2Store(dataRoot: string) {
@@ -69,6 +70,7 @@ export function createV2Store(dataRoot: string) {
     let chapters: Promise<V2TextbookChapters | null> | null = null
     let lessonAlignment: Promise<LessonAlignment | null> | null = null
     const subjects = new Map<string, Promise<V2Subject | null>>()
+    const bookLessons = new Map<string, Promise<{ lessons?: Array<{ id: string, goals?: LessonGoals }> } | null>>()
     const store = {
         async manifest() {
             manifest ??= read<V2Manifest>('manifest.json')
@@ -103,6 +105,12 @@ export function createV2Store(dataRoot: string) {
         async lessonAlignment() {
             lessonAlignment ??= read<LessonAlignment>('lesson_alignment.json')
             return (await lessonAlignment) || { note: '', lessons: [] }
+        },
+        // 课堂学习目标 written for one 国家平台 lesson, kept in that book's lesson file
+        async lessonGoals(edition: string, lessonId: string) {
+            if (!/^ed_[0-9a-f]+$/u.test(edition)) return null
+            if (!bookLessons.has(edition)) bookLessons.set(edition, read(`../textbooks/national-lessons/${edition}.json`))
+            return (await bookLessons.get(edition))?.lessons?.find(item => item.id === lessonId)?.goals || null
         }
     }
     return store

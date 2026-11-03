@@ -586,3 +586,45 @@ button.badge:focus-visible {
     text-decoration: underline;
     text-underline-offset: 3px;
 }
+
+/* 到课堂: the 课标 → lesson → 学习目标 layer, set apart from the reference blocks around it */
+.classroomBand {
+    padding: 1.1rem 1.2rem 1rem;
+    border: 1px solid rgba(233, 200, 135, 0.3);
+    border-radius: var(--radius-lg, 16px);
+    background: linear-gradient(180deg, rgba(233, 200, 135, 0.07), transparent 70%);
+}
+
+.bandLede {
+    margin: 0.2rem 0 0.6rem;
+    color: var(--kb-mist);
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+.lessonPath {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.2rem 0.45rem;
+    margin: 0;
+}
+
+.lessonPath strong {
+    color: var(--kb-moon);
+}
+
+.lessonPath > span {
+    color: var(--kb-mist);
+}
+
+.lessonOpen {
+    padding-bottom: 0.4rem;
+}
+
+.moreLessons summary {
+    margin-top: 0.4rem;
+    color: var(--kb-mist);
+    font-size: 0.88rem;
+    cursor: pointer;
+}

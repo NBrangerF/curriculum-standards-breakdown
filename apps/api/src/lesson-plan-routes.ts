@@ -25,7 +25,7 @@ type Deps = {
 }
 
 type AlignRow = [string, 'T' | 'P', string, string, number | null]
-type NationalLesson = { id: string, title: string, chapters: string[], pdf_page: number | null, unit_id: string | null, materials: string[], hours: number, ai_points?: string[], align?: AlignRow[] }
+type NationalLesson = { id: string, title: string, chapters: string[], pdf_page: number | null, unit_id: string | null, materials: string[], hours: number, ai_points?: string[], align?: AlignRow[], goals?: { take: string, later: string, items: Array<[string, string[], string, string]> } }
 type NationalFile = { edition_id: string, platform_title: string, confidence: string, lessons: NationalLesson[] }
 // a lesson the picker offers: a 国家平台 lesson, or (toc) an entry of the book's own 目录 that the platform list lacks
 type BookLesson = NationalLesson & { toc?: true }
@@ -450,6 +450,8 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             // this lesson's 要点, each with the words from its own material that show it: the page ticks the
             // 主要在教 ones straight away instead of asking the AI again
             lesson_align: chosen && Array.isArray(chosen.align) ? chosen.align.filter(row => standards.some(standard => standard.indicators.some(item => item.code === row[0]))) : null,
+            // 课堂学习目标 written for this lesson ahead of time (data/v2/lesson_objectives): the page shows them first
+            lesson_goals: chosen?.goals || null,
             subject_note: subjectSlug ? await subjectNote(subjectSlug) : null,
             national_lessons: nationalLessons,
             national_confidence: national?.platform?.confidence || null,
@@ -523,6 +525,13 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         return [...new Set(quotes)].slice(0, 6)
     }
 
+    // 课堂学习目标 kebiao wrote for this lesson ahead of time, which the frame starts from
+    async function lessonGoals(editionId: string | undefined, lessonId: string | undefined, title: string) {
+        const national = editionId ? await nationalFile(editionId) : null
+        const lesson = national ? findLesson(national, lessonId, title) : null
+        return lesson?.goals?.items?.length ? lesson.goals.items.map(([text, basis, from]) => ({ text, basis, from })) : []
+    }
+
     // the lesson's unit in textbook order, this lesson marked, so the plan leaves the later lessons' content to them;
     // a long unit is cut to the lessons around this one
     async function unitSequence(editionId: string | undefined, lessonId: string | undefined, title: string) {
@@ -572,6 +581,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             lessonType: body.lesson_type,
             links: await pointLinks(indicators.slice(0, 12).map(item => item.code), body.lesson.subject_slug, body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title),
             lessonQuotes: await lessonQuotes(body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title),
+            presetGoals: await lessonGoals(body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title),
             unitLessons: await unitSequence(body.lesson.edition_id, body.lesson.lesson_id, body.lesson.title)
         }
         const privacy = { redacted: classNotes.redacted || teacherNotes.redacted, redaction_count: classNotes.redaction_count + teacherNotes.redaction_count }

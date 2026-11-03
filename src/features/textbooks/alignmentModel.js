@@ -57,6 +57,7 @@ export function alignmentUnits(record) {
         else if (title.length < row.title.length) row.title = title
         if (!row.pdf_page && lesson.pdf_page) row.pdf_page = lesson.pdf_page
         if (Array.isArray(lesson.align)) row.judged = true
+        if (!row.goals && lesson.goals) row.goals = lesson.goals
         for (const item of lesson.align || []) {
             const same = row.rows.find(existing => existing[0] === item[0])
             if (!same) row.rows.push(item)

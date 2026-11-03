@@ -101,6 +101,8 @@ export type DraftInput = {
     links?: PointLinks[]
     // this lesson's own words from the textbook (教材与课标对应 quotes), for 课标解读 and the plan
     lessonQuotes?: string[]
+    // 课堂学习目标 written ahead for this lesson (课标要点 × 教材 × 一般学情); the frame starts from them
+    presetGoals?: Array<{ text: string, basis: string[], from: string }>
     // the unit's lessons in textbook order, this one marked: what the later lessons teach stays out of this one
     unitLessons?: Array<{ title: string, current?: boolean }>
 }
@@ -360,6 +362,8 @@ function bookBlock(input: DraftInput) {
     }
     const lines = out.length ? ['教材里在哪教（本册里教这些要点的课）：', ...out] : []
     if (input.lessonQuotes?.length) lines.push(`本课教材原话：${input.lessonQuotes.map(quote => `「${quote}」`).join(' ')}`)
+    const goals = (input.presetGoals || []).filter(goal => goal.basis.some(code => input.indicators.some(item => item.code === code)))
+    if (goals.length) lines.push(['kebiao 已为这一课写好的课堂学习目标（依据课标要点、本课教材和一般学情；写 objectives 时以它们为起点，按老师的班情和想法调整，保留依据编码）：', ...goals.map((goal, index) => `${index + 1}. ${goal.text}（依据 ${goal.basis.join('、')}：「${goal.from}」）`)].join('\n'))
     return lines.join('\n')
 }
 

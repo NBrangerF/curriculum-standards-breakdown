@@ -14,6 +14,7 @@ import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
 import { sourceLabel } from '../features/textbooks/alignmentModel'
+import LessonGoals from '../features/textbooks/LessonGoals'
 import { loadBank, presentHref, questionsForLesson } from '../features/checks/checksData.js'
 import { subjectBySlug } from '../features/checks/subjects.js'
 import { subjectOfCode } from '../data/v2Data.js'
@@ -544,6 +545,12 @@ export default function LessonPlanPage() {
                         <SyncLessons context={context} />
                         <LessonChecks context={context} selected={selected} />
                     </div>
+                    {!isUnit && context.lesson_goals ? (
+                        <>
+                            <LessonGoals goals={context.lesson_goals} />
+                            <p className={styles.small}>写教案时，AI 会以这几条目标为起点，按你勾选的要点和班级情况再调整。</p>
+                        </>
+                    ) : null}
 
                     <p className={styles.aiStatus} aria-live="polite">
                         {ai.status === 'loading' ? 'AI 正在把这个年级的课标逐条读一遍，找这一课要教的要点（约 10–20 秒）…'

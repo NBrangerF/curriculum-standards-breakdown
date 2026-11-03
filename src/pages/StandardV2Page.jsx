@@ -12,6 +12,7 @@ import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources
 import { v2StandardMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { RELATION_LABELS, sourceLabel } from '../features/textbooks/alignmentModel'
+import LessonGoals from '../features/textbooks/LessonGoals'
 import styles from './StandardV2Page.module.css'
 
 const pagesLabel = pages => (pages?.length ? `课标第 ${pages.join('、')} 页` : '')
@@ -130,6 +131,7 @@ function NationalLessons({ code, indicators = [] }) {
     }, [code])
     const lessons = data?.standards?.[code] || []
     const units = data?.units?.[code] || []
+    const goals = data?.goals || {}
     // 教材与课标对应, lesson by lesson: under each 要点, the lessons that teach it, with the textbook's own words
     const byPoint = indicators.map(item => ({ item, rows: data?.points?.[item.code] || [] })).filter(entry => entry.rows.length)
     if (!lessons.length && !byPoint.length) return null
@@ -137,21 +139,40 @@ function NationalLessons({ code, indicators = [] }) {
     return (
         <>
         {byPoint.length ? (
-            <section className={styles.block} id="standard-textbook-units">
-                <h2>教材里在哪教</h2>
-                {byPoint.map(({ item, rows }) => (
-                    <div key={item.code} className={styles.pointLessons}>
-                        <h3><a href={`#${item.code}`}>{item.code}</a> {item.text.length > 46 ? `${item.text.slice(0, 46)}…` : item.text}</h3>
-                        <ul className={styles.resourceList}>
-                            {rows.map(([edition, textbook, unit, lessonId, lessonTitle, relation, quote, source, page]) => (
-                                <li key={`${edition}-${lessonId}`}>
-                                    <Link to={`/textbooks/${edition}/standards`}>{textbook} · {unit.replace(/\s+/gu, ' ')}{lessonTitle && lessonTitle !== unit ? ` · ${lessonTitle}` : ''}</Link>
-                                    <span>{RELATION_LABELS[relation]} · “{quote}”（{sourceLabel(source, page)}）</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
+            <section className={`${styles.block} ${styles.classroomBand}`} id="standard-textbook-units">
+                <h2>到课堂：教材里在哪教，这一课学到什么</h2>
+                <p className={styles.bandLede}>每条要点落到教材的哪一单元、哪一课，以及那一课据此写出的课堂学习目标。目标按「课标要点 × 这一课教材 × 一般学情」起草，每条都标出课标原词。</p>
+                {byPoint.map(({ item, rows }) => {
+                    // lessons with objectives on this 要点 first; three open, the rest folded
+                    const withGoals = rows.filter(row => goals[row[3]]?.items?.some(goal => goal[1].includes(item.code)))
+                    const others = rows.filter(row => !withGoals.includes(row))
+                    const shown = withGoals.slice(0, 3)
+                    const folded = [...withGoals.slice(3), ...others]
+                    const lessonRow = ([edition, textbook, unit, lessonId, lessonTitle, relation, quote, source, page, unitId], open) => (
+                        <li key={`${edition}-${lessonId}`} className={open ? styles.lessonOpen : ''}>
+                            <p className={styles.lessonPath}>
+                                <Link to={`/textbooks/${edition}/standards#lesson-${lessonId}`}>{textbook}</Link>
+                                <span aria-hidden="true">›</span>
+                                {unitId ? <Link to={`/textbook-units/${unitId}`}>{unit.replace(/\s+/gu, ' ')}</Link> : <span>{unit.replace(/\s+/gu, ' ')}</span>}
+                                {lessonTitle && lessonTitle !== unit ? <><span aria-hidden="true">›</span><strong>{lessonTitle}</strong></> : null}
+                            </p>
+                            <span>{RELATION_LABELS[relation]} · “{quote}”（{sourceLabel(source, page)}）</span>
+                            {open ? <LessonGoals goals={goals[lessonId]} focus={item.code} compact lessonHref={edition.startsWith('pf_') ? null : `/lesson-plan?subject=${encodeURIComponent((textbook.match(/^[^\d（(]+/u) || [''])[0])}&edition=${edition}&lesson=${encodeURIComponent(lessonId)}`} /> : null}
+                        </li>
+                    )
+                    return (
+                        <div key={item.code} className={styles.pointLessons}>
+                            <h3><a href={`#${item.code}`}>{item.code}</a> {item.text.length > 46 ? `${item.text.slice(0, 46)}…` : item.text}</h3>
+                            <ul className={styles.resourceList}>{(shown.length ? shown : others.slice(0, 3)).map(row => lessonRow(row, shown.length > 0))}</ul>
+                            {(shown.length ? folded : others.slice(3)).length ? (
+                                <details className={styles.moreLessons}>
+                                    <summary>还有 {(shown.length ? folded : others.slice(3)).length} 课也教这条</summary>
+                                    <ul className={styles.resourceList}>{(shown.length ? folded : others.slice(3)).map(row => lessonRow(row, false))}</ul>
+                                </details>
+                            ) : null}
+                        </div>
+                    )
+                })}
                 <p className={styles.blockNote}>AI 逐课读了教材原文（或国家平台教学设计里的教学目标），对照本年级全部要点判断的；引号里是这一课材料的原话，点开是这本书的课标对应表。都待核验，哪一条对不上，<Link to={`/feedback?code=${code}&title=${encodeURIComponent('「教材里在哪教」有误')}&message=${encodeURIComponent(`标准 ${code}：\n哪一课、哪一条不对，应该是：`)}`}>告诉我们</Link>。</p>
             </section>
         ) : units.length ? (

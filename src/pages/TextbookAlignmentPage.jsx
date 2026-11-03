@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import { PageLoading, ErrorState } from '../components/StateComponents'
 import { loadTextbookDetail } from '../features/textbooks/textbookApi'
 import { RELATION_LABELS, alignmentUnits, bookCoverage, pointIndex, reviewSheet, sourceLabel, v2Slug } from '../features/textbooks/alignmentModel'
+import LessonGoals from '../features/textbooks/LessonGoals'
 import { trackUmamiEvent } from '../observability/umamiTelemetry.js'
 import { textbookAlignmentMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
@@ -164,13 +165,14 @@ export default function TextbookAlignmentPage() {
                             const taught = lesson.rows.filter(row => row[1] === 'T')
                             const touched = lesson.rows.filter(row => row[1] === 'P')
                             return (
-                                <li key={lesson.id} className={styles.lesson}>
+                                <li key={lesson.id} id={`lesson-${lesson.id}`} className={styles.lesson}>
                                     <div className={styles.lessonHead}>
                                         <strong>{lesson.title}</strong>
                                         {lesson.pdf_page ? <Link to={`/textbooks/${book.edition_id}/read?page=${lesson.pdf_page}`}>看原书</Link> : null}
                                         {unit.chapter && !book.platform_only ? <Link to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&lesson=${lesson.id}`}>备这一课</Link> : null}
                                         {lesson.judged ? <Link className={styles.report} to={`/feedback?${taught[0] ? `code=${taught[0][0]}&` : ''}title=${encodeURIComponent('教材课标对应有误')}&message=${encodeURIComponent(`${book.title}（${book.edition_name}）· ${unit.name} · ${lesson.title}\n主要在教：${taught.map(row => row[0]).join('、') || '无'}\n也涉及：${touched.map(row => row[0]).join('、') || '无'}\n\n哪一条不对，应该是：`)}`}>报错</Link> : null}
                                     </div>
+                                    <LessonGoals goals={lesson.goals} compact lessonHref={unit.chapter && !book.platform_only ? `/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}&lesson=${lesson.id}` : null} />
                                     {taught.length ? <ul className={styles.points}>{taught.map(row => <Evidence key={row[0]} book={book} row={row} points={points} />)}</ul> : null}
                                     {touched.length ? (
                                         <details className={styles.touched}>

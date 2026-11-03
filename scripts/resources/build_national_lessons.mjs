@@ -10,6 +10,17 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const SOURCE = path.join(ROOT, 'data/textbooks/smartedu')
 const OUT = path.join(ROOT, 'public/data/textbooks/national-lessons')
 export const LESSON_URL = id => `https://basic.smartedu.cn/syncClassroom/classActivity?activityId=${id}`
+// 课堂学习目标 written by scripts/v2/write_lesson_objectives.mjs, one file per edition
+const goalsCache = new Map()
+function goalsFor(edition) {
+    if (!goalsCache.has(edition)) {
+        const file = path.join(ROOT, 'data/v2/lesson_objectives', `${edition}.json`)
+        const lessons = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')).lessons || {} : {}
+        goalsCache.set(edition, Object.fromEntries(Object.entries(lessons).map(([id, item]) => [id, { take: item.take, later: item.later, items: item.objectives }])))
+    }
+    return goalsCache.get(edition)
+}
+
 const MATERIALS = ['视频课程', '课件', '教学设计', '学习任务单', '课后练习', '基础性作业', '拓展性作业']
 // a 课题 that names no content (「练习一」「试一试」「整理与复习（二）」) is no evidence by itself: a match whose only
 // quote is such a 课题 is left out
@@ -156,6 +167,7 @@ export function buildNationalLessons() {
             if (lessonAlign[record.edition_id]?.lessons[lesson.id]) return [lesson.id, firstFour(taught)]
             return [lesson.id, firstFour((unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([code, grade, point]) => grade === 2 && point && inScope(record.textbook_title, code)).map(([, , point]) => point))]
         }))
+        const goalsOf = goalsFor(record.edition_id)
         const lessons = sorted.map(lesson => ({
             id: lesson.id,
             title: lesson.title,
@@ -167,7 +179,9 @@ export function buildNationalLessons() {
             ...(aiOf.get(lesson.id)?.length ? { ai_points: aiOf.get(lesson.id) } : {}),
             // [要点, 'T' 主要在教 | 'P' 也涉及, quote, 'book' | 'design' | 'summary' | 'title', PDF page]
             // present (perhaps empty) once the lesson was judged, so the page can tell 「没找到」 from 「还没判断」
-            ...(lessonAlign[record.edition_id]?.lessons[lesson.id] ? { align: alignOf(lesson.id) } : {})
+            ...(lessonAlign[record.edition_id]?.lessons[lesson.id] ? { align: alignOf(lesson.id) } : {}),
+            // 课堂学习目标: { take, later, items: [[目标, 依据要点, 课标原词, 怎样算做到]] } (data/v2/lesson_objectives)
+            ...(goalsOf[lesson.id] ? { goals: goalsOf[lesson.id] } : {})
         }))
         if (lessonAlign[record.edition_id]) bookPoints.set(record.edition_id, { T: new Set(), P: new Set() })
         const listed = new Map()
@@ -336,7 +350,12 @@ export function buildNationalLessons() {
     rmSync(subjectOut, { recursive: true, force: true })
     mkdirSync(subjectOut, { recursive: true })
     for (const [prefix, standards] of Object.entries(bySubject)) {
-        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards, unit_fields: ['edition_id', 'textbook_title', 'unit', 'unit_id', 'via_ai'], units: unitsBySubject[prefix] || {}, point_fields: ['edition_id', 'textbook_title', 'unit', 'lesson_id', 'lesson_title', 'relation', 'quote', 'source', 'pdf_page', 'unit_id'], points: pointsBySubject[prefix] || {} })}\n`)
+        const listedGoals = {}
+        for (const rows of Object.values(pointsBySubject[prefix] || {})) for (const row of rows) {
+            const goals = goalsFor(row[0])[row[3]]
+            if (goals) listedGoals[row[3]] = goals
+        }
+        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards, unit_fields: ['edition_id', 'textbook_title', 'unit', 'unit_id', 'via_ai'], units: unitsBySubject[prefix] || {}, point_fields: ['edition_id', 'textbook_title', 'unit', 'lesson_id', 'lesson_title', 'relation', 'quote', 'source', 'pdf_page', 'unit_id'], points: pointsBySubject[prefix] || {}, goal_fields: ['text', 'basis', 'from', 'show'], goals: listedGoals })}\n`)
     }
     const coverage = buildCoverage(bookPoints)
     return { editions: Object.keys(index.editions).length, lessons: lessonTotal, standards: byStandard.size, coverage }

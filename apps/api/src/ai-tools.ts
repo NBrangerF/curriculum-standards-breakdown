@@ -304,7 +304,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
     {
         name: 'find_textbook_chapter',
         title: '从教材章节找课标',
-        description: '按教材单元、章节或课的标题（如「分数的基本性质」「七七事变与全民族抗战」）找到它，再给出它对应的课标要点：先列 AI 逐课读了教材原文判断的（附教材原话和页码），再列机器按目录对齐的。可按学科、年级筛选。适合「下周教这一课，对应哪条课标」。Find a textbook lesson or chapter and its standards.',
+        description: '按教材单元、章节或课的标题（如「分数的基本性质」「七七事变与全民族抗战」）找到它，再给出它对应的课标要点：先列 AI 逐课读了教材原文判断的（附教材原话、页码和这一课的课堂学习目标，每条目标注明依据的要点原词），再列机器按目录对齐的。可按学科、年级筛选。适合「下周教这一课，对应哪条课标」。Find a textbook lesson or chapter and its standards.',
         inputSchema: {
             type: 'object',
             properties: {
@@ -359,11 +359,15 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
                 results.push({ textbook, chapter: title, printed_page: printedPage, url: unitId ? `${SITE}/textbook-units/${unitId}` : `${SITE}/textbooks/${edition}`, standards, via })
             }
             const note = { aligned: '按教材页码对齐', title_search: '这一章没有页码对齐，按章节标题检索，仅供参考', none: '暂无对应课标' } as Record<string, string>
-            const lessons = lessonHits.map(([edition, textbook, unit, title, , pdfPage, matches]) => ({
-                textbook, unit, lesson: title, pdf_page: pdfPage, url: `${SITE}/textbooks/${edition}/standards`,
-                points: matches.map(([point, relation, quote, source, page]) => ({ point, relation: relation === 'T' ? '主要在教' : '也涉及', quote, where: SOURCE_LABEL(source, page), url: standardUrl(point.replace(/\.\d+$/u, ''), point) }))
+            const lessons = await Promise.all(lessonHits.map(async ([edition, textbook, unit, title, lessonId, pdfPage, matches]) => {
+                const goals = await ctx.v2.lessonGoals(edition, lessonId)
+                return {
+                    textbook, unit, lesson: title, pdf_page: pdfPage, url: `${SITE}/textbooks/${edition}/standards#lesson-${lessonId}`,
+                    points: matches.map(([point, relation, quote, source, page]) => ({ point, relation: relation === 'T' ? '主要在教' : '也涉及', quote, where: SOURCE_LABEL(source, page), url: standardUrl(point.replace(/\.\d+$/u, ''), point) })),
+                    objectives: (goals?.items || []).map(([text, basis, from, show]) => ({ text, basis, from, show }))
+                }
             }))
-            const lessonText = lessons.map(item => `- ${item.textbook} · ${item.unit}${item.lesson !== item.unit ? ` · ${item.lesson}` : ''} ${item.url}\n${item.points.map(point => `  ${point.relation} ${point.point}：教材里写着“${point.quote}”（${point.where}）`).join('\n') || '  没找到这一课主要在教的要点'}`)
+            const lessonText = lessons.map(item => `- ${item.textbook} · ${item.unit}${item.lesson !== item.unit ? ` · ${item.lesson}` : ''} ${item.url}\n${item.points.map(point => `  ${point.relation} ${point.point}：教材里写着“${point.quote}”（${point.where}）`).join('\n') || '  没找到这一课主要在教的要点'}${item.objectives.length ? `\n  课堂学习目标（AI 依据要点原文起草，待核验）：\n${item.objectives.map((goal, index) => `   ${index + 1}. ${goal.text}（依据 ${goal.basis.join('、')}「${goal.from}」）`).join('\n')}` : ''}`)
             const chapterText = results.map(r => `- ${r.textbook} · ${r.chapter}${r.printed_page ? `（第 ${r.printed_page} 页）` : ''} ${r.url}\n  ${r.standards.length ? `${r.standards.map(s => `${s.code} ${s.name}（${s.subject} · ${s.stage}）`).join('；')}（${note[r.via]}）` : note.none}`)
             return {
                 data: { query, lessons, results },

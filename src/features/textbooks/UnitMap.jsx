@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { RELATION_LABELS, sourceLabel } from './alignmentModel'
 import { subjectOfCode } from '../../data/v2Data.js'
+import LessonGoals from './LessonGoals'
 import styles from './UnitMap.module.css'
 
 const enc = encodeURIComponent
@@ -132,7 +133,7 @@ export default function UnitMap({ book, unit, points }) {
 
             {active
                 ? <section className={styles.detail} aria-label={`${active.title}：课标要点和教材原话`}><LessonDetail book={book} unit={unit} lesson={active} points={points} /></section>
-                : <p className={`${styles.hint} ${styles.wideOnly}`}>点一课，看它对应的要点、教材原话和备课入口。</p>}
+                : <p className={`${styles.hint} ${styles.wideOnly}`}>点一课，看它的课堂学习目标、对应的课标要点和教材原话。</p>}
         </div>
     )
 }
@@ -146,6 +147,7 @@ function LessonDetail({ book, unit, lesson, points }) {
                 <h4>{lesson.title}</h4>
                 <p>{unit.name}{lesson.pdf_page ? ` · 教材 PDF 第 ${lesson.pdf_page} 页` : ''}</p>
             </div>
+            <LessonGoals goals={lesson.goals} lessonHref={book.platform_only ? null : `/lesson-plan?${query}&lesson=${enc(lesson.id)}`} />
             {lesson.rows.length ? (
                 <ul className={styles.rows}>
                     {lesson.rows.map(([code, relation, quote, source, page]) => (
