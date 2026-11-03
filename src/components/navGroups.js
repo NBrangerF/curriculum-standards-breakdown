@@ -54,6 +54,7 @@ export const NAV_GROUPS = [
 /** Links that serve neither persona first; they live in the footer and at the foot of the mobile menu. */
 export const MINOR_LINKS = [
     { to: '/collections', label: '我的清单' },
+    { to: '/ai', label: '在 AI 里用' },
     { to: '/api', label: 'API' },
     { to: '/feedback', label: '反馈' }
 ]

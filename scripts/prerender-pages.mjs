@@ -516,6 +516,7 @@ function staticPages() {
     const terms = glossary.terms || []
     add(STATIC_PAGE_META['/glossary'], `<h1>术语表</h1>${terms.map(term => `<section><h2>${esc(term.term)}</h2><p>${esc(term.definition)}</p></section>`).join('')}`)
     add(STATIC_PAGE_META['/api'], `<h1>开放 API</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/api'].description)}</p><p>${link('/api/v1/docs', '查看 API 文档')}</p>`)
+    add(STATIC_PAGE_META['/ai'], `<h1>让你常用的 AI 引用课标原文</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/ai'].description)}</p><p>MCP 服务器地址：https://www.kebiao.org/mcp（Streamable HTTP，无需 API Key）。在 WorkBuddy 的「连接器 → 自定义连接器」里粘贴配置即可；扣子、魔搭、Claude、Cursor 也能接。</p><p>${link('/lesson-plan', 'AI 备课')} · ${link('/api', '开放 API')}</p>`)
     add(STATIC_PAGE_META['/contact'], `<h1>联系我们</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/contact'].description)}</p>`)
     add(STATIC_PAGE_META['/lesson-plan'], `<h1>AI 备课：从教材的一课起草有课标依据的教案</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/lesson-plan'].description)}</p><p>AI 只按你勾选的课标要点写，每条目标标出依据编码；写完后逐条核验：有没有超出课标写明的限定，目标有没有对应的教学环节和评价任务。可复制、下载 Word、打印。</p>`)
     add(STATIC_PAGE_META['/guide'], `<h1>五分钟学会用 kebiao 备课</h1><p class="kbp-lede">${esc(STATIC_PAGE_META['/guide'].description)}</p><p>${link('/lesson-plan', 'AI 备课')} · ${link('/knowledge-graph', '知识图谱')} · ${link('/concepts', '概念词典')} · ${link('/experiments', '必做实验清单')}</p>`)
