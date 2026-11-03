@@ -535,3 +535,30 @@ test('AI 备课: a lesson judged on its own pages is ticked at once, with the te
     await expect(page.getByRole('checkbox', { name: /等式的基本性质/ })).toBeChecked()
     expect(picks).toBe(1)
 })
+
+test('AI 备课: lessons the 国家平台 list lacks come from the book\'s own 目录', async ({ page }) => {
+    const contexts = []
+    const tocLessons = [
+        { id: 'tcu_1', title: '通分', chapters: ['4 分数的意义和性质'], pdf_page: 70, materials: [], url: null, toc: true },
+        // a 目录 unit with no lessons under it is its one item
+        { id: 'tcu_2', title: '5 图形的运动（三）', chapters: ['5 图形的运动（三）'], pdf_page: 80, materials: [], url: null, toc: true }
+    ]
+    let listed = { platform_title: '小学数学人教版五年级下册', confidence: 'text', lessons: [{ id: 'L1', title: '分数的基本性质', chapters: ['4 分数的意义和性质'], pdf_page: 62, materials: [], url: 'https://basic.smartedu.cn/syncClassroom/classActivity?activityId=L1' }, ...tocLessons] }
+    await page.route('**/api/v1/lesson-plans/textbooks/*/lessons', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope(listed)) }))
+    await page.route('**/api/v1/lesson-plans/context?*', route => {
+        contexts.push(new URL(route.request().url()).search)
+        return route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ ...context, lesson: { ...lesson, title: '通分', lesson_id: 'tcu_1' }, national_lessons: [] })) })
+    })
+    await page.route('**/api/v1/lesson-plans/pick', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(envelope({ status: 'ok', read: 9, picks: [] })) }))
+    await page.goto(`/lesson-plan?subject=${encodeURIComponent('数学')}&edition=ed_1bb9d396d4d884aee79e`)
+    await expect(page.getByText('课时目录来自国家中小学智慧教育平台「小学数学人教版五年级下册」，平台缺的课按这本书自己的目录补上。')).toBeVisible()
+    const picker = page.getByRole('combobox', { name: '哪一课' })
+    await expect(picker.locator('option')).toHaveText(['选择一课，或整个单元', '◆ 整个单元：单元整体设计', '分数的基本性质', '通分', '5 图形的运动（三）'])
+    await picker.selectOption('tcu_1')
+    await expect.poll(() => contexts.at(-1)).toContain('lesson_id=tcu_1')
+    await expect(page.locator('#lp-basis')).toBeVisible()
+
+    listed = { platform_title: null, confidence: null, lessons: tocLessons }
+    await page.reload()
+    await expect(page.getByText('课按这本书自己的目录列出，国家平台没有这一册的同步课。')).toBeVisible()
+})
