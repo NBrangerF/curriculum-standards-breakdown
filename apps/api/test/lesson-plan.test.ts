@@ -831,3 +831,35 @@ test('AI 备课 lesson list: the 国家平台 lessons first and unchanged, then 
     await app.request('/api/v1/lesson-plans/draft', { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': TOC_IP }, body: JSON.stringify({ step: 'frame', lesson: { title: '5 将相和', unit_title: '第二单元', subject_slug: 'chinese', grade: 5, edition_id: chinese5a, lesson_id: lesson.id }, indicator_codes: [point] }) })
     assert.match(calls[0], /本单元的课（教材顺序）：4 冀中的地道战 → 「5 将相和」（本课） → 6 什么比猎豹的速度更快/)
 })
+
+test('课堂学习目标: each objective keeps the lesson\'s own 要点 and a quote that is in the 要点; the rest is dropped', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const calls: string[] = []
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        calls.push(String(JSON.parse(String(init?.body)).messages[1].content))
+        const content = { lessons: [{ id: 'L1', take: '分数的基本性质本身', later: '约分、通分留给后面的课', objectives: [
+            { text: '学生能借助折纸说明 1/2 与 2/4 为什么相等', basis: [LIMITED], from: '用直观的方式表示分数', show: '画图说清相等的理由' },
+            { text: '学生能把分数化成分母是 12 的分数', basis: ['MA-S1-ZZ-99.1'], from: '比较两个分数的大小', show: '改写正确' },
+            { text: '学生能理解分数的基本性质', basis: [LIMITED], from: '比较两个分数的大小', show: '说出性质' },
+            { text: '学生能用通分比较大小', basis: [LIMITED], from: '比较两个分数的大小', show: '比较正确' },
+            { text: '学生能说出分数的基本性质', basis: [LIMITED], from: '这句话课标里没有', show: '说出' }
+        ] }] }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 500, completion_tokens: 300, total_tokens: 800 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const response = await app.request('/api/v1/lesson-plans/objectives', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({
+        lesson: { subject_slug: 'math', grade: 5, textbook_title: '数学5年级下册', unit_title: '4 分数的意义和性质' },
+        unit_lessons: ['分数的意义', '分数的基本性质', '约分', '通分'],
+        lessons: [{ id: 'lesson-x', title: '分数的基本性质', points: [{ code: LIMITED, relation: 'T', quote: '分数的分子和分母同时乘或者除以相同的数(0 除外),分数的大小不变。' }] }]
+    }) })
+    assert.equal(response.status, 200)
+    assert.equal(response.headers.get('x-ratelimit-policy'), 'ai-per-minute')
+    const lesson = (await json(response)).data.lessons[0]
+    // kept: the first only; dropped: a foreign code, a vague verb, a later lesson's 「通分」, a quote not in the 要点
+    assert.equal(lesson.objectives.length, 1)
+    assert.deepEqual(lesson.objectives[0].basis, [LIMITED])
+    assert.equal(lesson.dropped, 4)
+    assert.match(calls[0], /了解（从具体实例中知道/)
+    assert.match(calls[0], /本单元的课（按教材顺序）：分数的意义、分数的基本性质、约分、通分/)
+})

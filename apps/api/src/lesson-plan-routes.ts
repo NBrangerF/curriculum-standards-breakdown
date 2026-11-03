@@ -9,6 +9,7 @@ import type { FileCurriculumRepository } from '@curriculum/core'
 import { redactSensitiveText } from './ai-privacy.js'
 import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate } from './search-judge.js'
 import { alignLessons, type AlignPoint } from './textbook-align.js'
+import { writeLessonObjectives, type ObjectivePoint } from './lesson-objectives.js'
 import type { ApiBindings } from './http.js'
 import { checkPlan, checkPractice, checkTeacherPlan, checkUnit, DEFAULT_CLASS_SIZE, draftFrame, draftPractice, draftProcess, draftReading, draftTalk, draftTrial, draftUnit, LESSON_TYPES, limitsOf, rankPoints, readTest, checkTest, splitTest, mergeReads, sanitiseProcess, readTeacherPlan, sanitiseFrame, v2SubjectSlug, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type PointLink, type PointLinks, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
@@ -190,6 +191,24 @@ export const AlignRequestSchema = z.object({
         title: z.string().trim().min(1).max(80),
         material: z.string().max(3000).default('')
     })).min(1).max(9)
+})
+export const ObjectivesRequestSchema = z.object({
+    lesson: z.object({
+        unit_title: z.string().trim().max(60).optional(),
+        textbook_title: z.string().trim().max(40).optional(),
+        subject_slug: z.string().trim().max(20),
+        grade: z.number().int().min(1).max(9).nullable().optional()
+    }),
+    unit_lessons: z.array(z.string().trim().max(80)).max(60).default([]),
+    lessons: z.array(z.object({
+        id: z.string().trim().min(1).max(60),
+        title: z.string().trim().min(1).max(80),
+        points: z.array(z.object({
+            code: z.string().trim().max(24),
+            relation: z.enum(['T', 'P']),
+            quote: z.string().max(200).default('')
+        })).min(1).max(6)
+    })).min(1).max(8)
 })
 export const CheckRequestSchema = BaseRequestSchema.extend({ plan_text: z.string().trim().min(30).max(8000) })
 export const TestRequestSchema = BaseRequestSchema.extend({ test_text: z.string().trim().min(30).max(10000) })
@@ -754,6 +773,31 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             picks: picks.map(item => ({ code: item.code, grade: item.grade, reason: item.reason, point: item.point })),
             latency_ms: judge.latency_ms
         })
+    })
+
+    // 课堂学习目标: for the lessons of one unit, objectives written from the 要点 each lesson teaches, the lesson
+    // itself and an ordinary class at that grade; every objective quotes the 要点 words it comes from
+    app.post('/api/v1/lesson-plans/objectives', async c => {
+        const version = await repository.loadDataVersion()
+        const parsed = ObjectivesRequestSchema.safeParse(await deps.parseJson(c))
+        if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请求参数校验失败。', parsed.error.issues)
+        const { lesson, lessons, unit_lessons: unitLessons } = parsed.data
+        const subject = await v2.subject(lesson.subject_slug)
+        if (!subject) return deps.apiError(c, 422, 'validation_error', '未知学科。')
+        const pool: ObjectivePoint[] = subject.standards.flatMap(standard => (standard.indicators || []).map(item => ({
+            code: item.code,
+            standard: standard.code,
+            header: `${standard.level1 || ''} · ${standard.level2 || standard.title || ''}`,
+            text: String(item.text || '')
+        })))
+        const known = new Set(pool.map(point => point.code))
+        const input = lessons.map(item => ({ id: item.id, title: item.title, points: item.points.filter(point => known.has(point.code)).map(point => ({ ...point, quote: redactSensitiveText(point.quote).text })) })).filter(item => item.points.length)
+        if (!input.length) return deps.apiError(c, 422, 'validation_error', '这些课没有可用的课标要点。')
+        const line = `${lesson.grade ? `${lesson.grade}年级` : ''}${subject.subject}${lesson.textbook_title ? `（${lesson.textbook_title}）` : ''}${lesson.unit_title ? `，单元「${lesson.unit_title}」` : ''}`
+        const result = await writeLessonObjectives({ subject_slug: lesson.subject_slug, line }, unitLessons, pool, input)
+        c.set('aiMetrics', { feature: 'lesson_plan', used: result.status !== 'disabled', status: result.status === 'partial' ? 'ok' : result.status, model: result.model, protocol: 'chat_completions', latency_ms: result.latency_ms, redaction_count: 0, input_tokens: result.usage?.input_tokens || 0, output_tokens: result.usage?.output_tokens || 0, total_tokens: result.usage?.total_tokens || 0 })
+        if (!result.lessons.length) return deps.apiError(c, result.status === 'timeout' ? 504 : 503, 'ai_unavailable', 'AI 这次没能写完，请稍后重试。')
+        return deps.ok(c, version as never, { status: result.status, lessons: result.lessons, latency_ms: result.latency_ms })
     })
 
     // 教材与课标对应: which 要点 each lesson of a unit teaches, every match quoting the lesson's own material

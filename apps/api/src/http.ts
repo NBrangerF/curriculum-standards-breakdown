@@ -81,6 +81,7 @@ const AI_ROUTES = new Set([
     '/api/v1/lesson-plans/check',
     '/api/v1/lesson-plans/pick',
     '/api/v1/lesson-plans/align',
+    '/api/v1/lesson-plans/objectives',
     '/api/v1/lesson-plans/check-test'
 ])
 
