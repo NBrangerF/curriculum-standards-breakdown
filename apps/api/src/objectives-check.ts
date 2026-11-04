@@ -122,7 +122,7 @@ function adapter(objectives: string[], input: ObjectiveCheckInput): StructuredLl
                 let rewrite = String(answer.rewrite || '').trim().slice(0, 120)
                 if (rewrite && (!rewrite.startsWith('学生') || VAGUE.test(rewrite.slice(0, 8)) || squash(rewrite) === squash(text))) rewrite = ''
                 const flags = ruleFlags(text, basis.map(code => points.get(code)!.text), input.unitLessons)
-                if (!basis.length) flags.unshift({ kind: 'no_basis', message: '在这节课的要点里找不到这条目标的依据；它可能来自别的学段或别的要点，也可能是活动而不是目标。' })
+                if (!basis.length) flags.unshift({ kind: 'no_basis', message: '在这节课的要点里找不到这条目标的依据。如果它是过程或素养目标（如分类讨论、合作交流），可以保留，但要写清在哪个活动里、学生做出什么；如果它只是一项活动，就不算目标。' })
                 return {
                     text,
                     basis,

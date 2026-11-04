@@ -411,7 +411,21 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             const grade = gradeOf(args.grade)
             const topic = str(args.topic).slice(0, 60)
             // the 要点 to check against: the codes given, or else the standards the topic (or the objectives) find
-            const given = (Array.isArray(args.codes) ? args.codes : []).map(code => str(code).slice(0, 24)).filter(code => V2_CODE.test(code)).slice(0, 6)
+            const given: string[] = (Array.isArray(args.codes) ? args.codes : []).map(code => str(code).slice(0, 24)).filter(code => V2_CODE.test(code)).slice(0, 6)
+            const taught: string[] = given.filter(code => /\.\d+$/u.test(code))
+            // a lesson title is looked up in the lessons kebiao read one by one: its 主要在教 要点 are what it should teach
+            if (!given.length && topic.length >= 2) {
+                const index = await ctx.v2.textbookChapters()
+                const alignment = await ctx.v2.lessonAlignment()
+                const name = topic.replace(/\s+/gu, '')
+                const hit = alignment.lessons.find(([edition, , , title]) => {
+                    const book = index.books[edition] || alignment.platform_books?.[edition]
+                    if (book && ((['art', 'music'].includes(book[1]) ? 'arts' : book[1]) !== slug || (grade && book[2] !== grade))) return false
+                    return title.replace(/\s+/gu, '').includes(name)
+                })
+                for (const [code, relation] of hit?.[6] || []) if (relation === 'T' || given.length < 4) given.push(code)
+                taught.push(...(hit?.[6] || []).filter(match => match[1] === 'T').map(match => match[0]))
+            }
             const standardCodes = given.length ? [...new Set(given.map(code => code.replace(/\.\d+$/u, '')))] : (await ctx.repository.smartSearchStandards({ query: (topic || objectives.join('；')).slice(0, 300), subjects: [slug!], ...(grade ? { grade_bands: [BAND_OF_GRADE(grade)] } : {}), limit: 4 })).results.map(r => r.code)
             const points: CheckPoint[] = []
             for (const code of standardCodes) {
@@ -422,7 +436,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
                 }
             }
             if (!points.length) return { data: { objectives, points: [] }, text: '没有找到可对照的课标要点；请给出课题，或用 search_standards 找到要点编码后放进 codes。' }
-            const run = await checkObjectives(objectives, { line: `${grade ? `${grade}年级` : ''}${slug}${topic ? `，课题「${topic}」` : ''}`, subject_slug: slug!, points: points.slice(0, 24), taught: given.filter(code => /\.\d+$/u.test(code)), unitLessons: [] })
+            const run = await checkObjectives(objectives, { line: `${grade ? `${grade}年级` : ''}${slug}${topic ? `，课题「${topic}」` : ''}`, subject_slug: slug!, points: points.slice(0, 24), taught, unitLessons: [] })
             if (!run.output) throw new Error('AI 这次没有读完这些目标，请再试一次。')
             const LEVEL: Record<string, string> = { match: '程度相当', above: '超出要点', below: '没到要点', unclear: '程度没写清' }
             const lines = run.output.objectives.map((item, index) => [
@@ -434,7 +448,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             ].filter(Boolean).join('\n'))
             return {
                 data: { ...run.output, points: points.map(point => ({ ...point, url: standardUrl(point.code.replace(/\.\d+$/u, ''), point.code) })) },
-                text: [`对照了 ${points.length} 条课标要点（AI 体检，引用的课标原词已核对，判断待老师核验）：`, ...lines, ...run.output.uncovered.map(point => `还没有目标落到 ${point.code}：${point.text}`), ...run.output.notes].join('\n')
+                text: [...(taught.length && !(Array.isArray(args.codes) && args.codes.length) ? [`「${topic}」这一课主要在教：${taught.join('、')}（kebiao 逐课读教材判断）`] : []), `对照了 ${points.length} 条课标要点（AI 体检，引用的课标原词已核对，判断待老师核验）：`, ...lines, ...run.output.uncovered.map(point => `还没有目标落到 ${point.code}：${point.text}`), ...run.output.notes].join('\n')
             }
         }
     },
