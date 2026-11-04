@@ -12,7 +12,9 @@ export type ObjectiveCheckInput = {
     // the 要点 the lesson is meant to teach; a missed one is reported
     taught: string[],
     // the unit's lessons in order, this one marked
-    unitLessons: Array<{ title: string, current?: boolean }>
+    unitLessons: Array<{ title: string, current?: boolean }>,
+    // 单元目标 for a whole unit rather than one lesson's
+    unit?: boolean
 }
 export type Level = 'match' | 'above' | 'below' | 'unclear'
 export type CheckedObjective = {
@@ -61,7 +63,7 @@ const SCHEMA = {
     required: ['objectives', 'notes']
 } as const
 
-const INSTRUCTIONS = `你是熟悉课程标准的中小学教研员。老师写了一节课的学习目标（已编号），请逐条对照「可依据的课标要点」做体检。只评这些目标本身，不替老师重写整节课。
+const INSTRUCTIONS = `你是熟悉课程标准的中小学教研员。老师写了一节课或一个单元的学习目标（已编号），请逐条对照「可依据的课标要点」做体检。只评这些目标本身，不替老师重写整节课或整个单元。
 
 每条目标返回：
 - n：目标编号。
@@ -122,7 +124,7 @@ function adapter(objectives: string[], input: ObjectiveCheckInput): StructuredLl
                 let rewrite = String(answer.rewrite || '').trim().slice(0, 120)
                 if (rewrite && (!rewrite.startsWith('学生') || VAGUE.test(rewrite.slice(0, 8)) || squash(rewrite) === squash(text))) rewrite = ''
                 const flags = ruleFlags(text, basis.map(code => points.get(code)!.text), input.unitLessons)
-                if (!basis.length) flags.unshift({ kind: 'no_basis', message: '在这节课的要点里找不到这条目标的依据。如果它是过程或素养目标（如分类讨论、合作交流），可以保留，但要写清在哪个活动里、学生做出什么；如果它只是一项活动，就不算目标。' })
+                if (!basis.length) flags.unshift({ kind: 'no_basis', message: `在这${input.unit ? '个单元' : '节课'}的要点里找不到这条目标的依据。如果它是过程或素养目标（如分类讨论、合作交流），可以保留，但要写清在哪个活动里、学生做出什么；如果它只是一项活动，就不算目标。` })
                 return {
                     text,
                     basis,
@@ -136,7 +138,7 @@ function adapter(objectives: string[], input: ObjectiveCheckInput): StructuredLl
             })
             const cited = new Set(checked.flatMap(item => item.basis))
             const notes = (Array.isArray(record.notes) ? record.notes : []).map(note => String(note).trim().slice(0, 80)).filter(Boolean).slice(0, 3)
-            if (objectives.length > 5) notes.unshift(`一节课写了 ${objectives.length} 条目标；一般 2–4 条，课上才检测得过来。`)
+            if (!input.unit && objectives.length > 5) notes.unshift(`一节课写了 ${objectives.length} 条目标；一般 2–4 条，课上才检测得过来。`)
             return { objectives: checked, uncovered: input.taught.filter(code => !cited.has(code) && points.has(code)).map(code => points.get(code)!), notes }
         }
     }
@@ -146,10 +148,11 @@ export async function checkObjectives(objectives: string[], input: ObjectiveChec
     const scale = VERB_SCALES[input.subject_slug]
     const prompt = [
         input.line,
+        input.unit ? '这是整个单元的目标，不是一节课的；单元目标可以比课时目标概括，但仍要看得见、测得了。' : '',
         input.unitLessons.length ? `本单元的课（按教材顺序，「←本课」是这一课）：${input.unitLessons.map(item => `${item.title}${item.current ? '←本课' : ''}`).join('、')}` : '',
         ...(scale ? [scale] : []),
         '可依据的课标要点：',
-        ...input.points.map(point => `${point.code}（${point.header}）：${point.text}${input.taught.includes(point.code) ? '〔这节课主要教〕' : ''}`),
+        ...input.points.map(point => `${point.code}（${point.header}）：${point.text}${input.taught.includes(point.code) ? (input.unit ? '〔这个单元主要教〕' : '〔这节课主要教〕') : ''}`),
         '老师写的学习目标：',
         ...objectives.map((text, index) => `${index + 1}. ${text}`)
     ].filter(Boolean).join('\n')

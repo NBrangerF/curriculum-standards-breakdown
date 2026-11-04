@@ -454,6 +454,9 @@ export default function LessonPlanPage() {
                 <p className={styles.lede}>
                     选你下周要教的一课，确认它对应的课标要点，再说说班级情况。AI 只按你勾选的要点写，每条目标都标出依据；写完后程序逐条核对有没有超出课标的限定。约一分钟。
                 </p>
+                {params.get('check') === '1' ? (
+                    <p className={styles.trialNote}>目标体检：先在下面选一课或一个单元，到第 2 步「确认依据」把你写好的学习目标贴进去，逐条对照课标：依据哪条、程度够不够、缺了什么。</p>
+                ) : null}
                 {params.get('for') === 'trial' ? (
                     <p className={styles.trialNote}>教资面试试讲：先在下面选一课（手边没有教材就选「直接写课题」），起草教案后点「试讲稿 + 答辩」，约 1 分钟生成 10 分钟的试讲稿和 3 道答辩题。</p>
                 ) : null}
@@ -588,7 +591,7 @@ export default function LessonPlanPage() {
                         ))}
                     </ul>
                     {!context.standards.length ? <p className={styles.small}>这一课还没有对齐的课标。等 AI 读完，或改用「直接写课题」。</p> : null}
-                    {!isUnit && context.standards.length ? <ObjectiveCheck lesson={draftLesson(context.lesson)} codes={[...selected, ...context.standards.flatMap(standard => standard.indicators.map(item => item.code)).filter(code => !selected.has(code))]} taught={[...selected]} /> : null}
+                    {context.standards.length ? <ObjectiveCheck key={contextQuery} lesson={draftLesson(context.lesson)} codes={[...selected, ...context.standards.flatMap(standard => standard.indicators.map(item => item.code)).filter(code => !selected.has(code))]} taught={[...selected]} isUnit={isUnit} open={params.get('check') === '1'} /> : null}
                     {selectedCount && ai.status !== 'loading' ? <PromptCopy context={context} selected={selected} isUnit={isUnit} settings={settings} /> : null}
                 </section>
             ) : null}

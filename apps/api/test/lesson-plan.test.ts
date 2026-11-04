@@ -899,4 +899,18 @@ test('目标体检: objectives are split, traced to the lesson\'s 要点 with th
     assert.deepEqual(data.uncovered.map((point: any) => point.code), ['MA-S3-NA-01.5'])
     assert.match(calls[0], /1\. 比较两个分数的大小\n2\. 使学生体会分数的基本性质/)
     assert.match(calls[0], /〔这节课主要教〕/)
+
+    // 单元目标 (what the old 课程对齐工作台 did): the prompt says it's a unit, and the miss names the unit
+    const unit = await app.request('/api/v1/lesson-plans/check-objectives', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({
+        lesson: { title: '分数的意义和性质', subject_slug: 'math', grade: 5 },
+        indicator_codes: [LIMITED],
+        taught_codes: [LIMITED],
+        objectives_text: '比较两个分数的大小；使学生体会分数的基本性质；学生能把循环小数化成分数',
+        scope: 'unit'
+    }) })
+    assert.equal(unit.status, 200)
+    assert.match(calls[1], /单元「分数的意义和性质」/)
+    assert.match(calls[1], /这是整个单元的目标/)
+    assert.match(calls[1], /〔这个单元主要教〕/)
+    assert.match((await json(unit)).data.objectives[1].flags[0].message, /^在这个单元的要点里/)
 })

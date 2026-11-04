@@ -318,7 +318,7 @@ function SmartSearchPage() {
             <PageHero
                 kicker="AI 检索 · 用一句话描述"
                 title={'用教学语言\n查找课程标准'}
-                lede={<>说出学段、学科、要排除的学科和主题。AI 先读懂你的问题，再逐条读候选课标的要点原文，判断是否切题；通常需要 10–20 秒。已有教学计划，可以去 <Link to="/alignment-workbench">课程对齐工作台</Link>。</>}
+                lede={<>说出学段、学科、要排除的学科和主题。AI 先读懂你的问题，再逐条读候选课标的要点原文，判断是否切题；通常需要 10–20 秒。已经写好学习目标，可以去 AI 备课做<Link to="/lesson-plan?check=1">目标体检</Link>。</>}
             >
                 <form className={styles.form} role="search" onSubmit={event => { event.preventDefault(); submit(query) }}>
                     <label className={kb.label} htmlFor="smart-query">描述你的教学目标或使用情境</label>

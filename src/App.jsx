@@ -35,7 +35,6 @@ const CollectionDetailPage = lazy(() => import('./pages/CollectionDetailPage'))
 const PrintPage = lazy(() => import('./pages/PrintPage'))
 const StyleGuidePage = lazy(() => import('./pages/StyleGuidePage'))
 const SmartSearchPage = lazy(() => import('./pages/SmartSearchPage'))
-const AlignmentWorkbenchPage = lazy(() => import('./pages/AlignmentWorkbenchPage'))
 const TextbookLibraryPage = lazy(() => import('./pages/TextbookLibraryPage'))
 const TextbookDetailPage = lazy(() => import('./pages/TextbookDetailPage'))
 const TextbookReaderPage = lazy(() => import('./pages/TextbookReaderPage'))
@@ -126,7 +125,8 @@ function App() {
                     <Route path="/textbook-resources/:resourceId/read" element={route('textbookResourceReader', lazyPage(<TextbookResourceReaderPage />, '正在打开支持资源阅读器'))} />
                     <Route path="/textbook-units/:unitId" element={route('textbookUnit', lazyPage(<TextbookUnitPage />, '正在整理教材单元'))} />
                     <Route path="/smart-search" element={route('smartSearch', lazyPage(<SmartSearchPage />, '正在打开智能检索'))} />
-                    <Route path="/alignment-workbench" element={route('alignmentWorkbench', lazyPage(<AlignmentWorkbenchPage />, '正在打开对齐工作台'))} />
+                    {/* 课程对齐工作台 merged into 目标体检 (AI 备课 step 2) */}
+                    <Route path="/alignment-workbench" element={<Navigate to="/lesson-plan?check=1" replace />} />
                     <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />
                     <Route path="/lesson-plan" element={route('lessonPlan', lazyPage(<LessonPlanPage />, '正在打开 AI 备课'))} />
                     <Route path="/guide" element={route('guide', lazyPage(<GuidePage />, '正在打开上手指南'))} />

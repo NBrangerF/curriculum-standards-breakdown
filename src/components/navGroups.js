@@ -15,7 +15,7 @@ export const NAV_GROUPS = [
         key: 'prep',
         label: '备课',
         to: '/lesson-plan',
-        owns: ['/lesson-plan', '/checks', '/experiments', '/interdisciplinary', '/guide', '/alignment-workbench'],
+        owns: ['/lesson-plan', '/checks', '/experiments', '/interdisciplinary', '/guide'],
         items: [
             { to: '/lesson-plan', label: 'AI 备课' },
             { to: '/checks', label: '课堂诊断' },

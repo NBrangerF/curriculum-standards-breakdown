@@ -217,8 +217,10 @@ export const ObjectivesCheckSchema = z.object({
     lesson: BaseRequestSchema.shape.lesson,
     // the 要点 the objectives may rest on, and the ones this lesson is meant to teach
     indicator_codes: z.array(z.string().trim().max(24)).min(1).max(24),
-    taught_codes: z.array(z.string().trim().max(24)).max(10).default([]),
-    objectives_text: z.string().trim().min(6).max(3000)
+    taught_codes: z.array(z.string().trim().max(24)).max(24).default([]),
+    objectives_text: z.string().trim().min(6).max(3000),
+    // 'unit': 单元目标 for a whole unit (the old 课程对齐工作台's use), not one lesson's
+    scope: z.enum(['lesson', 'unit']).default('lesson')
 })
 
 export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
@@ -718,9 +720,10 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         if (!points.length) return deps.apiError(c, 422, 'validation_error', '找不到这些课标要点。')
         const { lesson } = body
         const note = await subjectNote(lesson.subject_slug)
-        const line = `${lesson.grade ? `${lesson.grade}年级` : ''}${note?.name || ''}，课题「${lesson.title}」${lesson.textbook_title ? `（${lesson.textbook_title}${lesson.unit_title ? ` · ${lesson.unit_title}` : ''}）` : ''}`
-        const unitLessons = await unitSequence(lesson.edition_id, lesson.lesson_id, lesson.title)
-        const run = await checkObjectives(objectives, { line, subject_slug: lesson.subject_slug, points: points.slice(0, 24), taught: body.taught_codes, unitLessons })
+        const unit = body.scope === 'unit'
+        const line = `${lesson.grade ? `${lesson.grade}年级` : ''}${note?.name || ''}，${unit ? '单元' : '课题'}「${lesson.title}」${lesson.textbook_title ? `（${lesson.textbook_title}${!unit && lesson.unit_title ? ` · ${lesson.unit_title}` : ''}）` : ''}`
+        const unitLessons = unit ? [] : await unitSequence(lesson.edition_id, lesson.lesson_id, lesson.title)
+        const run = await checkObjectives(objectives, { line, subject_slug: lesson.subject_slug, points: points.slice(0, 24), taught: body.taught_codes, unitLessons, unit })
         c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: text.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
         if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `check_${run.status}`, run.status === 'disabled' ? 'AI 体检暂不可用。' : 'AI 这次没有读完这些目标，请再试一次。')
         return deps.ok(c, version as never, { ...run.output, privacy: { redacted: text.redacted, redaction_count: text.redaction_count }, model: run.model, latency_ms: run.latency_ms })

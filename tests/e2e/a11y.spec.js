@@ -16,7 +16,6 @@ const routes = [
     ['standard', '/standards/MA-S2-GG-01'],
     ['search', '/search'],
     ['smartSearch', '/smart-search'],
-    ['alignmentWorkbench', '/alignment-workbench'],
     ['collections', '/collections'],
     ['glossary', '/glossary'],
     ['feedback', '/feedback'],

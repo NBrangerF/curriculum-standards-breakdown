@@ -54,7 +54,7 @@ kebiao 以课程标准为主轴，把分散在文档、教材、资源和教学�
 | 下载最新版教材 PDF | 姊妹仓库 [China Textbook New](https://github.com/NBrangerF/China-Textbook-New) 收录 147 本义务教育最新版教材（其中 115 本是 2022 课标修订版），逐本核对国家中小学智慧教育平台，大文件也能整本下载。 |
 | 找到可用的学习材料 | [浏览简体中文学习资源](https://www.kebiao.org/learning-resources)，在详情页查看来源、许可与已有的课标关联证据。 |
 | 整理自己的备课线索 | 把标准保存在当前浏览器的[清单](https://www.kebiao.org/collections)中，导入或导出 JSON，并生成适合打印的版本。 |
-| 复核教学计划与课标的关系 | 在[预览工作台](https://www.kebiao.org/alignment-workbench)中完成“解析 → 人工复核 → 候选匹配 → 覆盖分析 → 周计划草案”。 |
+| 检查自己写的学习目标 | 在 [AI 备课](https://www.kebiao.org/lesson-plan?check=1)选好一课或一个单元，贴入目标做「目标体检」：每条对照课标要点，看依据、程度和缺了什么。 |
 
 ## 从一条课标，看见更多教学线索
 

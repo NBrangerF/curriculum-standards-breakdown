@@ -15,15 +15,16 @@ const LEVEL = {
  * 目标体检: the teacher pastes the objectives they already wrote; each comes back traced to the 要点 it rests on
  * (with the 课标's own words), its level against the 要点, what it lacks, and a suggested wording.
  * `lesson` is the request's lesson; `codes` the 要点 it may rest on; `taught` the ones this lesson is meant to teach.
+ * `isUnit` checks 单元目标 instead (this replaced the old 课程对齐工作台); `open` starts it unfolded.
  */
-export default function ObjectiveCheck({ lesson, codes, taught }) {
+export default function ObjectiveCheck({ lesson, codes, taught, isUnit = false, open = false }) {
     const [text, setText] = useState('')
     const [state, setState] = useState({ status: 'idle', data: null, error: '' })
     async function run(event) {
         event.preventDefault()
         setState({ status: 'loading', data: null, error: '' })
         try {
-            const response = await postApi('/api/v1/lesson-plans/check-objectives', { lesson, indicator_codes: codes.slice(0, 24), taught_codes: taught.slice(0, 10), objectives_text: text.trim() })
+            const response = await postApi('/api/v1/lesson-plans/check-objectives', { lesson, indicator_codes: codes.slice(0, 24), taught_codes: taught.slice(0, 24), objectives_text: text.trim(), ...(isUnit ? { scope: 'unit' } : {}) })
             setState({ status: 'ok', data: response.data, error: '' })
         } catch (error) {
             setState({ status: 'error', data: null, error: error?.message || 'AI 这次没有读完，请再试一次。' })
@@ -31,8 +32,8 @@ export default function ObjectiveCheck({ lesson, codes, taught }) {
     }
     const data = state.data
     return (
-        <details className={styles.box}>
-            <summary>已经写好目标了？贴进来做个体检</summary>
+        <details className={styles.box} open={open}>
+            <summary>{isUnit ? '已经写好单元目标了？贴进来做个体检' : '已经写好目标了？贴进来做个体检'}</summary>
             <form onSubmit={run} className={styles.form}>
                 <label>
                     <span>你的学习目标（一行一条）</span>
@@ -68,7 +69,7 @@ export default function ObjectiveCheck({ lesson, codes, taught }) {
                         </ol>
                         {data.uncovered.length ? (
                             <div className={styles.uncovered}>
-                                <p>这节课主要教的要点里，还没有目标落到：</p>
+                                <p>{isUnit ? '这个单元' : '这节课'}主要教的要点里，还没有目标落到：</p>
                                 <ul>{data.uncovered.map(point => <li key={point.code}><Link className={styles.code} to={standardHref(point.code)} target="_blank" rel="noopener">{point.code}</Link> {point.text}</li>)}</ul>
                             </div>
                         ) : null}
