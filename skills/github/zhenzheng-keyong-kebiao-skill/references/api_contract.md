@@ -20,7 +20,7 @@ POST /api/v1/standards/batch
 ```json
 {
   "subjects": ["science"],
-  "grade_bands": ["H2"],
+  "stages": ["S2"],
   "domains": ["生命科学"],
   "skills": ["TS1", "TS5"],
   "keyword": "植物",
@@ -32,18 +32,20 @@ POST /api/v1/standards/batch
 
 ```json
 {
-  "data_version": "curriculum_compass_2026_06_30_v1",
-  "total": 8,
-  "results": [
+  "data": [
     {
-      "code": "SC-D2-LS-003",
+      "code": "SC-S2-LS-01",
       "subject": "科学",
-      "grade_band": "H2",
-      "domain": "生命科学",
-      "standard": "...",
+      "stage_code": "S2",
+      "grades": [3, 4],
+      "level1": "生命科学",
+      "level2": "...",
+      "statement": "...",
+      "indicators": [{ "code": "SC-S2-LS-01.1", "text": "课标原文", "pages": [0] }],
       "ts_primary": ["TS1"]
     }
-  ]
+  ],
+  "meta": { "data_version": "2025r-…", "total": 8, "next_cursor": null }
 }
 ```
 

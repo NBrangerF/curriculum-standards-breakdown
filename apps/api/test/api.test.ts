@@ -27,7 +27,9 @@ const publicApp = createApp(new FileCurriculumRepository(publicDataRoot))
 const textbookApp = createApp(new FileCurriculumRepository(dataRoot), {
     textbookRepository: new FileTextbookRepository(resolve(process.cwd(), '../../public/data'))
 })
-const dataVersion = JSON.parse(await readFile(resolve(dataRoot, 'data_version.json'), 'utf8')).data_version
+// every response carries the 2025 data's version; the 2022 routes under /legacy/ carry theirs
+const dataVersion = JSON.parse(await readFile(resolve(publicDataRoot, 'v2/version.json'), 'utf8')).data_version
+const legacyDataVersion = JSON.parse(await readFile(resolve(dataRoot, 'data_version.json'), 'utf8')).data_version
 
 async function json(response: Response) {
     return response.json() as Promise<Record<string, any>>
@@ -424,7 +426,12 @@ test('GET /api/v1/meta returns data summary', async () => {
     assert.equal(response.status, 200)
     assert.ok(response.headers.get('x-ratelimit-limit'))
     const body = await json(response)
-    assert.equal(body.data.standard_count, 2025)
+    assert.equal(body.data.standard_count, 513)
+    assert.equal(body.data.indicator_count, 2520)
+    assert.equal(body.data.source_version, '义务教育课程标准（2022年版2025年修订）')
+    assert.deepEqual(body.data.filters.stages, ['S1', 'S2', 'S3', 'S4'])
+    assert.ok(body.data.filters.domains.math.includes('数与代数'))
+    assert.match(body.meta.data_version, /^2025r-[0-9a-f]{10}$/u)
     assert.equal(body.meta.data_version, dataVersion)
     assert.ok(body.meta.request_id)
 })
@@ -976,13 +983,35 @@ test('API key registry supports named key IDs without breaking legacy keys', asy
     }
 })
 
-test('GET /api/v1/standards/:code returns public standard without admin fields', async () => {
-    const response = await app.request('/api/v1/standards/AR-D1-AA-MU-007')
+test('GET /api/v1/standards/:code answers a 2022 code with the 2025 standard it joined', async () => {
+    const response = await app.request('/api/v1/standards/AR-D1-AA-MU-007', { headers: { 'x-forwarded-for': 'v2-api-test-0' } })
+    assert.equal(response.status, 200)
+    const body = await json(response)
+    assert.equal(body.data.code, 'AR-S1-MU-02')
+    assert.equal(body.data.source_version, '2022年版2025年修订')
+    assert.ok(body.data.indicators.length > 0)
+    assert.equal(body.meta.schema, 'v2')
+    assert.equal(body.meta.moved_from, 'AR-D1-AA-007')
+    assert.equal(body.meta.indicator, 'AR-S1-MU-02.1')
+    assert.equal(body.meta.data_version, dataVersion)
+    assert.equal('review_status' in body.data, false)
+
+    const direct = await json(await app.request('/api/v1/standards/MA-S3-NA-01.3', { headers: { 'x-forwarded-for': 'v2-api-test-0' } }))
+    assert.equal(direct.data.code, 'MA-S3-NA-01')
+    assert.equal(direct.meta.indicator, 'MA-S3-NA-01.3')
+    assert.equal('moved_from' in direct.meta, false)
+})
+
+test('GET /api/v1/legacy/standards/:code keeps the 2022 record for comparison', async () => {
+    const response = await app.request('/api/v1/legacy/standards/AR-D1-AA-MU-007', { headers: { 'x-forwarded-for': 'v2-api-test-1' } })
     assert.equal(response.status, 200)
     const body = await json(response)
     assert.equal(body.data.code, 'AR-D1-AA-007')
     assert.equal('materials_tools' in body.data, true)
     assert.equal('review_status' in body.data, false)
+    assert.equal(body.meta.schema, 'legacy_2022')
+    assert.equal(body.meta.moved_to, '/standards/AR-S1-MU-02#AR-S1-MU-02.1')
+    assert.equal(body.meta.data_version, legacyDataVersion)
 })
 
 test('GET /api/v1/standards/:code/capability-graph returns teachable components and honest review states', async () => {
@@ -1025,39 +1054,46 @@ test('public production projection loads capability sidecar while standard searc
         assert.equal('learning_components' in item, false)
         assert.equal('common_difficulties' in item, false)
         assert.equal('curriculum_alignments' in item, false)
-        assert.equal(item.capability_graph_schema_version, '1.1.0')
+        assert.match(item.code, /^CN-S\d-/u)
     }
 })
 
 test('GET /api/v1/standards/:code resolves a unique legacy alias and rejects an ambiguous alias', async () => {
-    const legacy = await app.request('/api/v1/standards/AR-H1-AA-MU-007')
+    const legacy = await app.request('/api/v1/legacy/standards/AR-H1-AA-MU-007', { headers: { 'x-forwarded-for': 'v2-api-test-2' } })
     assert.equal(legacy.status, 200)
     const legacyBody = await json(legacy)
     assert.equal(legacyBody.data.code, 'AR-D1-AA-007')
     assert.equal(legacyBody.meta.resolved_from, 'AR-H1-AA-MU-007')
 
-    const migratedH4 = await app.request('/api/v1/standards/CN-H4G7-COMM-001')
+    const migratedH4 = await app.request('/api/v1/legacy/standards/CN-H4G7-COMM-001', { headers: { 'x-forwarded-for': 'v2-api-test-2' } })
     assert.equal(migratedH4.status, 200)
     const migratedH4Body = await json(migratedH4)
     assert.equal(migratedH4Body.data.code, 'CN-H4G7-CM-001')
     assert.equal(migratedH4Body.meta.resolved_from, 'CN-H4G7-COMM-001')
 
-    const migratedEnglish = await app.request('/api/v1/standards/ENG-H4G7-CA-CUL-001')
+    const migratedEnglish = await app.request('/api/v1/legacy/standards/ENG-H4G7-CA-CUL-001', { headers: { 'x-forwarded-for': 'v2-api-test-2' } })
     assert.equal(migratedEnglish.status, 200)
     const migratedEnglishBody = await json(migratedEnglish)
     assert.equal(migratedEnglishBody.data.code, 'EN-H4G7-CA-001')
     assert.equal(migratedEnglishBody.meta.resolved_from, 'ENG-H4G7-CA-CUL-001')
 
-    const migratedMath = await app.request('/api/v1/standards/MA-H4G7-AL-ALG-001')
+    const migratedMath = await app.request('/api/v1/legacy/standards/MA-H4G7-AL-ALG-001', { headers: { 'x-forwarded-for': 'v2-api-test-2' } })
     assert.equal(migratedMath.status, 200)
     const migratedMathBody = await json(migratedMath)
     assert.equal(migratedMathBody.data.code, 'MA-H4G7-AL-001')
 
-    const ambiguous = await app.request('/api/v1/standards/AR-H4-DA-001')
-    assert.equal(ambiguous.status, 409)
-    const ambiguousBody = await json(ambiguous)
-    assert.equal(ambiguousBody.error.code, 'ambiguous_standard_code')
-    assert.equal(ambiguousBody.error.details.length, 3)
+    // the same alias on the main route answers with the 2025 standard
+    const aliasNow = await json(await app.request('/api/v1/standards/AR-H1-AA-MU-007', { headers: { 'x-forwarded-for': 'v2-api-test-2' } }))
+    assert.equal(aliasNow.data.code, 'AR-S1-MU-02')
+    assert.equal(aliasNow.meta.moved_from, 'AR-D1-AA-007')
+
+    for (const path of ['/api/v1/standards/AR-H4-DA-001', '/api/v1/legacy/standards/AR-H4-DA-001']) {
+        const ambiguous = await app.request(path, { headers: { 'x-forwarded-for': 'v2-api-test-2' } })
+        assert.equal(ambiguous.status, 409)
+        const ambiguousBody = await json(ambiguous)
+        assert.equal(ambiguousBody.error.code, 'ambiguous_standard_code')
+        assert.equal(ambiguousBody.error.details.length, 3)
+    }
 })
 
 test('GET /api/v1/standards/:code returns 404 for missing code', async () => {
@@ -1090,29 +1126,34 @@ test('POST /api/v1/standards/search filters by subject and keyword', async () =>
     assert.equal(body.data[0].subject_slug, 'science')
 })
 
-test('POST /api/v1/standards/search validates filters and searches standard titles', async () => {
-    const invalidSubject = await app.request('/api/v1/standards/search', {
+test('POST /api/v1/standards/search validates filters and searches the 2025 standards', async () => {
+    const post = (body: unknown) => app.request('/api/v1/standards/search', {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-alignment-test' },
-        body: JSON.stringify({ subjects: ['not-a-subject'] })
+        body: JSON.stringify(body)
     })
-    assert.equal(invalidSubject.status, 422)
+    assert.equal((await post({ subjects: ['not-a-subject'] })).status, 422)
+    assert.equal((await post({ cursor: 'not-a-cursor' })).status, 422)
+    assert.equal((await post({ stages: ['S9'] })).status, 422)
+    assert.equal((await post({ subjects: ['math'], domains: ['物质科学'] })).status, 422)
 
-    const invalidCursor = await app.request('/api/v1/standards/search', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-alignment-test' },
-        body: JSON.stringify({ cursor: 'not-a-cursor' })
-    })
-    assert.equal(invalidCursor.status, 422)
+    // a name hit comes before a hit in the 要点 text
+    const named = await json(await post({ keyword: '数与运算', limit: 10 }))
+    assert.deepEqual(named.data.slice(0, 3).map((item: any) => item.code), ['MA-S1-NA-01', 'MA-S2-NA-01', 'MA-S3-NA-01'])
+    assert.equal(named.meta.data_version, dataVersion)
 
-    const titleSearch = await app.request('/api/v1/standards/search', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json', 'x-forwarded-for': 'plan-alignment-test' },
-        body: JSON.stringify({ keyword: '常见材料', limit: 10 })
-    })
-    assert.equal(titleSearch.status, 200)
-    const titleBody = await json(titleSearch)
-    assert.ok(titleBody.data.some((item: Record<string, unknown>) => String(item.standard_title).includes('常见材料')))
+    // 学段, grades and the 2022 grade bands read as grades
+    const byStage = await json(await post({ subjects: ['math'], stages: ['S3'], limit: 50 }))
+    assert.ok(byStage.data.length > 0 && byStage.data.every((item: any) => item.stage_code === 'S3'))
+    const byBand = await json(await post({ subjects: ['math'], grade_bands: ['H3'], limit: 50 }))
+    assert.deepEqual(byBand.data.map((item: any) => item.code), byStage.data.map((item: any) => item.code))
+    const byGrade = await json(await post({ subjects: ['english'], grades: [3], limit: 50 }))
+    assert.ok(byGrade.data.length > 0 && byGrade.data.every((item: any) => item.grades.includes(3)))
+
+    const domain = await json(await post({ subjects: ['science'], domains: ['物质科学'], limit: 100 }))
+    assert.ok(domain.data.length > 0 && domain.data.every((item: any) => item.level1 === '物质科学'))
+    const skill = await json(await post({ subjects: ['math'], skills: ['ts1'], limit: 100 }))
+    assert.ok(skill.data.length > 0 && skill.data.every((item: any) => [...item.ts_primary, ...item.ts_secondary].includes('TS1')))
 })
 
 test('POST /api/v1/standards/semantic-search returns trusted explainable candidates', async () => {
@@ -1520,18 +1561,18 @@ test('POST /api/v1/standards/batch returns found items and missing codes', async
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
-            codes: ['AR-D1-AA-MU-007', 'AR-H1-AA-MU-007', 'NOPE-404', 'AR-D1-AA-MU-007']
+            codes: ['AR-D1-AA-MU-007', 'AR-S1-MU-02', 'NOPE-404', 'MA-S3-NA-01.2', 'MA-S3-NA-01']
         })
     })
     assert.equal(response.status, 200)
     const body = await json(response)
-    assert.equal(body.data.length, 2)
+    assert.deepEqual(body.data.map((item: any) => item.code), ['AR-S1-MU-02', 'MA-S3-NA-01'])
     assert.deepEqual(body.meta.missing, ['NOPE-404'])
-    assert.deepEqual(body.meta.resolved, {
-        'AR-D1-AA-MU-007': 'AR-D1-AA-007',
-        'AR-H1-AA-MU-007': 'AR-D1-AA-007'
-    })
-    assert.deepEqual(body.meta.duplicates, ['AR-D1-AA-MU-007'])
+    assert.deepEqual(body.meta.resolved, [
+        { requested: 'AR-D1-AA-MU-007', code: 'AR-S1-MU-02', indicator: 'AR-S1-MU-02.1' },
+        { requested: 'MA-S3-NA-01.2', code: 'MA-S3-NA-01', indicator: 'MA-S3-NA-01.2' }
+    ])
+    assert.deepEqual(body.meta.duplicates, ['AR-S1-MU-02', 'MA-S3-NA-01'])
 })
 
 test('GET /api/v1/subjects/:subject_slug/domains returns taxonomy', async () => {
@@ -1542,18 +1583,35 @@ test('GET /api/v1/subjects/:subject_slug/domains returns taxonomy', async () => 
     assert.ok(body.data.domains.length > 0)
 })
 
-test('GET /api/v1/standards/:code/neighbors returns adjacent standards', async () => {
-    const response = await app.request('/api/v1/standards/SC-D2-SC-010/neighbors')
+test('GET /api/v1/standards/:code/neighbors returns the standards next to it in the same 学段 and 领域', async () => {
+    const response = await app.request('/api/v1/standards/SC-S2-PS-02/neighbors', { headers: { 'x-forwarded-for': 'v2-api-test-3' } })
     assert.equal(response.status, 200)
     const body = await json(response)
-    assert.equal(body.data.relationships.previous.code, 'SC-D1-SC-014')
-    assert.equal(body.data.relationships.next.code, 'SC-D3-SC-010')
-    assert.equal(body.data.relationships.previous_all.total, 1)
-    assert.equal(body.data.relationships.next_all.total, 1)
+    assert.equal(body.data.previous.code, 'SC-S2-PS-01')
+    assert.equal(body.data.next.code, 'SC-S2-PS-03')
+    assert.ok(body.data.same_stage_domain.every((item: any) => item.stage_code === 'S2' && item.level1 === '物质科学'))
+    const moved = await json(await app.request('/api/v1/standards/SC-D2-SC-010/neighbors', { headers: { 'x-forwarded-for': 'v2-api-test-3' } }))
+    assert.equal(moved.data.standard.code, 'SC-S2-PS-02')
+    assert.equal(moved.meta.moved_from, 'SC-D2-SC-010')
+
+    const legacy = await json(await app.request('/api/v1/legacy/standards/SC-D2-SC-010/neighbors', { headers: { 'x-forwarded-for': 'v2-api-test-3' } }))
+    assert.equal(legacy.data.relationships.previous.code, 'SC-D1-SC-014')
+    assert.equal(legacy.data.relationships.next.code, 'SC-D3-SC-010')
 })
 
-test('GET /api/v1/standards/:code/progression exposes exact G7-G9 edges and an explicit inferred bridge', async () => {
-    const response = await app.request('/api/v1/standards/SC-H4G7-AR-001/progression')
+test('GET /api/v1/standards/:code/progression follows the same content across 学段', async () => {
+    const response = await app.request('/api/v1/standards/SC-S2-PS-01/progression', { headers: { 'x-forwarded-for': 'v2-api-test-4' } })
+    assert.equal(response.status, 200)
+    const body = await json(response)
+    assert.equal(body.data.method, 'same_name')
+    assert.deepEqual(body.data.chain.map((item: any) => item.code), ['SC-S1-PS-01', 'SC-S2-PS-01', 'SC-S3-PS-01', 'SC-S4-PS-01'])
+    assert.deepEqual(body.data.chain.filter((item: any) => item.current).map((item: any) => item.code), ['SC-S2-PS-01'])
+    const single = await json(await app.request('/api/v1/standards/PH-S4-MA-01/progression', { headers: { 'x-forwarded-for': 'v2-api-test-4' } }))
+    assert.ok(['same_name', 'same_domain'].includes(single.data.method))
+})
+
+test('GET /api/v1/legacy/standards/:code/progression exposes exact G7-G9 edges and an explicit inferred bridge', async () => {
+    const response = await app.request('/api/v1/legacy/standards/SC-H4G7-AR-001/progression', { headers: { 'x-forwarded-for': 'v2-api-test-5' } })
     assert.equal(response.status, 200)
     const body = await json(response)
     assert.equal(body.data.anchor_code, 'SC-H4G7-AR-001')
@@ -1566,8 +1624,8 @@ test('GET /api/v1/standards/:code/progression exposes exact G7-G9 edges and an e
     assert.ok(body.data.edges.some((edge: any) => edge.relation === 'inferred_stage_bridge'))
 })
 
-test('GET /api/v1/standards/:code/progression connects D1-D3 with G7-G9', async () => {
-    const response = await app.request('/api/v1/standards/SC-D2-SC-010/progression')
+test('GET /api/v1/legacy/standards/:code/progression connects D1-D3 with G7-G9', async () => {
+    const response = await app.request('/api/v1/legacy/standards/SC-D2-SC-010/progression', { headers: { 'x-forwarded-for': 'v2-api-test-6' } })
     assert.equal(response.status, 200)
     const body = await json(response)
     assert.equal(body.data.status, 'partial')
@@ -1578,8 +1636,8 @@ test('GET /api/v1/standards/:code/progression connects D1-D3 with G7-G9', async 
     assert.ok(body.data.edges.some((edge: any) => edge.relation === 'grade_progression'))
 })
 
-test('GET /api/v1/standards/:code/progression reports a real H3-H4 domain gap without fabricating an edge', async () => {
-    const response = await app.request('/api/v1/standards/ML-D3-MOR-001/progression')
+test('GET /api/v1/legacy/standards/:code/progression reports a real H3-H4 domain gap without fabricating an edge', async () => {
+    const response = await app.request('/api/v1/legacy/standards/ML-D3-MOR-001/progression', { headers: { 'x-forwarded-for': 'v2-api-test-7' } })
     assert.equal(response.status, 200)
     const body = await json(response)
     assert.deepEqual(body.data.grade_bands, ['H1', 'H2', 'H3'])
@@ -1592,13 +1650,15 @@ test('POST /api/v1/standards/compare returns common and different fields', async
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
-            codes: ['SC-D1-SC-014', 'SC-D2-SC-010']
+            codes: ['SC-S1-PS-01', 'SC-D2-SC-010']
         })
     })
     assert.equal(response.status, 200)
     const body = await json(response)
-    assert.equal(body.data.standards.length, 2)
-    assert.ok('grade_band' in body.data.different_fields)
+    assert.deepEqual(body.data.standards.map((item: any) => item.code), ['SC-S1-PS-01', 'SC-S2-PS-02'])
+    assert.equal(body.data.common_fields.subject_slug, 'science')
+    assert.equal(body.data.common_fields.level1, '物质科学')
+    assert.ok(body.data.different_fields.includes('stage_code'))
 })
 
 test('fieldsets above public require API tier access', async () => {

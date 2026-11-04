@@ -4,6 +4,9 @@ export const FieldsetSchema = z.enum(['public', 'source', 'evidence', 'textbook'
 
 export const StandardSearchRequestSchema = z.object({
     subjects: z.array(z.string().trim().min(1).max(64)).max(20).optional(),
+    // 学段 S1–S4 and grades 1–9 of the 2025 standards; grade_bands (H1–H4G9) is the 2022 spelling, read as grades
+    stages: z.array(z.string().trim().min(1).max(4)).max(4).optional(),
+    grades: z.array(z.number().int().min(1).max(9)).max(9).optional(),
     grade_bands: z.array(z.string().trim().min(1).max(16)).max(6).optional(),
     domains: z.array(z.string().trim().min(1).max(64)).max(40).optional(),
     skills: z.array(z.string().trim().min(1).max(16)).max(7).optional(),

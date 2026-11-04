@@ -19,8 +19,8 @@
 
 <p align="center">
   <a href="https://github.com/NBrangerF/curriculum-standards-breakdown/actions/workflows/quality-gates.yml"><img src="https://github.com/NBrangerF/curriculum-standards-breakdown/actions/workflows/quality-gates.yml/badge.svg" alt="Quality gates"></a>
-  <a href="./public/data/data_version.json"><img src="https://img.shields.io/badge/standards-2%2C025-3d5afe" alt="当前收录 2025 条结构化课程标准"></a>
-  <a href="./public/data/manifest.json"><img src="https://img.shields.io/badge/subjects-9-15181e" alt="当前收录 9 个学科"></a>
+  <a href="./public/data/v2/version.json"><img src="https://img.shields.io/badge/standards-513_%C2%B7_2%2C520_%E8%A6%81%E7%82%B9-3d5afe" alt="当前收录 513 条标准、2,520 条要点"></a>
+  <a href="./public/data/v2/manifest.json"><img src="https://img.shields.io/badge/subjects-14-15181e" alt="当前收录 14 个学科"></a>
   <a href="https://www.kebiao.org/skills"><img src="https://img.shields.io/badge/transferable_skills-7-68717f" alt="7 类可迁移技能"></a>
 </p>
 
@@ -99,14 +99,15 @@ flowchart LR
 
 | 维度 | 当前公开数据 |
 | --- | --- |
-| 课程标准 | 2,025 条结构化条目 |
-| 学科 | 艺术、语文、英语、信息科技、劳动、数学、道德与法治、体育、科学 |
-| 学段/年级 | H1（1–2 年级）、H2（3–4 年级）、H3（5–6 年级）、H4G7（7 年级）、H4G8（8 年级）、H4G9（9 年级） |
+| 课程标准 | 《义务教育课程标准（2022年版2025年修订）》：513 条标准、2,520 条要点，要点逐字取自课标原文并标明页码 |
+| 学科 | 语文、数学、英语、道德与法治、历史、地理、科学、物理、化学、生物学、信息科技、体育与健康、艺术、劳动 |
+| 学段/年级 | S1（1–2 年级）、S2（3–4 年级）、S3（5–6 年级）、S4（7–9 年级）；英语 S1–S3 对应 3–4、5–6、7–9 年级 |
+| 2022 年版旧编码 | 2,025 个，全部解析到它并入的新标准；旧记录只在 `/api/v1/legacy/...` 对照 |
 | 可迁移技能 | 7 类：批判性思维与问题解决；创造力与创新；学习者能动性与自我导向学习；协作；沟通；数字、信息与媒体素养；全球公民与伦理责任 |
 | 教材索引 | 141 册学生教材：小学 83 册、初中 58 册，覆盖 13 个教材学科分类 |
-| 数据版本 | [`2026.07.18-capability-graph-v1`](./public/data/data_version.json) |
+| 数据版本 | [`public/data/v2/version.json`](./public/data/v2/version.json)：由标准内容算出，内容不变就不变 |
 
-这些数字描述的是当前项目数据集，不代表对所有国家课程文件、教材版本或教学资源的完整收录。可复现统计见 [`public/data/manifest.json`](./public/data/manifest.json)、[`public/data/textbooks/manifest.json`](./public/data/textbooks/manifest.json) 和 [`public/data/quality/trust_report.json`](./public/data/quality/trust_report.json)。
+这些数字描述的是当前项目数据集，不代表对所有国家课程文件、教材版本或教学资源的完整收录。可复现统计见 [`public/data/v2/manifest.json`](./public/data/v2/manifest.json)、[`public/data/textbooks/manifest.json`](./public/data/textbooks/manifest.json) 和 [`public/data/quality/trust_report.json`](./public/data/quality/trust_report.json)。
 
 ## 一起把它做成老师真正会用的工具
 

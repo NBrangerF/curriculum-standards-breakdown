@@ -23,7 +23,8 @@ export type V2Subject = {
     stage_overview?: { stage_goals?: V2Goal[], stage_notes?: Array<{ text: string, pages: number[] }> }
 }
 export type V2ManifestSubject = { subject_slug: string, subject: string, prefix: string, file: string, stages: V2Stage[], standard_count: number, indicator_count: number }
-export type V2Manifest = { source_version: string, source_note: string, totals: Record<string, number>, subjects: V2ManifestSubject[] }
+export type V2Version = { data_version: string, schema_version: string, source_version?: string, content_sha256?: string }
+export type V2Manifest = { schema_version?: string, source_version: string, source_note: string, totals: Record<string, number>, subjects: V2ManifestSubject[] }
 export type V2TextbookLink = { edition_id: string, textbook_title: string, entry_id: string | null, unit_id: string | null, title: string | null, printed_page: number | null, pdf_page: number | null, indicator: string | null, method: string, score: number }
 // [edition_id, title, printed_page, pdf_page, unit_id, standard codes]; books: edition_id → [textbook title, subject slug, grade, volume]
 export type V2TextbookChapters = { books: Record<string, [string, string, number, string]>, chapters: Array<[string, string, number | null, number, string | null, string[]]> }
@@ -65,6 +66,7 @@ export function createV2Store(dataRoot: string) {
         try { return JSON.parse(await readFile(`${dataRoot}/v2/${path}`, 'utf8')) as T } catch { return null }
     }
     let manifest: Promise<V2Manifest | null> | null = null
+    let version: Promise<V2Version> | null = null
     let legacy: Promise<Record<string, string> | null> | null = null
     let links: Promise<V2TextbookLinks | null> | null = null
     let chapters: Promise<V2TextbookChapters | null> | null = null
@@ -75,6 +77,11 @@ export function createV2Store(dataRoot: string) {
         async manifest() {
             manifest ??= read<V2Manifest>('manifest.json')
             return manifest
+        },
+        // the version every response carries, stamped from the published content (scripts/v2/stamp_version.mjs)
+        async version() {
+            version ??= read<V2Version>('version.json').then(async stamped => stamped || { data_version: '2025r', schema_version: (await store.manifest())?.schema_version || '2.0.0' })
+            return version
         },
         async subject(slug: string) {
             const entry = (await store.manifest())?.subjects.find(item => item.subject_slug === slug)

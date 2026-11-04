@@ -1,10 +1,12 @@
 openapi: 3.1.0
 info:
   title: 课程智能 API
-  version: 0.5.0
+  version: 0.6.0
   summary: 面向教育产品的可信课程标准、教材定位、开放学习资源、关系查询与计划对齐能力
   description: |
     课程智能 API 当前公开课程标准检索、教材目录与双页码定位、课标教材双向关联、进阶与相邻关系，以及可信智能检索和纯文本教学计划对齐预览。
+
+    **一套数据：**课程标准相关接口（检索、学科、领域、批量读取、对比、相邻与进阶、元信息）都返回《义务教育课程标准（2022年版2025年修订）》：14 门学科、513 条标准、2,520 条要点，编码如 `MA-S2-NA-02`，要点为 `MA-S2-NA-02.1`。2022 年版的旧编码（如 `MA-D2-AL-005`）解析到它并入的新标准，并在 `meta.moved_from` 标明；旧记录只在「旧数据（2022 年版）」下的 `/api/v1/legacy/...` 接口里提供对照。每个响应的 `meta.data_version`（如 `2025r-a4888c533b`）由已发布标准的内容算出，内容变了它才会变。
 
     智能检索和计划匹配结果均为待复核候选；未被教师接受的候选不会计入覆盖。证据链、文件上传和周进度生成仍在开发中。
 
@@ -32,7 +34,9 @@ tags:
   - name: 关系图谱
     description: 已建立的标准进阶分组，以及同领域、同能力的相邻关系。
   - name: 教学规划
-    description: 非持久化的纯文本计划解析、校验、候选匹配和确认后覆盖分析。
+    description: 旧接口，基于 2022 年版数据：非持久化的纯文本计划解析、校验、候选匹配和确认后覆盖分析。网站已不再使用，保留运行。
+  - name: 旧数据（2022 年版）
+    description: 2022 年版的旧记录、进阶图、能力图谱和证据摘要，只用于对照。新接入请用课程标准接口返回的 2025 修订版。
 paths:
   /api/v1/health:
     get:
@@ -104,7 +108,7 @@ paths:
       tags: [元信息]
       operationId: getApiMeta
       summary: 获取 API 元信息和可用筛选项
-      description: 返回数据覆盖范围、标准数量以及可用于检索的学科、学段和能力 code。适合在客户端初始化筛选器，匿名可调用。
+      description: 返回 2025 修订版的来源、标准与要点数量、编码格式、旧编码说明，以及检索可用的学科、学段（S1–S4）、年级、领域和可迁移能力 code。适合在客户端初始化筛选器，匿名可调用。
       security: []
       responses:
         "200":
@@ -120,7 +124,7 @@ paths:
       tags: [元信息]
       operationId: getDataVersion
       summary: 获取稳定的数据版本契约
-      description: 返回数据版本、Schema 版本、来源提交和校验状态，便于客户端缓存、审计和判断是否需要重新同步。匿名可调用。
+      description: 返回当前数据版本：`data_version` 由已发布的 2025 修订版标准内容算出（`2025r-` 加内容摘要前 10 位），`content_sha256` 为完整摘要。内容不变版本就不变，便于客户端缓存和判断是否需要重新同步。匿名可调用。
       security: []
       responses:
         "200":
@@ -141,7 +145,7 @@ paths:
       tags: [学科]
       operationId: listSubjects
       summary: 列出学科、元数据和统计信息
-      description: 返回全部已覆盖学科及其标准数量、学段分布和元数据。适合构建学科选择器，匿名可调用。
+      description: 返回 14 门学科及其标准、要点数量，各学段的数量和一级领域。适合构建学科选择器，匿名可调用。
       security: []
       responses:
         "200":
@@ -157,7 +161,7 @@ paths:
       tags: [学科]
       operationId: getSubject
       summary: 获取单个学科详情
-      description: 通过稳定的英文 `subject_slug` 获取一个学科的元数据和统计信息。匿名可调用。
+      description: 通过稳定的英文 `subject_slug` 获取一个学科的学段、数量和一级领域。匿名可调用。
       security: []
       parameters:
         - $ref: "#/components/parameters/SubjectSlug"
@@ -175,7 +179,7 @@ paths:
       tags: [学科]
       operationId: getSubjectDomains
       summary: 获取某个学科的领域和子领域结构
-      description: 返回学科内的领域、子领域和标准数量，可用于目录导航和课程结构展示。匿名可调用。
+      description: 返回学科内的一级领域，以及每个领域的标准、要点数量、覆盖学段和标准编码。匿名可调用。
       security: []
       parameters:
         - $ref: "#/components/parameters/SubjectSlug"
@@ -602,7 +606,7 @@ paths:
       tags: [能力]
       operationId: listStandardsBySkill
       summary: 列出与某个可迁移能力对齐的课程标准
-      description: 按能力 code 反查课程标准。默认只返回 `public` 字段；请求受限字段集时需要对应权限的 API Key。
+      description: 按能力 code 反查 2025 修订版课程标准（主标签或次标签）。可迁移能力是 kebiao 的整理框架，不是课标原文。
       security:
         - ApiKeyAuth: []
         - {}
@@ -625,7 +629,7 @@ paths:
       tags: [课程标准]
       operationId: getStandard
       summary: 按 code 获取单条课程标准
-      description: 获取一条课程标准的结构化详情。`code` 必须精确且区分大小写。2025 修订版重建的标准用新编码（如 `MA-S2-NA-02`，要点为 `MA-S2-NA-02.1`），返回整条标准及其要点、页码、修订状态和出处，`meta.schema` 为 `v2`，按要点编码请求时 `meta.indicator` 标明该要点。旧编码（如 `MA-D2-AL-005`）仍返回原记录，并在 `meta.moved_to` 给出它在新结构中的位置；`/textbooks` 与 `/learning-resources` 子接口同样接受新编码，汇总其包含的旧记录的关联。旧编码仅在唯一映射时兼容，并会在 `meta.resolved_from` 标明。匿名请求返回 `public` 字段；通过 `include` 请求受限字段集时需要对应权限的 API Key。
+      description: 获取一条课程标准：整条标准及其要点、页码、修订状态和出处，`meta.schema` 为 `v2`。`code` 精确且区分大小写，可以是标准编码（`MA-S2-NA-02`）、要点编码（`MA-S2-NA-02.1`，`meta.indicator` 标明该要点）或 2022 年版旧编码（`MA-D2-AL-005`，返回它并入的新标准，`meta.moved_from` 标明旧编码，`meta.indicator` 标明对应要点）。旧编码的别名有多个候选时返回 409。2022 年版旧记录见 `/api/v1/legacy/standards/{code}`。
       security:
         - ApiKeyAuth: []
         - {}
@@ -634,7 +638,7 @@ paths:
         - $ref: "#/components/parameters/Include"
       responses:
         "200":
-          description: 课程标准详情
+          description: 课程标准详情（2025 修订版）
           content:
             application/json:
               schema:
@@ -643,7 +647,7 @@ paths:
                   - type: object
                     properties:
                       data:
-                        $ref: "#/components/schemas/StandardPublic"
+                        $ref: "#/components/schemas/StandardV2"
         "403":
           $ref: "#/components/responses/Forbidden"
         "404":
@@ -652,10 +656,10 @@ paths:
           $ref: "#/components/responses/Conflict"
   /api/v1/standards/{code}/capability-graph:
     get:
-      tags: [关系图谱]
+      tags: [旧数据（2022 年版）]
       operationId: getStandardCapabilityGraph
       summary: 获取某条标准的可教学能力图谱
-      description: 返回可教学小能力、高难结构、具体困难、教材关系和后续学习方向。`verified_prerequisites` 只包含有证据且经专家批准的关系；课程顺序和跨学段推断保存在 `prerequisite_candidates`，不得解释为已核验前置能力。教材关系明确区分 L1 范围、L2 目录主题和待补页码候选。
+      description: 2022 年版数据，只接受 2022 年版编码。返回可教学小能力、高难结构、具体困难、教材关系和后续学习方向。`verified_prerequisites` 只包含有证据且经专家批准的关系；课程顺序和跨学段推断保存在 `prerequisite_candidates`，不得解释为已核验前置能力。
       security: []
       parameters:
         - $ref: "#/components/parameters/StandardCode"
@@ -680,7 +684,7 @@ paths:
       tags: [关系图谱]
       operationId: getStandardProgression
       summary: 获取某条标准所在的课程进阶图
-      description: 返回该标准所在的连通进阶图，覆盖 D1–D3 的已声明学段关系、G7→G8→G9 的确定年级关系，以及 H3→G7 的同学科同领域推断桥。推断桥会明确返回置信度、评分与警告，不应解释为官方先修关系。`status` 为 `available`、`partial` 或 `not_available`；受限字段集遵循 `include` 权限规则。
+      description: 同一内容在各学段的写法（kebiao 按名称整理，不是 AI 判断的先修关系）：同学科、同一级领域、同名的标准按学段排列，`method` 为 `same_name`；名称只在一个学段出现时，列出同一领域在其他学段的标准，`method` 为 `same_domain`。接受新编码、要点编码和 2022 年版旧编码。2022 年版的进阶图（已声明学段关系、年级关系和推断桥）见 `/api/v1/legacy/standards/{code}/progression`。
       security:
         - ApiKeyAuth: []
         - {}
@@ -698,7 +702,7 @@ paths:
                   - type: object
                     properties:
                       data:
-                        $ref: "#/components/schemas/ProgressionGraph"
+                        $ref: "#/components/schemas/StandardProgressionV2"
         "403":
           $ref: "#/components/responses/Forbidden"
         "404":
@@ -710,7 +714,7 @@ paths:
       tags: [关系图谱]
       operationId: getStandardNeighbors
       summary: 获取前后、同领域、同能力和进阶相邻标准
-      description: 以一条标准为锚点，一次返回已有的前后、同领域、同能力和进阶关系。`previous`/`next` 保持单条兼容；多值关系请使用 `previous_all`/`next_all`。部分历史关系仍可能在 `unresolved` 中列出。受限字段集遵循 `include` 权限规则。
+      description: 同学科、同学段、同一级领域里排在这条前后的标准（`previous`、`next`），以及这一组的全部标准（`same_stage_domain`）。接受新编码、要点编码和 2022 年版旧编码。2022 年版的相邻关系见 `/api/v1/legacy/standards/{code}/neighbors`。
       security:
         - ApiKeyAuth: []
         - {}
@@ -728,7 +732,7 @@ paths:
                   - type: object
                     properties:
                       data:
-                        $ref: "#/components/schemas/StandardNeighbors"
+                        $ref: "#/components/schemas/StandardNeighborsV2"
         "403":
           $ref: "#/components/responses/Forbidden"
         "404":
@@ -737,10 +741,10 @@ paths:
           $ref: "#/components/responses/Conflict"
   /api/v1/standards/{code}/evidence:
     get:
-      tags: [关系图谱]
+      tags: [旧数据（2022 年版）]
       operationId: getStandardEvidence
       summary: 获取某条标准的来源和证据摘要
-      description: 返回边界明确的来源、证据 ID、证据数量和进阶状态摘要，不返回完整大型证据对象。匿名可调用。
+      description: 2022 年版数据，只接受 2022 年版编码。返回边界明确的来源、证据 ID、证据数量和进阶状态摘要。匿名可调用。
       security: []
       parameters:
         - $ref: "#/components/parameters/StandardCode"
@@ -758,13 +762,97 @@ paths:
                         $ref: "#/components/schemas/StandardEvidenceSummary"
         "404":
           $ref: "#/components/responses/NotFound"
+  /api/v1/legacy/standards/{code}:
+    get:
+      tags: [旧数据（2022 年版）]
+      operationId: getLegacyStandard
+      summary: 获取 2022 年版旧记录（对照用）
+      description: 返回 2022 年版拆解时的旧记录，`meta.schema` 为 `legacy_2022`，`meta.moved_to` 给出它并入的 2025 修订版标准（及要点锚点）。唯一的旧别名会解析并在 `meta.resolved_from` 标明，有多个候选时返回 409。新接入请用 `/api/v1/standards/{code}`。
+      security:
+        - ApiKeyAuth: []
+        - {}
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+        - $ref: "#/components/parameters/Include"
+      responses:
+        "200":
+          description: 2022 年版旧记录
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/StandardPublic"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
+  /api/v1/legacy/standards/{code}/progression:
+    get:
+      tags: [旧数据（2022 年版）]
+      operationId: getLegacyStandardProgression
+      summary: 获取 2022 年版的课程进阶图（对照用）
+      description: 2022 年版数据的连通进阶图：D1–D3 的已声明学段关系、G7→G8→G9 的确定年级关系，以及 H3→G7 的同学科同领域推断桥。推断桥带置信度与警告，不应解释为官方先修关系。
+      security:
+        - ApiKeyAuth: []
+        - {}
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+        - $ref: "#/components/parameters/Include"
+      responses:
+        "200":
+          description: 2022 年版课程进阶图
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/ProgressionGraph"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
+  /api/v1/legacy/standards/{code}/neighbors:
+    get:
+      tags: [旧数据（2022 年版）]
+      operationId: getLegacyStandardNeighbors
+      summary: 获取 2022 年版的相邻标准（对照用）
+      description: 2022 年版数据中的前后、同领域、同能力和进阶关系。多值关系见 `previous_all`/`next_all`。
+      security:
+        - ApiKeyAuth: []
+        - {}
+      parameters:
+        - $ref: "#/components/parameters/StandardCode"
+        - $ref: "#/components/parameters/Include"
+      responses:
+        "200":
+          description: 2022 年版标准邻接关系
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/StandardNeighbors"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
   /api/v1/standards/search:
     post:
       tags: [课程标准]
       operationId: searchStandards
       summary: 搜索课程标准
       description: |
-        按学科、学段、领域、能力或关键词组合筛选课程标准。关键词是标准正文、标题、领域、情境与教学提示中的字面包含匹配，不是语义或相关性搜索。请求体可省略；默认返回第一页和 `public` 字段集。
+        按学科、学段、年级、一级领域、可迁移能力或关键词组合筛选 2025 修订版课程标准。关键词按空格分词，每个词都要在编码、标准名、领域、标准句、要点或学业要求中出现（字面包含，不是语义检索）；名称里就有关键词的标准排在前面。请求体可省略；默认返回第一页。2022 年版的 `grade_bands`（H1–H4G9）仍可用，按它代表的年级读。
 
         分页时把上一页 `meta.next_cursor` 原样传入 `cursor`。请求 `source`、`evidence`、`textbook` 或 `admin` 字段集时需要对应权限的 API Key。
       security:
@@ -783,11 +871,17 @@ paths:
                   subjects: [science]
                   keyword: 观察
                   limit: 3
+              stageSearch:
+                summary: 数学第三学段（5–6 年级）的全部标准
+                value:
+                  subjects: [math]
+                  stages: [S3]
+                  limit: 20
               skillSearch:
                 summary: 按可迁移能力检索
                 value:
                   skills: [TS1]
-                  grade_bands: [H2]
+                  grades: [3]
                   limit: 10
       responses:
         "200":
@@ -835,7 +929,7 @@ paths:
       tags: [课程标准]
       operationId: batchGetStandards
       summary: 按 code 批量获取课程标准
-      description: 一次获取 1 至 100 条课程标准。不存在的 code 不会使整个请求失败，而是返回在 `meta.missing` 中；重复输入会列在 `meta.duplicates`，唯一旧编码映射列在 `meta.resolved`，歧义旧编码列在 `meta.ambiguous`。受限字段集需要对应权限的 API Key。
+      description: 一次获取 1 至 100 条 2025 修订版课程标准，每条只返回一次。可以混用标准编码、要点编码和 2022 年版旧编码：解析过的列在 `meta.resolved`（`requested`、`code`、`indicator`），重复的列在 `meta.duplicates`，找不到的列在 `meta.missing`，不会使整个请求失败。
       security:
         - ApiKeyAuth: []
         - {}
@@ -846,7 +940,7 @@ paths:
             schema:
               $ref: "#/components/schemas/StandardBatchRequest"
             example:
-              codes: [SC-D1-SC-014, SC-D2-SC-010]
+              codes: [SC-S1-PS-01, SC-D2-SC-010, MA-S3-NA-01.3]
       responses:
         "200":
           description: 批量查询结果
@@ -863,7 +957,7 @@ paths:
       tags: [课程标准]
       operationId: compareStandards
       summary: 对比 2 到 10 条课程标准
-      description: 对比多条标准的共同字段、差异字段和进阶关系。适合课程衔接分析；受限字段集需要对应权限的 API Key。
+      description: 对比 2 到 10 条 2025 修订版课程标准：`common_fields` 是它们相同的学科、学段、领域、名称，`different_fields` 列出不同的字段。接受新编码、要点编码和 2022 年版旧编码。
       security:
         - ApiKeyAuth: []
         - {}
@@ -874,7 +968,7 @@ paths:
             schema:
               $ref: "#/components/schemas/StandardCompareRequest"
             example:
-              codes: [SC-D1-SC-014, SC-D2-SC-010]
+              codes: [SC-S1-PS-01, SC-S2-PS-01]
       responses:
         "200":
           description: 标准对比结果
@@ -1317,48 +1411,30 @@ components:
       required: [error, meta]
     DataVersion:
       title: 数据版本
-      description: 当前数据集、结构、来源和校验状态。
+      description: 已发布的 2025 修订版标准的版本，由内容算出。
       type: object
       properties:
         data_version:
-          description: 当前数据快照版本，格式为 `YYYY.MM.DD`。
+          description: 数据版本，`2025r-` 加内容摘要前 10 位；内容不变就不变。
           type: string
-          example: "2026.07.09"
+          example: 2025r-a4888c533b
         schema_version:
-          description: 结构化数据 Schema 版本。
+          description: 数据 Schema 版本。
           type: string
-          example: "1.0.0"
-        source_standard:
-          description: 主要课程标准来源名称。
+          example: "2.0.0"
+        source_version:
+          description: 课程标准来源。
           type: string
-          example: 义务教育课程方案和课程标准（2022年版）
-        source_commit:
-          description: 生成此数据快照的 Git commit。
+          example: 义务教育课程标准（2022年版2025年修订）
+        content_sha256:
+          description: manifest 与各学科文件的 SHA-256 摘要。
           type: string
-          example: fa175f9aa0f1e623383b81a37660289b3eb6207e
-        generated_at:
-          description: 当前 API 数据快照生成时间，ISO 8601 格式。
-          type: string
-          format: date-time
-          example: "2026-07-09T00:00:00.000+08:00"
-        data_source_generated_at:
-          description: 上游源数据生成时间，ISO 8601 格式。
-          type: string
-          format: date-time
-          example: "2026-07-01T07:46:17.346Z"
-        validated:
-          description: 当前快照是否通过发布前数据校验。
-          type: boolean
-          example: true
-        subjects_covered:
-          description: 当前覆盖的学科数量。
-          type: integer
-          example: 9
-        standard_count:
-          description: 当前可查询的课程标准总数。
-          type: integer
-          example: 2025
-      required: [data_version, schema_version, validated, subjects_covered, standard_count]
+        totals:
+          description: 学科、标准、要点和旧编码数量。
+          type: object
+          additionalProperties:
+            type: integer
+          example: { subjects: 14, standards: 513, indicators: 2520, legacy_codes: 2025 }
     ProgressionEdge:
       title: 课程进阶关系边
       description: 两条课程标准之间的有向进阶关系。`inferred_stage_bridge` 是数据推断，不是官方声明的先修关系。
@@ -1440,9 +1516,164 @@ components:
           items:
             $ref: "#/components/schemas/StandardPublic"
       required: [status, semantic, anchor_code, grade_bands, coverage, edges, bridge, warnings, standards]
+    StandardV2:
+      title: 课程标准（2025 修订版）
+      description: 一条标准对应一个学段的一个内容单元；要点逐字取自课标原文并标明页码。`statement_source` 为 `official` 时标准句是课标原句，否则是 kebiao 用课标原词写的概括。
+      type: object
+      properties:
+        code:
+          description: 标准编码，学科-学段-领域-序号。
+          type: string
+          example: MA-S3-NA-01
+        subject:
+          type: string
+          example: 数学
+        subject_slug:
+          type: string
+          example: math
+        stage:
+          description: 年级范围。
+          type: string
+          example: 5-6
+        stage_code:
+          type: string
+          example: S3
+        grades:
+          type: array
+          items:
+            type: integer
+          example: [5, 6]
+        level1:
+          description: 一级领域。
+          type: string
+          example: 数与代数
+        level2:
+          description: 标准名。
+          type: string
+          example: 数与运算
+        title:
+          type: string
+          example: 数与运算（5–6 年级）
+        statement:
+          type: string
+        statement_source:
+          type: string
+          enum: [official, kebiao_summary]
+        indicators:
+          description: 要点（课标原文），每条有编码、页码和核对状态（verified、revised、ocr_doubt、table）。
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                example: MA-S3-NA-01.3
+              text:
+                type: string
+              section:
+                type: string
+              pages:
+                type: array
+                items:
+                  type: integer
+              check:
+                type: object
+                properties:
+                  status:
+                    type: string
+        requirements:
+          description: 学业要求（课标原文）。
+          type: array
+          items:
+            type: object
+        guidance:
+          description: 教学提示（课标原文）。
+          type: array
+          items:
+            type: object
+        legacy_codes:
+          description: 并入这条标准的 2022 年版旧编码。
+          type: array
+          items:
+            type: string
+        ts_primary:
+          description: 可迁移能力主标签（kebiao 整理）。
+          type: array
+          items:
+            type: string
+        ts_secondary:
+          description: 可迁移能力次标签（kebiao 整理）。
+          type: array
+          items:
+            type: string
+        source_version:
+          type: string
+          example: 2022年版2025年修订
+        source_note:
+          type: string
+    StandardBriefV2:
+      title: 标准简要信息
+      type: object
+      properties:
+        code:
+          type: string
+        title:
+          type: string
+        level1:
+          type: string
+        level2:
+          type: string
+        stage:
+          type: string
+        stage_code:
+          type: string
+        grades:
+          type: array
+          items:
+            type: integer
+        subject_slug:
+          type: string
+    StandardNeighborsV2:
+      title: 相邻标准（2025 修订版）
+      type: object
+      properties:
+        standard:
+          $ref: "#/components/schemas/StandardBriefV2"
+        previous:
+          oneOf:
+            - $ref: "#/components/schemas/StandardBriefV2"
+            - type: "null"
+        next:
+          oneOf:
+            - $ref: "#/components/schemas/StandardBriefV2"
+            - type: "null"
+        same_stage_domain:
+          type: array
+          items:
+            $ref: "#/components/schemas/StandardBriefV2"
+    StandardProgressionV2:
+      title: 各学段的同一内容（2025 修订版）
+      type: object
+      properties:
+        standard:
+          $ref: "#/components/schemas/StandardBriefV2"
+        method:
+          type: string
+          enum: [same_name, same_domain]
+        note:
+          type: string
+        chain:
+          type: array
+          items:
+            allOf:
+              - $ref: "#/components/schemas/StandardBriefV2"
+              - type: object
+                properties:
+                  current:
+                    type: boolean
     StandardPublic:
-      title: 课程标准公开字段
-      description: public 字段集下可匿名访问的课程标准字段。
+      title: 课程标准公开字段（2022 年版旧记录）
+      description: 2022 年版旧记录在 public 字段集下的字段，只在 /api/v1/legacy/ 接口返回。
       type: object
       properties:
         id:
@@ -1870,18 +2101,30 @@ components:
           items:
             type: string
           example: [science]
+        stages:
+          description: 学段 code 列表：`S1`–`S4`（英语的 `S1`–`S3` 对应一至三级，即 3–4、5–6、7–9 年级）。
+          type: array
+          items:
+            type: string
+          example: [S2]
+        grades:
+          description: 年级列表（1–9），返回覆盖其中任一年级的标准。
+          type: array
+          items:
+            type: integer
+          example: [3]
         grade_bands:
-          description: 学段 code 列表，例如 `H1`、`H2`、`H3`、`H4G7`、`H4G8`、`H4G9`。
+          description: 2022 年版写法（`H1`、`H2`、`H3`、`H4`、`H4G7`、`H4G8`、`H4G9`），按它代表的年级读。新接入请用 `stages` 或 `grades`。
           type: array
           items:
             type: string
           example: [H2]
         domains:
-          description: 一级领域名称列表，需与数据中的中文领域名称一致。
+          description: 一级领域名称列表，需与 2025 修订版的中文领域名称一致（见 `/api/v1/meta` 的 `filters.domains`）。
           type: array
           items:
             type: string
-          example: [科学观念]
+          example: [物质科学]
         skills:
           description: 可迁移能力 code 列表，例如 `TS1`。
           type: array
@@ -1889,7 +2132,7 @@ components:
             type: string
           example: [TS1]
         keyword:
-          description: 在标准正文、标题、领域、情境和教学提示等字段中检索的中文关键词。
+          description: 中文关键词，空格分隔的每个词都要出现在编码、标准名、领域、标准句、要点或学业要求中。
           type: string
           example: 观察
         include:
@@ -2176,7 +2419,7 @@ components:
         codes: [SC-D1-SC-014, SC-D2-SC-010]
     StandardCollectionResponse:
       title: 标准列表响应
-      description: 带分页元信息的课程标准列表响应。
+      description: 带分页元信息的 2025 修订版课程标准列表响应。
       allOf:
         - $ref: "#/components/schemas/ApiResponse"
         - type: object
@@ -2184,7 +2427,7 @@ components:
             data:
               type: array
               items:
-                $ref: "#/components/schemas/StandardPublic"
+                $ref: "#/components/schemas/StandardV2"
             meta:
               allOf:
                 - $ref: "#/components/schemas/ApiMeta"

@@ -241,7 +241,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
     }
 
     app.get('/api/v1/lesson-plans/context', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await deps.v2.version()
         const unitId = c.req.query('unit_id') || null
         let edition = c.req.query('edition_id') || null
         const lessonId = c.req.query('lesson_id') || null
@@ -401,7 +401,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
 
     // The lesson list for one textbook, for the 「选一课」 picker: the 国家平台 list, with what it lacks from the book's 目录.
     app.get('/api/v1/lesson-plans/textbooks/:edition_id/lessons', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await deps.v2.version()
         const national = await lessonList(c.req.param('edition_id'))
         if (!national) return deps.ok(c, version as never, { lessons: [], platform_title: null, confidence: null })
         return deps.ok(c, version as never, {
@@ -529,7 +529,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
     }
 
     app.post('/api/v1/lesson-plans/draft', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await deps.v2.version()
         const parsed = DraftRequestSchema.safeParse(await deps.parseJson(c))
         if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请求参数校验失败。', parsed.error.issues)
         const body = parsed.data
@@ -610,7 +610,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
 
     // 核验我的教案: the teacher's own (or another AI's) plan, read and checked against the picked 要点
     app.post('/api/v1/lesson-plans/check', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await deps.v2.version()
         const parsed = CheckRequestSchema.safeParse(await deps.parseJson(c))
         if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请贴入至少 30 个字的教案，并勾选依据的课标要点。', parsed.error.issues)
         const resolved = await resolveInput(parsed.data)
@@ -632,7 +632,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
 
     // 目标体检: the teacher's own objectives traced back to the 课标, with what each lacks and how it could read
     app.post('/api/v1/lesson-plans/check-objectives', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await deps.v2.version()
         const parsed = ObjectivesCheckSchema.safeParse(await deps.parseJson(c))
         if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请贴入至少一条学习目标。', parsed.error.issues)
         const body = parsed.data
@@ -661,7 +661,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
     // 核验我的试卷: the AI reads each question (题号、题干开头、分值、题型、要点、素养、层次、难度); the program builds the
     // 多维细目表 and runs the checks: 课标 limits, questions on no picked 要点, 要点 no question tests, totals, balance.
     app.post('/api/v1/lesson-plans/check-test', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await deps.v2.version()
         const parsed = TestRequestSchema.safeParse(await deps.parseJson(c))
         if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请贴入至少 30 个字的试卷或作业，并勾选它考查的课标要点。', parsed.error.issues)
         const resolved = await resolveInput(parsed.data)
@@ -696,7 +696,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
     // The AI reads every standard of the lesson's subject at its grade (at most ~33) and says which 要点 the lesson
     // teaches. Retrieval by words misses lessons whose topic word is not in the 课标 (「河流」, 「My friends」).
     app.post('/api/v1/lesson-plans/pick', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await deps.v2.version()
         const parsed = PickRequestSchema.safeParse(await deps.parseJson(c))
         if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请求参数校验失败。', parsed.error.issues)
         const { lesson, hint, lessons } = parsed.data
@@ -755,7 +755,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
     // 课堂学习目标: for the lessons of one unit, objectives written from the 要点 each lesson teaches, the lesson
     // itself and an ordinary class at that grade; every objective quotes the 要点 words it comes from
     app.post('/api/v1/lesson-plans/objectives', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await deps.v2.version()
         const parsed = ObjectivesRequestSchema.safeParse(await deps.parseJson(c))
         if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请求参数校验失败。', parsed.error.issues)
         const { lesson, lessons, unit_lessons: unitLessons } = parsed.data
@@ -779,7 +779,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
 
     // 教材与课标对应: which 要点 each lesson of a unit teaches, every match quoting the lesson's own material
     app.post('/api/v1/lesson-plans/align', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await deps.v2.version()
         const parsed = AlignRequestSchema.safeParse(await deps.parseJson(c))
         if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请求参数校验失败。', parsed.error.issues)
         const { lesson, lessons } = parsed.data

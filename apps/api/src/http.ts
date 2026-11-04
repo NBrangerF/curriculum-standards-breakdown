@@ -341,7 +341,10 @@ export const observabilityMiddleware: MiddlewareHandler<ApiBindings> = async (c,
     }
 }
 
-export function apiMeta(c: Context<ApiBindings>, dataVersion: DataVersion, extra: JsonObject = {}) {
+// the version stamp of the data a response comes from (the 2025 standards, or the 2022 records on /legacy/ routes)
+export type VersionStamp = Pick<DataVersion, 'data_version' | 'schema_version'>
+
+export function apiMeta(c: Context<ApiBindings>, dataVersion: VersionStamp, extra: JsonObject = {}) {
     return {
         request_id: c.get('requestId'),
         data_version: dataVersion.data_version,
@@ -351,7 +354,7 @@ export function apiMeta(c: Context<ApiBindings>, dataVersion: DataVersion, extra
     }
 }
 
-export function ok(c: Context<ApiBindings>, dataVersion: DataVersion, data: unknown, extra: JsonObject = {}) {
+export function ok(c: Context<ApiBindings>, dataVersion: VersionStamp, data: unknown, extra: JsonObject = {}) {
     return c.json({
         data,
         meta: apiMeta(c, dataVersion, extra)

@@ -18,7 +18,8 @@ import {
     SMART_SEARCH_RELEVANCE_VERSION,
     coverageNoteFor,
     WeeklyScheduleRequestSchema,
-    projectStandard
+    projectStandard,
+    paginate
 } from '../../../packages/curriculum-core/src/index.js'
 import type {
     LearningResourceFormat,
@@ -50,6 +51,7 @@ import { parsePlanWithLlm } from './plan-llm.js'
 import { resolveDataRoot } from './config.js'
 import { TextbookAssetService } from './textbook-assets.js'
 import { SOURCE_LABEL, createV2Store, v2TextbookItem } from './v2-store.js'
+import { batchV2, compareV2, domainsV2, metaV2, neighboursV2, progressionV2, publicStandard, resolveV2, searchV2, subjectsV2, validateV2Filters } from './v2-api.js'
 import { ToolInputError, findTool, runTool, type ToolContext } from './ai-tools.js'
 import { createCheckStore, findChecks, publicCheck } from './checks.js'
 import { handleMcp } from './mcp.js'
@@ -264,6 +266,16 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
 
     registerLessonPlanRoutes(app, { repository, textbookRepository, v2, dataRoot: resolveDataRoot(), parseJson, ok: ok as never, apiError: apiError as never })
 
+    // a 2022 code (or one of its aliases) → its canonical 2022 code, to resolve it to the 2025 standard it joined
+    async function canonicalLegacy(code: string) {
+        const resolved = await repository.resolveStandard(code)
+        return resolved.status === 'found' && resolved.record ? resolved.record.code : null
+    }
+    const movedMeta = (hit: { indicator: string | null, moved_from: string | null }) => ({
+        ...(hit.indicator ? { indicator: hit.indicator } : {}),
+        ...(hit.moved_from ? { moved_from: hit.moved_from } : {})
+    })
+
     async function resolveStandardOrError(c: Context<ApiBindings>, code: string) {
         const resolved = await repository.resolveStandard(code)
         if (resolved.status === 'ambiguous') {
@@ -316,7 +328,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/health', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         return ok(c, version, {
             status: 'ok',
             data_version: version.data_version,
@@ -352,38 +364,21 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     app.get('/api/v1/metrics', async c => {
         const blocked = ensureTierAccess(c, 'admin')
         if (blocked) return blocked
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         return ok(c, version, await metricsSnapshot())
     })
 
     app.get('/api/v1/data-version', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         return ok(c, version, version)
     })
 
     app.get('/api/v1/meta', async c => {
-        const [version, manifest] = await Promise.all([
-            repository.loadDataVersion(),
-            repository.loadManifest()
-        ])
-        return ok(c, version, {
-            data_version: version,
-            data_scope: manifest.data_scope,
-            generated_at: manifest.generated_at,
-            standard_count: manifest.subjects.reduce((sum, subject) => sum + subject.record_count, 0),
-            subjects_covered: manifest.subjects.length,
-            columns_count: manifest.columns?.length || 0,
-            target_policy: manifest.target_policy,
-            filters: {
-                subjects: manifest.subjects.map(subject => subject.subject_slug),
-                grade_bands: Object.keys(manifest.target_policy || {}),
-                skills: ['TS1', 'TS2', 'TS3', 'TS4', 'TS5', 'TS6', 'TS7']
-            }
-        })
+        return ok(c, await v2.version(), await metaV2(v2))
     })
 
     app.get('/api/v1/learning-resources', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const stage = c.req.query('stage')
         const format = c.req.query('format')
         const openLevel = c.req.query('open_level')
@@ -413,21 +408,21 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/learning-resources/:resource_id', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const resource = await learningResourceRepository.get(c.req.param('resource_id'))
         if (!resource) return apiError(c, 404, 'not_found', '未找到学习资源。')
         return ok(c, version, resource)
     })
 
     app.get('/api/v1/learning-resources/:resource_id/standards', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const resource = await learningResourceRepository.get(c.req.param('resource_id'))
         if (!resource) return apiError(c, 404, 'not_found', '未找到学习资源。')
         return ok(c, version, resource.standards, { total: resource.standards.length })
     })
 
     app.get('/api/v1/standards/:code/learning-resources', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const found = await v2.find(c.req.param('code'))
         if (found) {
             // a v2 standard gathers the resources filed under the old codes that joined it
@@ -447,7 +442,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/textbooks', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const rawGrade = c.req.query('grade')
         const grade = rawGrade ? Number(rawGrade) : undefined
         if (rawGrade && (!Number.isInteger(grade) || Number(grade) < 1 || Number(grade) > 9)) {
@@ -471,7 +466,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/textbooks/:edition_id', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const detail = await textbookRepository.get(c.req.param('edition_id'))
         if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
         return ok(c, version, detail)
@@ -479,7 +474,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
 
     // 教材与课标对应: each lesson of the book with the 要点 it teaches (T) or touches (P) and the textbook's own words
     app.get('/api/v1/textbooks/:edition_id/alignment', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const editionId = c.req.param('edition_id')
         const rows = (await v2.lessonAlignment()).lessons.filter(row => row[0] === editionId)
         if (!rows.length) return apiError(c, 404, 'not_found', '这本教材还没有逐课的课标对应。')
@@ -494,21 +489,21 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/textbooks/:edition_id/toc', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const detail = await textbookRepository.get(c.req.param('edition_id'))
         if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
         return ok(c, version, detail.toc, { total: detail.toc.length, status: detail.toc_status })
     })
 
     app.get('/api/v1/textbooks/:edition_id/page-map', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const detail = await textbookRepository.get(c.req.param('edition_id'))
         if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
         return ok(c, version, detail.page_map, { total: detail.page_map.length, status: detail.page_map_status })
     })
 
     app.get('/api/v1/textbooks/:edition_id/context', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const editionId = c.req.param('edition_id')
         const detail = await textbookRepository.get(editionId)
         if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
@@ -529,14 +524,14 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/textbooks/:edition_id/resources', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const detail = await textbookRepository.get(c.req.param('edition_id'))
         if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
         return ok(c, version, detail.related_resources, { total: detail.related_resources.length })
     })
 
     app.post('/api/v1/textbooks/:edition_id/viewer-session', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const detail = await textbookRepository.get(c.req.param('edition_id'))
         if (!detail) return apiError(c, 404, 'not_found', '未找到教材。')
         const session = textbookAssetService.createViewerSession(detail.edition_id)
@@ -547,7 +542,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.post('/api/v1/textbook-resources/:resource_id/viewer-session', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const resourceId = c.req.param('resource_id')
         if (!textbookAssetService.hasResource(resourceId)) {
             return apiError(c, 404, 'not_found', '未找到支持资源。')
@@ -562,7 +557,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     app.on(['GET', 'HEAD'], '/api/v1/textbook-assets/:asset_id', c => textbookAssetService.respond(c, c.req.param('asset_id')))
 
     app.get('/api/v1/units/:unit_id', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const unit = await textbookRepository.getUnit(c.req.param('unit_id'))
         if (!unit) return apiError(c, 404, 'not_found', '未找到教材单元。')
         const standardsV2 = (await v2.textbookLinks()).units[c.req.param('unit_id')] || []
@@ -570,7 +565,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/units/:unit_id/standards', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const unit = await textbookRepository.getUnit(c.req.param('unit_id'))
         if (!unit) return apiError(c, 404, 'not_found', '未找到教材单元。')
         const alignments = Array.isArray(unit.alignments) ? unit.alignments : []
@@ -578,7 +573,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/units/:unit_id/resources', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const unit = await textbookRepository.getUnit(c.req.param('unit_id'))
         if (!unit) return apiError(c, 404, 'not_found', '未找到教材单元。')
         const resources = Array.isArray(unit.related_resources) ? unit.related_resources : []
@@ -586,7 +581,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/standards/:code/textbooks', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const found = await v2.find(c.req.param('code'))
         if (found) {
             const seen = new Set<string>()
@@ -611,7 +606,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     // 教材与课标对应, from the 课标 side: the lessons that teach a standard (any of its 要点) or one 要点, with the
     // textbook's own words; 主要在教 first, then in textbook order
     app.get('/api/v1/standards/:code/lessons', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const code = c.req.param('code').toUpperCase()
         const found = await v2.find(code)
         if (!found) return apiError(c, 404, 'not_found', '未找到标准或要点。')
@@ -631,7 +626,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     // 课堂诊断题: whole-class check questions, each wrong answer tied to a misconception (kebiao 编写，数值经程序验算).
     // One subject (?subject=english or 英语), the subject of ?code=, or every subject.
     app.get('/api/v1/checks', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const subject = c.req.query('subject') || ''
         const code = c.req.query('code') || c.req.query('point') || ''
         const banks = await checks.banksFor({ subject, code })
@@ -644,7 +639,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/checks/:id', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const found = await checks.byId(c.req.param('id'))
         if (!found) return apiError(c, 404, 'not_found', '未找到这道诊断题。')
         return ok(c, version, publicCheck(found.item, found.bank))
@@ -695,55 +690,32 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/subjects', async c => {
-        const [version, manifest, metadata, stats] = await Promise.all([
-            repository.loadDataVersion(),
-            repository.loadManifest(),
-            repository.loadSubjectsMeta(),
-            repository.loadSubjectStats()
-        ])
-        const metaBySlug = new Map(metadata.map(item => [String(item.subject_slug), item]))
-        const subjects = manifest.subjects.map(subject => ({
-            ...subject,
-            metadata: metaBySlug.get(subject.subject_slug) || null,
-            stats: stats[subject.subject_slug] || null
-        }))
-        return ok(c, version, subjects, { total: subjects.length })
+        const subjects = await subjectsV2(v2)
+        return ok(c, await v2.version(), subjects, { total: subjects.length })
     })
 
     app.get('/api/v1/subjects/:subject_slug/domains', async c => {
-        const version = await repository.loadDataVersion()
         const slug = c.req.param('subject_slug')
-        const domains = await repository.getSubjectDomains(slug)
+        const domains = await domainsV2(v2, slug)
         if (!domains) return apiError(c, 404, 'not_found', `未找到学科：${slug}`)
-        return ok(c, version, domains)
+        return ok(c, await v2.version(), domains)
     })
 
     app.get('/api/v1/subjects/:subject_slug', async c => {
-        const version = await repository.loadDataVersion()
         const slug = c.req.param('subject_slug')
-        const [manifest, metadata, stats] = await Promise.all([
-            repository.loadManifest(),
-            repository.loadSubjectsMeta(),
-            repository.loadSubjectStats()
-        ])
-        const subject = manifest.subjects.find(item => item.subject_slug === slug)
+        const subject = (await subjectsV2(v2)).find(item => item.subject_slug === slug)
         if (!subject) return apiError(c, 404, 'not_found', `未找到学科：${slug}`)
-        const meta = metadata.find(item => item.subject_slug === slug) || null
-        return ok(c, version, {
-            ...subject,
-            metadata: meta,
-            stats: stats[slug] || null
-        })
+        return ok(c, await v2.version(), subject)
     })
 
     app.get('/api/v1/skills', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const payload = await repository.loadSkillsMeta()
         return ok(c, version, payload)
     })
 
     app.get('/api/v1/skills/:skill_code', async c => {
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const code = c.req.param('skill_code').toUpperCase()
         const payload = await repository.loadSkillsMeta()
         const competencies = Array.isArray(payload.competencies) ? payload.competencies : []
@@ -753,48 +725,22 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/skills/:skill_code/standards', async c => {
-        const version = await repository.loadDataVersion()
         const code = c.req.param('skill_code').toUpperCase()
-        const include = parseInclude(c.req.query('include') || null)
-        const blocked = ensureFieldsetAccess(c, include)
-        if (blocked) return blocked
-        const limit = Number(c.req.query('limit') || 20)
-        const cursor = c.req.query('cursor') || null
-        const result = await repository.searchStandards({
-            skills: [code],
-            include: include as never,
-            limit,
-            cursor
-        })
-        return ok(c, version, result.items, {
-            total: result.total,
-            limit: result.limit,
-            next_cursor: result.next_cursor
-        })
+        if ((await validateV2Filters(v2, { skills: [code] })).length) return apiError(c, 404, 'not_found', `未找到可迁移能力：${code}`)
+        const page = paginate(await searchV2(v2, { skills: [code] }), Number(c.req.query('limit') || 20), c.req.query('cursor') || null)
+        return ok(c, await v2.version(), page.items, { total: page.total, limit: page.limit, next_cursor: page.next_cursor })
     })
 
     app.get('/api/v1/standards/:code/progression', async c => {
-        const version = await repository.loadDataVersion()
-        const code = c.req.param('code')
-        const include = parseInclude(c.req.query('include') || null) as never
-        const blocked = ensureFieldsetAccess(c, include)
-        if (blocked) return blocked
-        const lookup = await resolveStandardOrError(c, code)
-        if (lookup.response) return lookup.response
-        const result = await repository.getProgressionForCode(lookup.resolved!.record!.code, include || ['public'])
-        return ok(c, version, result, lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {})
+        const hit = await resolveV2(v2, c.req.param('code'), canonicalLegacy)
+        if (!hit) return apiError(c, 404, 'not_found', `未找到课程标准：${c.req.param('code')}`)
+        return ok(c, await v2.version(), await progressionV2(v2, hit.found), movedMeta(hit))
     })
 
     app.get('/api/v1/standards/:code/neighbors', async c => {
-        const version = await repository.loadDataVersion()
-        const code = c.req.param('code')
-        const include = parseInclude(c.req.query('include') || null) as never
-        const blocked = ensureFieldsetAccess(c, include)
-        if (blocked) return blocked
-        const lookup = await resolveStandardOrError(c, code)
-        if (lookup.response) return lookup.response
-        const result = await repository.getStandardNeighbors(lookup.resolved!.record!.code, include || ['public'])
-        return ok(c, version, result, lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {})
+        const hit = await resolveV2(v2, c.req.param('code'), canonicalLegacy)
+        if (!hit) return apiError(c, 404, 'not_found', `未找到课程标准：${c.req.param('code')}`)
+        return ok(c, await v2.version(), await neighboursV2(v2, hit.found), movedMeta(hit))
     })
 
     app.get('/api/v1/standards/:code/evidence', async c => {
@@ -806,35 +752,54 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.get('/api/v1/standards/:code', async c => {
-        const version = await repository.loadDataVersion()
-        const code = c.req.param('code')
         const include = parseInclude(c.req.query('include') || null) as never
         const blocked = ensureFieldsetAccess(c, include)
         if (blocked) return blocked
-        const found = await v2.find(code)
-        if (found) {
-            const { standard, subject } = found
-            return ok(c, version, { ...standard, subject: subject.subject, subject_slug: subject.subject_slug, source_version: subject.source_version, source_note: subject.source_note }, {
-                schema: 'v2',
-                ...(code !== standard.code ? { indicator: code } : {})
-            })
-        }
-        const lookup = await resolveStandardOrError(c, code)
+        const hit = await resolveV2(v2, c.req.param('code'), canonicalLegacy)
+        if (!hit) return (await resolveStandardOrError(c, c.req.param('code'))).response || apiError(c, 404, 'not_found', `未找到课程标准：${c.req.param('code')}`)
+        return ok(c, await v2.version(), publicStandard(hit.found), { schema: 'v2', ...movedMeta(hit) })
+    })
+
+    // the 2022 progression graph (declared progressions and inferred stage bridges) and neighbours, kept for comparison
+    app.get('/api/v1/legacy/standards/:code/progression', async c => {
+        const version = await repository.loadDataVersion()
+        const include = parseInclude(c.req.query('include') || null) as never
+        const blocked = ensureFieldsetAccess(c, include)
+        if (blocked) return blocked
+        const lookup = await resolveStandardOrError(c, c.req.param('code'))
+        if (lookup.response) return lookup.response
+        const result = await repository.getProgressionForCode(lookup.resolved!.record!.code, include || ['public'])
+        return ok(c, version, result, { schema: 'legacy_2022', ...(lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {}) })
+    })
+
+    app.get('/api/v1/legacy/standards/:code/neighbors', async c => {
+        const version = await repository.loadDataVersion()
+        const include = parseInclude(c.req.query('include') || null) as never
+        const blocked = ensureFieldsetAccess(c, include)
+        if (blocked) return blocked
+        const lookup = await resolveStandardOrError(c, c.req.param('code'))
+        if (lookup.response) return lookup.response
+        const result = await repository.getStandardNeighbors(lookup.resolved!.record!.code, include || ['public'])
+        return ok(c, version, result, { schema: 'legacy_2022', ...(lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {}) })
+    })
+
+    // 2022 年版的旧记录, kept for comparison; the 2025 standard it joined is in meta.moved_to
+    app.get('/api/v1/legacy/standards/:code', async c => {
+        const version = await repository.loadDataVersion()
+        const include = parseInclude(c.req.query('include') || null) as never
+        const blocked = ensureFieldsetAccess(c, include)
+        if (blocked) return blocked
+        const lookup = await resolveStandardOrError(c, c.req.param('code'))
         if (lookup.response) return lookup.response
         const movedTo = await v2.movedTo(lookup.resolved!.record!.code)
-        return ok(
-            c,
-            version,
-            projectStandard(lookup.resolved!.record!, include),
-            {
-                ...(lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {}),
-                ...(movedTo ? { moved_to: movedTo } : {})
-            }
-        )
+        return ok(c, version, projectStandard(lookup.resolved!.record!, include), {
+            schema: 'legacy_2022',
+            ...(lookup.resolved!.resolved_from ? { resolved_from: lookup.resolved!.resolved_from } : {}),
+            ...(movedTo ? { moved_to: movedTo } : {})
+        })
     })
 
     app.post('/api/v1/standards/search', async c => {
-        const version = await repository.loadDataVersion()
         const body = await parseJson(c)
         const parsed = StandardSearchRequestSchema.safeParse(body || {})
         if (!parsed.success) {
@@ -842,21 +807,21 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         }
         const blocked = ensureFieldsetAccess(c, parsed.data.include)
         if (blocked) return blocked
-        const filterErrors = await repository.validateSearchFilters(parsed.data)
+        const filterErrors = await validateV2Filters(v2, parsed.data)
         if (filterErrors.length) {
             return apiError(c, 422, 'validation_error', '筛选条件不在当前公开数据契约中。', filterErrors)
         }
-        const result = await repository.searchStandards(parsed.data)
-        return ok(c, version, result.items, {
-            total: result.total,
-            limit: result.limit,
-            next_cursor: result.next_cursor
+        const page = paginate(await searchV2(v2, parsed.data), parsed.data.limit, parsed.data.cursor)
+        return ok(c, await v2.version(), page.items, {
+            total: page.total,
+            limit: page.limit,
+            next_cursor: page.next_cursor
         })
     })
 
     app.post('/api/v1/standards/semantic-search', async c => {
         const started = performance.now()
-        const version = await repository.loadDataVersion()
+        const version = await v2.version()
         const body = await parseJson(c)
         const parsed = SmartSearchRequestSchema.safeParse(body)
         if (!parsed.success) {
@@ -979,7 +944,6 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     })
 
     app.post('/api/v1/standards/batch', async c => {
-        const version = await repository.loadDataVersion()
         const body = await parseJson(c)
         const parsed = StandardBatchRequestSchema.safeParse(body)
         if (!parsed.success) {
@@ -987,18 +951,16 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         }
         const blocked = ensureFieldsetAccess(c, parsed.data.include)
         if (blocked) return blocked
-        const result = await repository.batchStandards(parsed.data.codes, parsed.data.include)
-        return ok(c, version, result.items, {
+        const result = await batchV2(v2, parsed.data.codes, canonicalLegacy)
+        return ok(c, await v2.version(), result.items, {
             total: result.items.length,
             missing: result.missing,
             resolved: result.resolved,
-            ambiguous: result.ambiguous,
             duplicates: result.duplicates
         })
     })
 
     app.post('/api/v1/standards/compare', async c => {
-        const version = await repository.loadDataVersion()
         const body = await parseJson(c)
         const parsed = StandardCompareRequestSchema.safeParse(body)
         if (!parsed.success) {
@@ -1006,8 +968,8 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         }
         const blocked = ensureFieldsetAccess(c, parsed.data.include)
         if (blocked) return blocked
-        const result = await repository.compareStandards(parsed.data.codes, parsed.data.include)
-        return ok(c, version, result, {
+        const result = await compareV2(v2, parsed.data.codes, canonicalLegacy)
+        return ok(c, await v2.version(), result, {
             total: result.standards.length,
             missing: result.missing
         })

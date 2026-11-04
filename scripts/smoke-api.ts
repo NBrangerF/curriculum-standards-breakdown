@@ -145,7 +145,7 @@ const checks: SmokeCheck[] = [
         expect(response, payload) {
             expectEnvelope(response, payload)
             const data = expectObject(getData(payload), 'Expected data version object')
-            assert(typeof data.data_version === 'string', 'Expected data_version')
+            assert(typeof data.data_version === 'string' && data.data_version.startsWith('2025r-'), 'Expected the 2025 data version')
             assert(typeof data.schema_version === 'string', 'Expected schema_version')
         }
     },
@@ -159,12 +159,23 @@ const checks: SmokeCheck[] = [
         }
     },
     {
-        name: 'standard detail',
+        name: 'standard detail (a 2022 code answers with the 2025 standard it joined)',
         path: '/api/v1/standards/SC-D2-SC-010',
         expect(response, payload) {
             expectEnvelope(response, payload)
             const data = expectObject(getData(payload), 'Expected standard object')
-            assert(data.code === 'SC-D2-SC-010', 'Expected standard code SC-D2-SC-010')
+            assert(data.code === 'SC-S2-PS-02', 'Expected standard code SC-S2-PS-02')
+            assert(getMeta(payload).moved_from === 'SC-D2-SC-010', 'Expected meta.moved_from SC-D2-SC-010')
+        }
+    },
+    {
+        name: 'legacy 2022 record',
+        path: '/api/v1/legacy/standards/SC-D2-SC-010',
+        expect(response, payload) {
+            expectEnvelope(response, payload)
+            const data = expectObject(getData(payload), 'Expected legacy standard object')
+            assert(data.code === 'SC-D2-SC-010', 'Expected the 2022 record SC-D2-SC-010')
+            assert(getMeta(payload).moved_to === '/standards/SC-S2-PS-02', 'Expected meta.moved_to')
         }
     },
     {
@@ -180,6 +191,7 @@ const checks: SmokeCheck[] = [
             expectEnvelope(response, payload)
             const data = expectArray(getData(payload), 'Expected search result array')
             assert(data.length >= 1, 'Expected at least one search result')
+            assert(data.every(item => /^SC-S\d-/u.test(String(expectObject(item, 'Expected standard').code))), 'Expected 2025 standard codes')
         }
     },
     {
@@ -339,13 +351,23 @@ const checks: SmokeCheck[] = [
             expectEnvelope(response, payload)
             const data = expectArray(getData(payload), 'Expected batch result array')
             assert(data.length === 1, 'Expected one found standard')
+            assert(expectObject(data[0], 'Expected standard').code === 'SC-S2-PS-02', 'Expected the 2025 standard SC-S2-PS-02')
             const meta = getMeta(payload)
             assert(Array.isArray(meta.missing), 'Expected batch missing list')
         }
     },
     {
         name: 'standard progression',
-        path: '/api/v1/standards/SC-H4G7-AR-001/progression',
+        path: '/api/v1/standards/SC-S2-PS-01/progression',
+        expect(response, payload) {
+            expectEnvelope(response, payload)
+            const data = expectObject(getData(payload), 'Expected progression result')
+            assert(data.method === 'same_name' && expectArray(data.chain, 'Expected chain').length === 4, 'Expected the same standard across four 学段')
+        }
+    },
+    {
+        name: 'legacy 2022 progression',
+        path: '/api/v1/legacy/standards/SC-H4G7-AR-001/progression',
         expect(response, payload) {
             expectEnvelope(response, payload)
             const data = expectObject(getData(payload), 'Expected progression result')
@@ -358,8 +380,8 @@ const checks: SmokeCheck[] = [
         expect(response, payload) {
             expectEnvelope(response, payload)
             const data = expectObject(getData(payload), 'Expected neighbor result')
-            const relationships = expectObject(data.relationships, 'Expected relationships')
-            assert(typeof relationships.previous_all === 'object', 'Expected multi-value previous relation')
+            assert(expectObject(data.standard, 'Expected standard').code === 'SC-S2-PS-02', 'Expected the 2025 standard SC-S2-PS-02')
+            assert(Array.isArray(data.same_stage_domain), 'Expected the same 学段 and 领域 list')
         }
     },
     {
