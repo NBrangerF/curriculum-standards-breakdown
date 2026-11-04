@@ -34,6 +34,11 @@
     ],
     "redirects": [
         {
+            "source": "/api",
+            "destination": "/open-data",
+            "permanent": true
+        },
+        {
             "source": "/schedule",
             "has": [{ "type": "query", "key": "edition", "value": "(?<edition>ed_[0-9a-f]+)" }],
             "destination": "/textbooks/:edition",
@@ -61,10 +66,6 @@
         {
             "source": "/cards/:path*",
             "destination": "/api/cards/[...path]"
-        },
-        {
-            "source": "/api",
-            "destination": "/api-page.html"
         },
         {
             "source": "/((?!api|data|assets|.*\\..*).*)",

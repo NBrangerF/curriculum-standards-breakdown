@@ -8,7 +8,7 @@ const DIST = 'dist'
 const SITE = 'https://www.kebiao.org'
 const sitemap = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')
 const paths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/gu)].map(match => decodeURI(match[1].slice(SITE.length)) || '/')
-const fileFor = path => (path === '/' ? join(DIST, 'index.html') : path === '/api' ? join(DIST, 'api-page.html') : join(DIST, path, 'index.html'))
+const fileFor = path => (path === '/' ? join(DIST, 'index.html') : join(DIST, path, 'index.html'))
 const decode = value => value.replace(/&quot;/gu, '"').replace(/&#39;/gu, "'").replace(/&lt;/gu, '<').replace(/&gt;/gu, '>').replace(/&amp;/gu, '&')
 
 const problems = []

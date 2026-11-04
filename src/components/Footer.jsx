@@ -37,7 +37,7 @@ function Footer() {
                             <li><Link to="/guide">上手指南</Link></li>
                             <li><Link to="/collections">我的清单</Link></li>
                             <li><Link to="/ai">在 AI 里用 kebiao</Link></li>
-                            <li><Link to="/api">开发者 API</Link></li>
+                            <li><Link to="/open-data">数据与接口</Link></li>
                         </ul>
                     </div>
 

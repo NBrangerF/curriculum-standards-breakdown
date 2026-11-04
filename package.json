@@ -17,7 +17,7 @@
         "migrate:code-taxonomy": "tsx scripts/migrate-code-taxonomy.ts --data-root data/internal --apply",
         "build:unified-progression": "tsx scripts/build-unified-progression.ts --data-root data/internal --apply",
         "build:public-data": "node scripts/build-public-data.mjs --source data/internal --output public/data && npm run learning-resources:build && npm run build:public-v2 && npm run build:starmap && node scripts/concepts/build_concepts.mjs && node scripts/interdisciplinary/build_interdisciplinary.mjs && node scripts/resources/build_national_lessons.mjs && node scripts/resources/build_platforms.mjs && node scripts/experiments/build_experiments.mjs && node scripts/v2/build_knowledge_graph.mjs && node scripts/checks/bank.mjs",
-        "build:public-v2": "node scripts/build-public-v2.mjs && node scripts/v2/stamp_version.mjs",
+        "build:public-v2": "node scripts/build-public-v2.mjs && node scripts/v2/stamp_version.mjs && node scripts/v2/export_csv.mjs",
         "check:checks": "node scripts/checks/bank.mjs --check",
         "check:concepts": "node scripts/concepts/check_terms.mjs && node scripts/interdisciplinary/check_themes.mjs && node scripts/experiments/check_experiments.mjs",
         "build:starmap": "node scripts/build-starmap-data.mjs .",

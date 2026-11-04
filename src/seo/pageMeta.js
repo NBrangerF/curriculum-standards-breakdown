@@ -210,7 +210,7 @@ export const STATIC_PAGE_META = {
     '/interdisciplinary': page('跨学科主题库：课标给出的跨学科主题学习主题', '各门课程用不少于 10% 的课时设计跨学科主题学习。这里收集历史、地理、体育与健康课标给出的 37 个参考主题，以及语文、数学、信息科技、物理、化学、生物学、美术课标里的跨学科学习要求；按学科和年级筛选，每个主题标出课标页码，可直接交给 AI 备课。', '/interdisciplinary'),
     '/glossary': page('术语表', '课标、学段、领域、可迁移技能等 kebiao 常用概念的解释与示例。', '/glossary'),
     '/ai': page('在 AI 里用 kebiao：让 WorkBuddy、扣子等 AI 引用课标原文', '把 kebiao 课标接进 WorkBuddy、扣子、魔搭、Claude 等 AI 工具：查到的每条课标都带编码、原文、页码和链接。附自定义连接器配置和三条备课提示词，免费、只读、不用登录。', '/ai'),
-    '/api': page('开放 API', '用 REST API 查询义务教育课程标准、可迁移技能和教材对照，可接入备课工具、智能体和 MCP。', '/api'),
+    '/open-data': page('数据与接口：课标数据下载、API 与 MCP', '《义务教育课程标准（2022年版2025年修订）》的结构化数据：14 门学科、513 条标准、2,520 条要点，逐字原文带页码。CSV、JSON 整包下载，REST API 和 MCP 按需取用；kebiao 整理的部分以 CC BY 4.0 开放。', '/open-data'),
     '/contact': page('联系我们', '反馈 kebiao 的数据问题、提出合作或接入需求。', '/contact'),
     '/smart-search': page('智能检索', '用一句话描述教学内容或学习目标，找到最相关的义务教育课程标准条目。', '/smart-search'),
     '/search': page('对比课标', '按学科和学段并排对比义务教育课程标准；按关键词找课标请用 AI 检索。', '/search')

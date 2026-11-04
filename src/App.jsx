@@ -29,7 +29,7 @@ const StandardDetailPage = lazy(() => import('./pages/StandardDetailPage'))
 const CollectionsPage = lazy(() => import('./pages/CollectionsPage'))
 const GlossaryPage = lazy(() => import('./pages/GlossaryPage'))
 const FeedbackPage = lazy(() => import('./pages/FeedbackPage'))
-const ApiPage = lazy(() => import('./pages/ApiPage'))
+const OpenDataPage = lazy(() => import('./pages/OpenDataPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const CollectionDetailPage = lazy(() => import('./pages/CollectionDetailPage'))
 const PrintPage = lazy(() => import('./pages/PrintPage'))
@@ -155,7 +155,9 @@ function App() {
                     <Route path="/print" element={route('print', lazyPage(<PrintPage />, '正在准备打印预览'))} />
                     <Route path="/styleguide" element={route('styleguide', lazyPage(<StyleGuidePage />, '正在打开设计系统'))} />
                     <Route path="/feedback" element={route('feedback', lazyPage(<FeedbackPage />, '正在打开反馈表单'))} />
-                    <Route path="/api" element={route('api', lazyPage(<ApiPage />, '正在打开 API 页面'))} />
+                    <Route path="/open-data" element={route('openData', lazyPage(<OpenDataPage />, '正在打开数据与接口'))} />
+                    {/* the API page became 数据与接口 (vercel.json redirects /api the same way) */}
+                    <Route path="/api" element={<Navigate to="/open-data" replace />} />
                     <Route path="/contact" element={route('contact', lazyPage(<ContactPage />, '正在打开联系页面'))} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>

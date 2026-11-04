@@ -55,7 +55,7 @@ export const NAV_GROUPS = [
 export const MINOR_LINKS = [
     { to: '/collections', label: '我的清单' },
     { to: '/ai', label: '在 AI 里用' },
-    { to: '/api', label: 'API' },
+    { to: '/open-data', label: '数据与接口' },
     { to: '/feedback', label: '反馈' }
 ]
 

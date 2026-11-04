@@ -32,6 +32,7 @@ const routes = [
     ['knowledgeGraphFocus', '/knowledge-graph/math?focus=MA-S4-NA-07.2'],
     ['guide', '/guide'],
     ['aiConnect', '/ai'],
+    ['openData', '/open-data'],
     ['textbookAlignment', '/textbooks/ed_006d5ed61c055eb63857/standards'],
     ['checks', '/checks?grade=5&term=下'],
     ['checksAfter', '/checks/after?grade=5&term=下'],

@@ -16,7 +16,7 @@ function prerenderedPagesPreview() {
       server.middlewares.use((req, _res, next) => {
         const path = (req.url || '/').split('?')[0]
         if (req.method !== 'GET' || path.includes('.') || path.startsWith('/api/')) return next()
-        const page = path === '/api' ? 'api-page.html' : join(path, 'index.html')
+        const page = join(path, 'index.html')
         req.url = `/${existsSync(join(dist, page)) ? page : 'app-shell.html'}`.replace(/^\/+/, '/')
         next()
       })

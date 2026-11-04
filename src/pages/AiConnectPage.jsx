@@ -45,7 +45,7 @@ const TOOLS = [
     ['列出标准 · 列出学科', '浏览一门学科或全部 14 门学科']
 ]
 
-function CopyBlock({ text, label }) {
+export function CopyBlock({ text, label }) {
     const [copied, setCopied] = useState(false)
     const copy = async () => {
         try {
@@ -127,7 +127,7 @@ export default function AiConnectPage() {
                 <p className={styles.para}>在 <Link to="/lesson-plan">AI 备课</Link>里选好教材和这一课、勾好要点后点「复制成提示词」，或者在任一条课标页面点「复制成提示词」，课标原文和页码会一起带过去，贴进你常用的 AI 就行。</p>
             </section>
 
-            <p className={concepts.footnote}>这些工具只读，不收集任何个人信息；请不要把学生姓名等个人信息或考试原题发给 AI。每个回答都带 kebiao 链接；课标原文取自《义务教育课程标准（2022年版2025年修订）》，教材对应是 AI 判断、待核验。开发者看 <Link to="/api">开放 API</Link> 和 <a href="/llms.txt">llms.txt</a>。</p>
+            <p className={concepts.footnote}>这些工具只读，不收集任何个人信息；请不要把学生姓名等个人信息或考试原题发给 AI。每个回答都带 kebiao 链接；课标原文取自《义务教育课程标准（2022年版2025年修订）》，教材对应是 AI 判断、待核验。开发者看 <Link to="/open-data">数据与接口</Link> 和 <a href="/llms.txt">llms.txt</a>。</p>
         </div>
     )
 }

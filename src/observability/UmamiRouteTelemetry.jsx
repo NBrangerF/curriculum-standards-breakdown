@@ -27,7 +27,7 @@ export default function UmamiRouteTelemetry() {
                 trackUmamiEvent('standard_open', { standard_code: safeDecode(standardMatch[1]) })
             } else if (pathname === '/smart-search') {
                 trackUmamiEvent('smart_search_open')
-            } else if (pathname === '/api') {
+            } else if (pathname === '/open-data') {
                 trackUmamiEvent('api_docs_open')
             }
         }

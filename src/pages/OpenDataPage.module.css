@@ -1,0 +1,126 @@
+/* 数据 page; the frame comes from ConceptsPage.module.css, sections and copy blocks from AiConnectPage.module.css */
+.version {
+    color: var(--kb-gold);
+    font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+.files {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.files li {
+    display: grid;
+    grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+    gap: 0.8rem;
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--kb-line);
+}
+
+.files a {
+    color: var(--kb-moon);
+    font-weight: 600;
+}
+
+.files span {
+    color: var(--kb-mist);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.files small,
+.subjects small {
+    display: block;
+    color: var(--kb-mist);
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.subjects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.5rem), 1fr));
+    gap: 0.5rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.subjects a {
+    color: var(--kb-moon);
+}
+
+.checks {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.checks th,
+.checks td {
+    padding: 0.55rem 0.6rem 0.55rem 0;
+    border-top: 1px solid var(--kb-line);
+    text-align: left;
+    vertical-align: top;
+}
+
+.checks thead th {
+    border-top: 0;
+    color: var(--kb-mist);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.checks tbody th {
+    color: var(--kb-moon);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.checks td {
+    color: var(--kb-mist);
+}
+
+.checks td:last-child {
+    color: var(--kb-moon);
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.changes {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.changes li {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 0.8rem;
+    padding: 0.6rem 0;
+    border-top: 1px solid var(--kb-line);
+    color: var(--kb-mist);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.changes time {
+    color: var(--kb-moon);
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 560px) {
+    .files li,
+    .changes li {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.2rem;
+    }
+}
