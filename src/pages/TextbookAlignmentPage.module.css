@@ -1,7 +1,7 @@
 /* 本册课标对应表 and 教材与课标对应; the page frame comes from ConceptsPage.module.css */
 .back {
     margin: 0 0 0.6rem;
-    font-size: 0.9rem;
+    font-size: 14px;
 }
 
 .back a {
@@ -49,7 +49,7 @@
 .stats small {
     color: var(--kb-dim);
     font-family: inherit;
-    font-size: 0.8rem;
+    font-size: 12px;
     font-weight: 400;
 }
 
@@ -65,7 +65,7 @@
     max-width: 46rem;
     margin-top: 1.1rem;
     color: var(--kb-mist);
-    font-size: 0.9rem;
+    font-size: 14px;
     line-height: 1.8;
 }
 
@@ -137,7 +137,7 @@
 .unitHead a,
 .lessonHead a {
     color: var(--kb-gold);
-    font-size: 0.82rem;
+    font-size: 14px;
     text-decoration: none;
 }
 
@@ -155,7 +155,7 @@
     align-items: baseline;
     margin: 0.6rem 0 0;
     color: var(--kb-dim);
-    font-size: 0.82rem;
+    font-size: 14px;
 }
 
 .lessons {
@@ -182,7 +182,7 @@
 
 .lessonHead strong {
     color: var(--kb-moon);
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 .points {
@@ -199,7 +199,7 @@
     gap: 0.25rem 0.55rem;
     align-items: baseline;
     color: var(--kb-mist);
-    font-size: 0.9rem;
+    font-size: 14px;
     line-height: 1.6;
 }
 
@@ -208,7 +208,7 @@
     border: 1px solid var(--kb-gold);
     border-radius: 0;
     color: var(--kb-gold);
-    font-size: 0.72rem;
+    font-size: 12px;
     white-space: nowrap;
 }
 
@@ -220,7 +220,7 @@
 .code {
     color: var(--kb-dim);
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 12px;
     white-space: nowrap;
 }
 
@@ -242,7 +242,7 @@
     box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.6);
     color: var(--kb-paper-ink);
     font-family: var(--font-display);
-    font-size: 0.86rem;
+    font-size: 14px;
     line-height: 1.65;
 }
 
@@ -264,7 +264,7 @@
     margin-left: 0.5rem;
     color: var(--kb-paper-mute);
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 12px;
     white-space: nowrap;
 }
 
@@ -287,14 +287,14 @@
 
 .touched summary {
     color: var(--kb-dim);
-    font-size: 0.82rem;
+    font-size: 14px;
     cursor: pointer;
 }
 
 .none {
     margin: 0.5rem 0 0;
     color: var(--kb-dim);
-    font-size: 0.86rem;
+    font-size: 14px;
 }
 
 .missingGroup {
@@ -304,13 +304,13 @@
 .missingGroup h3 {
     margin: 0 0 0.4rem;
     color: var(--kb-moon);
-    font-size: 0.95rem;
+    font-size: 16px;
 }
 
 .missingGroup h3 a {
     color: var(--kb-moon);
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 12px;
 }
 
 .missingGroup ul {
@@ -320,14 +320,14 @@
     padding: 0;
     list-style: none;
     color: var(--kb-mist);
-    font-size: 0.88rem;
+    font-size: 14px;
     line-height: 1.6;
 }
 
 .elsewhere {
     margin-left: 0.5rem;
     color: var(--kb-dim);
-    font-size: 0.8rem;
+    font-size: 12px;
 }
 
 @media (max-width: 640px) {
@@ -341,13 +341,5 @@
 
     .quote {
         grid-column: 1 / -1;
-    }
-
-    .coverageRow {
-        grid-template-columns: 1fr;
-    }
-
-    .coverageNote {
-        grid-column: 1;
     }
 }

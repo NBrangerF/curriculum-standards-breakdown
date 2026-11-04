@@ -40,7 +40,7 @@
 .step legend span {
     color: var(--kb-gold);
     font-family: var(--font-num);
-    font-size: 19px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
 }
@@ -48,7 +48,7 @@
 .step:disabled legend { color: var(--kb-dim); }
 .step:disabled legend span { color: var(--kb-dim); }
 
-.wait { margin: 0; color: var(--kb-dim); font-size: 13px; }
+.wait { margin: 0; color: var(--kb-dim); font-size: 14px; }
 
 .chips { composes: picker from '../../components/kb/kb.module.css'; }
 
@@ -82,7 +82,7 @@
     justify-content: space-between;
     padding: 0 14px;
     border-radius: 0;
-    font-size: 15px;
+    font-size: 16px;
     text-align: left;
 }
 
@@ -98,11 +98,11 @@
     color: var(--kb-moon);
 }
 
-.go { justify-self: stretch; min-height: 46px; font-size: 15px; }
+.go { justify-self: stretch; min-height: 46px; font-size: 16px; }
 span.go { color: var(--kb-dim); cursor: default; }
 
 @media (max-width: 420px) {
     .picker { padding: 14px; }
     .grades { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 5px; }
-    .grades button { font-size: 13px; }
+    .grades button { font-size: 14px; }
 }

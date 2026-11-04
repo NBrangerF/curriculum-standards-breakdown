@@ -48,8 +48,8 @@
     letter-spacing: 0.01em;
 }
 
-.grade { margin-top: .75rem; font-size: .95rem; font-weight: 650; }
-.volume { font-size: .78rem; opacity: .86; }
+.grade { margin-top: .75rem; font-size: 16px; font-weight: 650; }
+.volume { font-size: 12px; opacity: .86; }
 .mark { margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(222, 228, 238, 0.12); }
 
 @media (max-width: 560px) {
@@ -59,7 +59,7 @@
 /* A small cover (the book page shows one beside the title on phones) has room for the title lines only. */
 @container (max-width: 8rem) {
     .type { margin-top: .4rem; }
-    .cover strong { font-size: 1.3rem; }
-    .grade { margin-top: .25rem; font-size: .8rem; }
+    .cover strong { font-size: 20px; }
+    .grade { margin-top: .25rem; font-size: 12px; }
     .mark { display: none; }
 }

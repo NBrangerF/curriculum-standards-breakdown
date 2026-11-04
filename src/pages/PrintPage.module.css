@@ -3,13 +3,13 @@
 
 .controls { position: sticky; z-index: 30; top: 0; max-width: 58rem; margin: 0 auto 1.5rem; border: 1px solid rgba(239, 242, 248, 0.12); background: rgba(14, 17, 24, 0.96); box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.26); color: var(--kb-ink, #eff2f8); }
 .controlsInner { display: grid; grid-template-columns: minmax(11rem, 0.45fr) minmax(20rem, 1fr) auto; align-items: end; gap: 1.5rem; padding: 1.25rem; }
-.controlsTitle a { display: inline-flex; min-height: 44px; align-items: center; gap: 0.4rem; margin-bottom: 0.8rem; color: var(--text-secondary); font-size: 0.72rem; font-weight: 600; text-decoration: none; }
+.controlsTitle a { display: inline-flex; min-height: 44px; align-items: center; gap: 0.4rem; margin-bottom: 0.8rem; color: var(--text-secondary); font-size: 12px; font-weight: 600; text-decoration: none; }
 .controlsTitle > span { display: flex; align-items: center; gap: 0.4rem; color: var(--kb-accent, #e9c887); font: 600 0.6rem/1 var(--font-mono); letter-spacing: 0.02em; }
 .controlsTitle h1 { margin: 0.4rem 0 0; font-size: 1.45rem; letter-spacing: 0.01em; }
 .controls fieldset { margin: 0; padding: 0; border: 0; }
-.controls legend { margin-bottom: 0.55rem; color: var(--text-tertiary); font-size: 0.68rem; font-weight: 600; }
+.controls legend { margin-bottom: 0.55rem; color: var(--text-tertiary); font-size: 12px; font-weight: 600; }
 .optionGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.4rem 1rem; }
-.optionGrid label { display: flex; min-height: 44px; align-items: center; gap: 0.55rem; color: var(--text-secondary); font-size: 0.73rem; cursor: pointer; }
+.optionGrid label { display: flex; min-height: 44px; align-items: center; gap: 0.55rem; color: var(--text-secondary); font-size: 12px; cursor: pointer; }
 .optionGrid input { width: 1rem; height: 1rem; accent-color: var(--kb-accent, #e9c887); }
 .optionGrid input:focus-visible { outline: 3px solid var(--kb-focus, rgba(222, 228, 238, 0.225)); outline-offset: 2px; }
 .action { display: inline-flex; min-height: 44px; align-items: center; gap: 0.5rem; white-space: nowrap; }

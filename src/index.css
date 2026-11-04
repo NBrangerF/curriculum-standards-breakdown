@@ -169,9 +169,6 @@ h6 {
 }
 
 @layer utilities {
-.text-gradient {
-  color: var(--color-primary);
-}
 }
 
 /* ========================================
@@ -257,20 +254,8 @@ h6 {
   border-color: var(--border-strong);
 }
 
-.card-header {
-  padding: var(--space-5) var(--space-6);
-  border-bottom: 1px solid var(--color-gray-100);
-}
-
 .card-body {
   padding: var(--space-5) var(--space-6);
-}
-
-.card-footer {
-  padding: var(--space-4) var(--space-6);
-  border-top: 1px solid var(--color-gray-100);
-  background: var(--bg-secondary);
-  border-radius: 0;
 }
 
 /* ========================================
@@ -286,16 +271,6 @@ h6 {
   border-radius: 0;
   background: var(--color-gray-100);
   color: var(--text-secondary);
-}
-
-.tag-primary {
-  background: var(--color-primary-subtle);
-  color: var(--color-primary);
-}
-
-.tag-secondary {
-  background: var(--color-secondary-subtle);
-  color: var(--color-secondary);
 }
 
 .badge {
@@ -331,12 +306,6 @@ h6 {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--color-primary-subtle);
-}
-
-.checkbox-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
 }
 
 .checkbox-item {
@@ -415,10 +384,6 @@ h6 {
   50% {
     opacity: 0.5;
   }
-}
-
-.animate-fade-in {
-  animation: fadeIn var(--transition-normal) ease-out;
 }
 
 .animate-slide-up {

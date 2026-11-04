@@ -18,7 +18,6 @@ const isolatedStyleOwners = [
     ['src/components/TSBadge.jsx', './TSBadge.module.css', 'src/components/TSBadge.css'],
     ['src/components/CompareView.jsx', './CompareView.module.css', 'src/components/CompareView.css'],
     ['src/components/FavoriteButton.jsx', './FavoriteButton.module.css', 'src/components/FavoriteButton.css'],
-    ['src/components/FilterBar.jsx', './FilterBar.module.css', 'src/components/FilterBar.css'],
     ['src/components/SkillCard.jsx', './SkillCard.module.css', 'src/components/SkillCard.css'],
     ['src/components/StandardRelationPanel.jsx', './StandardRelationPanel.module.css', 'src/components/StandardRelationPanel.css'],
     ['src/components/StandardCard.jsx', './StandardCard.module.css', 'src/components/StandardCard.css'],

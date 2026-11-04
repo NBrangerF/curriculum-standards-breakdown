@@ -21,7 +21,7 @@
     gap: 0.45rem;
     margin-bottom: 2.6rem;
     color: var(--kb-dim);
-    font-size: 12.5px;
+    font-size: 12px;
     text-decoration: none;
     font-family: var(--font-sans);
     letter-spacing: 0.02em;
@@ -37,7 +37,7 @@
     color: var(--kb-dim);
     letter-spacing: 0.02em;
     font-family: var(--font-sans);
-    font-size: 12.5px;
+    font-size: 12px;
     line-height: 1.2;
 }
 
@@ -57,7 +57,7 @@
 .process { margin: 0; border-top: 1px solid rgba(239, 242, 248, 0.13); }
 .process > div { display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(239, 242, 248, 0.13); }
 .process dt { color: var(--kb-accent, #e9c887); font: 550 0.7rem/1.4 var(--font-mono); }
-.process dd { margin: 0; color: #cdd2db; font-size: 0.84rem; }
+.process dd { margin: 0; color: #cdd2db; font-size: 14px; }
 
 .form {
     width: min(100%, 58rem);
@@ -70,8 +70,8 @@
 
 .typeFieldset { margin: 0 0 2.1rem; padding: 0 0 2rem; border: 0; border-bottom: 1px solid rgba(239, 242, 248, 0.1); }
 .typeFieldset legend,
-.field > label { display: flex; width: 100%; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 0.65rem; color: #d2d7e0; font-size: 0.82rem; font-weight: 650; }
-.field label small { color: var(--text-tertiary); font-size: 0.68rem; font-weight: 500; }
+.field > label { display: flex; width: 100%; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 0.65rem; color: #d2d7e0; font-size: 14px; font-weight: 650; }
+.field label small { color: var(--text-tertiary); font-size: 12px; font-weight: 500; }
 
 .typeSelector { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 0.75rem; border: 1px solid rgba(239, 242, 248, 0.12); background: rgba(12, 17, 29, 0.12); overflow: hidden; border-radius: 0; }
 .typeSelector button {
@@ -115,13 +115,13 @@
 .field input[aria-invalid="true"],
 .field textarea[aria-invalid="true"] { border-color: #eea5a0; background: rgba(238, 165, 160, 0.06); }
 
-.fieldError { margin: 0.45rem 0 0; color: #f2aaa7; font-size: 0.75rem; }
-.formError { display: flex; align-items: start; gap: 0.65rem; margin: 0.5rem 0 1.2rem; padding: 0.9rem 1rem; border-left: 3px solid #eea5a0; background: transparent; color: #f2b3b0; font-size: 0.82rem; line-height: 1.55; border-radius: 0; }
+.fieldError { margin: 0.45rem 0 0; color: #f2aaa7; font-size: 12px; }
+.formError { display: flex; align-items: start; gap: 0.65rem; margin: 0.5rem 0 1.2rem; padding: 0.9rem 1rem; border-left: 3px solid #eea5a0; background: transparent; color: #f2b3b0; font-size: 14px; line-height: 1.55; border-radius: 0; }
 .formError svg { flex: none; margin-top: 0.05rem; }
 
 .formActions { display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: center; gap: 0.75rem; padding-top: 1.7rem; border-top: 1px solid rgba(239, 242, 248, 0.1); }
 .formActions :global(.btn) { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 0.5rem; }
-.formActions p { margin: 0 0 0 auto; color: var(--text-tertiary); font-size: 0.7rem; line-height: 1.5; text-align: right; }
+.formActions p { margin: 0 0 0 auto; color: var(--text-tertiary); font-size: 12px; line-height: 1.5; text-align: right; }
 .submitStatus[data-kb-feedback-status='loading'] { color: var(--kb-accent-hover, #e9c887); }
 .submitStatus[data-kb-feedback-status='error'] { color: #f2b3b0; }
 .spinner { animation: spin 0.85s linear infinite; }
@@ -147,7 +147,7 @@
 .success h1 { max-width: none; font-size: clamp(32px, 4.4vw, 52px); }
 .success h1:focus { outline: none; }
 .success h1:focus-visible { border-radius: 0; outline: 3px solid var(--kb-focus, rgba(222, 228, 238, 0.225)); outline-offset: 6px; }
-.success p { max-width: 39rem; margin: 1.3rem 0 2rem; color: var(--text-secondary); font-size: 1rem; line-height: 1.75; }
+.success p { max-width: 39rem; margin: 1.3rem 0 2rem; color: var(--text-secondary); font-size: 16px; line-height: 1.75; }
 .successActions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
 @media (max-width: 900px) {

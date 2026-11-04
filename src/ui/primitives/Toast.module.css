@@ -33,7 +33,7 @@
 .warning { --toast-signal: var(--color-warning); }
 .error { --toast-signal: var(--color-error); }
 .icon { color: var(--toast-signal, #91a2ff); }
-.root p { margin: 0; font-size: 0.8rem; line-height: 1.5; }
+.root p { margin: 0; font-size: 12px; line-height: 1.5; }
 
 .action,
 .dismiss {
@@ -47,7 +47,7 @@
     cursor: pointer;
 }
 
-.action { padding: 0 0.75rem; font-size: 0.75rem; font-weight: 650; }
+.action { padding: 0 0.75rem; font-size: 12px; font-weight: 650; }
 .dismiss { width: 2.25rem; place-items: center; }
 .action:hover,
 .dismiss:hover { background: rgba(255, 255, 255, 0.14); }

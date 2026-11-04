@@ -17,7 +17,7 @@ const LIVE_SKY = fileURLToPath(new URL('./visual-live-sky.css', import.meta.url)
 const learningMapRoute = ({ selectedNode = 'kp:d', contextPath } = {}) => {
     const params = new URLSearchParams({ 'learning-map': '1', view: 'learning-map', selectedNode })
     if (contextPath) params.set('contextPath', contextPath)
-    return `/standards/MA-D2-GE-003?${params}`
+    return `/standards/MA-D2-GE-003/v1?${params}`
 }
 
 const openLearningMapFixture = async (page, fixtureName, selectedNode, contextPath) => {
@@ -92,7 +92,7 @@ test('home first viewport visual baseline', async ({ page }) => {
 
 test('standard graph visual baseline', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 })
-    await page.goto('/standards/MA-D2-GE-003')
+    await page.goto('/standards/MA-D2-GE-003/v1')
     await page.getByRole('button', { name: '在图谱中定位' }).click()
     await expect(page).toHaveURL(/view=learning-map/)
     await expect(page.getByRole('heading', { name: '可能需要先了解，可能继续通往' })).toBeVisible({ timeout: 20_000 })
@@ -107,7 +107,7 @@ test('standard graph visual baseline', async ({ page }) => {
 
 test('standard sticky reading indicator visual baseline', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 })
-    await page.goto('/standards/MA-D2-GE-003')
+    await page.goto('/standards/MA-D2-GE-003/v1')
     const readingNav = page.getByRole('navigation', { name: '本页目录' })
     await page.evaluate(() => new Promise(resolve => {
         requestAnimationFrame(() => requestAnimationFrame(resolve))
@@ -253,22 +253,34 @@ test('collection detail visual baseline', async ({ page }) => {
     await expect(page).toHaveScreenshot('collection-detail-desktop.png', { animations: 'disabled', fullPage: false })
 })
 
-test('glossary index visual baseline', async ({ page }) => {
-    await page.goto('/glossary')
-    await expect(page.getByRole('heading', { level: 1, name: '术语表' })).toBeVisible()
-    await expect(page).toHaveScreenshot('glossary-desktop.png', { animations: 'disabled', fullPage: false })
-})
+// 星表 pages: one shot per page head, desktop and phone where the layout changes.
+const STAR_CATALOGUE_PAGES = [
+    ['standard-v2', '/standards/MA-S3-NA-01', 1280],
+    ['standard-v2-mobile', '/standards/MA-S3-NA-01', 390],
+    ['standards-hub', '/standards', 1280],
+    ['concepts', '/concepts', 1280],
+    ['book', '/textbooks/ed_1bb9d396d4d884aee79e', 1280],
+    ['book-mobile', '/textbooks/ed_1bb9d396d4d884aee79e', 390],
+    ['checks', '/checks', 1280],
+    ['knowledge-graph', '/knowledge-graph/math', 1280]
+]
 
-test('glossary active term index visual baseline', async ({ page }) => {
-    await page.goto('/glossary?category=%E6%95%99%E5%AD%A6%E5%AD%97%E6%AE%B5&term=assessment-evidence')
-    await expect(page.locator('[data-kb-glossary-index="assessment-evidence"]')).toHaveAttribute('aria-current', 'location')
-    await waitForVisualStability(page)
-    await expect(page).toHaveScreenshot('glossary-active-term-index-desktop.png', {
-        animations: 'disabled',
-        fullPage: false,
-        maxDiffPixels: 100
+for (const [name, path, width] of STAR_CATALOGUE_PAGES) {
+    test(`${name} visual baseline`, async ({ page }) => {
+        test.setTimeout(60_000)
+        await page.setViewportSize({ width, height: width < 768 ? 844 : 900 })
+        await page.goto(path)
+        await expect(page.getByRole('heading', { level: 1 })).toBeVisible({ timeout: 20_000 })
+        await page.evaluate(() => document.fonts.ready)
+        await waitForVisualStability(page)
+        await expect(page).toHaveScreenshot(`${name}.png`, {
+            animations: 'disabled',
+            fullPage: false,
+            maxDiffPixels: 200,
+            stylePath: LIVE_SKY
+        })
     })
-})
+}
 
 test('feedback form visual baseline', async ({ page }) => {
     await page.goto('/feedback')

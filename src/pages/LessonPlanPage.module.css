@@ -48,7 +48,7 @@
     margin: 0;
     color: var(--kb-dim);
     font-family: var(--font-sans);
-    font-size: 12.5px;
+    font-size: 12px;
     letter-spacing: 0.02em;
 }
 
@@ -80,7 +80,7 @@
     border-radius: 0;
     background: var(--kb-accent-soft);
     color: var(--kb-moon);
-    font-size: 0.95rem;
+    font-size: 16px;
     line-height: 1.75;
 }
 
@@ -92,7 +92,7 @@
 
 .history > span {
     color: var(--kb-dim);
-    font-size: 0.8rem;
+    font-size: 12px;
 }
 
 .history ul {
@@ -107,7 +107,7 @@
 .restore small {
     margin-left: 0.5rem;
     color: var(--kb-dim);
-    font-size: 0.76rem;
+    font-size: 12px;
 }
 
 .restore {
@@ -117,7 +117,7 @@
     background: transparent;
     color: var(--kb-gold);
     font: inherit;
-    font-size: 0.86rem;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -136,7 +136,7 @@
     margin: 0 0 1rem;
     color: var(--kb-moon);
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -149,13 +149,13 @@
     background: var(--kb-gold);
     color: var(--kb-night);
     font-family: var(--font-num);
-    font-size: 1.05rem;
+    font-size: 16px;
 }
 
 .step h2 small {
     color: var(--kb-dim);
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: 14px;
     font-weight: 400;
 }
 
@@ -175,7 +175,7 @@
     background: transparent;
     color: var(--kb-mist);
     font: inherit;
-    font-size: 0.9rem;
+    font-size: 14px;
     white-space: nowrap;
     cursor: pointer;
 }
@@ -208,7 +208,7 @@
 .settings label > span,
 .textarea > span {
     color: var(--kb-dim);
-    font-size: 0.8rem;
+    font-size: 12px;
 }
 
 .pickers select,
@@ -223,7 +223,7 @@
     background: var(--kb-surface);
     color: var(--kb-moon);
     font: inherit;
-    font-size: 0.95rem;
+    font-size: 16px;
 }
 
 .textarea {
@@ -245,7 +245,7 @@
 .small {
     margin: 0.75rem 0 0;
     color: var(--kb-dim);
-    font-size: 0.8rem;
+    font-size: 12px;
     line-height: 1.7;
 }
 
@@ -268,14 +268,14 @@
     margin: 0.2rem 0;
     color: var(--kb-moon);
     font-family: var(--font-display);
-    font-size: 1.35rem;
+    font-size: 20px;
     font-weight: 700;
 }
 
 .lessonMeta {
     margin: 0;
     color: var(--kb-mist);
-    font-size: 0.85rem;
+    font-size: 14px;
 }
 
 .inlineLink {
@@ -284,7 +284,7 @@
     align-items: center;
     margin-top: 0.4rem;
     color: var(--kb-gold);
-    font-size: 0.85rem;
+    font-size: 14px;
     text-decoration: none;
 }
 
@@ -296,7 +296,7 @@
     align-items: baseline;
     margin: 0.55rem 0 0;
     color: var(--kb-dim);
-    font-size: 0.85rem;
+    font-size: 14px;
 }
 
 .sync a {
@@ -309,13 +309,13 @@
     text-underline-offset: 3px;
 }
 
-.sync small { font-size: 0.78rem; }
+.sync small { font-size: 12px; }
 
 .aiStatus {
     min-height: 1.5em;
     margin: 1rem 0 0.75rem;
     color: var(--kb-gold);
-    font-size: 0.9rem;
+    font-size: 14px;
     line-height: 1.7;
 }
 
@@ -327,7 +327,7 @@
 
 .hint label {
     color: var(--kb-dim);
-    font-size: 0.8rem;
+    font-size: 12px;
 }
 
 .standards {
@@ -365,23 +365,23 @@
     margin-right: 0.45rem;
     color: var(--kb-moon);
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 12px;
     font-weight: 500;
 }
 
 .via {
     color: var(--kb-dim);
-    font-size: 0.76rem;
+    font-size: 12px;
 }
 
 /* 知识图谱: what this standard's 要点 build on and what builds on them (opens beside the draft) */
-.standardHead a.graphLink { color: var(--kb-gold); font-size: 0.76rem; font-weight: 400; }
+.standardHead a.graphLink { color: var(--kb-gold); font-size: 12px; font-weight: 400; }
 .standardHead a.graphLink:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .reason {
     margin: 0.35rem 0 0;
     color: var(--color-success-dark);
-    font-size: 0.82rem;
+    font-size: 14px;
 }
 
 .indicators {
@@ -399,7 +399,7 @@
     padding: 0.45rem 0.55rem;
     border-radius: 0;
     color: var(--kb-mist);
-    font-size: 0.9rem;
+    font-size: 14px;
     line-height: 1.75;
     cursor: pointer;
 }
@@ -423,7 +423,7 @@
 .indicators small {
     margin-left: 0.5rem;
     color: var(--kb-dim);
-    font-size: 0.74rem;
+    font-size: 12px;
     white-space: nowrap;
 }
 
@@ -449,7 +449,7 @@
     gap: 0.25rem 0.75rem;
     align-items: baseline;
     color: var(--kb-dim);
-    font-size: 0.88rem;
+    font-size: 14px;
 }
 
 .progress li::before {
@@ -473,7 +473,7 @@
 }
 
 .progress span {
-    font-size: 0.78rem;
+    font-size: 12px;
 }
 
 @keyframes spin {
@@ -487,7 +487,7 @@
     border-radius: 0;
     background: var(--kb-paper);
     color: var(--kb-paper-ink);
-    font-size: 0.95rem;
+    font-size: 16px;
     line-height: 1.85;
 }
 
@@ -495,7 +495,7 @@
     margin: 1.4rem 0 0.5rem;
     color: var(--kb-paper-ink);
     font-family: var(--font-display);
-    font-size: 1.05rem;
+    font-size: 16px;
     font-weight: 700;
 }
 
@@ -533,7 +533,7 @@
     border: 1px solid #8a5a0b;
     border-radius: 0;
     color: #8a5a0b;
-    font-size: 0.78rem;
+    font-size: 12px;
 }
 
 .docHead {
@@ -551,7 +551,7 @@
 
 .docHead p {
     color: var(--kb-paper-mute);
-    font-size: 0.85rem;
+    font-size: 14px;
 }
 
 .checks {
@@ -578,7 +578,7 @@
     grid-template-columns: auto 1fr;
     gap: 0.5rem;
     align-items: start;
-    font-size: 0.88rem;
+    font-size: 14px;
 }
 
 .checks li svg {
@@ -592,7 +592,7 @@
 .checks small {
     display: block;
     color: var(--kb-paper-mute);
-    font-size: 0.78rem;
+    font-size: 12px;
 }
 
 .evidence {
@@ -609,7 +609,7 @@
 .evidence small {
     margin-left: 0.4rem;
     color: var(--kb-paper-mute);
-    font-size: 0.76rem;
+    font-size: 12px;
 }
 
 .core {
@@ -638,7 +638,7 @@
     padding: 0 0.4rem;
     border: 1px solid rgba(37, 34, 28, 0.3);
     border-radius: 0;
-    font-size: 0.72rem;
+    font-size: 12px;
     font-style: normal;
 }
 
@@ -675,7 +675,7 @@
     width: 100%;
     min-width: 520px;
     border-collapse: collapse;
-    font-size: 0.86rem;
+    font-size: 14px;
 }
 
 .doc th,
@@ -714,7 +714,7 @@
 
 .stageHead span {
     color: var(--kb-paper-mute);
-    font-size: 0.8rem;
+    font-size: 12px;
 }
 
 .stages dl {
@@ -731,7 +731,7 @@
 
 .stages dt {
     color: var(--kb-paper-mute);
-    font-size: 0.82rem;
+    font-size: 14px;
 }
 
 .stages dd {
@@ -756,7 +756,7 @@
     padding-top: 0.75rem;
     border-top: 1px solid rgba(37, 34, 28, 0.2);
     color: var(--kb-paper-mute);
-    font-size: 0.78rem;
+    font-size: 12px;
 }
 
 @media (max-width: 640px) {
@@ -793,7 +793,7 @@
 
 .doc h3 small {
     color: var(--kb-paper-mute);
-    font-size: 0.8rem;
+    font-size: 12px;
     font-weight: 400;
 }
 
@@ -819,7 +819,7 @@
     align-items: center;
     margin: 0.4rem 0 1rem;
     color: var(--kb-dim);
-    font-size: 0.84rem;
+    font-size: 14px;
     line-height: 1.6;
 }
 
@@ -852,7 +852,7 @@
     background: transparent;
     color: var(--kb-mist);
     font: inherit;
-    font-size: 0.8rem;
+    font-size: 12px;
     cursor: pointer;
 }
 
@@ -870,7 +870,7 @@
     padding: 0.5rem 0.8rem;
     border-left: 2px solid rgba(138, 90, 11, 0.35);
     background: rgba(255, 255, 255, 0.4);
-    font-size: 0.88rem;
+    font-size: 14px;
 }
 
 .reading div {
@@ -881,7 +881,7 @@
 
 .reading dt {
     color: var(--kb-paper-mute);
-    font-size: 0.8rem;
+    font-size: 12px;
 }
 
 .reading dd {
@@ -916,7 +916,7 @@
 
 .standardText {
     margin-top: 0.7rem;
-    font-size: 0.86rem;
+    font-size: 14px;
 }
 
 .standardText summary,
@@ -957,7 +957,7 @@
 .questions b {
     margin-right: 0.45rem;
     color: var(--kb-paper-mute);
-    font-size: 0.78rem;
+    font-size: 12px;
     font-weight: 600;
 }
 
@@ -984,7 +984,7 @@
     gap: 0.3rem 0.6rem;
     align-items: center;
     color: var(--kb-paper-mute);
-    font-size: 0.8rem;
+    font-size: 12px;
 }
 
 .practiceHead::before {
@@ -1001,18 +1001,18 @@
 .practiceHead code {
     color: #6b4a10;
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 12px;
 }
 
 .practice details {
     margin-top: 0.3rem;
-    font-size: 0.88rem;
+    font-size: 14px;
 }
 
 .minutes {
     margin-left: 0.5rem;
     color: var(--kb-paper-mute);
-    font-size: 0.78rem;
+    font-size: 12px;
 }
 
 /* notes inside the paper document use its own muted ink, not the page's */

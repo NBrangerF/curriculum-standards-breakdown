@@ -66,7 +66,7 @@
     margin: 0;
     color: var(--kb-dim);
     font-family: var(--font-sans);
-    font-size: 12.5px;
+    font-size: 12px;
     letter-spacing: 0.02em;
 }
 
@@ -88,7 +88,7 @@
     max-width: 40em;
     margin: 0.9rem 0 0;
     color: var(--kb-mist);
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.85;
 }
 
@@ -117,7 +117,7 @@
 .blockHead p {
     margin: 0;
     color: var(--kb-mist);
-    font-size: 0.95rem;
+    font-size: 16px;
     line-height: 1.8;
 }
 
@@ -126,7 +126,7 @@
     max-width: 72ch;
     margin: 1.25rem 0 0;
     color: var(--kb-dim);
-    font-size: 0.8rem;
+    font-size: 12px;
     line-height: 1.7;
 }
 
@@ -174,7 +174,7 @@
     background: transparent;
     color: var(--kb-moon);
     font: inherit;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .find input::placeholder { color: var(--kb-dim); }
@@ -187,7 +187,7 @@
 .group h2 {
     margin: 0 0 0.75rem;
     color: var(--kb-gold);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.02em;
 }
@@ -196,7 +196,7 @@
     max-width: 40em;
     margin: 0 0 1rem;
     color: var(--kb-mist);
-    font-size: 0.92rem;
+    font-size: 14px;
     line-height: 1.8;
 }
 
@@ -224,7 +224,7 @@
 .terms b {
     color: var(--kb-moon);
     font-family: var(--font-display);
-    font-size: 1.06rem;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.02em;
     transition: color 0.2s;
@@ -233,7 +233,7 @@
 .terms span {
     display: -webkit-box;
     overflow: hidden;
-    font-size: 0.88rem;
+    font-size: 14px;
     line-height: 1.7;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -265,7 +265,7 @@
     border: 1px solid var(--kb-line-strong);
     border-radius: 0;
     color: var(--kb-moon);
-    font-size: 0.92rem;
+    font-size: 14px;
     text-decoration: none;
 }
 
@@ -302,7 +302,7 @@
 }
 
 .path span {
-    font-size: 0.9rem;
+    font-size: 14px;
 }
 
 /* ---------- a term or a subject skeleton, with the dictionary's contents beside it ---------- */
@@ -322,7 +322,7 @@
     gap: 1.1rem;
     overflow-y: auto;
     padding: clamp(28px, 4vw, 48px) 0.25rem 1.5rem 0;
-    font-size: 0.86rem;
+    font-size: 14px;
     scrollbar-width: thin;
 }
 
@@ -335,7 +335,7 @@
 .railGroup p {
     margin: 0 0 0.3rem;
     color: var(--kb-dim);
-    font-size: 0.74rem;
+    font-size: 12px;
     letter-spacing: 0.02em;
 }
 
@@ -381,7 +381,7 @@
     padding-top: clamp(28px, 4vw, 48px);
     color: var(--kb-dim);
     font-family: var(--font-mono);
-    font-size: 12.5px;
+    font-size: 12px;
     letter-spacing: 0.08em;
 }
 
@@ -402,7 +402,7 @@
 .aliases {
     margin: 0.5rem 0 0;
     color: var(--kb-dim);
-    font-size: 0.85rem;
+    font-size: 14px;
 }
 
 .plain {
@@ -418,7 +418,7 @@
 .plainSource {
     margin: 0.6rem 0 0;
     color: var(--kb-dim);
-    font-size: 0.78rem;
+    font-size: 12px;
 }
 
 .callout {
@@ -429,7 +429,7 @@
     border-radius: 0;
     background: rgba(233, 200, 135, 0.07);
     color: var(--kb-mist);
-    font-size: 0.9rem;
+    font-size: 14px;
     line-height: 1.75;
 }
 
@@ -445,7 +445,7 @@
 .prose {
     margin: 0;
     color: var(--kb-mist);
-    font-size: 0.98rem;
+    font-size: 16px;
     line-height: 1.9;
 }
 
@@ -464,7 +464,7 @@
     border-left: 2px solid var(--subject-color);
     color: var(--kb-moon);
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.95;
 }
 
@@ -472,7 +472,7 @@
     margin: 0.45rem 0 0;
     color: var(--kb-dim);
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 12px;
     letter-spacing: 0.04em;
 }
 
@@ -483,7 +483,7 @@
 .quoteNote {
     margin: 0.35rem 0 0;
     color: var(--color-warning);
-    font-size: 0.85rem;
+    font-size: 14px;
     line-height: 1.7;
 }
 
@@ -547,7 +547,7 @@
     padding: 0.75rem 0;
     border-bottom: 1px solid var(--kb-line);
     color: var(--kb-mist);
-    font-size: 0.92rem;
+    font-size: 14px;
     line-height: 1.75;
 }
 
@@ -574,7 +574,7 @@
 .entries code {
     color: var(--kb-moon);
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 12px;
     font-weight: 500;
 }
 
@@ -612,7 +612,7 @@
 .fold summary small {
     color: var(--kb-dim);
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: 12px;
     font-weight: 400;
 }
 
@@ -635,7 +635,7 @@
     border: 1px solid var(--border-strong);
     border-radius: 0;
     color: var(--kb-moon);
-    font-size: 0.86rem;
+    font-size: 14px;
     text-decoration: none;
 }
 
@@ -665,7 +665,7 @@
     margin: 0 0 0.4rem;
     color: var(--kb-moon);
     font-family: var(--font-display);
-    font-size: 1.15rem;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -681,7 +681,7 @@
 .treeGroup h3 small {
     color: var(--kb-dim);
     font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: 12px;
     font-weight: 400;
     letter-spacing: 0.02em;
 }
@@ -689,7 +689,7 @@
 .treeLabel {
     margin: 0.75rem 0 0.3rem;
     color: var(--kb-dim);
-    font-size: 0.75rem;
+    font-size: 12px;
     letter-spacing: 0.02em;
 }
 
@@ -711,7 +711,7 @@
 
 .treeName {
     color: var(--kb-moon);
-    font-size: 0.95rem;
+    font-size: 16px;
     line-height: 1.6;
 }
 
@@ -728,7 +728,7 @@
     border-radius: 0;
     color: var(--kb-mist);
     font-family: var(--font-mono);
-    font-size: 0.74rem;
+    font-size: 12px;
     text-decoration: none;
     white-space: nowrap;
 }
@@ -745,7 +745,7 @@
     align-items: center;
     margin-top: 1.1rem;
     color: var(--kb-gold);
-    font-size: 0.9rem;
+    font-size: 14px;
     text-decoration: none;
 }
 
@@ -793,7 +793,7 @@
     background: transparent;
     color: var(--kb-dim);
     font: inherit;
-    font-size: 0.88rem;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -828,14 +828,14 @@
 .examSubject h2 a {
     color: var(--kb-gold);
     font-family: var(--font-body, inherit);
-    font-size: 0.85rem;
+    font-size: 14px;
     font-weight: 400;
 }
 
 .examSubject h3 {
     margin: 1rem 0 0.4rem;
     color: var(--kb-mist);
-    font-size: 0.92rem;
+    font-size: 14px;
 }
 
 /* links inside running text need more than colour to stand out (WCAG link-in-text-block) */
