@@ -426,13 +426,14 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
                 for (const [code, relation] of hit?.[6] || []) if (relation === 'T' || given.length < 4) given.push(code)
                 taught.push(...(hit?.[6] || []).filter(match => match[1] === 'T').map(match => match[0]))
             }
-            const standardCodes = given.length ? [...new Set(given.map(code => code.replace(/\.\d+$/u, '')))] : (await ctx.repository.smartSearchStandards({ query: (topic || objectives.join('；')).slice(0, 300), subjects: [slug!], ...(grade ? { grade_bands: [BAND_OF_GRADE(grade)] } : {}), limit: 4 })).results.map(r => r.code)
+            const lessonCodes = given.length >= 3 ? given : given.concat((await ctx.repository.smartSearchStandards({ query: (given.length ? objectives.join('；') : topic || objectives.join('；')).slice(0, 300), subjects: [slug!], ...(grade ? { grade_bands: [BAND_OF_GRADE(grade)] } : {}), limit: given.length ? 2 : 4 })).results.map(r => r.code))
+            const standardCodes = [...new Set(lessonCodes.map(code => code.replace(/\.\d+$/u, '')))]
             const points: CheckPoint[] = []
             for (const code of standardCodes) {
                 const found = await ctx.v2.find(code)
                 if (!found) continue
                 for (const item of found.standard.indicators || []) {
-                    if (!given.some(c => /\.\d+$/u.test(c)) || given.includes(item.code) || given.includes(found.standard.code)) points.push({ code: item.code, text: String(item.text || ''), header: `${found.standard.level2} · ${stageLabel(found.standard, found.subject)}` })
+                    if (!lessonCodes.some(c => c.startsWith(`${found.standard.code}.`)) || lessonCodes.includes(item.code)) points.push({ code: item.code, text: String(item.text || ''), header: `${found.standard.level2} · ${stageLabel(found.standard, found.subject)}` })
                 }
             }
             if (!points.length) return { data: { objectives, points: [] }, text: '没有找到可对照的课标要点；请给出课题，或用 search_standards 找到要点编码后放进 codes。' }
