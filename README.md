@@ -22,6 +22,7 @@
   <a href="./public/data/v2/version.json"><img src="https://img.shields.io/badge/standards-513_%C2%B7_2%2C520_%E8%A6%81%E7%82%B9-3d5afe" alt="当前收录 513 条标准、2,520 条要点"></a>
   <a href="./public/data/v2/manifest.json"><img src="https://img.shields.io/badge/subjects-14-15181e" alt="当前收录 14 个学科"></a>
   <a href="https://www.kebiao.org/skills"><img src="https://img.shields.io/badge/transferable_skills-7-68717f" alt="7 类可迁移技能"></a>
+  <a href="./DATA_LICENSE.md"><img src="https://img.shields.io/badge/data-CC_BY_4.0-2c7a4b" alt="kebiao 整理的数据以 CC BY 4.0 开放"></a>
 </p>
 
 <p align="center">
@@ -195,9 +196,10 @@ Pull request 与 `main` 分支推送会运行 [Quality gates](https://github.com
 
 ## 数据来源、版权与使用说明
 
-- 课程标准来源于教育部发布的[《义务教育课程方案和课程标准（2022 年版）》](https://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html)，相关文本权利归原权利方所有。
+- **kebiao 整理和编写的数据以 [CC BY 4.0](./DATA_LICENSE.md) 开放**：编码与结构、kebiao 整理的文字、新旧编码对照、修订与核对标记、推断层（教材对应、课堂学习目标、「要先会」关系，待核验）和 kebiao 编写的课堂诊断题。注明「kebiao 课标（https://www.kebiao.org），CC BY 4.0」即可复制、改编和商用。详见 [DATA_LICENSE.md](./DATA_LICENSE.md)。
+- 课标原文取自教育部《义务教育课程标准（2022年版2025年修订）》（修订版文本取自上海市青浦区凤溪中学网站转载的日常修订版，以官方出版物为准；2022 年版见[教育部发布页](https://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html)）。原文不是 kebiao 的作品，不在上述许可内，引用时请注明原文出处。
 - 学习资源的来源与许可见各资源详情；教材仅作为索引和受控阅读入口，不代表授予转载或再分发权。第三方前端依赖见[第三方说明](./docs/legal/THIRD_PARTY_NOTICES.md)。
-- 本仓库目前尚未附独立的根级 `LICENSE` 文件。公开可访问不等于自动授予代码或项目原创数据的复用权；如需复用，请先通过[联系页面](https://www.kebiao.org/contact)确认。
+- 网站、API 和脚本的源代码不在数据许可范围内，代码许可尚未确定；如需复用代码，请先通过[联系页面](https://www.kebiao.org/contact)确认。
 - 本项目提供的是结构化整理、检索与研究辅助，不能替代官方文件、专业课程判断或教师审核。
 
 ---

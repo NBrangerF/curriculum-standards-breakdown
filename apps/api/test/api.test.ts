@@ -431,6 +431,8 @@ test('GET /api/v1/meta returns data summary', async () => {
     assert.equal(body.data.source_version, '义务教育课程标准（2022年版2025年修订）')
     assert.deepEqual(body.data.filters.stages, ['S1', 'S2', 'S3', 'S4'])
     assert.ok(body.data.filters.domains.math.includes('数与代数'))
+    assert.equal(body.data.license.name, 'CC BY 4.0')
+    assert.match(body.data.license.excludes, /课标原文/u)
     assert.match(body.meta.data_version, /^2025r-[0-9a-f]{10}$/u)
     assert.equal(body.meta.data_version, dataVersion)
     assert.ok(body.meta.request_id)

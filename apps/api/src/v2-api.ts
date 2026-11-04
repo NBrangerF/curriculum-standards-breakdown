@@ -7,6 +7,15 @@ export type V2Found = { standard: V2Standard, subject: V2Subject }
 type Entry = V2Found & { order: number }
 
 const SKILLS = ['TS1', 'TS2', 'TS3', 'TS4', 'TS5', 'TS6', 'TS7']
+// what kebiao releases under CC BY 4.0, and what it does not (DATA_LICENSE.md)
+export const DATA_LICENSE = {
+    name: 'CC BY 4.0',
+    url: 'https://creativecommons.org/licenses/by/4.0/',
+    terms: 'https://github.com/NBrangerF/curriculum-standards-breakdown/blob/main/DATA_LICENSE.md',
+    covers: 'kebiao 整理和编写的数据：编码与结构、kebiao 整理的文字、新旧编码对照、修订与核对标记、推断层（待核验）、kebiao 编写的课堂诊断题',
+    excludes: '课标原文（教育部《义务教育课程标准（2022年版2025年修订）》）、教材内容与引用的教材原话、第三方平台内容、学习资源、源代码',
+    attribution: 'kebiao 课标（https://www.kebiao.org），CC BY 4.0'
+}
 const STAGES = ['S1', 'S2', 'S3', 'S4']
 // the 2022 grade bands, read as the grades they meant
 const BAND_GRADES: Record<string, number[]> = { H1: [1, 2], H2: [3, 4], H3: [5, 6], H4: [7, 8, 9], H4G7: [7], H4G8: [8], H4G9: [9] }
@@ -131,6 +140,7 @@ export async function metaV2(v2: V2Store) {
         indicator_count: manifest?.totals?.indicators || 0,
         subjects_covered: subjects.length,
         code_format: '学科-学段-领域-序号，如 MA-S2-NA-02；要点再加 .序号，如 MA-S2-NA-02.1',
+        license: DATA_LICENSE,
         legacy: { code_count: manifest?.totals?.legacy_codes || 0, note: '2022 年版的旧编码（如 MA-D2-AL-005）解析到它并入的新标准；旧记录在 /api/v1/legacy/standards/:code。' },
         filters: {
             subjects: subjects.map(item => item.subject_slug),

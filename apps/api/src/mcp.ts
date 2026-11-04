@@ -10,7 +10,8 @@ const SERVER_INFO = { name: 'kebiao', title: 'kebiao 课标', version: '1.1.0', 
 const INSTRUCTIONS = [
     'kebiao 是中国义务教育课程标准（2022年版2025年修订）的结构化索引：14 门学科，每条标准对应一个学段的一个内容单元，下列「要点」逐字取自课标原文并标明页码。',
     '回答课标问题时：先用 search_standards 或 find_textbook_chapter 找到条目，再用 get_standard 看原文；引用时给出编码、要点原文和链接，不要编造编码或改写原文。',
-    '标准句可能是 kebiao 用课标原词的概括（会标明）；表现示例和教材对应多为 kebiao 整理或机器对齐，引用时说明。'
+    '标准句可能是 kebiao 用课标原词的概括（会标明）；表现示例和教材对应多为 kebiao 整理或机器对齐，引用时说明。',
+    'kebiao 整理的数据以 CC BY 4.0 开放，转用时署名「kebiao 课标（https://www.kebiao.org），CC BY 4.0」；课标原文另注教育部《义务教育课程标准（2022年版2025年修订）》。'
 ].join('\n')
 
 type JsonRpcId = string | number | null

@@ -2,11 +2,16 @@ openapi: 3.1.0
 info:
   title: 课程智能 API
   version: 0.6.0
+  license:
+    name: 数据：CC BY 4.0（kebiao 整理和编写的部分；课标原文、教材内容除外）
+    url: https://github.com/NBrangerF/curriculum-standards-breakdown/blob/main/DATA_LICENSE.md
   summary: 面向教育产品的可信课程标准、教材定位、开放学习资源、关系查询与计划对齐能力
   description: |
     课程智能 API 当前公开课程标准检索、教材目录与双页码定位、课标教材双向关联、进阶与相邻关系，以及可信智能检索和纯文本教学计划对齐预览。
 
-    **一套数据：**课程标准相关接口（检索、学科、领域、批量读取、对比、相邻与进阶、元信息）都返回《义务教育课程标准（2022年版2025年修订）》：14 门学科、513 条标准、2,520 条要点，编码如 `MA-S2-NA-02`，要点为 `MA-S2-NA-02.1`。2022 年版的旧编码（如 `MA-D2-AL-005`）解析到它并入的新标准，并在 `meta.moved_from` 标明；旧记录只在「旧数据（2022 年版）」下的 `/api/v1/legacy/...` 接口里提供对照。每个响应的 `meta.data_version`（如 `2025r-a4888c533b`）由已发布标准的内容算出，内容变了它才会变。
+    **一套数据：**课程标准相关接口（检索、学科、领域、批量读取、对比、相邻与进阶、元信息）都返回《义务教育课程标准（2022年版2025年修订）》：14 门学科、513 条标准、2,520 条要点，编码如 `MA-S2-NA-02`，要点为 `MA-S2-NA-02.1`。2022 年版的旧编码（如 `MA-D2-AL-005`）解析到它并入的新标准，并在 `meta.moved_from` 标明；旧记录只在「旧数据（2022 年版）」下的 `/api/v1/legacy/...` 接口里提供对照。
+
+    **许可：**kebiao 整理和编写的数据（编码、结构、kebiao 整理的文字、新旧编码对照、标记和推断层）以 CC BY 4.0 开放，署名「kebiao 课标（https://www.kebiao.org），CC BY 4.0」即可复用；课标原文、教材内容、第三方平台内容和学习资源不在此列，详见 [DATA_LICENSE.md](https://github.com/NBrangerF/curriculum-standards-breakdown/blob/main/DATA_LICENSE.md)。`/api/v1/meta` 的 `license` 字段给出同样的说明。每个响应的 `meta.data_version`（如 `2025r-a4888c533b`）由已发布标准的内容算出，内容变了它才会变。
 
     智能检索和计划匹配结果均为待复核候选；未被教师接受的候选不会计入覆盖。证据链、文件上传和周进度生成仍在开发中。
 

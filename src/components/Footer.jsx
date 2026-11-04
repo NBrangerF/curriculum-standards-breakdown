@@ -47,6 +47,9 @@ function Footer() {
                         <p className={styles.text}>
                             数据来源：义务教育课程标准（2022年版2025年修订）
                         </p>
+                        <p className={styles.text}>
+                            kebiao 整理的数据以 <a href="https://github.com/NBrangerF/curriculum-standards-breakdown/blob/main/DATA_LICENSE.md" target="_blank" rel="noopener">CC BY 4.0</a> 开放，注明出处即可使用；课标原文与教材内容除外。
+                        </p>
                         <p className={`${styles.text} ${styles.disclaimer}`}>
                             本网站为结构化整理与检索工具，仅供教学与研究参考。请以官方发布文本为准。
                         </p>
