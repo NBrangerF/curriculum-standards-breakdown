@@ -17,7 +17,7 @@
         "migrate:code-taxonomy": "tsx scripts/migrate-code-taxonomy.ts --data-root data/internal --apply",
         "build:unified-progression": "tsx scripts/build-unified-progression.ts --data-root data/internal --apply",
         "build:public-data": "node scripts/build-public-data.mjs --source data/internal --output public/data && npm run learning-resources:build && npm run build:public-v2 && npm run build:starmap && node scripts/concepts/build_concepts.mjs && node scripts/interdisciplinary/build_interdisciplinary.mjs && node scripts/resources/build_national_lessons.mjs && node scripts/resources/build_platforms.mjs && node scripts/experiments/build_experiments.mjs && node scripts/v2/build_knowledge_graph.mjs && node scripts/checks/bank.mjs",
-        "build:public-v2": "node scripts/build-public-v2.mjs",
+        "build:public-v2": "node scripts/build-public-v2.mjs && node scripts/v2/stamp_version.mjs",
         "check:checks": "node scripts/checks/bank.mjs --check",
         "check:concepts": "node scripts/concepts/check_terms.mjs && node scripts/interdisciplinary/check_themes.mjs && node scripts/experiments/check_experiments.mjs",
         "build:starmap": "node scripts/build-starmap-data.mjs .",
@@ -163,7 +163,7 @@
         "grade7_9:check-release-candidate": "node scripts/grade7_9/check_release_candidate_ui_compat.js",
         "grade7_9:validate": "node scripts/grade7_9/validate_schema.js",
         "grade7_9:manifest": "node scripts/grade7_9/generate_manifest.js",
-    "prebuild": "node scripts/v2/stamp_version.mjs && npm run validate:data-contract && npm run build:indexes && npm run textbooks:relations:build && npm run textbooks:align-all && npm run textbooks:audit-align-all && npm run textbooks:resources:build && npm run textbooks:resources:audit && npm run textbooks:public:build && npm run textbooks:public:audit && npm run capability-graph:build && npm run capability-graph:audit && npm run capability-graph:check && npm run build:public-data && npm run validate:public-data && npm run prepare:pdfjs && npm run validate:data-trust && npm run build:knowledge-graph-preview && npm run validate:knowledge-graph-preview",
+    "prebuild": "npm run validate:data-contract && npm run build:indexes && npm run textbooks:relations:build && npm run textbooks:align-all && npm run textbooks:audit-align-all && npm run textbooks:resources:build && npm run textbooks:resources:audit && npm run textbooks:public:build && npm run textbooks:public:audit && npm run capability-graph:build && npm run capability-graph:audit && npm run capability-graph:check && npm run build:public-data && npm run validate:public-data && npm run prepare:pdfjs && npm run validate:data-trust && npm run build:knowledge-graph-preview && npm run validate:knowledge-graph-preview",
         "preview": "vite preview",
         "seo:test": "node --test tests/seo_page_meta.test.mjs",
         "reach:report": "node scripts/reach-report.mjs"
