@@ -127,7 +127,7 @@ export function limitsOf(texts: string[]) {
     return out
 }
 
-const VAGUE = /(了解|感受|体会|培养|渗透|提升|增强|激发|感悟|领悟|熏陶)/u
+export const VAGUE = /(了解|感受|体会|培养|渗透|提升|增强|激发|感悟|领悟|熏陶)/u
 
 export type CheckOptions = { planText?: string, assessmentsPlaced?: boolean }
 

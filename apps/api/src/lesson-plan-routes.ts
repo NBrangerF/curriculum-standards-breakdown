@@ -9,6 +9,7 @@ import type { FileCurriculumRepository } from '@curriculum/core'
 import { redactSensitiveText } from './ai-privacy.js'
 import { judgeSearchCandidates, searchJudgeCache, type JudgeCandidate } from './search-judge.js'
 import { alignLessons, type AlignPoint } from './textbook-align.js'
+import { checkObjectives, splitObjectives, type CheckPoint } from './objectives-check.js'
 import { writeLessonObjectives, type ObjectivePoint } from './lesson-objectives.js'
 import type { ApiBindings } from './http.js'
 import { checkPlan, checkPractice, checkTeacherPlan, checkUnit, DEFAULT_CLASS_SIZE, draftFrame, draftPractice, draftProcess, draftReading, draftTalk, draftTrial, draftUnit, LESSON_TYPES, limitsOf, rankPoints, readTest, checkTest, splitTest, mergeReads, sanitiseProcess, readTeacherPlan, sanitiseFrame, v2SubjectSlug, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type PointLink, type PointLinks, type SubjectNote } from './lesson-plan.js'
@@ -212,6 +213,13 @@ export const ObjectivesRequestSchema = z.object({
 })
 export const CheckRequestSchema = BaseRequestSchema.extend({ plan_text: z.string().trim().min(30).max(8000) })
 export const TestRequestSchema = BaseRequestSchema.extend({ test_text: z.string().trim().min(30).max(10000) })
+export const ObjectivesCheckSchema = z.object({
+    lesson: BaseRequestSchema.shape.lesson,
+    // the 要点 the objectives may rest on, and the ones this lesson is meant to teach
+    indicator_codes: z.array(z.string().trim().max(24)).min(1).max(24),
+    taught_codes: z.array(z.string().trim().max(24)).max(10).default([]),
+    objectives_text: z.string().trim().min(6).max(3000)
+})
 
 export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
     const { repository, textbookRepository, v2 } = deps
@@ -689,6 +697,33 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             model: run.model,
             latency_ms: run.latency_ms
         })
+    })
+
+    // 目标体检: the teacher's own objectives traced back to the 课标, with what each lacks and how it could read
+    app.post('/api/v1/lesson-plans/check-objectives', async c => {
+        const version = await repository.loadDataVersion()
+        const parsed = ObjectivesCheckSchema.safeParse(await deps.parseJson(c))
+        if (!parsed.success) return deps.apiError(c, 422, 'validation_error', '请贴入至少一条学习目标。', parsed.error.issues)
+        const body = parsed.data
+        const text = redactSensitiveText(body.objectives_text)
+        const objectives = splitObjectives(text.text)
+        if (!objectives.length) return deps.apiError(c, 422, 'validation_error', '没有读到学习目标：请一行写一条。')
+        const points: CheckPoint[] = []
+        for (const code of [...new Set(body.indicator_codes)]) {
+            const standard = await planStandard(code.replace(/\.\d+$/u, ''))
+            for (const item of standard?.indicators || []) {
+                if ((item.code === code || !/\.\d+$/u.test(code)) && !points.some(point => point.code === item.code)) points.push({ code: item.code, text: item.text, header: `${standard!.title} · ${standard!.stage_label}` })
+            }
+        }
+        if (!points.length) return deps.apiError(c, 422, 'validation_error', '找不到这些课标要点。')
+        const { lesson } = body
+        const note = await subjectNote(lesson.subject_slug)
+        const line = `${lesson.grade ? `${lesson.grade}年级` : ''}${note?.name || ''}，课题「${lesson.title}」${lesson.textbook_title ? `（${lesson.textbook_title}${lesson.unit_title ? ` · ${lesson.unit_title}` : ''}）` : ''}`
+        const unitLessons = await unitSequence(lesson.edition_id, lesson.lesson_id, lesson.title)
+        const run = await checkObjectives(objectives, { line, subject_slug: lesson.subject_slug, points: points.slice(0, 24), taught: body.taught_codes, unitLessons })
+        c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: text.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
+        if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `check_${run.status}`, run.status === 'disabled' ? 'AI 体检暂不可用。' : 'AI 这次没有读完这些目标，请再试一次。')
+        return deps.ok(c, version as never, { ...run.output, privacy: { redacted: text.redacted, redaction_count: text.redaction_count }, model: run.model, latency_ms: run.latency_ms })
     })
 
     // 核验我的试卷: the AI reads each question (题号、题干开头、分值、题型、要点、素养、层次、难度); the program builds the

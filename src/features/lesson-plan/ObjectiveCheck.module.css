@@ -1,0 +1,160 @@
+/* 目标体检: folded under the 要点 list so the step stays calm until a teacher wants it */
+.box {
+    margin: 0.9rem 0 0.2rem;
+    padding: 0.7rem 0.95rem;
+    border: 1px solid rgba(233, 200, 135, 0.3);
+    border-radius: var(--radius-md, 12px);
+    background: rgba(233, 200, 135, 0.04);
+}
+
+.box summary {
+    color: var(--kb-gold);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 0.7rem;
+}
+
+.form label {
+    display: grid;
+    gap: 0.3rem;
+    color: var(--kb-mist);
+    font-size: 0.85rem;
+}
+
+.form textarea {
+    width: 100%;
+    padding: 0.6rem 0.7rem;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--kb-moon);
+    font: inherit;
+    line-height: 1.6;
+}
+
+.form button {
+    justify-self: start;
+}
+
+.form small,
+.foot {
+    color: var(--kb-mist);
+    font-size: 0.78rem;
+}
+
+.result {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 0.9rem;
+}
+
+.list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding-left: 1.3rem;
+}
+
+.list li::marker {
+    color: var(--kb-gold);
+    font-weight: 700;
+}
+
+.text {
+    margin: 0;
+    color: var(--kb-moon);
+    line-height: 1.65;
+}
+
+.text b {
+    margin-left: 0.5rem;
+    padding: 0.05rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.good {
+    background: var(--color-success-light);
+    color: var(--color-success-dark);
+}
+
+.warn {
+    background: rgba(233, 200, 135, 0.16);
+    color: var(--kb-gold);
+}
+
+.bad {
+    background: var(--color-error-light);
+    color: var(--color-error-dark);
+}
+
+.trace {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+    margin: 0.2rem 0 0;
+    color: var(--kb-mist);
+    font-size: 0.82rem;
+}
+
+.code {
+    color: var(--kb-gold);
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.8rem;
+}
+
+.note,
+.flag {
+    margin: 0.15rem 0 0;
+    color: var(--kb-mist);
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
+.flag::before {
+    content: "· ";
+    color: var(--kb-gold);
+}
+
+.rewrite {
+    margin: 0.35rem 0 0;
+    padding: 0.45rem 0.65rem;
+    border-left: 3px solid var(--kb-gold);
+    background: rgba(233, 200, 135, 0.07);
+    color: var(--kb-moon);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.rewrite span {
+    margin-right: 0.5rem;
+    color: var(--kb-gold);
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.uncovered p {
+    margin: 0;
+    color: var(--kb-moon);
+    font-size: 0.86rem;
+}
+
+.uncovered ul {
+    margin: 0.3rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--kb-mist);
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
+.error {
+    color: var(--color-error-dark);
+    font-size: 0.86rem;
+}

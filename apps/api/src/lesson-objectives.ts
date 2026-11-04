@@ -75,7 +75,7 @@ const CHAT_INSTRUCTIONS = `${INSTRUCTIONS}
 只返回一个 JSON 对象：{"lessons":[{"id":"L1","take":"…","later":"…","objectives":[{"text":"学生能…","basis":["…"],"from":"…","show":"…"}]}]}`
 
 // the two subjects whose 课标 define their behaviour verbs (数学 附录 2, 科学 附录 2), given to the model as the scale
-const VERB_SCALES: Record<string, string> = {
+export const VERB_SCALES: Record<string, string> = {
     math: '数学课标附录 2 的行为动词：结果目标——了解（从具体实例中知道或举例说明对象的有关特征；同类词：知道、初步认识）、理解（描述对象的由来、内涵和特征，阐述与相关对象的区别和联系；同类词：认识、会）、掌握（多角度理解和表征对象的本质，把对象用于新的情境；同类词：能）、运用（选择或创造适当的方法解决问题；同类词：证明、应用）。过程目标——经历、体验、感悟、探索。',
     science: '科学课标附录 2 的行为动词：认知性——一级 知道、举例说出、说出、描述、识别、列举、了解；二级 比较、举例说明、说明、概述、解释、认识、理解；三级 区别、辨析、判断、分析、阐明、分类、应用、预测、评价。技能性——一级 观察、观测、测量、记录；二级 使用、调查、估测、查阅；三级 计算、绘制、设计、制作、检测、优化、改进。体验性——一级 关注、感受、体验；二级 感知、领悟、认同、关心；三级 养成、质疑、形成、树立。'
 }

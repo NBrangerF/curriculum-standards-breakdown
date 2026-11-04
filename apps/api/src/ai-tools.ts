@@ -4,6 +4,7 @@
 import type { FileCurriculumRepository, FileTextbookRepository } from '../../../packages/curriculum-core/src/index.js'
 import { SOURCE_LABEL, V2_CODE, type V2Standard, type V2Store, type V2Subject } from './v2-store.js'
 import { findChecks, presentUrl, publicCheck, type CheckStore } from './checks.js'
+import { checkObjectives, splitObjectives, type CheckPoint } from './objectives-check.js'
 
 export const SITE = 'https://www.kebiao.org'
 
@@ -63,6 +64,8 @@ function gradeOf(input: unknown): number | null {
     const cn = raw.match(/[一二三四五六七八九]/u)
     return cn ? CN_NUM[cn[0]] : null
 }
+const AI_TOOL_CALLS_PER_MINUTE = 20
+const aiCalls = { minute: 0, count: 0 }
 const BAND_OF_GRADE = (grade: number) => (grade <= 2 ? 'H1' : grade <= 4 ? 'H2' : grade <= 6 ? 'H3' : 'H4')
 
 function stageOf(subject: V2Subject, input: unknown) {
@@ -377,6 +380,61 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
                         ...(results.length ? [`${lessons.length ? '另外，' : ''}找到 ${results.length} 个教材章节（对应关系为机器对齐，待核验）：`, ...chapterText] : [])
                     ].join('\n')
                     : `没有找到标题包含「${query}」的教材章节；可以换个写法，或用 search_standards 按内容检索。`
+            }
+        }
+    },
+    {
+        name: 'check_objectives',
+        title: '目标体检',
+        description: '老师已经写好的学习目标，逐条对照课标要点体检：依据哪条要点、出自要点原文的哪几个字、程度比要点高还是低、缺不缺条件/行为/程度，并给一条「学生能……」的改写；另查看不见的动词、主语不是学生、课标「不包括」的内容。给出学科、年级和课题（或要点编码）。Check a teacher\'s own learning objectives against the standards.',
+        inputSchema: {
+            type: 'object',
+            properties: {
+                objectives: { type: 'string', description: '老师写的学习目标，一行一条' },
+                subject: { type: 'string', description: '学科，例如「数学」或 math' },
+                grade: { type: 'string', description: '年级，例如「五年级」「8」' },
+                topic: { type: 'string', description: '课题或教学内容，例如「分数的基本性质」，可选' },
+                codes: { type: 'array', items: { type: 'string' }, description: '这节课依据的要点或标准编码，可选；给了就按这些对照' }
+            },
+            required: ['objectives', 'subject'],
+            additionalProperties: false
+        },
+        async run(args, ctx) {
+            // the one tool that calls the AI: /mcp has a looser limit than the AI routes, so these calls share a cap
+            const minute = Math.floor(Date.now() / 60000)
+            if (aiCalls.minute !== minute) Object.assign(aiCalls, { minute, count: 0 })
+            if (++aiCalls.count > AI_TOOL_CALLS_PER_MINUTE) throw new ToolInputError('这一分钟体检的人有点多，请一分钟后再试。')
+            const text = str(args.objectives).slice(0, 3000)
+            const objectives = splitObjectives(text)
+            if (!objectives.length) throw new ToolInputError('请给出至少一条学习目标，一行一条。')
+            const slug = await subjectSlug(args.subject, ctx)
+            const grade = gradeOf(args.grade)
+            const topic = str(args.topic).slice(0, 60)
+            // the 要点 to check against: the codes given, or else the standards the topic (or the objectives) find
+            const given = (Array.isArray(args.codes) ? args.codes : []).map(code => str(code).slice(0, 24)).filter(code => V2_CODE.test(code)).slice(0, 6)
+            const standardCodes = given.length ? [...new Set(given.map(code => code.replace(/\.\d+$/u, '')))] : (await ctx.repository.smartSearchStandards({ query: (topic || objectives.join('；')).slice(0, 300), subjects: [slug!], ...(grade ? { grade_bands: [BAND_OF_GRADE(grade)] } : {}), limit: 4 })).results.map(r => r.code)
+            const points: CheckPoint[] = []
+            for (const code of standardCodes) {
+                const found = await ctx.v2.find(code)
+                if (!found) continue
+                for (const item of found.standard.indicators || []) {
+                    if (!given.some(c => /\.\d+$/u.test(c)) || given.includes(item.code) || given.includes(found.standard.code)) points.push({ code: item.code, text: String(item.text || ''), header: `${found.standard.level2} · ${stageLabel(found.standard, found.subject)}` })
+                }
+            }
+            if (!points.length) return { data: { objectives, points: [] }, text: '没有找到可对照的课标要点；请给出课题，或用 search_standards 找到要点编码后放进 codes。' }
+            const run = await checkObjectives(objectives, { line: `${grade ? `${grade}年级` : ''}${slug}${topic ? `，课题「${topic}」` : ''}`, subject_slug: slug!, points: points.slice(0, 24), taught: given.filter(code => /\.\d+$/u.test(code)), unitLessons: [] })
+            if (!run.output) throw new Error('AI 这次没有读完这些目标，请再试一次。')
+            const LEVEL: Record<string, string> = { match: '程度相当', above: '超出要点', below: '没到要点', unclear: '程度没写清' }
+            const lines = run.output.objectives.map((item, index) => [
+                `${index + 1}. ${item.text}`,
+                item.basis.length ? `   依据 ${item.basis.join('、')}${item.from ? `「${item.from}」` : ''}${item.level ? `（${LEVEL[item.level]}${item.level_note ? `：${item.level_note}` : ''}）` : ''} ${standardUrl(item.basis[0].replace(/\.\d+$/u, ''), item.basis[0])}` : '',
+                item.missing.length ? `   缺：${item.missing.join('、')}` : '',
+                ...item.flags.map(flag => `   · ${flag.message}`),
+                item.rewrite ? `   可以这样写：${item.rewrite}` : ''
+            ].filter(Boolean).join('\n'))
+            return {
+                data: { ...run.output, points: points.map(point => ({ ...point, url: standardUrl(point.code.replace(/\.\d+$/u, ''), point.code) })) },
+                text: [`对照了 ${points.length} 条课标要点（AI 体检，引用的课标原词已核对，判断待老师核验）：`, ...lines, ...run.output.uncovered.map(point => `还没有目标落到 ${point.code}：${point.text}`), ...run.output.notes].join('\n')
             }
         }
     },

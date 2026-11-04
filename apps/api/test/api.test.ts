@@ -1717,7 +1717,7 @@ test('MCP server answers initialize, ping and tools/list', async () => {
     assert.deepEqual((await json(await mcp({ jsonrpc: '2.0', id: 3, method: 'ping' }))).result, {})
     const list = await json(await mcp({ jsonrpc: '2.0', id: 4, method: 'tools/list' }))
     const names = list.result.tools.map((tool: any) => tool.name)
-    assert.deepEqual(names, ['list_subjects', 'search_standards', 'get_standard', 'list_standards', 'get_stage_goals', 'get_textbook_links', 'find_textbook_chapter', 'get_check_questions', 'compare_versions'])
+    assert.deepEqual(names, ['list_subjects', 'search_standards', 'get_standard', 'list_standards', 'get_stage_goals', 'get_textbook_links', 'find_textbook_chapter', 'check_objectives', 'get_check_questions', 'compare_versions'])
     for (const tool of list.result.tools) {
         assert.equal(tool.inputSchema.type, 'object')
         assert.equal(tool.annotations.readOnlyHint, true)

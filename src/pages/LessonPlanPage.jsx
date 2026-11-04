@@ -15,6 +15,7 @@ import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './LessonPlanPage.module.css'
 import { sourceLabel } from '../features/textbooks/alignmentModel'
 import LessonGoals from '../features/textbooks/LessonGoals'
+import ObjectiveCheck from '../features/lesson-plan/ObjectiveCheck'
 import { loadBank, presentHref, questionsForLesson } from '../features/checks/checksData.js'
 import { subjectBySlug } from '../features/checks/subjects.js'
 import { subjectOfCode } from '../data/v2Data.js'
@@ -587,6 +588,7 @@ export default function LessonPlanPage() {
                         ))}
                     </ul>
                     {!context.standards.length ? <p className={styles.small}>这一课还没有对齐的课标。等 AI 读完，或改用「直接写课题」。</p> : null}
+                    {!isUnit && context.standards.length ? <ObjectiveCheck lesson={draftLesson(context.lesson)} codes={[...selected, ...context.standards.flatMap(standard => standard.indicators.map(item => item.code)).filter(code => !selected.has(code))]} taught={[...selected]} /> : null}
                     {selectedCount && ai.status !== 'loading' ? <PromptCopy context={context} selected={selected} isUnit={isUnit} settings={settings} /> : null}
                 </section>
             ) : null}

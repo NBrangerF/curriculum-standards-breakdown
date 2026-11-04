@@ -863,3 +863,40 @@ test('课堂学习目标: each objective keeps the lesson\'s own 要点 and a qu
     assert.match(calls[0], /了解（从具体实例中知道/)
     assert.match(calls[0], /本单元的课（按教材顺序）：分数的意义、分数的基本性质、约分、通分/)
 })
+
+test('目标体检: objectives are split, traced to the lesson\'s 要点 with the 要点\'s own words, and checked by rule', async t => {
+    const saved = process.env.KEBIAO_LLM_API_KEY
+    process.env.KEBIAO_LLM_API_KEY = 'test-secret'
+    t.after(() => { if (saved === undefined) delete process.env.KEBIAO_LLM_API_KEY; else process.env.KEBIAO_LLM_API_KEY = saved })
+    const calls: string[] = []
+    t.mock.method(globalThis, 'fetch', async (_input: unknown, init?: RequestInit) => {
+        calls.push(String(JSON.parse(String(init?.body)).messages[1].content))
+        const content = { objectives: [
+            { n: 1, basis: [LIMITED], from: '比较两个分数的大小', level: 'match', level_note: '要点与目标都是「比较」', missing: ['条件'], rewrite: '学生能借助分数墙比较两个分数的大小，并说出理由。' },
+            { n: 2, basis: ['MA-S1-ZZ-99.1'], from: '课标里没有这句', level: 'above', level_note: 'x', missing: [], rewrite: '理解分数的意义' },
+            { n: 3, basis: [LIMITED], from: '会进行小数和分数的转化', level: 'above', level_note: '要点不包括循环小数', missing: ['程度'], rewrite: '' }
+        ], notes: ['缺少能力类目标'] }
+        return new Response(JSON.stringify({ choices: [{ message: { content: JSON.stringify(content) } }], usage: { prompt_tokens: 500, completion_tokens: 300, total_tokens: 800 } }), { status: 200, headers: { 'content-type': 'application/json' } })
+    })
+    const response = await app.request('/api/v1/lesson-plans/check-objectives', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({
+        lesson: { title: '分数的基本性质', subject_slug: 'math', grade: 5, textbook_title: '数学5年级下册' },
+        indicator_codes: [LIMITED, 'MA-S3-NA-01.5'],
+        taught_codes: [LIMITED, 'MA-S3-NA-01.5'],
+        objectives_text: '教学目标：\n1. 比较两个分数的大小\n（2）使学生体会分数的基本性质\n③ 学生能把循环小数化成分数'
+    }) })
+    assert.equal(response.status, 200)
+    assert.equal(response.headers.get('x-ratelimit-policy'), 'ai-per-minute')
+    const data = (await json(response)).data
+    assert.deepEqual(data.objectives.map((item: any) => item.text), ['比较两个分数的大小', '使学生体会分数的基本性质', '学生能把循环小数化成分数'])
+    assert.equal(data.objectives[0].from, '比较两个分数的大小')
+    assert.match(data.objectives[0].rewrite, /^学生能/)
+    // a foreign code is dropped, so no basis, no level, no quote and no rewrite that doesn't start with 学生
+    assert.deepEqual(data.objectives[1].basis, [])
+    assert.equal(data.objectives[1].level, null)
+    assert.equal(data.objectives[1].rewrite, '')
+    assert.deepEqual(data.objectives[1].flags.map((flag: any) => flag.kind), ['no_basis', 'teacher_subject', 'vague_verb'])
+    assert.ok(data.objectives[2].flags.some((flag: any) => flag.kind === 'beyond_limit'))
+    assert.deepEqual(data.uncovered.map((point: any) => point.code), ['MA-S3-NA-01.5'])
+    assert.match(calls[0], /1\. 比较两个分数的大小\n2\. 使学生体会分数的基本性质/)
+    assert.match(calls[0], /〔这节课主要教〕/)
+})
