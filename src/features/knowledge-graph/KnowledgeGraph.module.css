@@ -12,32 +12,8 @@
 .heroCopy { min-width: 0; }
 
 .subjects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    padding-bottom: 1.1rem;
+    composes: picker from '../../components/kb/kb.module.css';
     border-bottom: 1px solid var(--kb-line);
-}
-
-.subjects a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.1rem;
-    padding: 0 0.85rem;
-    border: 1px solid var(--kb-line-strong);
-    border-radius: 0;
-    color: var(--kb-mist);
-    font-size: 0.88rem;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-
-.subjects a:hover { border-color: var(--kb-gold); color: var(--kb-moon); }
-
-.subjects a[aria-current='page'] {
-    border-color: var(--kb-gold);
-    background: var(--kb-accent-soft);
-    color: var(--kb-moon);
 }
 
 .toolbar {

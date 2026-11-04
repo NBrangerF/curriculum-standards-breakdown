@@ -27,62 +27,22 @@
 
 .books,
 .subjects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    padding-top: 1.6rem;
+    composes: picker from '../components/kb/kb.module.css';
 }
 
+.subjects {
+    margin-top: 1.6rem;
+}
+
+/* the books row hangs right under the subjects, sharing their rule */
 .subjects + .books {
-    padding-top: 0.7rem;
+    border-top: 0;
 }
 
-.books button,
-.subjects button {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.3rem;
-    min-height: 38px;
-    padding: 0 0.85rem;
-    border: 1px solid var(--kb-line);
-    border-radius: 0;
-    background: transparent;
-    color: var(--kb-moon);
-    font: inherit;
-    font-size: 0.95rem;
-    cursor: pointer;
-}
-
-.books button small,
-.subjects button small {
-    color: var(--kb-dim);
-    font-family: var(--font-mono);
-    font-size: 11px;
-}
-
-.books button[aria-pressed="true"],
-.subjects button[aria-pressed="true"] {
-    border-color: var(--kb-gold);
-    background: var(--kb-accent-soft);
-    color: var(--kb-gold);
-}
-
-.books button:disabled {
-    color: var(--kb-dim);
-    opacity: 0.55;
-    cursor: default;
-}
-
-.books button:focus-visible,
-.subjects button:focus-visible,
 .bar button:focus-visible,
 .levels button:focus-visible {
     outline: 2px solid var(--kb-focus);
     outline-offset: 2px;
-}
-
-.subjects button {
-    font-weight: 600;
 }
 
 .booksInline {

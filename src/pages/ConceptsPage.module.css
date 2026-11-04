@@ -8,9 +8,58 @@
     color: var(--text-primary);
 }
 
+/* 星表 page head: the kicker in a 3-column label rail, the title and everything else beside it */
 .hero {
-    padding: clamp(1.75rem, 4.5vw, 3.5rem) 0 clamp(1.4rem, 3vw, 2.25rem);
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 24px;
+    align-items: start;
+    padding: clamp(2rem, 4.5vw, 3.5rem) 0 clamp(1.4rem, 3vw, 2.25rem);
     border-bottom: 1px solid var(--kb-line);
+}
+
+.hero > * {
+    grid-column: 4 / -1;
+    min-width: 0;
+}
+
+.hero > .kicker {
+    position: relative;
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 6;
+    padding-top: 14px;
+}
+
+.hero > .kicker::before {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 9px;
+    height: 9px;
+    background:
+        linear-gradient(var(--kb-dim), var(--kb-dim)) center / 1px 9px no-repeat,
+        linear-gradient(var(--kb-dim), var(--kb-dim)) center / 9px 1px no-repeat;
+    content: '';
+}
+
+.hero > .kicker + .title {
+    margin-top: 0;
+}
+
+@media (max-width: 860px) {
+    .hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero > *,
+    .hero > .kicker {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .hero > .kicker + .title {
+        margin-top: 0.8rem;
+    }
 }
 
 .kicker {
@@ -27,15 +76,16 @@
     margin: 0.8rem 0 0;
     color: var(--kb-moon);
     font-family: var(--font-display);
-    font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+    font-size: clamp(30px, 3.4vw, 40px);
     font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: 0.02em;
-    text-wrap: balance;
+    font-feature-settings: 'palt' 1;
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-wrap: pretty;
 }
 
 .lede {
-    max-width: 38em;
+    max-width: 40em;
     margin: 0.9rem 0 0;
     color: var(--kb-mist);
     font-size: 1rem;

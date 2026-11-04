@@ -1,5 +1,6 @@
 /* 教资: the page's own route beside its title, and one subject at a time */
-.heroGrid {
+/* the doubled class outranks the shared 12-column page head: this head is copy + the four-step route */
+.heroGrid.heroGrid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
     gap: 24px clamp(32px, 5vw, 64px);
@@ -7,32 +8,9 @@
 }
 
 .who {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
+    composes: picker from '../components/kb/kb.module.css';
     margin-top: 1.4rem;
 }
-
-.who > span { margin-right: 4px; color: var(--kb-dim); font-size: 13px; }
-
-.who button {
-    display: inline-flex;
-    min-height: 36px;
-    align-items: center;
-    gap: 7px;
-    padding: 0 12px;
-    border: 1px solid var(--kb-line-strong);
-    border-radius: 0;
-    background: none;
-    color: var(--kb-mist);
-    font: inherit;
-    font-size: 14px;
-}
-
-.who button i { width: 6px; height: 6px; border-radius: 50%; background: var(--c, var(--kb-gold)); }
-.who button:hover { border-color: var(--kb-gold); color: var(--kb-moon); }
-.who button[aria-pressed='true'] { border-color: var(--kb-gold); background: var(--kb-accent-soft); color: var(--kb-moon); }
 
 .notes { scroll-margin-top: 80px; }
 
@@ -94,5 +72,7 @@
 }
 
 @media (max-width: 960px) {
-    .heroGrid { grid-template-columns: minmax(0, 1fr); }
+    .heroGrid.heroGrid { grid-template-columns: minmax(0, 1fr); }
 }
+
+.heroGrid.heroGrid > * { grid-column: auto; grid-row: auto; }
