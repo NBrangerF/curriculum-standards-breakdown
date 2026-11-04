@@ -24,8 +24,8 @@
     "algorithm_version": "component-evidence-hybrid-v3",
     "alignment_count": 0,
     "automatic_content_unit_count": 0,
-    "content_node_count": 63,
-    "evidence_span_count": 3,
+    "content_node_count": 82,
+    "evidence_span_count": 5,
     "generated_alignment_count": 0,
     "native_text_ratio": 0.0172,
     "ocr_page_count": 57,
@@ -38,7 +38,7 @@
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/6d9bfef9406e6e2dc90b7994ad7dd0c388377c2c321c3096b7130e96f489ce6f/pages.jsonl",
-    "sidecar_sha256": "b527798c7cdc291695ae314039aa5e77c51e576363cc5c1f0af11ec4a584e3e7",
+    "sidecar_sha256": "dd240aeef8037bc7d1f93d79f9d7bd12801f7d2fc6758825f847e2f2b9e9b458",
     "source_asset_sha256": "6d9bfef9406e6e2dc90b7994ad7dd0c388377c2c321c3096b7130e96f489ce6f",
     "unit_range_reconciliation_algorithm": "sidecar-top-heading-unit-range-v2",
     "unit_recovery_native_text_ratio": 1,
@@ -172,7 +172,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_667ab32830df4fbe",
-      "parent_id": null,
+      "parent_id": "tcn_0e33493e55a29f76",
       "pdf_page": 8,
       "pdf_page_end": 8,
       "pdf_page_start": 8,
@@ -180,7 +180,65 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 8 页",
-      "unit_id": null
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 33,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_0e33493e55a29f76",
+      "parent_id": null,
+      "pdf_page": 8,
+      "pdf_page_end": 33,
+      "pdf_page_start": 8,
+      "printed_page": "1",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第一单元 探秘恐龙",
+      "title": "第一单元 探秘恐龙",
+      "toc_entry_id": "tcu_dd5aaa0ba47fbade",
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 33,
+      "end_printed_page": null,
+      "evidence_span_ids": [
+        "tes_dc5ea57e38604882"
+      ],
+      "kind": "unit",
+      "node_id": "tcn_46c210b00a0c931e",
+      "parent_id": "tcn_0e33493e55a29f76",
+      "pdf_page": 8,
+      "pdf_page_end": 33,
+      "pdf_page_start": 8,
+      "printed_page": null,
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "第 一 单元",
+      "title": "第一单元",
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 11,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_a0e13d8a18bb9661",
+      "parent_id": "tcn_0e33493e55a29f76",
+      "pdf_page": 9,
+      "pdf_page_end": 11,
+      "pdf_page_start": 9,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "1. 恐龙的故事",
+      "title": "1. 恐龙的故事",
+      "toc_entry_id": "tcu_fdd010bc58d95e2b",
+      "unit_id": "tcu_fdd010bc58d95e2b"
     },
     {
       "confidence": 0.8,
@@ -189,7 +247,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e3a945a173ebee33",
-      "parent_id": null,
+      "parent_id": "tcn_a0e13d8a18bb9661",
       "pdf_page": 9,
       "pdf_page_end": 9,
       "pdf_page_start": 9,
@@ -197,7 +255,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 9 页",
-      "unit_id": null
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -206,7 +264,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d01b2b7967d0ab45",
-      "parent_id": null,
+      "parent_id": "tcn_a0e13d8a18bb9661",
       "pdf_page": 10,
       "pdf_page_end": 10,
       "pdf_page_start": 10,
@@ -214,7 +272,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 10 页",
-      "unit_id": null
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -223,7 +281,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9eff99f8701cf481",
-      "parent_id": null,
+      "parent_id": "tcn_a0e13d8a18bb9661",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -231,7 +289,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 11 页",
-      "unit_id": null
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 15,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_33c30ae60a845067",
+      "parent_id": "tcn_0e33493e55a29f76",
+      "pdf_page": 12,
+      "pdf_page_end": 15,
+      "pdf_page_start": 12,
+      "printed_page": "5",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "2. 挖掘恐龙“化石”",
+      "title": "2. 挖掘恐龙“化石”",
+      "toc_entry_id": "tcu_96ecb2d2e562b889",
+      "unit_id": "tcu_96ecb2d2e562b889"
     },
     {
       "confidence": 0.8,
@@ -240,7 +317,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7a26368569366e9a",
-      "parent_id": null,
+      "parent_id": "tcn_33c30ae60a845067",
       "pdf_page": 12,
       "pdf_page_end": 12,
       "pdf_page_start": 12,
@@ -248,7 +325,27 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 12 页",
-      "unit_id": null
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 13,
+      "end_printed_page": null,
+      "evidence_span_ids": [
+        "tes_f9067e716faf5217"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_7a456714cdfa3a9e",
+      "parent_id": "tcn_46c210b00a0c931e",
+      "pdf_page": 13,
+      "pdf_page_end": 13,
+      "pdf_page_start": 13,
+      "printed_page": null,
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "选择 不 同 的 工具 进行wa jué eee SSse ; ” |",
+      "title": "选择 不 同 的 工具 进行wa jué eee SSse ; ” |",
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -257,7 +354,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d194d82db437a4e2",
-      "parent_id": null,
+      "parent_id": "tcn_33c30ae60a845067",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -265,7 +362,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 13 页",
-      "unit_id": null
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -274,7 +371,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1388dffcdf179db3",
-      "parent_id": null,
+      "parent_id": "tcn_33c30ae60a845067",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -282,7 +379,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 14 页",
-      "unit_id": null
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -291,7 +388,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f38ef092179b7351",
-      "parent_id": null,
+      "parent_id": "tcn_33c30ae60a845067",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -299,7 +396,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 15 页",
-      "unit_id": null
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 18,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_62d07fd23836092b",
+      "parent_id": "tcn_0e33493e55a29f76",
+      "pdf_page": 16,
+      "pdf_page_end": 18,
+      "pdf_page_start": 16,
+      "printed_page": "9",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "3. 测量恐龙“化石”",
+      "title": "3. 测量恐龙“化石”",
+      "toc_entry_id": "tcu_6d26b0e470f47669",
+      "unit_id": "tcu_6d26b0e470f47669"
     },
     {
       "confidence": 0.8,
@@ -308,7 +424,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a514a8228b05b447",
-      "parent_id": "tcn_971e020c1832f101",
+      "parent_id": "tcn_62d07fd23836092b",
       "pdf_page": 16,
       "pdf_page_end": 16,
       "pdf_page_start": 16,
@@ -316,26 +432,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 16 页",
-      "unit_id": "tcu_4728c88059f53b67"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 24,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "section",
-      "node_id": "tcn_971e020c1832f101",
-      "parent_id": null,
-      "pdf_page": 16,
-      "pdf_page_end": 24,
-      "pdf_page_start": 16,
-      "printed_page": "9",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "测量 RK LA”",
-      "title": "测量 RK LA”",
-      "toc_entry_id": "tcu_4728c88059f53b67",
-      "unit_id": "tcu_4728c88059f53b67"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -344,7 +441,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c3787dece993e2f7",
-      "parent_id": "tcn_971e020c1832f101",
+      "parent_id": "tcn_62d07fd23836092b",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -352,7 +449,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 17 页",
-      "unit_id": "tcu_4728c88059f53b67"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -361,7 +458,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7cd93cf629b9a58c",
-      "parent_id": "tcn_971e020c1832f101",
+      "parent_id": "tcn_62d07fd23836092b",
       "pdf_page": 18,
       "pdf_page_end": 18,
       "pdf_page_start": 18,
@@ -369,7 +466,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 18 页",
-      "unit_id": "tcu_4728c88059f53b67"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 21,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_fa4b3f5d351db188",
+      "parent_id": "tcn_0e33493e55a29f76",
+      "pdf_page": 19,
+      "pdf_page_end": 21,
+      "pdf_page_start": 19,
+      "printed_page": "12",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "4. 拼接恐龙“化石”",
+      "title": "4. 拼接恐龙“化石”",
+      "toc_entry_id": "tcu_fa18a972c8b766f9",
+      "unit_id": "tcu_fa18a972c8b766f9"
     },
     {
       "confidence": 0.8,
@@ -378,7 +494,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_aeb92fbfc8c46f28",
-      "parent_id": "tcn_971e020c1832f101",
+      "parent_id": "tcn_fa4b3f5d351db188",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -386,7 +502,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 19 页",
-      "unit_id": "tcu_4728c88059f53b67"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -395,7 +511,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9bb93a659e22e31a",
-      "parent_id": "tcn_971e020c1832f101",
+      "parent_id": "tcn_fa4b3f5d351db188",
       "pdf_page": 20,
       "pdf_page_end": 20,
       "pdf_page_start": 20,
@@ -403,7 +519,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 20 页",
-      "unit_id": "tcu_4728c88059f53b67"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -412,7 +528,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_afcadab260d08d0d",
-      "parent_id": "tcn_971e020c1832f101",
+      "parent_id": "tcn_fa4b3f5d351db188",
       "pdf_page": 21,
       "pdf_page_end": 21,
       "pdf_page_start": 21,
@@ -420,7 +536,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 21 页",
-      "unit_id": "tcu_4728c88059f53b67"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 24,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_d0cee2fe0277b5d8",
+      "parent_id": "tcn_0e33493e55a29f76",
+      "pdf_page": 22,
+      "pdf_page_end": 24,
+      "pdf_page_start": 22,
+      "printed_page": "15",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "5. 复原恐龙",
+      "title": "5. 复原恐龙",
+      "toc_entry_id": "tcu_900942ca65ef872d",
+      "unit_id": "tcu_900942ca65ef872d"
     },
     {
       "confidence": 0.8,
@@ -429,7 +564,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b6d0043d9c2fd27d",
-      "parent_id": "tcn_971e020c1832f101",
+      "parent_id": "tcn_d0cee2fe0277b5d8",
       "pdf_page": 22,
       "pdf_page_end": 22,
       "pdf_page_start": 22,
@@ -437,7 +572,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 22 页",
-      "unit_id": "tcu_4728c88059f53b67"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -446,7 +581,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_22115cbdba1ba5df",
-      "parent_id": "tcn_971e020c1832f101",
+      "parent_id": "tcn_d0cee2fe0277b5d8",
       "pdf_page": 23,
       "pdf_page_end": 23,
       "pdf_page_start": 23,
@@ -454,7 +589,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 23 页",
-      "unit_id": "tcu_4728c88059f53b67"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -463,7 +598,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f5e23d45cae84126",
-      "parent_id": "tcn_971e020c1832f101",
+      "parent_id": "tcn_d0cee2fe0277b5d8",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -471,7 +606,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 24 页",
-      "unit_id": "tcu_4728c88059f53b67"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 27,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_906855f160c37d2b",
+      "parent_id": "tcn_0e33493e55a29f76",
+      "pdf_page": 25,
+      "pdf_page_end": 27,
+      "pdf_page_start": 25,
+      "printed_page": "18",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "6. 制作恐龙模型",
+      "title": "6. 制作恐龙模型",
+      "toc_entry_id": "tcu_3e02291a12dfc07e",
+      "unit_id": "tcu_3e02291a12dfc07e"
     },
     {
       "confidence": 0.8,
@@ -480,7 +634,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_33765ed3dfb1effe",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_906855f160c37d2b",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -488,26 +642,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 25 页",
-      "unit_id": "tcu_7da5da7792100fee"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 58,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "section",
-      "node_id": "tcn_b7734e4965d6983c",
-      "parent_id": null,
-      "pdf_page": 25,
-      "pdf_page_end": 58,
-      "pdf_page_start": 25,
-      "printed_page": "18",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "龙模型",
-      "title": "龙模型",
-      "toc_entry_id": "tcu_7da5da7792100fee",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -516,7 +651,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4b0f0e52a0ad870f",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_906855f160c37d2b",
       "pdf_page": 26,
       "pdf_page_end": 26,
       "pdf_page_start": 26,
@@ -524,7 +659,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 26 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -533,7 +668,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0ca5b62170817746",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_906855f160c37d2b",
       "pdf_page": 27,
       "pdf_page_end": 27,
       "pdf_page_start": 27,
@@ -541,7 +676,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 27 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 30,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_06826ef26ca9fe71",
+      "parent_id": "tcn_0e33493e55a29f76",
+      "pdf_page": 28,
+      "pdf_page_end": 30,
+      "pdf_page_start": 28,
+      "printed_page": "21",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "7. 我们的恐龙公园",
+      "title": "7. 我们的恐龙公园",
+      "toc_entry_id": "tcu_6cd38672f7b0b160",
+      "unit_id": "tcu_6cd38672f7b0b160"
     },
     {
       "confidence": 0.8,
@@ -550,7 +704,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ca7a0b1ccb2c803e",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_06826ef26ca9fe71",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -558,7 +712,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 28 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -567,7 +721,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a0e463a19d0e8a53",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_06826ef26ca9fe71",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -575,7 +729,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 29 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -584,7 +738,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c0c3cb380476f962",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_06826ef26ca9fe71",
       "pdf_page": 30,
       "pdf_page_end": 30,
       "pdf_page_start": 30,
@@ -592,7 +746,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 30 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 31,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_57bb8fd3ac767eb0",
+      "parent_id": "tcn_0e33493e55a29f76",
+      "pdf_page": 31,
+      "pdf_page_end": 31,
+      "pdf_page_start": 31,
+      "printed_page": "24",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "单元小结",
+      "title": "单元小结",
+      "toc_entry_id": "tcu_ced94ac2b4cd7d3a",
+      "unit_id": "tcu_ced94ac2b4cd7d3a"
     },
     {
       "confidence": 0.8,
@@ -601,7 +774,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b96850696a4c6f81",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_57bb8fd3ac767eb0",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -609,7 +782,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 31 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 33,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_5da65633c6cccc82",
+      "parent_id": "tcn_0e33493e55a29f76",
+      "pdf_page": 32,
+      "pdf_page_end": 33,
+      "pdf_page_start": 32,
+      "printed_page": "25",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "科学阅读",
+      "title": "科学阅读",
+      "toc_entry_id": "tcu_77d53fd7466f4c37",
+      "unit_id": "tcu_77d53fd7466f4c37"
     },
     {
       "confidence": 0.8,
@@ -618,7 +810,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_26b87efc77c5d993",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_5da65633c6cccc82",
       "pdf_page": 32,
       "pdf_page_end": 32,
       "pdf_page_start": 32,
@@ -626,7 +818,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 32 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -635,7 +827,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a1f6ff420012c59c",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_5da65633c6cccc82",
       "pdf_page": 33,
       "pdf_page_end": 33,
       "pdf_page_start": 33,
@@ -643,7 +835,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 33 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_dd5aaa0ba47fbade"
     },
     {
       "confidence": 0.8,
@@ -652,7 +844,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_067d345ea25294af",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_c336deb8d0375534",
       "pdf_page": 34,
       "pdf_page_end": 34,
       "pdf_page_start": 34,
@@ -660,7 +852,45 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 34 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 58,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_c336deb8d0375534",
+      "parent_id": null,
+      "pdf_page": 34,
+      "pdf_page_end": 58,
+      "pdf_page_start": 34,
+      "printed_page": "27",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第二单元 玩磁铁",
+      "title": "第二单元 玩磁铁",
+      "toc_entry_id": "tcu_a0e81198ba229b82",
+      "unit_id": "tcu_a0e81198ba229b82"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 37,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_777b145ea4dc9681",
+      "parent_id": "tcn_c336deb8d0375534",
+      "pdf_page": 35,
+      "pdf_page_end": 37,
+      "pdf_page_start": 35,
+      "printed_page": "28",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "1. 磁铁能吸引什么",
+      "title": "1. 磁铁能吸引什么",
+      "toc_entry_id": "tcu_1e7e7afc7c2d3992",
+      "unit_id": "tcu_1e7e7afc7c2d3992"
     },
     {
       "confidence": 0.8,
@@ -669,7 +899,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a0f52123208dc157",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_777b145ea4dc9681",
       "pdf_page": 35,
       "pdf_page_end": 35,
       "pdf_page_start": 35,
@@ -677,7 +907,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 35 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -686,7 +916,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6846c4d7560a5a93",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_777b145ea4dc9681",
       "pdf_page": 36,
       "pdf_page_end": 36,
       "pdf_page_start": 36,
@@ -694,7 +924,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 36 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -703,7 +933,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8a1079905a055be2",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_777b145ea4dc9681",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -711,7 +941,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 37 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 40,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_ace5a9ef32fdb55c",
+      "parent_id": "tcn_c336deb8d0375534",
+      "pdf_page": 38,
+      "pdf_page_end": 40,
+      "pdf_page_start": 38,
+      "printed_page": "31",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "2. 比较力量的大小",
+      "title": "2. 比较力量的大小",
+      "toc_entry_id": "tcu_e6c96b3dec88c95a",
+      "unit_id": "tcu_e6c96b3dec88c95a"
     },
     {
       "confidence": 0.8,
@@ -720,7 +969,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7d8ec303a4ee723a",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_ace5a9ef32fdb55c",
       "pdf_page": 38,
       "pdf_page_end": 38,
       "pdf_page_start": 38,
@@ -728,7 +977,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 38 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -737,7 +986,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_aeb68a19f7e9adc4",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_ace5a9ef32fdb55c",
       "pdf_page": 39,
       "pdf_page_end": 39,
       "pdf_page_start": 39,
@@ -745,7 +994,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 39 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -754,7 +1003,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_097643e88bcd0651",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_ace5a9ef32fdb55c",
       "pdf_page": 40,
       "pdf_page_end": 40,
       "pdf_page_start": 40,
@@ -762,7 +1011,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 40 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 43,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_5d0f71e76609c644",
+      "parent_id": "tcn_c336deb8d0375534",
+      "pdf_page": 41,
+      "pdf_page_end": 43,
+      "pdf_page_start": 41,
+      "printed_page": "34",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "3. 让小车动起来",
+      "title": "3. 让小车动起来",
+      "toc_entry_id": "tcu_3537d671e9bfcbed",
+      "unit_id": "tcu_3537d671e9bfcbed"
     },
     {
       "confidence": 0.8,
@@ -771,7 +1039,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_714c648f05aa9e4d",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_5d0f71e76609c644",
       "pdf_page": 41,
       "pdf_page_end": 41,
       "pdf_page_start": 41,
@@ -779,7 +1047,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 41 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -788,7 +1056,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4c9dac699a91c561",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_5d0f71e76609c644",
       "pdf_page": 42,
       "pdf_page_end": 42,
       "pdf_page_start": 42,
@@ -796,7 +1064,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 42 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -805,7 +1073,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_53bfbafd11e9640f",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_5d0f71e76609c644",
       "pdf_page": 43,
       "pdf_page_end": 43,
       "pdf_page_start": 43,
@@ -813,7 +1081,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 43 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 46,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_c37ab10334b14be4",
+      "parent_id": "tcn_c336deb8d0375534",
+      "pdf_page": 44,
+      "pdf_page_end": 46,
+      "pdf_page_start": 44,
+      "printed_page": "37",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "4. 隔物吸铁",
+      "title": "4. 隔物吸铁",
+      "toc_entry_id": "tcu_8fb22e2ea3277e79",
+      "unit_id": "tcu_8fb22e2ea3277e79"
     },
     {
       "confidence": 0.8,
@@ -822,7 +1109,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_26c7562cd38c8e88",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_c37ab10334b14be4",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -830,7 +1117,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 44 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -839,7 +1126,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f105d0cbb9fb3923",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_c37ab10334b14be4",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -847,7 +1134,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 45 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -856,7 +1143,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1a7193d64ec732d1",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_c37ab10334b14be4",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -864,7 +1151,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 46 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.86,
@@ -875,7 +1162,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_d45894a06210592f",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_c336deb8d0375534",
       "pdf_page": 47,
       "pdf_page_end": 47,
       "pdf_page_start": 47,
@@ -884,7 +1171,26 @@
       "source": "task_verb_pattern",
       "text_excerpt": "设计 钧 鱼 玩具zi Xi guan chad dido yu wan ju ‘6仔细 观察 钓鱼 玩具",
       "title": "设计 钧 鱼 玩具zi Xi guan chad dido yu wan ju ‘6仔细 观察 钓鱼 玩具",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 49,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_7beb53423508d37c",
+      "parent_id": "tcn_c336deb8d0375534",
+      "pdf_page": 47,
+      "pdf_page_end": 49,
+      "pdf_page_start": 47,
+      "printed_page": "40",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "5. 设计钓鱼玩具",
+      "title": "5. 设计钓鱼玩具",
+      "toc_entry_id": "tcu_5f6efda51fa0af37",
+      "unit_id": "tcu_5f6efda51fa0af37"
     },
     {
       "confidence": 0.8,
@@ -893,7 +1199,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6c1ce03f932c4fb8",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_7beb53423508d37c",
       "pdf_page": 47,
       "pdf_page_end": 47,
       "pdf_page_start": 47,
@@ -901,7 +1207,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 47 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -910,7 +1216,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4518b8980daa8384",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_7beb53423508d37c",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -918,7 +1224,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 48 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -927,7 +1233,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1efe6241843c0c5c",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_7beb53423508d37c",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -935,7 +1241,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 49 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.86,
@@ -946,7 +1252,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_70ae54fe2b86ba14",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_c336deb8d0375534",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -955,7 +1261,26 @@
       "source": "task_verb_pattern",
       "text_excerpt": "根据 设计 图 , 制 作 的 鱼 玩 具 。",
       "title": "根据 设计 图 , 制 作 的 鱼 玩 具 。",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 52,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_ebe7b91ceaafa1e0",
+      "parent_id": "tcn_c336deb8d0375534",
+      "pdf_page": 50,
+      "pdf_page_end": 52,
+      "pdf_page_start": 50,
+      "printed_page": "43",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "6. 我们来钓鱼",
+      "title": "6. 我们来钓鱼",
+      "toc_entry_id": "tcu_88671d27e45ea50d",
+      "unit_id": "tcu_88671d27e45ea50d"
     },
     {
       "confidence": 0.8,
@@ -964,7 +1289,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_999987c2d21deba7",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_ebe7b91ceaafa1e0",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -972,7 +1297,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 50 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -981,7 +1306,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7980ccb4c003b29c",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_ebe7b91ceaafa1e0",
       "pdf_page": 51,
       "pdf_page_end": 51,
       "pdf_page_start": 51,
@@ -989,7 +1314,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 51 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.86,
@@ -1000,7 +1325,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_0752f2aaa755ebd3",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_c336deb8d0375534",
       "pdf_page": 52,
       "pdf_page_end": 52,
       "pdf_page_start": 52,
@@ -1009,7 +1334,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "设计 、 制 作 、 测 试 。",
       "title": "设计 、 制 作 、 测 试 。",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -1018,7 +1343,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_89e27dcb72eba6c4",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_ebe7b91ceaafa1e0",
       "pdf_page": 52,
       "pdf_page_end": 52,
       "pdf_page_start": 52,
@@ -1026,7 +1351,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 52 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 53,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_f55de7de71d577a2",
+      "parent_id": "tcn_c336deb8d0375534",
+      "pdf_page": 53,
+      "pdf_page_end": 53,
+      "pdf_page_start": 53,
+      "printed_page": "46",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "单元小结",
+      "title": "单元小结",
+      "toc_entry_id": "tcu_8b916851f62ddbf2",
+      "unit_id": "tcu_8b916851f62ddbf2"
     },
     {
       "confidence": 0.8,
@@ -1035,7 +1379,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_de3924f871f095da",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_f55de7de71d577a2",
       "pdf_page": 53,
       "pdf_page_end": 53,
       "pdf_page_start": 53,
@@ -1043,7 +1387,26 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 53 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 58,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_452874aa9e7efdcd",
+      "parent_id": "tcn_c336deb8d0375534",
+      "pdf_page": 54,
+      "pdf_page_end": 58,
+      "pdf_page_start": 54,
+      "printed_page": "47",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "科学阅读",
+      "title": "科学阅读",
+      "toc_entry_id": "tcu_109a90d9dc231ade",
+      "unit_id": "tcu_109a90d9dc231ade"
     },
     {
       "confidence": 0.8,
@@ -1052,7 +1415,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9d472fa323d1bba4",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_452874aa9e7efdcd",
       "pdf_page": 54,
       "pdf_page_end": 54,
       "pdf_page_start": 54,
@@ -1060,7 +1423,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 54 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -1069,7 +1432,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_43964fea170c3b35",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_452874aa9e7efdcd",
       "pdf_page": 55,
       "pdf_page_end": 55,
       "pdf_page_start": 55,
@@ -1077,7 +1440,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 55 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -1086,7 +1449,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_79d778413554d6fa",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_452874aa9e7efdcd",
       "pdf_page": 56,
       "pdf_page_end": 56,
       "pdf_page_start": 56,
@@ -1094,7 +1457,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 56 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -1103,7 +1466,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_cd2623012330cca8",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_452874aa9e7efdcd",
       "pdf_page": 57,
       "pdf_page_end": 57,
       "pdf_page_start": 57,
@@ -1111,7 +1474,7 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 57 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     },
     {
       "confidence": 0.8,
@@ -1120,7 +1483,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e909f800e7916b33",
-      "parent_id": "tcn_b7734e4965d6983c",
+      "parent_id": "tcn_452874aa9e7efdcd",
       "pdf_page": 58,
       "pdf_page_end": 58,
       "pdf_page_start": 58,
@@ -1128,12 +1491,62 @@
       "review_status": "machine_checked",
       "source": "pdftoppm_tesseract_chi_sim_eng",
       "title": "PDF 第 58 页",
-      "unit_id": "tcu_7da5da7792100fee"
+      "unit_id": "tcu_a0e81198ba229b82"
     }
   ],
   "edition_id": "ed_49615055e95c20adfa72",
   "evidence_id": "external_smartedu_2026_science_primary_grade_2_down",
   "evidence_spans": [
+    {
+      "asset_sha256": "6d9bfef9406e6e2dc90b7994ad7dd0c388377c2c321c3096b7130e96f489ce6f",
+      "bbox": {
+        "height": 44,
+        "page_height": 1638,
+        "page_width": 1160,
+        "unit": "pixel",
+        "width": 197,
+        "x": 746,
+        "y": 159
+      },
+      "edition_id": "ed_49615055e95c20adfa72",
+      "evidence_role": "heading",
+      "excerpt": "第 一 单元",
+      "excerpt_hash": "00f8744153822f53d066ba99048021606f5ece9bfb767ef10129e5afe31ee133",
+      "node_id": "tcn_46c210b00a0c931e",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 8,
+      "printed_page": null,
+      "role": "heading",
+      "source": "pdftoppm_tesseract_chi_sim_eng",
+      "span_id": "tes_dc5ea57e38604882",
+      "text": "第 一 单元",
+      "text_hash": "00f8744153822f53d066ba99048021606f5ece9bfb767ef10129e5afe31ee133"
+    },
+    {
+      "asset_sha256": "6d9bfef9406e6e2dc90b7994ad7dd0c388377c2c321c3096b7130e96f489ce6f",
+      "bbox": {
+        "height": 65,
+        "page_height": 1638,
+        "page_width": 1160,
+        "unit": "pixel",
+        "width": 468,
+        "x": 117,
+        "y": 276
+      },
+      "edition_id": "ed_49615055e95c20adfa72",
+      "evidence_role": "exercise",
+      "excerpt": "选择 不 同 的 工具 进行wa jué eee SSse ; ” |",
+      "excerpt_hash": "8e178e2040333a916318ee68fb7415b0c069b6b040710da0f63bd59ed303086d",
+      "node_id": "tcn_7a456714cdfa3a9e",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 13,
+      "printed_page": null,
+      "role": "exercise",
+      "source": "pdftoppm_tesseract_chi_sim_eng",
+      "span_id": "tes_f9067e716faf5217",
+      "text": "选择 不 同 的 工具 进行wa jué eee SSse ; ” |",
+      "text_hash": "8e178e2040333a916318ee68fb7415b0c069b6b040710da0f63bd59ed303086d"
+    },
     {
       "asset_sha256": "6d9bfef9406e6e2dc90b7994ad7dd0c388377c2c321c3096b7130e96f489ce6f",
       "bbox": {
@@ -1223,6 +1636,32 @@
     "pages_with_text": 1
   },
   "page_map": [],
+  "printed_toc": {
+    "algorithm_version": "printed-toc-v1",
+    "approved_entry_count": 19,
+    "contents_pdf_pages": [
+      6,
+      7
+    ],
+    "contents_read_from": "docs/data/textbooks/toc-transcribed/ed_49615055e95c20adfa72.tsv",
+    "decision": "more_units",
+    "evidence_policy": "printed_contents_page_number_and_title_at_page_top",
+    "page_offset_source": "contents_votes:17/17",
+    "parsed_entry_count": 19,
+    "provenance": "machine_generated",
+    "replaced_toc": {
+      "entries": 2,
+      "last_pdf_page": 25,
+      "sources": [
+        "ocr_toc"
+      ],
+      "units": 0
+    },
+    "reused_entry_id_count": 0,
+    "review_policy": "automatic_no_human_gate",
+    "unverified_entries": [],
+    "verified_share": 1
+  },
   "schema_version": 2,
   "standard_scopes": [
     {
@@ -1306,47 +1745,442 @@
   "text_quality": "scan_only",
   "toc": [
     {
-      "confidence": 0.9,
-      "end_pdf_page": 24,
-      "entry_id": "tcu_4728c88059f53b67",
-      "kind": "section",
-      "level": 2,
+      "confidence": 0.95,
+      "end_pdf_page": 33,
+      "entry_id": "tcu_dd5aaa0ba47fbade",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 8,
+        "verbatim_title": "第一单元"
+      },
+      "kind": "unit",
+      "level": 1,
       "parent_id": null,
+      "pdf_page": 8,
+      "printed_page": "1",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 1,
+      "title": "第一单元 探秘恐龙",
+      "toc_pdf_page": 6,
+      "toc_printed_page": null
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 11,
+      "entry_id": "tcu_fdd010bc58d95e2b",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 9,
+        "verbatim_title": "恐 龙的故事"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_dd5aaa0ba47fbade",
+      "pdf_page": 9,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 2,
+      "title": "1. 恐龙的故事",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 2
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 15,
+      "entry_id": "tcu_96ecb2d2e562b889",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 3,
+        "pdf_page": 12,
+        "verbatim_title": "挖掘恐龙“化石”"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_dd5aaa0ba47fbade",
+      "pdf_page": 12,
+      "printed_page": "5",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 3,
+      "title": "2. 挖掘恐龙“化石”",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 5
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 18,
+      "entry_id": "tcu_6d26b0e470f47669",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 3,
+        "pdf_page": 16,
+        "verbatim_title": "测量恐龙“化石”"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_dd5aaa0ba47fbade",
       "pdf_page": 16,
       "printed_page": "9",
       "review_status": "approved",
-      "source": "ocr_toc",
-      "source_order": 1,
-      "title": "测量 RK LA”",
-      "toc_pdf_page": 6
+      "source": "printed_toc",
+      "source_order": 4,
+      "title": "3. 测量恐龙“化石”",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 9
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 58,
-      "entry_id": "tcu_7da5da7792100fee",
-      "kind": "section",
+      "confidence": 0.95,
+      "end_pdf_page": 21,
+      "entry_id": "tcu_fa18a972c8b766f9",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 3,
+        "pdf_page": 19,
+        "verbatim_title": "拼接恐龙“化石"
+      },
+      "kind": "lesson",
       "level": 2,
-      "parent_id": null,
+      "parent_id": "tcu_dd5aaa0ba47fbade",
+      "pdf_page": 19,
+      "printed_page": "12",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 5,
+      "title": "4. 拼接恐龙“化石”",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 12
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 24,
+      "entry_id": "tcu_900942ca65ef872d",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 22,
+        "verbatim_title": "复原恐龙"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_dd5aaa0ba47fbade",
+      "pdf_page": 22,
+      "printed_page": "15",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 6,
+      "title": "5. 复原恐龙",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 15
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 27,
+      "entry_id": "tcu_3e02291a12dfc07e",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 25,
+        "verbatim_title": "制作恐 龙模型"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_dd5aaa0ba47fbade",
       "pdf_page": 25,
       "printed_page": "18",
       "review_status": "approved",
-      "source": "ocr_toc",
-      "source_order": 2,
-      "title": "龙模型",
-      "toc_pdf_page": 6
+      "source": "printed_toc",
+      "source_order": 7,
+      "title": "6. 制作恐龙模型",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 18
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 30,
+      "entry_id": "tcu_6cd38672f7b0b160",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 28,
+        "verbatim_title": "我们的恐龙公园"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_dd5aaa0ba47fbade",
+      "pdf_page": 28,
+      "printed_page": "21",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 8,
+      "title": "7. 我们的恐龙公园",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 21
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 31,
+      "entry_id": "tcu_ced94ac2b4cd7d3a",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 31,
+        "verbatim_title": "单元小结"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_dd5aaa0ba47fbade",
+      "pdf_page": 31,
+      "printed_page": "24",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 9,
+      "title": "单元小结",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 24
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 33,
+      "entry_id": "tcu_77d53fd7466f4c37",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 32,
+        "verbatim_title": "科学阅读"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_dd5aaa0ba47fbade",
+      "pdf_page": 32,
+      "printed_page": "25",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 10,
+      "title": "科学阅读",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 25
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 58,
+      "entry_id": "tcu_a0e81198ba229b82",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 34,
+        "verbatim_title": "第二单元"
+      },
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 34,
+      "printed_page": "27",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 11,
+      "title": "第二单元 玩磁铁",
+      "toc_pdf_page": 6,
+      "toc_printed_page": null
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 37,
+      "entry_id": "tcu_1e7e7afc7c2d3992",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 35,
+        "verbatim_title": "磁铁能吸引什么"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a0e81198ba229b82",
+      "pdf_page": 35,
+      "printed_page": "28",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 12,
+      "title": "1. 磁铁能吸引什么",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 28
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 40,
+      "entry_id": "tcu_e6c96b3dec88c95a",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 38,
+        "verbatim_title": "比较力量的大小"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a0e81198ba229b82",
+      "pdf_page": 38,
+      "printed_page": "31",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 13,
+      "title": "2. 比较力量的大小",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 31
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 43,
+      "entry_id": "tcu_3537d671e9bfcbed",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 41,
+        "verbatim_title": "让小车动起来"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a0e81198ba229b82",
+      "pdf_page": 41,
+      "printed_page": "34",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 14,
+      "title": "3. 让小车动起来",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 34
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 46,
+      "entry_id": "tcu_8fb22e2ea3277e79",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 44,
+        "verbatim_title": "隔物吸铁"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a0e81198ba229b82",
+      "pdf_page": 44,
+      "printed_page": "37",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 15,
+      "title": "4. 隔物吸铁",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 37
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 49,
+      "entry_id": "tcu_5f6efda51fa0af37",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 47,
+        "verbatim_title": "设计钓鱼玩具"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a0e81198ba229b82",
+      "pdf_page": 47,
+      "printed_page": "40",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 16,
+      "title": "5. 设计钓鱼玩具",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 40
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 52,
+      "entry_id": "tcu_88671d27e45ea50d",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 50,
+        "verbatim_title": "我们来钓鱼"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a0e81198ba229b82",
+      "pdf_page": 50,
+      "printed_page": "43",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 17,
+      "title": "6. 我们来钓鱼",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 43
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 53,
+      "entry_id": "tcu_8b916851f62ddbf2",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 53,
+        "verbatim_title": "单元小结"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a0e81198ba229b82",
+      "pdf_page": 53,
+      "printed_page": "46",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 18,
+      "title": "单元小结",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 46
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 58,
+      "entry_id": "tcu_109a90d9dc231ade",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 54,
+        "verbatim_title": "科学阅读"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a0e81198ba229b82",
+      "pdf_page": 54,
+      "printed_page": "47",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 19,
+      "title": "科学阅读",
+      "toc_pdf_page": 6,
+      "toc_printed_page": 47
     }
   ],
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
+    "changed_unit_range_count": 0,
     "changes": [],
+    "clamped_content_node_range_count": 0,
+    "detached_auxiliary_content_node_count": 0,
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
+    "exact_unit_heading_evidence_count": 0,
     "inspected_page_count": 58,
     "provenance": "machine_generated",
     "publication_gate": false,
+    "reassigned_content_node_count": 0,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 1,
-    "sidecar_sha256": "b527798c7cdc291695ae314039aa5e77c51e576363cc5c1f0af11ec4a584e3e7",
+    "sidecar_sha256": "dd240aeef8037bc7d1f93d79f9d7bd12801f7d2fc6758825f847e2f2b9e9b458",
     "source_asset_sha256": "6d9bfef9406e6e2dc90b7994ad7dd0c388377c2c321c3096b7130e96f489ce6f",
-    "status": "no_top_level_units"
+    "status": "insufficient_boundary_evidence",
+    "top_level_unit_count": 2,
+    "top_line_limit": 4
   }
 }

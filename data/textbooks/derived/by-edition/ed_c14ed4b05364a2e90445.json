@@ -278,8 +278,8 @@
     "algorithm_version": "component-evidence-hybrid-v3",
     "alignment_count": 4,
     "automatic_content_unit_count": 0,
-    "content_node_count": 512,
-    "evidence_span_count": 248,
+    "content_node_count": 516,
+    "evidence_span_count": 249,
     "generated_alignment_count": 4,
     "native_text_ratio": 0.9862,
     "ocr_page_count": 0,
@@ -288,7 +288,7 @@
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
-    "reconciled_unit_range_count": 10,
+    "reconciled_unit_range_count": 0,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/2ac4673d7a58f7c41876581413bcd95cff9e95d72bb62f1b75d8dfee48d488a6/pages.jsonl",
@@ -420,6 +420,25 @@
       "unit_id": null
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 25,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "chapter",
+      "node_id": "tcn_48890f1b816fe3fb",
+      "parent_id": null,
+      "pdf_page": 8,
+      "pdf_page_end": 25,
+      "pdf_page_start": 8,
+      "printed_page": "1",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第十三章 内能",
+      "title": "第十三章 内能",
+      "toc_entry_id": "tcu_33a921d531e0427f",
+      "unit_id": "tcu_33a921d531e0427f"
+    },
+    {
       "confidence": 0.9,
       "end_pdf_page": 8,
       "end_printed_page": null,
@@ -457,44 +476,6 @@
       "unit_id": "tcu_33a921d531e0427f"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 25,
-      "end_printed_page": "18",
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_48890f1b816fe3fb",
-      "parent_id": null,
-      "pdf_page": 8,
-      "pdf_page_end": 25,
-      "pdf_page_start": 8,
-      "printed_page": "2",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第十三章 内能",
-      "title": "第十三章 内能",
-      "toc_entry_id": "tcu_33a921d531e0427f",
-      "unit_id": "tcu_33a921d531e0427f"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 13,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_0e346eb1cf76bbd2",
-      "parent_id": "tcn_48890f1b816fe3fb",
-      "pdf_page": 9,
-      "pdf_page_end": 13,
-      "pdf_page_start": 9,
-      "printed_page": "2",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第1节 热量 比热容",
-      "title": "第1节 热量 比热容",
-      "toc_entry_id": "tcu_706349d1a245394f",
-      "unit_id": "tcu_706349d1a245394f"
-    },
-    {
       "confidence": 0.9,
       "end_pdf_page": 9,
       "end_printed_page": "2",
@@ -530,6 +511,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 9 页",
       "unit_id": "tcu_33a921d531e0427f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 14,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_0e346eb1cf76bbd2",
+      "parent_id": "tcn_48890f1b816fe3fb",
+      "pdf_page": 9,
+      "pdf_page_end": 14,
+      "pdf_page_start": 9,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第1节 热量 比热容",
+      "title": "第1节 热量 比热容",
+      "toc_entry_id": "tcu_706349d1a245394f",
+      "unit_id": "tcu_706349d1a245394f"
     },
     {
       "confidence": 0.9,
@@ -708,7 +708,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_831b4af9a42c1750",
-      "parent_id": "tcn_48890f1b816fe3fb",
+      "parent_id": "tcn_0e346eb1cf76bbd2",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -726,7 +726,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b77e6364295e6bf5",
-      "parent_id": "tcn_48890f1b816fe3fb",
+      "parent_id": "tcn_0e346eb1cf76bbd2",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -735,25 +735,6 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 14 页",
       "unit_id": "tcu_33a921d531e0427f"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 19,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_84c948ca3a479800",
-      "parent_id": "tcn_48890f1b816fe3fb",
-      "pdf_page": 15,
-      "pdf_page_end": 19,
-      "pdf_page_start": 15,
-      "printed_page": "8",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第2节 分子动理论的初步知识",
-      "title": "第2节 分子动理论的初步知识",
-      "toc_entry_id": "tcu_db29abeb811ab1c0",
-      "unit_id": "tcu_db29abeb811ab1c0"
     },
     {
       "confidence": 0.9,
@@ -791,6 +772,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 15 页",
       "unit_id": "tcu_33a921d531e0427f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 19,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_84c948ca3a479800",
+      "parent_id": "tcn_48890f1b816fe3fb",
+      "pdf_page": 15,
+      "pdf_page_end": 19,
+      "pdf_page_start": 15,
+      "printed_page": "8",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2节 分子动理论的初步知识",
+      "title": "第2节 分子动理论的初步知识",
+      "toc_entry_id": "tcu_db29abeb811ab1c0",
+      "unit_id": "tcu_db29abeb811ab1c0"
     },
     {
       "confidence": 0.9,
@@ -941,25 +941,6 @@
       "unit_id": "tcu_33a921d531e0427f"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 24,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_7b0bd0b3e439d9de",
-      "parent_id": "tcn_48890f1b816fe3fb",
-      "pdf_page": 20,
-      "pdf_page_end": 24,
-      "pdf_page_start": 20,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第3节 内能",
-      "title": "第3节 内能",
-      "toc_entry_id": "tcu_8ffd92ceabc83580",
-      "unit_id": "tcu_8ffd92ceabc83580"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 20,
       "end_printed_page": null,
@@ -975,6 +956,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 20 页",
       "unit_id": "tcu_33a921d531e0427f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 25,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_7b0bd0b3e439d9de",
+      "parent_id": "tcn_48890f1b816fe3fb",
+      "pdf_page": 20,
+      "pdf_page_end": 25,
+      "pdf_page_start": 20,
+      "printed_page": "13",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第3节 内能",
+      "title": "第3节 内能",
+      "toc_entry_id": "tcu_8ffd92ceabc83580",
+      "unit_id": "tcu_8ffd92ceabc83580"
     },
     {
       "confidence": 0.98,
@@ -1113,7 +1113,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_15f909bd033be3b4",
-      "parent_id": "tcn_48890f1b816fe3fb",
+      "parent_id": "tcn_7b0bd0b3e439d9de",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -1131,7 +1131,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ee2628527f76d6f7",
-      "parent_id": "tcn_48890f1b816fe3fb",
+      "parent_id": "tcn_7b0bd0b3e439d9de",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -1140,6 +1140,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 25 页",
       "unit_id": "tcu_33a921d531e0427f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 45,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "chapter",
+      "node_id": "tcn_679e62af19eefc2c",
+      "parent_id": null,
+      "pdf_page": 26,
+      "pdf_page_end": 45,
+      "pdf_page_start": 26,
+      "printed_page": "19",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第十四章 内能的利用",
+      "title": "第十四章 内能的利用",
+      "toc_entry_id": "tcu_93d3953e312a1d54",
+      "unit_id": "tcu_93d3953e312a1d54"
     },
     {
       "confidence": 0.9,
@@ -1176,25 +1195,6 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 26 页",
-      "unit_id": "tcu_93d3953e312a1d54"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 45,
-      "end_printed_page": "38",
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_679e62af19eefc2c",
-      "parent_id": null,
-      "pdf_page": 26,
-      "pdf_page_end": 45,
-      "pdf_page_start": 26,
-      "printed_page": "20",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第十四章 内能的利用",
-      "title": "第十四章 内能的利用",
-      "toc_entry_id": "tcu_93d3953e312a1d54",
       "unit_id": "tcu_93d3953e312a1d54"
     },
     {
@@ -1238,25 +1238,6 @@
       "unit_id": "tcu_93d3953e312a1d54"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 31,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_c26f184f466ed78c",
-      "parent_id": "tcn_679e62af19eefc2c",
-      "pdf_page": 27,
-      "pdf_page_end": 31,
-      "pdf_page_start": 27,
-      "printed_page": "20",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第1节 能量的转化与守恒",
-      "title": "第1节 能量的转化与守恒",
-      "toc_entry_id": "tcu_3588d2fb79f42ad5",
-      "unit_id": "tcu_3588d2fb79f42ad5"
-    },
-    {
       "confidence": 0.9,
       "end_pdf_page": 27,
       "end_printed_page": "20",
@@ -1292,6 +1273,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 27 页",
       "unit_id": "tcu_93d3953e312a1d54"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 31,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_c26f184f466ed78c",
+      "parent_id": "tcn_679e62af19eefc2c",
+      "pdf_page": 27,
+      "pdf_page_end": 31,
+      "pdf_page_start": 27,
+      "printed_page": "20",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第1节 能量的转化与守恒",
+      "title": "第1节 能量的转化与守恒",
+      "toc_entry_id": "tcu_3588d2fb79f42ad5",
+      "unit_id": "tcu_3588d2fb79f42ad5"
     },
     {
       "confidence": 0.9,
@@ -1482,25 +1482,6 @@
       "unit_id": "tcu_93d3953e312a1d54"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 36,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_58fd4eaf0dde2969",
-      "parent_id": "tcn_679e62af19eefc2c",
-      "pdf_page": 32,
-      "pdf_page_end": 36,
-      "pdf_page_start": 32,
-      "printed_page": "18",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第2节 热机",
-      "title": "第2节 热机",
-      "toc_entry_id": "tcu_624523efa08fc426",
-      "unit_id": "tcu_624523efa08fc426"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 32,
       "end_printed_page": "18",
@@ -1516,6 +1497,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 32 页",
       "unit_id": "tcu_93d3953e312a1d54"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 36,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_58fd4eaf0dde2969",
+      "parent_id": "tcn_679e62af19eefc2c",
+      "pdf_page": 32,
+      "pdf_page_end": 36,
+      "pdf_page_start": 32,
+      "printed_page": "25",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2节 热机",
+      "title": "第2节 热机",
+      "toc_entry_id": "tcu_624523efa08fc426",
+      "unit_id": "tcu_624523efa08fc426"
     },
     {
       "confidence": 0.9,
@@ -1706,25 +1706,6 @@
       "unit_id": "tcu_93d3953e312a1d54"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 41,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_677487181fd32578",
-      "parent_id": "tcn_679e62af19eefc2c",
-      "pdf_page": 37,
-      "pdf_page_end": 41,
-      "pdf_page_start": 37,
-      "printed_page": "30",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第3节 热机的效率",
-      "title": "第3节 热机的效率",
-      "toc_entry_id": "tcu_e4e3f925492bb11e",
-      "unit_id": "tcu_e4e3f925492bb11e"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 37,
       "end_printed_page": "30",
@@ -1740,6 +1721,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 37 页",
       "unit_id": "tcu_93d3953e312a1d54"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 41,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_677487181fd32578",
+      "parent_id": "tcn_679e62af19eefc2c",
+      "pdf_page": 37,
+      "pdf_page_end": 41,
+      "pdf_page_start": 37,
+      "printed_page": "30",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第3节 热机的效率",
+      "title": "第3节 热机的效率",
+      "toc_entry_id": "tcu_e4e3f925492bb11e",
+      "unit_id": "tcu_e4e3f925492bb11e"
     },
     {
       "confidence": 0.9,
@@ -1910,25 +1910,6 @@
       "unit_id": "tcu_93d3953e312a1d54"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 46,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_cb5432532f51b704",
-      "parent_id": "tcn_679e62af19eefc2c",
-      "pdf_page": 42,
-      "pdf_page_end": 46,
-      "pdf_page_start": 42,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第4节 跨学科实践：制作简易热机模型",
-      "title": "第4节 跨学科实践：制作简易热机模型",
-      "toc_entry_id": "tcu_2db01b2cf7cb903e",
-      "unit_id": "tcu_2db01b2cf7cb903e"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 42,
       "end_printed_page": null,
@@ -1944,6 +1925,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 42 页",
       "unit_id": "tcu_93d3953e312a1d54"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 45,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_cb5432532f51b704",
+      "parent_id": "tcn_679e62af19eefc2c",
+      "pdf_page": 42,
+      "pdf_page_end": 45,
+      "pdf_page_start": 42,
+      "printed_page": "35",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第4节 跨学科实践：制作简易热机模型",
+      "title": "第4节 跨学科实践：制作简易热机模型",
+      "toc_entry_id": "tcu_2db01b2cf7cb903e",
+      "unit_id": "tcu_2db01b2cf7cb903e"
     },
     {
       "confidence": 0.9,
@@ -2065,7 +2065,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_9592543973829cae",
-      "parent_id": "tcn_cb5432532f51b704",
+      "parent_id": "tcn_aedc7f385aa1c548",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -2077,34 +2077,17 @@
       "unit_id": "tcu_f6cf5b08bc02522f"
     },
     {
-      "confidence": 0.98,
-      "end_pdf_page": 46,
+      "confidence": 0.95,
+      "end_pdf_page": 72,
       "end_printed_page": null,
       "evidence_span_ids": [],
-      "kind": "page",
-      "node_id": "tcn_eb566d62acd62e34",
-      "parent_id": "tcn_cb5432532f51b704",
-      "pdf_page": 46,
-      "pdf_page_end": 46,
-      "pdf_page_start": 46,
-      "printed_page": null,
-      "review_status": "machine_checked",
-      "source": "pdfjs_text_layer",
-      "title": "PDF 第 46 页",
-      "unit_id": "tcu_f6cf5b08bc02522f"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 72,
-      "end_printed_page": "8",
-      "evidence_span_ids": [],
-      "kind": "unit",
+      "kind": "chapter",
       "node_id": "tcn_aedc7f385aa1c548",
       "parent_id": null,
       "pdf_page": 46,
       "pdf_page_end": 72,
       "pdf_page_start": 46,
-      "printed_page": "40",
+      "printed_page": "39",
       "review_status": "approved",
       "source": "verified_toc",
       "text_excerpt": "第十五章 电流和电路",
@@ -2113,23 +2096,21 @@
       "unit_id": "tcu_f6cf5b08bc02522f"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 50,
+      "confidence": 0.98,
+      "end_pdf_page": 46,
       "end_printed_page": null,
       "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_92f2545450a7696c",
+      "kind": "page",
+      "node_id": "tcn_eb566d62acd62e34",
       "parent_id": "tcn_aedc7f385aa1c548",
-      "pdf_page": 47,
-      "pdf_page_end": 50,
-      "pdf_page_start": 47,
-      "printed_page": "40",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第1节 两种电荷",
-      "title": "第1节 两种电荷",
-      "toc_entry_id": "tcu_f303ea0cc7242fdf",
-      "unit_id": "tcu_f303ea0cc7242fdf"
+      "pdf_page": 46,
+      "pdf_page_end": 46,
+      "pdf_page_start": 46,
+      "printed_page": null,
+      "review_status": "machine_checked",
+      "source": "pdfjs_text_layer",
+      "title": "PDF 第 46 页",
+      "unit_id": "tcu_f6cf5b08bc02522f"
     },
     {
       "confidence": 0.9,
@@ -2167,6 +2148,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 47 页",
       "unit_id": "tcu_f6cf5b08bc02522f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 50,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_92f2545450a7696c",
+      "parent_id": "tcn_aedc7f385aa1c548",
+      "pdf_page": 47,
+      "pdf_page_end": 50,
+      "pdf_page_start": 47,
+      "printed_page": "40",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第1节 两种电荷",
+      "title": "第1节 两种电荷",
+      "toc_entry_id": "tcu_f303ea0cc7242fdf",
+      "unit_id": "tcu_f303ea0cc7242fdf"
     },
     {
       "confidence": 0.9,
@@ -2300,25 +2300,6 @@
       "unit_id": "tcu_f6cf5b08bc02522f"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 55,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_32c2c32fc03e03d6",
-      "parent_id": "tcn_aedc7f385aa1c548",
-      "pdf_page": 51,
-      "pdf_page_end": 55,
-      "pdf_page_start": 51,
-      "printed_page": "44",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第2节 电流和电路",
-      "title": "第2节 电流和电路",
-      "toc_entry_id": "tcu_6f54205479b9afa5",
-      "unit_id": "tcu_6f54205479b9afa5"
-    },
-    {
       "confidence": 0.9,
       "end_pdf_page": 51,
       "end_printed_page": "44",
@@ -2354,6 +2335,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 51 页",
       "unit_id": "tcu_f6cf5b08bc02522f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 56,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_32c2c32fc03e03d6",
+      "parent_id": "tcn_aedc7f385aa1c548",
+      "pdf_page": 51,
+      "pdf_page_end": 56,
+      "pdf_page_start": 51,
+      "printed_page": "44",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2节 电流和电路",
+      "title": "第2节 电流和电路",
+      "toc_entry_id": "tcu_6f54205479b9afa5",
+      "unit_id": "tcu_6f54205479b9afa5"
     },
     {
       "confidence": 0.9,
@@ -2532,7 +2532,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_fd123dc163dd15db",
-      "parent_id": "tcn_aedc7f385aa1c548",
+      "parent_id": "tcn_32c2c32fc03e03d6",
       "pdf_page": 56,
       "pdf_page_end": 56,
       "pdf_page_start": 56,
@@ -2550,7 +2550,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_60467c2bd22b4b8c",
-      "parent_id": "tcn_aedc7f385aa1c548",
+      "parent_id": "tcn_32c2c32fc03e03d6",
       "pdf_page": 56,
       "pdf_page_end": 56,
       "pdf_page_start": 56,
@@ -2559,25 +2559,6 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 56 页",
       "unit_id": "tcu_f6cf5b08bc02522f"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 61,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_965a8f6e252a12c7",
-      "parent_id": "tcn_aedc7f385aa1c548",
-      "pdf_page": 57,
-      "pdf_page_end": 61,
-      "pdf_page_start": 57,
-      "printed_page": "50",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第3节 串联电路和并联电路",
-      "title": "第3节 串联电路和并联电路",
-      "toc_entry_id": "tcu_5cc95ca74a025156",
-      "unit_id": "tcu_5cc95ca74a025156"
     },
     {
       "confidence": 0.9,
@@ -2615,6 +2596,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 57 页",
       "unit_id": "tcu_f6cf5b08bc02522f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 61,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_965a8f6e252a12c7",
+      "parent_id": "tcn_aedc7f385aa1c548",
+      "pdf_page": 57,
+      "pdf_page_end": 61,
+      "pdf_page_start": 57,
+      "printed_page": "50",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第3节 串联电路和并联电路",
+      "title": "第3节 串联电路和并联电路",
+      "toc_entry_id": "tcu_5cc95ca74a025156",
+      "unit_id": "tcu_5cc95ca74a025156"
     },
     {
       "confidence": 0.9,
@@ -2805,25 +2805,6 @@
       "unit_id": "tcu_f6cf5b08bc02522f"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 66,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_6a0060ef356922ac",
-      "parent_id": "tcn_aedc7f385aa1c548",
-      "pdf_page": 62,
-      "pdf_page_end": 66,
-      "pdf_page_start": 62,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第4节 电流的测量",
-      "title": "第4节 电流的测量",
-      "toc_entry_id": "tcu_f65616afdcd717ee",
-      "unit_id": "tcu_f65616afdcd717ee"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 62,
       "end_printed_page": null,
@@ -2839,6 +2820,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 62 页",
       "unit_id": "tcu_f6cf5b08bc02522f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 66,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_6a0060ef356922ac",
+      "parent_id": "tcn_aedc7f385aa1c548",
+      "pdf_page": 62,
+      "pdf_page_end": 66,
+      "pdf_page_start": 62,
+      "printed_page": "55",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第4节 电流的测量",
+      "title": "第4节 电流的测量",
+      "toc_entry_id": "tcu_f65616afdcd717ee",
+      "unit_id": "tcu_f65616afdcd717ee"
     },
     {
       "confidence": 0.9,
@@ -3149,25 +3149,6 @@
       "unit_id": "tcu_f6cf5b08bc02522f"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 71,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_b701263ed87e37be",
-      "parent_id": "tcn_aedc7f385aa1c548",
-      "pdf_page": 67,
-      "pdf_page_end": 71,
-      "pdf_page_start": 67,
-      "printed_page": "60",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第5节 串、并联电路中电流的规律",
-      "title": "第5节 串、并联电路中电流的规律",
-      "toc_entry_id": "tcu_1301a33f6e55a207",
-      "unit_id": "tcu_1301a33f6e55a207"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 67,
       "end_printed_page": "60",
@@ -3183,6 +3164,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 67 页",
       "unit_id": "tcu_f6cf5b08bc02522f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 72,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_b701263ed87e37be",
+      "parent_id": "tcn_aedc7f385aa1c548",
+      "pdf_page": 67,
+      "pdf_page_end": 72,
+      "pdf_page_start": 67,
+      "printed_page": "60",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第5节 串、并联电路中电流的规律",
+      "title": "第5节 串、并联电路中电流的规律",
+      "toc_entry_id": "tcu_1301a33f6e55a207",
+      "unit_id": "tcu_1301a33f6e55a207"
     },
     {
       "confidence": 0.9,
@@ -3421,7 +3421,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_042d73af93d6bd66",
-      "parent_id": "tcn_aedc7f385aa1c548",
+      "parent_id": "tcn_b701263ed87e37be",
       "pdf_page": 72,
       "pdf_page_end": 72,
       "pdf_page_start": 72,
@@ -3439,7 +3439,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f060d6e7d4caafb9",
-      "parent_id": "tcn_aedc7f385aa1c548",
+      "parent_id": "tcn_b701263ed87e37be",
       "pdf_page": 72,
       "pdf_page_end": 72,
       "pdf_page_start": 72,
@@ -3458,7 +3458,7 @@
       ],
       "kind": "section",
       "node_id": "tcn_b7b2a9d1753433f7",
-      "parent_id": "tcn_aedc7f385aa1c548",
+      "parent_id": "tcn_b701263ed87e37be",
       "pdf_page": 72,
       "pdf_page_end": 72,
       "pdf_page_start": 72,
@@ -3478,7 +3478,7 @@
       ],
       "kind": "section",
       "node_id": "tcn_c0581e81f27daa13",
-      "parent_id": "tcn_aedc7f385aa1c548",
+      "parent_id": "tcn_b701263ed87e37be",
       "pdf_page": 72,
       "pdf_page_end": 72,
       "pdf_page_start": 72,
@@ -3488,6 +3488,25 @@
       "text_excerpt": "0.6 3 L1 L2",
       "title": "0.6 3 L1 L2",
       "unit_id": "tcu_f6cf5b08bc02522f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 98,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "chapter",
+      "node_id": "tcn_4505fe502822161a",
+      "parent_id": null,
+      "pdf_page": 73,
+      "pdf_page_end": 98,
+      "pdf_page_start": 73,
+      "printed_page": "66",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第十六章 电压 电阻",
+      "title": "第十六章 电压 电阻",
+      "toc_entry_id": "tcu_ae821fc1436f0899",
+      "unit_id": "tcu_ae821fc1436f0899"
     },
     {
       "confidence": 0.98,
@@ -3504,25 +3523,6 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 73 页",
-      "unit_id": "tcu_ae821fc1436f0899"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 98,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_4505fe502822161a",
-      "parent_id": null,
-      "pdf_page": 73,
-      "pdf_page_end": 98,
-      "pdf_page_start": 73,
-      "printed_page": "66",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第十六章 电压 电阻",
-      "title": "第十六章 电压 电阻",
-      "toc_entry_id": "tcu_ae821fc1436f0899",
       "unit_id": "tcu_ae821fc1436f0899"
     },
     {
@@ -3546,25 +3546,6 @@
       "unit_id": "tcu_ae821fc1436f0899"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 78,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_0138574f6b70c6a7",
-      "parent_id": "tcn_4505fe502822161a",
-      "pdf_page": 74,
-      "pdf_page_end": 78,
-      "pdf_page_start": 74,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第1节 电压",
-      "title": "第1节 电压",
-      "toc_entry_id": "tcu_1301edc15fda291e",
-      "unit_id": "tcu_1301edc15fda291e"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 74,
       "end_printed_page": null,
@@ -3580,6 +3561,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 74 页",
       "unit_id": "tcu_ae821fc1436f0899"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 78,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_0138574f6b70c6a7",
+      "parent_id": "tcn_4505fe502822161a",
+      "pdf_page": 74,
+      "pdf_page_end": 78,
+      "pdf_page_start": 74,
+      "printed_page": "67",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第1节 电压",
+      "title": "第1节 电压",
+      "toc_entry_id": "tcu_1301edc15fda291e",
+      "unit_id": "tcu_1301edc15fda291e"
     },
     {
       "confidence": 0.9,
@@ -3890,25 +3890,6 @@
       "unit_id": "tcu_ae821fc1436f0899"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 83,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_955c5c4c1b543f35",
-      "parent_id": "tcn_4505fe502822161a",
-      "pdf_page": 79,
-      "pdf_page_end": 83,
-      "pdf_page_start": 79,
-      "printed_page": "72",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第2节 串、并联电路中电压的规律",
-      "title": "第2节 串、并联电路中电压的规律",
-      "toc_entry_id": "tcu_97ec85103993aa72",
-      "unit_id": "tcu_97ec85103993aa72"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 79,
       "end_printed_page": "72",
@@ -3924,6 +3905,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 79 页",
       "unit_id": "tcu_ae821fc1436f0899"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 83,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_955c5c4c1b543f35",
+      "parent_id": "tcn_4505fe502822161a",
+      "pdf_page": 79,
+      "pdf_page_end": 83,
+      "pdf_page_start": 79,
+      "printed_page": "72",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2节 串、并联电路中电压的规律",
+      "title": "第2节 串、并联电路中电压的规律",
+      "toc_entry_id": "tcu_97ec85103993aa72",
+      "unit_id": "tcu_97ec85103993aa72"
     },
     {
       "confidence": 0.9,
@@ -4134,25 +4134,6 @@
       "unit_id": "tcu_ae821fc1436f0899"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 88,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_690e379b84193c1c",
-      "parent_id": "tcn_4505fe502822161a",
-      "pdf_page": 84,
-      "pdf_page_end": 88,
-      "pdf_page_start": 84,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第3节 电阻",
-      "title": "第3节 电阻",
-      "toc_entry_id": "tcu_b53d8912644d62cf",
-      "unit_id": "tcu_b53d8912644d62cf"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 84,
       "end_printed_page": null,
@@ -4168,6 +4149,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 84 页",
       "unit_id": "tcu_ae821fc1436f0899"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 88,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_690e379b84193c1c",
+      "parent_id": "tcn_4505fe502822161a",
+      "pdf_page": 84,
+      "pdf_page_end": 88,
+      "pdf_page_start": 84,
+      "printed_page": "77",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第3节 电阻",
+      "title": "第3节 电阻",
+      "toc_entry_id": "tcu_b53d8912644d62cf",
+      "unit_id": "tcu_b53d8912644d62cf"
     },
     {
       "confidence": 0.86,
@@ -4398,25 +4398,6 @@
       "unit_id": "tcu_ae821fc1436f0899"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 93,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_689c3cd63393c2ea",
-      "parent_id": "tcn_4505fe502822161a",
-      "pdf_page": 89,
-      "pdf_page_end": 93,
-      "pdf_page_start": 89,
-      "printed_page": "82",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第4节 变阻器",
-      "title": "第4节 变阻器",
-      "toc_entry_id": "tcu_00b506ad58a44072",
-      "unit_id": "tcu_00b506ad58a44072"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 89,
       "end_printed_page": "82",
@@ -4432,6 +4413,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 89 页",
       "unit_id": "tcu_ae821fc1436f0899"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 93,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_689c3cd63393c2ea",
+      "parent_id": "tcn_4505fe502822161a",
+      "pdf_page": 89,
+      "pdf_page_end": 93,
+      "pdf_page_start": 89,
+      "printed_page": "82",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第4节 变阻器",
+      "title": "第4节 变阻器",
+      "toc_entry_id": "tcu_00b506ad58a44072",
+      "unit_id": "tcu_00b506ad58a44072"
     },
     {
       "confidence": 0.9,
@@ -4682,25 +4682,6 @@
       "unit_id": "tcu_ae821fc1436f0899"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 98,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_29b784725c61eac8",
-      "parent_id": "tcn_4505fe502822161a",
-      "pdf_page": 94,
-      "pdf_page_end": 98,
-      "pdf_page_start": 94,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第5节 跨学科实践：制作简易调光台灯",
-      "title": "第5节 跨学科实践：制作简易调光台灯",
-      "toc_entry_id": "tcu_347696bf37cec9b3",
-      "unit_id": "tcu_347696bf37cec9b3"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 94,
       "end_printed_page": null,
@@ -4716,6 +4697,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 94 页",
       "unit_id": "tcu_ae821fc1436f0899"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 98,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_29b784725c61eac8",
+      "parent_id": "tcn_4505fe502822161a",
+      "pdf_page": 94,
+      "pdf_page_end": 98,
+      "pdf_page_start": 94,
+      "printed_page": "87",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第5节 跨学科实践：制作简易调光台灯",
+      "title": "第5节 跨学科实践：制作简易调光台灯",
+      "toc_entry_id": "tcu_347696bf37cec9b3",
+      "unit_id": "tcu_347696bf37cec9b3"
     },
     {
       "confidence": 0.86,
@@ -4886,6 +4886,25 @@
       "unit_id": "tcu_ae821fc1436f0899"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 116,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "chapter",
+      "node_id": "tcn_f06f37d1af87873c",
+      "parent_id": null,
+      "pdf_page": 99,
+      "pdf_page_end": 116,
+      "pdf_page_start": 99,
+      "printed_page": "92",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第十七章 欧姆定律",
+      "title": "第十七章 欧姆定律",
+      "toc_entry_id": "tcu_f38422a0d8dee184",
+      "unit_id": "tcu_f38422a0d8dee184"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 99,
       "end_printed_page": "92",
@@ -4900,25 +4919,6 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 99 页",
-      "unit_id": "tcu_f38422a0d8dee184"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 116,
-      "end_printed_page": "4",
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_f06f37d1af87873c",
-      "parent_id": null,
-      "pdf_page": 99,
-      "pdf_page_end": 116,
-      "pdf_page_start": 99,
-      "printed_page": "92",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第十七章 欧姆定律",
-      "title": "第十七章 欧姆定律",
-      "toc_entry_id": "tcu_f38422a0d8dee184",
       "unit_id": "tcu_f38422a0d8dee184"
     },
     {
@@ -4982,25 +4982,6 @@
       "unit_id": "tcu_f38422a0d8dee184"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 104,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_28d2b48b93a3b2e5",
-      "parent_id": "tcn_f06f37d1af87873c",
-      "pdf_page": 100,
-      "pdf_page_end": 104,
-      "pdf_page_start": 100,
-      "printed_page": "153",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第1节 电流与电压、电阻的关系",
-      "title": "第1节 电流与电压、电阻的关系",
-      "toc_entry_id": "tcu_eb7f93d86eee05c1",
-      "unit_id": "tcu_eb7f93d86eee05c1"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 100,
       "end_printed_page": "153",
@@ -5016,6 +4997,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 100 页",
       "unit_id": "tcu_f38422a0d8dee184"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 104,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_28d2b48b93a3b2e5",
+      "parent_id": "tcn_f06f37d1af87873c",
+      "pdf_page": 100,
+      "pdf_page_end": 104,
+      "pdf_page_start": 100,
+      "printed_page": "93",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第1节 电流与电压、电阻的关系",
+      "title": "第1节 电流与电压、电阻的关系",
+      "toc_entry_id": "tcu_eb7f93d86eee05c1",
+      "unit_id": "tcu_eb7f93d86eee05c1"
     },
     {
       "confidence": 0.9,
@@ -5246,25 +5246,6 @@
       "unit_id": "tcu_f38422a0d8dee184"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 107,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_056dd26d9e2c983a",
-      "parent_id": "tcn_f06f37d1af87873c",
-      "pdf_page": 105,
-      "pdf_page_end": 107,
-      "pdf_page_start": 105,
-      "printed_page": "98",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第2节 欧姆定律",
-      "title": "第2节 欧姆定律",
-      "toc_entry_id": "tcu_018b6907d4902805",
-      "unit_id": "tcu_018b6907d4902805"
-    },
-    {
       "confidence": 0.9,
       "end_pdf_page": 105,
       "end_printed_page": "98",
@@ -5300,6 +5281,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 105 页",
       "unit_id": "tcu_f38422a0d8dee184"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 107,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_056dd26d9e2c983a",
+      "parent_id": "tcn_f06f37d1af87873c",
+      "pdf_page": 105,
+      "pdf_page_end": 107,
+      "pdf_page_start": 105,
+      "printed_page": "98",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2节 欧姆定律",
+      "title": "第2节 欧姆定律",
+      "toc_entry_id": "tcu_018b6907d4902805",
+      "unit_id": "tcu_018b6907d4902805"
     },
     {
       "confidence": 0.9,
@@ -5497,16 +5497,16 @@
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 108,
+      "end_pdf_page": 109,
       "end_printed_page": null,
       "evidence_span_ids": [
         "tes_3c6e57a000f1e3c8"
       ],
       "kind": "activity",
       "node_id": "tcn_36b1ddb6415e930a",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 108,
-      "pdf_page_end": 108,
+      "pdf_page_end": 109,
       "pdf_page_start": 108,
       "printed_page": null,
       "review_status": "machine_checked",
@@ -5524,7 +5524,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_13491060ec25721a",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 108,
       "pdf_page_end": 108,
       "pdf_page_start": 108,
@@ -5562,7 +5562,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1baa0658761b5ce2",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 108,
       "pdf_page_end": 108,
       "pdf_page_start": 108,
@@ -5573,24 +5573,23 @@
       "unit_id": "tcu_f38422a0d8dee184"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 109,
+      "confidence": 0.95,
+      "end_pdf_page": 111,
       "end_printed_page": null,
-      "evidence_span_ids": [
-        "tes_fe882b2d3e87d771"
-      ],
+      "evidence_span_ids": [],
       "kind": "section",
-      "node_id": "tcn_dcc947c29c0ffd4d",
+      "node_id": "tcn_0e49d6a76ffa2378",
       "parent_id": "tcn_f06f37d1af87873c",
       "pdf_page": 108,
-      "pdf_page_end": 109,
+      "pdf_page_end": 111,
       "pdf_page_start": 108,
-      "printed_page": null,
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "printed_page": "101",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第3节 电阻的测量",
-      "title": "第3节电阻的测量",
-      "unit_id": "tcu_f38422a0d8dee184"
+      "title": "第3节 电阻的测量",
+      "toc_entry_id": "tcu_b9fb155293b3f634",
+      "unit_id": "tcu_b9fb155293b3f634"
     },
     {
       "confidence": 0.98,
@@ -5599,7 +5598,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d4af05dc21fd6ab5",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 109,
       "pdf_page_end": 109,
       "pdf_page_start": 109,
@@ -5618,7 +5617,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_a399aeed266b67ba",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 110,
       "pdf_page_end": 110,
       "pdf_page_start": 110,
@@ -5698,7 +5697,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_00a6325200ef07a9",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 110,
       "pdf_page_end": 110,
       "pdf_page_start": 110,
@@ -5716,7 +5715,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_550eb6413824ac65",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 110,
       "pdf_page_end": 110,
       "pdf_page_start": 110,
@@ -5735,7 +5734,7 @@
       ],
       "kind": "section",
       "node_id": "tcn_1929e078a7b992f2",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 110,
       "pdf_page_end": 110,
       "pdf_page_start": 110,
@@ -5755,7 +5754,7 @@
       ],
       "kind": "section",
       "node_id": "tcn_5baaec0ffe83bcf2",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 110,
       "pdf_page_end": 110,
       "pdf_page_start": 110,
@@ -5773,7 +5772,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_42fdf34d407005bc",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 111,
       "pdf_page_end": 111,
       "pdf_page_start": 111,
@@ -5792,7 +5791,7 @@
       ],
       "kind": "section",
       "node_id": "tcn_cfb40dc65fecf8f8",
-      "parent_id": "tcn_f06f37d1af87873c",
+      "parent_id": "tcn_0e49d6a76ffa2378",
       "pdf_page": 111,
       "pdf_page_end": 111,
       "pdf_page_start": 111,
@@ -5824,25 +5823,6 @@
       "unit_id": "tcu_f38422a0d8dee184"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 116,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_840aebddf6681d54",
-      "parent_id": "tcn_f06f37d1af87873c",
-      "pdf_page": 112,
-      "pdf_page_end": 116,
-      "pdf_page_start": 112,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第4节 欧姆定律在串、并联电路中的应用",
-      "title": "第4节 欧姆定律在串、并联电路中的应用",
-      "toc_entry_id": "tcu_feae95d76df91f3d",
-      "unit_id": "tcu_feae95d76df91f3d"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 112,
       "end_printed_page": null,
@@ -5858,6 +5838,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 112 页",
       "unit_id": "tcu_f38422a0d8dee184"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 116,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_840aebddf6681d54",
+      "parent_id": "tcn_f06f37d1af87873c",
+      "pdf_page": 112,
+      "pdf_page_end": 116,
+      "pdf_page_start": 112,
+      "printed_page": "105",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第4节 欧姆定律在串、并联电路中的应用",
+      "title": "第4节 欧姆定律在串、并联电路中的应用",
+      "toc_entry_id": "tcu_feae95d76df91f3d",
+      "unit_id": "tcu_feae95d76df91f3d"
     },
     {
       "confidence": 0.98,
@@ -6048,6 +6047,25 @@
       "unit_id": "tcu_f38422a0d8dee184"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 133,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "chapter",
+      "node_id": "tcn_39d7ebacebab727d",
+      "parent_id": null,
+      "pdf_page": 117,
+      "pdf_page_end": 133,
+      "pdf_page_start": 117,
+      "printed_page": "110",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第十八章 电功率",
+      "title": "第十八章 电功率",
+      "toc_entry_id": "tcu_41e12df64a48373c",
+      "unit_id": "tcu_41e12df64a48373c"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 117,
       "end_printed_page": "110",
@@ -6065,25 +6083,6 @@
       "unit_id": "tcu_41e12df64a48373c"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 133,
-      "end_printed_page": "126",
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_39d7ebacebab727d",
-      "parent_id": null,
-      "pdf_page": 117,
-      "pdf_page_end": 133,
-      "pdf_page_start": 117,
-      "printed_page": "110",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第十八章 电功率",
-      "title": "第十八章 电功率",
-      "toc_entry_id": "tcu_41e12df64a48373c",
-      "unit_id": "tcu_41e12df64a48373c"
-    },
-    {
       "confidence": 0.9,
       "end_pdf_page": 118,
       "end_printed_page": null,
@@ -6092,7 +6091,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_1d114f2caada7d0d",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_25a0bed4536df55e",
       "pdf_page": 118,
       "pdf_page_end": 118,
       "pdf_page_start": 118,
@@ -6110,7 +6109,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fbc859abe9860164",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_25a0bed4536df55e",
       "pdf_page": 118,
       "pdf_page_end": 118,
       "pdf_page_start": 118,
@@ -6121,24 +6120,23 @@
       "unit_id": "tcu_41e12df64a48373c"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 118,
+      "confidence": 0.95,
+      "end_pdf_page": 120,
       "end_printed_page": null,
-      "evidence_span_ids": [
-        "tes_f3e6c7205c5b5df4"
-      ],
+      "evidence_span_ids": [],
       "kind": "section",
-      "node_id": "tcn_88af2a86fa395251",
+      "node_id": "tcn_25a0bed4536df55e",
       "parent_id": "tcn_39d7ebacebab727d",
       "pdf_page": 118,
-      "pdf_page_end": 118,
+      "pdf_page_end": 120,
       "pdf_page_start": 118,
-      "printed_page": null,
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "printed_page": "111",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第1节 电能 电功",
-      "title": "第1节电能电功",
-      "unit_id": "tcu_41e12df64a48373c"
+      "title": "第1节 电能 电功",
+      "toc_entry_id": "tcu_45a1ff72927b29cd",
+      "unit_id": "tcu_45a1ff72927b29cd"
     },
     {
       "confidence": 0.98,
@@ -6147,7 +6145,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6fb1dba580238193",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_25a0bed4536df55e",
       "pdf_page": 119,
       "pdf_page_end": 119,
       "pdf_page_start": 119,
@@ -6166,7 +6164,7 @@
       ],
       "kind": "section",
       "node_id": "tcn_f163f51a5cc7f2be",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_25a0bed4536df55e",
       "pdf_page": 119,
       "pdf_page_end": 119,
       "pdf_page_start": 119,
@@ -6186,7 +6184,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_0aa17328374d5f65",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_25a0bed4536df55e",
       "pdf_page": 120,
       "pdf_page_end": 120,
       "pdf_page_start": 120,
@@ -6204,7 +6202,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5d1ca3a03cfa4e83",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_25a0bed4536df55e",
       "pdf_page": 120,
       "pdf_page_end": 120,
       "pdf_page_start": 120,
@@ -6223,7 +6221,7 @@
       ],
       "kind": "section",
       "node_id": "tcn_934bf98de8d23861",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_25a0bed4536df55e",
       "pdf_page": 120,
       "pdf_page_end": 120,
       "pdf_page_start": 120,
@@ -6243,7 +6241,7 @@
       ],
       "kind": "section",
       "node_id": "tcn_d72a9841debcf312",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_25a0bed4536df55e",
       "pdf_page": 120,
       "pdf_page_end": 121,
       "pdf_page_start": 120,
@@ -6253,25 +6251,6 @@
       "text_excerpt": "823.31kW·h",
       "title": "823.31kW·h",
       "unit_id": "tcu_41e12df64a48373c"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 124,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_d9680de8a026fe04",
-      "parent_id": "tcn_39d7ebacebab727d",
-      "pdf_page": 121,
-      "pdf_page_end": 124,
-      "pdf_page_start": 121,
-      "printed_page": "114",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第2节 电功率",
-      "title": "第2节 电功率",
-      "toc_entry_id": "tcu_7df07a637974cd8a",
-      "unit_id": "tcu_7df07a637974cd8a"
     },
     {
       "confidence": 0.98,
@@ -6289,6 +6268,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 121 页",
       "unit_id": "tcu_41e12df64a48373c"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 124,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_d9680de8a026fe04",
+      "parent_id": "tcn_39d7ebacebab727d",
+      "pdf_page": 121,
+      "pdf_page_end": 124,
+      "pdf_page_start": 121,
+      "printed_page": "114",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2节 电功率",
+      "title": "第2节 电功率",
+      "toc_entry_id": "tcu_7df07a637974cd8a",
+      "unit_id": "tcu_7df07a637974cd8a"
     },
     {
       "confidence": 0.9,
@@ -6422,25 +6420,6 @@
       "unit_id": "tcu_41e12df64a48373c"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 126,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_6025409e250f059c",
-      "parent_id": "tcn_39d7ebacebab727d",
-      "pdf_page": 125,
-      "pdf_page_end": 126,
-      "pdf_page_start": 125,
-      "printed_page": "118",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第3节 跨学科实践：为家庭节约用电提建议",
-      "title": "第3节 跨学科实践：为家庭节约用电提建议",
-      "toc_entry_id": "tcu_fe2226a601eb5b01",
-      "unit_id": "tcu_fe2226a601eb5b01"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 125,
       "end_printed_page": "118",
@@ -6456,6 +6435,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 125 页",
       "unit_id": "tcu_41e12df64a48373c"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 126,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_6025409e250f059c",
+      "parent_id": "tcn_39d7ebacebab727d",
+      "pdf_page": 125,
+      "pdf_page_end": 126,
+      "pdf_page_start": 125,
+      "printed_page": "118",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第3节 跨学科实践：为家庭节约用电提建议",
+      "title": "第3节 跨学科实践：为家庭节约用电提建议",
+      "toc_entry_id": "tcu_fe2226a601eb5b01",
+      "unit_id": "tcu_fe2226a601eb5b01"
     },
     {
       "confidence": 0.9,
@@ -6575,25 +6573,6 @@
       "unit_id": "tcu_41e12df64a48373c"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 131,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_0b9dcfda72113713",
-      "parent_id": "tcn_39d7ebacebab727d",
-      "pdf_page": 127,
-      "pdf_page_end": 131,
-      "pdf_page_start": 127,
-      "printed_page": "120",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第4节 焦耳定律",
-      "title": "第4节 焦耳定律",
-      "toc_entry_id": "tcu_870d752291535252",
-      "unit_id": "tcu_870d752291535252"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 127,
       "end_printed_page": "120",
@@ -6609,6 +6588,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 127 页",
       "unit_id": "tcu_41e12df64a48373c"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 133,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_0b9dcfda72113713",
+      "parent_id": "tcn_39d7ebacebab727d",
+      "pdf_page": 127,
+      "pdf_page_end": 133,
+      "pdf_page_start": 127,
+      "printed_page": "120",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第4节 焦耳定律",
+      "title": "第4节 焦耳定律",
+      "toc_entry_id": "tcu_870d752291535252",
+      "unit_id": "tcu_870d752291535252"
     },
     {
       "confidence": 0.9,
@@ -6727,7 +6725,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_c5127394a631a70e",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_0b9dcfda72113713",
       "pdf_page": 132,
       "pdf_page_end": 132,
       "pdf_page_start": 132,
@@ -6745,7 +6743,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7f29ffa1d157324f",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_0b9dcfda72113713",
       "pdf_page": 132,
       "pdf_page_end": 132,
       "pdf_page_start": 132,
@@ -6764,7 +6762,7 @@
       ],
       "kind": "section",
       "node_id": "tcn_581729594fe612be",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_0b9dcfda72113713",
       "pdf_page": 132,
       "pdf_page_end": 132,
       "pdf_page_start": 132,
@@ -6782,7 +6780,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b9e2d1af914d0e05",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_0b9dcfda72113713",
       "pdf_page": 133,
       "pdf_page_end": 133,
       "pdf_page_start": 133,
@@ -6801,7 +6799,7 @@
       ],
       "kind": "section",
       "node_id": "tcn_ceb8db1bfdb89a9f",
-      "parent_id": "tcn_39d7ebacebab727d",
+      "parent_id": "tcn_0b9dcfda72113713",
       "pdf_page": 133,
       "pdf_page_end": 133,
       "pdf_page_start": 133,
@@ -6833,6 +6831,25 @@
       "unit_id": "tcu_9e27b9e4eae652e0"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 152,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "chapter",
+      "node_id": "tcn_98fe94eef064aa20",
+      "parent_id": null,
+      "pdf_page": 134,
+      "pdf_page_end": 152,
+      "pdf_page_start": 134,
+      "printed_page": "127",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第十九章 生活用电",
+      "title": "第十九章 生活用电",
+      "toc_entry_id": "tcu_9e27b9e4eae652e0",
+      "unit_id": "tcu_9e27b9e4eae652e0"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 134,
       "end_printed_page": null,
@@ -6850,44 +6867,6 @@
       "unit_id": "tcu_9e27b9e4eae652e0"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 152,
-      "end_printed_page": "6",
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_98fe94eef064aa20",
-      "parent_id": null,
-      "pdf_page": 134,
-      "pdf_page_end": 152,
-      "pdf_page_start": 134,
-      "printed_page": "128",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第十九章 生活用电",
-      "title": "第十九章 生活用电",
-      "toc_entry_id": "tcu_9e27b9e4eae652e0",
-      "unit_id": "tcu_9e27b9e4eae652e0"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 139,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_6c9ba79f636e8609",
-      "parent_id": "tcn_98fe94eef064aa20",
-      "pdf_page": 135,
-      "pdf_page_end": 139,
-      "pdf_page_start": 135,
-      "printed_page": "128",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第1节 安全用电",
-      "title": "第1节 安全用电",
-      "toc_entry_id": "tcu_989cee43b747f014",
-      "unit_id": "tcu_989cee43b747f014"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 135,
       "end_printed_page": "128",
@@ -6903,6 +6882,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 135 页",
       "unit_id": "tcu_9e27b9e4eae652e0"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 140,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_6c9ba79f636e8609",
+      "parent_id": "tcn_98fe94eef064aa20",
+      "pdf_page": 135,
+      "pdf_page_end": 140,
+      "pdf_page_start": 135,
+      "printed_page": "128",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第1节 安全用电",
+      "title": "第1节 安全用电",
+      "toc_entry_id": "tcu_989cee43b747f014",
+      "unit_id": "tcu_989cee43b747f014"
     },
     {
       "confidence": 0.9,
@@ -7021,7 +7019,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_5f8450b5f001e29e",
-      "parent_id": "tcn_98fe94eef064aa20",
+      "parent_id": "tcn_6c9ba79f636e8609",
       "pdf_page": 140,
       "pdf_page_end": 141,
       "pdf_page_start": 140,
@@ -7039,7 +7037,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_bf6f83193ac3da05",
-      "parent_id": "tcn_98fe94eef064aa20",
+      "parent_id": "tcn_6c9ba79f636e8609",
       "pdf_page": 140,
       "pdf_page_end": 140,
       "pdf_page_start": 140,
@@ -7048,25 +7046,6 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 140 页",
       "unit_id": "tcu_9e27b9e4eae652e0"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 145,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_382d41a15b91bf2b",
-      "parent_id": "tcn_98fe94eef064aa20",
-      "pdf_page": 141,
-      "pdf_page_end": 145,
-      "pdf_page_start": 141,
-      "printed_page": "134",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第2节 家庭电路的基本组成",
-      "title": "第2节 家庭电路的基本组成",
-      "toc_entry_id": "tcu_0d922eae08d2559f",
-      "unit_id": "tcu_0d922eae08d2559f"
     },
     {
       "confidence": 0.98,
@@ -7084,6 +7063,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 141 页",
       "unit_id": "tcu_9e27b9e4eae652e0"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 147,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_382d41a15b91bf2b",
+      "parent_id": "tcn_98fe94eef064aa20",
+      "pdf_page": 141,
+      "pdf_page_end": 147,
+      "pdf_page_start": 141,
+      "printed_page": "134",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2节 家庭电路的基本组成",
+      "title": "第2节 家庭电路的基本组成",
+      "toc_entry_id": "tcu_0d922eae08d2559f",
+      "unit_id": "tcu_0d922eae08d2559f"
     },
     {
       "confidence": 0.9,
@@ -7202,7 +7200,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_c31dd45d015e5638",
-      "parent_id": "tcn_98fe94eef064aa20",
+      "parent_id": "tcn_382d41a15b91bf2b",
       "pdf_page": 146,
       "pdf_page_end": 147,
       "pdf_page_start": 146,
@@ -7240,7 +7238,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b2f2dbdee26140e1",
-      "parent_id": "tcn_98fe94eef064aa20",
+      "parent_id": "tcn_382d41a15b91bf2b",
       "pdf_page": 146,
       "pdf_page_end": 146,
       "pdf_page_start": 146,
@@ -7257,7 +7255,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_75c1eef207819350",
-      "parent_id": "tcn_98fe94eef064aa20",
+      "parent_id": "tcn_382d41a15b91bf2b",
       "pdf_page": 147,
       "pdf_page_end": 147,
       "pdf_page_start": 147,
@@ -7308,25 +7306,6 @@
       "unit_id": "tcu_9e27b9e4eae652e0"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 152,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_28505f302b672af9",
-      "parent_id": "tcn_98fe94eef064aa20",
-      "pdf_page": 148,
-      "pdf_page_end": 152,
-      "pdf_page_start": 148,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第3节 跨学科实践：为家庭电路做设计",
-      "title": "第3节 跨学科实践：为家庭电路做设计",
-      "toc_entry_id": "tcu_b66b67c8243aa3c1",
-      "unit_id": "tcu_b66b67c8243aa3c1"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 148,
       "end_printed_page": null,
@@ -7342,6 +7321,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 148 页",
       "unit_id": "tcu_9e27b9e4eae652e0"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 152,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_28505f302b672af9",
+      "parent_id": "tcn_98fe94eef064aa20",
+      "pdf_page": 148,
+      "pdf_page_end": 152,
+      "pdf_page_start": 148,
+      "printed_page": "141",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第3节 跨学科实践：为家庭电路做设计",
+      "title": "第3节 跨学科实践：为家庭电路做设计",
+      "toc_entry_id": "tcu_b66b67c8243aa3c1",
+      "unit_id": "tcu_b66b67c8243aa3c1"
     },
     {
       "confidence": 0.98,
@@ -7592,6 +7590,25 @@
       "unit_id": "tcu_9e27b9e4eae652e0"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 180,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "chapter",
+      "node_id": "tcn_98d6bc0ba561798b",
+      "parent_id": null,
+      "pdf_page": 153,
+      "pdf_page_end": 180,
+      "pdf_page_start": 153,
+      "printed_page": "146",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第二十章 电与磁",
+      "title": "第二十章 电与磁",
+      "toc_entry_id": "tcu_d1567028767bcb62",
+      "unit_id": "tcu_d1567028767bcb62"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 153,
       "end_printed_page": "146",
@@ -7606,25 +7623,6 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 153 页",
-      "unit_id": "tcu_d1567028767bcb62"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 180,
-      "end_printed_page": "6",
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_98d6bc0ba561798b",
-      "parent_id": null,
-      "pdf_page": 153,
-      "pdf_page_end": 180,
-      "pdf_page_start": 153,
-      "printed_page": "146",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第二十章 电与磁",
-      "title": "第二十章 电与磁",
-      "toc_entry_id": "tcu_d1567028767bcb62",
       "unit_id": "tcu_d1567028767bcb62"
     },
     {
@@ -7648,25 +7646,6 @@
       "unit_id": "tcu_d1567028767bcb62"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 158,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_b0b1ada8d50a7d0f",
-      "parent_id": "tcn_98d6bc0ba561798b",
-      "pdf_page": 154,
-      "pdf_page_end": 158,
-      "pdf_page_start": 154,
-      "printed_page": "843",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第1节 磁现象 磁场",
-      "title": "第1节 磁现象 磁场",
-      "toc_entry_id": "tcu_d297df06e51abcc0",
-      "unit_id": "tcu_d297df06e51abcc0"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 154,
       "end_printed_page": "843",
@@ -7682,6 +7661,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 154 页",
       "unit_id": "tcu_d1567028767bcb62"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 158,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_b0b1ada8d50a7d0f",
+      "parent_id": "tcn_98d6bc0ba561798b",
+      "pdf_page": 154,
+      "pdf_page_end": 158,
+      "pdf_page_start": 154,
+      "printed_page": "147",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第1节 磁现象 磁场",
+      "title": "第1节 磁现象 磁场",
+      "toc_entry_id": "tcu_d297df06e51abcc0",
+      "unit_id": "tcu_d297df06e51abcc0"
     },
     {
       "confidence": 0.98,
@@ -7812,25 +7810,6 @@
       "unit_id": "tcu_d1567028767bcb62"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 163,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_36d773d1b7d8b70c",
-      "parent_id": "tcn_98d6bc0ba561798b",
-      "pdf_page": 159,
-      "pdf_page_end": 163,
-      "pdf_page_start": 159,
-      "printed_page": "152",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第2节 电生磁",
-      "title": "第2节 电生磁",
-      "toc_entry_id": "tcu_a148bd7a0fa583ed",
-      "unit_id": "tcu_a148bd7a0fa583ed"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 159,
       "end_printed_page": "152",
@@ -7846,6 +7825,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 159 页",
       "unit_id": "tcu_d1567028767bcb62"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 163,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_36d773d1b7d8b70c",
+      "parent_id": "tcn_98d6bc0ba561798b",
+      "pdf_page": 159,
+      "pdf_page_end": 163,
+      "pdf_page_start": 159,
+      "printed_page": "152",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2节 电生磁",
+      "title": "第2节 电生磁",
+      "toc_entry_id": "tcu_a148bd7a0fa583ed",
+      "unit_id": "tcu_a148bd7a0fa583ed"
     },
     {
       "confidence": 0.9,
@@ -8076,25 +8074,6 @@
       "unit_id": "tcu_d1567028767bcb62"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 167,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_0e15a6b7f87f6281",
-      "parent_id": "tcn_98d6bc0ba561798b",
-      "pdf_page": 164,
-      "pdf_page_end": 167,
-      "pdf_page_start": 164,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第3节 电磁铁 电磁继电器",
-      "title": "第3节 电磁铁 电磁继电器",
-      "toc_entry_id": "tcu_aec9df5da16ab0ac",
-      "unit_id": "tcu_aec9df5da16ab0ac"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 164,
       "end_printed_page": null,
@@ -8110,6 +8089,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 164 页",
       "unit_id": "tcu_d1567028767bcb62"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 167,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_0e15a6b7f87f6281",
+      "parent_id": "tcn_98d6bc0ba561798b",
+      "pdf_page": 164,
+      "pdf_page_end": 167,
+      "pdf_page_start": 164,
+      "printed_page": "157",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第3节 电磁铁 电磁继电器",
+      "title": "第3节 电磁铁 电磁继电器",
+      "toc_entry_id": "tcu_aec9df5da16ab0ac",
+      "unit_id": "tcu_aec9df5da16ab0ac"
     },
     {
       "confidence": 0.86,
@@ -8223,25 +8221,6 @@
       "unit_id": "tcu_d1567028767bcb62"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 171,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_22a1b827d210ca05",
-      "parent_id": "tcn_98d6bc0ba561798b",
-      "pdf_page": 168,
-      "pdf_page_end": 171,
-      "pdf_page_start": 168,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第4节 电动机",
-      "title": "第4节 电动机",
-      "toc_entry_id": "tcu_dff23eb7c60e4cf6",
-      "unit_id": "tcu_dff23eb7c60e4cf6"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 168,
       "end_printed_page": null,
@@ -8257,6 +8236,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 168 页",
       "unit_id": "tcu_d1567028767bcb62"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 171,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_22a1b827d210ca05",
+      "parent_id": "tcn_98d6bc0ba561798b",
+      "pdf_page": 168,
+      "pdf_page_end": 171,
+      "pdf_page_start": 168,
+      "printed_page": "161",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第4节 电动机",
+      "title": "第4节 电动机",
+      "toc_entry_id": "tcu_dff23eb7c60e4cf6",
+      "unit_id": "tcu_dff23eb7c60e4cf6"
     },
     {
       "confidence": 0.98,
@@ -8370,25 +8368,6 @@
       "unit_id": "tcu_d1567028767bcb62"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 173,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_4dddeb947914f171",
-      "parent_id": "tcn_98d6bc0ba561798b",
-      "pdf_page": 172,
-      "pdf_page_end": 173,
-      "pdf_page_start": 172,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第5节 跨学科实践：制作简易直流电动机",
-      "title": "第5节 跨学科实践：制作简易直流电动机",
-      "toc_entry_id": "tcu_a423b0fe54f97763",
-      "unit_id": "tcu_a423b0fe54f97763"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 172,
       "end_printed_page": null,
@@ -8404,6 +8383,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 172 页",
       "unit_id": "tcu_d1567028767bcb62"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 173,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_4dddeb947914f171",
+      "parent_id": "tcn_98d6bc0ba561798b",
+      "pdf_page": 172,
+      "pdf_page_end": 173,
+      "pdf_page_start": 172,
+      "printed_page": "165",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第5节 跨学科实践：制作简易直流电动机",
+      "title": "第5节 跨学科实践：制作简易直流电动机",
+      "toc_entry_id": "tcu_a423b0fe54f97763",
+      "unit_id": "tcu_a423b0fe54f97763"
     },
     {
       "confidence": 0.98,
@@ -8483,25 +8481,6 @@
       "unit_id": "tcu_d1567028767bcb62"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 178,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_525dc61395b601f3",
-      "parent_id": "tcn_98d6bc0ba561798b",
-      "pdf_page": 174,
-      "pdf_page_end": 178,
-      "pdf_page_start": 174,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第6节 磁生电",
-      "title": "第6节 磁生电",
-      "toc_entry_id": "tcu_20519b02fdc7c044",
-      "unit_id": "tcu_20519b02fdc7c044"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 174,
       "end_printed_page": null,
@@ -8517,6 +8496,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 174 页",
       "unit_id": "tcu_d1567028767bcb62"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 180,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_525dc61395b601f3",
+      "parent_id": "tcn_98d6bc0ba561798b",
+      "pdf_page": 174,
+      "pdf_page_end": 180,
+      "pdf_page_start": 174,
+      "printed_page": "167",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第6节 磁生电",
+      "title": "第6节 磁生电",
+      "toc_entry_id": "tcu_20519b02fdc7c044",
+      "unit_id": "tcu_20519b02fdc7c044"
     },
     {
       "confidence": 0.98,
@@ -8653,7 +8651,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b63c6de99ec5522e",
-      "parent_id": "tcn_98d6bc0ba561798b",
+      "parent_id": "tcn_525dc61395b601f3",
       "pdf_page": 179,
       "pdf_page_end": 179,
       "pdf_page_start": 179,
@@ -8672,7 +8670,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_a03e2531f08b7719",
-      "parent_id": "tcn_98d6bc0ba561798b",
+      "parent_id": "tcn_525dc61395b601f3",
       "pdf_page": 180,
       "pdf_page_end": 180,
       "pdf_page_start": 180,
@@ -8690,7 +8688,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8899cfed676ba398",
-      "parent_id": "tcn_98d6bc0ba561798b",
+      "parent_id": "tcn_525dc61395b601f3",
       "pdf_page": 180,
       "pdf_page_end": 180,
       "pdf_page_start": 180,
@@ -8699,6 +8697,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 180 页",
       "unit_id": "tcu_d1567028767bcb62"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 194,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "chapter",
+      "node_id": "tcn_f8294e38bb6a79af",
+      "parent_id": null,
+      "pdf_page": 181,
+      "pdf_page_end": 194,
+      "pdf_page_start": 181,
+      "printed_page": "174",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第二十一章 电磁波及其应用",
+      "title": "第二十一章 电磁波及其应用",
+      "toc_entry_id": "tcu_29ca0d9582c671c6",
+      "unit_id": "tcu_29ca0d9582c671c6"
     },
     {
       "confidence": 0.98,
@@ -8715,25 +8732,6 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 181 页",
-      "unit_id": "tcu_29ca0d9582c671c6"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 194,
-      "end_printed_page": "1",
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_f8294e38bb6a79af",
-      "parent_id": null,
-      "pdf_page": 181,
-      "pdf_page_end": 194,
-      "pdf_page_start": 181,
-      "printed_page": "174",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第二十一章 电磁波及其应用",
-      "title": "第二十一章 电磁波及其应用",
-      "toc_entry_id": "tcu_29ca0d9582c671c6",
       "unit_id": "tcu_29ca0d9582c671c6"
     },
     {
@@ -8757,25 +8755,6 @@
       "unit_id": "tcu_29ca0d9582c671c6"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 185,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_8de79683ce929159",
-      "parent_id": "tcn_f8294e38bb6a79af",
-      "pdf_page": 182,
-      "pdf_page_end": 185,
-      "pdf_page_start": 182,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第1节 电磁波的海洋",
-      "title": "第1节 电磁波的海洋",
-      "toc_entry_id": "tcu_ff7c13d216894653",
-      "unit_id": "tcu_ff7c13d216894653"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 182,
       "end_printed_page": null,
@@ -8791,6 +8770,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 182 页",
       "unit_id": "tcu_29ca0d9582c671c6"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 185,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_8de79683ce929159",
+      "parent_id": "tcn_f8294e38bb6a79af",
+      "pdf_page": 182,
+      "pdf_page_end": 185,
+      "pdf_page_start": 182,
+      "printed_page": "175",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第1节 电磁波的海洋",
+      "title": "第1节 电磁波的海洋",
+      "toc_entry_id": "tcu_ff7c13d216894653",
+      "unit_id": "tcu_ff7c13d216894653"
     },
     {
       "confidence": 0.98,
@@ -8884,25 +8882,6 @@
       "unit_id": "tcu_29ca0d9582c671c6"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 189,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_96695e6c0d035ca7",
-      "parent_id": "tcn_f8294e38bb6a79af",
-      "pdf_page": 186,
-      "pdf_page_end": 189,
-      "pdf_page_start": 186,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第2节 广播、电视和移动通信",
-      "title": "第2节 广播、电视和移动通信",
-      "toc_entry_id": "tcu_38f958535a6e9f33",
-      "unit_id": "tcu_38f958535a6e9f33"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 186,
       "end_printed_page": null,
@@ -8918,6 +8897,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 186 页",
       "unit_id": "tcu_29ca0d9582c671c6"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 189,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_96695e6c0d035ca7",
+      "parent_id": "tcn_f8294e38bb6a79af",
+      "pdf_page": 186,
+      "pdf_page_end": 189,
+      "pdf_page_start": 186,
+      "printed_page": "179",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2节 广播、电视和移动通信",
+      "title": "第2节 广播、电视和移动通信",
+      "toc_entry_id": "tcu_38f958535a6e9f33",
+      "unit_id": "tcu_38f958535a6e9f33"
     },
     {
       "confidence": 0.98,
@@ -9011,25 +9009,6 @@
       "unit_id": "tcu_29ca0d9582c671c6"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 194,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_0f492acc4eb462fd",
-      "parent_id": "tcn_f8294e38bb6a79af",
-      "pdf_page": 190,
-      "pdf_page_end": 194,
-      "pdf_page_start": 190,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第3节 卫星通信和光纤通信",
-      "title": "第3节 卫星通信和光纤通信",
-      "toc_entry_id": "tcu_48c738c6a2342807",
-      "unit_id": "tcu_48c738c6a2342807"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 190,
       "end_printed_page": null,
@@ -9045,6 +9024,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 190 页",
       "unit_id": "tcu_29ca0d9582c671c6"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 194,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_0f492acc4eb462fd",
+      "parent_id": "tcn_f8294e38bb6a79af",
+      "pdf_page": 190,
+      "pdf_page_end": 194,
+      "pdf_page_start": 190,
+      "printed_page": "183",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第3节 卫星通信和光纤通信",
+      "title": "第3节 卫星通信和光纤通信",
+      "toc_entry_id": "tcu_48c738c6a2342807",
+      "unit_id": "tcu_48c738c6a2342807"
     },
     {
       "confidence": 0.98,
@@ -9155,6 +9153,25 @@
       "unit_id": "tcu_29ca0d9582c671c6"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 213,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "chapter",
+      "node_id": "tcn_4dcb71f2820f8ffd",
+      "parent_id": null,
+      "pdf_page": 195,
+      "pdf_page_end": 213,
+      "pdf_page_start": 195,
+      "printed_page": "188",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第二十二章 能源与可持续发展",
+      "title": "第二十二章 能源与可持续发展",
+      "toc_entry_id": "tcu_146a1fda5c805bc2",
+      "unit_id": "tcu_146a1fda5c805bc2"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 195,
       "end_printed_page": "188",
@@ -9169,25 +9186,6 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 195 页",
-      "unit_id": "tcu_146a1fda5c805bc2"
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 210,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "unit",
-      "node_id": "tcn_4dcb71f2820f8ffd",
-      "parent_id": null,
-      "pdf_page": 195,
-      "pdf_page_end": 210,
-      "pdf_page_start": 195,
-      "printed_page": "188",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第二十二章 能源与可持续发展",
-      "title": "第二十二章 能源与可持续发展",
-      "toc_entry_id": "tcu_146a1fda5c805bc2",
       "unit_id": "tcu_146a1fda5c805bc2"
     },
     {
@@ -9211,25 +9209,6 @@
       "unit_id": "tcu_146a1fda5c805bc2"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 200,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_ff1c7e189ab7517c",
-      "parent_id": "tcn_4dcb71f2820f8ffd",
-      "pdf_page": 196,
-      "pdf_page_end": 200,
-      "pdf_page_start": 196,
-      "printed_page": null,
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第1节 能源利用的现状和面临的挑战",
-      "title": "第1节 能源利用的现状和面临的挑战",
-      "toc_entry_id": "tcu_079c92446b044893",
-      "unit_id": "tcu_079c92446b044893"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 196,
       "end_printed_page": null,
@@ -9245,6 +9224,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 196 页",
       "unit_id": "tcu_146a1fda5c805bc2"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 200,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_ff1c7e189ab7517c",
+      "parent_id": "tcn_4dcb71f2820f8ffd",
+      "pdf_page": 196,
+      "pdf_page_end": 200,
+      "pdf_page_start": 196,
+      "printed_page": "189",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第1节 能源利用的现状和面临的挑战",
+      "title": "第1节 能源利用的现状和面临的挑战",
+      "toc_entry_id": "tcu_079c92446b044893",
+      "unit_id": "tcu_079c92446b044893"
     },
     {
       "confidence": 0.98,
@@ -9355,25 +9353,6 @@
       "unit_id": "tcu_146a1fda5c805bc2"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 205,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_895787f02f8b8936",
-      "parent_id": "tcn_4dcb71f2820f8ffd",
-      "pdf_page": 201,
-      "pdf_page_end": 205,
-      "pdf_page_start": 201,
-      "printed_page": "194",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第2节 新能源的发展",
-      "title": "第2节 新能源的发展",
-      "toc_entry_id": "tcu_cbf41ab483bd2deb",
-      "unit_id": "tcu_cbf41ab483bd2deb"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 201,
       "end_printed_page": "194",
@@ -9389,6 +9368,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 201 页",
       "unit_id": "tcu_146a1fda5c805bc2"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 206,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_895787f02f8b8936",
+      "parent_id": "tcn_4dcb71f2820f8ffd",
+      "pdf_page": 201,
+      "pdf_page_end": 206,
+      "pdf_page_start": 201,
+      "printed_page": "194",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第2节 新能源的发展",
+      "title": "第2节 新能源的发展",
+      "toc_entry_id": "tcu_cbf41ab483bd2deb",
+      "unit_id": "tcu_cbf41ab483bd2deb"
     },
     {
       "confidence": 0.9,
@@ -9507,7 +9505,7 @@
       ],
       "kind": "chapter",
       "node_id": "tcn_b8848d70de828a3a",
-      "parent_id": "tcn_4dcb71f2820f8ffd",
+      "parent_id": "tcn_895787f02f8b8936",
       "pdf_page": 206,
       "pdf_page_end": 207,
       "pdf_page_start": 206,
@@ -9525,7 +9523,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_08bcc116bd2a7135",
-      "parent_id": "tcn_4dcb71f2820f8ffd",
+      "parent_id": "tcn_895787f02f8b8936",
       "pdf_page": 206,
       "pdf_page_end": 206,
       "pdf_page_start": 206,
@@ -9556,25 +9554,6 @@
       "unit_id": "tcu_146a1fda5c805bc2"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 210,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_7713fcc82ca58053",
-      "parent_id": "tcn_4dcb71f2820f8ffd",
-      "pdf_page": 207,
-      "pdf_page_end": 210,
-      "pdf_page_start": 207,
-      "printed_page": "200",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "第3节 跨学科实践：为节约能源设计方案",
-      "title": "第3节 跨学科实践：为节约能源设计方案",
-      "toc_entry_id": "tcu_679a8aa3df5b5e59",
-      "unit_id": "tcu_679a8aa3df5b5e59"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 207,
       "end_printed_page": "200",
@@ -9590,6 +9569,25 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 207 页",
       "unit_id": "tcu_146a1fda5c805bc2"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 213,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_7713fcc82ca58053",
+      "parent_id": "tcn_4dcb71f2820f8ffd",
+      "pdf_page": 207,
+      "pdf_page_end": 213,
+      "pdf_page_start": 207,
+      "printed_page": "200",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "第3节 跨学科实践：为节约能源设计方案",
+      "title": "第3节 跨学科实践：为节约能源设计方案",
+      "toc_entry_id": "tcu_679a8aa3df5b5e59",
+      "unit_id": "tcu_679a8aa3df5b5e59"
     },
     {
       "confidence": 0.9,
@@ -9707,7 +9705,7 @@
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 210,
+      "end_pdf_page": 211,
       "end_printed_page": null,
       "evidence_span_ids": [
         "tes_2a46e633c674fd0a"
@@ -9716,7 +9714,7 @@
       "node_id": "tcn_01e7c3fe9b3cb092",
       "parent_id": "tcn_7713fcc82ca58053",
       "pdf_page": 210,
-      "pdf_page_end": 210,
+      "pdf_page_end": 211,
       "pdf_page_start": 210,
       "printed_page": null,
       "review_status": "machine_checked",
@@ -9743,13 +9741,33 @@
       "unit_id": "tcu_146a1fda5c805bc2"
     },
     {
+      "confidence": 0.86,
+      "end_pdf_page": 211,
+      "end_printed_page": "204",
+      "evidence_span_ids": [
+        "tes_805c93dd9d5e3e26"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_cb3598ca648d0e5c",
+      "parent_id": "tcn_01e7c3fe9b3cb092",
+      "pdf_page": 211,
+      "pdf_page_end": 211,
+      "pdf_page_start": 211,
+      "printed_page": "204",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "想想如何比较两类中的转化效率,以及两种汽车在生产中所消耗的能源,汽车的能耗。",
+      "title": "想想如何比较两类中的转化效率,以及两种汽车在生产中所消耗的能源,汽车的能耗。",
+      "unit_id": "tcu_146a1fda5c805bc2"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 211,
       "end_printed_page": "204",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c20b8cebe0e48960",
-      "parent_id": null,
+      "parent_id": "tcn_7713fcc82ca58053",
       "pdf_page": 211,
       "pdf_page_end": 211,
       "pdf_page_start": 211,
@@ -9757,7 +9775,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 211 页",
-      "unit_id": null
+      "unit_id": "tcu_146a1fda5c805bc2"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 213,
+      "end_printed_page": null,
+      "evidence_span_ids": [
+        "tes_50b32f8af22b480d"
+      ],
+      "kind": "chapter",
+      "node_id": "tcn_eacfb862922c3b57",
+      "parent_id": "tcn_7713fcc82ca58053",
+      "pdf_page": 212,
+      "pdf_page_end": 213,
+      "pdf_page_start": 212,
+      "printed_page": null,
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "第二十二章 能源与可持续发展 205",
+      "title": "第二十二章能源与可持续发展205",
+      "unit_id": "tcu_146a1fda5c805bc2"
     },
     {
       "confidence": 0.98,
@@ -9766,7 +9804,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6df7d88b79d28fe6",
-      "parent_id": null,
+      "parent_id": "tcn_7713fcc82ca58053",
       "pdf_page": 212,
       "pdf_page_end": 212,
       "pdf_page_start": 212,
@@ -9774,7 +9812,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 212 页",
-      "unit_id": null
+      "unit_id": "tcu_146a1fda5c805bc2"
     },
     {
       "confidence": 0.98,
@@ -9783,7 +9821,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b54e38ea86041a27",
-      "parent_id": null,
+      "parent_id": "tcn_7713fcc82ca58053",
       "pdf_page": 213,
       "pdf_page_end": 213,
       "pdf_page_start": 213,
@@ -9791,7 +9829,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 213 页",
-      "unit_id": null
+      "unit_id": "tcu_146a1fda5c805bc2"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 218,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "appendix",
+      "node_id": "tcn_3b9ded96079b8662",
+      "parent_id": null,
+      "pdf_page": 214,
+      "pdf_page_end": 218,
+      "pdf_page_start": 214,
+      "printed_page": "207",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "索引",
+      "title": "索引",
+      "toc_entry_id": "tcu_c8cb55735cb3dc7e",
+      "unit_id": "tcu_c8cb55735cb3dc7e"
     },
     {
       "confidence": 0.98,
@@ -9800,7 +9857,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_48289df04e8663f0",
-      "parent_id": null,
+      "parent_id": "tcn_3b9ded96079b8662",
       "pdf_page": 214,
       "pdf_page_end": 214,
       "pdf_page_start": 214,
@@ -9808,7 +9865,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 214 页",
-      "unit_id": null
+      "unit_id": "tcu_c8cb55735cb3dc7e"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 216,
+      "end_printed_page": null,
+      "evidence_span_ids": [
+        "tes_cc69922a2a750630"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_32901efa35f90894",
+      "parent_id": "tcn_3b9ded96079b8662",
+      "pdf_page": 216,
+      "pdf_page_end": 216,
+      "pdf_page_start": 216,
+      "printed_page": null,
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "完成,人民教育出版社设计部制作。本册教科书版式设计为房海莹,内文插图绘制为潘伟、张傲冰,摄影为张朝平。我们感谢上一版《义务教育教科书 物理》的编写人员孙新、秦晓文等,感谢所有对教科书的编写、审读、试教、出版等提供过帮助与支持",
+      "title": "完成,人民教育出版社设计部制作。本册教科书版式设计为房海莹,内文插图绘制为潘伟、张傲冰,摄影为张朝平。我们感谢上一版《义务教育教科书 物理》的编写人员孙新、秦晓文等,感谢所有对教科书的编写、审读、试教、出版等提供过帮助与支持",
+      "unit_id": "tcu_c8cb55735cb3dc7e"
     },
     {
       "confidence": 0.98,
@@ -9817,7 +9894,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7a5227891fa1f9af",
-      "parent_id": null,
+      "parent_id": "tcn_3b9ded96079b8662",
       "pdf_page": 216,
       "pdf_page_end": 216,
       "pdf_page_start": 216,
@@ -9825,7 +9902,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 216 页",
-      "unit_id": null
+      "unit_id": "tcu_c8cb55735cb3dc7e"
     },
     {
       "confidence": 0.98,
@@ -9834,7 +9911,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_862afc449b4a88c9",
-      "parent_id": null,
+      "parent_id": "tcn_3b9ded96079b8662",
       "pdf_page": 218,
       "pdf_page_end": 218,
       "pdf_page_start": 218,
@@ -9842,7 +9919,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 218 页",
-      "unit_id": null
+      "unit_id": "tcu_c8cb55735cb3dc7e"
     }
   ],
   "edition_id": "ed_c14ed4b05364a2e90445",
@@ -13576,31 +13653,6 @@
     {
       "asset_sha256": "2ac4673d7a58f7c41876581413bcd95cff9e95d72bb62f1b75d8dfee48d488a6",
       "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 194.25,
-        "x": 76.725,
-        "y": 649.772
-      },
-      "edition_id": "ed_c14ed4b05364a2e90445",
-      "evidence_role": "heading",
-      "excerpt": "第3节 电阻的测量",
-      "excerpt_hash": "6f643d98c3476c8f41699a37a8aa42871f24cb2d53f17f0b21678158ccf37a83",
-      "node_id": "tcn_dcc947c29c0ffd4d",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 108,
-      "printed_page": null,
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_fe882b2d3e87d771",
-      "text": "第3节 电阻的测量",
-      "text_hash": "6f643d98c3476c8f41699a37a8aa42871f24cb2d53f17f0b21678158ccf37a83"
-    },
-    {
-      "asset_sha256": "2ac4673d7a58f7c41876581413bcd95cff9e95d72bb62f1b75d8dfee48d488a6",
-      "bbox": {
         "height": 10.5,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -13997,31 +14049,6 @@
       "span_id": "tes_9fd430af5fd0d9af",
       "text": "第十八章 电功率 111",
       "text_hash": "422b95f8e9a1caf4f5375301952033b8c36353c7093c37418f3b02d306671964"
-    },
-    {
-      "asset_sha256": "2ac4673d7a58f7c41876581413bcd95cff9e95d72bb62f1b75d8dfee48d488a6",
-      "bbox": {
-        "height": 21,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 194.25,
-        "x": 76.725,
-        "y": 649.772
-      },
-      "edition_id": "ed_c14ed4b05364a2e90445",
-      "evidence_role": "heading",
-      "excerpt": "第1节 电能 电功",
-      "excerpt_hash": "0f6c6bc317ae841fc289c0688dddf2fa75d701ebdbe3c11b4ba9f1a25babe77e",
-      "node_id": "tcn_88af2a86fa395251",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 118,
-      "printed_page": null,
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_f3e6c7205c5b5df4",
-      "text": "第1节 电能 电功",
-      "text_hash": "0f6c6bc317ae841fc289c0688dddf2fa75d701ebdbe3c11b4ba9f1a25babe77e"
     },
     {
       "asset_sha256": "2ac4673d7a58f7c41876581413bcd95cff9e95d72bb62f1b75d8dfee48d488a6",
@@ -16047,6 +16074,81 @@
       "span_id": "tes_2a46e633c674fd0a",
       "text": "第二十二章 能源与可持续发展 203",
       "text_hash": "91414ee81f2e2100fb74791114e625bfc00b81c2827ad23e88ef4d966f6cf075"
+    },
+    {
+      "asset_sha256": "2ac4673d7a58f7c41876581413bcd95cff9e95d72bb62f1b75d8dfee48d488a6",
+      "bbox": {
+        "height": 10.5,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 90.027,
+        "x": 63.005,
+        "y": 336.737
+      },
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_role": "exercise",
+      "excerpt": "想想如何比较两类中的转化效率,以及两种汽车在生产中所消耗的能源,汽车的能耗。",
+      "excerpt_hash": "37c9eddf2a9f8ae8fcb4ac17c7c0ebe4546caae40283f5544c1596ec8e55c73a",
+      "node_id": "tcn_cb3598ca648d0e5c",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 211,
+      "printed_page": "204",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_805c93dd9d5e3e26",
+      "text": "想想如何比较两类中的转化效率,以及两种汽车在生产中所消耗的能源,汽车的能耗。",
+      "text_hash": "37c9eddf2a9f8ae8fcb4ac17c7c0ebe4546caae40283f5544c1596ec8e55c73a"
+    },
+    {
+      "asset_sha256": "2ac4673d7a58f7c41876581413bcd95cff9e95d72bb62f1b75d8dfee48d488a6",
+      "bbox": {
+        "height": 10.935,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 162.608,
+        "x": 322.127,
+        "y": 45.447
+      },
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_role": "heading",
+      "excerpt": "第二十二章 能源与可持续发展 205",
+      "excerpt_hash": "9b1e3aa32720707a4ec027defcb33026b893ee651a6cf839c4fda111aabe2fc7",
+      "node_id": "tcn_eacfb862922c3b57",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 212,
+      "printed_page": null,
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_50b32f8af22b480d",
+      "text": "第二十二章 能源与可持续发展 205",
+      "text_hash": "9b1e3aa32720707a4ec027defcb33026b893ee651a6cf839c4fda111aabe2fc7"
+    },
+    {
+      "asset_sha256": "2ac4673d7a58f7c41876581413bcd95cff9e95d72bb62f1b75d8dfee48d488a6",
+      "bbox": {
+        "height": 11,
+        "page_height": 737.008,
+        "page_width": 521.575,
+        "unit": "pdf_point",
+        "width": 408.247,
+        "x": 76.496,
+        "y": 481.387
+      },
+      "edition_id": "ed_c14ed4b05364a2e90445",
+      "evidence_role": "exercise",
+      "excerpt": "完成,人民教育出版社设计部制作。本册教科书版式设计为房海莹,内文插图绘制为潘伟、张傲冰,摄影为张朝平。我们感谢上一版《义务教育教科书 物理》的编写人员孙新、秦晓文等,感谢所有对教科书的编写、审读、试教、出版等提供过帮助与支持",
+      "excerpt_hash": "5df2cef277722ae32673e52dc284b4a077bf297d69b890efe72fca6147a35280",
+      "node_id": "tcn_32901efa35f90894",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 216,
+      "printed_page": null,
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_cc69922a2a750630",
+      "text": "完成,人民教育出版社设计部制作。本册教科书版式设计为房海莹,内文插图绘制为潘伟、张傲冰,摄影为张朝平。我们感谢上一版《义务教育教科书 物理》的编写人员孙新、秦晓文等,感谢所有对教科书的编写、审读、试教、出版等提供过帮助与支持",
+      "text_hash": "5df2cef277722ae32673e52dc284b4a077bf297d69b890efe72fca6147a35280"
     }
   ],
   "extraction": {
@@ -17020,6 +17122,32 @@
       "review_status": "machine_checked"
     }
   ],
+  "printed_toc": {
+    "algorithm_version": "printed-toc-v1",
+    "approved_entry_count": 51,
+    "contents_pdf_pages": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "decision": "more_lessons",
+    "evidence_policy": "printed_contents_page_number_and_title_at_page_top",
+    "page_offset_source": "contents_votes:46/51",
+    "parsed_entry_count": 51,
+    "provenance": "machine_generated",
+    "replaced_toc": {
+      "entries": 48,
+      "last_pdf_page": 207,
+      "sources": [
+        "smartedu_sync_lessons"
+      ],
+      "units": 10
+    },
+    "reused_entry_id_count": 48,
+    "review_policy": "automatic_no_human_gate",
+    "unverified_entries": []
+  },
   "schema_version": 2,
   "standard_scopes": [
     {
@@ -17105,1576 +17233,1139 @@
   "text_quality": "native_text",
   "toc": [
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 25,
-      "end_printed_page": "18",
       "entry_id": "tcu_33a921d531e0427f",
-      "kind": "unit",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 8,
+        "verbatim_title": "第十三章 内能"
+      },
+      "kind": "chapter",
       "level": 1,
       "parent_id": null,
       "pdf_page": 8,
-      "printed_page": "2",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 76.367,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 26,
-          "verbatim_title": "第十四章 内能的利用"
-        },
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 192.5,
-            "x": 76.367,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 8,
-          "verbatim_title": "第十三章 内能"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
+      "printed_page": "1",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 1,
       "title": "第十三章 内能",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "1"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 13,
+      "confidence": 0.95,
+      "end_pdf_page": 14,
       "entry_id": "tcu_706349d1a245394f",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 9,
+        "verbatim_title": "第1节 热量 比热容"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_33a921d531e0427f",
       "pdf_page": 9,
       "printed_page": "2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 2,
       "title": "第1节 热量 比热容",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "2"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 19,
       "entry_id": "tcu_db29abeb811ab1c0",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 15,
+        "verbatim_title": "第2节 分子动理论的初步知识"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_33a921d531e0427f",
       "pdf_page": 15,
       "printed_page": "8",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 3,
       "title": "第2节 分子动理论的初步知识",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "8"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 24,
+      "confidence": 0.95,
+      "end_pdf_page": 25,
       "entry_id": "tcu_8ffd92ceabc83580",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 20,
+        "verbatim_title": "第3节 内能"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_33a921d531e0427f",
       "pdf_page": 20,
-      "printed_page": null,
+      "printed_page": "13",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 4,
       "title": "第3节 内能",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "13"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 45,
-      "end_printed_page": "38",
       "entry_id": "tcu_93d3953e312a1d54",
-      "kind": "unit",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 26,
+        "verbatim_title": "第十四章 内能的利用"
+      },
+      "kind": "chapter",
       "level": 1,
       "parent_id": null,
       "pdf_page": 26,
-      "printed_page": "20",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 76.367,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 46,
-          "verbatim_title": "第十五章 电流和电路"
-        },
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 76.367,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 26,
-          "verbatim_title": "第十四章 内能的利用"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
+      "printed_page": "19",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 5,
       "title": "第十四章 内能的利用",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "19"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 31,
       "entry_id": "tcu_3588d2fb79f42ad5",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 27,
+        "verbatim_title": "第1节 能量的转化与守恒"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_93d3953e312a1d54",
       "pdf_page": 27,
       "printed_page": "20",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 6,
       "title": "第1节 能量的转化与守恒",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "20"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 36,
       "entry_id": "tcu_624523efa08fc426",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 32,
+        "verbatim_title": "第2节 热机"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_93d3953e312a1d54",
       "pdf_page": 32,
-      "printed_page": "18",
+      "printed_page": "25",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 7,
       "title": "第2节 热机",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "25"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 41,
       "entry_id": "tcu_e4e3f925492bb11e",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 37,
+        "verbatim_title": "第3节 热机的效率"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_93d3953e312a1d54",
       "pdf_page": 37,
       "printed_page": "30",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 8,
       "title": "第3节 热机的效率",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "30"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 46,
+      "confidence": 0.95,
+      "end_pdf_page": 45,
       "entry_id": "tcu_2db01b2cf7cb903e",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 42,
+        "verbatim_title": "第4节 跨学科实践:制作简易热机模型"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_93d3953e312a1d54",
       "pdf_page": 42,
-      "printed_page": null,
+      "printed_page": "35",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 9,
       "title": "第4节 跨学科实践：制作简易热机模型",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "35"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 72,
-      "end_printed_page": "8",
       "entry_id": "tcu_f6cf5b08bc02522f",
-      "kind": "unit",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 46,
+        "verbatim_title": "第十五章 电流和电路"
+      },
+      "kind": "chapter",
       "level": 1,
       "parent_id": null,
       "pdf_page": 46,
-      "printed_page": "40",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 73,
-          "verbatim_title": "第十六章 电压 电阻"
-        },
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 76.367,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 46,
-          "verbatim_title": "第十五章 电流和电路"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
+      "printed_page": "39",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 10,
       "title": "第十五章 电流和电路",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "39"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 50,
       "entry_id": "tcu_f303ea0cc7242fdf",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 47,
+        "verbatim_title": "第1节 两种电荷"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_f6cf5b08bc02522f",
       "pdf_page": 47,
       "printed_page": "40",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 11,
       "title": "第1节 两种电荷",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "40"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 55,
+      "confidence": 0.95,
+      "end_pdf_page": 56,
       "entry_id": "tcu_6f54205479b9afa5",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 51,
+        "verbatim_title": "第2节 电流和电路"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_f6cf5b08bc02522f",
       "pdf_page": 51,
       "printed_page": "44",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 12,
       "title": "第2节 电流和电路",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "44"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 61,
       "entry_id": "tcu_5cc95ca74a025156",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 57,
+        "verbatim_title": "第3节 串联电路和并联电路"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_f6cf5b08bc02522f",
       "pdf_page": 57,
       "printed_page": "50",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 13,
       "title": "第3节 串联电路和并联电路",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "50"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 66,
       "entry_id": "tcu_f65616afdcd717ee",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 62,
+        "verbatim_title": "第4节 电流的测量"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_f6cf5b08bc02522f",
       "pdf_page": 62,
-      "printed_page": null,
+      "printed_page": "55",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 14,
       "title": "第4节 电流的测量",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "55"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 71,
+      "confidence": 0.95,
+      "end_pdf_page": 72,
       "entry_id": "tcu_1301a33f6e55a207",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 67,
+        "verbatim_title": "第5节 串、并联电路中电流的规律"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_f6cf5b08bc02522f",
       "pdf_page": 67,
       "printed_page": "60",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 15,
       "title": "第5节 串、并联电路中电流的规律",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": "60"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 98,
-      "end_printed_page": null,
       "entry_id": "tcu_ae821fc1436f0899",
-      "kind": "unit",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 73,
+        "verbatim_title": "第十六章 电压 电阻"
+      },
+      "kind": "chapter",
       "level": 1,
       "parent_id": null,
       "pdf_page": 73,
       "printed_page": "66",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 247.5,
-            "x": 39.327,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 99,
-          "verbatim_title": "第十七章 欧姆定律"
-        },
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 73,
-          "verbatim_title": "第十六章 电压 电阻"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 16,
       "title": "第十六章 电压 电阻",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "66"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 78,
       "entry_id": "tcu_1301edc15fda291e",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 74,
+        "verbatim_title": "第1节 电压"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_ae821fc1436f0899",
       "pdf_page": 74,
-      "printed_page": null,
+      "printed_page": "67",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 17,
       "title": "第1节 电压",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "67"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 83,
       "entry_id": "tcu_97ec85103993aa72",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 79,
+        "verbatim_title": "第2节 串、并联电路中电压的规律"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_ae821fc1436f0899",
       "pdf_page": 79,
       "printed_page": "72",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 18,
       "title": "第2节 串、并联电路中电压的规律",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "72"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 88,
       "entry_id": "tcu_b53d8912644d62cf",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 84,
+        "verbatim_title": "第3节 电阻"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_ae821fc1436f0899",
       "pdf_page": 84,
-      "printed_page": null,
+      "printed_page": "77",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 19,
       "title": "第3节 电阻",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "77"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 93,
       "entry_id": "tcu_00b506ad58a44072",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 89,
+        "verbatim_title": "第4节 变阻器"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_ae821fc1436f0899",
       "pdf_page": 89,
       "printed_page": "82",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 20,
       "title": "第4节 变阻器",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "82"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 98,
       "entry_id": "tcu_347696bf37cec9b3",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 94,
+        "verbatim_title": "第5节 跨学科实践:制作简易调光台灯"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_ae821fc1436f0899",
       "pdf_page": 94,
-      "printed_page": null,
+      "printed_page": "87",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 21,
       "title": "第5节 跨学科实践：制作简易调光台灯",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "87"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 116,
-      "end_printed_page": "4",
       "entry_id": "tcu_f38422a0d8dee184",
-      "kind": "unit",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 99,
+        "verbatim_title": "第十七章 欧姆定律"
+      },
+      "kind": "chapter",
       "level": 1,
       "parent_id": null,
       "pdf_page": 99,
       "printed_page": "92",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 220,
-            "x": 45.354,
-            "y": 637.686
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 117,
-          "verbatim_title": "第十八章 电功率"
-        },
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 247.5,
-            "x": 39.327,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 99,
-          "verbatim_title": "第十七章 欧姆定律"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 22,
       "title": "第十七章 欧姆定律",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "92"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 104,
       "entry_id": "tcu_eb7f93d86eee05c1",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 100,
+        "verbatim_title": "第1节 电流与电压、电阻的关系"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_f38422a0d8dee184",
       "pdf_page": 100,
-      "printed_page": "153",
+      "printed_page": "93",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 23,
       "title": "第1节 电流与电压、电阻的关系",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "93"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 107,
       "entry_id": "tcu_018b6907d4902805",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 105,
+        "verbatim_title": "第2节 欧姆定律"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_f38422a0d8dee184",
       "pdf_page": 105,
       "printed_page": "98",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 24,
       "title": "第2节 欧姆定律",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "98"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
+      "end_pdf_page": 111,
+      "entry_id": "tcu_b9fb155293b3f634",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 108,
+        "verbatim_title": "第3节 电阻的测量"
+      },
+      "kind": "section",
+      "level": 2,
+      "parent_id": "tcu_f38422a0d8dee184",
+      "pdf_page": 108,
+      "printed_page": "101",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 25,
+      "title": "第3节 电阻的测量",
+      "toc_pdf_page": 5,
+      "toc_printed_page": "101"
+    },
+    {
+      "confidence": 0.95,
       "end_pdf_page": 116,
       "entry_id": "tcu_feae95d76df91f3d",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 112,
+        "verbatim_title": "第4节 欧姆定律在串、并联电路中的应用"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_f38422a0d8dee184",
       "pdf_page": 112,
-      "printed_page": null,
+      "printed_page": "105",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 25,
+      "source": "printed_toc",
+      "source_order": 26,
       "title": "第4节 欧姆定律在串、并联电路中的应用",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "105"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 133,
-      "end_printed_page": "126",
       "entry_id": "tcu_41e12df64a48373c",
-      "kind": "unit",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 117,
+        "verbatim_title": "第十八章 电功率"
+      },
+      "kind": "chapter",
       "level": 1,
       "parent_id": null,
       "pdf_page": 117,
       "printed_page": "110",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 247.5,
-            "x": 76.748,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 134,
-          "verbatim_title": "第十九章 生活用电"
-        },
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 220,
-            "x": 45.354,
-            "y": 637.686
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 117,
-          "verbatim_title": "第十八章 电功率"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 26,
+      "source": "printed_toc",
+      "source_order": 27,
       "title": "第十八章 电功率",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "110"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
+      "end_pdf_page": 120,
+      "entry_id": "tcu_45a1ff72927b29cd",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 118,
+        "verbatim_title": "第1节 电能 电功"
+      },
+      "kind": "section",
+      "level": 2,
+      "parent_id": "tcu_41e12df64a48373c",
+      "pdf_page": 118,
+      "printed_page": "111",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 28,
+      "title": "第1节 电能 电功",
+      "toc_pdf_page": 5,
+      "toc_printed_page": "111"
+    },
+    {
+      "confidence": 0.95,
       "end_pdf_page": 124,
       "entry_id": "tcu_7df07a637974cd8a",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 121,
+        "verbatim_title": "第2节 电功率"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_41e12df64a48373c",
       "pdf_page": 121,
       "printed_page": "114",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 27,
+      "source": "printed_toc",
+      "source_order": 29,
       "title": "第2节 电功率",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "114"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 126,
       "entry_id": "tcu_fe2226a601eb5b01",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 125,
+        "verbatim_title": "第3节 跨学科实践:为家庭节约用电提建议"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_41e12df64a48373c",
       "pdf_page": 125,
       "printed_page": "118",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 28,
+      "source": "printed_toc",
+      "source_order": 30,
       "title": "第3节 跨学科实践：为家庭节约用电提建议",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "118"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 131,
+      "confidence": 0.95,
+      "end_pdf_page": 133,
       "entry_id": "tcu_870d752291535252",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 127,
+        "verbatim_title": "第4节 焦耳定律"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_41e12df64a48373c",
       "pdf_page": 127,
       "printed_page": "120",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 29,
+      "source": "printed_toc",
+      "source_order": 31,
       "title": "第4节 焦耳定律",
-      "toc_pdf_page": null
+      "toc_pdf_page": 5,
+      "toc_printed_page": "120"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 152,
-      "end_printed_page": "6",
       "entry_id": "tcu_9e27b9e4eae652e0",
-      "kind": "unit",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 134,
+        "verbatim_title": "第十九章 生活用电"
+      },
+      "kind": "chapter",
       "level": 1,
       "parent_id": null,
       "pdf_page": 134,
-      "printed_page": "128",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 220,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 153,
-          "verbatim_title": "第二十章 电与磁"
-        },
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 247.5,
-            "x": 76.748,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 134,
-          "verbatim_title": "第十九章 生活用电"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
+      "printed_page": "127",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 30,
+      "source": "printed_toc",
+      "source_order": 32,
       "title": "第十九章 生活用电",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "127"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 139,
+      "confidence": 0.95,
+      "end_pdf_page": 140,
       "entry_id": "tcu_989cee43b747f014",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 135,
+        "verbatim_title": "第1节 安全用电"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_9e27b9e4eae652e0",
       "pdf_page": 135,
       "printed_page": "128",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 31,
+      "source": "printed_toc",
+      "source_order": 33,
       "title": "第1节 安全用电",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "128"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 145,
+      "confidence": 0.95,
+      "end_pdf_page": 147,
       "entry_id": "tcu_0d922eae08d2559f",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 141,
+        "verbatim_title": "第2节 家庭电路的基本组成"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_9e27b9e4eae652e0",
       "pdf_page": 141,
       "printed_page": "134",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 32,
+      "source": "printed_toc",
+      "source_order": 34,
       "title": "第2节 家庭电路的基本组成",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "134"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 152,
       "entry_id": "tcu_b66b67c8243aa3c1",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 148,
+        "verbatim_title": "第3节 跨学科实践:为家庭电路做设计"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_9e27b9e4eae652e0",
       "pdf_page": 148,
-      "printed_page": null,
+      "printed_page": "141",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 33,
+      "source": "printed_toc",
+      "source_order": 35,
       "title": "第3节 跨学科实践：为家庭电路做设计",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "141"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 180,
-      "end_printed_page": "6",
       "entry_id": "tcu_d1567028767bcb62",
-      "kind": "unit",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 153,
+        "verbatim_title": "第二十章 电与磁"
+      },
+      "kind": "chapter",
       "level": 1,
       "parent_id": null,
       "pdf_page": 153,
       "printed_page": "146",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 357.5,
-            "x": 53.858,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 181,
-          "verbatim_title": "第二十一章 电磁波及其应用"
-        },
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 220,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 153,
-          "verbatim_title": "第二十章 电与磁"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 34,
+      "source": "printed_toc",
+      "source_order": 36,
       "title": "第二十章 电与磁",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "146"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 158,
       "entry_id": "tcu_d297df06e51abcc0",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 154,
+        "verbatim_title": "第1节 磁现象 磁场"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_d1567028767bcb62",
       "pdf_page": 154,
-      "printed_page": "843",
+      "printed_page": "147",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 35,
+      "source": "printed_toc",
+      "source_order": 37,
       "title": "第1节 磁现象 磁场",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "147"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 163,
       "entry_id": "tcu_a148bd7a0fa583ed",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 159,
+        "verbatim_title": "第2节 电生磁"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_d1567028767bcb62",
       "pdf_page": 159,
       "printed_page": "152",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 36,
+      "source": "printed_toc",
+      "source_order": 38,
       "title": "第2节 电生磁",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "152"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 167,
       "entry_id": "tcu_aec9df5da16ab0ac",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 164,
+        "verbatim_title": "第3节 电磁铁 电磁继电器"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_d1567028767bcb62",
       "pdf_page": 164,
-      "printed_page": null,
+      "printed_page": "157",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 37,
+      "source": "printed_toc",
+      "source_order": 39,
       "title": "第3节 电磁铁 电磁继电器",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "157"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 171,
       "entry_id": "tcu_dff23eb7c60e4cf6",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 168,
+        "verbatim_title": "第4节 电动机"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_d1567028767bcb62",
       "pdf_page": 168,
-      "printed_page": null,
+      "printed_page": "161",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 38,
+      "source": "printed_toc",
+      "source_order": 40,
       "title": "第4节 电动机",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "161"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 173,
       "entry_id": "tcu_a423b0fe54f97763",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 172,
+        "verbatim_title": "第5节 跨学科实践:制作简易直流电动机"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_d1567028767bcb62",
       "pdf_page": 172,
-      "printed_page": null,
+      "printed_page": "165",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 39,
+      "source": "printed_toc",
+      "source_order": 41,
       "title": "第5节 跨学科实践：制作简易直流电动机",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "165"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 178,
+      "confidence": 0.95,
+      "end_pdf_page": 180,
       "entry_id": "tcu_20519b02fdc7c044",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 174,
+        "verbatim_title": "第6节 磁生电"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_d1567028767bcb62",
       "pdf_page": 174,
-      "printed_page": null,
+      "printed_page": "167",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 40,
+      "source": "printed_toc",
+      "source_order": 42,
       "title": "第6节 磁生电",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "167"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 194,
-      "end_printed_page": "1",
       "entry_id": "tcu_29ca0d9582c671c6",
-      "kind": "unit",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 181,
+        "verbatim_title": "第二十一章 电磁波及其应用"
+      },
+      "kind": "chapter",
       "level": 1,
       "parent_id": null,
       "pdf_page": 181,
       "printed_page": "174",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 385,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 195,
-          "verbatim_title": "第二十二章 能源与可持续发展"
-        },
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 357.5,
-            "x": 53.858,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 181,
-          "verbatim_title": "第二十一章 电磁波及其应用"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 41,
+      "source": "printed_toc",
+      "source_order": 43,
       "title": "第二十一章 电磁波及其应用",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "174"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 185,
       "entry_id": "tcu_ff7c13d216894653",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 182,
+        "verbatim_title": "第1节 电磁波的海洋"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_29ca0d9582c671c6",
       "pdf_page": 182,
-      "printed_page": null,
+      "printed_page": "175",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 42,
+      "source": "printed_toc",
+      "source_order": 44,
       "title": "第1节 电磁波的海洋",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "175"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 189,
       "entry_id": "tcu_38f958535a6e9f33",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 186,
+        "verbatim_title": "第2节 广播、电视和移动通信"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_29ca0d9582c671c6",
       "pdf_page": 186,
-      "printed_page": null,
+      "printed_page": "179",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 43,
+      "source": "printed_toc",
+      "source_order": 45,
       "title": "第2节 广播、电视和移动通信",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "179"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 194,
       "entry_id": "tcu_48c738c6a2342807",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 190,
+        "verbatim_title": "第3节 卫星通信和光纤通信"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_29ca0d9582c671c6",
       "pdf_page": 190,
-      "printed_page": null,
+      "printed_page": "183",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 44,
+      "source": "printed_toc",
+      "source_order": 46,
       "title": "第3节 卫星通信和光纤通信",
-      "toc_pdf_page": null
+      "toc_pdf_page": 6,
+      "toc_printed_page": "183"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 210,
-      "end_printed_page": null,
+      "confidence": 0.95,
+      "end_pdf_page": 213,
       "entry_id": "tcu_146a1fda5c805bc2",
-      "kind": "unit",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 195,
+        "verbatim_title": "第二十二章 能源与可持续发展"
+      },
+      "kind": "chapter",
       "level": 1,
       "parent_id": null,
       "pdf_page": 195,
       "printed_page": "188",
-      "range_provenance": {
-        "algorithm_version": "sidecar-top-heading-unit-range-v2",
-        "end_evidence": null,
-        "evidence_basis": "sidecar_top_verbatim_title",
-        "provenance": "machine_generated",
-        "publication_gate": false,
-        "review_policy": "automatic_no_human_gate",
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 385,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 195,
-          "verbatim_title": "第二十二章 能源与可持续发展"
-        }
-      },
-      "range_review_policy": "automatic_no_human_gate",
-      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 45,
+      "source": "printed_toc",
+      "source_order": 47,
       "title": "第二十二章 能源与可持续发展",
-      "toc_pdf_page": null
+      "toc_pdf_page": 7,
+      "toc_printed_page": "188"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 200,
       "entry_id": "tcu_079c92446b044893",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 196,
+        "verbatim_title": "第1节 能源利用的现状和面临的挑战"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_146a1fda5c805bc2",
       "pdf_page": 196,
-      "printed_page": null,
+      "printed_page": "189",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 46,
+      "source": "printed_toc",
+      "source_order": 48,
       "title": "第1节 能源利用的现状和面临的挑战",
-      "toc_pdf_page": null
+      "toc_pdf_page": 7,
+      "toc_printed_page": "189"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 205,
+      "confidence": 0.95,
+      "end_pdf_page": 206,
       "entry_id": "tcu_cbf41ab483bd2deb",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 201,
+        "verbatim_title": "第2节 新能源的发展"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_146a1fda5c805bc2",
       "pdf_page": 201,
       "printed_page": "194",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 47,
+      "source": "printed_toc",
+      "source_order": 49,
       "title": "第2节 新能源的发展",
-      "toc_pdf_page": null
+      "toc_pdf_page": 7,
+      "toc_printed_page": "194"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 210,
+      "confidence": 0.95,
+      "end_pdf_page": 213,
       "entry_id": "tcu_679a8aa3df5b5e59",
-      "kind": "lesson",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 207,
+        "verbatim_title": "第3节 跨学科实践:为节约能源设计方案"
+      },
+      "kind": "section",
       "level": 2,
       "parent_id": "tcu_146a1fda5c805bc2",
       "pdf_page": 207,
       "printed_page": "200",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 48,
+      "source": "printed_toc",
+      "source_order": 50,
       "title": "第3节 跨学科实践：为节约能源设计方案",
-      "toc_pdf_page": null
+      "toc_pdf_page": 7,
+      "toc_printed_page": "200"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 218,
+      "entry_id": "tcu_c8cb55735cb3dc7e",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 214,
+        "verbatim_title": "索引"
+      },
+      "kind": "appendix",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 214,
+      "printed_page": "207",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 51,
+      "title": "索引",
+      "toc_pdf_page": 7,
+      "toc_printed_page": "207"
     }
   ],
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
-    "auxiliary_boundary_evidence": null,
-    "changed_unit_range_count": 10,
-    "changes": [
-      {
-        "after": {
-          "end_pdf_page": 25,
-          "pdf_page": 8
-        },
-        "before": {
-          "end_pdf_page": 26,
-          "pdf_page": 9
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 76.367,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 26,
-          "verbatim_title": "第十四章 内能的利用"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 192.5,
-            "x": 76.367,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 8,
-          "verbatim_title": "第十三章 内能"
-        },
-        "title": "第十三章 内能",
-        "unit_id": "tcu_33a921d531e0427f"
-      },
-      {
-        "after": {
-          "end_pdf_page": 45,
-          "pdf_page": 26
-        },
-        "before": {
-          "end_pdf_page": 46,
-          "pdf_page": 27
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 76.367,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 46,
-          "verbatim_title": "第十五章 电流和电路"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 76.367,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 26,
-          "verbatim_title": "第十四章 内能的利用"
-        },
-        "title": "第十四章 内能的利用",
-        "unit_id": "tcu_93d3953e312a1d54"
-      },
-      {
-        "after": {
-          "end_pdf_page": 72,
-          "pdf_page": 46
-        },
-        "before": {
-          "end_pdf_page": 73,
-          "pdf_page": 47
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 73,
-          "verbatim_title": "第十六章 电压 电阻"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 76.367,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 46,
-          "verbatim_title": "第十五章 电流和电路"
-        },
-        "title": "第十五章 电流和电路",
-        "unit_id": "tcu_f6cf5b08bc02522f"
-      },
-      {
-        "after": {
-          "end_pdf_page": 98,
-          "pdf_page": 73
-        },
-        "before": {
-          "end_pdf_page": 99,
-          "pdf_page": 74
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 247.5,
-            "x": 39.327,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 99,
-          "verbatim_title": "第十七章 欧姆定律"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 275,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 73,
-          "verbatim_title": "第十六章 电压 电阻"
-        },
-        "title": "第十六章 电压 电阻",
-        "unit_id": "tcu_ae821fc1436f0899"
-      },
-      {
-        "after": {
-          "end_pdf_page": 116,
-          "pdf_page": 99
-        },
-        "before": {
-          "end_pdf_page": 120,
-          "pdf_page": 100
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 220,
-            "x": 45.354,
-            "y": 637.686
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 117,
-          "verbatim_title": "第十八章 电功率"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 247.5,
-            "x": 39.327,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 99,
-          "verbatim_title": "第十七章 欧姆定律"
-        },
-        "title": "第十七章 欧姆定律",
-        "unit_id": "tcu_f38422a0d8dee184"
-      },
-      {
-        "after": {
-          "end_pdf_page": 133,
-          "pdf_page": 117
-        },
-        "before": {
-          "end_pdf_page": 134,
-          "pdf_page": 121
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 247.5,
-            "x": 76.748,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 134,
-          "verbatim_title": "第十九章 生活用电"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 220,
-            "x": 45.354,
-            "y": 637.686
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 117,
-          "verbatim_title": "第十八章 电功率"
-        },
-        "title": "第十八章 电功率",
-        "unit_id": "tcu_41e12df64a48373c"
-      },
-      {
-        "after": {
-          "end_pdf_page": 152,
-          "pdf_page": 134
-        },
-        "before": {
-          "end_pdf_page": 153,
-          "pdf_page": 135
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 220,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 153,
-          "verbatim_title": "第二十章 电与磁"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 247.5,
-            "x": 76.748,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 134,
-          "verbatim_title": "第十九章 生活用电"
-        },
-        "title": "第十九章 生活用电",
-        "unit_id": "tcu_9e27b9e4eae652e0"
-      },
-      {
-        "after": {
-          "end_pdf_page": 180,
-          "pdf_page": 153
-        },
-        "before": {
-          "end_pdf_page": 181,
-          "pdf_page": 154
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 357.5,
-            "x": 53.858,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 181,
-          "verbatim_title": "第二十一章 电磁波及其应用"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 220,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 153,
-          "verbatim_title": "第二十章 电与磁"
-        },
-        "title": "第二十章 电与磁",
-        "unit_id": "tcu_d1567028767bcb62"
-      },
-      {
-        "after": {
-          "end_pdf_page": 194,
-          "pdf_page": 181
-        },
-        "before": {
-          "end_pdf_page": 195,
-          "pdf_page": 182
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 385,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 195,
-          "verbatim_title": "第二十二章 能源与可持续发展"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 357.5,
-            "x": 53.858,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 181,
-          "verbatim_title": "第二十一章 电磁波及其应用"
-        },
-        "title": "第二十一章 电磁波及其应用",
-        "unit_id": "tcu_29ca0d9582c671c6"
-      },
-      {
-        "after": {
-          "end_pdf_page": 210,
-          "pdf_page": 195
-        },
-        "before": {
-          "end_pdf_page": 210,
-          "pdf_page": 196
-        },
-        "end_evidence": null,
-        "start_evidence": {
-          "bbox": {
-            "height": 27.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 385,
-            "x": 53.5,
-            "y": 637.654
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 195,
-          "verbatim_title": "第二十二章 能源与可持续发展"
-        },
-        "title": "第二十二章 能源与可持续发展",
-        "unit_id": "tcu_146a1fda5c805bc2"
-      }
-    ],
-    "clamped_content_node_range_count": 1,
-    "detached_auxiliary_content_node_count": 0,
+    "changes": [],
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
-    "exact_unit_heading_evidence_count": 10,
     "inspected_page_count": 218,
     "provenance": "machine_generated",
     "publication_gate": false,
-    "reassigned_content_node_count": 384,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 1,
     "sidecar_sha256": "c90a0563a68b5b51bd9e6bbbaf4af9bcdb0493abaa810fc0bd97b447fdb76114",
     "source_asset_sha256": "2ac4673d7a58f7c41876581413bcd95cff9e95d72bb62f1b75d8dfee48d488a6",
-    "status": "reconciled",
-    "top_level_unit_count": 10,
-    "top_line_limit": 4
+    "status": "no_top_level_units"
   }
 }

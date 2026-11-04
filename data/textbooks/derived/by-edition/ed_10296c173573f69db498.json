@@ -458,7 +458,7 @@
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
-    "reconciled_unit_range_count": 0,
+    "reconciled_unit_range_count": 2,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/7e0e76e739c7ac65013c7eb9bfad0f7ef632b2d05cc8d5a1d0970c4b93aab18b/pages.jsonl",
@@ -6876,7 +6876,7 @@
       ],
       "units": 0
     },
-    "reused_entry_id_count": 0,
+    "reused_entry_id_count": 8,
     "review_policy": "automatic_no_human_gate",
     "unverified_entries": []
   },
@@ -7337,8 +7337,97 @@
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
     "auxiliary_boundary_evidence": null,
-    "changed_unit_range_count": 0,
-    "changes": [],
+    "changed_unit_range_count": 2,
+    "changes": [
+      {
+        "after": {
+          "end_pdf_page": 20,
+          "pdf_page": 13
+        },
+        "before": {
+          "end_pdf_page": 19,
+          "pdf_page": 13
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 50.804,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 220.595,
+            "x": 98.681,
+            "y": 610.155
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 21,
+          "verbatim_title": "3 圆柱与圆锥"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 50.804,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 252.095,
+            "x": 98.681,
+            "y": 610.155
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 13,
+          "verbatim_title": "2 百分数(二)"
+        },
+        "title": "2 百分数（二）",
+        "unit_id": "tcu_7c3c5b13eb77e989"
+      },
+      {
+        "after": {
+          "end_pdf_page": 71,
+          "pdf_page": 43
+        },
+        "before": {
+          "end_pdf_page": 69,
+          "pdf_page": 43
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 50.804,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 378.095,
+            "x": 110.728,
+            "y": 610.155
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 72,
+          "verbatim_title": "5 数学广角—鸽巢问题"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 50.804,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 126.095,
+            "x": 98.681,
+            "y": 610.155
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 43,
+          "verbatim_title": "4 比例"
+        },
+        "title": "4 比例",
+        "unit_id": "tcu_fbeac36bd86a4f73"
+      }
+    ],
     "clamped_content_node_range_count": 0,
     "detached_auxiliary_content_node_count": 0,
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",

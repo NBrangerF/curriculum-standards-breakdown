@@ -86,9 +86,9 @@
     "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
     "highest_evidence_level": "L3_page_evidence",
-    "page_evidence_count": 3,
+    "page_evidence_count": 4,
     "scope_count": 2,
-    "specific_count": 3,
+    "specific_count": 4,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
@@ -200,6 +200,61 @@
       "textbook_title": "语文7年级下册",
       "textbook_volume": "下册",
       "unit_id": "tcu_faf230ee82445377",
+      "unit_title": "第一单元"
+    },
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_6aba88bef39c0304",
+      "alignment_type": "supports",
+      "confidence": 0.8314,
+      "coverage": "partial",
+      "edition_id": "ed_eb285566d0326b76eb6b",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_chinese_junior_grade_7_up",
+        "tes_f73074a28e40a209",
+        "textbook-node:tcn_b587ee4716d861b6",
+        "textbook-unit:tcu_0a38ca7b1b657095"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "这是一篇散文,又像一首诗。朗读课文,",
+          "excerpt_hash": "ff6dc168c360e0ace84e14c4e9fced52d2a3c035dc4a93e9c497b3c3b34c6747",
+          "pdf_page": 9,
+          "printed_page": "2",
+          "span_id": "tes_f73074a28e40a209"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_fb9390d942bee4c0"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_fb9390d942bee4c0",
+          "label": "用普通话正确、流利、有感情地朗读"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_b587ee4716d861b6",
+      "node_title": "这是一篇散文,又像一首诗。朗读课文,",
+      "pdf_page": 9,
+      "printed_page": "2",
+      "publication_status": "published",
+      "rationale": "教材学习目标“这是一篇散文,又像一首诗。朗读课文,”与课标 CN-H4G7-RE-002 的可教学小能力“用普通话正确、流利、有感情地朗读”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 7,
+      "textbook_subject": "语文",
+      "textbook_title": "语文7年级上册",
+      "textbook_volume": "上册",
+      "unit_id": "tcu_0a38ca7b1b657095",
       "unit_title": "第一单元"
     },
     {

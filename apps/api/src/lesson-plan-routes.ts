@@ -31,7 +31,6 @@ type NationalFile = { edition_id: string, platform_title: string, confidence: st
 // a lesson the picker offers: a 国家平台 lesson, or (toc) an entry of the book's own 目录 that the platform list lacks
 type BookLesson = NationalLesson & { toc?: true }
 type LessonList = { platform: NationalFile | null, lessons: BookLesson[] }
-type TocEntry = { entry_id: string, kind: string, parent_id?: string | null, title: string, pdf_page?: number | null, end_pdf_page?: number | null }
 type ConceptsFile = { subjects: Array<SubjectNote & { slug: string, name: string, terms: string[] }>, terms: Array<{ id: string, term: string }> }
 // kebiao 知识图谱 (scripts/v2/build_knowledge_graph.mjs): each 要点 with its 年级 column, and 要先会 lines [from, to, reason]
 type GraphFile = {
@@ -94,71 +93,6 @@ function canonicalLessons(lessons: NationalLesson[]) {
         else out.push({ id: lesson.id, title, section: lesson.chapters.at(-1) || null, pdf_page: lesson.pdf_page, hours })
     }
     return out
-}
-
-const NUMERALS = '一二三四五六七八九'
-const digit = (char: string) => NUMERALS.indexOf(char) + 1
-// 二十七 is 27, 十二 is 12
-function numberOf(text: string) {
-    if (/^\d+$/u.test(text)) return Number(text)
-    const at = text.indexOf('十')
-    if (at < 0) return digit(text)
-    const ones = text.slice(at + 1)
-    return (at === 0 ? 1 : digit(text.slice(0, at))) * 10 + (ones ? digit(ones) : 0)
-}
-const ORDINAL = /^(?:第\s*([一二三四五六七八九十\d]+)\s*(?:单元|章|部分|模块|主题)|([一二三四五六七八九十]+)\s*[、.．]|(\d+)[\s、.．]|unit\s*(\d+))/iu
-const ordinalOf = (title: string) => {
-    const match = title.trim().match(ORDINAL)
-    const value = match?.[1] || match?.[2] || match?.[3] || match?.[4]
-    return value ? numberOf(value) : null
-}
-// a 目录 unit named only by its number (美术 「第一单元」) says nothing to plan from
-const BARE_UNIT = /^(?:第\s*[一二三四五六七八九十\d]+\s*(?:单元|章|部分|模块|主题)|unit\s*\d+)$/iu
-const plain = (title: string) => title.replace(/[\s\p{P}\p{S}]/gu, '').toLowerCase()
-// a platform chapter and a 目录 unit are the same unit: same number (「第一单元 古代亚非文明」, 「第一单元 文明的产生和古代亚非文明」)
-// or one name holds the other (「第一单元 坚持党的全面领导」, 「坚持党的全面领导」)
-function sameUnit(chapter: string, unit: string) {
-    const number = ordinalOf(chapter)
-    if (number && number === ordinalOf(unit)) return true
-    const [a, b] = [plain(chapter), plain(unit)]
-    return a.length >= 2 && b.length >= 2 && (a.includes(b) || b.includes(a))
-}
-
-// What the book's own 目录 adds to the 国家平台 list (语文5上 lists only 第一单元's four lessons). A unit no platform lesson
-// falls in comes from the 目录 whole. A unit the platform has gets the 目录 lessons it misses, but only when every platform
-// lesson of that unit is linked to an entry of the 目录; otherwise the two name lessons too differently to tell what is
-// missing (人教 数学 「约分（第一课时）」 against the 目录's 「约分」).
-export function tocLessons(platform: NationalLesson[], toc: TocEntry[]): BookLesson[] {
-    const children = new Map<string, TocEntry[]>()
-    for (const entry of toc) if (entry.parent_id) children.set(entry.parent_id, [...(children.get(entry.parent_id) || []), entry])
-    const below = (entry: TocEntry): string[] => [entry.entry_id, ...(children.get(entry.entry_id) || []).flatMap(below)]
-    const linked = new Set(platform.map(item => item.unit_id).filter(Boolean))
-    const chapters = [...new Set(platform.map(item => item.chapters[0]).filter(Boolean))]
-    const fromToc = (entry: TocEntry, chapter: string): BookLesson => ({ id: entry.entry_id, title: entry.title, chapters: [chapter], pdf_page: entry.pdf_page ?? null, unit_id: entry.entry_id, materials: [], hours: 1, toc: true })
-    const out: BookLesson[] = []
-    for (const unit of toc.filter(entry => !entry.parent_id && ['unit', 'chapter'].includes(entry.kind))) {
-        const ids = new Set(below(unit))
-        const first = unit.pdf_page || 0
-        const last = unit.end_pdf_page || first
-        const parts = (children.get(unit.entry_id) || []).filter(entry => entry.kind !== 'appendix')
-        const onPlatform = platform.some(item => (item.unit_id && ids.has(item.unit_id)) || (first && item.pdf_page && item.pdf_page >= first && item.pdf_page <= last))
-        if (!onPlatform && !chapters.some(name => sameUnit(name, unit.title))) {
-            // its lessons, or the unit itself when the 目录 lists none under it
-            if (parts.length) out.push(...parts.map(entry => fromToc(entry, unit.title)))
-            else if (!BARE_UNIT.test(unit.title.trim())) out.push(fromToc(unit, unit.title))
-            continue
-        }
-        const chapter = platform.find(item => item.unit_id && ids.has(item.unit_id))?.chapters[0]
-        const same = platform.filter(item => chapter && item.chapters[0] === chapter)
-        if (!chapter || !same.every(item => item.unit_id && ids.has(item.unit_id))) continue
-        const titles = new Set(same.map(item => plain(cleanTitle(item.title))))
-        for (const entry of parts) {
-            if (below(entry).some(id => linked.has(id)) || titles.has(plain(cleanTitle(entry.title)))) continue
-            out.push(fromToc(entry, chapter))
-        }
-    }
-    // one entry (美术8上 has only its theme page) is not a 目录 to pick lessons from
-    return platform.length || out.length > 1 ? out : []
 }
 
 export const DraftRequestSchema = BaseRequestSchema.extend({
@@ -231,17 +165,12 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         return files.get(file) as Promise<T | null>
     }
     const nationalFile = (edition: string) => (/^ed_[0-9a-f]+$/u.test(edition) ? readData<NationalFile>(`textbooks/national-lessons/${edition}.json`) : Promise.resolve(null))
-    // the lessons a teacher picks from: the 国家平台 list, then what the book's own 目录 has and the list lacks
-    const lessonLists = new Map<string, Promise<LessonList | null>>()
-    const lessonList = (edition: string): Promise<LessonList | null> => {
-        if (!/^ed_[0-9a-f]+$/u.test(edition)) return Promise.resolve(null)
-        if (!lessonLists.has(edition)) {
-            lessonLists.set(edition, Promise.all([nationalFile(edition), textbookRepository.get(edition).catch(() => null)]).then(([platform, record]) => {
-                const lessons = [...(platform?.lessons || []), ...tocLessons(platform?.lessons || [], (record as { toc?: TocEntry[] } | null)?.toc || [])]
-                return platform || lessons.length ? { platform, lessons } : null
-            }))
-        }
-        return lessonLists.get(edition) as Promise<LessonList | null>
+    // the lessons a teacher picks from: the 国家平台 list and the lessons of the book's own 目录 it lacks
+    // (scripts/resources/toc_lessons.mjs writes them into the file, `toc: true`; a book with no platform list has only those)
+    const lessonList = async (edition: string): Promise<LessonList | null> => {
+        const file = await nationalFile(edition)
+        if (!file?.lessons?.length) return null
+        return { platform: file.platform_title ? file : null, lessons: file.lessons }
     }
 
     async function subjectNote(slug: string) {

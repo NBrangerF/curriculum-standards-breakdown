@@ -81,16 +81,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "page_aligned",
+    "evidence_note": "已有教材正文、任务或练习的页内证据；关系由机器自动生成并附带原文定位、证据哈希和置信度。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
-    "page_evidence_count": 0,
+    "highest_evidence_level": "L3_page_evidence",
+    "page_evidence_count": 1,
     "scope_count": 2,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_a7b5469528d7393d",
+      "alignment_type": "practices",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f8159854e52a9dd85942",
+      "evidence_basis": "textbook_page_span",
+      "evidence_gap": null,
+      "evidence_level": "L3_page_evidence",
+      "evidence_refs": [
+        "external_smartedu_2026_math_junior_grade_8_down",
+        "tes_b3fd1d03fdeeed96",
+        "textbook-node:tcn_caecdeb5a9d3883a",
+        "textbook-unit:tcu_9911aa3e8fdd4a1f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "计算它们的平均数和方差 (结果保留小数点后两位),比较这两种股票在这段时间内的涨、跌变化情况.8.甲、乙两门大炮在相同条件下向同一目标各发射50发炮弹,炮弹落点情况如下",
+          "excerpt_hash": "bcaeaa66fdfe523a2ed2d6a7a10e0d16421f15ac477b0c93f396f0635e087e45",
+          "pdf_page": 198,
+          "printed_page": "191",
+          "span_id": "tes_b3fd1d03fdeeed96"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_c6b8085ba4f6f261"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_c6b8085ba4f6f261",
+          "label": "结合图象分析函数关系并初步讨论变量变化情况"
+        }
+      ],
+      "level": "page",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_caecdeb5a9d3883a",
+      "node_title": "计算它们的平均数和方差 (结果保留小数点后两位),比较这两种股票在这段时间内的涨、跌变化情况.8.甲、乙两门大炮在相同条件下向同一目标各发射50发炮弹,炮弹落点情况如下",
+      "pdf_page": 198,
+      "printed_page": "191",
+      "publication_status": "published",
+      "rationale": "教材练习“计算它们的平均数和方差 (结果保留小数点后两位),比较这两种股票在这段时间内的涨、跌变化情况.8.甲、乙两门大炮在相同条件下向同一目标各发射50发炮弹,炮弹落点情况如下”与课标 MA-H4G8-AL-020 的可教学小能力“结合图象分析函数关系并初步讨论变量变化情况”形成页内证据匹配。",
+      "relation_type": "practices",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "current_confirmed",
+      "textbook_grade": 8,
+      "textbook_subject": "数学",
+      "textbook_title": "数学8年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_9911aa3e8fdd4a1f",
+      "unit_title": "第二十四章 数据的分析"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_014def49864fca25",

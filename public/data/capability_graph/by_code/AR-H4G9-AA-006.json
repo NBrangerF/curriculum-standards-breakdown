@@ -118,16 +118,71 @@
   ],
   "curriculum_alignment_summary": {
     "candidate_count": 0,
-    "disposition": "scope_aligned_no_unit_evidence",
-    "evidence_note": "已关联适用教材范围，但尚无可靠单元级页内证据。",
+    "disposition": "unit_aligned",
+    "evidence_note": "已有公开单元主题关系；仍需教材正文、练习或教师用书的页内证据，才能提升到可教学落实。",
     "gap_reason": null,
-    "highest_evidence_level": "L1_scope",
+    "highest_evidence_level": "L2_topic",
     "page_evidence_count": 0,
     "scope_count": 4,
-    "specific_count": 0,
+    "specific_count": 1,
     "unit_topic_candidate_count": 0
   },
   "curriculum_alignments": [
+    {
+      "algorithm_version": "component-evidence-hybrid-v3",
+      "alignment_id": "tca_35a0cfc032211fca",
+      "alignment_type": "supports",
+      "confidence": 0.86,
+      "coverage": "partial",
+      "edition_id": "ed_f38852db089654f91a93",
+      "evidence_basis": "toc_title",
+      "evidence_gap": "当前证据来自目录标题与课标概念匹配，尚未保存教材正文或练习摘录；因此只能声明主题支持，不能声明完整教授。",
+      "evidence_level": "L2_topic",
+      "evidence_refs": [
+        "ctb_a5e1ff65cd5c",
+        "tes_3a0b256cd0fc81d4",
+        "textbook-node:tcn_3e024a5261b23cdc",
+        "textbook-unit:tcu_e6b4c25aec0c251f"
+      ],
+      "evidence_role": "direct_textbook",
+      "evidence_spans": [
+        {
+          "evidence_role": "direct_textbook",
+          "excerpt": "1.陶艺作品在生活中的作用与",
+          "excerpt_hash": "dedd7d72155188433220207cc503b462c7d08ed355312d58cb2e587a8891d29a",
+          "pdf_page": 30,
+          "printed_page": "26",
+          "span_id": "tes_3a0b256cd0fc81d4"
+        }
+      ],
+      "learning_component_ids": [
+        "lc_cd7ba169ecf8930e"
+      ],
+      "learning_components": [
+        {
+          "component_id": "lc_cd7ba169ecf8930e",
+          "label": "根据情感表达或交流需要在生活中选用合适的音乐"
+        }
+      ],
+      "level": "unit",
+      "method": "component_evidence_hybrid",
+      "node_id": "tcn_3e024a5261b23cdc",
+      "node_title": "1陶艺作品在生活中的作用与",
+      "pdf_page": 30,
+      "printed_page": "26",
+      "publication_status": "published",
+      "rationale": "教材课文“1陶艺作品在生活中的作用与”与课标 AR-H4G9-AA-006 的可教学小能力“根据情感表达或交流需要在生活中选用合适的音乐”形成页内证据匹配。",
+      "relation_type": "supports",
+      "resource_type": "student_textbook",
+      "review_status": "machine_checked",
+      "revision_status": "revision_unknown",
+      "textbook_grade": 9,
+      "textbook_subject": "美术",
+      "textbook_title": "美术9年级下册",
+      "textbook_volume": "下册",
+      "unit_id": "tcu_e6b4c25aec0c251f",
+      "unit_title": "7. 陶艺创作"
+    },
     {
       "algorithm_version": "full-alignment-scope-preserve-v2",
       "alignment_id": "ca_da62113499373f7a",

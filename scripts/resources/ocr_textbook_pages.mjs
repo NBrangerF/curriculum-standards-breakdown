@@ -2,7 +2,7 @@
 // generated/smartedu/page-ocr/<edition>.jsonl ({ pdf_page, text } per line), so the lesson evidence for
 // 教材与课标对应 (build_lesson_evidence.mjs) can quote the book. Needs Ghostscript (gs), Swift and the textbook drive.
 // Resumes where it stopped. --shard i/n splits the books between parallel runs.
-//   node scripts/resources/ocr_textbook_pages.mjs --shard 0/3
+//   node scripts/resources/ocr_textbook_pages.mjs --shard 0/3   (or --edition ed_… for books with no 国家平台 lessons)
 import { execFileSync } from 'node:child_process'
 import { appendFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
@@ -23,7 +23,9 @@ const CHUNK = 12
 const BIN = path.join(ROOT, 'generated/smartedu/vision_ocr')
 if (!existsSync(BIN)) execFileSync('swiftc', ['-O', path.join(ROOT, 'scripts/grade7_9/vision_ocr.swift'), '-o', BIN])
 
-const books = readdirSync(path.join(ROOT, 'data/textbooks/smartedu')).filter(name => name.startsWith('ed_')).sort()
+// --edition ed_… (repeatable) reads those books even when they have no 国家平台 lessons
+const only = process.argv.flatMap((value, index) => (value === '--edition' ? [process.argv[index + 1]] : []))
+const books = only.length ? only.map(id => ({ edition_id: id, textbook_title: id })) : readdirSync(path.join(ROOT, 'data/textbooks/smartedu')).filter(name => name.startsWith('ed_')).sort()
     .map(name => JSON.parse(readFileSync(path.join(ROOT, 'data/textbooks/smartedu', name), 'utf8')))
 const objects = new Map()
 for (const line of readFileSync(registry, 'utf8').split('\n').filter(Boolean)) {
@@ -34,7 +36,8 @@ const scanned = books.filter(book => {
     let pages = []
     try { pages = pagesFor(registry, book.edition_id) || [] } catch { pages = [] }
     const withText = pages.filter(page => String(page.text || '').replace(/\s/gu, '').length > 80).length
-    return objects.has(book.edition_id) && (!pages.length || withText < pages.length * 0.5)
+    // a book named with --edition is read even when it has text (Tesseract's, which misses headings)
+    return objects.has(book.edition_id) && (only.length > 0 || !pages.length || withText < pages.length * 0.5)
 }).filter((_, index) => index % shards === shard)
 
 mkdirSync(OUT, { recursive: true })

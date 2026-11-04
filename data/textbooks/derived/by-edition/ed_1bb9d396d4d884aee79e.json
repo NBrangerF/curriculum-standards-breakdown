@@ -1281,7 +1281,7 @@
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
-    "reconciled_unit_range_count": 0,
+    "reconciled_unit_range_count": 2,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/657e1547074668dbb50f2bf37f13c20f292127be64c26c5334190aa34d06de83/pages.jsonl",
@@ -7511,7 +7511,7 @@
       ],
       "units": 0
     },
-    "reused_entry_id_count": 0,
+    "reused_entry_id_count": 11,
     "review_policy": "automatic_no_human_gate",
     "unverified_entries": []
   },
@@ -8134,8 +8134,97 @@
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
     "auxiliary_boundary_evidence": null,
-    "changed_unit_range_count": 0,
-    "changes": [],
+    "changed_unit_range_count": 2,
+    "changes": [
+      {
+        "after": {
+          "end_pdf_page": 49,
+          "pdf_page": 23
+        },
+        "before": {
+          "end_pdf_page": 48,
+          "pdf_page": 23
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 50.804,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 315.095,
+            "x": 107.185,
+            "y": 610.155
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 50,
+          "verbatim_title": "4 分数的意义和性质"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 50.804,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 283.595,
+            "x": 98.681,
+            "y": 610.155
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 23,
+          "verbatim_title": "3 长方体和正方体"
+        },
+        "title": "3 长方体和正方体",
+        "unit_id": "tcu_3ac7b8b222f3dad2"
+      },
+      {
+        "after": {
+          "end_pdf_page": 108,
+          "pdf_page": 94
+        },
+        "before": {
+          "end_pdf_page": 106,
+          "pdf_page": 94
+        },
+        "end_evidence": {
+          "bbox": {
+            "height": 50.804,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 220.595,
+            "x": 98.681,
+            "y": 610.155
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 109,
+          "verbatim_title": "7 折线统计图"
+        },
+        "start_evidence": {
+          "bbox": {
+            "height": 50.804,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 315.095,
+            "x": 107.185,
+            "y": 610.155
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 94,
+          "verbatim_title": "6 分数的加法和减法"
+        },
+        "title": "6 分数的加法和减法",
+        "unit_id": "tcu_2ef6efda96f97ed9"
+      }
+    ],
     "clamped_content_node_range_count": 0,
     "detached_auxiliary_content_node_count": 0,
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",

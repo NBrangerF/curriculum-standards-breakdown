@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { FileCurriculumRepository } from '@curriculum/core'
 import { createApp } from '../src/app.js'
-import { tocLessons } from '../src/lesson-plan-routes.js'
+import { tocLessons } from '../../../scripts/resources/toc_lessons.mjs'
 import { checkPlan, checkPractice, checkTest, classroomChecks, fitHours, fitMinutes, limitsOf, orgOf, sanitiseProcess, splitTest, type DraftInput, type Frame, type Process } from '../src/lesson-plan.js'
 
 const publicDataRoot = resolve(process.cwd(), '../../public/data')
@@ -792,6 +792,9 @@ test('the book\'s 目录 fills what the 国家平台 list lacks: a missing unit 
     assert.deepEqual(tocLessons([{ id: 'p3', title: '配方法', chapters: ['第二十五章 概率初步'], pdf_page: null, unit_id: null, materials: [], hours: 1 }], chapters).map(item => item.id), ['c27.1'])
     // one entry is not a 目录 to pick from
     assert.deepEqual(tocLessons([], [{ entry_id: 'u9', kind: 'unit', parent_id: null, title: '书法和篆刻的魅力', pdf_page: 6, end_pdf_page: 6 }, ...toc.filter(entry => entry.entry_id === 'u4')]), [])
+    // a 目录 with no units (美术 常锐伦): its top-level lessons the platform lacks, not the appendix
+    const flat = [{ entry_id: 'f1', kind: 'lesson', parent_id: null, title: '1. 鸢尾花', pdf_page: 5, end_pdf_page: 6 }, { entry_id: 'f2', kind: 'lesson', parent_id: null, title: '2. 色彩的和谐', pdf_page: 7, end_pdf_page: 8 }, { entry_id: 'f3', kind: 'appendix', parent_id: null, title: '知识链接', pdf_page: 9 }]
+    assert.deepEqual(tocLessons([{ id: 'p9', title: '鸢尾花', chapters: [], pdf_page: 5, unit_id: null, materials: [], hours: 1 }], flat).map(item => [item.id, item.chapters.length]), [['f2', 0]])
 })
 
 const TOC_IP = '203.0.113.46'

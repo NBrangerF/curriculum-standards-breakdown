@@ -24,6 +24,8 @@ const LIMIT = { stem: 70, option: 26, work: 34, right: 44, ladderQ: 56, ladderA:
 
 const readJson = file => JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'))
 const squash = text => String(text).replace(/[\s、，,（）()·—\-－]/gu, '')
+// a unit name: widths, quotes and marks differ between a 目录 and a question (We’re / We're, Different? / Different？)
+const unitKey = text => String(text).normalize('NFKC').replace(/[\s\p{P}\p{S}]/gu, '').toLowerCase()
 // lesson titles also drop the 选读 star and "3." numbering dots
 const lessonKey = text => squash(text).replace(/[*＊.．]/gu, '')
 export const widthOf = text => [...String(text)].reduce((sum, char) => sum + (/[\u0000-ɏ -⁯]/u.test(char) ? 0.55 : 1), 0)
@@ -62,7 +64,8 @@ export function libraryBooks(subject) {
             syncLessons = all.filter(node => node.source === 'smartedu_sync_lessons' && !TOP_KINDS.has(node.kind)).map(node => node.title)
             const toc = all.filter(node => node.source !== 'smartedu_sync_lessons')
             if (toc.length >= 3) printed = {
-                units: toc.filter(node => TOP_KINDS.has(node.kind)).map(node => node.title),
+                // a top-level entry that is not an appendix is a unit of the book too (数学 「时间在哪里」, 物理 「开启科学探索之旅」)
+                units: toc.filter(node => TOP_KINDS.has(node.kind) || (!node.parent_id && node.kind !== 'appendix')).map(node => node.title),
                 lessons: toc.filter(node => !TOP_KINDS.has(node.kind) && node.kind !== 'appendix').map(node => node.title),
                 titles: toc.map(node => node.title)
             }
@@ -171,7 +174,7 @@ export function checkSubject(subject) {
             // where it sits in the book (or the 学段's 任务群/模块)
             let unitOrder = 999
             if (units) {
-                const unit = units.find(title => squash(title).includes(squash(item.unit)))
+                const unit = units.find(title => unitKey(title).includes(unitKey(item.unit)))
                 if (!unit) err(`unit "${item.unit}" is not one of: ${units.join(' / ')}`)
                 else {
                     covered.add(unit)

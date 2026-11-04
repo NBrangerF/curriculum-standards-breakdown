@@ -655,7 +655,7 @@
   ],
   "audit": {
     "approved_page_map_count": 125,
-    "approved_toc_entry_count": 40,
+    "approved_toc_entry_count": 62,
     "candidate_toc_entry_count": 0,
     "machine_checked_toc_entry_count": 0,
     "numeric_page_offset": 5,
@@ -673,8 +673,8 @@
     "algorithm_version": "component-evidence-hybrid-v3",
     "alignment_count": 11,
     "automatic_content_unit_count": 0,
-    "content_node_count": 317,
-    "evidence_span_count": 147,
+    "content_node_count": 330,
+    "evidence_span_count": 138,
     "generated_alignment_count": 11,
     "native_text_ratio": 1,
     "ocr_page_count": 0,
@@ -683,7 +683,7 @@
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
-    "reconciled_unit_range_count": 5,
+    "reconciled_unit_range_count": 0,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683/pages.jsonl",
@@ -838,7 +838,7 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 23,
       "end_printed_page": "18",
       "evidence_span_ids": [],
@@ -857,15 +857,15 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 11,
+      "confidence": 0.95,
+      "end_pdf_page": 12,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_a011b11f1fb84f1e",
       "parent_id": "tcn_50486030ea99d89c",
       "pdf_page": 7,
-      "pdf_page_end": 11,
+      "pdf_page_end": 12,
       "pdf_page_start": 7,
       "printed_page": "2",
       "review_status": "approved",
@@ -962,16 +962,16 @@
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 12,
+      "end_pdf_page": 14,
       "end_printed_page": "7",
       "evidence_span_ids": [
         "tes_35c48cb4065e3ace"
       ],
       "kind": "activity",
       "node_id": "tcn_61e0c153569bfc0b",
-      "parent_id": "tcn_50486030ea99d89c",
+      "parent_id": "tcn_a011b11f1fb84f1e",
       "pdf_page": 12,
-      "pdf_page_end": 12,
+      "pdf_page_end": 14,
       "pdf_page_start": 12,
       "printed_page": "7",
       "review_status": "machine_checked",
@@ -1047,7 +1047,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_970657846a4af6d8",
-      "parent_id": "tcn_50486030ea99d89c",
+      "parent_id": "tcn_a011b11f1fb84f1e",
       "pdf_page": 12,
       "pdf_page_end": 12,
       "pdf_page_start": 12,
@@ -1058,24 +1058,23 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 14,
-      "end_printed_page": "8",
-      "evidence_span_ids": [
-        "tes_50d6cb45f819c075"
-      ],
+      "confidence": 0.95,
+      "end_pdf_page": 15,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_ca29facf2989c901",
+      "node_id": "tcn_814b7ff1df89221e",
       "parent_id": "tcn_50486030ea99d89c",
       "pdf_page": 13,
-      "pdf_page_end": 14,
+      "pdf_page_end": 15,
       "pdf_page_start": 13,
       "printed_page": "8",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "2 腊八粥",
-      "title": "2腊八粥",
-      "unit_id": "tcu_a30d04dceec87988"
+      "title": "2 腊八粥",
+      "toc_entry_id": "tcu_2d729f710ef33c4a",
+      "unit_id": "tcu_2d729f710ef33c4a"
     },
     {
       "confidence": 0.98,
@@ -1084,7 +1083,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_00efcf9cad4065c6",
-      "parent_id": "tcn_50486030ea99d89c",
+      "parent_id": "tcn_814b7ff1df89221e",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -1101,7 +1100,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6019d8f4e7085e93",
-      "parent_id": "tcn_50486030ea99d89c",
+      "parent_id": "tcn_814b7ff1df89221e",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -1120,7 +1119,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_729d0549a90b7a2f",
-      "parent_id": "tcn_ca29facf2989c901",
+      "parent_id": "tcn_61e0c153569bfc0b",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -1140,7 +1139,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_b9a8fb194c02c901",
-      "parent_id": "tcn_50486030ea99d89c",
+      "parent_id": "tcn_814b7ff1df89221e",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -1158,7 +1157,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_aecf302de6d5e9d7",
-      "parent_id": "tcn_50486030ea99d89c",
+      "parent_id": "tcn_814b7ff1df89221e",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -1169,24 +1168,23 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 16,
-      "end_printed_page": "11",
-      "evidence_span_ids": [
-        "tes_a5de5bdb7bcd7b3d"
-      ],
+      "confidence": 0.95,
+      "end_pdf_page": 17,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_04a7627c141a1840",
-      "parent_id": "tcn_8d3e77f2fe823e74",
+      "node_id": "tcn_1212a7b84bbddbf3",
+      "parent_id": "tcn_50486030ea99d89c",
       "pdf_page": 16,
-      "pdf_page_end": 16,
+      "pdf_page_end": 17,
       "pdf_page_start": 16,
       "printed_page": "11",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "3 古诗三首",
-      "title": "3古诗三首",
-      "unit_id": "tcu_a30d04dceec87988"
+      "title": "3 古诗三首",
+      "toc_entry_id": "tcu_6e29238f8d13d273",
+      "unit_id": "tcu_6e29238f8d13d273"
     },
     {
       "confidence": 0.9,
@@ -1209,25 +1207,6 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 16,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_8d3e77f2fe823e74",
-      "parent_id": "tcn_50486030ea99d89c",
-      "pdf_page": 16,
-      "pdf_page_end": 16,
-      "pdf_page_start": 16,
-      "printed_page": "11",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "寒食",
-      "title": "寒食",
-      "toc_entry_id": "tcu_16382ab9daaf5b69",
-      "unit_id": "tcu_16382ab9daaf5b69"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 16,
       "end_printed_page": "11",
@@ -1243,6 +1222,44 @@
       "source": "pdfjs_text_layer",
       "title": "PDF 第 16 页",
       "unit_id": "tcu_a30d04dceec87988"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 16,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_8d3e77f2fe823e74",
+      "parent_id": null,
+      "pdf_page": 16,
+      "pdf_page_end": 16,
+      "pdf_page_start": 16,
+      "printed_page": "11",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "寒食",
+      "title": "寒食",
+      "toc_entry_id": "tcu_16382ab9daaf5b69",
+      "unit_id": "tcu_16382ab9daaf5b69"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 16,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_e672ff2d8289891a",
+      "parent_id": null,
+      "pdf_page": 16,
+      "pdf_page_end": 16,
+      "pdf_page_start": 16,
+      "printed_page": "11",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "迢迢牵牛星",
+      "title": "迢迢牵牛星",
+      "toc_entry_id": "tcu_49af8a6a820533c6",
+      "unit_id": "tcu_49af8a6a820533c6"
     },
     {
       "confidence": 0.86,
@@ -1285,32 +1302,13 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 17,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "lesson",
-      "node_id": "tcn_e672ff2d8289891a",
-      "parent_id": "tcn_50486030ea99d89c",
-      "pdf_page": 17,
-      "pdf_page_end": 17,
-      "pdf_page_start": 17,
-      "printed_page": "12",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "迢迢牵牛星",
-      "title": "迢迢牵牛星",
-      "toc_entry_id": "tcu_49af8a6a820533c6",
-      "unit_id": "tcu_49af8a6a820533c6"
-    },
-    {
       "confidence": 0.98,
       "end_pdf_page": 17,
       "end_printed_page": "12",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b6009454d8390690",
-      "parent_id": "tcn_e672ff2d8289891a",
+      "parent_id": "tcn_ea26215032f53a3c",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -1321,6 +1319,25 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 17,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_ea26215032f53a3c",
+      "parent_id": "tcn_1212a7b84bbddbf3",
+      "pdf_page": 17,
+      "pdf_page_end": 17,
+      "pdf_page_start": 17,
+      "printed_page": "12",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "十五夜望月",
+      "title": "十五夜望月",
+      "toc_entry_id": "tcu_68a6e0c3ffb5e1c0",
+      "unit_id": "tcu_68a6e0c3ffb5e1c0"
+    },
+    {
       "confidence": 0.9,
       "end_pdf_page": 19,
       "end_printed_page": "13",
@@ -1329,7 +1346,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_3a8a457eebc78d9d",
-      "parent_id": "tcn_50486030ea99d89c",
+      "parent_id": "tcn_e31e8b24f5185aa4",
       "pdf_page": 18,
       "pdf_page_end": 19,
       "pdf_page_start": 18,
@@ -1341,13 +1358,32 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 19,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_e31e8b24f5185aa4",
+      "parent_id": "tcn_50486030ea99d89c",
+      "pdf_page": 18,
+      "pdf_page_end": 19,
+      "pdf_page_start": 18,
+      "printed_page": "13",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "4* 藏戏",
+      "title": "4* 藏戏",
+      "toc_entry_id": "tcu_58617a283ccd6dc8",
+      "unit_id": "tcu_58617a283ccd6dc8"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 18,
       "end_printed_page": "13",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f63b30085f336bd8",
-      "parent_id": "tcn_50486030ea99d89c",
+      "parent_id": "tcn_e31e8b24f5185aa4",
       "pdf_page": 18,
       "pdf_page_end": 18,
       "pdf_page_start": 18,
@@ -1364,7 +1400,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_1ffe3de6629f0fa6",
-      "parent_id": "tcn_50486030ea99d89c",
+      "parent_id": "tcn_e31e8b24f5185aa4",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -1395,7 +1431,7 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 20,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -1491,7 +1527,7 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 21,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -1587,15 +1623,15 @@
       "unit_id": "tcu_a30d04dceec87988"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 24,
+      "confidence": 0.95,
+      "end_pdf_page": 23,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_5deee33d5140ad32",
       "parent_id": "tcn_50486030ea99d89c",
       "pdf_page": 22,
-      "pdf_page_end": 24,
+      "pdf_page_end": 23,
       "pdf_page_start": 22,
       "printed_page": "17",
       "review_status": "approved",
@@ -1688,7 +1724,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_36e157772e56e0dd",
-      "parent_id": "tcn_5deee33d5140ad32",
+      "parent_id": "tcn_725d62dabb3e6ae7",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -1708,7 +1744,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_4ca78bf4ddc44a65",
-      "parent_id": "tcn_5deee33d5140ad32",
+      "parent_id": "tcn_725d62dabb3e6ae7",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -1728,7 +1764,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_8899922e81aa2601",
-      "parent_id": "tcn_5deee33d5140ad32",
+      "parent_id": "tcn_725d62dabb3e6ae7",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -1746,7 +1782,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_65887ad5b824756e",
-      "parent_id": "tcn_5deee33d5140ad32",
+      "parent_id": "tcn_725d62dabb3e6ae7",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -1757,7 +1793,7 @@
       "unit_id": "tcu_4497c3f2d2748d57"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 47,
       "end_printed_page": "42",
       "evidence_span_ids": [],
@@ -1776,15 +1812,15 @@
       "unit_id": "tcu_4497c3f2d2748d57"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 29,
+      "confidence": 0.95,
+      "end_pdf_page": 31,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_80b3637b7f1aca60",
       "parent_id": "tcn_725d62dabb3e6ae7",
       "pdf_page": 25,
-      "pdf_page_end": 29,
+      "pdf_page_end": 31,
       "pdf_page_start": 25,
       "printed_page": "20",
       "review_status": "approved",
@@ -1886,7 +1922,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_941961897a6ccbe1",
-      "parent_id": "tcn_725d62dabb3e6ae7",
+      "parent_id": "tcn_80b3637b7f1aca60",
       "pdf_page": 30,
       "pdf_page_end": 30,
       "pdf_page_start": 30,
@@ -1905,7 +1941,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_a654c62264f83c98",
-      "parent_id": "tcn_5deee33d5140ad32",
+      "parent_id": "tcn_725d62dabb3e6ae7",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -1923,7 +1959,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e0fd9ad5887d2386",
-      "parent_id": "tcn_725d62dabb3e6ae7",
+      "parent_id": "tcn_80b3637b7f1aca60",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -1954,21 +1990,21 @@
       "unit_id": "tcu_4497c3f2d2748d57"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 36,
+      "confidence": 0.95,
+      "end_pdf_page": 37,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_998cc639c04e5d48",
       "parent_id": "tcn_725d62dabb3e6ae7",
       "pdf_page": 32,
-      "pdf_page_end": 36,
+      "pdf_page_end": 37,
       "pdf_page_start": 32,
       "printed_page": "27",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "6*骑鹅旅行记（节选）",
-      "title": "6*骑鹅旅行记（节选）",
+      "text_excerpt": "6* 骑鹅旅行记（节选）",
+      "title": "6* 骑鹅旅行记（节选）",
       "toc_entry_id": "tcu_ba514716d042f256",
       "unit_id": "tcu_ba514716d042f256"
     },
@@ -2084,7 +2120,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_88f5072a49bd4f4a",
-      "parent_id": "tcn_725d62dabb3e6ae7",
+      "parent_id": "tcn_998cc639c04e5d48",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -2115,7 +2151,7 @@
       "unit_id": "tcu_4497c3f2d2748d57"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 41,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -2128,8 +2164,8 @@
       "printed_page": "33",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "7*汤姆·索亚历险记（节选）",
-      "title": "7*汤姆·索亚历险记（节选）",
+      "text_excerpt": "7* 汤姆·索亚历险记（节选）",
+      "title": "7* 汤姆·索亚历险记（节选）",
       "toc_entry_id": "tcu_afa47e54830688ff",
       "unit_id": "tcu_afa47e54830688ff"
     },
@@ -2322,7 +2358,7 @@
       "unit_id": "tcu_4497c3f2d2748d57"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 42,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -2438,7 +2474,7 @@
       "unit_id": "tcu_4497c3f2d2748d57"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 43,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -2478,31 +2514,11 @@
       "end_pdf_page": 44,
       "end_printed_page": "39",
       "evidence_span_ids": [
-        "tes_657162ef76c95536"
-      ],
-      "kind": "activity",
-      "node_id": "tcn_25c5bdc3bd445fd8",
-      "parent_id": "tcn_725d62dabb3e6ae7",
-      "pdf_page": 44,
-      "pdf_page_end": 44,
-      "pdf_page_start": 44,
-      "printed_page": "39",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "语文园地",
-      "title": "语文园地",
-      "unit_id": "tcu_4497c3f2d2748d57"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 44,
-      "end_printed_page": "39",
-      "evidence_span_ids": [
         "tes_0d872f9df4a36ecf"
       ],
       "kind": "activity",
       "node_id": "tcn_580151acab40cbd0",
-      "parent_id": "tcn_725d62dabb3e6ae7",
+      "parent_id": "tcn_96e6ced7d632167a",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -2522,7 +2538,7 @@
       ],
       "kind": "activity",
       "node_id": "tcn_ad21a5a50b8a6e0c",
-      "parent_id": "tcn_725d62dabb3e6ae7",
+      "parent_id": "tcn_96e6ced7d632167a",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -2554,13 +2570,32 @@
       "unit_id": "tcu_4497c3f2d2748d57"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 45,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_96e6ced7d632167a",
+      "parent_id": "tcn_725d62dabb3e6ae7",
+      "pdf_page": 44,
+      "pdf_page_end": 45,
+      "pdf_page_start": 44,
+      "printed_page": "39",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "语文园地",
+      "title": "语文园地",
+      "toc_entry_id": "tcu_e8babf878b925d75",
+      "unit_id": "tcu_e8babf878b925d75"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 44,
       "end_printed_page": "39",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a3a6f882463ac988",
-      "parent_id": "tcn_725d62dabb3e6ae7",
+      "parent_id": "tcn_96e6ced7d632167a",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -2579,7 +2614,7 @@
       ],
       "kind": "activity",
       "node_id": "tcn_265f8f17fe9ebcbb",
-      "parent_id": "tcn_725d62dabb3e6ae7",
+      "parent_id": "tcn_96e6ced7d632167a",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -2697,7 +2732,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4723999da1a4e012",
-      "parent_id": "tcn_725d62dabb3e6ae7",
+      "parent_id": "tcn_96e6ced7d632167a",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -2728,15 +2763,15 @@
       "unit_id": "tcu_4497c3f2d2748d57"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 48,
+      "confidence": 0.95,
+      "end_pdf_page": 47,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_bf3e9bfbce6441a9",
       "parent_id": "tcn_725d62dabb3e6ae7",
       "pdf_page": 46,
-      "pdf_page_end": 48,
+      "pdf_page_end": 47,
       "pdf_page_start": 46,
       "printed_page": "41",
       "review_status": "approved",
@@ -2789,7 +2824,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_30952a5a66783980",
-      "parent_id": "tcn_bf3e9bfbce6441a9",
+      "parent_id": "tcn_e08d392a96e5cf7a",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -2809,7 +2844,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_d7b1c33e89db34ab",
-      "parent_id": "tcn_bf3e9bfbce6441a9",
+      "parent_id": "tcn_e08d392a96e5cf7a",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -2827,7 +2862,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9b35b5f30317fa1b",
-      "parent_id": "tcn_bf3e9bfbce6441a9",
+      "parent_id": "tcn_e08d392a96e5cf7a",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -2838,7 +2873,7 @@
       "unit_id": "tcu_49bf33cf6aa87603"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 61,
       "end_printed_page": "56",
       "evidence_span_ids": [],
@@ -2857,24 +2892,23 @@
       "unit_id": "tcu_49bf33cf6aa87603"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 54,
-      "end_printed_page": "44",
-      "evidence_span_ids": [
-        "tes_54b48c4e2e5cc866"
-      ],
+      "confidence": 0.95,
+      "end_pdf_page": 50,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_8cee730dccc9ef62",
+      "node_id": "tcn_4d3cc1a463a1cfef",
       "parent_id": "tcn_e08d392a96e5cf7a",
       "pdf_page": 49,
-      "pdf_page_end": 54,
+      "pdf_page_end": 50,
       "pdf_page_start": 49,
       "printed_page": "44",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "8 匆 匆",
-      "title": "8匆匆",
-      "unit_id": "tcu_49bf33cf6aa87603"
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "8 匆匆",
+      "title": "8 匆匆",
+      "toc_entry_id": "tcu_1dc8736e2d62a573",
+      "unit_id": "tcu_1dc8736e2d62a573"
     },
     {
       "confidence": 0.98,
@@ -2883,7 +2917,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_13c2d17ee0cb222c",
-      "parent_id": "tcn_e08d392a96e5cf7a",
+      "parent_id": "tcn_4d3cc1a463a1cfef",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -2902,7 +2936,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_2a6f9e4c4070fd20",
-      "parent_id": "tcn_8cee730dccc9ef62",
+      "parent_id": "tcn_e08d392a96e5cf7a",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -2922,7 +2956,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_615464c31a4e5541",
-      "parent_id": "tcn_8cee730dccc9ef62",
+      "parent_id": "tcn_e08d392a96e5cf7a",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -2940,7 +2974,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a043e4cf2e734002",
-      "parent_id": "tcn_e08d392a96e5cf7a",
+      "parent_id": "tcn_4d3cc1a463a1cfef",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -2951,15 +2985,15 @@
       "unit_id": "tcu_49bf33cf6aa87603"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 54,
+      "confidence": 0.95,
+      "end_pdf_page": 55,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_8168485686f2bb24",
       "parent_id": "tcn_e08d392a96e5cf7a",
       "pdf_page": 51,
-      "pdf_page_end": 54,
+      "pdf_page_end": 55,
       "pdf_page_start": 51,
       "printed_page": "46",
       "review_status": "approved",
@@ -3029,7 +3063,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_773d4b52387fe318",
-      "parent_id": "tcn_8cee730dccc9ef62",
+      "parent_id": "tcn_e08d392a96e5cf7a",
       "pdf_page": 54,
       "pdf_page_end": 54,
       "pdf_page_start": 54,
@@ -3049,7 +3083,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_c49d4100ef23ac8d",
-      "parent_id": "tcn_8cee730dccc9ef62",
+      "parent_id": "tcn_e08d392a96e5cf7a",
       "pdf_page": 54,
       "pdf_page_end": 54,
       "pdf_page_start": 54,
@@ -3086,7 +3120,7 @@
       ],
       "kind": "activity",
       "node_id": "tcn_e2efa4157518ddb3",
-      "parent_id": "tcn_e08d392a96e5cf7a",
+      "parent_id": "tcn_8168485686f2bb24",
       "pdf_page": 55,
       "pdf_page_end": 60,
       "pdf_page_start": 55,
@@ -3104,7 +3138,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9c7c19ff754d3ef8",
-      "parent_id": "tcn_e08d392a96e5cf7a",
+      "parent_id": "tcn_8168485686f2bb24",
       "pdf_page": 55,
       "pdf_page_end": 55,
       "pdf_page_start": 55,
@@ -3115,21 +3149,21 @@
       "unit_id": "tcu_49bf33cf6aa87603"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 60,
+      "confidence": 0.95,
+      "end_pdf_page": 58,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_7dde49be0e2afbf7",
       "parent_id": "tcn_e08d392a96e5cf7a",
       "pdf_page": 56,
-      "pdf_page_end": 60,
+      "pdf_page_end": 58,
       "pdf_page_start": 56,
       "printed_page": "51",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "别了，语文课",
-      "title": "别了，语文课",
+      "text_excerpt": "习作例文：别了，语文课",
+      "title": "习作例文：别了，语文课",
       "toc_entry_id": "tcu_4c18cd53c9cd3d20",
       "unit_id": "tcu_4c18cd53c9cd3d20"
     },
@@ -3225,13 +3259,32 @@
       "unit_id": "tcu_49bf33cf6aa87603"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 60,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_3d6217431d82c777",
+      "parent_id": "tcn_e08d392a96e5cf7a",
+      "pdf_page": 59,
+      "pdf_page_end": 60,
+      "pdf_page_start": 59,
+      "printed_page": "54",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "阳光的两种用法",
+      "title": "阳光的两种用法",
+      "toc_entry_id": "tcu_eed18f8a60a706ee",
+      "unit_id": "tcu_eed18f8a60a706ee"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 59,
       "end_printed_page": "54",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8158cfb82f69fb64",
-      "parent_id": "tcn_7dde49be0e2afbf7",
+      "parent_id": "tcn_3d6217431d82c777",
       "pdf_page": 59,
       "pdf_page_end": 59,
       "pdf_page_start": 59,
@@ -3248,7 +3301,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ff362055356936e0",
-      "parent_id": "tcn_7dde49be0e2afbf7",
+      "parent_id": "tcn_3d6217431d82c777",
       "pdf_page": 60,
       "pdf_page_end": 60,
       "pdf_page_start": 60,
@@ -3267,7 +3320,7 @@
       ],
       "kind": "activity",
       "node_id": "tcn_5bff7b65515b921e",
-      "parent_id": "tcn_e08d392a96e5cf7a",
+      "parent_id": "tcn_14cec2d6779b063a",
       "pdf_page": 61,
       "pdf_page_end": 61,
       "pdf_page_start": 61,
@@ -3279,13 +3332,32 @@
       "unit_id": "tcu_49bf33cf6aa87603"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 61,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_14cec2d6779b063a",
+      "parent_id": "tcn_e08d392a96e5cf7a",
+      "pdf_page": 61,
+      "pdf_page_end": 61,
+      "pdf_page_start": 61,
+      "printed_page": "56",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "习作：让真情自然流露",
+      "title": "习作：让真情自然流露",
+      "toc_entry_id": "tcu_8684a460ce0296d3",
+      "unit_id": "tcu_8684a460ce0296d3"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 61,
       "end_printed_page": "56",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3ec70f2781a2f842",
-      "parent_id": "tcn_e08d392a96e5cf7a",
+      "parent_id": "tcn_14cec2d6779b063a",
       "pdf_page": 61,
       "pdf_page_end": 61,
       "pdf_page_start": 61,
@@ -3373,7 +3445,7 @@
       "unit_id": "tcu_d862b63427fd748b"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 83,
       "end_printed_page": "78",
       "evidence_span_ids": [],
@@ -3392,32 +3464,12 @@
       "unit_id": "tcu_d862b63427fd748b"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 70,
-      "end_printed_page": "58",
-      "evidence_span_ids": [
-        "tes_1158cbf2449caed9"
-      ],
-      "kind": "lesson",
-      "node_id": "tcn_314923c9d48d59c5",
-      "parent_id": "tcn_63d16b9ba5c05b0c",
-      "pdf_page": 63,
-      "pdf_page_end": 70,
-      "pdf_page_start": 63,
-      "printed_page": "58",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "10 古诗三首",
-      "title": "10古诗三首",
-      "unit_id": "tcu_d862b63427fd748b"
-    },
-    {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 64,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_63d16b9ba5c05b0c",
+      "node_id": "tcn_2c2f9dfb5544069c",
       "parent_id": "tcn_284b7fa5cc8593e1",
       "pdf_page": 63,
       "pdf_page_end": 64,
@@ -3425,10 +3477,10 @@
       "printed_page": "58",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "马诗",
-      "title": "马诗",
-      "toc_entry_id": "tcu_21b7a710b59dea44",
-      "unit_id": "tcu_21b7a710b59dea44"
+      "text_excerpt": "10 古诗三首",
+      "title": "10 古诗三首",
+      "toc_entry_id": "tcu_a87a88efde692db1",
+      "unit_id": "tcu_a87a88efde692db1"
     },
     {
       "confidence": 0.98,
@@ -3448,6 +3500,44 @@
       "unit_id": "tcu_d862b63427fd748b"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 63,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_63d16b9ba5c05b0c",
+      "parent_id": null,
+      "pdf_page": 63,
+      "pdf_page_end": 63,
+      "pdf_page_start": 63,
+      "printed_page": "58",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "马诗",
+      "title": "马诗",
+      "toc_entry_id": "tcu_21b7a710b59dea44",
+      "unit_id": "tcu_21b7a710b59dea44"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 63,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_ce18b2aec742b938",
+      "parent_id": null,
+      "pdf_page": 63,
+      "pdf_page_end": 63,
+      "pdf_page_start": 63,
+      "printed_page": "58",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "石灰吟",
+      "title": "石灰吟",
+      "toc_entry_id": "tcu_455a0a91ab57e4ff",
+      "unit_id": "tcu_455a0a91ab57e4ff"
+    },
+    {
       "confidence": 0.86,
       "end_pdf_page": 64,
       "end_printed_page": "59",
@@ -3456,7 +3546,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_e32b755687c1c9ab",
-      "parent_id": "tcn_314923c9d48d59c5",
+      "parent_id": "tcn_284b7fa5cc8593e1",
       "pdf_page": 64,
       "pdf_page_end": 64,
       "pdf_page_start": 64,
@@ -3476,7 +3566,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_ef753521f4e7e706",
-      "parent_id": "tcn_314923c9d48d59c5",
+      "parent_id": "tcn_284b7fa5cc8593e1",
       "pdf_page": 64,
       "pdf_page_end": 64,
       "pdf_page_start": 64,
@@ -3494,7 +3584,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_74602e126f744235",
-      "parent_id": "tcn_63d16b9ba5c05b0c",
+      "parent_id": "tcn_5f1392609ba9920b",
       "pdf_page": 64,
       "pdf_page_end": 64,
       "pdf_page_start": 64,
@@ -3505,7 +3595,26 @@
       "unit_id": "tcu_d862b63427fd748b"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
+      "end_pdf_page": 64,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_5f1392609ba9920b",
+      "parent_id": "tcn_2c2f9dfb5544069c",
+      "pdf_page": 64,
+      "pdf_page_end": 64,
+      "pdf_page_start": 64,
+      "printed_page": "59",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "竹石",
+      "title": "竹石",
+      "toc_entry_id": "tcu_ca3539c0f94accfa",
+      "unit_id": "tcu_ca3539c0f94accfa"
+    },
+    {
+      "confidence": 0.95,
       "end_pdf_page": 68,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -3583,7 +3692,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_13326cbc2d21c3e8",
-      "parent_id": "tcn_314923c9d48d59c5",
+      "parent_id": "tcn_284b7fa5cc8593e1",
       "pdf_page": 68,
       "pdf_page_end": 68,
       "pdf_page_start": 68,
@@ -3603,7 +3712,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_c821d4a948e023a0",
-      "parent_id": "tcn_314923c9d48d59c5",
+      "parent_id": "tcn_284b7fa5cc8593e1",
       "pdf_page": 68,
       "pdf_page_end": 68,
       "pdf_page_start": 68,
@@ -3632,7 +3741,7 @@
       "unit_id": "tcu_d862b63427fd748b"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 70,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -3676,7 +3785,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_0695de34b88e71fa",
-      "parent_id": "tcn_314923c9d48d59c5",
+      "parent_id": "tcn_284b7fa5cc8593e1",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -3696,7 +3805,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_2a6bd8165df5566c",
-      "parent_id": "tcn_314923c9d48d59c5",
+      "parent_id": "tcn_284b7fa5cc8593e1",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -3716,7 +3825,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_af3c83d35fca1e4e",
-      "parent_id": "tcn_314923c9d48d59c5",
+      "parent_id": "tcn_284b7fa5cc8593e1",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -3736,7 +3845,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_f0aa5bd232128c52",
-      "parent_id": "tcn_314923c9d48d59c5",
+      "parent_id": "tcn_284b7fa5cc8593e1",
       "pdf_page": 70,
       "pdf_page_end": 70,
       "pdf_page_start": 70,
@@ -3785,7 +3894,7 @@
       "unit_id": "tcu_d862b63427fd748b"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 72,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -3798,8 +3907,8 @@
       "printed_page": "66",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "13*董存瑞舍身炸暗堡",
-      "title": "13*董存瑞舍身炸暗堡",
+      "text_excerpt": "13* 董存瑞舍身炸暗堡",
+      "title": "13* 董存瑞舍身炸暗堡",
       "toc_entry_id": "tcu_efbeafed8909167b",
       "unit_id": "tcu_efbeafed8909167b"
     },
@@ -3838,13 +3947,32 @@
       "unit_id": "tcu_d862b63427fd748b"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 81,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_e685af750810c231",
+      "parent_id": "tcn_284b7fa5cc8593e1",
+      "pdf_page": 73,
+      "pdf_page_end": 81,
+      "pdf_page_start": 73,
+      "printed_page": "68",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "综合性学习：奋斗的历程",
+      "title": "综合性学习：奋斗的历程",
+      "toc_entry_id": "tcu_d40f2b3ff6c140ab",
+      "unit_id": "tcu_d40f2b3ff6c140ab"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 73,
       "end_printed_page": "68",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_576db0e67394d5b6",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 73,
       "pdf_page_end": 73,
       "pdf_page_start": 73,
@@ -3881,7 +4009,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7c88584af0f951c0",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 74,
       "pdf_page_end": 74,
       "pdf_page_start": 74,
@@ -3900,7 +4028,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_eb8263497d969e56",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 75,
       "pdf_page_end": 75,
       "pdf_page_start": 75,
@@ -3918,7 +4046,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_122a5529f12cf97a",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 75,
       "pdf_page_end": 75,
       "pdf_page_start": 75,
@@ -3937,7 +4065,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_d2583ce7d1a11257",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 76,
       "pdf_page_end": 76,
       "pdf_page_start": 76,
@@ -3955,7 +4083,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7490337a7fbf7105",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 76,
       "pdf_page_end": 76,
       "pdf_page_start": 76,
@@ -3974,7 +4102,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_85c39eca1eba400c",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 77,
       "pdf_page_end": 78,
       "pdf_page_start": 77,
@@ -3992,7 +4120,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f153fa2b1e383c62",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 77,
       "pdf_page_end": 77,
       "pdf_page_start": 77,
@@ -4009,7 +4137,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ad7a30de9b3c297d",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 78,
       "pdf_page_end": 78,
       "pdf_page_start": 78,
@@ -4028,7 +4156,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_923afa73cd78b0eb",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 79,
       "pdf_page_end": 79,
       "pdf_page_start": 79,
@@ -4048,7 +4176,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_fcbcbac188b63e15",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 79,
       "pdf_page_end": 79,
       "pdf_page_start": 79,
@@ -4066,7 +4194,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_90a93081e84fdb18",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 79,
       "pdf_page_end": 79,
       "pdf_page_start": 79,
@@ -4105,7 +4233,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_ac0780167c59b0d6",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 80,
       "pdf_page_end": 80,
       "pdf_page_start": 80,
@@ -4123,7 +4251,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_31557ed68e1b3ce2",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 80,
       "pdf_page_end": 80,
       "pdf_page_start": 80,
@@ -4142,7 +4270,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_6eeb891be3b62a58",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 81,
       "pdf_page_end": 81,
       "pdf_page_start": 81,
@@ -4160,7 +4288,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8a166f15c00eb9e6",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_e685af750810c231",
       "pdf_page": 81,
       "pdf_page_end": 81,
       "pdf_page_start": 81,
@@ -4175,31 +4303,11 @@
       "end_pdf_page": 82,
       "end_printed_page": "77",
       "evidence_span_ids": [
-        "tes_314c67d136b74cb2"
-      ],
-      "kind": "activity",
-      "node_id": "tcn_0a63fcf9e71728f1",
-      "parent_id": "tcn_284b7fa5cc8593e1",
-      "pdf_page": 82,
-      "pdf_page_end": 82,
-      "pdf_page_start": 82,
-      "printed_page": "77",
-      "review_status": "machine_checked",
-      "source": "body_heading",
-      "text_excerpt": "语文园地",
-      "title": "语文园地",
-      "unit_id": "tcu_d862b63427fd748b"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 82,
-      "end_printed_page": "77",
-      "evidence_span_ids": [
         "tes_9a707321ca5d37b3"
       ],
       "kind": "activity",
       "node_id": "tcn_6c530e0cf469ce3d",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_03789f064dc36f3e",
       "pdf_page": 82,
       "pdf_page_end": 82,
       "pdf_page_start": 82,
@@ -4211,13 +4319,32 @@
       "unit_id": "tcu_d862b63427fd748b"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 83,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_03789f064dc36f3e",
+      "parent_id": "tcn_284b7fa5cc8593e1",
+      "pdf_page": 82,
+      "pdf_page_end": 83,
+      "pdf_page_start": 82,
+      "printed_page": "77",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "语文园地",
+      "title": "语文园地",
+      "toc_entry_id": "tcu_b70bf66210c65943",
+      "unit_id": "tcu_b70bf66210c65943"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 82,
       "end_printed_page": "77",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_43b90524bd44334d",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_03789f064dc36f3e",
       "pdf_page": 82,
       "pdf_page_end": 82,
       "pdf_page_start": 82,
@@ -4236,7 +4363,7 @@
       ],
       "kind": "activity",
       "node_id": "tcn_18db8d11adc546b6",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_03789f064dc36f3e",
       "pdf_page": 83,
       "pdf_page_end": 83,
       "pdf_page_start": 83,
@@ -4256,7 +4383,7 @@
       ],
       "kind": "activity",
       "node_id": "tcn_36826c2efea9b891",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_03789f064dc36f3e",
       "pdf_page": 83,
       "pdf_page_end": 83,
       "pdf_page_start": 83,
@@ -4414,7 +4541,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_874116ead39b8099",
-      "parent_id": "tcn_284b7fa5cc8593e1",
+      "parent_id": "tcn_03789f064dc36f3e",
       "pdf_page": 83,
       "pdf_page_end": 83,
       "pdf_page_start": 83,
@@ -4482,15 +4609,15 @@
       "unit_id": "tcu_268d82f1a312e2d7"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 115,
-      "end_printed_page": "110",
+      "confidence": 0.95,
+      "end_pdf_page": 101,
+      "end_printed_page": "96",
       "evidence_span_ids": [],
       "kind": "unit",
       "node_id": "tcn_32da6643c539b1e6",
       "parent_id": null,
       "pdf_page": 84,
-      "pdf_page_end": 115,
+      "pdf_page_end": 101,
       "pdf_page_start": 84,
       "printed_page": "79",
       "review_status": "approved",
@@ -4501,12 +4628,12 @@
       "unit_id": "tcu_268d82f1a312e2d7"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 86,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
-      "node_id": "tcn_4a71537906b67a7a",
+      "node_id": "tcn_1d3d52f3f817e0c9",
       "parent_id": "tcn_32da6643c539b1e6",
       "pdf_page": 85,
       "pdf_page_end": 86,
@@ -4514,30 +4641,10 @@
       "printed_page": "80",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "学弈",
-      "title": "学弈",
-      "toc_entry_id": "tcu_7fb33d30982a917e",
-      "unit_id": "tcu_7fb33d30982a917e"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 88,
-      "end_printed_page": "80",
-      "evidence_span_ids": [
-        "tes_7cde4981f0243942"
-      ],
-      "kind": "lesson",
-      "node_id": "tcn_fe5ca273348acfdd",
-      "parent_id": "tcn_4a71537906b67a7a",
-      "pdf_page": 85,
-      "pdf_page_end": 88,
-      "pdf_page_start": 85,
-      "printed_page": "80",
-      "review_status": "machine_checked",
-      "source": "body_heading",
       "text_excerpt": "14 文言文二则",
-      "title": "14文言文二则",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "title": "14 文言文二则",
+      "toc_entry_id": "tcu_adaaa41f2e705f78",
+      "unit_id": "tcu_adaaa41f2e705f78"
     },
     {
       "confidence": 0.98,
@@ -4557,6 +4664,25 @@
       "unit_id": "tcu_268d82f1a312e2d7"
     },
     {
+      "confidence": 0.95,
+      "end_pdf_page": 85,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_4a71537906b67a7a",
+      "parent_id": null,
+      "pdf_page": 85,
+      "pdf_page_end": 85,
+      "pdf_page_start": 85,
+      "printed_page": "80",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "学弈",
+      "title": "学弈",
+      "toc_entry_id": "tcu_7fb33d30982a917e",
+      "unit_id": "tcu_7fb33d30982a917e"
+    },
+    {
       "confidence": 0.86,
       "end_pdf_page": 86,
       "end_printed_page": "81",
@@ -4565,7 +4691,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_3b351edf53caec6e",
-      "parent_id": "tcn_fe5ca273348acfdd",
+      "parent_id": "tcn_32da6643c539b1e6",
       "pdf_page": 86,
       "pdf_page_end": 86,
       "pdf_page_start": 86,
@@ -4585,7 +4711,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_955871d08f6ffb23",
-      "parent_id": "tcn_fe5ca273348acfdd",
+      "parent_id": "tcn_32da6643c539b1e6",
       "pdf_page": 86,
       "pdf_page_end": 86,
       "pdf_page_start": 86,
@@ -4605,7 +4731,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_d7f8e94501920464",
-      "parent_id": "tcn_fe5ca273348acfdd",
+      "parent_id": "tcn_32da6643c539b1e6",
       "pdf_page": 86,
       "pdf_page_end": 86,
       "pdf_page_start": 86,
@@ -4623,7 +4749,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b4026129d6a50717",
-      "parent_id": "tcn_4a71537906b67a7a",
+      "parent_id": "tcn_0af3c1701ec69de8",
       "pdf_page": 86,
       "pdf_page_end": 86,
       "pdf_page_start": 86,
@@ -4634,7 +4760,26 @@
       "unit_id": "tcu_268d82f1a312e2d7"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
+      "end_pdf_page": 86,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "section",
+      "node_id": "tcn_0af3c1701ec69de8",
+      "parent_id": "tcn_1d3d52f3f817e0c9",
+      "pdf_page": 86,
+      "pdf_page_end": 86,
+      "pdf_page_start": 86,
+      "printed_page": "81",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "两小儿辩日",
+      "title": "两小儿辩日",
+      "toc_entry_id": "tcu_db17d0e2ba73319d",
+      "unit_id": "tcu_db17d0e2ba73319d"
+    },
+    {
+      "confidence": 0.95,
       "end_pdf_page": 91,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -4715,7 +4860,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_9d328075033aa7a7",
-      "parent_id": "tcn_fe5ca273348acfdd",
+      "parent_id": "tcn_32da6643c539b1e6",
       "pdf_page": 89,
       "pdf_page_end": 89,
       "pdf_page_start": 89,
@@ -4798,7 +4943,7 @@
       "unit_id": "tcu_268d82f1a312e2d7"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 94,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -4968,7 +5113,7 @@
       "unit_id": "tcu_268d82f1a312e2d7"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 97,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -4981,8 +5126,8 @@
       "printed_page": "90",
       "review_status": "approved",
       "source": "verified_toc",
-      "text_excerpt": "17*他们那时候多有趣啊",
-      "title": "17*他们那时候多有趣啊",
+      "text_excerpt": "17* 他们那时候多有趣啊",
+      "title": "17* 他们那时候多有趣啊",
       "toc_entry_id": "tcu_9d87ff17c0acfe0c",
       "unit_id": "tcu_9d87ff17c0acfe0c"
     },
@@ -5058,7 +5203,7 @@
       "unit_id": "tcu_268d82f1a312e2d7"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 98,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -5174,7 +5319,7 @@
       "unit_id": "tcu_268d82f1a312e2d7"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 99,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -5218,7 +5363,7 @@
       ],
       "kind": "activity",
       "node_id": "tcn_71a6ab3a06fbb355",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f37fb7e41e65dd6f",
       "pdf_page": 100,
       "pdf_page_end": 100,
       "pdf_page_start": 100,
@@ -5238,7 +5383,7 @@
       ],
       "kind": "activity",
       "node_id": "tcn_ac2f9a6b07a5ef29",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f37fb7e41e65dd6f",
       "pdf_page": 100,
       "pdf_page_end": 100,
       "pdf_page_start": 100,
@@ -5250,24 +5395,23 @@
       "unit_id": "tcu_268d82f1a312e2d7"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 100,
-      "end_printed_page": "95",
-      "evidence_span_ids": [
-        "tes_d76ced4e86124ca9"
-      ],
-      "kind": "activity",
-      "node_id": "tcn_e91bf0e90cbaea68",
+      "confidence": 0.95,
+      "end_pdf_page": 101,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_f37fb7e41e65dd6f",
       "parent_id": "tcn_32da6643c539b1e6",
       "pdf_page": 100,
-      "pdf_page_end": 100,
+      "pdf_page_end": 101,
       "pdf_page_start": 100,
       "printed_page": "95",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "语文园地",
       "title": "语文园地",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "toc_entry_id": "tcu_0fa4afb73336e784",
+      "unit_id": "tcu_0fa4afb73336e784"
     },
     {
       "confidence": 0.98,
@@ -5276,7 +5420,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4c14884b66302c20",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f37fb7e41e65dd6f",
       "pdf_page": 100,
       "pdf_page_end": 100,
       "pdf_page_start": 100,
@@ -5295,7 +5439,7 @@
       ],
       "kind": "activity",
       "node_id": "tcn_8d3fab7e0a7e9384",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f37fb7e41e65dd6f",
       "pdf_page": 101,
       "pdf_page_end": 101,
       "pdf_page_start": 101,
@@ -5413,7 +5557,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_34b6cff91ca96d4d",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f37fb7e41e65dd6f",
       "pdf_page": 101,
       "pdf_page_end": 101,
       "pdf_page_start": 101,
@@ -5432,7 +5576,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_1dfcebcf8ab2c400",
-      "parent_id": "tcn_3dae1ec2226f3be4",
+      "parent_id": "tcn_b5f827a5fc13239c",
       "pdf_page": 102,
       "pdf_page_end": 102,
       "pdf_page_start": 102,
@@ -5441,7 +5585,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "策划简单的校园活动,学写策划书。",
       "title": "策划简单的校园活动,学写策划书。",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.96,
@@ -5452,7 +5596,7 @@
       ],
       "kind": "objective",
       "node_id": "tcn_c38b1439a94f6c37",
-      "parent_id": "tcn_3dae1ec2226f3be4",
+      "parent_id": "tcn_b5f827a5fc13239c",
       "pdf_page": 102,
       "pdf_page_end": 102,
       "pdf_page_start": 102,
@@ -5461,7 +5605,7 @@
       "source": "body_objective_marker",
       "text_excerpt": "运用学过的方法整理资料。",
       "title": "运用学过的方法整理资料。",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5470,7 +5614,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_fdb73c02608f8bcc",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_b5f827a5fc13239c",
       "pdf_page": 102,
       "pdf_page_end": 102,
       "pdf_page_start": 102,
@@ -5478,27 +5622,64 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 102 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 104,
-      "end_printed_page": "97",
-      "evidence_span_ids": [
-        "tes_bf018c5f08ea6709"
-      ],
+      "confidence": 0.95,
+      "end_pdf_page": 115,
+      "end_printed_page": "110",
+      "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_3dae1ec2226f3be4",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "node_id": "tcn_b5f827a5fc13239c",
+      "parent_id": null,
       "pdf_page": 102,
-      "pdf_page_end": 104,
+      "pdf_page_end": 115,
       "pdf_page_start": 102,
       "printed_page": "97",
-      "review_status": "machine_checked",
-      "source": "body_heading",
+      "review_status": "approved",
+      "source": "verified_toc",
       "text_excerpt": "第六单元",
       "title": "第六单元",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "toc_entry_id": "tcu_74283ab684ad6d65",
+      "unit_id": "tcu_74283ab684ad6d65"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 103,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_5676172f1dbca05a",
+      "parent_id": "tcn_b5f827a5fc13239c",
+      "pdf_page": 103,
+      "pdf_page_end": 103,
+      "pdf_page_start": 103,
+      "printed_page": "98",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "综合性学习：难忘小学生活",
+      "title": "综合性学习：难忘小学生活",
+      "toc_entry_id": "tcu_0a4b5c58003b28ce",
+      "unit_id": "tcu_0a4b5c58003b28ce"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 109,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_f97cab82b468fb35",
+      "parent_id": "tcn_b5f827a5fc13239c",
+      "pdf_page": 103,
+      "pdf_page_end": 109,
+      "pdf_page_start": 103,
+      "printed_page": "98",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "回忆往事",
+      "title": "回忆往事",
+      "toc_entry_id": "tcu_cd47836f270ea0fd",
+      "unit_id": "tcu_cd47836f270ea0fd"
     },
     {
       "confidence": 0.98,
@@ -5507,7 +5688,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5db3c29cd35b698c",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_5676172f1dbca05a",
       "pdf_page": 103,
       "pdf_page_end": 103,
       "pdf_page_start": 103,
@@ -5515,7 +5696,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 103 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.86,
@@ -5526,7 +5707,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_df7e5cf2f8d17fea",
-      "parent_id": "tcn_3dae1ec2226f3be4",
+      "parent_id": "tcn_b5f827a5fc13239c",
       "pdf_page": 104,
       "pdf_page_end": 104,
       "pdf_page_start": 104,
@@ -5535,7 +5716,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "制作成长纪念册一起回忆了小学生活之后,用心制作一本成长纪念册,珍藏这段难忘的成长记忆。",
       "title": "制作成长纪念册一起回忆了小学生活之后,用心制作一本成长纪念册,珍藏这段难忘的成长记忆。",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5544,7 +5725,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a78a828c9f469ab8",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f97cab82b468fb35",
       "pdf_page": 104,
       "pdf_page_end": 104,
       "pdf_page_start": 104,
@@ -5552,7 +5733,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 104 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.9,
@@ -5563,7 +5744,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_9c48e60d2f1a1837",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f97cab82b468fb35",
       "pdf_page": 105,
       "pdf_page_end": 106,
       "pdf_page_start": 105,
@@ -5572,7 +5753,7 @@
       "source": "body_heading",
       "text_excerpt": "1 老师领进门",
       "title": "1老师领进门",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5581,7 +5762,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_996673c8be910b21",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f97cab82b468fb35",
       "pdf_page": 105,
       "pdf_page_end": 105,
       "pdf_page_start": 105,
@@ -5589,7 +5770,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 105 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5598,7 +5779,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_36c5bceffa5bbcda",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f97cab82b468fb35",
       "pdf_page": 106,
       "pdf_page_end": 106,
       "pdf_page_start": 106,
@@ -5606,7 +5787,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 106 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.9,
@@ -5617,7 +5798,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_0304b5d2faafcb64",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f97cab82b468fb35",
       "pdf_page": 107,
       "pdf_page_end": 110,
       "pdf_page_start": 107,
@@ -5626,7 +5807,7 @@
       "source": "body_heading",
       "text_excerpt": "2 作文上的红双圈",
       "title": "2作文上的红双圈",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5635,7 +5816,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_27c4f96d1e8bb783",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f97cab82b468fb35",
       "pdf_page": 107,
       "pdf_page_end": 107,
       "pdf_page_start": 107,
@@ -5643,7 +5824,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 107 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.86,
@@ -5663,7 +5844,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "想想怎样给收集的资料分类,才能更好地呈现在成长纪念册中。可以采用“编年体”的方式制作成长纪念册,把小学六年的学习生活一年一年地展示出来;也可以采用“栏目式”,按照不同的栏目把内容分成几个部分。",
       "title": "想想怎样给收集的资料分类,才能更好地呈现在成长纪念册中。可以采用“编年体”的方式制作成长纪念册,把小学六年的学习生活一年一年地展示出来;也可以采用“栏目式”,按照不同的栏目把内容分成几个部分。",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5672,7 +5853,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_75cf96c85c57c2c2",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f97cab82b468fb35",
       "pdf_page": 108,
       "pdf_page_end": 108,
       "pdf_page_start": 108,
@@ -5680,7 +5861,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 108 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.86,
@@ -5700,7 +5881,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "制作成长纪念册,最好能表现出你的独特个性和创意。",
       "title": "制作成长纪念册,最好能表现出你的独特个性和创意。",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5709,7 +5890,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9043f5f5efdd6c67",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_f97cab82b468fb35",
       "pdf_page": 109,
       "pdf_page_end": 109,
       "pdf_page_start": 109,
@@ -5717,7 +5898,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 109 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 115,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_ec7ca08a4115217c",
+      "parent_id": "tcn_b5f827a5fc13239c",
+      "pdf_page": 110,
+      "pdf_page_end": 115,
+      "pdf_page_start": 110,
+      "printed_page": "105",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "依依惜别",
+      "title": "依依惜别",
+      "toc_entry_id": "tcu_8e19a344f57fd836",
+      "unit_id": "tcu_8e19a344f57fd836"
     },
     {
       "confidence": 0.98,
@@ -5726,7 +5926,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f6c8a3343787a770",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 110,
       "pdf_page_end": 110,
       "pdf_page_start": 110,
@@ -5734,7 +5934,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 110 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.9,
@@ -5745,7 +5945,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_728b0581f4b0b89f",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 111,
       "pdf_page_end": 111,
       "pdf_page_start": 111,
@@ -5754,7 +5954,7 @@
       "source": "body_heading",
       "text_excerpt": "3. 交换毕业赠言",
       "title": "3交换毕业赠言",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.9,
@@ -5765,7 +5965,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_9f7b3e455d02c156",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 111,
       "pdf_page_end": 111,
       "pdf_page_start": 111,
@@ -5774,7 +5974,7 @@
       "source": "body_heading",
       "text_excerpt": "2. 节目表演",
       "title": "2节目表演",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5783,7 +5983,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_9729aec909164f47",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 111,
       "pdf_page_end": 111,
       "pdf_page_start": 111,
@@ -5791,7 +5991,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 111 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.9,
@@ -5802,7 +6002,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_154ab7998d197992",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 112,
       "pdf_page_end": 113,
       "pdf_page_start": 112,
@@ -5811,7 +6011,7 @@
       "source": "body_heading",
       "text_excerpt": "1 我为少男少女们歌唱",
       "title": "1我为少男少女们歌唱",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5820,7 +6020,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ab2b52cb0971c908",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 112,
       "pdf_page_end": 112,
       "pdf_page_start": 112,
@@ -5828,7 +6028,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 112 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.86,
@@ -5848,7 +6048,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "根据我自己的体会,所谓天才,就是坚持不断的努力。有些人也许觉得我在数学方面有什么天分,其实从我身上是找不到这种天分的。我读小学时,因为成绩不好,没有拿到毕业证书,只拿到一张修业证书。初中一年级时,我的",
       "title": "根据我自己的体会,所谓天才,就是坚持不断的努力。有些人也许觉得我在数学方面有什么天分,其实从我身上是找不到这种天分的。我读小学时,因为成绩不好,没有拿到毕业证书,只拿到一张修业证书。初中一年级时,我的",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5857,7 +6057,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d774fb8ed7797c5b",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 113,
       "pdf_page_end": 113,
       "pdf_page_start": 113,
@@ -5865,7 +6065,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 113 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.9,
@@ -5876,7 +6076,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_607835ea1fc9cf1e",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 114,
       "pdf_page_end": 114,
       "pdf_page_start": 114,
@@ -5885,7 +6085,7 @@
       "source": "body_heading",
       "text_excerpt": "3 给家乡孩子的信",
       "title": "3给家乡孩子的信",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5894,7 +6094,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_eddffd0b74cab1f4",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 114,
       "pdf_page_end": 114,
       "pdf_page_start": 114,
@@ -5902,7 +6102,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 114 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.9,
@@ -5913,7 +6113,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_c6415435de2f52dc",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 115,
       "pdf_page_end": 115,
       "pdf_page_start": 115,
@@ -5922,7 +6122,7 @@
       "source": "body_heading",
       "text_excerpt": "4 毕业赠言",
       "title": "4毕业赠言",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.98,
@@ -5931,7 +6131,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d9b777d70c152b28",
-      "parent_id": "tcn_32da6643c539b1e6",
+      "parent_id": "tcn_ec7ca08a4115217c",
       "pdf_page": 115,
       "pdf_page_end": 115,
       "pdf_page_start": 115,
@@ -5939,7 +6139,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 115 页",
-      "unit_id": "tcu_268d82f1a312e2d7"
+      "unit_id": "tcu_74283ab684ad6d65"
     },
     {
       "confidence": 0.9,
@@ -5959,10 +6159,10 @@
       "source": "body_heading",
       "text_excerpt": "1 采 薇(节选) 注释",
       "title": "1采薇(节选)注释",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 116,
       "end_printed_page": null,
       "evidence_span_ids": [],
@@ -5995,35 +6195,35 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 116 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 128,
-      "end_printed_page": "123",
+      "confidence": 0.95,
+      "end_pdf_page": 125,
+      "end_printed_page": "120",
       "evidence_span_ids": [],
       "kind": "unit",
-      "node_id": "tcn_17e93ec06167fcc4",
+      "node_id": "tcn_da322adcee7ca52f",
       "parent_id": null,
       "pdf_page": 116,
-      "pdf_page_end": 128,
+      "pdf_page_end": 125,
       "pdf_page_start": 116,
       "printed_page": "111",
       "review_status": "approved",
       "source": "verified_toc",
       "text_excerpt": "古诗词诵读",
       "title": "古诗词诵读",
-      "toc_entry_id": "tcu_ed4d31c327415fca",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "toc_entry_id": "tcu_bec4e6102fa76d68",
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 117,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_0245068100a90b6e",
-      "parent_id": "tcn_17e93ec06167fcc4",
+      "parent_id": "tcn_da322adcee7ca52f",
       "pdf_page": 117,
       "pdf_page_end": 117,
       "pdf_page_start": 117,
@@ -6053,7 +6253,7 @@
       "source": "body_heading",
       "text_excerpt": "2 送元二使安西 注释",
       "title": "2送元二使安西注释",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
       "confidence": 0.98,
@@ -6070,16 +6270,16 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 117 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 118,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_20fa071e28999343",
-      "parent_id": "tcn_17e93ec06167fcc4",
+      "parent_id": "tcn_da322adcee7ca52f",
       "pdf_page": 118,
       "pdf_page_end": 118,
       "pdf_page_start": 118,
@@ -6109,7 +6309,7 @@
       "source": "body_heading",
       "text_excerpt": "3 春夜喜雨 注释",
       "title": "3春夜喜雨注释",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
       "confidence": 0.98,
@@ -6126,7 +6326,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 118 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
       "confidence": 0.9,
@@ -6146,16 +6346,16 @@
       "source": "body_heading",
       "text_excerpt": "4 早春呈水部张十八员外 注释",
       "title": "4早春呈水部张十八员外注释",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 119,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_ec2cf8333ac3b777",
-      "parent_id": "tcn_17e93ec06167fcc4",
+      "parent_id": "tcn_da322adcee7ca52f",
       "pdf_page": 119,
       "pdf_page_end": 119,
       "pdf_page_start": 119,
@@ -6182,7 +6382,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 119 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
       "confidence": 0.9,
@@ -6202,16 +6402,16 @@
       "source": "body_heading",
       "text_excerpt": "5 江上渔者 注释",
       "title": "5江上渔者注释",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 120,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_f5949083d6959ddc",
-      "parent_id": "tcn_17e93ec06167fcc4",
+      "parent_id": "tcn_da322adcee7ca52f",
       "pdf_page": 120,
       "pdf_page_end": 120,
       "pdf_page_start": 120,
@@ -6238,7 +6438,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 120 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
       "confidence": 0.9,
@@ -6258,16 +6458,16 @@
       "source": "body_heading",
       "text_excerpt": "6 泊船瓜洲 注释",
       "title": "6泊船瓜洲注释",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 121,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_f97acf9cb1864101",
-      "parent_id": "tcn_17e93ec06167fcc4",
+      "parent_id": "tcn_da322adcee7ca52f",
       "pdf_page": 121,
       "pdf_page_end": 121,
       "pdf_page_start": 121,
@@ -6294,16 +6494,16 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 121 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 122,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_0248a6509bd859aa",
-      "parent_id": "tcn_17e93ec06167fcc4",
+      "parent_id": "tcn_da322adcee7ca52f",
       "pdf_page": 122,
       "pdf_page_end": 122,
       "pdf_page_start": 122,
@@ -6333,7 +6533,7 @@
       "source": "body_heading",
       "text_excerpt": "7 游园不值 注释",
       "title": "7游园不值注释",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
       "confidence": 0.98,
@@ -6350,16 +6550,16 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 122 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 123,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_2083a7a3d82a3a78",
-      "parent_id": "tcn_17e93ec06167fcc4",
+      "parent_id": "tcn_da322adcee7ca52f",
       "pdf_page": 123,
       "pdf_page_end": 123,
       "pdf_page_start": 123,
@@ -6389,7 +6589,7 @@
       "source": "body_heading",
       "text_excerpt": "8 卜算子·送鲍浩然之浙东 注释",
       "title": "8卜算子·送鲍浩然之浙东注释",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
       "confidence": 0.98,
@@ -6406,7 +6606,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 123 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
       "confidence": 0.9,
@@ -6426,16 +6626,16 @@
       "source": "body_heading",
       "text_excerpt": "9 浣溪沙 注释",
       "title": "9浣溪沙注释",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 124,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_d02a019ee86dbffd",
-      "parent_id": "tcn_17e93ec06167fcc4",
+      "parent_id": "tcn_da322adcee7ca52f",
       "pdf_page": 124,
       "pdf_page_end": 124,
       "pdf_page_start": 124,
@@ -6462,11 +6662,11 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 124 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 128,
+      "end_pdf_page": 125,
       "end_printed_page": "120",
       "evidence_span_ids": [
         "tes_126de386b44ffaab"
@@ -6475,25 +6675,25 @@
       "node_id": "tcn_6ef6981e038e87dc",
       "parent_id": "tcn_e6444e96763d2258",
       "pdf_page": 125,
-      "pdf_page_end": 128,
+      "pdf_page_end": 125,
       "pdf_page_start": 125,
       "printed_page": "120",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "10 清平乐 注释",
       "title": "10清平乐注释",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 128,
+      "confidence": 0.95,
+      "end_pdf_page": 125,
       "end_printed_page": null,
       "evidence_span_ids": [],
       "kind": "lesson",
       "node_id": "tcn_e6444e96763d2258",
-      "parent_id": "tcn_17e93ec06167fcc4",
+      "parent_id": "tcn_da322adcee7ca52f",
       "pdf_page": 125,
-      "pdf_page_end": 128,
+      "pdf_page_end": 125,
       "pdf_page_start": 125,
       "printed_page": "120",
       "review_status": "approved",
@@ -6518,7 +6718,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 125 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_bec4e6102fa76d68"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 126,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "appendix",
+      "node_id": "tcn_cc10a6b3b45e4ac1",
+      "parent_id": null,
+      "pdf_page": 126,
+      "pdf_page_end": 126,
+      "pdf_page_start": 126,
+      "printed_page": "121",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "写字表",
+      "title": "写字表",
+      "toc_entry_id": "tcu_555fddf20807d09b",
+      "unit_id": "tcu_555fddf20807d09b"
     },
     {
       "confidence": 0.98,
@@ -6527,7 +6746,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_56543255adacb69f",
-      "parent_id": "tcn_e6444e96763d2258",
+      "parent_id": "tcn_cc10a6b3b45e4ac1",
       "pdf_page": 126,
       "pdf_page_end": 126,
       "pdf_page_start": 126,
@@ -6535,7 +6754,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 126 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_555fddf20807d09b"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 130,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "appendix",
+      "node_id": "tcn_6512073bd6f9c4ad",
+      "parent_id": null,
+      "pdf_page": 127,
+      "pdf_page_end": 130,
+      "pdf_page_start": 127,
+      "printed_page": "122",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "词语表",
+      "title": "词语表",
+      "toc_entry_id": "tcu_93ce8a6384f28486",
+      "unit_id": "tcu_93ce8a6384f28486"
     },
     {
       "confidence": 0.98,
@@ -6544,7 +6782,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a50e91b22e64ccb5",
-      "parent_id": "tcn_e6444e96763d2258",
+      "parent_id": "tcn_6512073bd6f9c4ad",
       "pdf_page": 127,
       "pdf_page_end": 127,
       "pdf_page_start": 127,
@@ -6552,7 +6790,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 127 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_93ce8a6384f28486"
     },
     {
       "confidence": 0.98,
@@ -6561,7 +6799,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_25f3777b98204077",
-      "parent_id": "tcn_e6444e96763d2258",
+      "parent_id": "tcn_6512073bd6f9c4ad",
       "pdf_page": 128,
       "pdf_page_end": 128,
       "pdf_page_start": 128,
@@ -6569,7 +6807,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 128 页",
-      "unit_id": "tcu_ed4d31c327415fca"
+      "unit_id": "tcu_93ce8a6384f28486"
     },
     {
       "confidence": 0.98,
@@ -6578,7 +6816,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2ba91f82f8246b73",
-      "parent_id": null,
+      "parent_id": "tcn_6512073bd6f9c4ad",
       "pdf_page": 129,
       "pdf_page_end": 129,
       "pdf_page_start": 129,
@@ -6586,7 +6824,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 129 页",
-      "unit_id": null
+      "unit_id": "tcu_93ce8a6384f28486"
     },
     {
       "confidence": 0.98,
@@ -6595,7 +6833,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0de0611235973209",
-      "parent_id": null,
+      "parent_id": "tcn_6512073bd6f9c4ad",
       "pdf_page": 130,
       "pdf_page_end": 130,
       "pdf_page_start": 130,
@@ -6603,7 +6841,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 130 页",
-      "unit_id": null
+      "unit_id": "tcu_93ce8a6384f28486"
     }
   ],
   "edition_id": "ed_65220055b0e922eb6a1e",
@@ -6762,31 +7000,6 @@
     {
       "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
       "bbox": {
-        "height": 21.315,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 94.5,
-        "x": 215.283,
-        "y": 646.235
-      },
-      "edition_id": "ed_65220055b0e922eb6a1e",
-      "evidence_role": "heading",
-      "excerpt": "2 腊八粥",
-      "excerpt_hash": "ca704ef00b42e161e38cd03cff0471bca9ff65119dacd38954d2f0f1ffe68f43",
-      "node_id": "tcn_ca29facf2989c901",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 13,
-      "printed_page": "8",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_50d6cb45f819c075",
-      "text": "2 腊八粥",
-      "text_hash": "ca704ef00b42e161e38cd03cff0471bca9ff65119dacd38954d2f0f1ffe68f43"
-    },
-    {
-      "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
-      "bbox": {
         "height": 12,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -6833,31 +7046,6 @@
       "span_id": "tes_1f550e671a02dbe1",
       "text": "小练笔",
       "text_hash": "ec5a1b83bcee45179725feb69ef923451c2b13580468d0a748891ee832553764"
-    },
-    {
-      "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
-      "bbox": {
-        "height": 21.315,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 115.5,
-        "x": 226.511,
-        "y": 646.235
-      },
-      "edition_id": "ed_65220055b0e922eb6a1e",
-      "evidence_role": "heading",
-      "excerpt": "3 古诗三首",
-      "excerpt_hash": "8724362d39ae310ecee3876993a5ede93122630bc0efee1888592737b9c1fe99",
-      "node_id": "tcn_04a7627c141a1840",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 16,
-      "printed_page": "11",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_a5de5bdb7bcd7b3d",
-      "text": "3 古诗三首",
-      "text_hash": "8724362d39ae310ecee3876993a5ede93122630bc0efee1888592737b9c1fe99"
     },
     {
       "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
@@ -7687,31 +7875,6 @@
     {
       "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
       "bbox": {
-        "height": 18,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 70.92,
-        "x": 245.17,
-        "y": 655.35
-      },
-      "edition_id": "ed_65220055b0e922eb6a1e",
-      "evidence_role": "heading",
-      "excerpt": "语文园地",
-      "excerpt_hash": "2843e388786cc5a14cc1047a0a089dc0f355611e67797d1d8e24144818936f5d",
-      "node_id": "tcn_25c5bdc3bd445fd8",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 44,
-      "printed_page": "39",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_657162ef76c95536",
-      "text": "语文园地",
-      "text_hash": "2843e388786cc5a14cc1047a0a089dc0f355611e67797d1d8e24144818936f5d"
-    },
-    {
-      "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
-      "bbox": {
         "height": 14.718,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -7933,31 +8096,6 @@
       "span_id": "tes_e9feffb3b3c4b961",
       "text": "选择合适的内容写出真情实感。",
       "text_hash": "13f9fc4f8432bbe00cb949c813c071a4bf5007049b192394534f10b20e0ad891"
-    },
-    {
-      "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
-      "bbox": {
-        "height": 21.315,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 94.5,
-        "x": 215.07,
-        "y": 597.578
-      },
-      "edition_id": "ed_65220055b0e922eb6a1e",
-      "evidence_role": "heading",
-      "excerpt": "8 匆 匆",
-      "excerpt_hash": "91ac65f6fe46e2916deb9f0791ab70d20eab9c1952752a7644960dcde63ce6bf",
-      "node_id": "tcn_8cee730dccc9ef62",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 49,
-      "printed_page": "44",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_54b48c4e2e5cc866",
-      "text": "8 匆 匆",
-      "text_hash": "91ac65f6fe46e2916deb9f0791ab70d20eab9c1952752a7644960dcde63ce6bf"
     },
     {
       "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
@@ -8233,31 +8371,6 @@
       "span_id": "tes_84bc266fbd3234b2",
       "text": "关注外貌、神态、言行的描写,体",
       "text_hash": "d0c1a018ee56873de080feca834665b577abcb64e1df94dd78114bf553197dc1"
-    },
-    {
-      "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
-      "bbox": {
-        "height": 21.315,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 126,
-        "x": 196.406,
-        "y": 646.235
-      },
-      "edition_id": "ed_65220055b0e922eb6a1e",
-      "evidence_role": "heading",
-      "excerpt": "10 古诗三首",
-      "excerpt_hash": "bb80a3d14e5796d1cda9961575aa8d378280a07ec2ba343b90b851d7ccfae5b4",
-      "node_id": "tcn_314923c9d48d59c5",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 63,
-      "printed_page": "58",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_1158cbf2449caed9",
-      "text": "10 古诗三首",
-      "text_hash": "bb80a3d14e5796d1cda9961575aa8d378280a07ec2ba343b90b851d7ccfae5b4"
     },
     {
       "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
@@ -8712,31 +8825,6 @@
     {
       "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
       "bbox": {
-        "height": 18,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 70.92,
-        "x": 245.17,
-        "y": 655.35
-      },
-      "edition_id": "ed_65220055b0e922eb6a1e",
-      "evidence_role": "heading",
-      "excerpt": "语文园地",
-      "excerpt_hash": "2843e388786cc5a14cc1047a0a089dc0f355611e67797d1d8e24144818936f5d",
-      "node_id": "tcn_0a63fcf9e71728f1",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 82,
-      "printed_page": "77",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_314c67d136b74cb2",
-      "text": "语文园地",
-      "text_hash": "2843e388786cc5a14cc1047a0a089dc0f355611e67797d1d8e24144818936f5d"
-    },
-    {
-      "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
-      "bbox": {
         "height": 16,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -9033,31 +9121,6 @@
       "span_id": "tes_e7967d302e01c363",
       "text": "展开想象,写科幻故事。",
       "text_hash": "3eda448c0d9355d47000c088743c6a5e133e1388279e5f7d5737c46f160ee2dd"
-    },
-    {
-      "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
-      "bbox": {
-        "height": 21.315,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 147,
-        "x": 185.971,
-        "y": 646.235
-      },
-      "edition_id": "ed_65220055b0e922eb6a1e",
-      "evidence_role": "heading",
-      "excerpt": "14 文言文二则",
-      "excerpt_hash": "1e65b1bbd16fef7b4decf895bbe2ff09ca601f0fa17cfc788027acaccb505814",
-      "node_id": "tcn_fe5ca273348acfdd",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 85,
-      "printed_page": "80",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_7cde4981f0243942",
-      "text": "14 文言文二则",
-      "text_hash": "1e65b1bbd16fef7b4decf895bbe2ff09ca601f0fa17cfc788027acaccb505814"
     },
     {
       "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
@@ -9512,31 +9575,6 @@
     {
       "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
       "bbox": {
-        "height": 18,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 70.92,
-        "x": 245.17,
-        "y": 655.35
-      },
-      "edition_id": "ed_65220055b0e922eb6a1e",
-      "evidence_role": "heading",
-      "excerpt": "语文园地",
-      "excerpt_hash": "2843e388786cc5a14cc1047a0a089dc0f355611e67797d1d8e24144818936f5d",
-      "node_id": "tcn_e91bf0e90cbaea68",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 100,
-      "printed_page": "95",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_d76ced4e86124ca9",
-      "text": "语文园地",
-      "text_hash": "2843e388786cc5a14cc1047a0a089dc0f355611e67797d1d8e24144818936f5d"
-    },
-    {
-      "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
-      "bbox": {
         "height": 14.715,
         "page_height": 737.008,
         "page_width": 521.575,
@@ -9708,31 +9746,6 @@
       "span_id": "tes_aa70fd5d16e56104",
       "text": "运用学过的方法整理资料。",
       "text_hash": "ba8ac8e508ec7c5918af8450a9242c54b02702202c42c7ef774c15a9421288a1"
-    },
-    {
-      "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
-      "bbox": {
-        "height": 31.5,
-        "page_height": 737.008,
-        "page_width": 521.575,
-        "unit": "pdf_point",
-        "width": 31.5,
-        "x": 468.974,
-        "y": 657.319
-      },
-      "edition_id": "ed_65220055b0e922eb6a1e",
-      "evidence_role": "heading",
-      "excerpt": "第六单元",
-      "excerpt_hash": "0c3cef5951650c5d540ae2de19ca5d295224dd50fb5bb0054110d64c0a5575a1",
-      "node_id": "tcn_3dae1ec2226f3be4",
-      "parser_version": "textbook-content-pdfjs-v3",
-      "pdf_page": 102,
-      "printed_page": "97",
-      "role": "heading",
-      "source": "pdfjs_text_layer",
-      "span_id": "tes_bf018c5f08ea6709",
-      "text": "第六单元",
-      "text_hash": "0c3cef5951650c5d540ae2de19ca5d295224dd50fb5bb0054110d64c0a5575a1"
     },
     {
       "asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
@@ -11172,6 +11185,32 @@
       "review_status": "approved"
     }
   ],
+  "printed_toc": {
+    "algorithm_version": "printed-toc-v1",
+    "approved_entry_count": 62,
+    "contents_pdf_pages": [
+      4,
+      5
+    ],
+    "contents_read_from": "docs/data/textbooks/toc-transcribed/ed_65220055b0e922eb6a1e.tsv",
+    "decision": "more_lessons",
+    "evidence_policy": "printed_contents_page_number_and_title_at_page_top",
+    "page_offset_source": "page_map",
+    "parsed_entry_count": 62,
+    "provenance": "machine_generated",
+    "replaced_toc": {
+      "entries": 40,
+      "last_pdf_page": 125,
+      "sources": [
+        "smartedu_sync_lessons"
+      ],
+      "units": 6
+    },
+    "reused_entry_id_count": 61,
+    "review_policy": "automatic_no_human_gate",
+    "unverified_entries": [],
+    "verified_share": 1
+  },
   "schema_version": 2,
   "standard_scopes": [
     {
@@ -11218,10 +11257,16 @@
   "text_quality": "native_text",
   "toc": [
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 23,
       "end_printed_page": "18",
       "entry_id": "tcu_a30d04dceec87988",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 6,
+        "verbatim_title": "第一单元"
+      },
       "kind": "unit",
       "level": 1,
       "parent_id": null,
@@ -11269,106 +11314,243 @@
       "range_review_policy": "automatic_no_human_gate",
       "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 1,
       "title": "第一单元",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 1
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 11,
+      "confidence": 0.95,
+      "end_pdf_page": 12,
       "entry_id": "tcu_b0d1707edae2f25f",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 7,
+        "verbatim_title": "1 北京的春节"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_a30d04dceec87988",
       "pdf_page": 7,
       "printed_page": "2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
+      "source": "printed_toc",
       "source_order": 2,
       "title": "1 北京的春节",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 2
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 16,
-      "entry_id": "tcu_16382ab9daaf5b69",
+      "confidence": 0.95,
+      "end_pdf_page": 15,
+      "entry_id": "tcu_2d729f710ef33c4a",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 13,
+        "verbatim_title": "2 腊八粥"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a30d04dceec87988",
+      "pdf_page": 13,
+      "printed_page": "8",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 3,
+      "title": "2 腊八粥",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 8
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 17,
+      "entry_id": "tcu_6e29238f8d13d273",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 16,
+        "verbatim_title": "3 古诗三首"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_a30d04dceec87988",
       "pdf_page": 16,
       "printed_page": "11",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 3,
-      "title": "寒食",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 4,
+      "title": "3 古诗三首",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 11
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 17,
+      "confidence": 0.95,
+      "end_pdf_page": 16,
+      "entry_id": "tcu_16382ab9daaf5b69",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 16,
+        "verbatim_title": "寒 食 注释"
+      },
+      "kind": "section",
+      "level": 3,
+      "parent_id": "tcu_6e29238f8d13d273",
+      "pdf_page": 16,
+      "printed_page": "11",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 5,
+      "title": "寒食",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 11
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 16,
       "entry_id": "tcu_49af8a6a820533c6",
-      "kind": "lesson",
-      "level": 2,
-      "parent_id": "tcu_a30d04dceec87988",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 18,
+        "pdf_page": 16,
+        "verbatim_title": "迢迢牵牛星"
+      },
+      "kind": "section",
+      "level": 3,
+      "parent_id": "tcu_6e29238f8d13d273",
+      "pdf_page": 16,
+      "printed_page": "11",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 6,
+      "title": "迢迢牵牛星",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 11
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 17,
+      "entry_id": "tcu_68a6e0c3ffb5e1c0",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 17,
+        "verbatim_title": "十五夜 望月"
+      },
+      "kind": "section",
+      "level": 3,
+      "parent_id": "tcu_6e29238f8d13d273",
       "pdf_page": 17,
       "printed_page": "12",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 4,
-      "title": "迢迢牵牛星",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 7,
+      "title": "十五夜望月",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 12
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
+      "end_pdf_page": 19,
+      "entry_id": "tcu_58617a283ccd6dc8",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 18,
+        "verbatim_title": "4 藏 戏"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_a30d04dceec87988",
+      "pdf_page": 18,
+      "printed_page": "13",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 8,
+      "title": "4* 藏戏",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 13
+    },
+    {
+      "confidence": 0.95,
       "end_pdf_page": 20,
       "entry_id": "tcu_730cd950cc0f668f",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 20,
+        "verbatim_title": "口语交际"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_a30d04dceec87988",
       "pdf_page": 20,
       "printed_page": "15",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 5,
+      "source": "printed_toc",
+      "source_order": 9,
       "title": "口语交际：即兴发言",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 15
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 21,
       "entry_id": "tcu_3b3fa2d50fc97990",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 21,
+        "verbatim_title": "习 作"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_a30d04dceec87988",
       "pdf_page": 21,
       "printed_page": "16",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 6,
+      "source": "printed_toc",
+      "source_order": 10,
       "title": "习作：家乡的风俗",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 16
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 24,
+      "confidence": 0.95,
+      "end_pdf_page": 23,
       "entry_id": "tcu_3e17c661a4570096",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 22,
+        "verbatim_title": "语文园地"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_a30d04dceec87988",
       "pdf_page": 22,
       "printed_page": "17",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 7,
+      "source": "printed_toc",
+      "source_order": 11,
       "title": "语文园地",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 17
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 47,
       "end_printed_page": "42",
       "entry_id": "tcu_4497c3f2d2748d57",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 24,
+        "verbatim_title": "第二单元"
+      },
       "kind": "unit",
       "level": 1,
       "parent_id": null,
@@ -11416,106 +11598,177 @@
       "range_review_policy": "automatic_no_human_gate",
       "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 8,
+      "source": "printed_toc",
+      "source_order": 12,
       "title": "第二单元",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 19
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 29,
+      "confidence": 0.95,
+      "end_pdf_page": 31,
       "entry_id": "tcu_d00eec81a081807f",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 25,
+        "verbatim_title": "5 鲁滨逊漂流记(节选)"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_4497c3f2d2748d57",
       "pdf_page": 25,
       "printed_page": "20",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 9,
+      "source": "printed_toc",
+      "source_order": 13,
       "title": "5 鲁滨逊漂流记（节选）",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 20
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 36,
+      "confidence": 0.95,
+      "end_pdf_page": 37,
       "entry_id": "tcu_ba514716d042f256",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 32,
+        "verbatim_title": "6 骑鹅旅行记(节选)"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_4497c3f2d2748d57",
       "pdf_page": 32,
       "printed_page": "27",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 10,
-      "title": "6*骑鹅旅行记（节选）",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 14,
+      "title": "6* 骑鹅旅行记（节选）",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 27
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 41,
       "entry_id": "tcu_afa47e54830688ff",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 38,
+        "verbatim_title": "7 汤姆·索亚历险记(节选)"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_4497c3f2d2748d57",
       "pdf_page": 38,
       "printed_page": "33",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 11,
-      "title": "7*汤姆·索亚历险记（节选）",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 15,
+      "title": "7* 汤姆·索亚历险记（节选）",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 33
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 42,
       "entry_id": "tcu_dc6556eae004a97a",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 42,
+        "verbatim_title": "口语交际"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_4497c3f2d2748d57",
       "pdf_page": 42,
       "printed_page": "37",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 12,
+      "source": "printed_toc",
+      "source_order": 16,
       "title": "口语交际：同读一本书",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 37
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 43,
       "entry_id": "tcu_e141b6ff107dea56",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 43,
+        "verbatim_title": "习 作"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_4497c3f2d2748d57",
       "pdf_page": 43,
       "printed_page": "38",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 13,
+      "source": "printed_toc",
+      "source_order": 17,
       "title": "习作：写作品梗概",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 38
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 48,
+      "confidence": 0.95,
+      "end_pdf_page": 45,
+      "entry_id": "tcu_e8babf878b925d75",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 44,
+        "verbatim_title": "语文园地"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_4497c3f2d2748d57",
+      "pdf_page": 44,
+      "printed_page": "39",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 18,
+      "title": "语文园地",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 39
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 47,
       "entry_id": "tcu_4a82c1d3d7b74497",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 46,
+        "verbatim_title": "快乐读书吧"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_4497c3f2d2748d57",
       "pdf_page": 46,
       "printed_page": "41",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 14,
+      "source": "printed_toc",
+      "source_order": 19,
       "title": "快乐读书吧：漫步世界名著花园",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 41
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 61,
       "end_printed_page": "56",
       "entry_id": "tcu_49bf33cf6aa87603",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 48,
+        "verbatim_title": "第三单元"
+      },
       "kind": "unit",
       "level": 1,
       "parent_id": null,
@@ -11563,46 +11816,133 @@
       "range_review_policy": "automatic_no_human_gate",
       "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 15,
+      "source": "printed_toc",
+      "source_order": 20,
       "title": "第三单元",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 43
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 54,
+      "confidence": 0.95,
+      "end_pdf_page": 50,
+      "entry_id": "tcu_1dc8736e2d62a573",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 49,
+        "verbatim_title": "8 匆 匆"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_49bf33cf6aa87603",
+      "pdf_page": 49,
+      "printed_page": "44",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 21,
+      "title": "8 匆匆",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 44
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 55,
       "entry_id": "tcu_dcc1862aeb7414b6",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 51,
+        "verbatim_title": "9 那个星期天"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_49bf33cf6aa87603",
       "pdf_page": 51,
       "printed_page": "46",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 16,
+      "source": "printed_toc",
+      "source_order": 22,
       "title": "9 那个星期天",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 46
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 60,
+      "confidence": 0.95,
+      "end_pdf_page": 58,
       "entry_id": "tcu_4c18cd53c9cd3d20",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 56,
+        "verbatim_title": "习作例文"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_49bf33cf6aa87603",
       "pdf_page": 56,
       "printed_page": "51",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 17,
-      "title": "别了，语文课",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 23,
+      "title": "习作例文：别了，语文课",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 51
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
+      "end_pdf_page": 60,
+      "entry_id": "tcu_eed18f8a60a706ee",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 59,
+        "verbatim_title": "阳光的两种用法"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_49bf33cf6aa87603",
+      "pdf_page": 59,
+      "printed_page": "54",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 24,
+      "title": "阳光的两种用法",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 54
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 61,
+      "entry_id": "tcu_8684a460ce0296d3",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 61,
+        "verbatim_title": "习 作"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_49bf33cf6aa87603",
+      "pdf_page": 61,
+      "printed_page": "56",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 25,
+      "title": "习作：让真情自然流露",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 56
+    },
+    {
+      "confidence": 0.95,
       "end_pdf_page": 83,
       "end_printed_page": "78",
       "entry_id": "tcu_d862b63427fd748b",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 62,
+        "verbatim_title": "第四单元"
+      },
       "kind": "unit",
       "level": 1,
       "parent_id": null,
@@ -11650,81 +11990,488 @@
       "range_review_policy": "automatic_no_human_gate",
       "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 18,
+      "source": "printed_toc",
+      "source_order": 26,
       "title": "第四单元",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 57
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 64,
-      "entry_id": "tcu_21b7a710b59dea44",
+      "entry_id": "tcu_a87a88efde692db1",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 63,
+        "verbatim_title": "10 古诗三首"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_d862b63427fd748b",
       "pdf_page": 63,
       "printed_page": "58",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 19,
-      "title": "马诗",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 27,
+      "title": "10 古诗三首",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 58
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
+      "end_pdf_page": 63,
+      "entry_id": "tcu_21b7a710b59dea44",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 63,
+        "verbatim_title": "马 诗"
+      },
+      "kind": "section",
+      "level": 3,
+      "parent_id": "tcu_a87a88efde692db1",
+      "pdf_page": 63,
+      "printed_page": "58",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 28,
+      "title": "马诗",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 58
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 63,
+      "entry_id": "tcu_455a0a91ab57e4ff",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 13,
+        "pdf_page": 63,
+        "verbatim_title": "石灰吟"
+      },
+      "kind": "section",
+      "level": 3,
+      "parent_id": "tcu_a87a88efde692db1",
+      "pdf_page": 63,
+      "printed_page": "58",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 29,
+      "title": "石灰吟",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 58
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 64,
+      "entry_id": "tcu_ca3539c0f94accfa",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 64,
+        "verbatim_title": "竹 石"
+      },
+      "kind": "section",
+      "level": 3,
+      "parent_id": "tcu_a87a88efde692db1",
+      "pdf_page": 64,
+      "printed_page": "59",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 30,
+      "title": "竹石",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 59
+    },
+    {
+      "confidence": 0.95,
       "end_pdf_page": 68,
       "entry_id": "tcu_ad85227c00d41605",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 65,
+        "verbatim_title": "11 十六年前的回忆"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_d862b63427fd748b",
       "pdf_page": 65,
       "printed_page": "60",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 20,
+      "source": "printed_toc",
+      "source_order": 31,
       "title": "11 十六年前的回忆",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 60
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 70,
       "entry_id": "tcu_0194114424b78fa6",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 69,
+        "verbatim_title": "12 为人民服务"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_d862b63427fd748b",
       "pdf_page": 69,
       "printed_page": "64",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 21,
+      "source": "printed_toc",
+      "source_order": 32,
       "title": "12 为人民服务",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 64
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 72,
       "entry_id": "tcu_efbeafed8909167b",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 71,
+        "verbatim_title": "13 董存瑞舍身炸暗堡"
+      },
       "kind": "lesson",
       "level": 2,
       "parent_id": "tcu_d862b63427fd748b",
       "pdf_page": 71,
       "printed_page": "66",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 22,
-      "title": "13*董存瑞舍身炸暗堡",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 33,
+      "title": "13* 董存瑞舍身炸暗堡",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 66
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 115,
-      "end_printed_page": "110",
+      "confidence": 0.95,
+      "end_pdf_page": 81,
+      "entry_id": "tcu_d40f2b3ff6c140ab",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 73,
+        "verbatim_title": "综合性学习:奋斗的历程"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_d862b63427fd748b",
+      "pdf_page": 73,
+      "printed_page": "68",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 34,
+      "title": "综合性学习：奋斗的历程",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 68
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 83,
+      "entry_id": "tcu_b70bf66210c65943",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 82,
+        "verbatim_title": "语文园地"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_d862b63427fd748b",
+      "pdf_page": 82,
+      "printed_page": "77",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 35,
+      "title": "语文园地",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 77
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 101,
+      "end_printed_page": "96",
       "entry_id": "tcu_268d82f1a312e2d7",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 84,
+        "verbatim_title": "第五单元"
+      },
       "kind": "unit",
       "level": 1,
       "parent_id": null,
       "pdf_page": 84,
       "printed_page": "79",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": {
+          "bbox": {
+            "height": 31.5,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 31.5,
+            "x": 468.974,
+            "y": 657.319
+          },
+          "evidence_type": "next_unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 102,
+          "verbatim_title": "第六单元"
+        },
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 31.5,
+            "page_height": 737.008,
+            "page_width": 521.575,
+            "unit": "pdf_point",
+            "width": 31.5,
+            "x": 468.974,
+            "y": 657.319
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 84,
+          "verbatim_title": "第五单元"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 36,
+      "title": "第五单元",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 79
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 86,
+      "entry_id": "tcu_adaaa41f2e705f78",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 85,
+        "verbatim_title": "14 文言文二则"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_268d82f1a312e2d7",
+      "pdf_page": 85,
+      "printed_page": "80",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 37,
+      "title": "14 文言文二则",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 80
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 85,
+      "entry_id": "tcu_7fb33d30982a917e",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 3,
+        "pdf_page": 85,
+        "verbatim_title": "学 弈"
+      },
+      "kind": "section",
+      "level": 3,
+      "parent_id": "tcu_adaaa41f2e705f78",
+      "pdf_page": 85,
+      "printed_page": "80",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 38,
+      "title": "学弈",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 80
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 86,
+      "entry_id": "tcu_db17d0e2ba73319d",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 86,
+        "verbatim_title": "两小儿辩日"
+      },
+      "kind": "section",
+      "level": 3,
+      "parent_id": "tcu_adaaa41f2e705f78",
+      "pdf_page": 86,
+      "printed_page": "81",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 39,
+      "title": "两小儿辩日",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 81
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 91,
+      "entry_id": "tcu_5ac395f36ef0aac1",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 87,
+        "verbatim_title": "15 真理诞生于一百个问号之后"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_268d82f1a312e2d7",
+      "pdf_page": 87,
+      "printed_page": "82",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 40,
+      "title": "15 真理诞生于一百个问号之后",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 82
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 94,
+      "entry_id": "tcu_a05736b748877ad1",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 92,
+        "verbatim_title": "16 表里的生物"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_268d82f1a312e2d7",
+      "pdf_page": 92,
+      "printed_page": "87",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 41,
+      "title": "16 表里的生物",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 87
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 97,
+      "entry_id": "tcu_9d87ff17c0acfe0c",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 95,
+        "verbatim_title": "17 他们那时候多有趣啊"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_268d82f1a312e2d7",
+      "pdf_page": 95,
+      "printed_page": "90",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 42,
+      "title": "17* 他们那时候多有趣啊",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 90
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 98,
+      "entry_id": "tcu_a3ea0932bcbf88c0",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 98,
+        "verbatim_title": "口语交际"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_268d82f1a312e2d7",
+      "pdf_page": 98,
+      "printed_page": "93",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 43,
+      "title": "口语交际：辩论",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 93
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 99,
+      "entry_id": "tcu_a60cbbbe3ad99b62",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 99,
+        "verbatim_title": "习 作"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_268d82f1a312e2d7",
+      "pdf_page": 99,
+      "printed_page": "94",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 44,
+      "title": "习作：插上科学的翅膀飞",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 94
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 101,
+      "entry_id": "tcu_0fa4afb73336e784",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 100,
+        "verbatim_title": "语文园地"
+      },
+      "kind": "lesson",
+      "level": 2,
+      "parent_id": "tcu_268d82f1a312e2d7",
+      "pdf_page": 100,
+      "printed_page": "95",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 45,
+      "title": "语文园地",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 95
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 115,
+      "end_printed_page": "110",
+      "entry_id": "tcu_74283ab684ad6d65",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 102,
+        "verbatim_title": "第六单元"
+      },
+      "kind": "unit",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 102,
+      "printed_page": "97",
       "range_provenance": {
         "algorithm_version": "sidecar-top-heading-unit-range-v2",
         "end_evidence": {
@@ -11760,113 +12507,96 @@
           "evidence_type": "unit_heading",
           "extraction_method": "pdfjs_text_layer",
           "line_index": 0,
-          "pdf_page": 84,
-          "verbatim_title": "第五单元"
+          "pdf_page": 102,
+          "verbatim_title": "第六单元"
         }
       },
       "range_review_policy": "automatic_no_human_gate",
       "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 23,
-      "title": "第五单元",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 46,
+      "title": "第六单元",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 97
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 86,
-      "entry_id": "tcu_7fb33d30982a917e",
+      "confidence": 0.95,
+      "end_pdf_page": 103,
+      "entry_id": "tcu_0a4b5c58003b28ce",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 103,
+        "verbatim_title": "综合性学习:难忘小学生活"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_268d82f1a312e2d7",
-      "pdf_page": 85,
-      "printed_page": "80",
+      "parent_id": "tcu_74283ab684ad6d65",
+      "pdf_page": 103,
+      "printed_page": "98",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 24,
-      "title": "学弈",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 47,
+      "title": "综合性学习：难忘小学生活",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 98
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 91,
-      "entry_id": "tcu_5ac395f36ef0aac1",
+      "confidence": 0.95,
+      "end_pdf_page": 109,
+      "entry_id": "tcu_cd47836f270ea0fd",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 5,
+        "pdf_page": 103,
+        "verbatim_title": "回忆往事"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_268d82f1a312e2d7",
-      "pdf_page": 87,
-      "printed_page": "82",
+      "parent_id": "tcu_74283ab684ad6d65",
+      "pdf_page": 103,
+      "printed_page": "98",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 25,
-      "title": "15 真理诞生于一百个问号之后",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 48,
+      "title": "回忆往事",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 98
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 94,
-      "entry_id": "tcu_a05736b748877ad1",
+      "confidence": 0.95,
+      "end_pdf_page": 115,
+      "entry_id": "tcu_8e19a344f57fd836",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 110,
+        "verbatim_title": "依依惜别"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_268d82f1a312e2d7",
-      "pdf_page": 92,
-      "printed_page": "87",
+      "parent_id": "tcu_74283ab684ad6d65",
+      "pdf_page": 110,
+      "printed_page": "105",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 26,
-      "title": "16 表里的生物",
-      "toc_pdf_page": null
+      "source": "printed_toc",
+      "source_order": 49,
+      "title": "依依惜别",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 105
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 97,
-      "entry_id": "tcu_9d87ff17c0acfe0c",
-      "kind": "lesson",
-      "level": 2,
-      "parent_id": "tcu_268d82f1a312e2d7",
-      "pdf_page": 95,
-      "printed_page": "90",
-      "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 27,
-      "title": "17*他们那时候多有趣啊",
-      "toc_pdf_page": null
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 98,
-      "entry_id": "tcu_a3ea0932bcbf88c0",
-      "kind": "lesson",
-      "level": 2,
-      "parent_id": "tcu_268d82f1a312e2d7",
-      "pdf_page": 98,
-      "printed_page": "93",
-      "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 28,
-      "title": "口语交际：辩论",
-      "toc_pdf_page": null
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 99,
-      "entry_id": "tcu_a60cbbbe3ad99b62",
-      "kind": "lesson",
-      "level": 2,
-      "parent_id": "tcu_268d82f1a312e2d7",
-      "pdf_page": 99,
-      "printed_page": "94",
-      "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 29,
-      "title": "习作：插上科学的翅膀飞",
-      "toc_pdf_page": null
-    },
-    {
-      "confidence": 0.85,
-      "end_pdf_page": 128,
-      "end_printed_page": "123",
-      "entry_id": "tcu_ed4d31c327415fca",
+      "confidence": 0.95,
+      "end_pdf_page": 125,
+      "end_printed_page": "120",
+      "entry_id": "tcu_bec4e6102fa76d68",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 116,
+        "verbatim_title": "古诗词诵读"
+      },
       "kind": "unit",
       "level": 1,
       "parent_id": null,
@@ -11899,402 +12629,296 @@
       "range_review_policy": "automatic_no_human_gate",
       "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 30,
+      "source": "printed_toc",
+      "source_order": 50,
       "title": "古诗词诵读",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": null
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 116,
       "entry_id": "tcu_29a7603db6e99cd2",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 116,
+        "verbatim_title": "1 采 薇(节选) 注释"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_ed4d31c327415fca",
+      "parent_id": "tcu_bec4e6102fa76d68",
       "pdf_page": 116,
       "printed_page": "111",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 31,
+      "source": "printed_toc",
+      "source_order": 51,
       "title": "1 采薇（节选）",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 111
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 117,
       "entry_id": "tcu_6863a9165760a77b",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 117,
+        "verbatim_title": "2 送元二使安西 注释"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_ed4d31c327415fca",
+      "parent_id": "tcu_bec4e6102fa76d68",
       "pdf_page": 117,
       "printed_page": "112",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 32,
+      "source": "printed_toc",
+      "source_order": 52,
       "title": "2 送元二使安西",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 112
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 118,
       "entry_id": "tcu_403c9d38b5e21d94",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 118,
+        "verbatim_title": "3 春夜喜雨 注释"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_ed4d31c327415fca",
+      "parent_id": "tcu_bec4e6102fa76d68",
       "pdf_page": 118,
       "printed_page": "113",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 33,
+      "source": "printed_toc",
+      "source_order": 53,
       "title": "3 春夜喜雨",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 113
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 119,
       "entry_id": "tcu_f9059a5c3257fbb7",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 119,
+        "verbatim_title": "4 早春呈水部张十八员外 注释"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_ed4d31c327415fca",
+      "parent_id": "tcu_bec4e6102fa76d68",
       "pdf_page": 119,
       "printed_page": "114",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 34,
+      "source": "printed_toc",
+      "source_order": 54,
       "title": "4 早春呈水部张十八员外",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 114
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 120,
       "entry_id": "tcu_8025609dcb8558b0",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 120,
+        "verbatim_title": "5 江上渔者 注释"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_ed4d31c327415fca",
+      "parent_id": "tcu_bec4e6102fa76d68",
       "pdf_page": 120,
       "printed_page": "115",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 35,
+      "source": "printed_toc",
+      "source_order": 55,
       "title": "5 江上渔者",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 115
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 121,
       "entry_id": "tcu_3cf6f359b820b042",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 121,
+        "verbatim_title": "6 泊船瓜洲 注释"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_ed4d31c327415fca",
+      "parent_id": "tcu_bec4e6102fa76d68",
       "pdf_page": 121,
       "printed_page": "116",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 36,
+      "source": "printed_toc",
+      "source_order": 56,
       "title": "6 泊船瓜洲",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 116
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 122,
       "entry_id": "tcu_2ecd6c97998445db",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 1,
+        "pdf_page": 122,
+        "verbatim_title": "7 游园不值 注释"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_ed4d31c327415fca",
+      "parent_id": "tcu_bec4e6102fa76d68",
       "pdf_page": 122,
       "printed_page": "117",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 37,
+      "source": "printed_toc",
+      "source_order": 57,
       "title": "7 游园不值",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 117
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 123,
       "entry_id": "tcu_0ebd06a201b2a335",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 123,
+        "verbatim_title": "8 卜算子·送鲍浩然之浙东 注释"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_ed4d31c327415fca",
+      "parent_id": "tcu_bec4e6102fa76d68",
       "pdf_page": 123,
       "printed_page": "118",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 38,
+      "source": "printed_toc",
+      "source_order": 58,
       "title": "8 卜算子·送鲍浩然之浙东",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 118
     },
     {
-      "confidence": 0.85,
+      "confidence": 0.95,
       "end_pdf_page": 124,
       "entry_id": "tcu_01f1d217559c53ab",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 2,
+        "pdf_page": 124,
+        "verbatim_title": "9 浣溪沙 注释"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_ed4d31c327415fca",
+      "parent_id": "tcu_bec4e6102fa76d68",
       "pdf_page": 124,
       "printed_page": "119",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 39,
+      "source": "printed_toc",
+      "source_order": 59,
       "title": "9 浣溪沙",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 119
     },
     {
-      "confidence": 0.85,
-      "end_pdf_page": 128,
+      "confidence": 0.95,
+      "end_pdf_page": 125,
       "entry_id": "tcu_6af68e05340b5935",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 125,
+        "verbatim_title": "10 清平乐 注释"
+      },
       "kind": "lesson",
       "level": 2,
-      "parent_id": "tcu_ed4d31c327415fca",
+      "parent_id": "tcu_bec4e6102fa76d68",
       "pdf_page": 125,
       "printed_page": "120",
       "review_status": "approved",
-      "source": "smartedu_sync_lessons",
-      "source_order": 40,
+      "source": "printed_toc",
+      "source_order": 60,
       "title": "10 清平乐",
-      "toc_pdf_page": null
+      "toc_pdf_page": 4,
+      "toc_printed_page": 120
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 126,
+      "entry_id": "tcu_555fddf20807d09b",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 126,
+        "verbatim_title": "写 字 表"
+      },
+      "kind": "appendix",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 126,
+      "printed_page": "121",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 61,
+      "title": "写字表",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 121
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 130,
+      "entry_id": "tcu_93ce8a6384f28486",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 127,
+        "verbatim_title": "词 语 表"
+      },
+      "kind": "appendix",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 127,
+      "printed_page": "122",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 62,
+      "title": "词语表",
+      "toc_pdf_page": 4,
+      "toc_printed_page": 122
     }
   ],
   "unit_range_reconciliation": {
     "algorithm_version": "sidecar-top-heading-unit-range-v2",
     "auxiliary_boundary_evidence": null,
-    "changed_unit_range_count": 5,
-    "changes": [
-      {
-        "after": {
-          "end_pdf_page": 23,
-          "pdf_page": 6
-        },
-        "before": {
-          "end_pdf_page": 24,
-          "pdf_page": 7
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 31.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 31.5,
-            "x": 468.974,
-            "y": 657.319
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 24,
-          "verbatim_title": "第二单元"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 31.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 31.5,
-            "x": 458.203,
-            "y": 656.894
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 6,
-          "verbatim_title": "第一单元"
-        },
-        "title": "第一单元",
-        "unit_id": "tcu_a30d04dceec87988"
-      },
-      {
-        "after": {
-          "end_pdf_page": 47,
-          "pdf_page": 24
-        },
-        "before": {
-          "end_pdf_page": 50,
-          "pdf_page": 25
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 31.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 31.5,
-            "x": 468.974,
-            "y": 657.319
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 48,
-          "verbatim_title": "第三单元"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 31.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 31.5,
-            "x": 468.974,
-            "y": 657.319
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 24,
-          "verbatim_title": "第二单元"
-        },
-        "title": "第二单元",
-        "unit_id": "tcu_4497c3f2d2748d57"
-      },
-      {
-        "after": {
-          "end_pdf_page": 61,
-          "pdf_page": 48
-        },
-        "before": {
-          "end_pdf_page": 62,
-          "pdf_page": 51
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 31.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 31.5,
-            "x": 468.974,
-            "y": 627
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 62,
-          "verbatim_title": "第四单元"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 31.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 31.5,
-            "x": 468.974,
-            "y": 657.319
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 48,
-          "verbatim_title": "第三单元"
-        },
-        "title": "第三单元",
-        "unit_id": "tcu_49bf33cf6aa87603"
-      },
-      {
-        "after": {
-          "end_pdf_page": 83,
-          "pdf_page": 62
-        },
-        "before": {
-          "end_pdf_page": 84,
-          "pdf_page": 63
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 31.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 31.5,
-            "x": 468.974,
-            "y": 657.319
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 84,
-          "verbatim_title": "第五单元"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 31.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 31.5,
-            "x": 468.974,
-            "y": 627
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 62,
-          "verbatim_title": "第四单元"
-        },
-        "title": "第四单元",
-        "unit_id": "tcu_d862b63427fd748b"
-      },
-      {
-        "after": {
-          "end_pdf_page": 115,
-          "pdf_page": 84
-        },
-        "before": {
-          "end_pdf_page": 115,
-          "pdf_page": 85
-        },
-        "end_evidence": {
-          "bbox": {
-            "height": 18,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 90,
-            "x": 394.724,
-            "y": 655.35
-          },
-          "evidence_type": "next_unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 116,
-          "verbatim_title": "古诗词诵读"
-        },
-        "start_evidence": {
-          "bbox": {
-            "height": 31.5,
-            "page_height": 737.008,
-            "page_width": 521.575,
-            "unit": "pdf_point",
-            "width": 31.5,
-            "x": 468.974,
-            "y": 657.319
-          },
-          "evidence_type": "unit_heading",
-          "extraction_method": "pdfjs_text_layer",
-          "line_index": 0,
-          "pdf_page": 84,
-          "verbatim_title": "第五单元"
-        },
-        "title": "第五单元",
-        "unit_id": "tcu_268d82f1a312e2d7"
-      }
-    ],
-    "clamped_content_node_range_count": 2,
-    "detached_auxiliary_content_node_count": 0,
+    "changed_unit_range_count": 0,
+    "changes": [],
+    "clamped_content_node_range_count": 1,
+    "detached_auxiliary_content_node_count": 7,
     "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
-    "exact_unit_heading_evidence_count": 6,
+    "exact_unit_heading_evidence_count": 7,
     "inspected_page_count": 130,
     "provenance": "machine_generated",
     "publication_gate": false,
-    "reassigned_content_node_count": 167,
+    "reassigned_content_node_count": 222,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 1,
     "sidecar_sha256": "dab21de47cd7ba83fa1856738750b203be7a7ba0a6a1a37ee8daeeaaf6a4d1cc",
     "source_asset_sha256": "878f8d7fba64b1f1277be9a5729952ecccbe1cb2c4ba135f9eb668724d20a683",
     "status": "reconciled",
-    "top_level_unit_count": 6,
+    "top_level_unit_count": 7,
     "top_line_limit": 4
   }
 }

@@ -495,9 +495,9 @@ test('textbook detail schema accepts split heading merge TOC provenance', async 
     const repository = new FileTextbookRepository(publicDataRoot)
     const detail = await repository.get('ed_ba25683b949d491afb3c')
     assert.ok(detail)
-    // this book's 2026 printing takes its 目录 from the 国家平台 同步课 list; no published 目录 uses the split-heading
+    // this book's 2026 printing takes its 目录 from its own printed 目录 pages; no published 目录 uses the split-heading
     // merge any more, but the schema still accepts it
-    assert.ok(detail.toc.some(entry => entry.source === 'smartedu_sync_lessons'))
+    assert.ok(detail.toc.some(entry => entry.source === 'printed_toc'))
     const record = structuredClone(detail) as unknown as { toc: Array<Record<string, unknown>> }
     record.toc[0] = { ...record.toc[0], source: 'heading_match+split_heading_merge' }
     assert.equal(TextbookDetailRecordSchema.parse(record).toc[0].source, 'heading_match+split_heading_merge')

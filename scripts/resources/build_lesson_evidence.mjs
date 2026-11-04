@@ -4,6 +4,8 @@
 //            previous lesson's, headings first; the table of contents is skipped.
 //   教学设计: the 教学目标 and 重点·难点 from page 1 of the 国家平台 教学设计 (ocr_lesson_designs.mjs).
 //   课程简介: the platform's summary of the lesson video.
+// Lessons of the book's own 目录 that the platform lacks (`toc: true` in public/data/textbooks/national-lessons, from
+// toc_lessons.mjs) need no finding: the 目录 gives their pages. A book with no platform lessons gets only those.
 // Writes generated/smartedu/evidence/<edition_id>.json (local only: it quotes the books).
 //   node scripts/resources/build_lesson_evidence.mjs [--edition ed_…]
 import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs'
@@ -66,8 +68,10 @@ function bookPages(editionId) {
     let pages = []
     try { pages = pagesFor(registry, editionId) || [] } catch { pages = [] }
     const withText = pages.filter(page => String(page.text || '').replace(/\s/gu, '').length > 80).length
-    if (pages.length && withText >= pages.length * 0.5) return { source: 'text_layer', pages: pages.map(page => ({ pdf_page: page.pdf_page, text: page.text || '' })) }
     const file = path.join(CACHE, 'page-ocr', `${editionId}.jsonl`)
+    // Tesseract's reading of a scan misses headings and garbles text; Vision's (ocr_textbook_pages.mjs) is used when there
+    const tesseract = pages.filter(page => /tesseract/u.test(String(page.extraction_method || ''))).length >= pages.length * 0.5
+    if (pages.length && withText >= pages.length * 0.5 && !(tesseract && existsSync(file))) return { source: 'text_layer', pages: pages.map(page => ({ pdf_page: page.pdf_page, text: page.text || '' })) }
     if (!existsSync(file)) return { source: null, pages: [] }
     const ocr = readFileSync(file, 'utf8').split('\n').filter(Boolean).map(line => JSON.parse(line)).sort((a, b) => a.pdf_page - b.pdf_page)
     return { source: 'ocr', pages: ocr }
@@ -259,6 +263,32 @@ export function buildEvidence(record, { pages, source }, designs, summaries) {
     })
 }
 
+// the 目录 lessons of a book: their pages run from the entry's start to its end (at most five pages, about 1,500
+// characters), as its 目录 entry says
+export function tocEvidence(editionId, { pages, source }) {
+    const file = path.join(ROOT, 'public/data/textbooks/national-lessons', `${editionId}.json`)
+    if (!existsSync(file)) return []
+    const entries = new Map(JSON.parse(readFileSync(path.join(ROOT, 'public/data/textbooks/units.json'), 'utf8')).items.filter(item => item.edition_id === editionId).map(item => [item.entry_id, item]))
+    const byPage = new Map(pages.map(page => [page.pdf_page, page.text]))
+    const lastPage = pages.at(-1)?.pdf_page || 0
+    return JSON.parse(readFileSync(file, 'utf8')).lessons.filter(lesson => lesson.toc).map(lesson => {
+        const sources = {}
+        const start = lesson.pdf_page
+        if (start && pages.length) {
+            const end = Math.min(Math.max(start, entries.get(lesson.unit_id)?.end_pdf_page || start), start + 4, lastPage || start)
+            const parts = []
+            let room = 1500
+            for (let page = start; page <= end && room > 0; page += 1) {
+                const text = tidy(byPage.get(page) || '').slice(0, room)
+                if (text) parts.push({ page, text })
+                room -= text.length
+            }
+            if (parts.length) sources.textbook = { pages: [start, end], located_by: 'toc', from: source, parts }
+        }
+        return { id: lesson.id, title: lesson.title, path: lesson.chapters, unit_node: lesson.chapters[0] || lesson.id, toc: true, sources }
+    })
+}
+
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
     mkdirSync(OUT, { recursive: true })
     const designs = loadDesigns()
@@ -274,7 +304,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     for (const file of files) {
         const record = JSON.parse(readFileSync(file, 'utf8'))
         if (only && record.edition_id !== only) continue
-        const lessons = buildEvidence(record, record.platform_only ? { source: null, pages: [] } : bookPages(record.edition_id), designs, summaries)
+        const text = record.platform_only ? { source: null, pages: [] } : bookPages(record.edition_id)
+        const lessons = [...buildEvidence(record, text, designs, summaries), ...(record.platform_only ? [] : tocEvidence(record.edition_id, text))]
         for (const lesson of lessons) {
             totals.lessons += 1
             for (const key of ['textbook', 'design', 'summary']) if (lesson.sources[key]) totals[key] += 1
@@ -284,6 +315,23 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
         const target = path.join(OUT, `${record.edition_id}.json`)
         writeFileSync(`${target}.tmp`, `${JSON.stringify({ edition_id: record.edition_id, textbook_title: record.textbook_title, lessons }, null, 1)}\n`)
         renameSync(`${target}.tmp`, target)
+    }
+    // the library's books with no 国家平台 lessons: their 目录 lessons only
+    if (!process.argv.includes('--platform')) {
+        const listed = new Set(files.map(file => path.basename(file, '.json')))
+        for (const book of JSON.parse(readFileSync(path.join(ROOT, 'public/data/textbooks/index.json'), 'utf8')).items) {
+            if (listed.has(book.edition_id) || (only && book.edition_id !== only)) continue
+            const lessons = tocEvidence(book.edition_id, bookPages(book.edition_id))
+            if (!lessons.length) continue
+            for (const lesson of lessons) {
+                totals.lessons += 1
+                if (lesson.sources.textbook) totals.textbook += 1
+                else totals.none += 1
+            }
+            const target = path.join(OUT, `${book.edition_id}.json`)
+            writeFileSync(`${target}.tmp`, `${JSON.stringify({ edition_id: book.edition_id, textbook_title: book.title, lessons }, null, 1)}\n`)
+            renameSync(`${target}.tmp`, target)
+        }
     }
     console.log(`lesson evidence: ${JSON.stringify(totals)}`)
 }

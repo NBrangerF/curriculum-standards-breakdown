@@ -2,8 +2,9 @@
   "alignments": [],
   "audit": {
     "approved_page_map_count": 46,
-    "approved_toc_entry_count": 7,
+    "approved_toc_entry_count": 22,
     "candidate_toc_entry_count": 0,
+    "machine_checked_toc_entry_count": 0,
     "numeric_page_offset": 4,
     "numeric_page_offset_confidence": 0.99,
     "ocr": {
@@ -16,25 +17,30 @@
       ]
     },
     "pdf_page_count": 50,
+    "published_toc_entry_count": 0,
     "toc_candidate_page_count": 1
   },
   "content_alignment": {
     "algorithm_version": "component-evidence-hybrid-v3",
     "alignment_count": 0,
     "automatic_content_unit_count": 0,
-    "content_node_count": 75,
-    "evidence_span_count": 20,
+    "content_node_count": 95,
+    "evidence_span_count": 23,
     "generated_alignment_count": 0,
     "native_text_ratio": 1,
     "ocr_page_count": 0,
+    "ocr_reused_count": 0,
     "ocr_skipped_count": 0,
     "parser_version": "textbook-content-pdfjs-v3",
     "preserved_approved_alignment_count": 0,
     "provenance": "machine_generated",
+    "reconciled_unit_range_count": 0,
     "review_policy": "automatic_no_human_gate",
     "schema_version": 2,
     "sidecar_path": "derived/textbook-content-v2/728a6bc13e6288d9b2e21b2594e55962f7f96f780c2733873f582739b6f642ad/pages.jsonl",
+    "sidecar_sha256": "733c160e21bf397c4aef523d1ffcc9d0bc8cb0360869d3da6055a0da29aa04b8",
     "source_asset_sha256": "728a6bc13e6288d9b2e21b2594e55962f7f96f780c2733873f582739b6f642ad",
+    "unit_range_reconciliation_algorithm": "sidecar-top-heading-unit-range-v2",
     "unit_recovery_native_text_ratio": 1,
     "unit_recovery_reason": "published_toc_available",
     "unit_recovery_status": "not_needed"
@@ -109,13 +115,33 @@
       "unit_id": null
     },
     {
+      "confidence": 0.86,
+      "end_pdf_page": 5,
+      "end_printed_page": "1",
+      "evidence_span_ids": [
+        "tes_993b0f6a52e9aed2"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_a9cff2492abc4b1b",
+      "parent_id": "tcn_d5639fc2df3188af",
+      "pdf_page": 5,
+      "pdf_page_end": 5,
+      "pdf_page_start": 5,
+      "printed_page": "1",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "讨论一下,他为什么把母亲的身体和大地联系起来呢?",
+      "title": "讨论一下,他为什么把母亲的身体和大地联系起来呢?",
+      "unit_id": "tcu_da47ecb358aab599"
+    },
+    {
       "confidence": 0.98,
       "end_pdf_page": 5,
       "end_printed_page": "1",
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8ff1cbabdbab9253",
-      "parent_id": null,
+      "parent_id": "tcn_d5639fc2df3188af",
       "pdf_page": 5,
       "pdf_page_end": 5,
       "pdf_page_start": 5,
@@ -123,7 +149,45 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 5 页",
-      "unit_id": null
+      "unit_id": "tcu_da47ecb358aab599"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 5,
+      "end_printed_page": "1",
+      "evidence_span_ids": [],
+      "kind": "unit",
+      "node_id": "tcn_d5639fc2df3188af",
+      "parent_id": null,
+      "pdf_page": 5,
+      "pdf_page_end": 5,
+      "pdf_page_start": 5,
+      "printed_page": "1",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "着衣母婴卧像",
+      "title": "着衣母婴卧像",
+      "toc_entry_id": "tcu_da47ecb358aab599",
+      "unit_id": "tcu_da47ecb358aab599"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 8,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_57c73f1999b76a6d",
+      "parent_id": null,
+      "pdf_page": 6,
+      "pdf_page_end": 8,
+      "pdf_page_start": 6,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "1.人民艺术家——齐白石",
+      "title": "1.人民艺术家——齐白石",
+      "toc_entry_id": "tcu_76327577210d2ee9",
+      "unit_id": "tcu_76327577210d2ee9"
     },
     {
       "confidence": 0.98,
@@ -132,7 +196,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5565b630f64bf0f3",
-      "parent_id": null,
+      "parent_id": "tcn_57c73f1999b76a6d",
       "pdf_page": 6,
       "pdf_page_end": 6,
       "pdf_page_start": 6,
@@ -140,7 +204,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 6 页",
-      "unit_id": null
+      "unit_id": "tcu_76327577210d2ee9"
     },
     {
       "confidence": 0.98,
@@ -149,7 +213,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d1e076cce834cfd2",
-      "parent_id": null,
+      "parent_id": "tcn_57c73f1999b76a6d",
       "pdf_page": 7,
       "pdf_page_end": 7,
       "pdf_page_start": 7,
@@ -157,7 +221,27 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 7 页",
-      "unit_id": null
+      "unit_id": "tcu_76327577210d2ee9"
+    },
+    {
+      "confidence": 0.86,
+      "end_pdf_page": 8,
+      "end_printed_page": "4",
+      "evidence_span_ids": [
+        "tes_835a621b6e16b4e6"
+      ],
+      "kind": "exercise",
+      "node_id": "tcn_911fe794a333e8a3",
+      "parent_id": "tcn_57c73f1999b76a6d",
+      "pdf_page": 8,
+      "pdf_page_end": 8,
+      "pdf_page_start": 8,
+      "printed_page": "4",
+      "review_status": "machine_checked",
+      "source": "task_verb_pattern",
+      "text_excerpt": "选择一幅你喜欢的作品,写一篇 200 字的观后感。",
+      "title": "选择一幅你喜欢的作品,写一篇 200 字的观后感。",
+      "unit_id": "tcu_76327577210d2ee9"
     },
     {
       "confidence": 0.98,
@@ -166,7 +250,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_cfe28fe109186d2e",
-      "parent_id": null,
+      "parent_id": "tcn_57c73f1999b76a6d",
       "pdf_page": 8,
       "pdf_page_end": 8,
       "pdf_page_start": 8,
@@ -174,7 +258,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 8 页",
-      "unit_id": null
+      "unit_id": "tcu_76327577210d2ee9"
+    },
+    {
+      "confidence": 0.9,
+      "end_pdf_page": 11,
+      "end_printed_page": "5",
+      "evidence_span_ids": [
+        "tes_ba90a635bf00c30c"
+      ],
+      "kind": "lesson",
+      "node_id": "tcn_6538e73f636e44ff",
+      "parent_id": "tcn_7c08573cf8648ef6",
+      "pdf_page": 9,
+      "pdf_page_end": 11,
+      "pdf_page_start": 9,
+      "printed_page": "5",
+      "review_status": "machine_checked",
+      "source": "body_heading",
+      "text_excerpt": "20世纪的艺术大师——马蒂斯",
+      "title": "20世纪的艺术大师——马蒂斯",
+      "unit_id": "tcu_2055b39552b1d027"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 11,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_7c08573cf8648ef6",
+      "parent_id": null,
+      "pdf_page": 9,
+      "pdf_page_end": 11,
+      "pdf_page_start": 9,
+      "printed_page": "5",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "2.20世纪的艺术大师——马蒂斯",
+      "title": "2.20世纪的艺术大师——马蒂斯",
+      "toc_entry_id": "tcu_2055b39552b1d027",
+      "unit_id": "tcu_2055b39552b1d027"
     },
     {
       "confidence": 0.98,
@@ -183,7 +306,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_df9ad2ff9a764d68",
-      "parent_id": null,
+      "parent_id": "tcn_7c08573cf8648ef6",
       "pdf_page": 9,
       "pdf_page_end": 9,
       "pdf_page_start": 9,
@@ -191,7 +314,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 9 页",
-      "unit_id": null
+      "unit_id": "tcu_2055b39552b1d027"
     },
     {
       "confidence": 0.98,
@@ -200,7 +323,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_769321cf9f7b43a8",
-      "parent_id": "tcn_8196c7d42da572e2",
+      "parent_id": "tcn_7c08573cf8648ef6",
       "pdf_page": 10,
       "pdf_page_end": 10,
       "pdf_page_start": 10,
@@ -208,26 +331,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 10 页",
-      "unit_id": "tcu_07084248df0ca0bc"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 11,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "section",
-      "node_id": "tcn_8196c7d42da572e2",
-      "parent_id": null,
-      "pdf_page": 10,
-      "pdf_page_end": 11,
-      "pdf_page_start": 10,
-      "printed_page": "8",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "色彩的纯度",
-      "title": "色彩的纯度",
-      "toc_entry_id": "tcu_07084248df0ca0bc",
-      "unit_id": "tcu_07084248df0ca0bc"
+      "unit_id": "tcu_2055b39552b1d027"
     },
     {
       "confidence": 0.98,
@@ -236,7 +340,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_dfdb80b907f02a3e",
-      "parent_id": "tcn_8196c7d42da572e2",
+      "parent_id": "tcn_7c08573cf8648ef6",
       "pdf_page": 11,
       "pdf_page_end": 11,
       "pdf_page_start": 11,
@@ -244,7 +348,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 11 页",
-      "unit_id": "tcu_07084248df0ca0bc"
+      "unit_id": "tcu_2055b39552b1d027"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 13,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_3c006a34b4d6dcee",
+      "parent_id": null,
+      "pdf_page": 12,
+      "pdf_page_end": 13,
+      "pdf_page_start": 12,
+      "printed_page": "8",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "3.色彩的纯度",
+      "title": "3.色彩的纯度",
+      "toc_entry_id": "tcu_724971dc9337d26c",
+      "unit_id": "tcu_724971dc9337d26c"
     },
     {
       "confidence": 0.98,
@@ -253,7 +376,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_6a67e5097fe33333",
-      "parent_id": "tcn_031ba7a98144ca9d",
+      "parent_id": "tcn_3c006a34b4d6dcee",
       "pdf_page": 12,
       "pdf_page_end": 12,
       "pdf_page_start": 12,
@@ -261,26 +384,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 12 页",
-      "unit_id": "tcu_68f1bf60b3ff0ff9"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 15,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "section",
-      "node_id": "tcn_031ba7a98144ca9d",
-      "parent_id": null,
-      "pdf_page": 12,
-      "pdf_page_end": 15,
-      "pdf_page_start": 12,
-      "printed_page": "10",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "让色彩动起来",
-      "title": "让色彩动起来",
-      "toc_entry_id": "tcu_68f1bf60b3ff0ff9",
-      "unit_id": "tcu_68f1bf60b3ff0ff9"
+      "unit_id": "tcu_724971dc9337d26c"
     },
     {
       "confidence": 0.98,
@@ -289,7 +393,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_23d7cd362b647882",
-      "parent_id": "tcn_031ba7a98144ca9d",
+      "parent_id": "tcn_3c006a34b4d6dcee",
       "pdf_page": 13,
       "pdf_page_end": 13,
       "pdf_page_start": 13,
@@ -297,7 +401,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 13 页",
-      "unit_id": "tcu_68f1bf60b3ff0ff9"
+      "unit_id": "tcu_724971dc9337d26c"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 15,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_c1029bc4729b8d46",
+      "parent_id": null,
+      "pdf_page": 14,
+      "pdf_page_end": 15,
+      "pdf_page_start": 14,
+      "printed_page": "10",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "4.让色彩动起来",
+      "title": "4.让色彩动起来",
+      "toc_entry_id": "tcu_3f5227914953c4b4",
+      "unit_id": "tcu_3f5227914953c4b4"
     },
     {
       "confidence": 0.98,
@@ -306,7 +429,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_ca4592e8a1289b57",
-      "parent_id": "tcn_031ba7a98144ca9d",
+      "parent_id": "tcn_c1029bc4729b8d46",
       "pdf_page": 14,
       "pdf_page_end": 14,
       "pdf_page_start": 14,
@@ -314,7 +437,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 14 页",
-      "unit_id": "tcu_68f1bf60b3ff0ff9"
+      "unit_id": "tcu_3f5227914953c4b4"
     },
     {
       "confidence": 0.86,
@@ -325,7 +448,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_70d76e28974fb4c8",
-      "parent_id": "tcn_031ba7a98144ca9d",
+      "parent_id": "tcn_c1029bc4729b8d46",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -334,7 +457,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "选择自己喜欢的题材,运用对比色画一幅能让色彩动起来的画。",
       "title": "选择自己喜欢的题材,运用对比色画一幅能让色彩动起来的画。",
-      "unit_id": "tcu_68f1bf60b3ff0ff9"
+      "unit_id": "tcu_3f5227914953c4b4"
     },
     {
       "confidence": 0.98,
@@ -343,7 +466,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d0180ebf95832b93",
-      "parent_id": "tcn_031ba7a98144ca9d",
+      "parent_id": "tcn_c1029bc4729b8d46",
       "pdf_page": 15,
       "pdf_page_end": 15,
       "pdf_page_start": 15,
@@ -351,7 +474,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 15 页",
-      "unit_id": "tcu_68f1bf60b3ff0ff9"
+      "unit_id": "tcu_3f5227914953c4b4"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 17,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_25eaf589de016ac4",
+      "parent_id": null,
+      "pdf_page": 16,
+      "pdf_page_end": 17,
+      "pdf_page_start": 16,
+      "printed_page": "12",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "5.提袋的设计",
+      "title": "5.提袋的设计",
+      "toc_entry_id": "tcu_d5a8218364817f21",
+      "unit_id": "tcu_d5a8218364817f21"
     },
     {
       "confidence": 0.98,
@@ -360,7 +502,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_83930643a1160210",
-      "parent_id": "tcn_382016f76a69b139",
+      "parent_id": "tcn_25eaf589de016ac4",
       "pdf_page": 16,
       "pdf_page_end": 16,
       "pdf_page_start": 16,
@@ -368,26 +510,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 16 页",
-      "unit_id": "tcu_68602a3e0dd32caf"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 21,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "section",
-      "node_id": "tcn_382016f76a69b139",
-      "parent_id": null,
-      "pdf_page": 16,
-      "pdf_page_end": 21,
-      "pdf_page_start": 16,
-      "printed_page": "14",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "精细的描写",
-      "title": "精细的描写",
-      "toc_entry_id": "tcu_68602a3e0dd32caf",
-      "unit_id": "tcu_68602a3e0dd32caf"
+      "unit_id": "tcu_d5a8218364817f21"
     },
     {
       "confidence": 0.86,
@@ -398,7 +521,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_25330bcf989dc06b",
-      "parent_id": "tcn_382016f76a69b139",
+      "parent_id": "tcn_25eaf589de016ac4",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -407,7 +530,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "设计时的想法。 手提袋美观精致,实用又环保?",
       "title": "设计时的想法。 手提袋美观精致,实用又环保?",
-      "unit_id": "tcu_68602a3e0dd32caf"
+      "unit_id": "tcu_d5a8218364817f21"
     },
     {
       "confidence": 0.86,
@@ -418,7 +541,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_f668b9bdf6e0b378",
-      "parent_id": "tcn_382016f76a69b139",
+      "parent_id": "tcn_25eaf589de016ac4",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -427,7 +550,7 @@
       "source": "task_verb_pattern",
       "text_excerpt": "制作一个美观、精 我学会了设计制致又环保的手提袋, 作手提袋。",
       "title": "制作一个美观、精 我学会了设计制致又环保的手提袋, 作手提袋。",
-      "unit_id": "tcu_68602a3e0dd32caf"
+      "unit_id": "tcu_d5a8218364817f21"
     },
     {
       "confidence": 0.98,
@@ -436,7 +559,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_c6749a6609ea4e5b",
-      "parent_id": "tcn_382016f76a69b139",
+      "parent_id": "tcn_25eaf589de016ac4",
       "pdf_page": 17,
       "pdf_page_end": 17,
       "pdf_page_start": 17,
@@ -444,7 +567,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 17 页",
-      "unit_id": "tcu_68602a3e0dd32caf"
+      "unit_id": "tcu_d5a8218364817f21"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 19,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_7edad4f56933a45e",
+      "parent_id": null,
+      "pdf_page": 18,
+      "pdf_page_end": 19,
+      "pdf_page_start": 18,
+      "printed_page": "14",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "6.精细的描写",
+      "title": "6.精细的描写",
+      "toc_entry_id": "tcu_77185acee67bcf2a",
+      "unit_id": "tcu_77185acee67bcf2a"
     },
     {
       "confidence": 0.98,
@@ -453,7 +595,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_8ae28e378a666ed9",
-      "parent_id": "tcn_382016f76a69b139",
+      "parent_id": "tcn_7edad4f56933a45e",
       "pdf_page": 18,
       "pdf_page_end": 18,
       "pdf_page_start": 18,
@@ -461,7 +603,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 18 页",
-      "unit_id": "tcu_68602a3e0dd32caf"
+      "unit_id": "tcu_77185acee67bcf2a"
     },
     {
       "confidence": 0.9,
@@ -472,7 +614,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_c833b40b91221090",
-      "parent_id": "tcn_382016f76a69b139",
+      "parent_id": "tcn_7edad4f56933a45e",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -481,7 +623,7 @@
       "source": "body_heading",
       "text_excerpt": "3. 通过这些精细的",
       "title": "3通过这些精细的",
-      "unit_id": "tcu_68602a3e0dd32caf"
+      "unit_id": "tcu_77185acee67bcf2a"
     },
     {
       "confidence": 0.98,
@@ -490,7 +632,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e899987c76c8cb26",
-      "parent_id": "tcn_382016f76a69b139",
+      "parent_id": "tcn_7edad4f56933a45e",
       "pdf_page": 19,
       "pdf_page_end": 19,
       "pdf_page_start": 19,
@@ -498,7 +640,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 19 页",
-      "unit_id": "tcu_68602a3e0dd32caf"
+      "unit_id": "tcu_77185acee67bcf2a"
     },
     {
       "confidence": 0.9,
@@ -509,7 +651,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_9d07c50392d7bb10",
-      "parent_id": "tcn_382016f76a69b139",
+      "parent_id": "tcn_dd696c86c9196075",
       "pdf_page": 20,
       "pdf_page_end": 21,
       "pdf_page_start": 20,
@@ -518,7 +660,26 @@
       "source": "body_heading",
       "text_excerpt": "16 多功能书包",
       "title": "16多功能书包",
-      "unit_id": "tcu_68602a3e0dd32caf"
+      "unit_id": "tcu_d3b50a6a2f4a9882"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 21,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_dd696c86c9196075",
+      "parent_id": null,
+      "pdf_page": 20,
+      "pdf_page_end": 21,
+      "pdf_page_start": 20,
+      "printed_page": "16",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "7.我的书包",
+      "title": "7.我的书包",
+      "toc_entry_id": "tcu_d3b50a6a2f4a9882",
+      "unit_id": "tcu_d3b50a6a2f4a9882"
     },
     {
       "confidence": 0.98,
@@ -527,7 +688,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_e081bf058bf959c1",
-      "parent_id": "tcn_382016f76a69b139",
+      "parent_id": "tcn_dd696c86c9196075",
       "pdf_page": 20,
       "pdf_page_end": 20,
       "pdf_page_start": 20,
@@ -535,7 +696,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 20 页",
-      "unit_id": "tcu_68602a3e0dd32caf"
+      "unit_id": "tcu_d3b50a6a2f4a9882"
     },
     {
       "confidence": 0.98,
@@ -544,7 +705,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_14a67c1a64b535d7",
-      "parent_id": "tcn_382016f76a69b139",
+      "parent_id": "tcn_dd696c86c9196075",
       "pdf_page": 21,
       "pdf_page_end": 21,
       "pdf_page_start": 21,
@@ -552,7 +713,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 21 页",
-      "unit_id": "tcu_68602a3e0dd32caf"
+      "unit_id": "tcu_d3b50a6a2f4a9882"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 23,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_a6208ef41a58b322",
+      "parent_id": null,
+      "pdf_page": 22,
+      "pdf_page_end": 23,
+      "pdf_page_start": 22,
+      "printed_page": "18",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "8.奇思妙想",
+      "title": "8.奇思妙想",
+      "toc_entry_id": "tcu_9fcb86cbaad20fb1",
+      "unit_id": "tcu_9fcb86cbaad20fb1"
     },
     {
       "confidence": 0.9,
@@ -563,7 +743,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_c202aa329410aff6",
-      "parent_id": "tcn_bad54fc04f4fb33a",
+      "parent_id": "tcn_a6208ef41a58b322",
       "pdf_page": 22,
       "pdf_page_end": 22,
       "pdf_page_start": 22,
@@ -572,7 +752,7 @@
       "source": "body_heading",
       "text_excerpt": "1. 从这两幅",
       "title": "1从这两幅",
-      "unit_id": "tcu_f076a51ef9bc0b60"
+      "unit_id": "tcu_9fcb86cbaad20fb1"
     },
     {
       "confidence": 0.9,
@@ -583,7 +763,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_e1926a7779eee358",
-      "parent_id": "tcn_bad54fc04f4fb33a",
+      "parent_id": "tcn_a6208ef41a58b322",
       "pdf_page": 22,
       "pdf_page_end": 23,
       "pdf_page_start": 22,
@@ -592,7 +772,7 @@
       "source": "body_heading",
       "text_excerpt": "2. 怎样才能",
       "title": "2怎样才能",
-      "unit_id": "tcu_f076a51ef9bc0b60"
+      "unit_id": "tcu_9fcb86cbaad20fb1"
     },
     {
       "confidence": 0.98,
@@ -601,7 +781,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7d084c8bb9c8f298",
-      "parent_id": "tcn_bad54fc04f4fb33a",
+      "parent_id": "tcn_a6208ef41a58b322",
       "pdf_page": 22,
       "pdf_page_end": 22,
       "pdf_page_start": 22,
@@ -609,26 +789,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 22 页",
-      "unit_id": "tcu_f076a51ef9bc0b60"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 23,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "section",
-      "node_id": "tcn_bad54fc04f4fb33a",
-      "parent_id": null,
-      "pdf_page": 22,
-      "pdf_page_end": 23,
-      "pdf_page_start": 22,
-      "printed_page": "20",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "多彩的民族传统纹样",
-      "title": "多彩的民族传统纹样",
-      "toc_entry_id": "tcu_f076a51ef9bc0b60",
-      "unit_id": "tcu_f076a51ef9bc0b60"
+      "unit_id": "tcu_9fcb86cbaad20fb1"
     },
     {
       "confidence": 0.98,
@@ -637,7 +798,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_70fa8fb8ae29465f",
-      "parent_id": "tcn_bad54fc04f4fb33a",
+      "parent_id": "tcn_a6208ef41a58b322",
       "pdf_page": 23,
       "pdf_page_end": 23,
       "pdf_page_start": 23,
@@ -645,7 +806,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 23 页",
-      "unit_id": "tcu_f076a51ef9bc0b60"
+      "unit_id": "tcu_9fcb86cbaad20fb1"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 25,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_049d2652efbb7446",
+      "parent_id": null,
+      "pdf_page": 24,
+      "pdf_page_end": 25,
+      "pdf_page_start": 24,
+      "printed_page": "20",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "9.多彩的民族传统纹样",
+      "title": "9.多彩的民族传统纹样",
+      "toc_entry_id": "tcu_8cc27af0df8981c8",
+      "unit_id": "tcu_8cc27af0df8981c8"
     },
     {
       "confidence": 0.98,
@@ -654,7 +834,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_590d681addd06882",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_049d2652efbb7446",
       "pdf_page": 24,
       "pdf_page_end": 24,
       "pdf_page_start": 24,
@@ -662,26 +842,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 24 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
-    },
-    {
-      "confidence": 0.9,
-      "end_pdf_page": 50,
-      "end_printed_page": null,
-      "evidence_span_ids": [],
-      "kind": "section",
-      "node_id": "tcn_43ab560d80a9065c",
-      "parent_id": null,
-      "pdf_page": 24,
-      "pdf_page_end": 50,
-      "pdf_page_start": 24,
-      "printed_page": "22",
-      "review_status": "approved",
-      "source": "verified_toc",
-      "text_excerpt": "自制小相框",
-      "title": "自制小相框",
-      "toc_entry_id": "tcu_4e427d67afec3ee3",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_8cc27af0df8981c8"
     },
     {
       "confidence": 0.98,
@@ -690,7 +851,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2d8e81715187f7ca",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_049d2652efbb7446",
       "pdf_page": 25,
       "pdf_page_end": 25,
       "pdf_page_start": 25,
@@ -698,7 +859,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 25 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_8cc27af0df8981c8"
     },
     {
       "confidence": 0.9,
@@ -709,7 +870,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_48051865d29ecd29",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_8fe0ff0ef65a57d8",
       "pdf_page": 26,
       "pdf_page_end": 27,
       "pdf_page_start": 26,
@@ -718,7 +879,26 @@
       "source": "body_heading",
       "text_excerpt": "3. 怎样将相框的背板固定在",
       "title": "3怎样将相框的背板固定在",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_65c3ea8f9e1a896a"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 27,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_8fe0ff0ef65a57d8",
+      "parent_id": null,
+      "pdf_page": 26,
+      "pdf_page_end": 27,
+      "pdf_page_start": 26,
+      "printed_page": "22",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "10.自制小相框",
+      "title": "10.自制小相框",
+      "toc_entry_id": "tcu_65c3ea8f9e1a896a",
+      "unit_id": "tcu_65c3ea8f9e1a896a"
     },
     {
       "confidence": 0.98,
@@ -727,7 +907,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3dc179c9a9b676c7",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_8fe0ff0ef65a57d8",
       "pdf_page": 26,
       "pdf_page_end": 26,
       "pdf_page_start": 26,
@@ -735,7 +915,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 26 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_65c3ea8f9e1a896a"
     },
     {
       "confidence": 0.98,
@@ -744,7 +924,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a15a812405d04982",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_8fe0ff0ef65a57d8",
       "pdf_page": 27,
       "pdf_page_end": 27,
       "pdf_page_start": 27,
@@ -752,7 +932,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 27 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_65c3ea8f9e1a896a"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 29,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_3a86233edcde3dcc",
+      "parent_id": null,
+      "pdf_page": 28,
+      "pdf_page_end": 29,
+      "pdf_page_start": 28,
+      "printed_page": "24",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "11.动漫——动起来的漫画",
+      "title": "11.动漫——动起来的漫画",
+      "toc_entry_id": "tcu_cb54f5764b01db90",
+      "unit_id": "tcu_cb54f5764b01db90"
     },
     {
       "confidence": 0.9,
@@ -763,7 +962,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_c6a34b57ba1bd58d",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_3a86233edcde3dcc",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -772,7 +971,7 @@
       "source": "body_heading",
       "text_excerpt": "1. 你喜欢课中什",
       "title": "1你喜欢课中什",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_cb54f5764b01db90"
     },
     {
       "confidence": 0.98,
@@ -781,7 +980,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_f0a793a385c4bb1d",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_3a86233edcde3dcc",
       "pdf_page": 28,
       "pdf_page_end": 28,
       "pdf_page_start": 28,
@@ -789,7 +988,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 28 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_cb54f5764b01db90"
     },
     {
       "confidence": 0.9,
@@ -800,7 +999,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_030b55152f21634b",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_3a86233edcde3dcc",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -809,7 +1008,7 @@
       "source": "body_heading",
       "text_excerpt": "2. 题 材 和",
       "title": "2题材和",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_cb54f5764b01db90"
     },
     {
       "confidence": 0.9,
@@ -820,7 +1019,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_b3371eb37f6e3091",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_3a86233edcde3dcc",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -829,27 +1028,27 @@
       "source": "body_heading",
       "text_excerpt": "1. 作 品 给",
       "title": "1作品给",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_cb54f5764b01db90"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 32,
+      "end_pdf_page": 29,
       "end_printed_page": "25",
       "evidence_span_ids": [
         "tes_ca130275c4750c05"
       ],
       "kind": "lesson",
       "node_id": "tcn_b5fb0e4cdec3e628",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_3a86233edcde3dcc",
       "pdf_page": 29,
-      "pdf_page_end": 32,
+      "pdf_page_end": 29,
       "pdf_page_start": 29,
       "printed_page": "25",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "3. 表 现 方",
       "title": "3表现方",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_cb54f5764b01db90"
     },
     {
       "confidence": 0.98,
@@ -858,7 +1057,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_7822106eb8e237b3",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_3a86233edcde3dcc",
       "pdf_page": 29,
       "pdf_page_end": 29,
       "pdf_page_start": 29,
@@ -866,7 +1065,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 29 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_cb54f5764b01db90"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 31,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_d30f6b7459559279",
+      "parent_id": null,
+      "pdf_page": 30,
+      "pdf_page_end": 31,
+      "pdf_page_start": 30,
+      "printed_page": "26",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "12.电脑美术——巧用动漫形象",
+      "title": "12.电脑美术——巧用动漫形象",
+      "toc_entry_id": "tcu_79eddc1f1bf0e684",
+      "unit_id": "tcu_79eddc1f1bf0e684"
     },
     {
       "confidence": 0.98,
@@ -875,7 +1093,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_090cd66347d0ea8c",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_d30f6b7459559279",
       "pdf_page": 30,
       "pdf_page_end": 30,
       "pdf_page_start": 30,
@@ -883,7 +1101,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 30 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_79eddc1f1bf0e684"
     },
     {
       "confidence": 0.98,
@@ -892,7 +1110,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b2011449cbca351e",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_d30f6b7459559279",
       "pdf_page": 31,
       "pdf_page_end": 31,
       "pdf_page_start": 31,
@@ -900,7 +1118,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 31 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_79eddc1f1bf0e684"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 34,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_ee47087d24ea0df7",
+      "parent_id": null,
+      "pdf_page": 32,
+      "pdf_page_end": 34,
+      "pdf_page_start": 32,
+      "printed_page": "28",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "13.花鸟画（一）",
+      "title": "13.花鸟画（一）",
+      "toc_entry_id": "tcu_3251fe990808d2ee",
+      "unit_id": "tcu_3251fe990808d2ee"
     },
     {
       "confidence": 0.98,
@@ -909,7 +1146,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a5f45d2e5a8af19f",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_ee47087d24ea0df7",
       "pdf_page": 32,
       "pdf_page_end": 32,
       "pdf_page_start": 32,
@@ -917,7 +1154,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 32 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_3251fe990808d2ee"
     },
     {
       "confidence": 0.9,
@@ -928,7 +1165,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_a2426848f7d28e22",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_ee47087d24ea0df7",
       "pdf_page": 33,
       "pdf_page_end": 33,
       "pdf_page_start": 33,
@@ -937,27 +1174,27 @@
       "source": "body_heading",
       "text_excerpt": "5.在画面右下适合",
       "title": "5在画面右下适合",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_3251fe990808d2ee"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 39,
+      "end_pdf_page": 34,
       "end_printed_page": "29",
       "evidence_span_ids": [
         "tes_74b63b98dc3d19fe"
       ],
       "kind": "lesson",
       "node_id": "tcn_e28a432ea5a3ad2d",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_ee47087d24ea0df7",
       "pdf_page": 33,
-      "pdf_page_end": 39,
+      "pdf_page_end": 34,
       "pdf_page_start": 33,
       "printed_page": "29",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "1.用中锋蘸淡墨勾",
       "title": "1用中锋蘸淡墨勾",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_3251fe990808d2ee"
     },
     {
       "confidence": 0.98,
@@ -966,7 +1203,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a0381522a85d2f16",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_ee47087d24ea0df7",
       "pdf_page": 33,
       "pdf_page_end": 33,
       "pdf_page_start": 33,
@@ -974,7 +1211,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 33 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_3251fe990808d2ee"
     },
     {
       "confidence": 0.98,
@@ -983,7 +1220,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_0e351797501818c7",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_ee47087d24ea0df7",
       "pdf_page": 34,
       "pdf_page_end": 34,
       "pdf_page_start": 34,
@@ -991,7 +1228,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 34 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_3251fe990808d2ee"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 37,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_739b89f4dff58b0b",
+      "parent_id": null,
+      "pdf_page": 35,
+      "pdf_page_end": 37,
+      "pdf_page_start": 35,
+      "printed_page": "31",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "14.花鸟画（二）",
+      "title": "14.花鸟画（二）",
+      "toc_entry_id": "tcu_f8ee90e6c3847cc9",
+      "unit_id": "tcu_f8ee90e6c3847cc9"
     },
     {
       "confidence": 0.98,
@@ -1000,7 +1256,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a392917302203842",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_739b89f4dff58b0b",
       "pdf_page": 35,
       "pdf_page_end": 35,
       "pdf_page_start": 35,
@@ -1008,7 +1264,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 35 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_f8ee90e6c3847cc9"
     },
     {
       "confidence": 0.98,
@@ -1017,7 +1273,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5181352ecfed9153",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_739b89f4dff58b0b",
       "pdf_page": 36,
       "pdf_page_end": 36,
       "pdf_page_start": 36,
@@ -1025,7 +1281,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 36 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_f8ee90e6c3847cc9"
     },
     {
       "confidence": 0.98,
@@ -1034,7 +1290,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_87810eefc1e4bddd",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_739b89f4dff58b0b",
       "pdf_page": 37,
       "pdf_page_end": 37,
       "pdf_page_start": 37,
@@ -1042,7 +1298,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 37 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_f8ee90e6c3847cc9"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 39,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_a0be6af409db7642",
+      "parent_id": null,
+      "pdf_page": 38,
+      "pdf_page_end": 39,
+      "pdf_page_start": 38,
+      "printed_page": "34",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "15.山水画",
+      "title": "15.山水画",
+      "toc_entry_id": "tcu_8e08006926611a2f",
+      "unit_id": "tcu_8e08006926611a2f"
     },
     {
       "confidence": 0.98,
@@ -1051,7 +1326,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5c0fb0e2a08fd495",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_a0be6af409db7642",
       "pdf_page": 38,
       "pdf_page_end": 38,
       "pdf_page_start": 38,
@@ -1059,7 +1334,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 38 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_8e08006926611a2f"
     },
     {
       "confidence": 0.98,
@@ -1068,7 +1343,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_3dd5acfb89325578",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_a0be6af409db7642",
       "pdf_page": 39,
       "pdf_page_end": 39,
       "pdf_page_start": 39,
@@ -1076,7 +1351,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 39 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_8e08006926611a2f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 41,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_35de4f8998018e5a",
+      "parent_id": null,
+      "pdf_page": 40,
+      "pdf_page_end": 41,
+      "pdf_page_start": 40,
+      "printed_page": "36",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "16.有特点的人脸",
+      "title": "16.有特点的人脸",
+      "toc_entry_id": "tcu_84259d1c9078119c",
+      "unit_id": "tcu_84259d1c9078119c"
     },
     {
       "confidence": 0.9,
@@ -1087,7 +1381,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_c9b5867d079a595d",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_35de4f8998018e5a",
       "pdf_page": 40,
       "pdf_page_end": 41,
       "pdf_page_start": 40,
@@ -1096,7 +1390,7 @@
       "source": "body_heading",
       "text_excerpt": "3. 请你用一个词形容他们的表",
       "title": "3请你用一个词形容他们的表",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_84259d1c9078119c"
     },
     {
       "confidence": 0.98,
@@ -1105,7 +1399,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_62c75ca3f880fe95",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_35de4f8998018e5a",
       "pdf_page": 40,
       "pdf_page_end": 40,
       "pdf_page_start": 40,
@@ -1113,7 +1407,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 40 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_84259d1c9078119c"
     },
     {
       "confidence": 0.98,
@@ -1122,7 +1416,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_beb22700ac9300c2",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_35de4f8998018e5a",
       "pdf_page": 41,
       "pdf_page_end": 41,
       "pdf_page_start": 41,
@@ -1130,27 +1424,46 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 41 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_84259d1c9078119c"
     },
     {
       "confidence": 0.9,
-      "end_pdf_page": 48,
+      "end_pdf_page": 43,
       "end_printed_page": "38",
       "evidence_span_ids": [
         "tes_4592e2c315312be5"
       ],
       "kind": "lesson",
       "node_id": "tcn_0a87dadf59ddcf44",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_15315d1bb12d6bb2",
       "pdf_page": 42,
-      "pdf_page_end": 48,
+      "pdf_page_end": 43,
       "pdf_page_start": 42,
       "printed_page": "38",
       "review_status": "machine_checked",
       "source": "body_heading",
       "text_excerpt": "1. 你能分清本课中的雕塑哪",
       "title": "1你能分清本课中的雕塑哪",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_e54fbf265731d86f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 43,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_15315d1bb12d6bb2",
+      "parent_id": null,
+      "pdf_page": 42,
+      "pdf_page_end": 43,
+      "pdf_page_start": 42,
+      "printed_page": "38",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "17.雕塑之美",
+      "title": "17.雕塑之美",
+      "toc_entry_id": "tcu_e54fbf265731d86f",
+      "unit_id": "tcu_e54fbf265731d86f"
     },
     {
       "confidence": 0.98,
@@ -1159,7 +1472,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_5f4bd3701a8ab8fc",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_15315d1bb12d6bb2",
       "pdf_page": 42,
       "pdf_page_end": 42,
       "pdf_page_start": 42,
@@ -1167,7 +1480,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 42 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_e54fbf265731d86f"
     },
     {
       "confidence": 0.98,
@@ -1176,7 +1489,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d439ad22e27548b0",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_15315d1bb12d6bb2",
       "pdf_page": 43,
       "pdf_page_end": 43,
       "pdf_page_start": 43,
@@ -1184,7 +1497,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 43 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_e54fbf265731d86f"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 45,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_cd3c12996d06ebe5",
+      "parent_id": null,
+      "pdf_page": 44,
+      "pdf_page_end": 45,
+      "pdf_page_start": 44,
+      "printed_page": "40",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "18.给科学插上艺术的翅膀",
+      "title": "18.给科学插上艺术的翅膀",
+      "toc_entry_id": "tcu_352808073624c3d7",
+      "unit_id": "tcu_352808073624c3d7"
     },
     {
       "confidence": 0.98,
@@ -1193,7 +1525,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_df80a76126c8e413",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_cd3c12996d06ebe5",
       "pdf_page": 44,
       "pdf_page_end": 44,
       "pdf_page_start": 44,
@@ -1201,7 +1533,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 44 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_352808073624c3d7"
     },
     {
       "confidence": 0.98,
@@ -1210,7 +1542,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_2dd3290860f6dc4d",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_cd3c12996d06ebe5",
       "pdf_page": 45,
       "pdf_page_end": 45,
       "pdf_page_start": 45,
@@ -1218,7 +1550,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 45 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_352808073624c3d7"
     },
     {
       "confidence": 0.86,
@@ -1229,7 +1561,7 @@
       ],
       "kind": "exercise",
       "node_id": "tcn_bc348e6ca7505009",
-      "parent_id": "tcn_0a87dadf59ddcf44",
+      "parent_id": "tcn_8e42d2c356e1b3b4",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -1238,7 +1570,26 @@
       "source": "task_verb_pattern",
       "text_excerpt": "设计是受了原子结构的启发。",
       "title": "设计是受了原子结构的启发。",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_d467deca7ef7e177"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 47,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_8e42d2c356e1b3b4",
+      "parent_id": null,
+      "pdf_page": 46,
+      "pdf_page_end": 47,
+      "pdf_page_start": 46,
+      "printed_page": "42",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "19.昨天、今天和明天",
+      "title": "19.昨天、今天和明天",
+      "toc_entry_id": "tcu_d467deca7ef7e177",
+      "unit_id": "tcu_d467deca7ef7e177"
     },
     {
       "confidence": 0.98,
@@ -1247,7 +1598,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_4db9d768729b30b8",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_8e42d2c356e1b3b4",
       "pdf_page": 46,
       "pdf_page_end": 46,
       "pdf_page_start": 46,
@@ -1255,7 +1606,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 46 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_d467deca7ef7e177"
     },
     {
       "confidence": 0.98,
@@ -1264,7 +1615,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_a969dc5649609161",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_8e42d2c356e1b3b4",
       "pdf_page": 47,
       "pdf_page_end": 47,
       "pdf_page_start": 47,
@@ -1272,7 +1623,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 47 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_d467deca7ef7e177"
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 49,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_e3d2053da3bf5d0a",
+      "parent_id": null,
+      "pdf_page": 48,
+      "pdf_page_end": 49,
+      "pdf_page_start": 48,
+      "printed_page": "44",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "20.科学创造新生活",
+      "title": "20.科学创造新生活",
+      "toc_entry_id": "tcu_d15204fea6d50b31",
+      "unit_id": "tcu_d15204fea6d50b31"
     },
     {
       "confidence": 0.98,
@@ -1281,7 +1651,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_245da39a85d4d390",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_e3d2053da3bf5d0a",
       "pdf_page": 48,
       "pdf_page_end": 48,
       "pdf_page_start": 48,
@@ -1289,7 +1659,7 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 48 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_d15204fea6d50b31"
     },
     {
       "confidence": 0.9,
@@ -1300,7 +1670,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_ed2ef938028a9bff",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_e3d2053da3bf5d0a",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -1309,7 +1679,7 @@
       "source": "body_heading",
       "text_excerpt": "3. 怎样把你的幻想用艺术",
       "title": "3怎样把你的幻想用艺术",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_d15204fea6d50b31"
     },
     {
       "confidence": 0.98,
@@ -1318,7 +1688,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_b588207afbbe1584",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_e3d2053da3bf5d0a",
       "pdf_page": 49,
       "pdf_page_end": 49,
       "pdf_page_start": 49,
@@ -1326,7 +1696,26 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 49 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_d15204fea6d50b31"
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 50,
+      "end_printed_page": null,
+      "evidence_span_ids": [],
+      "kind": "lesson",
+      "node_id": "tcn_5addb95102000f90",
+      "parent_id": null,
+      "pdf_page": 50,
+      "pdf_page_end": 50,
+      "pdf_page_start": 50,
+      "printed_page": "46",
+      "review_status": "approved",
+      "source": "verified_toc",
+      "text_excerpt": "综合练习",
+      "title": "综合练习",
+      "toc_entry_id": "tcu_752f7e25c6a2ce90",
+      "unit_id": "tcu_752f7e25c6a2ce90"
     },
     {
       "confidence": 0.9,
@@ -1337,7 +1726,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_632aee140d6ba545",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_5addb95102000f90",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -1346,7 +1735,7 @@
       "source": "body_heading",
       "text_excerpt": "7. 右边这幅画使用了哪些",
       "title": "7右边这幅画使用了哪些",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_752f7e25c6a2ce90"
     },
     {
       "confidence": 0.9,
@@ -1357,7 +1746,7 @@
       ],
       "kind": "lesson",
       "node_id": "tcn_c6c90d3f81fe8987",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_5addb95102000f90",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -1366,7 +1755,7 @@
       "source": "body_heading",
       "text_excerpt": "4. 请在作业本上画",
       "title": "4请在作业本上画",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_752f7e25c6a2ce90"
     },
     {
       "confidence": 0.98,
@@ -1375,7 +1764,7 @@
       "evidence_span_ids": [],
       "kind": "page",
       "node_id": "tcn_d317903f901abe13",
-      "parent_id": "tcn_43ab560d80a9065c",
+      "parent_id": "tcn_5addb95102000f90",
       "pdf_page": 50,
       "pdf_page_end": 50,
       "pdf_page_start": 50,
@@ -1383,12 +1772,87 @@
       "review_status": "machine_checked",
       "source": "pdfjs_text_layer",
       "title": "PDF 第 50 页",
-      "unit_id": "tcu_4e427d67afec3ee3"
+      "unit_id": "tcu_752f7e25c6a2ce90"
     }
   ],
   "edition_id": "ed_913a5e82b0b4337baa77",
   "evidence_id": "ctb_5f8b00576115",
   "evidence_spans": [
+    {
+      "asset_sha256": "728a6bc13e6288d9b2e21b2594e55962f7f96f780c2733873f582739b6f642ad",
+      "bbox": {
+        "height": 12,
+        "page_height": 737,
+        "page_width": 524.4,
+        "unit": "pdf_point",
+        "width": 288,
+        "x": 14.15,
+        "y": 60.612
+      },
+      "edition_id": "ed_913a5e82b0b4337baa77",
+      "evidence_role": "exercise",
+      "excerpt": "讨论一下,他为什么把母亲的身体和大地联系起来呢?",
+      "excerpt_hash": "04475107cb0d385d1b52a56baa3e3e0fbf94080a9a64541284a475bbeca9cfc1",
+      "node_id": "tcn_a9cff2492abc4b1b",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 5,
+      "printed_page": "1",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_993b0f6a52e9aed2",
+      "text": "讨论一下,他为什么把母亲的身体和大地联系起来呢?",
+      "text_hash": "04475107cb0d385d1b52a56baa3e3e0fbf94080a9a64541284a475bbeca9cfc1"
+    },
+    {
+      "asset_sha256": "728a6bc13e6288d9b2e21b2594e55962f7f96f780c2733873f582739b6f642ad",
+      "bbox": {
+        "height": 12,
+        "page_height": 737,
+        "page_width": 524.4,
+        "unit": "pdf_point",
+        "width": 148.8,
+        "x": 224.895,
+        "y": 290.103
+      },
+      "edition_id": "ed_913a5e82b0b4337baa77",
+      "evidence_role": "exercise",
+      "excerpt": "选择一幅你喜欢的作品,写一篇 200 字的观后感。",
+      "excerpt_hash": "8ba0d03ca9a8ab0bd169a272e3d1c8229ffbf405be2305fce16ebeb6fcb2e6dd",
+      "node_id": "tcn_911fe794a333e8a3",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 8,
+      "printed_page": "4",
+      "role": "exercise",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_835a621b6e16b4e6",
+      "text": "选择一幅你喜欢的作品,写一篇 200 字的观后感。",
+      "text_hash": "8ba0d03ca9a8ab0bd169a272e3d1c8229ffbf405be2305fce16ebeb6fcb2e6dd"
+    },
+    {
+      "asset_sha256": "728a6bc13e6288d9b2e21b2594e55962f7f96f780c2733873f582739b6f642ad",
+      "bbox": {
+        "height": 27.407,
+        "page_height": 737,
+        "page_width": 524.4,
+        "unit": "pdf_point",
+        "width": 290.817,
+        "x": 132.095,
+        "y": 651.75
+      },
+      "edition_id": "ed_913a5e82b0b4337baa77",
+      "evidence_role": "heading",
+      "excerpt": "20世纪的艺术大师——马蒂斯",
+      "excerpt_hash": "1a8fa2d3a70d727ae610adac0411b05f5d06526a5eb637c8b8744ecab978728c",
+      "node_id": "tcn_6538e73f636e44ff",
+      "parser_version": "textbook-content-pdfjs-v3",
+      "pdf_page": 9,
+      "printed_page": "5",
+      "role": "heading",
+      "source": "pdfjs_text_layer",
+      "span_id": "tes_ba90a635bf00c30c",
+      "text": "20世纪的艺术大师——马蒂斯",
+      "text_hash": "1a8fa2d3a70d727ae610adac0411b05f5d06526a5eb637c8b8744ecab978728c"
+    },
     {
       "asset_sha256": "728a6bc13e6288d9b2e21b2594e55962f7f96f780c2733873f582739b6f642ad",
       "bbox": {
@@ -2225,6 +2689,31 @@
       "review_status": "approved"
     }
   ],
+  "printed_toc": {
+    "algorithm_version": "printed-toc-v1",
+    "approved_entry_count": 22,
+    "contents_pdf_pages": [
+      2
+    ],
+    "contents_read_from": "docs/data/textbooks/toc-transcribed/ed_913a5e82b0b4337baa77.tsv",
+    "decision": "more_units",
+    "evidence_policy": "printed_contents_page_number_and_title_at_page_top",
+    "page_offset_source": "page_map",
+    "parsed_entry_count": 22,
+    "provenance": "machine_generated",
+    "replaced_toc": {
+      "entries": 5,
+      "last_pdf_page": 24,
+      "sources": [
+        "ocr_toc"
+      ],
+      "units": 0
+    },
+    "reused_entry_id_count": 0,
+    "review_policy": "automatic_no_human_gate",
+    "unverified_entries": [],
+    "verified_share": 0.95
+  },
   "schema_version": 2,
   "standard_scopes": [
     {
@@ -2291,109 +2780,536 @@
   "text_quality": "native_text",
   "toc": [
     {
-      "confidence": 0.9,
-      "end_pdf_page": 11,
-      "entry_id": "tcu_07084248df0ca0bc",
-      "kind": "section",
-      "level": 2,
+      "confidence": 0.95,
+      "end_pdf_page": 5,
+      "end_printed_page": "1",
+      "entry_id": "tcu_da47ecb358aab599",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 5,
+        "verbatim_title": "着衣母婴卧像"
+      },
+      "kind": "unit",
+      "level": 1,
       "parent_id": null,
-      "pdf_page": 10,
-      "printed_page": "8",
+      "pdf_page": 5,
+      "printed_page": "1",
+      "range_provenance": {
+        "algorithm_version": "sidecar-top-heading-unit-range-v2",
+        "end_evidence": null,
+        "evidence_basis": "sidecar_top_verbatim_title",
+        "provenance": "machine_generated",
+        "publication_gate": false,
+        "review_policy": "automatic_no_human_gate",
+        "start_evidence": {
+          "bbox": {
+            "height": 10,
+            "page_height": 737,
+            "page_width": 524.4,
+            "unit": "pdf_point",
+            "width": 10,
+            "x": 417.752,
+            "y": 345.384
+          },
+          "evidence_type": "unit_heading",
+          "extraction_method": "pdfjs_text_layer",
+          "line_index": 0,
+          "pdf_page": 5,
+          "verbatim_title": "着衣母婴卧像"
+        }
+      },
+      "range_review_policy": "automatic_no_human_gate",
+      "range_source": "sidecar-top-heading-unit-range-v2",
       "review_status": "approved",
-      "source": "ocr_toc",
-      "source_order": 2,
-      "title": "色彩的纯度",
-      "toc_pdf_page": 2
+      "source": "printed_toc",
+      "source_order": 1,
+      "title": "着衣母婴卧像",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 1
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 15,
-      "entry_id": "tcu_68f1bf60b3ff0ff9",
-      "kind": "section",
-      "level": 2,
+      "confidence": 0.95,
+      "end_pdf_page": 8,
+      "entry_id": "tcu_76327577210d2ee9",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 6,
+        "verbatim_title": "人民艺术家——齐白石"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 6,
+      "printed_page": "2",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 2,
+      "title": "1.人民艺术家——齐白石",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 2
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 11,
+      "entry_id": "tcu_2055b39552b1d027",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 9,
+        "verbatim_title": "20世纪的艺术大师——马蒂斯"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 9,
+      "printed_page": "5",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 3,
+      "title": "2.20世纪的艺术大师——马蒂斯",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 5
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 13,
+      "entry_id": "tcu_724971dc9337d26c",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 12,
+        "verbatim_title": "色彩的纯度"
+      },
+      "kind": "lesson",
+      "level": 1,
       "parent_id": null,
       "pdf_page": 12,
+      "printed_page": "8",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 4,
+      "title": "3.色彩的纯度",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 8
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 15,
+      "entry_id": "tcu_3f5227914953c4b4",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 14,
+        "verbatim_title": "让色彩动起来"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 14,
       "printed_page": "10",
       "review_status": "approved",
-      "source": "ocr_toc",
-      "source_order": 3,
-      "title": "让色彩动起来",
-      "toc_pdf_page": 2
+      "source": "printed_toc",
+      "source_order": 5,
+      "title": "4.让色彩动起来",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 10
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 21,
-      "entry_id": "tcu_68602a3e0dd32caf",
-      "kind": "section",
-      "level": 2,
+      "confidence": 0.95,
+      "end_pdf_page": 17,
+      "entry_id": "tcu_d5a8218364817f21",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 16,
+        "verbatim_title": "提袋的设计"
+      },
+      "kind": "lesson",
+      "level": 1,
       "parent_id": null,
       "pdf_page": 16,
+      "printed_page": "12",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 6,
+      "title": "5.提袋的设计",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 12
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 19,
+      "entry_id": "tcu_77185acee67bcf2a",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 18,
+        "verbatim_title": "精细的描写"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 18,
       "printed_page": "14",
       "review_status": "approved",
-      "source": "ocr_toc",
-      "source_order": 4,
-      "title": "精细的描写",
-      "toc_pdf_page": 2
+      "source": "printed_toc",
+      "source_order": 7,
+      "title": "6.精细的描写",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 14
     },
     {
-      "confidence": 0.9,
+      "confidence": 0.95,
+      "end_pdf_page": 21,
+      "entry_id": "tcu_d3b50a6a2f4a9882",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 20,
+        "verbatim_title": "我的书包"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 20,
+      "printed_page": "16",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 8,
+      "title": "7.我的书包",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 16
+    },
+    {
+      "confidence": 0.95,
       "end_pdf_page": 23,
-      "entry_id": "tcu_f076a51ef9bc0b60",
-      "kind": "section",
-      "level": 2,
+      "entry_id": "tcu_9fcb86cbaad20fb1",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 22,
+        "verbatim_title": "奇思妙想"
+      },
+      "kind": "lesson",
+      "level": 1,
       "parent_id": null,
       "pdf_page": 22,
-      "printed_page": "20",
+      "printed_page": "18",
       "review_status": "approved",
-      "source": "ocr_toc",
-      "source_order": 5,
-      "title": "多彩的民族传统纹样",
-      "toc_pdf_page": 2
+      "source": "printed_toc",
+      "source_order": 9,
+      "title": "8.奇思妙想",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 18
     },
     {
-      "confidence": 0.9,
-      "end_pdf_page": 50,
-      "entry_id": "tcu_4e427d67afec3ee3",
-      "kind": "section",
-      "level": 2,
+      "confidence": 0.95,
+      "end_pdf_page": 25,
+      "entry_id": "tcu_8cc27af0df8981c8",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 24,
+        "verbatim_title": "多彩的民族传统纹样"
+      },
+      "kind": "lesson",
+      "level": 1,
       "parent_id": null,
       "pdf_page": 24,
+      "printed_page": "20",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 10,
+      "title": "9.多彩的民族传统纹样",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 20
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 27,
+      "entry_id": "tcu_65c3ea8f9e1a896a",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 26,
+        "verbatim_title": "自制小相框"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 26,
       "printed_page": "22",
       "review_status": "approved",
-      "source": "ocr_toc",
-      "source_order": 6,
-      "title": "自制小相框",
-      "toc_pdf_page": 2
+      "source": "printed_toc",
+      "source_order": 11,
+      "title": "10.自制小相框",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 22
     },
     {
-      "confidence": 0.84,
-      "end_pdf_page": null,
-      "entry_id": "tcu_b35d2de69fa3164e",
-      "kind": "section",
-      "level": 2,
+      "confidence": 0.95,
+      "end_pdf_page": 29,
+      "entry_id": "tcu_cb54f5764b01db90",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 28,
+        "verbatim_title": "动漫——动起来的漫画"
+      },
+      "kind": "lesson",
+      "level": 1,
       "parent_id": null,
-      "pdf_page": null,
-      "printed_page": null,
+      "pdf_page": 28,
+      "printed_page": "24",
       "review_status": "approved",
-      "source": "ocr_toc",
-      "source_order": 1,
-      "title": "世纪的艺术大师",
-      "toc_pdf_page": 2
+      "source": "printed_toc",
+      "source_order": 12,
+      "title": "11.动漫——动起来的漫画",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 24
     },
     {
-      "confidence": 0.84,
-      "end_pdf_page": null,
-      "entry_id": "tcu_78476488e3941aa3",
-      "kind": "section",
-      "level": 2,
+      "confidence": 0.95,
+      "end_pdf_page": 31,
+      "entry_id": "tcu_79eddc1f1bf0e684",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 30,
+        "verbatim_title": "电脑美术——巧用动漫形象"
+      },
+      "kind": "lesson",
+      "level": 1,
       "parent_id": null,
-      "pdf_page": null,
-      "printed_page": null,
+      "pdf_page": 30,
+      "printed_page": "26",
       "review_status": "approved",
-      "source": "ocr_toc",
-      "source_order": 7,
-      "title": "电脑美术",
-      "toc_pdf_page": 2
+      "source": "printed_toc",
+      "source_order": 13,
+      "title": "12.电脑美术——巧用动漫形象",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 26
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 34,
+      "entry_id": "tcu_3251fe990808d2ee",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 32,
+        "verbatim_title": "花鸟画(一)"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 32,
+      "printed_page": "28",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 14,
+      "title": "13.花鸟画（一）",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 28
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 37,
+      "entry_id": "tcu_f8ee90e6c3847cc9",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 35,
+        "verbatim_title": "花鸟画(二 )"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 35,
+      "printed_page": "31",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 15,
+      "title": "14.花鸟画（二）",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 31
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 39,
+      "entry_id": "tcu_8e08006926611a2f",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 38,
+        "verbatim_title": "山水画"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 38,
+      "printed_page": "34",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 16,
+      "title": "15.山水画",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 34
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 41,
+      "entry_id": "tcu_84259d1c9078119c",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 40,
+        "verbatim_title": "有特点的人脸"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 40,
+      "printed_page": "36",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 17,
+      "title": "16.有特点的人脸",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 36
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 43,
+      "entry_id": "tcu_e54fbf265731d86f",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 42,
+        "verbatim_title": "雕塑之美"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 42,
+      "printed_page": "38",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 18,
+      "title": "17.雕塑之美",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 38
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 45,
+      "entry_id": "tcu_352808073624c3d7",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 44,
+        "verbatim_title": "给科学插上艺术的翅膀"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 44,
+      "printed_page": "40",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 19,
+      "title": "18.给科学插上艺术的翅膀",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 40
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 47,
+      "entry_id": "tcu_d467deca7ef7e177",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 46,
+        "verbatim_title": "昨天、今天和明天"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 46,
+      "printed_page": "42",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 20,
+      "title": "19.昨天、今天和明天",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 42
+    },
+    {
+      "confidence": 0.95,
+      "end_pdf_page": 49,
+      "entry_id": "tcu_d15204fea6d50b31",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_title_at_page_top",
+        "line_index": 0,
+        "pdf_page": 48,
+        "verbatim_title": "科学创造新生活"
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 48,
+      "printed_page": "44",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 21,
+      "title": "20.科学创造新生活",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 44
+    },
+    {
+      "confidence": 0.85,
+      "end_pdf_page": 50,
+      "entry_id": "tcu_752f7e25c6a2ce90",
+      "heading_evidence": {
+        "evidence_type": "printed_toc_transcribed_page",
+        "line_index": null,
+        "pdf_page": 50,
+        "verbatim_title": null
+      },
+      "kind": "lesson",
+      "level": 1,
+      "parent_id": null,
+      "pdf_page": 50,
+      "printed_page": "46",
+      "review_status": "approved",
+      "source": "printed_toc",
+      "source_order": 22,
+      "title": "综合练习",
+      "toc_pdf_page": 2,
+      "toc_printed_page": 46
     }
-  ]
+  ],
+  "unit_range_reconciliation": {
+    "algorithm_version": "sidecar-top-heading-unit-range-v2",
+    "auxiliary_boundary_evidence": null,
+    "changed_unit_range_count": 0,
+    "changes": [],
+    "clamped_content_node_range_count": 0,
+    "detached_auxiliary_content_node_count": 66,
+    "evidence_policy": "sidecar_top_verbatim_titles_and_auxiliary_titles_only",
+    "exact_unit_heading_evidence_count": 1,
+    "inspected_page_count": 50,
+    "provenance": "machine_generated",
+    "publication_gate": false,
+    "reassigned_content_node_count": 1,
+    "review_policy": "automatic_no_human_gate",
+    "schema_version": 1,
+    "sidecar_sha256": "733c160e21bf397c4aef523d1ffcc9d0bc8cb0360869d3da6055a0da29aa04b8",
+    "source_asset_sha256": "728a6bc13e6288d9b2e21b2594e55962f7f96f780c2733873f582739b6f642ad",
+    "status": "reconciled",
+    "top_level_unit_count": 1,
+    "top_line_limit": 4
+  }
 }

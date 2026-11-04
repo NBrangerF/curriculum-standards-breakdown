@@ -1,10 +1,13 @@
 // Builds public/data/textbooks/national-lessons/<edition_id>.json from data/textbooks/smartedu: each textbook's
 // 国家中小学智慧教育平台 同步课, in the platform's chapter order, with the kebiao units each lesson falls in
-// (by the lesson's start page in our PDF, or by title). Run after fetch_smartedu_lessons.mjs.
+// (by the lesson's start page in our PDF, or by title), and the lessons of the book's own 目录 the platform lacks
+// (toc_lessons.mjs, `toc: true`), so every book in the library has a file with all its lessons. Run after
+// fetch_smartedu_lessons.mjs and after the 目录 changes.
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { unscramble } from './textbook_text.mjs'
+import { tocLessons } from './toc_lessons.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const SOURCE = path.join(ROOT, 'data/textbooks/smartedu')
@@ -132,8 +135,13 @@ export function buildNationalLessons() {
             if (!list.some(item => item[1] === entry[1] || (item[0] === entry[0] && item[2] === entry[2]))) list.push(entry)
         }
     }
-    for (const file of readdirSync(SOURCE).filter(name => name.startsWith('ed_'))) {
-        const record = JSON.parse(readFileSync(path.join(SOURCE, file), 'utf8'))
+    // the library's books with no 国家平台 lessons get a file of their 目录 lessons
+    const library = JSON.parse(readFileSync(path.join(ROOT, 'public/data/textbooks/index.json'), 'utf8')).items
+    const records = readdirSync(SOURCE).filter(name => name.startsWith('ed_')).map(file => JSON.parse(readFileSync(path.join(SOURCE, file), 'utf8')))
+    for (const book of library) {
+        if (!records.some(record => record.edition_id === book.edition_id)) records.push({ edition_id: book.edition_id, textbook_title: book.title, platform_title: null, platform_textbook_id: null, match: { title_hits: 0 }, tree: [], lessons: [], toc_only: true })
+    }
+    for (const record of records) {
         const titles = new Map()
         const order = new Map()
         const walk = (nodes, trail) => {
@@ -154,7 +162,7 @@ export function buildNationalLessons() {
             containing.sort((a, b) => ((a.end_pdf_page || a.pdf_page) - a.pdf_page) - ((b.end_pdf_page || b.pdf_page) - b.pdf_page))
             return containing[0]?.entry_id || null
         }
-        const confidence = record.match.title_hits >= 3 ? 'text' : 'edition'
+        const confidence = record.toc_only ? null : record.match.title_hits >= 3 ? 'text' : 'edition'
         // the platform lists lessons by upload; show them in the book's chapter order
         const position = lesson => order.get(lesson.chapter_path.at(-1)) ?? Number.MAX_SAFE_INTEGER
         const sorted = record.lessons.map((lesson, index) => ({ lesson, index })).sort((a, b) => position(a.lesson) - position(b.lesson) || a.index - b.index).map(item => item.lesson)
@@ -168,7 +176,7 @@ export function buildNationalLessons() {
             return [lesson.id, firstFour((unitPicks[record.edition_id]?.units[lesson.chapter_path[0]]?.picks || []).filter(([code, grade, point]) => grade === 2 && point && inScope(record.textbook_title, code)).map(([, , point]) => point))]
         }))
         const goalsOf = goalsFor(record.edition_id)
-        const lessons = sorted.map(lesson => ({
+        const platformLessons = sorted.map(lesson => ({
             id: lesson.id,
             title: lesson.title,
             chapters: lesson.chapter_path.map(id => titles.get(id)).filter(Boolean).filter(title => title !== lesson.title),
@@ -183,6 +191,20 @@ export function buildNationalLessons() {
             // 课堂学习目标: { take, later, items: [[目标, 依据要点, 课标原词, 怎样算做到]] } (data/v2/lesson_objectives)
             ...(goalsOf[lesson.id] ? { goals: goalsOf[lesson.id] } : {})
         }))
+        // the 目录 lessons the platform lacks, judged like the platform's (their id is the 目录 entry), each placed
+        // before the first platform lesson that starts after it
+        const judged = lessonAlign[record.edition_id]?.lessons || {}
+        const lessons = [...platformLessons]
+        for (const lesson of tocLessons(platformLessons, ours)) {
+            const align = judged[lesson.id] ? reviewed(record.edition_id, { id: lesson.id, title: lesson.title, chapter_path: [] }, (judged[lesson.id].m || []).filter(evidenced).filter(([point]) => inScope(record.textbook_title, point.replace(/\.\d+$/u, ''))).map(([point, relation, quote, ...rest]) => [point, relation, unscramble(quote), ...rest])) : null
+            const taught = firstFour((align || []).filter(row => row[1] === 'T').map(([point]) => point))
+            if (taught.length) aiOf.set(lesson.id, taught)
+            const row = { ...lesson, ...(taught.length ? { ai_points: taught } : {}), ...(align ? { align } : {}), ...(goalsOf[lesson.id] ? { goals: goalsOf[lesson.id] } : {}) }
+            const at = lesson.pdf_page ? lessons.findIndex(other => !other.toc && other.pdf_page && other.pdf_page > lesson.pdf_page) : -1
+            if (at < 0) lessons.push(row)
+            else lessons.splice(at, 0, row)
+        }
+        if (!lessons.length) continue
         if (lessonAlign[record.edition_id]) bookPoints.set(record.edition_id, { T: new Set(), P: new Set() })
         const listed = new Map()
         for (const lesson of lessons) {
@@ -241,7 +263,7 @@ export function buildNationalLessons() {
                 linkUnit(codes, lesson, record, 0)
             }
         }
-        index.editions[record.edition_id] = { platform_title: record.platform_title, lessons: lessons.length, confidence, units_linked: lessons.filter(item => item.unit_id).length }
+        index.editions[record.edition_id] = { platform_title: record.platform_title, lessons: lessons.length, toc_lessons: lessons.filter(item => item.toc).length, confidence, units_linked: lessons.filter(item => item.unit_id).length }
     }
     writeFileSync(path.join(OUT, 'index.json'), `${JSON.stringify(index)}\n`)
     // editions the library has no PDF of (fetch_platform_editions.mjs): their lessons and 要点, judged on the lesson
