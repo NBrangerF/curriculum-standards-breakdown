@@ -344,3 +344,29 @@
     .book { padding: 0 10px 0 8px; font-size: 13px; }
     .subnavInner { gap: 0 20px; }
 }
+
+.subnavToggle { display: none; }
+
+/* phones: the group's current page on one line and a button for the rest; opened, the pages stack */
+@media (max-width: 760px) {
+    .subnavInner { flex-wrap: wrap; overflow: visible; }
+    .subnavLink:not(.subnavLinkActive) { display: none; }
+    .subnavToggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 44px;
+        margin-left: auto;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: var(--kb-dim);
+        font: 400 13px/1 var(--font-sans);
+        cursor: pointer;
+    }
+    .subnavOpen { background: var(--kb-night-glass); }
+    .subnavOpen .subnavLink { display: flex; width: 100%; border-top: 1px solid var(--kb-line); box-shadow: none; }
+    .subnavOpen .subnavLinkActive { color: var(--kb-moon); box-shadow: inset 2px 0 0 var(--kb-gold); padding-left: 10px; }
+    .subnavOpen .subnavLabel { order: -2; }
+    .subnavOpen .subnavToggle { order: -1; }
+}

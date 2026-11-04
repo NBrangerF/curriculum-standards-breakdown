@@ -164,12 +164,15 @@ test('learning map uses an ordered semantic stack with 44px controls on mobile',
     expect(layout.controls.every(({ width, height }) => width >= 44 && height >= 44)).toBe(true)
 })
 
-test('a book page on a phone shows the whole small cover, not cut-off lines', async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 })
+test('a book page shows the whole cover in its label rail, and on a phone leads with the title instead', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 860 })
     await page.goto('/textbooks/ed_1bb9d396d4d884aee79e')
     const cover = page.getByLabel(/封面占位$/)
     await expect(cover).toBeVisible()
     const fit = await cover.evaluate(el => ({ width: el.clientWidth, height: el.clientHeight, needs: el.scrollHeight }))
-    expect(fit.width).toBeLessThan(130)
+    expect(fit.width).toBeLessThanOrEqual(180)
     expect(fit.needs).toBeLessThanOrEqual(fit.height + 1)
+    await page.setViewportSize({ width: 390, height: 844 })
+    await expect(cover).toBeHidden()
+    await expect(page.getByRole('heading', { level: 1 })).toBeInViewport()
 })

@@ -40,6 +40,9 @@ function itemActive(item, pathname) {
 function Header() {
     const location = useLocation()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    // phones show the group's current page and a button that opens the rest
+    const [subOpen, setSubOpen] = useState(false)
+    useEffect(() => { setSubOpen(false) }, [location.pathname])
     const menuButtonRef = useRef(null)
     const { openPalette } = useSky()
     const myBook = useMyBook()
@@ -194,8 +197,8 @@ function Header() {
             </header>
 
             {current && current.items.length > 1 ? (
-                <nav className={styles.subnav} aria-label={`${current.label}栏目`} data-kb-shell="header">
-                    <div className={`container ${styles.subnavInner}`}>
+                <nav className={`${styles.subnav} ${subOpen ? styles.subnavOpen : ''}`} aria-label={`${current.label}栏目`} data-kb-shell="header">
+                    <div className={`container ${styles.subnavInner}`} id="kb-subnav">
                         <span className={styles.subnavLabel} aria-hidden="true">{current.label}</span>
                         {groupItems(current, myBook).map(item => {
                             const active = itemActive(item, location.pathname)
@@ -211,6 +214,9 @@ function Header() {
                                 </Link>
                             )
                         })}
+                        <button type="button" className={styles.subnavToggle} aria-expanded={subOpen} aria-controls="kb-subnav" onClick={() => setSubOpen(open => !open)}>
+                            {subOpen ? '收起' : `${current.label}的 ${groupItems(current, myBook).length} 页`}<span aria-hidden="true">{subOpen ? '▴' : '▾'}</span>
+                        </button>
                     </div>
                 </nav>
             ) : null}

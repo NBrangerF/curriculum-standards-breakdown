@@ -14,30 +14,36 @@
     color: var(--kb-gold);
 }
 
+/* the book's numbers as light figures, each hanging from a short rule */
 .stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
-    gap: 0.75rem;
-    margin: 1.4rem 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: 0 24px;
+    margin: 1.6rem 0 0;
 }
 
 .stats div {
-    padding: 0.8rem 0.9rem;
-    border: 1px solid var(--kb-line);
-    border-radius: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+    padding-top: 10px;
+    border-top: 1px solid var(--kb-line-strong);
 }
 
 .stats dt {
     color: var(--kb-dim);
-    font-size: 0.8rem;
+    font-size: 12px;
 }
 
 .stats dd {
-    margin: 0.2rem 0 0;
+    margin: 0;
     color: var(--kb-moon);
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-family: var(--font-sans);
+    font-size: 40px;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
 }
 
 .stats small {
@@ -92,14 +98,14 @@
 
 /* chapters in a row that stays under the header while the long table scrolls */
 .jump {
+    composes: picker from '../components/kb/kb.module.css';
     position: sticky;
     z-index: 2;
     top: 64px;
-    display: flex;
-    gap: 6px;
+    flex-wrap: nowrap;
     overflow-x: auto;
     margin: 1.5rem calc(-1 * var(--container-padding)) 0;
-    padding: 10px var(--container-padding);
+    padding: 0 var(--container-padding);
     border-bottom: 1px solid var(--kb-line);
     background: rgba(7, 8, 12, 0.96);
     scrollbar-width: none;
@@ -108,21 +114,8 @@
 .jump::-webkit-scrollbar { display: none; }
 
 .jumpLink {
-    display: inline-flex;
     flex: none;
-    min-height: 36px;
-    align-items: center;
-    padding: 0 14px;
-    border: 1px solid var(--kb-line-strong);
-    border-radius: 0;
-    color: var(--kb-mist);
-    font-size: 13.5px;
-    text-decoration: none;
-    white-space: nowrap;
 }
-
-.jumpLink:hover,
-.jumpLink:focus-visible { border-color: var(--kb-gold); color: var(--kb-moon); }
 
 .unitHead {
     display: flex;

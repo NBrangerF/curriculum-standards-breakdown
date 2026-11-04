@@ -1,8 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { unitsOf } from '../features/textbooks/platformUnits'
 import { Link, useParams } from 'react-router-dom'
-import { ArrowLeftIcon } from '@phosphor-icons/react/dist/csr/ArrowLeft'
-import { BookOpenTextIcon } from '@phosphor-icons/react/dist/csr/BookOpenText'
 import { ArrowRightIcon } from '@phosphor-icons/react/dist/csr/ArrowRight'
 import { PageLoading, ErrorState, EmptyState } from '../components/StateComponents'
 import { textbookMeta } from '../seo/pageMeta.js'
@@ -169,22 +167,27 @@ export default function TextbookDetailPage() {
 
     return (
         <div className={styles.page}>
-            <div className={`container ${styles.backRow}`}><Link to="/textbooks"><ArrowLeftIcon size={16} aria-hidden="true" /> 返回教材馆</Link></div>
+            {/* 星表: the cover in the label rail, the title large beside it, the book's numbers under rules */}
             <section className={styles.hero}>
                 <div className={`container ${styles.heroGrid}`}>
-                    <TextbookCover book={book} size="hero" />
+                    <div className={styles.heroLab}>
+                        <TextbookCover book={book} size="hero" />
+                    </div>
                     <div className={styles.heroContent}>
-                        <span className={styles.eyebrow}>{book.stage_label} · {book.subject} · {book.volume}</span>
+                        <nav className={styles.eyebrow} aria-label="面包屑"><Link to="/textbooks">教材</Link> / {book.edition_name} · {book.stage_label} · {book.subject} · {book.volume}</nav>
                         <h1>{book.title}</h1>
-                        <p className={styles.edition}>
-                            {book.edition_name}
-                            {mapUnits.length ? <> · {mapUnits.length} 章 · <b>{lessonCount} 课</b>都标好了课标要点 · 本册主要在教 <em>{taughtCount}</em> 条</> : null}
-                        </p>
+                        {mapUnits.length ? (
+                            <ul className={styles.figures}>
+                                <li><b>{mapUnits.length}</b><span>章</span></li>
+                                <li><b>{lessonCount}</b><span>课已标好课标要点</span></li>
+                                <li><b>{taughtCount}</b><span>条要点本册主要在教</span></li>
+                            </ul>
+                        ) : null}
                         <div className={styles.actions}>
                             <Link className="btn btn-primary" to={`/lesson-plan?subject=${encodeURIComponent(book.subject || '')}&edition=${book.edition_id}`}>用这本书备课 →</Link>
-                            {platformUnits.length ? <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/standards`}>课标对应表</Link> : null}
-                            {checksHref ? <Link className="btn btn-secondary" to={checksHref}>课堂诊断题</Link> : null}
-                            <Link className="btn btn-secondary" to={`/textbooks/${book.edition_id}/read`}><BookOpenTextIcon size={18} aria-hidden="true" /> 看原书</Link>
+                            {platformUnits.length ? <Link className={styles.textLink} to={`/textbooks/${book.edition_id}/standards`}>课标对应表</Link> : null}
+                            {checksHref ? <Link className={styles.textLink} to={checksHref}>课堂诊断题</Link> : null}
+                            <Link className={styles.textLink} to={`/textbooks/${book.edition_id}/read`}>看原书</Link>
                         </div>
                     </div>
                 </div>
