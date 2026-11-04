@@ -36,7 +36,6 @@ function RailLink({ to, color, name, count, list, compact, title }) {
                 onPointerLeave={off}
                 onFocus={on}
                 onBlur={off}
-                onPointerMove={event => { const r = event.currentTarget.getBoundingClientRect(); event.currentTarget.style.setProperty('--mx', `${event.clientX - r.left}px`) }}
             >
                 <span className={styles.nm}><i aria-hidden="true" />{name}</span>
                 <span className={styles.ct}>{count}</span>

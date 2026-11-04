@@ -153,36 +153,20 @@
 }
 
 .sbtn {
-    position: relative;
     display: flex;
-    min-height: 48px;
+    min-height: 44px;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    overflow: hidden;
-    padding: 0 14px;
-    border: 1px solid var(--kb-line);
-    border-radius: 0;
-    background: rgba(14, 17, 24, 0.62);
+    border-top: 1px solid var(--kb-line);
     color: var(--kb-moon);
     font-size: 16px;
     text-decoration: none;
-    transition: border-color 0.25s, background 0.25s, transform 0.25s var(--kb-ease);
-}
-
-.sbtn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(236, 239, 244, 0.04);
-    opacity: 0;
-    transition: opacity 0.3s;
+    transition: border-color 0.2s;
 }
 
 .sbtn:hover,
-.sbtn:focus-visible { border-color: var(--c); color: var(--kb-moon); }
-.sbtn:hover::before,
-.sbtn:focus-visible::before { opacity: 1; }
+.sbtn:focus-visible { border-top-color: var(--kb-moon); color: var(--kb-moon); }
 
 .nm {
     position: relative;
@@ -194,26 +178,25 @@
 }
 
 .nm i {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     flex: 0 0 auto;
     border-radius: 50%;
     background: var(--c);
-    box-shadow: none;
 }
 
 .nm code { color: var(--kb-dim); font-family: var(--font-mono); font-size: 12px; }
 
 .ct {
-    position: relative;
-    color: var(--c);
+    color: var(--kb-mist);
     font-family: var(--font-num);
     font-size: 20px;
-    font-style: normal;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
     line-height: 1;
 }
 
-.compact { min-height: 38px; padding: 0 12px; border-radius: 0; font-size: 14px; }
+.compact { min-height: 38px; font-size: 14px; }
 .compact .ct { font-size: 16px; }
 
 .cue {
@@ -285,7 +268,7 @@
 }
 
 .extra { display: flex; width: 15rem; flex-direction: column; gap: 6px; padding-top: 4px; }
-.extra ul { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.extra ul { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
 
 @media (max-width: 760px) {
     /* the sky draws the glyph as a band under the header (skyEngine glyphRegion); the copy starts below it */

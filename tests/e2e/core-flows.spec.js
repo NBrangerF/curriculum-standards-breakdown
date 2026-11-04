@@ -383,6 +383,13 @@ test('search comparison results expose a quick preview without changing link sem
     const resultLink = firstCard.locator('a:has(p)').first()
     const accessibleName = await resultLink.getAttribute('aria-label') || await resultLink.innerText()
 
+    // hover only once fonts and layout have settled, or the card moves out from under the pointer before the preview opens
+    await page.evaluate(() => document.fonts.ready)
+    await page.waitForFunction(() => new Promise(resolve => {
+        const link = document.querySelector('[data-kb-component="standard-card"] a:has(p)')
+        const top = link?.getBoundingClientRect().top
+        setTimeout(() => resolve(link != null && link.getBoundingClientRect().top === top), 300)
+    }))
     await resultLink.hover()
     const preview = page.locator('[data-kb-standard-quick-preview]').first()
     await expect(preview).toBeVisible()
