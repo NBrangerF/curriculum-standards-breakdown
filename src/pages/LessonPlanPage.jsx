@@ -591,7 +591,7 @@ export default function LessonPlanPage() {
                         ))}
                     </ul>
                     {!context.standards.length ? <p className={styles.small}>这一课还没有对齐的课标。等 AI 读完，或改用「直接写课题」。</p> : null}
-                    {context.standards.length ? <ObjectiveCheck key={contextQuery} lesson={draftLesson(context.lesson)} codes={[...selected, ...context.standards.flatMap(standard => standard.indicators.map(item => item.code)).filter(code => !selected.has(code))]} taught={[...selected]} isUnit={isUnit} open={params.get('check') === '1'} /> : null}
+                    {context.standards.length ? <ObjectiveCheck key={`check:${contextQuery}`}lesson={draftLesson(context.lesson)} codes={[...selected, ...context.standards.flatMap(standard => standard.indicators.map(item => item.code)).filter(code => !selected.has(code))]} taught={[...selected]} isUnit={isUnit} open={params.get('check') === '1'} /> : null}
                     {selectedCount && ai.status !== 'loading' ? <PromptCopy context={context} selected={selected} isUnit={isUnit} settings={settings} /> : null}
                 </section>
             ) : null}
