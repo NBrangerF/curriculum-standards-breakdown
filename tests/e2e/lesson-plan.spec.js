@@ -95,8 +95,8 @@ test('AI 备课: the AI search ticks the closest 要点, the draft cites it and 
     await expect(picked).toBeChecked()
     await expect(page.getByRole('checkbox', { name: /等式的基本性质/ })).not.toBeChecked()
     await expect(page.getByText('AI 判断：不切题：讲的是等式的性质，不是分数')).toBeVisible()
-    // the lesson's own 同步课 is one line in the lesson card; the subject note and the 核验 tabs are gone
-    await expect(page.getByRole('link', { name: '分数的基本性质', exact: true })).toHaveAttribute('href', /basic\.smartedu\.cn.*activityId=L1/u)
+    // the lesson's own 同步课 is one line in the lesson card (beside the 课堂诊断题 line); the subject note and the 核验 tabs are gone
+    await expect(page.locator('p').filter({ hasText: '国家平台同步课' }).getByRole('link', { name: '分数的基本性质', exact: true })).toHaveAttribute('href', /basic\.smartedu\.cn.*activityId=L1/u)
     await expect(page.getByText('数学课标怎么组织内容')).toHaveCount(0)
     await expect(page.getByRole('tab', { name: '核验教案' })).toHaveCount(0)
     await expect(page.getByRole('tab', { name: '核验试卷' })).toHaveCount(0)
@@ -379,9 +379,10 @@ test('教资课标速记 lists each 课标\'s 课程理念 with pages and lets a
 test('a standard page lists, under each 要点, the lessons that teach it', async ({ page }) => {
     await page.goto('/standards/HI-S4-MC-02')
     const section = page.locator('#standard-textbook-units')
-    await expect(section.getByRole('heading', { name: '教材里在哪教' })).toBeVisible()
-    // each lesson opens its book's 课标对应表, with the textbook's own words beside it
-    await expect(section.getByRole('link', { name: /历史8年级上册 · 第三单元/ }).first()).toHaveAttribute('href', /\/textbooks\/ed_[0-9a-f]+\/standards$/)
+    await expect(section.getByRole('heading', { name: '到课堂：教材里在哪教，这一课学到什么' })).toBeVisible()
+    // each lesson is book › unit › lesson: the book opens its 课标对应表 at that lesson, the unit its unit page, the textbook's own words beside it
+    await expect(section.getByRole('link', { name: '历史8年级上册', exact: true }).first()).toHaveAttribute('href', /\/textbooks\/ed_[0-9a-f]+\/standards#lesson-/)
+    await expect(section.getByRole('link', { name: /^第三单元/ }).first()).toHaveAttribute('href', /\/textbook-units\/tcu_/)
     await expect(section.getByText(/主要在教 · “/).first()).toBeVisible()
     // a wrong one can be reported with the standard filled in
     await section.getByRole('link', { name: '告诉我们' }).click()
@@ -543,6 +544,8 @@ test('AI 备课: a lesson judged on its own pages is ticked at once, with the te
     await expect(page.getByText(/这一课写着“分数的分子和分母同时乘或者除以相同的数/)).toBeVisible()
     await expect(page.getByText(/教材 PDF 第 62 页/)).toBeVisible()
     expect(picks).toBe(0)
+    // one hint box: a key shared with 目标体检 once left a dead copy of it on the page
+    await expect(page.getByRole('button', { name: '重新找' })).toHaveCount(1)
     await page.getByRole('textbox', { name: /补一句/ }).fill('结合等式的性质讲')
     await page.getByRole('button', { name: '重新找' }).click()
     await expect(page.getByRole('checkbox', { name: /等式的基本性质/ })).toBeChecked()
