@@ -15,8 +15,8 @@ import styles from './StandardV2Page.module.css'
 
 const pagesLabel = pages => (pages?.length ? `课标第 ${pages.join('、')} 页` : '')
 
-function SourceLine({ section, pages, check, graph }) {
-    const parts = ['课标原文', section, pagesLabel(pages)].filter(Boolean)
+function SourceLine({ section, pages, check, graph, withPages = true }) {
+    const parts = ['课标原文', section, withPages ? pagesLabel(pages) : ''].filter(Boolean)
     const status = statusLabel(check)
     return (
         <p className={styles.source}>
@@ -26,6 +26,19 @@ function SourceLine({ section, pages, check, graph }) {
         </p>
     )
 }
+
+// 星表: every section hangs from a rule, its name and notes in the left rail, its content on the right.
+function Sec({ id, label, labelledBy, children, className = '' }) {
+    return (
+        <section className={`${styles.sec} ${className}`} id={id} aria-labelledby={labelledBy}>
+            <div className={styles.lab}>{label}</div>
+            <div className={styles.con}>{children}</div>
+        </section>
+    )
+}
+
+const pad2 = n => String(n).padStart(2, '0')
+const pageSpan = pages => (pages?.length ? (pages.length > 1 ? `${pages[0]}–${pages.at(-1)}` : String(pages[0])) : '')
 
 // The 要点 text with the words the 2025 revision newly wrote marked.
 function withAdditions(text, added = []) {
@@ -46,18 +59,19 @@ function Indicator({ item, dimmed, targeted, checks = 0 }) {
     const revised = item.check?.status === 'revised'
     return (
         <li id={item.code} className={`${styles.indicator} ${dimmed ? styles.dimmed : ''} ${targeted ? styles.targeted : ''}`}>
-            <div className={styles.indicatorHead}>
-                <a className={styles.indicatorCode} href={`#${item.code}`} aria-label={`要点 ${item.code} 的链接`}>{item.code.split('.').pop().padStart(2, '0')}</a>
+            <a className={styles.indicatorCode} href={`#${item.code}`} aria-label={`要点 ${item.code} 的链接`}>.{item.code.split('.').pop()}</a>
+            <div className={styles.indicatorBody}>
+            {item.label || item.grades?.length || item.optional || revised ? (
                 <div className={styles.indicatorTags}>
                     {item.label ? <span className={styles.tag}>{item.label}</span> : null}
                     {item.grades?.length ? <span className={styles.gradeTag} title={item.grade_basis || ''}>{gradesLabel(item.grades)}</span> : null}
                     {item.optional ? <span className={styles.tag}>选学</span> : null}
                     {revised ? <span className={styles.revTag} title={item.check.summary}>2025 修订</span> : null}
                 </div>
-            </div>
+            ) : null}
             <p className={styles.indicatorText}>{revised ? withAdditions(item.text, item.check.added) : item.text}</p>
             {item.official_examples ? <p className={styles.officialExample}>{item.official_examples}</p> : null}
-            <SourceLine section={item.section} pages={item.pages} check={item.check} graph={`/knowledge-graph/${subjectOfCode(item.code)}?focus=${item.code}`} />
+            <SourceLine section={item.section} pages={item.pages} check={item.check} withPages={false} graph={`/knowledge-graph/${subjectOfCode(item.code)}?focus=${item.code}`} />
             {checks ? <Link className={styles.checkLink} to={`/checks?point=${item.code}`}>课堂诊断题 {checks} 道：上课问一道，看全班怎么想</Link> : null}
             {item.examples.length ? (
                 <details className={styles.examples}>
@@ -70,6 +84,8 @@ function Indicator({ item, dimmed, targeted, checks = 0 }) {
                     原编码 {item.legacy_codes.map((old, k) => <span key={old}>{k ? ' · ' : ''}<Link to={`/standards/${old}/v1`} title="查看 2022 年版拆解时的旧条目">{old}</Link></span>)}
                 </p>
             ) : null}
+            </div>
+            <span className={styles.indicatorPage} aria-label={item.pages?.length ? pagesLabel(item.pages) : undefined}>{item.pages?.length ? `p.${pageSpan(item.pages)}` : ''}</span>
         </li>
     )
 }
@@ -77,8 +93,7 @@ function Indicator({ item, dimmed, targeted, checks = 0 }) {
 function OfficialList({ title, items, id }) {
     if (!items?.length) return null
     return (
-        <section className={styles.block} id={id}>
-            <h2>{title}</h2>
+        <Sec id={id} label={<h2>{title}</h2>}>
             <ul className={styles.officialList}>
                 {items.map((item, k) => (
                     <li key={k}>
@@ -87,7 +102,7 @@ function OfficialList({ title, items, id }) {
                     </li>
                 ))}
             </ul>
-        </section>
+        </Sec>
     )
 }
 
@@ -136,7 +151,7 @@ function CopyPromptButton({ standard, subjectName }) {
 // 教材里在哪教, in one line: each book that teaches this standard and how many of its lessons, linking to that book's
 // 对应表 (the lessons, the textbook's words and their 课堂学习目标 are there). The 国家平台 同步课 fold under it. A
 // standard no lesson was judged for keeps the page-matched books.
-function TextbookLine({ code, indicators = [] }) {
+function useNationalLessons(code) {
     const [data, setData] = useState(undefined)
     useEffect(() => {
         let cancelled = false
@@ -147,7 +162,11 @@ function TextbookLine({ code, indicators = [] }) {
             .catch(() => { if (!cancelled) setData(null) })
         return () => { cancelled = true }
     }, [code])
-    if (data === undefined) return null
+    return data
+}
+
+// each book that teaches one of these 要点, with its lessons, library books before the pf_ editions, in grade order
+function booksFor(data, indicators) {
     const books = new Map()
     for (const item of indicators) {
         for (const [edition, textbook, , lessonId, , relation] of data?.points?.[item.code] || []) {
@@ -157,21 +176,30 @@ function TextbookLine({ code, indicators = [] }) {
             books.set(edition, book)
         }
     }
-    if (!books.size) return <section className={styles.block} id="standard-textbooks"><StandardTextbookLinks standardCode={code} /></section>
-    // the library's books before the editions judged on lesson titles only (pf_), each in grade order
-    const list = [...books.values()].sort((a, b) => Number(a.edition.startsWith('pf_')) - Number(b.edition.startsWith('pf_')) || a.textbook.localeCompare(b.textbook, 'zh-Hans-CN', { numeric: true }))
+    return [...books.values()].sort((a, b) => Number(a.edition.startsWith('pf_')) - Number(b.edition.startsWith('pf_')) || a.textbook.localeCompare(b.textbook, 'zh-Hans-CN', { numeric: true }))
+}
+
+function TextbookLine({ code, data, list }) {
+    if (data === undefined) return null
+    if (!list.length) return <Sec id="standard-textbooks" label={<h2>教材里在哪教</h2>}><StandardTextbookLinks standardCode={code} /></Sec>
     const lessons = data?.standards?.[code] || []
     return (
-        <section className={styles.block} id="standard-textbook-units">
-            <h2>教材里在哪教</h2>
-            <ul className={styles.bookLine}>
-                {list.map(book => (
-                    <li key={book.edition}>
-                        <Link to={`/textbooks/${book.edition}/standards#lesson-${book.first}`}>{book.textbook}</Link>
-                        <small>{book.taught.size ? `主要在教 ${book.taught.size} 课` : `涉及 ${book.lessons.size} 课`}</small>
-                    </li>
-                ))}
-            </ul>
+        <Sec
+            id="standard-textbook-units"
+            labelledBy="textbooks-title"
+            label={<><h2 id="textbooks-title">教材里在哪教</h2><p className={styles.labNote}><span className={styles.inferTag}>待核验</span>AI 逐课读教材后判断</p></>}
+        >
+            <table className={styles.books}>
+                <thead><tr><th scope="col">教材</th><th scope="col">这一条在书里</th></tr></thead>
+                <tbody>
+                    {list.map(book => (
+                        <tr key={book.edition}>
+                            <td><Link to={`/textbooks/${book.edition}/standards#lesson-${book.first}`}>{book.textbook}</Link></td>
+                            <td className={styles.bookCount}><span>{book.taught.size ? `主要在教 ${book.taught.size} 课` : `涉及 ${book.lessons.size} 课`}</span></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
             {lessons.length ? (
                 <details className={styles.moreLessons}>
                     <summary>国家平台同步课 {lessons.length} 节</summary>
@@ -186,8 +214,8 @@ function TextbookLine({ code, indicators = [] }) {
                     <p className={styles.blockNote}>国家中小学智慧教育平台免费提供，观看需登录平台账号。</p>
                 </details>
             ) : null}
-            <p className={styles.blockNote}>AI 逐课读了教材原文后判断的，待核验。点书名看这本书的课标对应表：每一课教哪条、教材原话和这一课的学习目标。哪一条对不上，<Link to={`/feedback?code=${code}&title=${encodeURIComponent('「教材里在哪教」有误')}&message=${encodeURIComponent(`标准 ${code}：\n哪一课、哪一条不对，应该是：`)}`}>告诉我们</Link>。</p>
-        </section>
+            <p className={styles.blockNote}>点书名看这本书的课标对应表：每一课教哪条、教材原话和这一课的学习目标。哪一条对不上，<Link to={`/feedback?code=${code}&title=${encodeURIComponent('「教材里在哪教」有误')}&message=${encodeURIComponent(`标准 ${code}：\n哪一课、哪一条不对，应该是：`)}`}>告诉我们</Link>。</p>
+        </Sec>
     )
 }
 
@@ -200,8 +228,7 @@ function Platforms({ subjectSlug, standard }) {
     }, [subjectSlug, standard])
     if (!platforms.length) return null
     return (
-        <section className={styles.block} id="standard-platforms">
-            <h2>国内官方平台</h2>
+        <Sec id="standard-platforms" label={<><h2>国内官方平台</h2><p className={styles.labNote}>按学科和内容分类对应，课堂用法为 kebiao 整理</p></>}>
             <ul className={styles.resourceList}>
                 {platforms.map(platform => (
                     <li key={platform.id}>
@@ -211,8 +238,7 @@ function Platforms({ subjectSlug, standard }) {
                     </li>
                 ))}
             </ul>
-            <p className={styles.blockNote}>按学科和课标的内容分类对应，国内可以直接打开。课堂用法为 kebiao 整理。</p>
-        </section>
+        </Sec>
     )
 }
 
@@ -228,8 +254,7 @@ function LearningResources({ ids, legacyCodes }) {
     }, [ids])
     if (!ids.length || !resources?.length) return null
     return (
-        <section className={styles.block} id="standard-resources">
-            <h2>学习资源</h2>
+        <Sec id="standard-resources" label={<h2>学习资源</h2>}>
             <ul className={styles.resourceList}>
                 {resources.map(resource => {
                     // why it fits: the note written for the old record it was filed under
@@ -247,7 +272,7 @@ function LearningResources({ ids, legacyCodes }) {
                     )
                 })}
             </ul>
-        </section>
+        </Sec>
     )
 }
 
@@ -300,6 +325,9 @@ export default function StandardV2Page() {
         return () => cancelAnimationFrame(frame)
     }, [state.status, target])
 
+    const lessonData = useNationalLessons(standardCode)
+    const books = useMemo(() => (lessonData ? booksFor(lessonData, standard?.indicators || []) : []), [lessonData, standard])
+
     const stage = useMemo(() => subject?.stages?.find(s => s.stage_code === standard?.stage_code), [subject, standard])
     const neighbours = useMemo(() => {
         const list = (subject?.standards || []).filter(s => s.stage_code === standard?.stage_code)
@@ -323,76 +351,93 @@ export default function StandardV2Page() {
     const fromIndicator = from && standard.indicators.find(i => i.legacy_codes.includes(from))
     const official = standard.statement_source === 'official'
     const shareURL = `${window.location.origin}/standards/${standard.code}`
+    const checkTotal = standard.indicators.reduce((n, item) => n + (checkCounts[item.code]?.length || 0), 0)
+    const allPages = [...new Set(standard.indicators.flatMap(item => item.pages || []))].sort((a, b) => a - b)
+    const stageName = stage?.label || `${standard.stage} 年级`
 
     return (
         <article className={styles.page} data-kb-route="standard" data-kb-standard-version="v2" style={{ '--subject-color': SUBJECT_COLORS[slug] }}>
             <div className="container">
-                <nav className={styles.crumb} aria-label="面包屑">
-                    <Link to="/">首页</Link><span>/</span>
-                    <Link to={`/subjects/${slug}`}>{subject.subject}</Link><span>/</span>
-                    <Link to={`/subjects/${slug}#${standard.stage_code}`}>{stage?.label || standard.stage}</Link><span>/</span>
-                    <span>{standard.level1}</span>
-                </nav>
-
                 {from ? (
                     <p className={styles.moved} role="note">
                         旧编码 <code>{from}</code> 已并入这条标准{fromIndicator ? <>的要点 <a href={`#${fromIndicator.code}`}>{fromIndicator.code}</a></> : null}。kebiao 已按《义务教育课程标准（2022年版2025年修订）》重新整理：一条标准对应一个学段的一个内容单元，下列要点是课标原文。
                     </p>
                 ) : null}
 
-                <header className={styles.header}>
-                    <div className={styles.meta}>
+                {/* the entry's heading: its code and place in the left rail, its name large on the right */}
+                <div className={styles.head}>
+                    <div className={styles.lab}>
                         <code className={styles.code}>{standard.code}</code>
-                        <Link to={`/subjects/${slug}`} className={styles.badge}>{subject.subject}</Link>
-                        <span className={styles.badge}>{stage?.label || `${standard.stage} 年级`}</span>
-                        <Link to={`/concepts/subjects/${slug}`} className={styles.badge} title={`看${subject.subject}课标的骨架`}>{standard.theme ? `${standard.level1} · ${standard.theme}` : standard.level1}</Link>
+                        <nav className={styles.crumb} aria-label="面包屑">
+                            <Link to="/">首页</Link>
+                            <Link to={`/subjects/${slug}`}>{subject.subject}</Link>
+                            <Link to={`/subjects/${slug}#${standard.stage_code}`}>{stageName}</Link>
+                            <Link to={`/concepts/subjects/${slug}`} title={`看${subject.subject}课标的骨架`}>{standard.theme ? `${standard.level1} · ${standard.theme}` : standard.level1}</Link>
+                        </nav>
+                        {neighbours.total ? <p className={styles.pos}><span>{neighbours.index} / {neighbours.total}</span>{stageName}</p> : null}
                     </div>
-                    <h1 className={styles.title}>{standard.level2}</h1>
-                    {official ? (
-                        <>
-                            <p className={styles.statement}>{standard.statement}</p>
-                            <p className={styles.statementSource}>
-                                {standard.name_source === 'kebiao' ? '标准名为 kebiao 整理 · ' : ''}
-                                {['标准句为课标原文', standard.statement_section, pagesLabel(standard.statement_pages)].filter(Boolean).join(' · ')}
+                    <header className={styles.con}>
+                        <h1 className={`${styles.title} ${[...standard.level2].length > 10 ? styles.titleLong : ''}`}>{standard.level2}</h1>
+                        {official ? (
+                            <>
+                                <p className={styles.statement}>{standard.statement}</p>
+                                <p className={styles.statementSource}>
+                                    {standard.name_source === 'kebiao' ? '标准名为 kebiao 整理 · ' : ''}
+                                    {['标准句为课标原文', standard.statement_section, pagesLabel(standard.statement_pages)].filter(Boolean).join(' · ')}
+                                </p>
+                            </>
+                        ) : (
+                            <p className={styles.summary}>
+                                <b>{standard.name_source === 'kebiao' ? '标准名和概括为 kebiao 整理' : 'kebiao 概括'}</b>
+                                {standard.statement}
                             </p>
-                        </>
-                    ) : (
-                        <p className={styles.summary}>
-                            <b>{standard.name_source === 'kebiao' ? '标准名和概括为 kebiao 整理' : 'kebiao 概括'}</b>
-                            {standard.statement}
-                        </p>
-                    )}
-                    <div className={styles.actions}>
-                        <CopyCitationButton standard={standard} subjectName={subject.subject} stageLabel={stage?.label} />
-                        <details className={styles.more}>
-                            <summary className="btn btn-ghost">更多</summary>
-                            <div className={styles.moreMenu}>
-                                <FavoriteButton code={standard.code} showLabel={true} />
-                                <CopyLinkButton url={shareURL} />
-                                <ShareStandardButton code={standard.code} title={standard.level2} />
-                                <Link className={styles.badge} to={`/lesson-plan?mode=topic&subject=${encodeURIComponent(slug === 'arts' ? '艺术（音乐、美术等）' : subject.subject)}&grade=${(standard.grades || [])[0] || ''}&topic=${encodeURIComponent(standard.level2)}&codes=${standard.code}`}>用这条起草教案</Link>
-                                <CopyPromptButton standard={standard} subjectName={subject.subject} />
-                            </div>
-                        </details>
-                    </div>
-                </header>
+                        )}
+                    </header>
+                </div>
 
-                <section className={styles.block} id="standard-indicators" aria-labelledby="indicators-title">
-                    <div className={styles.blockHead}>
-                        <h2 id="indicators-title">要点 · {standard.indicators.length} 条</h2>
-                        <div className={styles.controls}>
+                {/* 概要: the entry's numbers; each jumps to its section */}
+                <div className={styles.stats}>
+                    <p className={styles.lab}>概要</p>
+                    <ul className={styles.con}>
+                        <li><a href="#standard-indicators"><b>{pad2(standard.indicators.length)}</b><span>条要点</span></a></li>
+                        {books.length ? <li><a href="#standard-textbook-units"><b>{pad2(books.length)}</b><span>本教材在教 · 待核验</span></a></li> : null}
+                        {checkTotal ? <li><a href="#standard-indicators"><b>{pad2(checkTotal)}</b><span>道课堂诊断题</span></a></li> : null}
+                        {allPages.length ? <li><b>{pageSpan(allPages)}</b><span>课标页码</span></li> : null}
+                    </ul>
+                </div>
+
+                <Sec
+                    id="standard-indicators"
+                    labelledBy="indicators-title"
+                    label={
+                        <>
+                            <h2 id="indicators-title">要点 · {standard.indicators.length} 条</h2>
+                            <p className={styles.labNote}>
+                                要点逐字取自课标原文{standard.stage === '7-9' && gradeOptions.length ? '；年级标签依据教材章节，没有标签的是 7–9 年级共同要求' : ''}。
+                                {hasRevised ? '标「2025 修订」的要点在修订版中有改动，高亮处是修订版新写入的文字。' : ''}
+                            </p>
                             {gradeOptions.length > 1 ? (
                                 <div className={styles.segment} role="group" aria-label="按年级看要点">
                                     <button type="button" aria-pressed={grade === 0} onClick={() => setGrade(0)}>全部</button>
                                     {gradeOptions.map(g => <button key={g} type="button" aria-pressed={grade === g} onClick={() => setGrade(g)}>{g} 年级</button>)}
                                 </div>
                             ) : null}
-                        </div>
-                    </div>
-                    <p className={styles.note}>
-                        要点逐字取自课标原文{standard.stage === '7-9' && gradeOptions.length ? '；年级标签依据教材章节，没有标签的是 7–9 年级共同要求' : ''}。
-                        {hasRevised ? '标「2025 修订」的要点在修订版中有改动，高亮处是修订版新写入的文字。' : ''}
-                    </p>
+                            <div className={styles.actions}>
+                                <CopyCitationButton standard={standard} subjectName={subject.subject} stageLabel={stage?.label} />
+                                <details className={styles.more}>
+                                    <summary className="btn btn-ghost">更多</summary>
+                                    <div className={styles.moreMenu}>
+                                        <FavoriteButton code={standard.code} showLabel={true} />
+                                        <CopyLinkButton url={shareURL} />
+                                        <ShareStandardButton code={standard.code} title={standard.level2} />
+                                        <Link className={styles.badge} to={`/lesson-plan?mode=topic&subject=${encodeURIComponent(slug === 'arts' ? '艺术（音乐、美术等）' : subject.subject)}&grade=${(standard.grades || [])[0] || ''}&topic=${encodeURIComponent(standard.level2)}&codes=${standard.code}`}>用这条起草教案</Link>
+                                        <CopyPromptButton standard={standard} subjectName={subject.subject} />
+                                    </div>
+                                </details>
+                            </div>
+                        </>
+                    }
+                >
                     <ol className={styles.indicators}>
                         {standard.indicators.map(item => (
                             <Indicator
@@ -404,23 +449,21 @@ export default function StandardV2Page() {
                             />
                         ))}
                     </ol>
-                </section>
+                </Sec>
 
                 <OfficialList title="学习任务群说明" items={standard.intro} id="standard-intro" />
                 <OfficialList title="学业要求" items={standard.requirements} id="standard-requirements" />
                 <OfficialList title="教学提示" items={standard.guidance} id="standard-guidance" />
 
                 {standard.examples.length ? (
-                    <section className={styles.block} id="standard-examples">
-                        <h2>表现示例 <small>kebiao 整理</small></h2>
-                        <p className={styles.note}>以下是 kebiao 早先整理的条目，概括了本单元的学习表现，不是课标原文。</p>
+                    <Sec id="standard-examples" label={<><h2>表现示例</h2><p className={styles.labNote}>kebiao 早先整理的条目，概括了本单元的学习表现，不是课标原文</p></>}>
                         <ul className={styles.exampleList}>
                             {standard.examples.map(example => <li key={example.from}>{example.text}<small>原 {example.from}</small></li>)}
                         </ul>
-                    </section>
+                    </Sec>
                 ) : null}
 
-                <TextbookLine code={standard.code} indicators={standard.indicators || []} />
+                <TextbookLine code={standard.code} data={lessonData} list={books} />
                 <Platforms subjectSlug={slug} standard={standard} />
                 <LearningResources ids={standard.learning_resource_ids || []} legacyCodes={standard.legacy_codes || []} />
 

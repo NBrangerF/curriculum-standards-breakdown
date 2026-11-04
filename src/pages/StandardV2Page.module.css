@@ -1,43 +1,166 @@
+/*
+ * 星表: a standard is one catalogue entry. A 12-column grid; the left 3 columns are the label rail (code, place,
+ * section names, actions), the right 9 hold the content. Sections hang from a rule; nothing is boxed.
+ */
 .page {
     --subject-color: var(--kb-gold);
+    --gut: 24px;
     min-width: 0;
     padding-bottom: clamp(3rem, 6vw, 5rem);
     overflow-x: clip;
-    color: var(--text-primary);
+    color: var(--kb-mist);
+}
+
+.head,
+.stats,
+.sec {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gut);
+    row-gap: 12px;
+}
+
+.lab {
+    grid-column: 1 / span 3;
+    min-width: 0;
+    margin: 0;
+}
+
+.con {
+    grid-column: 4 / span 9;
+    min-width: 0;
+}
+
+/* heading */
+.head {
+    padding-top: clamp(32px, 5vw, 56px);
+}
+
+.head > .lab {
+    position: relative;
+    display: grid;
+    gap: 6px;
+    align-content: start;
+    padding-top: 18px;
+}
+
+/* a registration mark at the rail's corner */
+.head > .lab::before {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 9px;
+    height: 9px;
+    background:
+        linear-gradient(var(--kb-dim), var(--kb-dim)) center / 1px 9px no-repeat,
+        linear-gradient(var(--kb-dim), var(--kb-dim)) center / 9px 1px no-repeat;
+    content: '';
+}
+
+.code {
+    color: var(--kb-moon);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    letter-spacing: 0;
 }
 
 .crumb {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-    padding-top: clamp(28px, 4vw, 48px);
-    color: var(--kb-dim);
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    letter-spacing: 0.02em;
+    display: grid;
+    gap: 2px;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .crumb a {
-    border-bottom: 1px solid rgba(233, 200, 135, 0.35);
-    color: var(--kb-gold);
+    width: fit-content;
+    color: var(--kb-dim);
     text-decoration: none;
 }
 
 .crumb a:hover,
 .crumb a:focus-visible {
-    border-color: var(--kb-gold);
+    color: var(--kb-moon);
+    text-decoration: underline;
+    text-decoration-color: var(--kb-link-line);
+    text-underline-offset: 4px;
+}
+
+.pos {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0 0;
+    padding-top: 8px;
+    border-top: 1px solid var(--kb-line);
+    color: var(--kb-dim);
+    font-size: 12px;
+}
+
+.pos span {
+    color: var(--kb-moon);
+    font-family: var(--font-mono);
+    letter-spacing: 0;
+}
+
+.title {
+    margin: 0;
+    color: var(--kb-moon);
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    font-feature-settings: 'palt' 1;
+    line-height: 1.08;
+    letter-spacing: -0.005em;
+    text-wrap: pretty;
+}
+
+/* names longer than ten characters step down so they still sit on one line on a desktop */
+.titleLong {
+    font-size: clamp(32px, 4.4vw, 56px);
+}
+
+.statement {
+    max-width: 40em;
+    margin: 18px 0 0;
+    color: var(--kb-moon);
+    font-size: 20px;
+    line-height: 1.7;
+    text-wrap: pretty;
+}
+
+.statementSource {
+    margin: 8px 0 0;
+    color: var(--kb-dim);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* a kebiao summary stays small under the name, so the 原文 要点 lead the page */
+.summary {
+    max-width: 40em;
+    margin: 16px 0 0;
+    color: var(--kb-dim);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.summary b {
+    margin-right: 8px;
+    padding: 0 6px;
+    border: 1px solid var(--kb-line-strong);
+    color: var(--kb-mist);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    white-space: nowrap;
 }
 
 .moved {
     max-width: 72ch;
-    margin: 1.5rem 0 0;
-    padding: 0.85rem 1rem;
-    border: 1px solid rgba(233, 200, 135, 0.4);
-    border-radius: 0;
-    background: rgba(233, 200, 135, 0.07);
+    margin: 24px 0 0;
+    padding: 10px 0 10px 14px;
+    border-left: 2px solid var(--kb-gold);
     color: var(--kb-mist);
-    font-size: 0.875rem;
+    font-size: 14px;
     line-height: 1.75;
 }
 
@@ -47,111 +170,102 @@
     font-family: var(--font-mono);
 }
 
-.header {
-    padding: clamp(1.75rem, 4vw, 3rem) 0 clamp(1.5rem, 3vw, 2.5rem);
-    border-bottom: 1px solid var(--kb-line);
+/* 概要: large light figures, each hanging from its own short rule */
+.stats {
+    margin-top: clamp(32px, 4vw, 48px);
 }
 
-.meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
+.stats > .lab {
+    padding-top: 12px;
+    color: var(--kb-dim);
+    font-size: 12px;
 }
 
-.code {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.25rem;
-    padding: 0 0.8rem;
-    border: 1px solid var(--subject-color);
-    border-radius: 0;
-    background: color-mix(in srgb, var(--subject-color) 10%, transparent);
-    color: var(--kb-moon);
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+.stats > .con {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0 var(--gut);
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.badge {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.25rem;
-    padding: 0 0.7rem;
-    border: 1px solid var(--border-default);
-    border-radius: 0;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
+.stats li {
+    padding-top: 10px;
+    border-top: 1px solid var(--kb-line-strong);
+}
+
+.stats li a {
+    display: block;
+    color: inherit;
     text-decoration: none;
 }
 
-button.badge {
-    background: transparent;
-    font: inherit;
-    font-size: 0.8rem;
-    cursor: pointer;
+.stats b {
+    display: block;
+    color: var(--kb-moon);
+    font-size: 40px;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
 }
 
-a.badge:hover,
-a.badge:focus-visible,
-button.badge:hover,
-button.badge:focus-visible {
-    border-color: var(--subject-color);
-    color: var(--kb-moon);
+.stats li a:hover b,
+.stats li a:focus-visible b {
+    color: var(--kb-gold);
 }
 
-.title {
-    max-width: 22ch;
-    margin: 1.25rem 0 0;
+.stats span {
+    color: var(--kb-dim);
+    font-size: 12px;
+}
+
+/* sections */
+.sec {
+    margin-top: clamp(40px, 5vw, 56px);
+    padding-top: 14px;
+    border-top: 1px solid var(--kb-line-strong);
+    scroll-margin-top: 5rem;
+}
+
+.sec > .lab {
+    display: grid;
+    gap: 8px;
+    align-content: start;
+}
+
+.sec h2 {
+    margin: 0;
     color: var(--kb-moon);
-    font-family: var(--font-display);
-    font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+    font-family: var(--font-sans);
+    font-size: 16px;
     font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: 0.03em;
-    text-wrap: balance;
+    line-height: 1.5;
 }
 
-.statement {
-    max-width: 62ch;
-    margin: 1.25rem 0 0;
-    color: var(--kb-moon);
-    font-family: var(--font-display);
-    font-size: clamp(1.02rem, 1.4vw, 1.2rem);
-    line-height: 1.9;
-    text-wrap: pretty;
-}
-
-/* a kebiao summary stays small under the name, so the 原文 要点 lead the page */
-.summary {
-    max-width: 62ch;
-    margin: 1rem 0 0;
-    color: var(--kb-mist);
-    font-size: 0.9rem;
-    line-height: 1.8;
-}
-
-.summary b {
-    margin-right: 0.5rem;
+.labNote {
+    margin: 0;
     color: var(--kb-dim);
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.statementSource {
-    margin: 0.6rem 0 0;
-    color: var(--kb-dim);
-    font-size: 0.78rem;
+    font-size: 12px;
     line-height: 1.6;
+}
+
+.inferTag {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 0 6px;
+    border: 1px dashed var(--kb-line-strong);
+    color: var(--kb-dim);
+    line-height: 18px;
 }
 
 .actions {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: 1.5rem;
+    gap: 8px;
+    margin-top: 10px;
 }
 
 .more summary {
@@ -168,101 +282,65 @@ button.badge:focus-visible {
     color: var(--kb-moon);
 }
 
-/* a small panel under the button row (anchored to .actions, so it fits a phone too) */
+/* the 更多 panel floats under the buttons */
 .moreMenu {
     position: absolute;
-    top: calc(100% + 0.5rem);
+    top: calc(100% + 8px);
     left: 0;
     z-index: 20;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
+    display: grid;
+    gap: 8px;
     width: max-content;
-    max-width: 100%;
-    padding: 0.75rem;
+    min-width: 100%;
+    max-width: min(320px, 90vw);
+    padding: 12px;
     border: 1px solid var(--kb-line-strong);
-    border-radius: 0;
-    background: rgba(14, 17, 24, 0.96);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    background: var(--kb-surface);
+    box-shadow: var(--shadow-overlay);
 }
 
-.block {
-    padding-top: clamp(2rem, 4vw, 3rem);
-}
-
-/* 教材里在哪教: one line, a book per item, each linking to its 对应表 */
-.bookLine {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.4rem;
-    margin: 0.8rem 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.bookLine li {
-    display: flex;
-    gap: 0.45rem;
-    align-items: baseline;
-}
-
-.bookLine a {
-    color: var(--kb-moon);
-}
-
-.bookLine small {
-    color: var(--kb-mist);
-    font-size: 0.8rem;
-    white-space: nowrap;
-}
-
-.block h2 {
-    margin: 0;
-    color: var(--kb-moon);
-    font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2vw, 1.6rem);
-    font-weight: 700;
-}
-
-.block h2 small {
-    margin-left: 0.5rem;
-    color: var(--kb-dim);
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 400;
-}
-
-.blockHead {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.badge {
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
+    min-height: 2.25rem;
+    padding: 0 0.7rem;
+    border: 1px solid var(--kb-line-strong);
+    color: var(--kb-mist);
+    font-size: 14px;
+    text-decoration: none;
 }
 
-.controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
+button.badge {
+    background: transparent;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+a.badge:hover,
+a.badge:focus-visible,
+button.badge:hover,
+button.badge:focus-visible {
+    border-color: var(--kb-moon);
+    color: var(--kb-moon);
 }
 
 .segment {
     display: inline-flex;
     flex-wrap: wrap;
+    width: fit-content;
     border: 1px solid var(--kb-line-strong);
-    border-radius: 0;
-    overflow: hidden;
 }
 
 .segment button {
     min-height: 2.25rem;
-    padding: 0 0.85rem;
+    padding: 0 0.75rem;
     border: 0;
     background: transparent;
     color: var(--kb-mist);
     cursor: pointer;
     font: inherit;
-    font-size: 0.8rem;
+    font-size: 13px;
 }
 
 .segment button + button {
@@ -270,8 +348,9 @@ button.badge:focus-visible {
 }
 
 .segment button[aria-pressed='true'] {
-    background: rgba(233, 200, 135, 0.16);
-    color: var(--kb-gold);
+    background: var(--kb-accent-soft);
+    color: var(--kb-moon);
+    box-shadow: inset 0 -2px 0 var(--kb-gold);
 }
 
 .segment button:focus-visible {
@@ -279,28 +358,27 @@ button.badge:focus-visible {
     outline-offset: -2px;
 }
 
-.note {
-    max-width: 72ch;
-    margin: 0.75rem 0 0;
-    color: var(--kb-dim);
-    font-size: 0.8rem;
-    line-height: 1.7;
-}
-
+/* 要点: index | the 原文 | page */
 .indicators {
     display: grid;
-    gap: 0;
-    margin: 1.25rem 0 0;
+    margin: 0;
     padding: 0;
     list-style: none;
-    border-top: 1px solid var(--kb-line);
 }
 
 .indicator {
-    padding: 1.1rem 0 1.2rem;
-    border-bottom: 1px solid var(--kb-line);
+    display: grid;
+    grid-template-columns: 3em minmax(0, 1fr) 5.5em;
+    column-gap: var(--gut);
+    padding: 14px 0 16px;
+    border-top: 1px solid var(--kb-line);
     scroll-margin-top: 6rem;
     transition: opacity 0.2s var(--kb-ease);
+}
+
+.indicator:first-child {
+    padding-top: 0;
+    border-top: 0;
 }
 
 .indicator.dimmed {
@@ -309,39 +387,43 @@ button.badge:focus-visible {
 
 .indicator.targeted,
 .indicator:target {
-    margin: 0 calc(-1 * clamp(0.5rem, 2vw, 1rem));
-    padding-right: clamp(0.5rem, 2vw, 1rem);
-    padding-left: clamp(0.5rem, 2vw, 1rem);
-    border-radius: 0;
-    background: rgba(233, 200, 135, 0.07);
-    box-shadow: inset 3px 0 0 var(--kb-gold);
-}
-
-.indicatorHead {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    align-items: center;
+    box-shadow: inset 2px 0 0 var(--kb-gold);
+    background: rgba(233, 200, 135, 0.05);
 }
 
 .indicatorCode {
-    color: var(--subject-color);
+    padding-top: 7px;
+    color: var(--kb-dim);
     font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-size: 12px;
+    letter-spacing: 0;
     text-decoration: none;
 }
 
 .indicatorCode:hover,
 .indicatorCode:focus-visible {
+    color: var(--kb-moon);
     text-decoration: underline;
+}
+
+.indicatorBody {
+    min-width: 0;
+}
+
+.indicatorPage {
+    padding-top: 7px;
+    color: var(--kb-dim);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0;
+    text-align: right;
 }
 
 .indicatorTags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 6px;
+    margin-bottom: 6px;
 }
 
 .tag,
@@ -349,136 +431,140 @@ button.badge:focus-visible {
 .revTag {
     display: inline-flex;
     align-items: center;
-    min-height: 1.5rem;
-    padding: 0 0.5rem;
+    height: 20px;
+    padding: 0 6px;
     border: 1px solid var(--kb-line-strong);
-    border-radius: 0;
     color: var(--kb-mist);
-    font-size: 0.72rem;
+    font-size: 12px;
 }
 
 .gradeTag {
-    border-color: color-mix(in srgb, var(--subject-color) 55%, transparent);
     color: var(--kb-moon);
 }
 
 .revTag {
-    border-color: rgba(233, 200, 135, 0.55);
-    color: var(--kb-gold);
+    border-color: var(--kb-link-line);
+    color: var(--kb-moon);
 }
 
 .indicatorText {
-    max-width: 68ch;
-    margin: 0.55rem 0 0;
+    max-width: 34em;
+    margin: 0;
     color: var(--kb-moon);
-    font-size: clamp(1rem, 1.3vw, 1.1rem);
-    line-height: 1.9;
+    font-size: 20px;
+    line-height: 1.7;
     text-wrap: pretty;
 }
 
 .added {
     padding: 0 2px;
-    border-radius: 0;
-    background: rgba(233, 200, 135, 0.18);
+    background: rgba(233, 200, 135, 0.16);
     color: var(--kb-moon);
     box-shadow: inset 0 -1px 0 var(--kb-gold);
 }
 
 .officialExample {
-    max-width: 68ch;
-    margin: 0.5rem 0 0;
-    padding-left: 0.8rem;
-    border-left: 2px solid var(--kb-line-strong);
+    max-width: 40em;
+    margin: 8px 0 0;
+    padding-left: 12px;
+    border-left: 1px solid var(--kb-line-strong);
     color: var(--kb-mist);
-    font-size: 0.86rem;
-    line-height: 1.8;
+    font-size: 14px;
+    line-height: 1.75;
 }
 
 .source {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 4px 10px;
     align-items: center;
-    margin: 0.45rem 0 0;
+    margin: 8px 0 0;
     color: var(--kb-dim);
-    font-size: 0.74rem;
+    font-size: 12px;
 }
 
 /* 知识图谱: this 要点 in the middle, what it builds on and what builds on it */
-.graphLink { margin-left: auto; color: var(--kb-gold); text-decoration: none; }
-.graphLink:hover { text-decoration: underline; text-underline-offset: 3px; }
+.graphLink {
+    color: var(--kb-mist);
+    text-decoration: none;
+}
+
+.graphLink:hover,
+.graphLink:focus-visible {
+    color: var(--kb-moon);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
 
 .flag {
-    padding: 0 0.45rem;
-    border-radius: 0;
-    background: rgba(222, 228, 238, 0.08);
+    padding: 0 6px;
+    border: 1px solid var(--kb-line-strong);
     color: var(--kb-mist);
 }
 
 .flag.revised {
-    background: rgba(233, 200, 135, 0.12);
-    color: var(--kb-gold);
+    border-color: var(--kb-link-line);
+    color: var(--kb-moon);
 }
 
 .examples {
-    max-width: 68ch;
-    margin-top: 0.6rem;
+    max-width: 40em;
+    margin-top: 8px;
     color: var(--kb-mist);
-    font-size: 0.85rem;
+    font-size: 14px;
 }
 
 .examples summary {
     width: fit-content;
     min-height: 2rem;
     padding: 0.25rem 0;
-    color: var(--kb-gold);
+    color: var(--kb-mist);
     cursor: pointer;
     line-height: 1.5;
 }
 
 .examples summary span {
-    margin-left: 0.4rem;
+    margin-left: 6px;
     color: var(--kb-dim);
-    font-size: 0.72rem;
+    font-size: 12px;
 }
 
 .examples ul,
 .exampleList {
     display: grid;
-    gap: 0.5rem;
-    margin: 0.4rem 0 0;
+    gap: 8px;
+    margin: 6px 0 0;
     padding-left: 1.1rem;
     line-height: 1.75;
 }
 
 .examples small,
 .exampleList small {
-    margin-left: 0.5rem;
+    margin-left: 8px;
     color: var(--kb-dim);
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 12px;
 }
 
 .exampleList {
-    max-width: 70ch;
-    margin-top: 1rem;
+    max-width: 40em;
+    margin-top: 0;
     color: var(--kb-mist);
-    font-size: 0.9rem;
+    font-size: 15px;
 }
 
 .checkLink {
     display: inline-block;
-    margin-top: 0.45rem;
-    color: var(--kb-gold);
-    font-size: 0.82rem;
+    margin-top: 6px;
+    color: var(--kb-mist);
+    font-size: 13px;
 }
 
 .legacy {
-    margin: 0.4rem 0 0;
+    margin: 6px 0 0;
     color: var(--kb-dim);
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.02em;
+    font-size: 12px;
     overflow-wrap: anywhere;
 }
 
@@ -490,79 +576,139 @@ button.badge:focus-visible {
 
 .legacy a:hover,
 .legacy a:focus-visible {
-    color: var(--kb-gold);
+    color: var(--kb-moon);
 }
 
 .officialList {
     display: grid;
-    gap: 0.9rem;
-    max-width: 70ch;
-    margin: 1rem 0 0;
+    gap: 14px;
+    max-width: 40em;
+    margin: 0;
     padding-left: 1.1rem;
     color: var(--kb-moon);
-    line-height: 1.85;
+    font-size: 16px;
+    line-height: 1.8;
 }
 
 .officialList p {
     margin: 0;
 }
 
+/* 教材里在哪教: a table of books */
+.books {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.books th,
+.books td {
+    padding: 10px var(--gut) 10px 0;
+    border-top: 1px solid var(--kb-line);
+    text-align: left;
+    vertical-align: baseline;
+}
+
+.books thead th {
+    padding-top: 0;
+    border-top: 0;
+    color: var(--kb-dim);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.books a {
+    color: var(--kb-moon);
+}
+
+.books th:last-child,
+.bookCount {
+    padding-right: 0;
+    color: var(--kb-mist);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+}
+
 .resourceList {
     display: grid;
-    gap: 0.9rem;
-    margin: 1rem 0 0;
+    gap: 14px;
+    margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .resourceList a {
-    color: var(--kb-gold);
-    font-weight: 600;
+    color: var(--kb-moon);
+    font-weight: 500;
 }
 
 .resourceList span {
-    margin-left: 0.6rem;
+    margin-left: 10px;
     color: var(--kb-dim);
-    font-size: 0.78rem;
+    font-size: 12px;
 }
 
 .resourceList p {
-    max-width: 70ch;
-    margin: 0.3rem 0 0;
+    max-width: 40em;
+    margin: 4px 0 0;
     color: var(--kb-mist);
-    font-size: 0.86rem;
+    font-size: 14px;
     line-height: 1.7;
 }
 
 .resourceFoot {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
+    gap: 8px;
     align-items: center;
-    margin-top: 0.5rem;
+    margin-top: 8px;
+}
+
+.blockNote {
+    margin: 12px 0 0;
+    color: var(--kb-dim);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* links inside running text need more than colour to stand out (WCAG link-in-text-block) */
+.blockNote a {
+    color: var(--kb-moon);
+    text-decoration: underline;
+    text-decoration-color: var(--kb-link-line);
+    text-underline-offset: 3px;
+}
+
+.moreLessons summary {
+    margin-top: 10px;
+    color: var(--kb-mist);
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .neighbours {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    gap: 1rem;
-    align-items: center;
-    margin-top: clamp(2.5rem, 5vw, 4rem);
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--kb-line);
+    gap: var(--gut);
+    align-items: start;
+    margin-top: clamp(48px, 6vw, 72px);
+    padding-top: 14px;
+    border-top: 1px solid var(--kb-line-strong);
 }
 
 .neighbours a {
     display: grid;
-    gap: 0.2rem;
+    gap: 2px;
     color: var(--kb-moon);
-    font-size: 0.9rem;
+    font-size: 16px;
     text-decoration: none;
 }
 
 .neighbours a small {
     color: var(--kb-dim);
-    font-size: 0.72rem;
+    font-size: 12px;
 }
 
 .neighbours a[rel='next'] {
@@ -571,33 +717,99 @@ button.badge:focus-visible {
 
 .neighbours a:hover,
 .neighbours a:focus-visible {
-    color: var(--kb-gold);
+    text-decoration: underline;
+    text-decoration-color: var(--kb-gold);
+    text-underline-offset: 4px;
 }
 
 .neighbours .neighbourIndex {
     color: var(--kb-dim);
-    font-size: 0.76rem;
+    font-size: 12px;
     text-align: center;
 }
 
 .footnote {
-    margin-top: 2rem;
+    margin-top: 32px;
     color: var(--kb-dim);
-    font-size: 0.74rem;
+    font-size: 12px;
     line-height: 1.7;
 }
 
 .footnote p {
     max-width: 80ch;
-    margin: 0.3rem 0 0;
+    margin: 4px 0 0;
 }
 
 .notFound {
-    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 860px) {
+    .page {
+        --gut: 16px;
+    }
+
+    .head,
+    .stats,
+    .sec {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lab,
+    .con {
+        grid-column: 1 / -1;
+    }
+
+    .head > .lab {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+        align-items: baseline;
+        padding-top: 14px;
+    }
+
+    .crumb {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 12px;
+    }
+
+    .pos {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .stats > .lab {
+        display: none;
+    }
+
+    .stats > .con {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .stats b {
+        font-size: 24px;
+        white-space: nowrap;
+    }
+
+    .indicator {
+        grid-template-columns: 2.2em minmax(0, 1fr);
+    }
+
+    .indicatorPage {
+        grid-column: 2;
+        padding-top: 4px;
+        text-align: left;
+    }
+
+    .indicatorText {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -615,25 +827,4 @@ button.badge:focus-visible {
     .indicator {
         transition: none;
     }
-}
-
-.blockNote {
-    margin: 0.75rem 0 0;
-    color: var(--kb-dim);
-    font-size: 0.8rem;
-    line-height: 1.7;
-}
-
-/* links inside running text need more than colour to stand out (WCAG link-in-text-block) */
-.blockNote a {
-    color: var(--kb-gold);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-}
-
-.moreLessons summary {
-    margin-top: 0.4rem;
-    color: var(--kb-mist);
-    font-size: 0.88rem;
-    cursor: pointer;
 }
