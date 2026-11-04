@@ -559,9 +559,9 @@ const STYLE = `<style id="kbp-style">
 .kbp-head nav a{text-decoration:none}
 .kbp-wrap{max-width:860px;margin:0 auto;padding:32px max(16px,4vw) 48px}
 .kbp-crumb{font-size:13px;color:var(--kb-mist,#aab2bf)}
-.kbp-kicker{margin:20px 0 6px;font-family:var(--font-mono,monospace);font-size:12px;letter-spacing:.06em;color:var(--kb-gold,#e9c887)}
-.kbp h1{margin:0 0 12px;font-family:var(--font-display,serif);font-size:clamp(28px,5vw,44px);font-weight:900;line-height:1.25}
-.kbp h2{margin:36px 0 10px;font-family:var(--font-display,serif);font-size:20px}
+.kbp-kicker{margin:20px 0 6px;font-size:12px;color:var(--kb-dim,#8b94a2)}
+.kbp h1{margin:0 0 12px;font-family:var(--font-display,sans-serif);font-size:clamp(28px,5vw,40px);font-weight:700;line-height:1.2}
+.kbp h2{margin:36px 0 10px;font-family:var(--font-display,sans-serif);font-size:20px;font-weight:700}
 .kbp h3{margin:20px 0 6px;font-size:16px}
 .kbp-lede{font-size:17px}
 .kbp blockquote{margin:0;padding:12px 16px;border-left:2px solid var(--kb-gold,#e9c887);background:rgba(255,255,255,.03)}
