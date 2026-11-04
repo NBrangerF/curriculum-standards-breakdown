@@ -20,11 +20,11 @@
     align-items: center;
     gap: 0.45rem;
     margin-bottom: 2.6rem;
-    color: var(--kb-gold);
+    color: var(--kb-dim);
     font-size: 12.5px;
     text-decoration: none;
-    font-family: var(--font-mono);
-    letter-spacing: 0.16em;
+    font-family: var(--font-sans);
+    letter-spacing: 0.02em;
 }
 
 .backLink:hover { color: var(--kb-accent, #e9c887); }
@@ -34,9 +34,9 @@
 .success > span {
     display: block;
     margin-bottom: 0.8rem;
-    color: var(--kb-gold);
-    letter-spacing: 0.16em;
-    font-family: var(--font-mono);
+    color: var(--kb-dim);
+    letter-spacing: 0.02em;
+    font-family: var(--font-sans);
     font-size: 12.5px;
     line-height: 1.2;
 }
@@ -46,7 +46,7 @@
     max-width: 16em;
     margin: 0;
     font-size: clamp(32px, 4.4vw, 52px);
-    font-weight: 900;
+    font-weight: 700;
     letter-spacing: 0.02em;
     line-height: 1.2;
     font-family: var(--font-display);
@@ -65,7 +65,7 @@
     padding: clamp(1.5rem, 4vw, 3.5rem);
     background: var(--kb-night-glass);
     border: 1px solid var(--kb-line);
-    border-radius: 22px;
+    border-radius: 0;
 }
 
 .typeFieldset { margin: 0 0 2.1rem; padding: 0 0 2rem; border: 0; border-bottom: 1px solid rgba(239, 242, 248, 0.1); }
@@ -73,7 +73,7 @@
 .field > label { display: flex; width: 100%; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 0.65rem; color: #d2d7e0; font-size: 0.82rem; font-weight: 650; }
 .field label small { color: var(--text-tertiary); font-size: 0.68rem; font-weight: 500; }
 
-.typeSelector { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 0.75rem; border: 1px solid rgba(239, 242, 248, 0.12); background: rgba(12, 17, 29, 0.12); overflow: hidden; border-radius: 14px; }
+.typeSelector { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 0.75rem; border: 1px solid rgba(239, 242, 248, 0.12); background: rgba(12, 17, 29, 0.12); overflow: hidden; border-radius: 0; }
 .typeSelector button {
     display: flex;
     min-height: 4.8rem;
@@ -100,7 +100,7 @@
     width: 100%;
     padding: 0.85rem 0.95rem;
     border: 1px solid rgba(222, 228, 238, 0.203);
-    border-radius: 12px;
+    border-radius: 0;
     background: rgba(14, 17, 24, 0.75);
     color: var(--kb-ink, #eff2f8);
     font: inherit;
@@ -116,7 +116,7 @@
 .field textarea[aria-invalid="true"] { border-color: #eea5a0; background: rgba(238, 165, 160, 0.06); }
 
 .fieldError { margin: 0.45rem 0 0; color: #f2aaa7; font-size: 0.75rem; }
-.formError { display: flex; align-items: start; gap: 0.65rem; margin: 0.5rem 0 1.2rem; padding: 0.9rem 1rem; border-left: 3px solid #eea5a0; background: transparent; color: #f2b3b0; font-size: 0.82rem; line-height: 1.55; border-radius: 12px; }
+.formError { display: flex; align-items: start; gap: 0.65rem; margin: 0.5rem 0 1.2rem; padding: 0.9rem 1rem; border-left: 3px solid #eea5a0; background: transparent; color: #f2b3b0; font-size: 0.82rem; line-height: 1.55; border-radius: 0; }
 .formError svg { flex: none; margin-top: 0.05rem; }
 
 .formActions { display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: center; gap: 0.75rem; padding-top: 1.7rem; border-top: 1px solid rgba(239, 242, 248, 0.1); }
@@ -140,13 +140,13 @@
     background: var(--kb-night-glass);
     box-shadow: 0 1.6rem 4.6rem rgba(0, 0, 0, 0.28);
     border: 1px solid var(--kb-line);
-    border-radius: 22px;
+    border-radius: 0;
 }
 
 .success > svg { margin-bottom: 1.6rem; color: var(--kb-accent, #e9c887); }
 .success h1 { max-width: none; font-size: clamp(32px, 4.4vw, 52px); }
 .success h1:focus { outline: none; }
-.success h1:focus-visible { border-radius: 0.25rem; outline: 3px solid var(--kb-focus, rgba(222, 228, 238, 0.225)); outline-offset: 6px; }
+.success h1:focus-visible { border-radius: 0; outline: 3px solid var(--kb-focus, rgba(222, 228, 238, 0.225)); outline-offset: 6px; }
 .success p { max-width: 39rem; margin: 1.3rem 0 2rem; color: var(--text-secondary); font-size: 1rem; line-height: 1.75; }
 .successActions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 

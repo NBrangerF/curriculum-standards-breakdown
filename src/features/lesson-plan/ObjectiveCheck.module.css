@@ -3,7 +3,7 @@
     margin: 0.9rem 0 0.2rem;
     padding: 0.7rem 0.95rem;
     border: 1px solid rgba(233, 200, 135, 0.3);
-    border-radius: var(--radius-md, 12px);
+    border-radius: 0;
     background: rgba(233, 200, 135, 0.04);
 }
 
@@ -30,7 +30,7 @@
     width: 100%;
     padding: 0.6rem 0.7rem;
     border: 1px solid var(--kb-line-strong);
-    border-radius: 8px;
+    border-radius: 0;
     background: rgba(0, 0, 0, 0.2);
     color: var(--kb-moon);
     font: inherit;
@@ -74,7 +74,7 @@
 .text b {
     margin-left: 0.5rem;
     padding: 0.05rem 0.45rem;
-    border-radius: 999px;
+    border-radius: 0;
     font-size: 0.75rem;
     font-weight: 600;
     white-space: nowrap;
@@ -105,7 +105,7 @@
 }
 
 .code {
-    color: var(--kb-gold);
+    color: var(--kb-moon);
     font-family: var(--font-mono, ui-monospace, monospace);
     font-size: 0.8rem;
 }

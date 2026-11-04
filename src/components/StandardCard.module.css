@@ -6,7 +6,7 @@
 .standard-card {
     position: relative;
     background: var(--kb-night-glass);
-    border-radius: 14px;
+    border-radius: 0;
     border: 1px solid var(--kb-line);
     overflow: hidden;
     transition:
@@ -26,12 +26,11 @@
     width: 2px;
     height: 100%;
     background: var(--card-accent);
-    box-shadow: 0 0 10px var(--card-accent);
+    box-shadow: none;
 }
 
 .standard-card:hover {
     border-color: var(--kb-line-strong);
-    transform: translateY(-1px);
 }
 
 .standard-card.expanded {
@@ -64,7 +63,7 @@
 }
 
 .standard-code {
-    color: var(--kb-gold);
+    color: var(--kb-moon);
     font-family: var(--font-mono);
     font-size: 12px;
     line-height: 1;
@@ -81,7 +80,7 @@
     padding: 3px 10px;
     border: 1px solid var(--kb-line);
     color: var(--kb-moon);
-    border-radius: 999px;
+    border-radius: 0;
     white-space: nowrap;
 }
 
@@ -140,7 +139,7 @@
     padding: var(--space-1) var(--space-2);
     background: var(--band-bg, var(--color-primary-light, rgba(233, 200, 135, 0.14)));
     color: var(--band-color, var(--color-primary));
-    border-radius: var(--radius-md);
+    border-radius: 0;
     white-space: nowrap;
 }
 
@@ -157,7 +156,7 @@
     border: none;
     background: transparent;
     color: var(--text-tertiary);
-    border-radius: var(--radius-md);
+    border-radius: 0;
     cursor: pointer;
     transition:
         transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -168,7 +167,6 @@
 .action-btn:hover {
     background: var(--color-gray-100);
     color: var(--text-primary);
-    transform: translateY(-1px);
 }
 
 .action-btn:focus-visible {
@@ -191,7 +189,7 @@
     border: none;
     background: transparent;
     color: var(--text-tertiary);
-    border-radius: var(--radius-md);
+    border-radius: 0;
     cursor: pointer;
     transition:
         transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -202,7 +200,6 @@
 .menu-btn:hover {
     background: var(--color-gray-100);
     color: var(--text-primary);
-    transform: translateY(-1px);
 }
 
 .menu-btn:focus-visible {
@@ -215,7 +212,7 @@
     min-width: 140px;
     background: var(--bg-primary);
     border: 1px solid var(--color-gray-200);
-    border-radius: var(--radius-lg);
+    border-radius: 0;
     box-shadow: var(--shadow-lg);
     overflow: hidden;
     opacity: 0;
@@ -271,7 +268,7 @@
     justify-content: center;
     width: 44px;
     height: 44px;
-    border-radius: var(--radius-full);
+    border-radius: 0;
     background: var(--color-gray-100);
     border: none;
     color: var(--text-tertiary);
@@ -286,7 +283,6 @@
 .expand-btn:hover {
     background: var(--color-gray-200);
     color: var(--text-primary);
-    transform: translateY(-1px);
 }
 
 .expand-btn:focus-visible {
@@ -363,7 +359,7 @@
     background: var(--color-warning);
     color: var(--color-gray-900);
     padding: 0 var(--space-1);
-    border-radius: var(--radius-sm);
+    border-radius: 0;
 }
 
 /* ============================================

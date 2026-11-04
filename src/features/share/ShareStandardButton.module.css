@@ -17,7 +17,7 @@
     max-height: calc(100dvh - 32px);
     overflow: auto;
     border: 1px solid var(--kb-line);
-    border-radius: 22px;
+    border-radius: 0;
     background: var(--kb-night-glass);
     backdrop-filter: blur(16px);
     color: var(--kb-moon);
@@ -36,7 +36,7 @@
     margin: 0;
     font-family: var(--font-display);
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .frame {
@@ -44,7 +44,7 @@
     aspect-ratio: 3 / 4;
     overflow: hidden;
     border: 1px solid var(--kb-line);
-    border-radius: 14px;
+    border-radius: 0;
     background: var(--kb-night);
 }
 
@@ -103,7 +103,7 @@
         border-right: 0;
         border-bottom: 0;
         border-left: 0;
-        border-radius: 22px 22px 0 0;
+        border-radius: 0;
     }
 
     .frame {

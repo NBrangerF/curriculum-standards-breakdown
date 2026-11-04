@@ -8,11 +8,11 @@
     aspect-ratio: 0.72;
     padding: 1rem;
     border: 1px solid color-mix(in srgb, var(--book-color) 45%, rgba(222, 228, 238, 0.12));
-    border-radius: var(--radius-lg);
+    border-radius: 0;
     background:
         linear-gradient(145deg, color-mix(in srgb, var(--book-color) 92%, #101521), color-mix(in srgb, var(--book-color) 52%, #0f0f0f));
     color: #fff;
-    box-shadow: 0 16px 32px color-mix(in srgb, var(--book-color) 18%, transparent);
+    box-shadow: none;
     isolation: isolate;
     /* the text below sizes itself to the cover, not the window */
     container-type: inline-size;

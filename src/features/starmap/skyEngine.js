@@ -625,14 +625,14 @@ export function createSkyEngine(canvas, tipEl) {
         const cr = R * E[0] * 0.62
         ctx.strokeStyle = `rgba(233,200,135,${0.5 * fade})`; ctx.beginPath(); ctx.arc(cx, cy, cr, 0, Math.PI * 2); ctx.stroke()
         ctx.fillStyle = `rgba(233,200,135,${0.92 * fade})`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
-        ctx.font = `900 ${Math.round(cr * 0.66)}px "Noto Serif SC Variable", "Songti SC", serif`
+        ctx.font = `700 ${Math.round(cr * 0.66)}px "kb Latin", "Noto Sans SC Variable", "PingFang SC", sans-serif`
         ctx.fillText(SUBJECT_SHORT[g.s], cx, cy + 1)
     }
     // Domain names run around the rim with upright glyphs, reading left-to-right or top-to-bottom on every side.
     function arcText(name, count, mid, r, px, color, numColor) {
         const toks = [...name].map(t => ({ t }))
         toks.push({ t: ' ', sp: true }, { t: String(count), num: true })
-        const fN = `600 ${px}px "PingFang SC", "Microsoft YaHei", sans-serif`, fD = `italic ${Math.round(px * 1.45)}px "Instrument Serif", Georgia, serif`
+        const fN = `600 ${px}px "Noto Sans SC Variable", "PingFang SC", "Microsoft YaHei", sans-serif`, fD = `300 ${Math.round(px * 1.45)}px "kb Latin", "Noto Sans SC Variable", "PingFang SC", sans-serif`
         ctx.font = fD
         for (const o of toks) o.w = o.num ? ctx.measureText(o.t).width + 2 : o.sp ? px * 0.4 : px * 1.12
         const total = toks.reduce((x, o) => x + o.w, 0) / r, tx = -Math.sin(mid), ty = Math.cos(mid)
@@ -662,7 +662,7 @@ export function createSkyEngine(canvas, tipEl) {
         })
         ctx.globalAlpha = fade
         const ca = Math.cos(A0), sa = Math.sin(A0)
-        ctx.font = `500 ${small ? 9 : 10.5}px "IBM Plex Mono", monospace`; ctx.fillStyle = '#858E9C'
+        ctx.font = `500 ${small ? 9 : 10.5}px "Geist Mono Variable", ui-monospace, monospace`; ctx.fillStyle = '#858E9C'
         // each ring is one of the subject's own stages (艺术 3–5, 6–7, 8–9; 英语 from 3–4)
         for (const st of K.subjects[g.s].stages || []) { const b = st.band, r = (R * (E[b] + E[b + 1])) / 2; ctx.fillText(st.range.replace(' 年级', ''), g.cx + ca * r, g.cy + sa * r) }
         ctx.globalAlpha = 1
@@ -672,20 +672,20 @@ export function createSkyEngine(canvas, tipEl) {
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
         if (w[2] > 0.02) {
             ctx.globalAlpha = w[2] * ov
-            for (const l of LBL.oneSubj) { ctx.font = l.small ? `500 ${mobile ? 10 : 12}px "PingFang SC", sans-serif` : `500 ${mobile ? 11 : 13.5}px "PingFang SC", sans-serif`; ctx.fillStyle = l.small ? '#858E9C' : '#ECEFF4'; ctx.fillText(l.text, l.x, l.y) }
+            for (const l of LBL.oneSubj) { ctx.font = l.small ? `500 ${mobile ? 10 : 12}px "kb Latin", "Noto Sans SC Variable", "PingFang SC", sans-serif` : `500 ${mobile ? 11 : 13.5}px "kb Latin", "Noto Sans SC Variable", "PingFang SC", sans-serif`; ctx.fillStyle = l.small ? '#858E9C' : '#ECEFF4'; ctx.fillText(l.text, l.x, l.y) }
         }
         if (w[3] > 0.02) {
             ctx.globalAlpha = w[3] * ov
             for (const l of LBL.oneBand) {
-                ctx.font = `500 ${mobile ? 11 : 13.5}px "PingFang SC", sans-serif`; ctx.fillStyle = '#ECEFF4'; ctx.fillText(l.text, l.x, l.y)
-                ctx.font = `italic ${mobile ? 15 : 22}px "Instrument Serif", Georgia, serif`; ctx.fillStyle = l.color; ctx.fillText(l.num, l.x, l.top)
+                ctx.font = `500 ${mobile ? 11 : 13.5}px "kb Latin", "Noto Sans SC Variable", "PingFang SC", sans-serif`; ctx.fillStyle = '#ECEFF4'; ctx.fillText(l.text, l.x, l.y)
+                ctx.font = `300 ${mobile ? 15 : 22}px "kb Latin", "Noto Sans SC Variable", "PingFang SC", sans-serif`; ctx.fillStyle = l.color; ctx.fillText(l.num, l.x, l.top)
             }
         }
         if (w[4] > 0.02) {
             ctx.globalAlpha = w[4] * ov
             for (const l of LBL.skills) {
-                ctx.font = `500 ${mobile ? 11 : 13}px "PingFang SC", sans-serif`; ctx.fillStyle = '#ECEFF4'; ctx.fillText(l.text, l.x, l.y)
-                ctx.font = `italic ${mobile ? 13 : 17}px "Instrument Serif", Georgia, serif`; ctx.fillStyle = '#E9C887'; ctx.fillText(l.num, l.x, l.y + (mobile ? 14 : 18))
+                ctx.font = `500 ${mobile ? 11 : 13}px "kb Latin", "Noto Sans SC Variable", "PingFang SC", sans-serif`; ctx.fillStyle = '#ECEFF4'; ctx.fillText(l.text, l.x, l.y)
+                ctx.font = `300 ${mobile ? 13 : 17}px "kb Latin", "Noto Sans SC Variable", "PingFang SC", sans-serif`; ctx.fillStyle = '#E9C887'; ctx.fillText(l.num, l.x, l.y + (mobile ? 14 : 18))
             }
         }
         ctx.globalAlpha = 1

@@ -15,7 +15,7 @@
     max-width: min(300px, calc(100vw - 32px));
     padding: 9px 12px;
     border: 1px solid var(--kb-line-strong);
-    border-radius: 12px;
+    border-radius: 0;
     background: rgba(12, 14, 20, 0.94);
     color: var(--kb-moon);
     font-size: 13.5px;
@@ -37,7 +37,7 @@
     height: 8px;
     border-radius: 50%;
     background: var(--c);
-    box-shadow: 0 0 10px var(--c);
+    box-shadow: none;
 }
 
 /* A circle of night that opens from the clicked star, then lifts off the next page. */

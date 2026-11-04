@@ -1,6 +1,6 @@
 .primitive-contract-frame { min-height: 100vh; padding: clamp(2rem, 6vw, 5rem); color: var(--text-primary); background: linear-gradient(rgba(233, 200, 135, 0.063) 1px, transparent 1px), linear-gradient(90deg, rgba(233, 200, 135, 0.063) 1px, transparent 1px), #0e0f14; background-size: 4.5rem 4.5rem; }
 .primitive-contract-frame > header { max-width: 64rem; margin-bottom: 4rem; }
-.primitive-contract-frame > header span { color: var(--color-primary); font: 650 .68rem/1.2 var(--font-mono); letter-spacing: .13em; }
+.primitive-contract-frame > header span { color: var(--color-primary); font: 650 .68rem/1.2 var(--font-mono); letter-spacing: 0.02em; }
 .primitive-contract-frame h1 { margin: .8rem 0; font-size: clamp(2.8rem, 6vw, 5.5rem); letter-spacing: -.065em; line-height: 1; }
 .primitive-contract-frame > header p { max-width: 50rem; color: var(--text-secondary); line-height: 1.7; }
 .primitive-state-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); max-width: 76rem; border: 1px solid var(--border-color); background: #0f0f0f; }
@@ -29,7 +29,7 @@
 .primitive-modal-overlay { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: 1rem; background: rgba(7, 12, 22, .58); backdrop-filter: blur(5px); }
 .primitive-modal { width: min(31rem, 100%); }
 .primitive-dialog { padding: 2rem; background: #0f0f0f; border: 1px solid rgba(222, 228, 238, 0.12); box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.6); outline: 0; }
-.primitive-dialog > span { color: var(--color-primary); font: 650 .68rem/1.2 var(--font-mono); letter-spacing: .12em; }
+.primitive-dialog > span { color: var(--color-primary); font: 650 .68rem/1.2 var(--font-mono); letter-spacing: 0.02em; }
 .primitive-dialog h2 { margin: .7rem 0; font-size: 2rem; letter-spacing: -.04em; }
 .primitive-dialog p { color: var(--text-secondary); }
 .primitive-dialog label { display: grid; gap: .5rem; margin: 1.5rem 0; font-size: .78rem; font-weight: 650; }

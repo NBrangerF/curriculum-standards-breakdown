@@ -10,10 +10,10 @@
 
 .kicker {
     margin: 0;
-    color: var(--kb-gold);
-    font-family: var(--font-mono);
+    color: var(--kb-dim);
+    font-family: var(--font-sans);
     font-size: 12.5px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.02em;
 }
 
 .title {
@@ -22,7 +22,7 @@
     color: var(--kb-moon);
     font-family: var(--font-display);
     font-size: clamp(1.9rem, 3.6vw, 2.9rem);
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1.3;
     letter-spacing: 0.02em;
     text-wrap: balance;
@@ -40,7 +40,7 @@
     margin: 1rem 0 0;
     padding: 0.75rem 1rem;
     border: 1px solid rgba(233, 200, 135, 0.45);
-    border-radius: 12px;
+    border-radius: 0;
     background: var(--kb-accent-soft);
     color: var(--kb-moon);
     font-size: 0.95rem;
@@ -76,7 +76,7 @@
 .restore {
     padding: 0.5rem 0.9rem;
     border: 1px dashed var(--kb-line-strong);
-    border-radius: var(--radius-full, 999px);
+    border-radius: 0;
     background: transparent;
     color: var(--kb-gold);
     font: inherit;
@@ -88,7 +88,7 @@
     margin-top: 1.25rem;
     padding: clamp(1.1rem, 3vw, 1.6rem);
     border: 1px solid var(--kb-line);
-    border-radius: var(--radius-lg, 18px);
+    border-radius: 0;
     background: rgba(255, 255, 255, 0.02);
 }
 
@@ -100,7 +100,7 @@
     color: var(--kb-moon);
     font-family: var(--font-display);
     font-size: 1.3rem;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .step h2 span {
@@ -127,14 +127,14 @@
     margin-bottom: 1rem;
     padding: 3px;
     border: 1px solid var(--kb-line);
-    border-radius: var(--radius-full, 999px);
+    border-radius: 0;
 }
 
 .modeSwitch button {
     min-height: 2.2rem;
     padding: 0 1rem;
     border: 0;
-    border-radius: var(--radius-full, 999px);
+    border-radius: 0;
     background: transparent;
     color: var(--kb-mist);
     font: inherit;
@@ -182,7 +182,7 @@
     min-height: 2.75rem;
     padding: 0.5rem 0.75rem;
     border: 1px solid var(--kb-line-strong);
-    border-radius: var(--radius-md, 12px);
+    border-radius: 0;
     background: var(--kb-surface);
     color: var(--kb-moon);
     font: inherit;
@@ -216,7 +216,7 @@
     margin: 1rem 0 0;
     padding: 0.75rem 1rem;
     border: 1px solid var(--color-error);
-    border-radius: var(--radius-md, 12px);
+    border-radius: 0;
     background: var(--color-error-light);
     color: var(--color-error-dark);
 }
@@ -232,7 +232,7 @@
     color: var(--kb-moon);
     font-family: var(--font-display);
     font-size: 1.35rem;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .lessonMeta {
@@ -304,7 +304,7 @@
 .standard {
     padding: 0.85rem 1rem;
     border: 1px solid var(--kb-line);
-    border-radius: var(--radius-md, 12px);
+    border-radius: 0;
 }
 
 .standardHead {
@@ -326,7 +326,7 @@
 .evidence code,
 .basis code {
     margin-right: 0.45rem;
-    color: var(--kb-gold);
+    color: var(--kb-moon);
     font-family: var(--font-mono);
     font-size: 0.78rem;
     font-weight: 500;
@@ -360,7 +360,7 @@
     grid-template-columns: auto 1fr;
     gap: 0.6rem;
     padding: 0.45rem 0.55rem;
-    border-radius: 10px;
+    border-radius: 0;
     color: var(--kb-mist);
     font-size: 0.9rem;
     line-height: 1.75;
@@ -447,7 +447,7 @@
 .doc {
     margin-top: 1.5rem;
     padding: clamp(1.25rem, 4vw, 2.5rem);
-    border-radius: var(--radius-lg, 18px);
+    border-radius: 0;
     background: var(--kb-paper);
     color: var(--kb-paper-ink);
     font-size: 0.95rem;
@@ -459,7 +459,7 @@
     color: var(--kb-paper-ink);
     font-family: var(--font-display);
     font-size: 1.05rem;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .doc p {
@@ -494,7 +494,7 @@
     margin-right: auto;
     padding: 0.15rem 0.6rem;
     border: 1px solid #8a5a0b;
-    border-radius: var(--radius-full, 999px);
+    border-radius: 0;
     color: #8a5a0b;
     font-size: 0.78rem;
 }
@@ -509,7 +509,7 @@
     color: var(--kb-paper-ink);
     font-family: var(--font-display);
     font-size: clamp(1.4rem, 3vw, 1.9rem);
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .docHead p {
@@ -521,7 +521,7 @@
     margin-top: 1.25rem;
     padding: 0.75rem 1rem;
     border: 1px solid rgba(37, 34, 28, 0.2);
-    border-radius: 12px;
+    border-radius: 0;
     background: rgba(255, 255, 255, 0.5);
 }
 
@@ -600,7 +600,7 @@
 .basis em {
     padding: 0 0.4rem;
     border: 1px solid rgba(37, 34, 28, 0.3);
-    border-radius: 6px;
+    border-radius: 0;
     font-size: 0.72rem;
     font-style: normal;
 }
@@ -664,7 +664,7 @@
 .stages li {
     padding: 0.75rem 0.9rem;
     border: 1px solid rgba(37, 34, 28, 0.2);
-    border-radius: 12px;
+    border-radius: 0;
     background: rgba(255, 255, 255, 0.45);
 }
 
@@ -705,7 +705,7 @@
     margin: 0.4rem 0 0;
     padding: 0.75rem 1rem;
     border: 1px solid rgba(37, 34, 28, 0.25);
-    border-radius: 10px;
+    border-radius: 0;
     font-family: var(--font-display);
     white-space: pre-wrap;
 }
@@ -811,7 +811,7 @@
     min-height: 2rem;
     padding: 0 0.7rem;
     border: 1px solid var(--kb-line-strong);
-    border-radius: var(--radius-full, 999px);
+    border-radius: 0;
     background: transparent;
     color: var(--kb-mist);
     font: inherit;
@@ -896,7 +896,7 @@
 .stageHead .org {
     padding: 0 0.45rem;
     border: 1px solid rgba(37, 34, 28, 0.3);
-    border-radius: 6px;
+    border-radius: 0;
     color: var(--kb-paper-ink);
 }
 
@@ -936,7 +936,7 @@
 .practice li {
     padding: 0.6rem 0.9rem;
     border: 1px solid rgba(37, 34, 28, 0.2);
-    border-radius: 12px;
+    border-radius: 0;
     background: rgba(255, 255, 255, 0.45);
     counter-increment: practice;
 }

@@ -15,7 +15,7 @@
     color: var(--kb-dim);
     font-family: var(--font-mono);
     font-size: 12.5px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.02em;
 }
 
 .crumb a {
@@ -34,7 +34,7 @@
     margin: 1.5rem 0 0;
     padding: 0.85rem 1rem;
     border: 1px solid rgba(233, 200, 135, 0.4);
-    border-radius: var(--radius-md);
+    border-radius: 0;
     background: rgba(233, 200, 135, 0.07);
     color: var(--kb-mist);
     font-size: 0.875rem;
@@ -43,7 +43,7 @@
 
 .moved code,
 .moved a {
-    color: var(--kb-gold);
+    color: var(--kb-moon);
     font-family: var(--font-mono);
 }
 
@@ -65,7 +65,7 @@
     min-height: 2.25rem;
     padding: 0 0.8rem;
     border: 1px solid var(--subject-color);
-    border-radius: var(--radius-full);
+    border-radius: 0;
     background: color-mix(in srgb, var(--subject-color) 10%, transparent);
     color: var(--kb-moon);
     font-family: var(--font-mono);
@@ -80,7 +80,7 @@
     min-height: 2.25rem;
     padding: 0 0.7rem;
     border: 1px solid var(--border-default);
-    border-radius: var(--radius-full);
+    border-radius: 0;
     color: var(--text-secondary);
     font-size: 0.8rem;
     text-decoration: none;
@@ -107,7 +107,7 @@ button.badge:focus-visible {
     color: var(--kb-moon);
     font-family: var(--font-display);
     font-size: clamp(1.9rem, 3.6vw, 2.9rem);
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1.25;
     letter-spacing: 0.03em;
     text-wrap: balance;
@@ -181,7 +181,7 @@ button.badge:focus-visible {
     max-width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--kb-line-strong);
-    border-radius: var(--radius-md, 12px);
+    border-radius: 0;
     background: rgba(14, 17, 24, 0.96);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
 }
@@ -250,7 +250,7 @@ button.badge:focus-visible {
     display: inline-flex;
     flex-wrap: wrap;
     border: 1px solid var(--kb-line-strong);
-    border-radius: var(--radius-full);
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -312,7 +312,7 @@ button.badge:focus-visible {
     margin: 0 calc(-1 * clamp(0.5rem, 2vw, 1rem));
     padding-right: clamp(0.5rem, 2vw, 1rem);
     padding-left: clamp(0.5rem, 2vw, 1rem);
-    border-radius: var(--radius-md);
+    border-radius: 0;
     background: rgba(233, 200, 135, 0.07);
     box-shadow: inset 3px 0 0 var(--kb-gold);
 }
@@ -352,7 +352,7 @@ button.badge:focus-visible {
     min-height: 1.5rem;
     padding: 0 0.5rem;
     border: 1px solid var(--kb-line-strong);
-    border-radius: var(--radius-full);
+    border-radius: 0;
     color: var(--kb-mist);
     font-size: 0.72rem;
 }
@@ -378,7 +378,7 @@ button.badge:focus-visible {
 
 .added {
     padding: 0 2px;
-    border-radius: 3px;
+    border-radius: 0;
     background: rgba(233, 200, 135, 0.18);
     color: var(--kb-moon);
     box-shadow: inset 0 -1px 0 var(--kb-gold);
@@ -410,7 +410,7 @@ button.badge:focus-visible {
 
 .flag {
     padding: 0 0.45rem;
-    border-radius: var(--radius-full);
+    border-radius: 0;
     background: rgba(222, 228, 238, 0.08);
     color: var(--kb-mist);
 }

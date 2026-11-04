@@ -1,6 +1,6 @@
 .panel { margin-bottom: 2.2rem; border: 1px solid var(--border-default); background: #0f0f0f; }
 .heading { display: flex; gap: 1.5rem; align-items: end; justify-content: space-between; padding: 1.4rem 1.5rem; border-bottom: 1px solid var(--border-default); }
-.heading span { color: var(--color-primary); font: 650 .56rem/1 var(--font-mono); letter-spacing: .12em; }
+.heading span { color: var(--color-primary); font: 650 .56rem/1 var(--font-mono); letter-spacing: 0.02em; }
 .heading h2 { margin: .5rem 0 0; font-size: clamp(1.1rem, 2vw, 1.55rem); letter-spacing: 0.01em; }
 .heading strong { flex: none; color: var(--text-tertiary); font: 600 .62rem/1.4 var(--font-mono); }
 .list { display: grid; }
@@ -14,9 +14,9 @@
 .copy small { display: block; max-width: 70ch; margin-top: .45rem; color: var(--text-tertiary); font-size: .64rem; line-height: 1.55; }
 .copy blockquote { max-width: 70ch; margin: .6rem 0 0; padding: .5rem .65rem; border-left: 2px solid #c88b2b; background: #15130f; color: var(--text-secondary); font-size: .64rem; line-height: 1.6; }
 .badges,.components { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .5rem; }
-.badges span { padding: .24rem .4rem; border-radius: 999px; background: var(--bg-secondary); color: var(--text-tertiary); font: 560 .54rem/1 var(--font-mono); }
+.badges span { padding: .24rem .4rem; border-radius: 0; background: var(--bg-secondary); color: var(--text-tertiary); font: 560 .54rem/1 var(--font-mono); }
 .badges span:nth-child(2) { background: #191712; color: #f2ddbe; }
-.components span { padding: .3rem .42rem; border: 1px solid rgba(222, 228, 238, 0.16); border-radius: 999px; color: #bbc3d8; font-size: .58rem; }
+.components span { padding: .3rem .42rem; border: 1px solid rgba(222, 228, 238, 0.16); border-radius: 0; color: #bbc3d8; font-size: .58rem; }
 .scopeNotice { margin-top: .5rem; color: #ead8b6; font-size: .61rem; line-height: 1.5; }
 .location { display: grid; gap: .3rem; min-width: 5.8rem; color: var(--text-tertiary); font: .6rem/1.25 var(--font-mono); }
 .actions { display: flex; flex-wrap: wrap; gap: .45rem; justify-content: flex-end; }

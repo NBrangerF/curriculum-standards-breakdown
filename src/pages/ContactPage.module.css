@@ -12,8 +12,8 @@
 .eyebrow,
 .contactIntro > span,
 .wechatCopy > span,
-.scopeHeader > span { color: var(--kb-gold); letter-spacing: 0.16em; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.2; }
-.hero h1 { max-width: 16em; margin: 1rem 0 0; color: inherit; font-size: clamp(32px, 4.4vw, 52px); font-weight: 900; letter-spacing: 0.02em; line-height: 1.2; animation: contact-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both; font-family: var(--font-display); }
+.scopeHeader > span { color: var(--kb-dim); letter-spacing: 0.02em; font-family: var(--font-sans); font-size: 12.5px; line-height: 1.2; }
+.hero h1 { max-width: 16em; margin: 1rem 0 0; color: inherit; font-size: clamp(32px, 4.4vw, 52px); font-weight: 700; letter-spacing: 0.02em; line-height: 1.2; animation: contact-rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both; font-family: var(--font-display); }
 .hero p { max-width: 34rem; margin: 0 0 0.35rem; color: var(--kb-mist); font-size: clamp(1rem, 1.45vw, 1.18rem); line-height: 1.82; animation: contact-rise 700ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both; }
 
 .contactSection { padding: clamp(4.5rem, 8vw, 8rem) 0; background: transparent; border-top: 1px solid var(--kb-line); }
@@ -40,9 +40,9 @@
 .wechatCopy p { max-width: 38rem; margin: 1.35rem 0 0; color: #aab4c3; line-height: 1.78; }
 .wechatCopy small { display: block; margin-top: 2rem; color: #7f8b9e; font: 550 0.65rem/1.2 var(--font-mono); letter-spacing: 0.08em; }
 .qrFigure { justify-self: center; margin: 0; text-align: center; }
-.qrFrame { position: relative; width: clamp(15rem, 27vw, 20rem); padding: 1.1rem; border: 1px solid #cfd5df; background: var(--kb-night-glass); box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.6); border-radius: 22px; }
+.qrFrame { position: relative; width: clamp(15rem, 27vw, 20rem); padding: 1.1rem; border: 1px solid #cfd5df; background: var(--kb-night-glass); box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.6); border-radius: 0; }
 .qrFrame img { display: block; width: 100%; height: auto; }
-.scanLine { position: absolute; right: 1.1rem; left: 1.1rem; top: 50%; height: 1px; background: rgba(233, 200, 135, 0.55); box-shadow: 0 0 0.8rem rgba(233, 200, 135, 0.5); opacity: 0; transition: opacity var(--transition-normal); }
+.scanLine { position: absolute; right: 1.1rem; left: 1.1rem; top: 50%; height: 1px; background: rgba(233, 200, 135, 0.55); box-shadow: none; opacity: 0; transition: opacity var(--transition-normal); }
 .qrFrame:hover .scanLine { opacity: 1; }
 .qrFigure figcaption { margin-top: 1rem; color: #8f9bad; font: 550 0.64rem/1.2 var(--font-mono); letter-spacing: 0.08em; }
 

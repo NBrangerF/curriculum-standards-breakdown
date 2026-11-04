@@ -14,7 +14,7 @@
     width: min(680px, 100%);
     overflow: hidden;
     border: 1px solid var(--kb-line-strong);
-    border-radius: 18px;
+    border-radius: 0;
     background: var(--kb-surface);
     box-shadow: var(--shadow-xl);
     animation: pop 0.22s var(--kb-ease);
@@ -46,7 +46,7 @@
 .input input::placeholder { color: var(--kb-dim); }
 
 .count {
-    color: var(--kb-gold);
+    color: var(--kb-moon);
     font-family: var(--font-mono);
     font-size: 12px;
     white-space: nowrap;
@@ -66,7 +66,7 @@
     align-items: baseline;
     gap: 2px 12px;
     padding: 10px 12px;
-    border-radius: 10px;
+    border-radius: 0;
     color: var(--kb-moon);
     cursor: pointer;
 }
@@ -78,7 +78,7 @@
     height: 8px;
     border-radius: 50%;
     background: var(--c);
-    box-shadow: 0 0 8px var(--c);
+    box-shadow: none;
     transform: translateY(-1px);
 }
 
@@ -92,8 +92,8 @@
 .title mark { background: none; color: var(--kb-gold); }
 
 /* the hand-off to AI search */
-.ai { --c: var(--kb-gold); border-top: 1px solid var(--kb-line); border-radius: 0 0 10px 10px; }
-.ai:first-child, .empty + .ai { border-top: 0; border-radius: 10px; }
+.ai { --c: var(--kb-gold); border-top: 1px solid var(--kb-line); border-radius: 0; }
+.ai:first-child, .empty + .ai { border-top: 0; border-radius: 0; }
 
 .meta {
     grid-column: 2;

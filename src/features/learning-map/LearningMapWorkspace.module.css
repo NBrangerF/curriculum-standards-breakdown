@@ -21,7 +21,7 @@
     flex: none;
     padding: 0.2rem 0.45rem;
     border: 1px solid color-mix(in srgb, var(--color-warning) 40%, rgba(222, 228, 238, 0.12));
-    border-radius: 999px;
+    border-radius: 0;
     color: var(--kb-ink);
     font: 700 0.58rem/1 var(--font-mono);
     letter-spacing: 0.04em;
@@ -69,7 +69,7 @@
 .stageHeader p { max-width: 38rem; color: var(--text-secondary); font-size: 0.84rem; line-height: 1.65; text-align: right; }
 
 .fallbackList { display: grid; grid-template-columns: minmax(15rem, 1fr) minmax(20rem, 1.2fr) minmax(15rem, 1fr); gap: clamp(1rem, 2vw, 2rem); align-items: center; min-height: 24rem; padding: 1.75rem 0 1rem; }
-.currentKnowledge { grid-column: 2; grid-row: 1; z-index: 1; display: grid; gap: 0.75rem; place-items: center; justify-self: center; width: min(100%, 28rem); min-height: 13rem; padding: 1.5rem 1.75rem; border: 1px solid color-mix(in srgb, var(--kb-accent) 38%, rgba(222, 228, 238, 0.12)); border-radius: 0.75rem; background: #0f0f0f; box-shadow: 0 1rem 2.6rem rgba(233, 200, 135, 0.13); text-align: center; }
+.currentKnowledge { grid-column: 2; grid-row: 1; z-index: 1; display: grid; gap: 0.75rem; place-items: center; justify-self: center; width: min(100%, 28rem); min-height: 13rem; padding: 1.5rem 1.75rem; border: 1px solid color-mix(in srgb, var(--kb-accent) 38%, rgba(222, 228, 238, 0.12)); border-radius: 0; background: #0f0f0f; box-shadow: none; text-align: center; }
 .currentKnowledge h2 { max-width: 18ch; font-size: clamp(1.3rem, 1.6vw, 1.65rem); line-height: 1.3; letter-spacing: 0.01em; text-wrap: balance; }
 .currentKnowledge code { color: var(--text-tertiary); font: 550 0.7rem/1.5 var(--font-mono); }
 .relationGroup { position: relative; display: grid; gap: 0.8rem; min-width: 0; }
@@ -82,8 +82,8 @@
 .relationGroup h3 { font-size: 0.88rem; font-weight: 650; }
 .relationGroup ul { display: grid; gap: 0.55rem; margin: 0; padding: 0; list-style: none; }
 .relationItem { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.35rem; }
-.relationGroup button { display: flex; gap: 0.7rem; align-items: center; justify-content: space-between; width: 100%; min-height: 4.25rem; padding: 0.8rem 0.9rem; border: 1px solid var(--kb-hairline); border-radius: 0.5rem; background: rgba(14, 17, 24, 0.81); color: var(--kb-ink); font-size: 0.86rem; line-height: 1.55; text-align: left; text-wrap: pretty; transition: transform 180ms var(--easing-out), border-color 180ms var(--easing-out), box-shadow 180ms var(--easing-out); }
-.relationGroup button:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--kb-accent) 38%, rgba(222, 228, 238, 0.12)); box-shadow: var(--shadow-sm); }
+.relationGroup button { display: flex; gap: 0.7rem; align-items: center; justify-content: space-between; width: 100%; min-height: 4.25rem; padding: 0.8rem 0.9rem; border: 1px solid var(--kb-hairline); border-radius: 0; background: rgba(14, 17, 24, 0.81); color: var(--kb-ink); font-size: 0.86rem; line-height: 1.55; text-align: left; text-wrap: pretty; transition: transform 180ms var(--easing-out), border-color 180ms var(--easing-out), box-shadow 180ms var(--easing-out); }
+.relationGroup button:hover { border-color: color-mix(in srgb, var(--kb-accent) 38%, rgba(222, 228, 238, 0.12)); box-shadow: var(--shadow-sm); }
 .relationGroup button small { flex: none; color: var(--text-tertiary); font: 600 0.62rem/1 var(--font-mono); }
 .relationGroup .relationEvidenceButton { width: auto; min-width: 3.2rem; min-height: 2.75rem; padding: 0 0.65rem; color: var(--kb-accent-hover); font: 650 0.62rem/1 var(--font-mono); text-align: center; }
 .relationGroup > p { color: var(--text-secondary); font-size: 0.84rem; line-height: 1.65; }

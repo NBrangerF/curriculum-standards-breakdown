@@ -42,7 +42,7 @@
 }
 
 .loading { min-height: 200px; }
-.loading .message { margin-bottom: 0; color: var(--kb-dim); font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.16em; }
+.loading .message { margin-bottom: 0; color: var(--kb-dim); font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.02em; }
 .small { min-height: 100px; padding: 24px 16px; }
 .loading [data-kb-primitive="skeleton"] { margin-bottom: 16px; }
 
@@ -68,7 +68,7 @@
     color: var(--kb-gold);
     font-family: var(--font-num);
     font-size: 30px;
-    font-style: italic;
+    font-style: normal;
     font-weight: 400;
     font-variant-numeric: tabular-nums;
 }
@@ -82,7 +82,7 @@
 .breakdownChip {
     padding: 4px 12px;
     border: 1px solid var(--kb-line);
-    border-radius: 999px;
+    border-radius: 0;
     color: var(--kb-mist);
     font-size: 12.5px;
 }

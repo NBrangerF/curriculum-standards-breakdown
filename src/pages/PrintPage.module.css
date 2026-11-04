@@ -1,10 +1,10 @@
 .root { min-height: 100svh; padding: 2rem; background: #121518; color: #eaedf6; }
 .loading { display: grid; min-height: 30rem; place-items: center; }
 
-.controls { position: sticky; z-index: 30; top: 0; max-width: 58rem; margin: 0 auto 1.5rem; border: 1px solid rgba(239, 242, 248, 0.12); background: rgba(14, 17, 24, 0.846); box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.26); color: var(--kb-ink, #eff2f8); backdrop-filter: blur(14px); }
+.controls { position: sticky; z-index: 30; top: 0; max-width: 58rem; margin: 0 auto 1.5rem; border: 1px solid rgba(239, 242, 248, 0.12); background: rgba(14, 17, 24, 0.96); box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.26); color: var(--kb-ink, #eff2f8); }
 .controlsInner { display: grid; grid-template-columns: minmax(11rem, 0.45fr) minmax(20rem, 1fr) auto; align-items: end; gap: 1.5rem; padding: 1.25rem; }
 .controlsTitle a { display: inline-flex; min-height: 44px; align-items: center; gap: 0.4rem; margin-bottom: 0.8rem; color: var(--text-secondary); font-size: 0.72rem; font-weight: 600; text-decoration: none; }
-.controlsTitle > span { display: flex; align-items: center; gap: 0.4rem; color: var(--kb-accent, #e9c887); font: 600 0.6rem/1 var(--font-mono); letter-spacing: 0.12em; }
+.controlsTitle > span { display: flex; align-items: center; gap: 0.4rem; color: var(--kb-accent, #e9c887); font: 600 0.6rem/1 var(--font-mono); letter-spacing: 0.02em; }
 .controlsTitle h1 { margin: 0.4rem 0 0; font-size: 1.45rem; letter-spacing: 0.01em; }
 .controls fieldset { margin: 0; padding: 0; border: 0; }
 .controls legend { margin-bottom: 0.55rem; color: var(--text-tertiary); font-size: 0.68rem; font-weight: 600; }
@@ -16,7 +16,7 @@
 
 .content { width: min(100%, 58rem); min-height: 70rem; margin: 0 auto; padding: clamp(2.5rem, 6vw, 5rem); background: #0f0f0f; box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.4); }
 .header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 2px solid #e9edf6; }
-.header > span { color: #c6cdd8; font: 600 8pt/1 var(--font-mono); letter-spacing: 0.12em; }
+.header > span { color: #c6cdd8; font: 600 8pt/1 var(--font-mono); letter-spacing: 0.02em; }
 .header h2 { max-width: 20ch; margin: 1.2rem 0 2rem; font-size: 28pt; letter-spacing: 0.01em; line-height: 1.08; }
 .header dl { display: grid; grid-template-columns: 0.55fr 0.7fr 1.5fr; margin: 0; border-block: 1px solid rgba(222, 228, 238, 0.191); }
 .header dl > div { padding: 0.8rem 0.7rem; border-right: 1px solid rgba(222, 228, 238, 0.191); }

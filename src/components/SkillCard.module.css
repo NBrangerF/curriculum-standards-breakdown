@@ -1,6 +1,6 @@
 .skill-card {
     background: var(--kb-night-glass);
-    border-radius: 22px;
+    border-radius: 0;
     overflow: hidden;
     border: 1px solid var(--kb-line);
     transition: all var(--transition-normal);
@@ -9,7 +9,6 @@
 
 .skill-card:hover {
     border-color: var(--kb-line-strong);
-    transform: translateY(-2px);
 }
 
 .skill-card-accent {
@@ -33,7 +32,7 @@
     border: 1px solid var(--skill-color, var(--color-primary));
     background: color-mix(in srgb, var(--skill-color, var(--color-primary)) 16%, transparent);
     color: var(--kb-moon);
-    border-radius: var(--radius-full);
+    border-radius: 0;
     margin-bottom: var(--space-2);
     font-family: var(--font-mono);
 }
@@ -41,7 +40,7 @@
 .skill-name {
     font-family: var(--font-display);
     font-size: clamp(20px, 2vw, 26px);
-    font-weight: 900;
+    font-weight: 700;
     letter-spacing: 0.03em;
     color: var(--kb-moon);
     margin-bottom: var(--space-1);
@@ -77,7 +76,7 @@
 .subskills-title {
     font-size: 12px;
     font-weight: 400;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.02em;
     color: var(--kb-dim);
     margin-bottom: var(--space-3);
 }

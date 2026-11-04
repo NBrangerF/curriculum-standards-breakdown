@@ -188,7 +188,7 @@ h6 {
   min-width: 44px;
   min-height: 44px;
   font-weight: 620;
-  border-radius: var(--radius-full);
+  border-radius: 0;
   border: 1px solid transparent;
   transition:
     transform var(--transition-fast),
@@ -209,7 +209,6 @@ h6 {
   border-color: var(--kb-accent-hover);
   background: var(--kb-accent-hover);
   color: var(--kb-gold-ink);
-  transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -222,7 +221,6 @@ h6 {
   background: rgba(233, 200, 135, 0.08);
   border-color: var(--kb-gold);
   color: var(--text-primary);
-  transform: translateY(-1px);
 }
 
 .btn-ghost {
@@ -246,7 +244,7 @@ h6 {
 
 .card {
   background: var(--kb-night-glass);
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   box-shadow: none;
   border: 1px solid var(--border-default);
   transition:
@@ -272,7 +270,7 @@ h6 {
   padding: var(--space-4) var(--space-6);
   border-top: 1px solid var(--color-gray-100);
   background: var(--bg-secondary);
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border-radius: 0;
 }
 
 /* ========================================
@@ -285,7 +283,7 @@ h6 {
   padding: var(--space-1) var(--space-3);
   font-size: var(--font-size-xs);
   font-weight: 500;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   background: var(--color-gray-100);
   color: var(--text-secondary);
 }
@@ -309,7 +307,7 @@ h6 {
   padding: 0 var(--space-2);
   font-size: var(--font-size-xs);
   font-weight: 600;
-  border-radius: var(--radius-full);
+  border-radius: 0;
   background: var(--color-primary);
   color: var(--text-inverse);
 }
@@ -324,7 +322,7 @@ h6 {
   font-size: var(--font-size-sm);
   color: var(--text-primary);
   border: 1px solid var(--kb-line-strong);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   background: rgba(14, 17, 24, 0.75);
   transition: all var(--transition-fast);
 }
@@ -350,7 +348,7 @@ h6 {
   color: var(--text-secondary);
   background: transparent;
   border: 1px solid var(--kb-line);
-  border-radius: var(--radius-full);
+  border-radius: 0;
   cursor: pointer;
   transition: all var(--transition-fast);
   user-select: none;
@@ -464,7 +462,7 @@ h6 {
 
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.14);
-  border-radius: var(--radius-full);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
