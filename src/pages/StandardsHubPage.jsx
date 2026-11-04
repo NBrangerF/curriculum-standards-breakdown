@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom'
+import { lazy, Suspense, useEffect, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { PageHero, SectionHead, Wrap, kb } from '../components/kb'
 import { useStarmap } from '../features/starmap/SkyProvider.jsx'
+import { COMPARE_DEFAULT, readCompareParams } from '../features/starmap/compareLinks.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import { STATIC_PAGE_META } from '../seo/pageMeta.js'
 import styles from './StandardsHubPage.module.css'
@@ -8,14 +10,26 @@ import styles from './StandardsHubPage.module.css'
 const TOOLS = [
     { to: '/smart-search', name: 'AI 检索', text: '用一句话找课标，例如「三年级科学里讲植物生长的」' },
     { to: '/concepts', name: '概念词典', text: '大概念、大单元、学习任务群，课标原文怎么说' },
-    { to: '/?mode=A#compare', name: '对照窗', text: '一科多学段、多科一学段、一种能力跨学科，并排看' },
     { to: '/skills', name: '可迁移技能', text: '批判性思维、协作等七种能力落在哪些学科的哪几条' }
 ]
 
-// 课标's own entry: the 14 subjects and the tools for reading across them.
+const CompareWindow = lazy(() => import('../features/starmap/CompareWindow.jsx'))
+
+// 课标's own entry: the 14 subjects, 并排看 across subjects and 学段, and the tools for reading across them.
 export default function StandardsHubPage() {
     usePageMeta(STATIC_PAGE_META['/standards'])
     const { K } = useStarmap()
+    const [cmp, setCmp] = useState(COMPARE_DEFAULT)
+    const [searchParams] = useSearchParams()
+    const searchKey = searchParams.toString()
+
+    // /standards?mode=B&bands=H2&subjects=math,science#compare opens 并排看 on that view
+    useEffect(() => {
+        if (!K) return
+        const patch = readCompareParams(new URLSearchParams(searchKey), K)
+        if (patch) setCmp(s => ({ ...s, ...patch }))
+        if (patch || window.location.hash === '#compare') requestAnimationFrame(() => document.getElementById('compare')?.scrollIntoView({ behavior: 'auto', block: 'start' }))
+    }, [K, searchKey])
     const points = K ? K.N : 2520
     const standards = K ? K.cons.length : 513
 
@@ -42,8 +56,15 @@ export default function StandardsHubPage() {
                     </ul>
                 ) : <p className={styles.loading}>正在载入学科…</p>}
             </Wrap>
+            <Wrap as="section" id="compare" className={`${styles.block} ${styles.compare}`} aria-labelledby="compare-title">
+                {K ? (
+                    <Suspense fallback={<p className={styles.loading}>正在载入并排看…</p>}>
+                        <CompareWindow K={K} state={cmp} setState={setCmp} heading={<SectionHead kicker="一科多学段 · 多科一学段 · 一种能力跨学科" title="并排看" id="compare-title" size="sm" />} />
+                    </Suspense>
+                ) : <p className={styles.loading}>正在载入并排看…</p>}
+            </Wrap>
             <Wrap as="section" className={styles.block} aria-labelledby="hub-tools">
-                <SectionHead kicker="跨学科、跨学段" title="查和比" id="hub-tools" size="sm" />
+                <SectionHead kicker="跨学科、跨学段" title="其他查法" id="hub-tools" size="sm" />
                 <ul className={`${kb.list} ${styles.tools}`}>
                     {TOOLS.map(tool => (
                         <li key={tool.to}>

@@ -1,4 +1,4 @@
-// URL contract for the home compare window, reusing the existing filter vocabulary
+// URL contract for the 并排看 window on 学科总览 (/standards#compare), reusing the existing filter vocabulary
 // (?mode, ?subjects, ?bands, ?skills). Old links without ?mode are read sensibly.
 // Bands are the four 学段; old links naming 七/八/九年级 (H4G7–9) open the 7–9 band.
 const BAND_CODES = ['H1', 'H2', 'H3', 'H4']
@@ -12,7 +12,7 @@ export function compareHref({ mode, subject, subjects, band, skill }) {
     if (slugs.length) params.set('subjects', slugs.join(','))
     if (band != null && band >= 0) params.set('bands', BAND_CODES[band])
     if (skill) params.set('skills', skill)
-    return `/?${params.toString()}#compare`
+    return `/standards?${params.toString()}#compare`
 }
 
 export function readCompareParams(searchParams, K) {

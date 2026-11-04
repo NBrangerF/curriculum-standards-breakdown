@@ -117,7 +117,7 @@ test('learning-map stays unavailable when the outer UI route is rolled back', as
     await expect(page.getByRole('heading', { name: '学习脉络暂时无法加载' })).toHaveCount(0)
 })
 
-test('all 12 production routes resolve an independent rollback key', async ({ page }) => {
+test('all 11 production routes resolve an independent rollback key', async ({ page }) => {
     test.setTimeout(120_000)
     const routes = contentInventory.routes.map(route => [route.path, route.routeKey])
     const contractByRoute = new Map(rollbackContract.routes.map(route => [route.routeKey, route]))
@@ -154,6 +154,6 @@ test('all 12 production routes resolve an independent rollback key', async ({ pa
         }
     }
 
-    expect(rollbackContract.routeCount).toBe(12)
-    expect(contractByRoute.size).toBe(12)
+    expect(rollbackContract.routeCount).toBe(11)
+    expect(contractByRoute.size).toBe(11)
 })

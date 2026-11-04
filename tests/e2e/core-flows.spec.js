@@ -44,7 +44,7 @@ const seedCollectionWorkspace = page => page.addInitScript(() => {
     }))
 })
 
-test('home sky keeps subject and skill entries reachable', async ({ page }) => {
+test('home keeps the subject entries reachable; 可迁移技能 sits in the 课标 group', async ({ page }) => {
     await page.goto('/')
     await expect(page).toHaveTitle(/kebiao/)
     await expect(page.getByRole('heading', { level: 1, name: '从你手上的教材开始' })).toBeVisible()
@@ -52,8 +52,12 @@ test('home sky keeps subject and skill entries reachable', async ({ page }) => {
     await expect(page.getByRole('heading', { name: '考前把课标读懂' })).toHaveCount(0)
     await expect(page.getByRole('banner').getByRole('link', { name: '教资', exact: true }).first()).toHaveAttribute('href', '/teacher-exam')
 
-    // subjects are at the foot of the page, after the star map
-    const math = page.locator('#subjects-section + ul').getByRole('link', { name: /数学/ })
+    // below the first screen, the star map's one step lists the 14 subjects
+    const story = page.getByRole('region', { name: '星图' })
+    await story.scrollIntoViewIfNeeded()
+    await page.evaluate(() => window.scrollBy(0, window.innerHeight * 0.5))
+    const math = story.getByRole('link', { name: /数学/ })
+    await expect(math).toBeVisible()
     await expect(math).toContainText('230')
     await math.click()
     await expect(page).toHaveURL(/\/subjects\/math$/)
@@ -95,12 +99,20 @@ test('an unknown standard code is reported without downloading every subject', a
     await expect(page).toHaveURL(/\/standards$/)
 })
 
-test('a keyword on the comparison page goes to the AI search; filters stay on the comparison', async ({ page }) => {
+test('a keyword on the comparison page opens the search box; filters stay on the comparison', async ({ page }) => {
     await page.goto('/search?q=%E5%88%86%E6%95%B0')
-    await expect(page).toHaveURL(/\/smart-search\?q=%E5%88%86%E6%95%B0$/)
+    await expect(page).toHaveURL(/\/$/)
+    const palette = page.getByRole('dialog', { name: '搜索课程标准' })
+    await expect(palette.getByRole('combobox')).toHaveValue('分数')
+    await expect(palette.getByRole('option').first()).toContainText('分数')
     await page.goto('/search?subjects=math&bands=H1')
     await expect(page).toHaveURL(/\/search\?subjects=math&bands=H1$/)
     await expect(page.getByRole('heading', { name: '对比视图' })).toBeVisible()
+})
+
+test('the old 术语表 opens 概念词典', async ({ page }) => {
+    await page.goto('/glossary')
+    await expect(page).toHaveURL(/\/concepts$/)
 })
 
 test('unknown routes show a not-found page with a way home', async ({ page }) => {
@@ -110,8 +122,9 @@ test('unknown routes show a not-found page with a way home', async ({ page }) =>
     await expect(page).toHaveURL(/\/$/)
 })
 
-test('a shared link opens the home compare window on the requested view', async ({ page }) => {
+test('an old home 并排看 link opens 并排看 on 学科总览 on the requested view', async ({ page }) => {
     await page.goto('/?mode=B&bands=H2&subjects=math,science#compare')
+    await expect(page).toHaveURL(/\/standards\?mode=B&bands=H2&subjects=math%2Cscience#compare$/)
     await expect(page.getByRole('tab', { name: '多科 × 一学段' })).toHaveAttribute('aria-selected', 'true')
     const panel = page.locator('#cmp-panel')
     await expect(panel.getByRole('button', { name: '3–4 年级' })).toHaveAttribute('aria-pressed', 'true')
@@ -125,7 +138,7 @@ test('a shared link opens the home compare window on the requested view', async 
 })
 
 test('the command palette searches every standard and opens a result', async ({ page }) => {
-    await page.goto('/glossary')
+    await page.goto('/concepts')
     await page.keyboard.press('ControlOrMeta+k')
     const palette = page.getByRole('dialog', { name: '搜索课程标准' })
     await expect(palette).toBeVisible()
@@ -345,40 +358,6 @@ test('collection workspace batch selection deletes and restores complete local r
     const afterUndo = await page.evaluate(() => JSON.parse(localStorage.getItem('curriculum-collections')))
     expect(afterUndo.collections['geometry-research'].standardCodes).toEqual(['MA-S2-GG-01'])
     expect(afterUndo.collections['assessment-notes'].standardCodes).toEqual(['MA-S2-GG-01'])
-})
-
-test('glossary search and category filter retain an explicit result count', async ({ page }) => {
-    await page.goto('/glossary')
-    await page.getByRole('button', { name: '教学字段' }).click()
-    await expect(page).toHaveURL(/category=/)
-    const resultCount = page.locator('[data-kb-component="glossary-result-count"]')
-    await expect(resultCount).toContainText('4 个结果')
-    await page.getByRole('searchbox', { name: '搜索术语' }).fill('评价证据')
-    await expect(page).toHaveURL(/q=/)
-    await expect(page.getByRole('heading', { name: '评价证据 (Assessment Evidence)' })).toBeVisible()
-    await expect(resultCount).toContainText('1 个结果')
-})
-
-test('glossary deep links, related terms and browser back restore the reading position', async ({ page }) => {
-    await page.goto('/glossary?category=%E6%95%99%E5%AD%A6%E5%AD%97%E6%AE%B5&term=assessment-evidence')
-    const assessmentHeading = page.getByRole('heading', { name: '评价证据 (Assessment Evidence)' })
-    const assessmentIndex = page.locator('[data-kb-glossary-index="assessment-evidence"]')
-    await expect(assessmentHeading).toBeFocused()
-    await expect(assessmentIndex).toHaveAttribute('aria-current', 'location')
-    await expect(page.locator('[data-kb-glossary-term="assessment-evidence"]')).toHaveAttribute('data-active', 'true')
-
-    await page.locator('[data-kb-glossary-term="assessment-evidence"]')
-        .getByRole('link', { name: '跳转到相关术语 实践建议 (Practice)' })
-        .click()
-    await expect(page).toHaveURL(/category=.*&term=practice/)
-    const practiceHeading = page.getByRole('heading', { name: '实践建议 (Practice)' })
-    await expect(practiceHeading).toBeFocused()
-    await expect(page.locator('[data-kb-glossary-index="practice"]')).toHaveAttribute('aria-current', 'location')
-
-    await page.goBack()
-    await expect(page).toHaveURL(/term=assessment-evidence/)
-    await expect(assessmentHeading).toBeFocused()
-    await expect(assessmentIndex).toHaveAttribute('aria-current', 'location')
 })
 
 test('compare workspace exposes aligned disclosure and non-blocking copy feedback', async ({ page }) => {

@@ -166,7 +166,7 @@ function Header() {
                                         >
                                             {group.label}
                                         </Link>
-                                        <div className={styles.mobileItems}>
+                                        {group.items.length > 1 ? <div className={styles.mobileItems}>
                                             {group.items.map(item => {
                                                 const active = current?.key === group.key && isItemActive(item, location.pathname)
                                                 return (
@@ -181,7 +181,7 @@ function Header() {
                                                     </Link>
                                                 )
                                             })}
-                                        </div>
+                                        </div> : null}
                                     </m.div>
                                 ))}
                                 <m.div variants={mobileLinkVariants} className={styles.mobileMinor}>
@@ -193,7 +193,7 @@ function Header() {
                 </AnimatePresence>
             </header>
 
-            {current ? (
+            {current && current.items.length > 1 ? (
                 <nav className={styles.subnav} aria-label={`${current.label}栏目`} data-kb-shell="header">
                     <div className={`container ${styles.subnavInner}`}>
                         <span className={styles.subnavLabel} aria-hidden="true">{current.label}</span>

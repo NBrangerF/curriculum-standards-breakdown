@@ -10,7 +10,6 @@ const ENV_DEFAULTS = {
     skillDetail: import.meta.env.VITE_UI_V2_SKILL_DETAIL,
     standard: import.meta.env.VITE_UI_V2_STANDARD,
     search: import.meta.env.VITE_UI_V2_SEARCH,
-    glossary: import.meta.env.VITE_UI_V2_GLOSSARY,
     collections: import.meta.env.VITE_UI_V2_COLLECTIONS,
     collectionDetail: import.meta.env.VITE_UI_V2_COLLECTION_DETAIL,
     print: import.meta.env.VITE_UI_V2_PRINT,

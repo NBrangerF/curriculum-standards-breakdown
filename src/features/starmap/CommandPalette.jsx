@@ -11,7 +11,10 @@ function Mark({ text, query }) {
     return <>{text.slice(0, k)}<mark>{text.slice(k, k + t.length)}</mark>{text.slice(k + t.length)}</>
 }
 
-/** ⌘K: search every standard from anywhere; matches light up in the sky behind. */
+/**
+ * ⌘K, the site's one search box: codes, standard names and 要点 text match as you type (matches light up in the sky
+ * behind). The last row hands the words to AI search; with no literal match it is the only row, so Enter asks AI.
+ */
 export default function CommandPalette({ open, onClose, initialQuery = '' }) {
     const { data: K, ensureData, engineRef } = useSky()
     const navigate = useNavigate()
@@ -35,17 +38,24 @@ export default function CommandPalette({ open, onClose, initialQuery = '' }) {
 
     const results = useMemo(() => (K ? searchStarmap(K, q) : null), [K, q])
     const shown = useMemo(() => (results || []).slice(0, 60), [results])
+    const askAi = q.trim().length >= 2
+    const rows = shown.length + (askAi ? 1 : 0)
 
     useEffect(() => {
         if (open) engineRef.current?.setPaletteHighlight(results)
     }, [open, results, engineRef])
 
     const choose = useCallback(k => {
+        if (askAi && k === shown.length) {
+            onClose()
+            navigate(`/smart-search?q=${encodeURIComponent(q.trim())}`)
+            return
+        }
         const i = shown[k]
         if (i == null || !K) return
         onClose()
         navigate(starHref(K.S[i][F.CODE]))
-    }, [shown, K, onClose, navigate])
+    }, [askAi, q, shown, K, onClose, navigate])
 
     useEffect(() => {
         const li = listRef.current?.children[sel]
@@ -54,8 +64,8 @@ export default function CommandPalette({ open, onClose, initialQuery = '' }) {
 
     if (!open) return null
     const onKeyDown = event => {
-        if (event.key === 'ArrowDown') { event.preventDefault(); setSel(s => (shown.length ? (s + 1) % shown.length : 0)) }
-        else if (event.key === 'ArrowUp') { event.preventDefault(); setSel(s => (shown.length ? (s - 1 + shown.length) % shown.length : 0)) }
+        if (event.key === 'ArrowDown') { event.preventDefault(); setSel(s => (rows ? (s + 1) % rows : 0)) }
+        else if (event.key === 'ArrowUp') { event.preventDefault(); setSel(s => (rows ? (s - 1 + rows) % rows : 0)) }
         else if (event.key === 'Enter') { event.preventDefault(); choose(sel) }
         else if (event.key === 'Escape') { event.preventDefault(); onClose() }
     }
@@ -71,11 +81,11 @@ export default function CommandPalette({ open, onClose, initialQuery = '' }) {
                         id="kb-palette-q"
                         type="search"
                         autoComplete="off"
-                        placeholder="关键词、编码或学科"
+                        placeholder="编码、关键词，或者一句话"
                         role="combobox"
                         aria-expanded="true"
                         aria-controls="kb-palette-list"
-                        aria-activedescendant={shown.length ? `kb-opt-${sel}` : undefined}
+                        aria-activedescendant={rows ? `kb-opt-${sel}` : undefined}
                         value={q}
                         onChange={event => { setQ(event.target.value); setSel(0) }}
                         onKeyDown={onKeyDown}
@@ -84,7 +94,7 @@ export default function CommandPalette({ open, onClose, initialQuery = '' }) {
                 </div>
                 <ul ref={listRef} className={styles.results} id="kb-palette-list" role="listbox" aria-label="搜索结果">
                     {results == null ? <li className={styles.empty}>输入关键词</li> : null}
-                    {results && !results.length ? <li className={styles.empty}>没有匹配，换个词</li> : null}
+                    {results && !results.length ? <li className={styles.empty}>没有字面匹配</li> : null}
                     {K && shown.map((i, k) => {
                         const s = K.S[i]
                         return (
@@ -104,6 +114,20 @@ export default function CommandPalette({ open, onClose, initialQuery = '' }) {
                             </li>
                         )
                     })}
+                    {askAi ? (
+                        <li
+                            id={`kb-opt-${shown.length}`}
+                            role="option"
+                            aria-selected={sel === shown.length}
+                            className={`${styles.option} ${styles.ai}`}
+                            onClick={() => choose(shown.length)}
+                            onPointerMove={() => setSel(shown.length)}
+                        >
+                            <i aria-hidden="true" />
+                            <span className={styles.title}>让 AI 找：{q.trim()}</span>
+                            <span className={styles.meta}>AI 读懂这句话，再逐条核对要点原文 · 约 10–20 秒</span>
+                        </li>
+                    ) : null}
                 </ul>
             </div>
         </div>

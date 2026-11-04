@@ -17,7 +17,6 @@ const routes = [
     ['search', '/search'],
     ['smartSearch', '/smart-search'],
     ['collections', '/collections'],
-    ['glossary', '/glossary'],
     ['feedback', '/feedback'],
     ['print', '/print?codes=MA-D2-GE-003'],
     ['styleguide', '/styleguide'],
@@ -123,17 +122,6 @@ test('collection batch selection and confirmation remain accessible', async ({ p
     await toolbar.getByRole('button', { name: '全选可删除清单' }).click()
     await toolbar.getByRole('button', { name: '删除所选' }).click()
     await expect(page.getByRole('dialog', { name: '删除所选 2 个清单' })).toBeVisible()
-    await waitForMotionToSettle(page)
-    const results = await new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
-        .analyze()
-    const blocking = results.violations.filter(violation => ['critical', 'serious'].includes(violation.impact))
-    expect(summarizeViolations(blocking)).toEqual([])
-})
-
-test('glossary sticky index and deep-linked term have no critical or serious WCAG violations', async ({ page }) => {
-    await page.goto('/glossary?category=%E6%95%99%E5%AD%A6%E5%AD%97%E6%AE%B5&term=assessment-evidence')
-    await expect(page.locator('[data-kb-glossary-index="assessment-evidence"]')).toHaveAttribute('aria-current', 'location')
     await waitForMotionToSettle(page)
     const results = await new AxeBuilder({ page })
         .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])

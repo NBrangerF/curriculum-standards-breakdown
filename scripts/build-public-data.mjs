@@ -201,7 +201,7 @@ writeJson(join(outputRoot, 'quality', 'trust_report.json'), {
     rejected_reference_details: trustProjection.rejectedReferences
 })
 
-for (const file of ['subjects_meta.json', 'skills_meta.json', 'glossary.json']) {
+for (const file of ['subjects_meta.json', 'skills_meta.json']) {
     const source = join(sourceRoot, file)
     if (existsSync(source)) cpSync(source, join(outputRoot, file))
 }

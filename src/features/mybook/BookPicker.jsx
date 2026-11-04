@@ -60,7 +60,8 @@ export default function BookPicker({ className = '', inline = false }) {
     return (
         <div className={`${styles.picker} ${inline ? styles.inline : ''} ${className}`} role="group" aria-label="选一本教材">
             <fieldset className={styles.step}>
-                <legend><span>1</span>学科</legend>
+                {/* on the home page the subject buttons start choosing a book, not a 课标 subject page */}
+                <legend><span>1</span>{inline ? '选你的教材 · 学科' : '学科'}</legend>
                 {books ? (
                     <div className={styles.chips}>
                         {subjects.map(name => {

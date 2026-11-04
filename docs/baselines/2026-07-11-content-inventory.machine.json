@@ -2,17 +2,15 @@
   "schemaVersion": 1,
   "baselineCommit": "6d6d2f5b9263d07884e49854cfa3a98e38f7d9f7",
   "dataManifestGeneratedAt": "2026-07-01T07:46:17.346Z",
-  "routeCount": 12,
+  "routeCount": 11,
   "routes": [
     {
       "id": "home",
-      "path": "/?subjects=math&bands=H2",
+      "path": "/",
       "routeKey": "home",
-      "headings": ["并排看", "随手捞一条", "从一条开始。"],
-      "buttons": ["AI 检索", "搜索全部 2,520 条要点 ⌘K"],
-      "links": ["数学", "科学"],
-      "texts": ["从学科进入", "对照窗"],
-      "queryParams": ["subjects", "bands"]
+      "headings": ["从你手上的教材开始"],
+      "buttons": ["搜索", "语文", "数学"],
+      "texts": ["选你的教材"]
     },
     {
       "id": "subject",
@@ -49,14 +47,6 @@
       "links": ["← 返回首页"],
       "texts": ["当前对比", "数学 · 第二学段"],
       "queryParams": ["subjects", "bands"]
-    },
-    {
-      "id": "glossary",
-      "path": "/glossary",
-      "routeKey": "glossary",
-      "headings": ["术语表", "全部术语"],
-      "buttons": ["全部", "核心概念", "结构概念", "教学字段", "能力概念", "标注概念"],
-      "links": ["返回首页"]
     },
     {
       "id": "standard",

@@ -91,6 +91,10 @@
 
 .title mark { background: none; color: var(--kb-gold); }
 
+/* the hand-off to AI search */
+.ai { --c: var(--kb-gold); border-top: 1px solid var(--kb-line); border-radius: 0 0 10px 10px; }
+.ai:first-child, .empty + .ai { border-top: 0; border-radius: 10px; }
+
 .meta {
     grid-column: 2;
     color: var(--kb-dim);

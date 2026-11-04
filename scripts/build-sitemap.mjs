@@ -14,7 +14,7 @@ const textbooksDate = day(units.generated_at)
 const resources = readJson('learning-resources/catalog/index.json')
 const resourcesDate = day(resources.updated_at)
 
-const entries = [['/'], ['/standards', standardsDate], ['/lesson-plan'], ['/skills'], ['/smart-search'], ['/textbooks', textbooksDate], ['/learning-resources', resourcesDate], ['/glossary'], ['/open-data'], ['/ai'], ['/contact']]
+const entries = [['/'], ['/standards', standardsDate], ['/lesson-plan'], ['/skills'], ['/smart-search'], ['/textbooks', textbooksDate], ['/learning-resources', resourcesDate], ['/open-data'], ['/ai'], ['/contact']]
 const v2 = readJson('v2/manifest.json')
 for (const subject of v2.subjects) entries.push([`/subjects/${subject.subject_slug}`, standardsDate])
 for (const skill of readJson('skills_meta.json').competencies || []) entries.push([`/skills/${skill.code}`])

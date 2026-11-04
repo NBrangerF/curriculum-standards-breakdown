@@ -93,7 +93,7 @@ export default function ConceptsPage() {
                     })}
                 </ol>
             </section>
-            <p className={styles.footnote}>{data.note} 原来的 <Link to="/glossary">kebiao 术语表</Link>解释的是网站自己的数据字段。</p>
+            <p className={styles.footnote}>{data.note}</p>
         </div>
     )
 }

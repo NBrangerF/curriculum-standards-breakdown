@@ -208,13 +208,37 @@ test('smart search shows the AI relevance check: its reason and the closest 要�
     await expect(page.getByText(/没能及时核对/)).toHaveCount(0)
 })
 
-test('the home page search box opens AI search with the typed question', async ({ page }) => {
+test('the home page search box asks AI only when no 要点 matches the words', async ({ page }) => {
+    test.setTimeout(60_000)
     await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(searchResponse('三年级科学里讲植物生长的')) }))
     await page.goto('/')
-    await page.getByLabel('用一句话 AI 检索课程标准').fill('三年级科学里讲植物生长的')
-    await page.getByRole('button', { name: 'AI 检索', exact: true }).click()
+    const box = page.getByLabel('搜索课标：编码、关键词或一句话')
+    // a word with literal matches opens the search box on them, with AI as the last row
+    await box.fill('分数')
+    await expect(page.getByText(/颗亮起 · 回车看是哪几条/)).toBeVisible()
+    await page.getByRole('button', { name: '搜索', exact: true }).click()
+    const palette = page.getByRole('dialog', { name: '搜索课程标准' })
+    await expect(palette.getByRole('option').first()).toContainText('分数')
+    await expect(palette.getByRole('option').last()).toContainText('让 AI 找：分数')
+    await page.keyboard.press('Escape')
+    // a sentence with no literal match goes straight to AI search
+    await box.fill('三年级科学里讲植物生长的')
+    await expect(page.getByText('星图里没有字面匹配 · 回车让 AI 找')).toBeVisible()
+    await page.getByRole('button', { name: '搜索', exact: true }).click()
     await expect(page).toHaveURL(/\/smart-search\?q=%E4%B8%89%E5%B9%B4%E7%BA%A7/)
     await expect(page.getByLabel('描述你的教学目标或使用情境')).toHaveValue('三年级科学里讲植物生长的')
+})
+
+test('the search box hands a sentence with no literal match to AI search', async ({ page }) => {
+    await page.route('**/api/v1/standards/semantic-search', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(searchResponse('三年级科学里讲植物生长的')) }))
+    await page.goto('/concepts')
+    await page.keyboard.press('ControlOrMeta+k')
+    const palette = page.getByRole('dialog', { name: '搜索课程标准' })
+    await palette.getByRole('combobox').fill('三年级科学里讲植物生长的')
+    await expect(palette.getByText('没有字面匹配')).toBeVisible()
+    await expect(palette.getByRole('option')).toHaveCount(1)
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/\/smart-search\?q=%E4%B8%89%E5%B9%B4%E7%BA%A7/)
 })
 
 function searchResponse(query, overrides = {}) {

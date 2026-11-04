@@ -6,7 +6,7 @@ const srcRoot = path.join(root, 'src')
 const tokenPath = path.join(srcRoot, 'styles', 'design-tokens.css')
 const rollbackContractPath = path.join(root, 'docs', 'baselines', '2026-07-12-ui-rollback-contract.machine.json')
 const requiredRouteKeys = [
-    'home', 'subject', 'skills', 'skillDetail', 'search', 'glossary', 'standard',
+    'home', 'subject', 'skills', 'skillDetail', 'search', 'standard',
     'collections', 'collectionDetail', 'print', 'styleguide', 'feedback'
 ]
 const emojiPattern = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u
@@ -23,7 +23,6 @@ const isolatedStyleOwners = [
     ['src/components/StandardRelationPanel.jsx', './StandardRelationPanel.module.css', 'src/components/StandardRelationPanel.css'],
     ['src/components/StandardCard.jsx', './StandardCard.module.css', 'src/components/StandardCard.css'],
     ['src/components/SubjectColumn.jsx', './SubjectColumn.module.css', 'src/components/SubjectColumn.css'],
-    ['src/pages/GlossaryPage.jsx', './GlossaryPage.module.css', 'src/pages/GlossaryPage.css'],
     ['src/pages/FeedbackPage.jsx', './FeedbackPage.module.css', 'src/pages/FeedbackPage.css'],
     ['src/pages/HomePage.jsx', './HomePage.module.css', 'src/pages/HomePage.css'],
     ['src/pages/CollectionDetailPage.jsx', './CollectionDetailPage.module.css', 'src/pages/CollectionDetailPage.css'],

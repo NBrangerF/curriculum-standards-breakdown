@@ -14,12 +14,10 @@ const ROUTES = [
     { key: 'skills', path: '/skills', env: 'VITE_UI_V2_SKILLS' },
     { key: 'skillDetail', path: '/skills/TS1', env: 'VITE_UI_V2_SKILL_DETAIL' },
     { key: 'search', path: '/search', env: 'VITE_UI_V2_SEARCH' },
-    { key: 'glossary', path: '/glossary', env: 'VITE_UI_V2_GLOSSARY' },
     { key: 'standard', path: '/standards/MA-D2-GE-003', env: 'VITE_UI_V2_STANDARD' },
     { key: 'collections', path: '/collections', env: 'VITE_UI_V2_COLLECTIONS' },
     { key: 'collectionDetail', path: '/collections/default', env: 'VITE_UI_V2_COLLECTION_DETAIL' },
     { key: 'print', path: '/print?codes=MA-D2-GE-003', env: 'VITE_UI_V2_PRINT' },
-    { key: 'styleguide', path: '/styleguide', env: 'VITE_UI_V2_STYLEGUIDE' },
     { key: 'feedback', path: '/feedback', env: 'VITE_UI_V2_FEEDBACK' }
 ]
 const ROUTE_ENV_KEYS = ROUTES.map(route => route.env)

@@ -15,7 +15,7 @@ import { DefaultPageMeta } from './seo/usePageMeta.js'
 import UiTelemetryListener from './observability/UiTelemetryListener'
 import UmamiRouteTelemetry from './observability/UmamiRouteTelemetry'
 import { isKebiaoProductionHost } from './observability/umamiTelemetry.js'
-import { SkyProvider } from './features/starmap/SkyProvider.jsx'
+import { SkyProvider, useSky } from './features/starmap/SkyProvider.jsx'
 import './App.css'
 
 const SubjectPage = lazy(() => import('./pages/SubjectPage'))
@@ -27,13 +27,13 @@ const SkillsOverviewPage = lazy(() => import('./pages/SkillsOverviewPage'))
 const SkillDetailPage = lazy(() => import('./pages/SkillDetailPage'))
 const StandardDetailPage = lazy(() => import('./pages/StandardDetailPage'))
 const CollectionsPage = lazy(() => import('./pages/CollectionsPage'))
-const GlossaryPage = lazy(() => import('./pages/GlossaryPage'))
 const FeedbackPage = lazy(() => import('./pages/FeedbackPage'))
 const OpenDataPage = lazy(() => import('./pages/OpenDataPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const CollectionDetailPage = lazy(() => import('./pages/CollectionDetailPage'))
 const PrintPage = lazy(() => import('./pages/PrintPage'))
-const StyleGuidePage = lazy(() => import('./pages/StyleGuidePage'))
+// development only (see the /styleguide route), so production builds leave the page out
+const StyleGuidePage = import.meta.env.DEV ? lazy(() => import('./pages/StyleGuidePage')) : null
 const SmartSearchPage = lazy(() => import('./pages/SmartSearchPage'))
 const TextbookLibraryPage = lazy(() => import('./pages/TextbookLibraryPage'))
 const TextbookDetailPage = lazy(() => import('./pages/TextbookDetailPage'))
@@ -64,12 +64,25 @@ function StandardRoute() {
     return isV2Code(code) ? lazyPage(<StandardV2Page />, '正在打开标准') : <LegacyStandardRedirect code={code} />
 }
 
-// /search compares subjects and 学段; a keyword (/search?q=分数, as people and other sites guess it) goes to the AI search
+// /search compares subjects and 学段; a keyword (/search?q=分数, as people and other sites guess it) opens the search box
 function SearchRoute() {
     const [params] = useSearchParams()
     const keyword = (params.get('q') || '').trim()
-    if (keyword && !params.get('subjects') && !params.get('bands')) return <Navigate to={`/smart-search?q=${encodeURIComponent(keyword)}`} replace />
+    if (keyword && !params.get('subjects') && !params.get('bands')) return <SearchKeyword keyword={keyword} />
     return lazyPage(<SearchResultsPage />, '正在打开对比视图')
+}
+
+function SearchKeyword({ keyword }) {
+    const { openPalette } = useSky()
+    useEffect(() => { openPalette(keyword) }, [keyword, openPalette])
+    return <Navigate to="/" replace />
+}
+
+// 并排看 moved from the home page to 学科总览: old /?mode=B&bands=H2#compare links open it there
+function HomeRoute() {
+    const [params] = useSearchParams()
+    if (['mode', 'subjects', 'bands', 'skills'].some(key => params.has(key))) return <Navigate to={`/standards?${params}#compare`} replace />
+    return <HomePage />
 }
 
 // 中考复习地图 (/review) became the 知识图谱: /review?subject=physics opens 物理 (vercel.json redirects the same way)
@@ -110,7 +123,7 @@ function App() {
             <main className="main-content" id="main-content">
                 <DefaultPageMeta />
                 <Routes>
-                    <Route path="/" element={route('home', <HomePage />)} />
+                    <Route path="/" element={route('home', <HomeRoute />)} />
                     <Route path="/subjects/:slug" element={route('subject', lazyPage(<SubjectPage />, '正在展开学科星图'))} />
                     <Route path="/skills" element={route('skills', lazyPage(<SkillsOverviewPage />, '正在打开可迁移技能'))} />
                     <Route path="/skills/:code" element={route('skillDetail', lazyPage(<SkillDetailPage />, '正在打开技能'))} />
@@ -127,7 +140,8 @@ function App() {
                     <Route path="/smart-search" element={route('smartSearch', lazyPage(<SmartSearchPage />, '正在打开智能检索'))} />
                     {/* 课程对齐工作台 merged into 目标体检 (AI 备课 step 2) */}
                     <Route path="/alignment-workbench" element={<Navigate to="/lesson-plan?check=1" replace />} />
-                    <Route path="/glossary" element={route('glossary', lazyPage(<GlossaryPage />, '正在打开术语表'))} />
+                    {/* the 2022 术语表 explained kebiao's old data fields; 概念词典 covers the 课标's own terms */}
+                    <Route path="/glossary" element={<Navigate to="/concepts" replace />} />
                     <Route path="/lesson-plan" element={route('lessonPlan', lazyPage(<LessonPlanPage />, '正在打开 AI 备课'))} />
                     <Route path="/guide" element={route('guide', lazyPage(<GuidePage />, '正在打开上手指南'))} />
                     <Route path="/ai" element={route('ai', lazyPage(<AiConnectPage />, '正在打开在 AI 里用 kebiao'))} />
@@ -153,7 +167,8 @@ function App() {
                     />
                     <Route path="/collections/:id" element={route('collectionDetail', lazyPage(<CollectionDetailPage />, '正在打开清单详情'))} />
                     <Route path="/print" element={route('print', lazyPage(<PrintPage />, '正在准备打印预览'))} />
-                    <Route path="/styleguide" element={route('styleguide', lazyPage(<StyleGuidePage />, '正在打开设计系统'))} />
+                    {/* the component sheet is for building the site, so it exists only in development */}
+                    {import.meta.env.DEV ? <Route path="/styleguide" element={route('styleguide', lazyPage(<StyleGuidePage />, '正在打开设计系统'))} /> : null}
                     <Route path="/feedback" element={route('feedback', lazyPage(<FeedbackPage />, '正在打开反馈表单'))} />
                     <Route path="/open-data" element={route('openData', lazyPage(<OpenDataPage />, '正在打开数据与接口'))} />
                     {/* the API page became 数据与接口 (vercel.json redirects /api the same way) */}

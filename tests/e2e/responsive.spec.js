@@ -86,23 +86,6 @@ test('collection selection mode preserves mobile reflow and 44px controls', asyn
     expect(result.controlSizes.every(({ width, height }) => width >= 44 && height >= 44)).toBe(true)
 })
 
-test('glossary term index remains horizontally navigable on mobile', async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 })
-    await page.goto('/glossary?category=%E6%95%99%E5%AD%A6%E5%AD%97%E6%AE%B5&term=assessment-evidence')
-    const index = page.getByRole('navigation', { name: '当前结果术语索引' })
-    await expect(index).toBeVisible()
-    const result = await page.evaluate(() => {
-        const links = [...document.querySelectorAll('[data-kb-glossary-index]')]
-        return {
-            overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
-            heights: links.map(link => link.getBoundingClientRect().height)
-        }
-    })
-    expect(result.overflow).toBe(0)
-    expect(result.heights.every(height => height >= 44)).toBe(true)
-    await expect(page.locator('[data-kb-glossary-index="assessment-evidence"]')).toHaveAttribute('aria-current', 'location')
-})
-
 test('learning map keeps location, taxonomy, semantic relations, graph and inspector available on desktop', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 })
     await installLearningMapFixtureRoutes(page, { fixture: 'diamond', standardCode: 'MA-D2-GE-003', selectedPointId: 'kp:d' })

@@ -14,9 +14,6 @@ import { loadV2Subject } from '../data/v2Data.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
 import styles from './SubjectPage.module.css'
 
-// subjects with a 中考复习地图 (/review)
-const REVIEW_SUBJECTS = ['chinese', 'math', 'english', 'morality_law', 'physics', 'chemistry', 'biology', 'history', 'geography']
-
 const SkillsGraphWorkspace = lazy(() => import('../features/graph/SkillsGraphWorkspace.jsx'))
 const GRAPH_RELATION_TYPES = Object.freeze(['contains', 'progression', 'skill_alignment'])
 const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -312,7 +309,6 @@ function SubjectPage() {
                     <div ref={copyRef} className={styles.copy}>
                         <p className={styles.crumbs}><Link to="/">课标星图</Link> <span>/ 学科</span></p>
                         <Ignite key={slug} as="h1" id="s-title" className={styles.title} text={sub.name} step={90} delay={380} style={{ '--len': [...sub.name].length, '--glow': sub.color }} />
-                        <p className={styles.pig}><i aria-hidden="true" /><span>{sub.colorName}</span></p>
                         <div className={styles.stats}>
                             <Stat value={sub.standards} label="条标准" />
                             <Stat value={list.length} label="条要点" />
@@ -336,7 +332,7 @@ function SubjectPage() {
                         <p className={styles.viewLinks}>
                             <Link to={`/concepts/subjects/${slug}`}>课标骨架与课程理念</Link>
                             <Link to={`/interdisciplinary?subject=${slug}`}>跨学科主题</Link>
-                            {REVIEW_SUBJECTS.includes(slug) ? <Link to={`/review?subject=${slug}`}>中考复习地图</Link> : null}
+                            <Link to={`/knowledge-graph/${slug}`}>知识图谱</Link>
                             <Link to="/lesson-plan">AI 备课</Link>
                         </p>
                         <p className={styles.cue}><i aria-hidden="true" />向下 · 展开</p>

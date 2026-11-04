@@ -444,9 +444,11 @@ export function createSkyEngine(canvas, tipEl) {
         const storyTop = r.top + window.scrollY, storyLen = Math.max(1, st.offsetHeight - H)
         const y = window.scrollY
         if (y < storyTop) { setCaps(-1); return clamp(y / Math.max(1, storyTop), 0, 1) }
-        const u = clamp((y - storyTop) / storyLen, 0, 1), s = u * 5, i = Math.min(4, Math.floor(s)), f = s - i
+        // one phase per caption the page shows (the home page keeps the first, 十四门学科)
+        const n = Math.max(1, (home.capEls || []).filter(Boolean).length)
+        const u = clamp((y - storyTop) / storyLen, 0, 1), s = u * n, i = Math.min(n - 1, Math.floor(s)), f = s - i
         setCaps(s)
-        return Math.min(5, 1 + i + smooth(0.55, 0.95, f))
+        return Math.min(n, 1 + i + smooth(0.55, 0.95, f))
     }
     function setCaps(s) {
         const caps = home?.capEls || []

@@ -1,5 +1,7 @@
-// The site's four groups. Teachers start from 教材 and 备课, 师范生 from 教资; 课标 sits beside both.
-// A group owns the routes listed in `owns` (prefixes); its pages show the group's items as a second row.
+// The site's four groups. Teachers start from 教材 and 备课, 师范生 from 教资; 课标 sits beside both and holds
+// everything printed in the 课标 (必做实验 and 跨学科主题 included).
+// A group owns the routes listed in `owns` (prefixes); its pages show the group's items as a second row
+// (a group with one item has no second row).
 export const NAV_GROUPS = [
     {
         key: 'textbooks',
@@ -15,12 +17,10 @@ export const NAV_GROUPS = [
         key: 'prep',
         label: '备课',
         to: '/lesson-plan',
-        owns: ['/lesson-plan', '/checks', '/experiments', '/interdisciplinary', '/guide'],
+        owns: ['/lesson-plan', '/checks', '/guide'],
         items: [
             { to: '/lesson-plan', label: 'AI 备课' },
             { to: '/checks', label: '课堂诊断' },
-            { to: '/experiments', label: '必做实验' },
-            { to: '/interdisciplinary', label: '跨学科主题' },
             { to: '/guide', label: '上手指南' }
         ]
     },
@@ -28,12 +28,13 @@ export const NAV_GROUPS = [
         key: 'standards',
         label: '课标',
         to: '/standards',
-        owns: ['/standards', '/subjects', '/knowledge-graph', '/smart-search', '/search', '/concepts', '/skills', '/glossary'],
+        owns: ['/standards', '/subjects', '/knowledge-graph', '/smart-search', '/search', '/concepts', '/experiments', '/interdisciplinary', '/skills'],
         items: [
             { to: '/standards', label: '学科总览', exact: true },
             { to: '/knowledge-graph', label: '知识图谱' },
-            { to: '/smart-search', label: 'AI 检索' },
             { to: '/concepts', label: '概念词典' },
+            { to: '/experiments', label: '必做实验' },
+            { to: '/interdisciplinary', label: '跨学科主题' },
             { to: '/skills', label: '可迁移技能' }
         ]
     },
@@ -42,11 +43,9 @@ export const NAV_GROUPS = [
         label: '教资',
         to: '/teacher-exam',
         owns: ['/teacher-exam'],
+        // one page: 课标速记 links on to 先读这六页, 试讲稿 and 概念词典 itself
         items: [
-            { to: '/teacher-exam', label: '课标速记' },
-            { to: '/concepts#concept-path', label: '先读这六页' },
-            { to: '/lesson-plan?for=trial', label: '试讲稿' },
-            { to: '/concepts', label: '概念词典' }
+            { to: '/teacher-exam', label: '课标速记' }
         ]
     }
 ]
