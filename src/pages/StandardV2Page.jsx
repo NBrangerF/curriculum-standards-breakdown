@@ -11,8 +11,6 @@ import { loadChecksIndex, subjectOfPoint } from '../features/checks/checksData.j
 import ResourceBadges, { OpenOriginalLink } from '../features/learning-resources/ResourceBadges'
 import { v2StandardMeta } from '../seo/pageMeta.js'
 import { usePageMeta } from '../seo/usePageMeta.js'
-import { RELATION_LABELS, sourceLabel } from '../features/textbooks/alignmentModel'
-import LessonGoals from '../features/textbooks/LessonGoals'
 import styles from './StandardV2Page.module.css'
 
 const pagesLabel = pages => (pages?.length ? `课标第 ${pages.join('、')} 页` : '')
@@ -95,8 +93,25 @@ function OfficialList({ title, items, id }) {
 
 const NATIONAL_URL = id => `https://basic.smartedu.cn/syncClassroom/classActivity?activityId=${id}`
 
-// 国家中小学智慧教育平台 同步课 for the textbook chapters this standard is aligned to.
 // The standard's 要点, verbatim with pages, as a prompt for the AI a teacher already uses (豆包、DeepSeek、元宝)
+// 复制引用: code, name, every 要点 verbatim with its pages, and the source — the way the 数据 page says to cite
+function CopyCitationButton({ standard, subjectName, stageLabel }) {
+    const [copied, setCopied] = useState(false)
+    const text = [
+        `${standard.code} ${standard.level2}（${[subjectName, stageLabel, standard.level1].filter(Boolean).join(' · ')}）`,
+        ...(standard.indicators || []).map(item => `${item.code} ${item.text}${item.pages?.length ? `（第 ${item.pages.join('、')} 页）` : ''}`),
+        `——教育部《义务教育课程标准（2022年版2025年修订）》；kebiao 课标 https://www.kebiao.org/standards/${standard.code}`
+    ].join('\n')
+    async function copy() {
+        try {
+            await navigator.clipboard.writeText(text)
+            setCopied(true)
+            window.setTimeout(() => setCopied(false), 1800)
+        } catch { setCopied(false) }
+    }
+    return <button type="button" className="btn btn-secondary" onClick={copy} title="复制编码、要点原文、页码和出处">{copied ? '已复制' : '复制引用'}</button>
+}
+
 function CopyPromptButton({ standard, subjectName }) {
     const [copied, setCopied] = useState(false)
     const text = [
@@ -118,90 +133,61 @@ function CopyPromptButton({ standard, subjectName }) {
     return <button type="button" className={styles.badge} onClick={copy} title="复制这条标准的要点原文和写法要求，贴给豆包、DeepSeek 等">{copied ? '已复制提示词' : '复制成提示词'}</button>
 }
 
-function NationalLessons({ code, indicators = [] }) {
-    const [data, setData] = useState(null)
+// 教材里在哪教, in one line: each book that teaches this standard and how many of its lessons, linking to that book's
+// 对应表 (the lessons, the textbook's words and their 课堂学习目标 are there). The 国家平台 同步课 fold under it. A
+// standard no lesson was judged for keeps the page-matched books.
+function TextbookLine({ code, indicators = [] }) {
+    const [data, setData] = useState(undefined)
     useEffect(() => {
         let cancelled = false
-        setData(null)
+        setData(undefined)
         fetch(`/data/v2/national-lessons/${code.slice(0, 2)}.json`)
             .then(response => (response.ok ? response.json() : null))
             .then(value => { if (!cancelled) setData(value) })
             .catch(() => { if (!cancelled) setData(null) })
         return () => { cancelled = true }
     }, [code])
+    if (data === undefined) return null
+    const books = new Map()
+    for (const item of indicators) {
+        for (const [edition, textbook, , lessonId, , relation] of data?.points?.[item.code] || []) {
+            const book = books.get(edition) || { edition, textbook, first: lessonId, lessons: new Set(), taught: new Set() }
+            book.lessons.add(lessonId)
+            if (relation === 'T') book.taught.add(lessonId)
+            books.set(edition, book)
+        }
+    }
+    if (!books.size) return <section className={styles.block} id="standard-textbooks"><StandardTextbookLinks standardCode={code} /></section>
+    // the library's books before the editions judged on lesson titles only (pf_), each in grade order
+    const list = [...books.values()].sort((a, b) => Number(a.edition.startsWith('pf_')) - Number(b.edition.startsWith('pf_')) || a.textbook.localeCompare(b.textbook, 'zh-Hans-CN', { numeric: true }))
     const lessons = data?.standards?.[code] || []
-    const units = data?.units?.[code] || []
-    const goals = data?.goals || {}
-    // 教材与课标对应, lesson by lesson: under each 要点, the lessons that teach it, with the textbook's own words
-    const byPoint = indicators.map(item => ({ item, rows: data?.points?.[item.code] || [] })).filter(entry => entry.rows.length)
-    if (!lessons.length && !byPoint.length) return null
-    const byAi = lessons.some(item => item[6] >= 1)
     return (
-        <>
-        {byPoint.length ? (
-            <section className={`${styles.block} ${styles.classroomBand}`} id="standard-textbook-units">
-                <h2>到课堂：教材里在哪教，这一课学到什么</h2>
-                <p className={styles.bandLede}>每条要点落到教材的哪一单元、哪一课，以及那一课据此写出的课堂学习目标。目标按「课标要点 × 这一课教材 × 一般学情」起草，每条都标出课标原词。</p>
-                {byPoint.map(({ item, rows }) => {
-                    // lessons with objectives on this 要点 first; three open, the rest folded
-                    const withGoals = rows.filter(row => goals[row[3]]?.items?.some(goal => goal[1].includes(item.code)))
-                    const others = rows.filter(row => !withGoals.includes(row))
-                    const shown = withGoals.slice(0, 3)
-                    const folded = [...withGoals.slice(3), ...others]
-                    const lessonRow = ([edition, textbook, unit, lessonId, lessonTitle, relation, quote, source, page, unitId], open) => (
-                        <li key={`${edition}-${lessonId}`} className={open ? styles.lessonOpen : ''}>
-                            <p className={styles.lessonPath}>
-                                <Link to={`/textbooks/${edition}/standards#lesson-${lessonId}`}>{textbook}</Link>
-                                <span aria-hidden="true">›</span>
-                                {unitId ? <Link to={`/textbook-units/${unitId}`}>{unit.replace(/\s+/gu, ' ')}</Link> : <span>{unit.replace(/\s+/gu, ' ')}</span>}
-                                {lessonTitle && lessonTitle !== unit ? <><span aria-hidden="true">›</span><strong>{lessonTitle}</strong></> : null}
-                            </p>
-                            <span>{RELATION_LABELS[relation]} · “{quote}”（{sourceLabel(source, page)}）</span>
-                            {open ? <LessonGoals goals={goals[lessonId]} focus={item.code} compact lessonHref={edition.startsWith('pf_') ? null : `/lesson-plan?subject=${encodeURIComponent((textbook.match(/^[^\d（(]+/u) || [''])[0])}&edition=${edition}&lesson=${encodeURIComponent(lessonId)}`} /> : null}
-                        </li>
-                    )
-                    return (
-                        <div key={item.code} className={styles.pointLessons}>
-                            <h3><a href={`#${item.code}`}>{item.code}</a> {item.text.length > 46 ? `${item.text.slice(0, 46)}…` : item.text}</h3>
-                            <ul className={styles.resourceList}>{(shown.length ? shown : others.slice(0, 3)).map(row => lessonRow(row, shown.length > 0))}</ul>
-                            {(shown.length ? folded : others.slice(3)).length ? (
-                                <details className={styles.moreLessons}>
-                                    <summary>还有 {(shown.length ? folded : others.slice(3)).length} 课也教这条</summary>
-                                    <ul className={styles.resourceList}>{(shown.length ? folded : others.slice(3)).map(row => lessonRow(row, false))}</ul>
-                                </details>
-                            ) : null}
-                        </div>
-                    )
-                })}
-                <p className={styles.blockNote}>AI 逐课读了教材原文（或国家平台教学设计里的教学目标），对照本年级全部要点判断的；引号里是这一课材料的原话，点开是这本书的课标对应表。都待核验，哪一条对不上，<Link to={`/feedback?code=${code}&title=${encodeURIComponent('「教材里在哪教」有误')}&message=${encodeURIComponent(`标准 ${code}：\n哪一课、哪一条不对，应该是：`)}`}>告诉我们</Link>。</p>
-            </section>
-        ) : units.length ? (
-            <section className={styles.block} id="standard-textbook-units">
-                <h2>教材里在哪教</h2>
-                <ul className={styles.resourceList}>
-                    {units.map(([edition, textbook, unit, unitId, viaAi]) => (
-                        <li key={`${edition}-${unit}`}>
-                            <Link to={unitId ? `/textbook-units/${unitId}` : `/textbooks/${edition}`}>{textbook} · {unit.replace(/\s+/gu, ' ')}</Link>
-                            <span>{viaAi === 2 ? 'AI 逐课判断' : viaAi === 1 ? 'AI 按单元判断' : '按教材页码对齐（机器）'}</span>
-                        </li>
-                    ))}
-                </ul>
-                <p className={styles.blockNote}>按国家平台的单元目录列出，都待核验。点开是 kebiao 教材馆里的这一单元，可以接着备课。哪一条对不上，<Link to={`/feedback?code=${code}&title=${encodeURIComponent('「教材里在哪教」有误')}&message=${encodeURIComponent(`标准 ${code} 的教材单元：\n${units.map(([, textbook, unit]) => `${textbook} · ${unit}`).join('\n')}\n\n哪一条不对，应该是：`)}`}>告诉我们</Link>。</p>
-            </section>
-        ) : null}
-        {lessons.length ? <section className={styles.block} id="standard-national-lessons">
-            <h2>国家平台同步课</h2>
-            <ul className={styles.resourceList}>
-                {lessons.map(([, id, title, textbook, materials, , viaAi]) => (
-                    <li key={id}>
-                        <a href={NATIONAL_URL(id)} target="_blank" rel="noopener noreferrer">{title} ↗</a>
-                        <span>{textbook}{materials.length ? ` · ${materials.map(index => data.materials[index]).join(' · ')}` : ''}{viaAi === 2 ? ' · AI 逐课判断' : viaAi === 1 ? ' · AI 按单元判断' : ''}</span>
+        <section className={styles.block} id="standard-textbook-units">
+            <h2>教材里在哪教</h2>
+            <ul className={styles.bookLine}>
+                {list.map(book => (
+                    <li key={book.edition}>
+                        <Link to={`/textbooks/${book.edition}/standards#lesson-${book.first}`}>{book.textbook}</Link>
+                        <small>{book.taught.size ? `主要在教 ${book.taught.size} 课` : `涉及 ${book.lessons.size} 课`}</small>
                     </li>
                 ))}
             </ul>
-            <p className={styles.blockNote}>{byAi ? '标「AI 逐课判断」的，是 AI 读了这一课的教材原文后判断为主要在教的；标「AI 按单元判断」的，只读了单元的课名；其余按教材页码与课标的机器对应列出。都待核验。' : '按教材页码与课标的机器对应列出，待核验。'}国家中小学智慧教育平台免费提供，观看需登录平台账号。</p>
-        </section> : null}
-        </>
+            {lessons.length ? (
+                <details className={styles.moreLessons}>
+                    <summary>国家平台同步课 {lessons.length} 节</summary>
+                    <ul className={styles.resourceList}>
+                        {lessons.map(([, id, title, textbook, materials]) => (
+                            <li key={id}>
+                                <a href={NATIONAL_URL(id)} target="_blank" rel="noopener noreferrer">{title} ↗</a>
+                                <span>{textbook}{materials.length ? ` · ${materials.map(index => data.materials[index]).join(' · ')}` : ''}</span>
+                            </li>
+                        ))}
+                    </ul>
+                    <p className={styles.blockNote}>国家中小学智慧教育平台免费提供，观看需登录平台账号。</p>
+                </details>
+            ) : null}
+            <p className={styles.blockNote}>AI 逐课读了教材原文后判断的，待核验。点书名看这本书的课标对应表：每一课教哪条、教材原话和这一课的学习目标。哪一条对不上，<Link to={`/feedback?code=${code}&title=${encodeURIComponent('「教材里在哪教」有误')}&message=${encodeURIComponent(`标准 ${code}：\n哪一课、哪一条不对，应该是：`)}`}>告诉我们</Link>。</p>
+        </section>
     )
 }
 
@@ -362,19 +348,32 @@ export default function StandardV2Page() {
                         <Link to={`/concepts/subjects/${slug}`} className={styles.badge} title={`看${subject.subject}课标的骨架`}>{standard.theme ? `${standard.level1} · ${standard.theme}` : standard.level1}</Link>
                     </div>
                     <h1 className={styles.title}>{standard.level2}</h1>
-                    <p className={styles.statement}>{standard.statement}</p>
-                    <p className={styles.statementSource}>
-                        {standard.name_source === 'kebiao' ? '标准名为 kebiao 整理 · ' : ''}
-                        {official
-                            ? ['标准句为课标原文', standard.statement_section, pagesLabel(standard.statement_pages)].filter(Boolean).join(' · ')
-                            : '标准句为 kebiao 整理：用课标原词概括本单元，原文见下列要点'}
-                    </p>
+                    {official ? (
+                        <>
+                            <p className={styles.statement}>{standard.statement}</p>
+                            <p className={styles.statementSource}>
+                                {standard.name_source === 'kebiao' ? '标准名为 kebiao 整理 · ' : ''}
+                                {['标准句为课标原文', standard.statement_section, pagesLabel(standard.statement_pages)].filter(Boolean).join(' · ')}
+                            </p>
+                        </>
+                    ) : (
+                        <p className={styles.summary}>
+                            <b>{standard.name_source === 'kebiao' ? '标准名和概括为 kebiao 整理' : 'kebiao 概括'}</b>
+                            {standard.statement}
+                        </p>
+                    )}
                     <div className={styles.actions}>
-                        <FavoriteButton code={standard.code} showLabel={true} size="large" />
-                        <CopyLinkButton url={shareURL} />
-                        <ShareStandardButton code={standard.code} title={standard.level2} />
-                        <Link className={styles.badge} to={`/lesson-plan?mode=topic&subject=${encodeURIComponent(slug === 'arts' ? '艺术（音乐、美术等）' : subject.subject)}&grade=${(standard.grades || [])[0] || ''}&topic=${encodeURIComponent(standard.level2)}&codes=${standard.code}`}>用这条起草教案</Link>
-                        <CopyPromptButton standard={standard} subjectName={subject.subject} />
+                        <CopyCitationButton standard={standard} subjectName={subject.subject} stageLabel={stage?.label} />
+                        <details className={styles.more}>
+                            <summary className="btn btn-ghost">更多</summary>
+                            <div className={styles.moreMenu}>
+                                <FavoriteButton code={standard.code} showLabel={true} />
+                                <CopyLinkButton url={shareURL} />
+                                <ShareStandardButton code={standard.code} title={standard.level2} />
+                                <Link className={styles.badge} to={`/lesson-plan?mode=topic&subject=${encodeURIComponent(slug === 'arts' ? '艺术（音乐、美术等）' : subject.subject)}&grade=${(standard.grades || [])[0] || ''}&topic=${encodeURIComponent(standard.level2)}&codes=${standard.code}`}>用这条起草教案</Link>
+                                <CopyPromptButton standard={standard} subjectName={subject.subject} />
+                            </div>
+                        </details>
                     </div>
                 </header>
 
@@ -421,10 +420,7 @@ export default function StandardV2Page() {
                     </section>
                 ) : null}
 
-                <section className={styles.block} id="standard-textbooks">
-                    <StandardTextbookLinks standardCode={standard.code} />
-                </section>
-                <NationalLessons code={standard.code} indicators={standard.indicators || []} />
+                <TextbookLine code={standard.code} indicators={standard.indicators || []} />
                 <Platforms subjectSlug={slug} standard={standard} />
                 <LearningResources ids={standard.learning_resource_ids || []} legacyCodes={standard.legacy_codes || []} />
 

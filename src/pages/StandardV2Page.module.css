@@ -123,6 +123,22 @@ button.badge:focus-visible {
     text-wrap: pretty;
 }
 
+/* a kebiao summary stays small under the name, so the 原文 要点 lead the page */
+.summary {
+    max-width: 62ch;
+    margin: 1rem 0 0;
+    color: var(--kb-mist);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.summary b {
+    margin-right: 0.5rem;
+    color: var(--kb-dim);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
 .statementSource {
     margin: 0.6rem 0 0;
     color: var(--kb-dim);
@@ -131,14 +147,73 @@ button.badge:focus-visible {
 }
 
 .actions {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
     margin-top: 1.5rem;
 }
 
+.more summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.more summary::-webkit-details-marker {
+    display: none;
+}
+
+.more[open] summary {
+    border-color: var(--kb-gold);
+    color: var(--kb-moon);
+}
+
+/* a small panel under the button row (anchored to .actions, so it fits a phone too) */
+.moreMenu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    z-index: 20;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    width: max-content;
+    max-width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--kb-line-strong);
+    border-radius: var(--radius-md, 12px);
+    background: rgba(14, 17, 24, 0.96);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
 .block {
     padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+/* 教材里在哪教: one line, a book per item, each linking to its 对应表 */
+.bookLine {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.4rem;
+    margin: 0.8rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bookLine li {
+    display: flex;
+    gap: 0.45rem;
+    align-items: baseline;
+}
+
+.bookLine a {
+    color: var(--kb-moon);
+}
+
+.bookLine small {
+    color: var(--kb-mist);
+    font-size: 0.8rem;
+    white-space: nowrap;
 }
 
 .block h2 {
@@ -296,7 +371,7 @@ button.badge:focus-visible {
     max-width: 68ch;
     margin: 0.55rem 0 0;
     color: var(--kb-moon);
-    font-size: clamp(0.95rem, 1.2vw, 1.04rem);
+    font-size: clamp(1rem, 1.3vw, 1.1rem);
     line-height: 1.9;
     text-wrap: pretty;
 }
@@ -459,37 +534,6 @@ button.badge:focus-visible {
     line-height: 1.7;
 }
 
-/* 教材里在哪教, one group per 要点; the quote sits on its own line */
-.pointLessons + .pointLessons {
-    margin-top: 1.3rem;
-}
-
-.pointLessons h3 {
-    margin: 1rem 0 0;
-    color: var(--kb-moon);
-    font-size: 0.92rem;
-    font-weight: 600;
-    line-height: 1.6;
-}
-
-.pointLessons h3 a {
-    margin-right: 0.4rem;
-    color: var(--kb-gold);
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-}
-
-.pointLessons .resourceList {
-    gap: 0.6rem;
-    margin-top: 0.5rem;
-}
-
-.pointLessons .resourceList span {
-    display: block;
-    margin: 0.15rem 0 0;
-    line-height: 1.6;
-}
-
 .resourceFoot {
     display: flex;
     flex-wrap: wrap;
@@ -585,41 +629,6 @@ button.badge:focus-visible {
     color: var(--kb-gold);
     text-decoration: underline;
     text-underline-offset: 3px;
-}
-
-/* 到课堂: the 课标 → lesson → 学习目标 layer, set apart from the reference blocks around it */
-.classroomBand {
-    padding: 1.1rem 1.2rem 1rem;
-    border: 1px solid rgba(233, 200, 135, 0.3);
-    border-radius: var(--radius-lg, 16px);
-    background: linear-gradient(180deg, rgba(233, 200, 135, 0.07), transparent 70%);
-}
-
-.bandLede {
-    margin: 0.2rem 0 0.6rem;
-    color: var(--kb-mist);
-    font-size: 0.9rem;
-    line-height: 1.65;
-}
-
-.lessonPath {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.2rem 0.45rem;
-    margin: 0;
-}
-
-.lessonPath strong {
-    color: var(--kb-moon);
-}
-
-.lessonPath > span {
-    color: var(--kb-mist);
-}
-
-.lessonOpen {
-    padding-bottom: 0.4rem;
 }
 
 .moreLessons summary {

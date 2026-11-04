@@ -373,20 +373,7 @@ export function buildNationalLessons() {
     rmSync(subjectOut, { recursive: true, force: true })
     mkdirSync(subjectOut, { recursive: true })
     for (const [prefix, standards] of Object.entries(bySubject)) {
-        // the standard page opens the first three lessons with objectives on each 要点 and shows only those objectives,
-        // so only they are kept here (as [目标, 依据要点, 课标原词]); the book's own file has the rest
-        const listedGoals = {}
-        for (const [point, rows] of Object.entries(pointsBySubject[prefix] || {})) {
-            let open = 0
-            for (const row of rows) {
-                const items = (goalsFor(row[0])[row[3]]?.items || []).filter(item => item[1].includes(point))
-                if (!items.length) continue
-                const kept = (listedGoals[row[3]] ??= { items: [] }).items
-                for (const [text, basis, from] of items) if (!kept.some(item => item[0] === text)) kept.push([text, basis, from])
-                if (++open === 3) break
-            }
-        }
-        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards, unit_fields: ['edition_id', 'textbook_title', 'unit', 'unit_id', 'via_ai'], units: unitsBySubject[prefix] || {}, point_fields: ['edition_id', 'textbook_title', 'unit', 'lesson_id', 'lesson_title', 'relation', 'quote', 'source', 'pdf_page', 'unit_id'], points: pointsBySubject[prefix] || {}, goal_fields: ['text', 'basis', 'from'], goals: listedGoals })}\n`)
+        writeFileSync(path.join(subjectOut, `${prefix}.json`), `${JSON.stringify({ materials: MATERIALS, fields: ['edition_id', 'lesson_id', 'title', 'textbook_title', 'materials', 'text_matched', 'via_ai'], standards, unit_fields: ['edition_id', 'textbook_title', 'unit', 'unit_id', 'via_ai'], units: unitsBySubject[prefix] || {}, point_fields: ['edition_id', 'textbook_title', 'unit', 'lesson_id', 'lesson_title', 'relation', 'quote', 'source', 'pdf_page', 'unit_id'], points: pointsBySubject[prefix] || {} })}\n`)
     }
     const coverage = buildCoverage(bookPoints)
     return { editions: Object.keys(index.editions).length, lessons: lessonTotal, standards: byStandard.size, coverage }

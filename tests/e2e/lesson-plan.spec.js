@@ -376,14 +376,15 @@ test('教资课标速记 lists each 课标\'s 课程理念 with pages and lets a
     await expect(page.getByText('注重“教—学—评”一体化设计')).toBeVisible()
 })
 
-test('a standard page lists, under each 要点, the lessons that teach it', async ({ page }) => {
+test('a standard page says in one line which books teach it, each opening its 对应表', async ({ page }) => {
     await page.goto('/standards/HI-S4-MC-02')
     const section = page.locator('#standard-textbook-units')
-    await expect(section.getByRole('heading', { name: '到课堂：教材里在哪教，这一课学到什么' })).toBeVisible()
-    // each lesson is book › unit › lesson: the book opens its 课标对应表 at that lesson, the unit its unit page, the textbook's own words beside it
-    await expect(section.getByRole('link', { name: '历史8年级上册', exact: true }).first()).toHaveAttribute('href', /\/textbooks\/ed_[0-9a-f]+\/standards#lesson-/)
-    await expect(section.getByRole('link', { name: /^第三单元/ }).first()).toHaveAttribute('href', /\/textbook-units\/tcu_/)
-    await expect(section.getByText(/主要在教 · “/).first()).toBeVisible()
+    await expect(section.getByRole('heading', { name: '教材里在哪教' })).toBeVisible()
+    // one entry per book with its lesson count; the book opens its 课标对应表 at the first lesson (lessons, quotes and objectives live there)
+    await expect(section.getByRole('link', { name: '历史8年级上册', exact: true })).toHaveAttribute('href', /\/textbooks\/ed_[0-9a-f]+\/standards#lesson-/)
+    await expect(section.getByText(/^主要在教 \d+ 课$/).first()).toBeVisible()
+    // the 课堂学习目标 are not on the standard page
+    await expect(page.getByText('课堂学习目标')).toHaveCount(0)
     // a wrong one can be reported with the standard filled in
     await section.getByRole('link', { name: '告诉我们' }).click()
     await expect(page.getByLabel(/关联条目代码/)).toHaveValue('HI-S4-MC-02')
@@ -395,15 +396,24 @@ test('语文: a 学段要求 standard is named for its content, and a task group
     await expect(page.getByText('标准名为 kebiao 整理 · 标准句为课标原文 · 学段要求 · 识字与写字 · 第 2 条')).toBeVisible()
     await page.goto('/standards/CN-S2-TG-05')
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('整本书阅读')
-    await expect(page.getByText(/^标准句为 kebiao 整理/)).toBeVisible()
+    // a kebiao summary is labelled and set small, under the name
+    await expect(page.getByText(/^(kebiao 概括|标准名和概括为 kebiao 整理)$/)).toBeVisible()
     const intro = page.locator('#standard-intro')
     await expect(intro.getByRole('heading', { name: '学习任务群说明' })).toBeVisible()
     await expect(intro.getByText(/^本学习任务群旨在/)).toBeVisible()
 })
 
-test('a standard page copies its 要点 as a prompt for the teacher\'s own AI', async ({ page }) => {
+test('a standard page copies a citation, and under 更多 its 要点 as a prompt for the teacher\'s own AI', async ({ page }) => {
     await page.context().grantPermissions(['clipboard-read', 'clipboard-write'])
     await page.goto('/standards/MA-S3-NA-01')
+    await page.getByRole('button', { name: '复制引用' }).click()
+    await expect(page.getByRole('button', { name: '已复制' })).toBeVisible()
+    const citation = await page.evaluate(() => navigator.clipboard.readText())
+    expect(citation).toContain('MA-S3-NA-01.3 能用直观的方式表示分数和小数')
+    expect(citation).toContain('（第 27、28 页）')
+    expect(citation).toContain('教育部《义务教育课程标准（2022年版2025年修订）》；kebiao 课标 https://www.kebiao.org/standards/MA-S3-NA-01')
+    await expect(page.getByRole('button', { name: '复制成提示词' })).toBeHidden()
+    await page.getByText('更多', { exact: true }).click()
     await page.getByRole('button', { name: '复制成提示词' }).click()
     await expect(page.getByRole('button', { name: '已复制提示词' })).toBeVisible()
     const prompt = await page.evaluate(() => navigator.clipboard.readText())

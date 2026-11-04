@@ -200,7 +200,19 @@ function standardPage({ standard, subject }) {
         if (pageEvidence.has(key)) continue
         pageEvidence.set(key, `${link(unitId ? `/textbook-units/${unitId}` : `/textbooks/${edition}`, `${textbook} · ${unit}`)}<span class="kbp-note"> · ${viaAi === 2 ? 'AI 逐课判断' : viaAi ? 'AI 按单元判断' : '机器对齐'}，待核验</span>`)
     }
-    const byLesson = standard.indicators.filter(item => nationalPoints.has(item.code)).map(item => `<li><span class="kbp-code">${esc(item.code)}</span> ${esc(item.text.length > 46 ? `${item.text.slice(0, 46)}…` : item.text)}${list(nationalPoints.get(item.code).map(([edition, textbook, unit, , lessonTitle, relation, quote, source, page]) => `${link(`/textbooks/${edition}/standards`, `${textbook} · ${lessonTitle || unit}`)}<span class="kbp-note"> · ${RELATION_LABEL[relation]} · “${esc(quote)}”（${esc(SOURCE_LABEL(source, page))}）</span>`))}</li>`)
+    // 教材里在哪教, as on the page: one entry per book with its lesson count, opening the book's 对应表
+    const books = new Map()
+    for (const item of standard.indicators) {
+        for (const [edition, textbook, , lessonId, , relation] of nationalPoints.get(item.code) || []) {
+            const book = books.get(edition) || { edition, textbook, first: lessonId, lessons: new Set(), taught: new Set() }
+            book.lessons.add(lessonId)
+            if (relation === 'T') book.taught.add(lessonId)
+            books.set(edition, book)
+        }
+    }
+    const bookLine = [...books.values()]
+        .sort((a, b) => Number(a.edition.startsWith('pf_')) - Number(b.edition.startsWith('pf_')) || a.textbook.localeCompare(b.textbook, 'zh-Hans-CN', { numeric: true }))
+        .map(book => `${link(`/textbooks/${book.edition}/standards#lesson-${book.first}`, book.textbook)}<span class="kbp-note"> · ${book.taught.size ? `主要在教 ${book.taught.size} 课` : `涉及 ${book.lessons.size} 课`}</span>`)
     const siblings = subject.standards
         .filter(other => other.code !== standard.code && other.stage_code === standard.stage_code && other.level1 === standard.level1)
         .slice(0, 12).map(other => `${link(`/standards/${other.code}`, other.level2)} <span class="kbp-code">${esc(other.code)}</span>`)
@@ -211,15 +223,14 @@ function standardPage({ standard, subject }) {
 <p class="kbp-kicker">${esc([subject.subject, stage, standard.level1, standard.theme].filter(Boolean).join(' · '))}</p>
 <h1>${esc(standard.level2)}</h1>
 <p class="kbp-code">标准编码 ${esc(standard.code)}</p>
-<blockquote>${esc(standard.statement)}</blockquote>
+${standard.statement_source === 'official' ? `<blockquote>${esc(standard.statement)}</blockquote>` : `<p>${esc(standard.statement)}</p>`}
 <p class="kbp-note">${esc(statementNote)}</p>
 ${section(`要点（${standard.indicators.length} 条，课标原文）`, `<ol>${indicators}</ol>`)}
 ${section('学习任务群说明', official(standard.intro || []))}
 ${section('学业要求', official(standard.requirements))}
 ${section('教学提示', official(standard.guidance))}
 ${standard.examples.length ? section('表现示例（kebiao 整理）', list(standard.examples.map(example => esc(example.text)))) : ''}
-${byLesson.length ? section('教材里在哪教（逐课）', `<ul>${byLesson.join('')}</ul><p class="kbp-note">AI 逐课读了教材原文后判断，引号里是这一课教材的原话；待核验。</p>`) : ''}
-${section('对应教材', list([...pageEvidence.values()]))}
+${bookLine.length ? section('教材里在哪教', `${list(bookLine)}<p class="kbp-note">AI 逐课读了教材原文后判断，待核验。点书名看这本书的课标对应表。</p>`) : section('对应教材', list([...pageEvidence.values()]))}
 ${section(`同学段同领域的其他标准（${standard.level1}）`, list(siblings))}
 <p class="kbp-note">${esc(subject.source_note)}</p>`
     add(meta, main, {
