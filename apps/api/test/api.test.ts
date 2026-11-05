@@ -18,6 +18,7 @@ import {
 import { redactSensitiveText } from '../src/ai-privacy.js'
 import { judgeSearchCandidates, searchJudgeCache } from '../src/search-judge.js'
 import { parsePlanWithLlm } from '../src/plan-llm.js'
+import { normTitle, parseLessonQuery } from '../src/ai-tools.js'
 import vercelHandler from '../../../api/v1/[...path].js'
 
 const dataRoot = resolve(process.cwd(), '../../data/internal')
@@ -1775,7 +1776,10 @@ test('MCP server answers initialize, ping and tools/list', async () => {
     assert.equal(init.result.serverInfo.name, 'kebiao')
     assert.ok(init.result.capabilities.tools)
     const unknownVersion = await json(await mcp({ jsonrpc: '2.0', id: 2, method: 'initialize', params: { protocolVersion: '1999-01-01' } }))
-    assert.equal(unknownVersion.result.protocolVersion, '2025-06-18')
+    assert.equal(unknownVersion.result.protocolVersion, '2025-11-25')
+    // 2026-07-28 has no handshake, so an initialize asking for it gets the newest legacy version
+    const modernInit = await json(await mcp({ jsonrpc: '2.0', id: 2, method: 'initialize', params: { protocolVersion: '2026-07-28' } }))
+    assert.equal(modernInit.result.protocolVersion, '2025-11-25')
     assert.deepEqual((await json(await mcp({ jsonrpc: '2.0', id: 3, method: 'ping' }))).result, {})
     const list = await json(await mcp({ jsonrpc: '2.0', id: 4, method: 'tools/list' }))
     const names = list.result.tools.map((tool: any) => tool.name)
@@ -1837,6 +1841,12 @@ test('MCP tools return cited text and structured data', async () => {
 
     const bad = await call('get_standard', { code: 'XX-S9-ZZ-99' })
     assert.equal(bad.result.isError, true)
+    // a guessed or partial code comes back with the real codes of that subject and stage
+    const guessed = await call('get_standard', { code: 'CN-S3-RE-003' })
+    assert.equal(guessed.result.isError, true)
+    assert.match(guessed.result.content[0].text, /CN-S3-RA-01/)
+    assert.match((await call('get_standard', { code: 'MA-S3' })).result.content[0].text, /MA-S3-NA-01 数与运算/)
+    assert.equal((await call('get_standard', { code: 'ma-s3-na-01.3' })).result.structuredContent.focus_indicator, 'MA-S3-NA-01.3')
     const unknown = await json(await mcp({ jsonrpc: '2.0', id: 9, method: 'tools/call', params: { name: 'no_such_tool', arguments: {} } }))
     assert.equal(unknown.error.code, -32602)
 })
@@ -1901,6 +1911,111 @@ test('MCP transport handles notifications, batches and bad requests', async () =
     assert.equal(get.headers.get('allow'), 'POST')
     // the same server answers under the API prefix the Vercel function sees
     assert.equal((await json(await publicApp.request('/api/v1/mcp', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'ping' }) }))).id, 1)
+})
+
+// a 2026-07-28 request: version and capabilities in _meta, mirrored in the MCP-* headers, no handshake
+async function modern(method: string, params: Record<string, unknown> = {}, options: { id?: number | null, headers?: Record<string, string>, version?: string } = {}) {
+    const version = options.version ?? '2026-07-28'
+    const meta = { 'io.modelcontextprotocol/protocolVersion': version, 'io.modelcontextprotocol/clientCapabilities': {} }
+    return publicApp.request('/mcp', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', accept: 'application/json, text/event-stream', 'mcp-protocol-version': version, 'mcp-method': method, ...(method === 'tools/call' ? { 'mcp-name': String(params.name) } : {}), ...options.headers },
+        body: JSON.stringify({ jsonrpc: '2.0', ...(options.id === null ? {} : { id: options.id ?? 1 }), method, params: { ...params, _meta: meta } })
+    })
+}
+
+test('MCP 2026-07-28 requests are served statelessly, with discover and cache hints', async () => {
+    const discover = await json(await modern('server/discover'))
+    assert.equal(discover.result.resultType, 'complete')
+    assert.deepEqual(discover.result.supportedVersions, ['2026-07-28', '2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05'])
+    assert.deepEqual(discover.result.capabilities, { tools: { listChanged: false } })
+    assert.equal(discover.result._meta['io.modelcontextprotocol/serverInfo'].name, 'kebiao')
+    assert.equal(discover.result.cacheScope, 'public')
+    const list = await json(await modern('tools/list'))
+    assert.equal(list.result.resultType, 'complete')
+    assert.ok(list.result.ttlMs > 0)
+    assert.equal(list.result.tools.length, 10)
+    const call = await json(await modern('tools/call', { name: 'get_standard', arguments: { code: 'MA-S3-NA-01.3' } }))
+    assert.equal(call.result.resultType, 'complete')
+    assert.equal(call.result.isError, false)
+    assert.equal(call.result.structuredContent.focus_indicator, 'MA-S3-NA-01.3')
+    // Mcp-Name may come base64-encoded
+    const encoded = await modern('tools/call', { name: 'list_subjects', arguments: {} }, { headers: { 'mcp-name': `=?base64?${Buffer.from('list_subjects').toString('base64')}?=` } })
+    assert.equal(encoded.status, 200)
+
+    // headers must agree with the body
+    const wrongName = await modern('tools/call', { name: 'list_subjects', arguments: {} }, { headers: { 'mcp-name': 'get_standard' } })
+    assert.equal(wrongName.status, 400)
+    assert.equal((await json(wrongName)).error.code, -32020)
+    const wrongMethod = await modern('tools/list', {}, { headers: { 'mcp-method': 'tools/call' } })
+    assert.equal(wrongMethod.status, 400)
+    assert.equal((await json(wrongMethod)).error.code, -32020)
+    // an unknown version is refused with the versions we speak
+    const future = await modern('tools/list', {}, { version: '2099-01-01' })
+    assert.equal(future.status, 400)
+    const futureBody = await json(future)
+    assert.equal(futureBody.error.code, -32022)
+    assert.equal(futureBody.error.data.requested, '2099-01-01')
+    assert.ok(futureBody.error.data.supported.includes('2026-07-28'))
+    // missing capabilities in _meta
+    const bare = await publicApp.request('/mcp', { method: 'POST', headers: { 'content-type': 'application/json', 'mcp-protocol-version': '2026-07-28', 'mcp-method': 'tools/list' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/list', params: { _meta: { 'io.modelcontextprotocol/protocolVersion': '2026-07-28' } } }) })
+    assert.equal(bare.status, 400)
+    assert.equal((await json(bare)).error.code, -32602)
+    // methods the modern era dropped, or that we do not offer, are 404
+    const ping = await modern('ping')
+    assert.equal(ping.status, 404)
+    assert.equal((await json(ping)).error.code, -32601)
+    assert.equal((await modern('subscriptions/listen')).status, 404)
+    // notifications are accepted without a reply; batches are legacy-only
+    assert.equal((await modern('notifications/cancelled', {}, { id: null })).status, 202)
+    const batch = await publicApp.request('/mcp', { method: 'POST', headers: { 'content-type': 'application/json', 'mcp-protocol-version': '2026-07-28', 'mcp-method': 'tools/list' }, body: JSON.stringify([{ jsonrpc: '2.0', id: 1, method: 'tools/list', params: { _meta: { 'io.modelcontextprotocol/protocolVersion': '2026-07-28', 'io.modelcontextprotocol/clientCapabilities': {} } } }]) })
+    assert.equal(batch.status, 400)
+    // legacy clients that send the 2025 header still get the old behaviour
+    const legacy = await publicApp.request('/mcp', { method: 'POST', headers: { 'content-type': 'application/json', 'mcp-protocol-version': '2025-06-18' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'ping' }) })
+    assert.deepEqual((await json(legacy)).result, {})
+    // any well-formed Origin may call (desktop apps send app:// or null); a malformed one is refused
+    assert.equal((await publicApp.request('/mcp', { method: 'POST', headers: { 'content-type': 'application/json', origin: 'null' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'ping' }) })).status, 200)
+    assert.equal((await publicApp.request('/mcp', { method: 'POST', headers: { 'content-type': 'application/json', origin: 'not an origin' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'ping' }) })).status, 403)
+})
+
+test('find_textbook_chapter reads a lesson the way teachers name it', async () => {
+    const words = ['数学', '语文', '物理', '英语', '体育']
+    assert.deepEqual(parseLessonQuery('统编版 四年级上册 观潮', words), { publisher: '统编版', grade: 4, volume: '上册', subject: null, title: '观潮', label: '观潮' })
+    assert.deepEqual(parseLessonQuery('人教版五下《分数的基本性质》对应哪几条课标？列原文和页码', words), { publisher: '人教版', grade: 5, volume: '下册', subject: null, title: '分数的基本性质', label: '分数的基本性质' })
+    assert.equal(parseLessonQuery('人教版数学五年级下册分数的基本性质', words).subject, '数学')
+    assert.equal(parseLessonQuery('人教版 三年级上册 数学广角', words).title, '数学广角')
+    assert.equal(parseLessonQuery('体育比赛展风采', words).title, '体育比赛展风采')
+    assert.equal(parseLessonQuery('分数的基本性质 数学 五下', words).grade, 5)
+    assert.equal(parseLessonQuery('北师大 九上 浩瀚的宇宙', words).publisher, '北师大版')
+    assert.equal(normTitle('第2节  光的反射'), '光的反射')
+    assert.equal(normTitle('24 愚公移山'), '愚公移山')
+    assert.equal(normTitle('100以内的加法'), '100以内的加法')
+    assert.equal(normTitle('一、浩瀚的宇宙'), '浩瀚的宇宙')
+
+    const call = async (args: Record<string, unknown>) => (await json(await mcp({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'find_textbook_chapter', arguments: args } }))).result
+    // a two-character title with the book in front, which used to find nothing
+    const watch = await call({ query: '统编版 四年级上册 观潮' })
+    assert.match(watch.structuredContent.lessons[0].textbook, /统编版语文4年级上册/)
+    assert.equal(watch.structuredContent.lessons[0].lesson, '观潮')
+    // each 要点 comes with its 原文 and page, so one call answers 「列原文和页码」
+    const point = watch.structuredContent.lessons[0].points[0]
+    assert.ok(point.text.length > 5 && /课标第 \d+/u.test(point.page), JSON.stringify(point))
+    assert.match(watch.content[0].text, /按「统编版 · 4 年级 · 上册 · 观潮」查找/)
+    // the edition asked for comes first and others only get a mention
+    const light = await call({ query: '人教版 八年级上册 光的反射' })
+    assert.match(light.structuredContent.lessons[0].textbook, /^人教版物理8年级上册/)
+    assert.ok(light.structuredContent.lessons.every((item: any) => item.textbook.startsWith('人教版')))
+    // a numbered lesson title such as 「第2节 光的反射」
+    assert.ok(light.structuredContent.lessons.some((item: any) => normTitle(item.lesson) === '光的反射'))
+    // an English unit brings its first lessons
+    const unit = await call({ query: '人教版 七年级上册 Unit 1 You and Me' })
+    assert.ok(unit.structuredContent.lessons.length > 0 && unit.structuredContent.lessons.every((item: any) => item.unit === 'Unit 1 You and Me'))
+    // the wrong grade says where a lesson of that title is
+    const elsewhere = await call({ query: '观潮', grade: '5' })
+    assert.equal(elsewhere.structuredContent.lessons.length, 0)
+    assert.deepEqual(elsewhere.structuredContent.elsewhere, ['统编版语文4年级上册'])
+    // no title at all is a caller mistake
+    assert.equal((await call({ query: '人教版 五年级下册' })).isError, true)
 })
 
 test('plugin API serves the 扣子/元器 OpenAPI file and answers each operation', async () => {

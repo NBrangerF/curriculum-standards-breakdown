@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: kebiao 课标
-  version: 1.1.0
+  version: 1.2.0
   description: |
     中国义务教育课程标准（2022年版2025年修订）的检索与查证插件：14 门学科，每条标准对应一个学段的一个内容单元，要点逐字取自课标原文并标明页码。
     每个接口都返回 answer 字段：一段可直接引用的中文说明，带编码、要点原文和 kebiao.org 链接。请引用编码和原文，不要编造编码或改写原文。
@@ -105,13 +105,13 @@ paths:
   /api/v1/plugin/textbook-chapter:
     get:
       operationId: find_textbook_chapter
-      summary: 从教材章节找课标
-      description: 按教材单元、章节或课的标题找到它，并给出对应的课标。适合「下周教这一课，对应哪条课标」。
+      summary: 从教材的一课找课标
+      description: 把老师对这一课的说法放进 query（如「人教版 八年级上册 光的反射」），自动认出版本、年级、册次和学科，返回这一课主要在教、也涉及的课标要点原文、页码和教材原话。适合「下周教这一课，对应哪条课标」。
       parameters:
         - name: query
           in: query
           required: true
-          description: 单元、章节或课的标题，例如「分数的基本性质」
+          description: 老师对这一课的说法，可以带版本和年级册次，例如「人教版 八年级上册 光的反射」；只写课题也可以
           schema: { type: string }
         - name: subject
           in: query
@@ -122,6 +122,16 @@ paths:
           in: query
           required: false
           description: 年级，可选，例如「五年级」
+          schema: { type: string }
+        - name: edition
+          in: query
+          required: false
+          description: 教材版本，可选，例如「人教版」「统编版」
+          schema: { type: string }
+        - name: volume
+          in: query
+          required: false
+          description: 册次，可选：上册、下册、全一册
           schema: { type: string }
       responses:
         '200':

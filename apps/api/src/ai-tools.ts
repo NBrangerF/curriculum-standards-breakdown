@@ -2,7 +2,7 @@
 // endpoints (/api/v1/plugin/*) both call these, so an assistant gets the same answer either way.
 // Every answer carries the code, the 课标原文 and a link back to kebiao.org.
 import type { FileCurriculumRepository, FileTextbookRepository } from '../../../packages/curriculum-core/src/index.js'
-import { SOURCE_LABEL, V2_CODE, type V2Standard, type V2Store, type V2Subject } from './v2-store.js'
+import { SOURCE_LABEL, V2_CODE, type LessonAlignRow, type V2Standard, type V2Store, type V2Subject } from './v2-store.js'
 import { findChecks, presentUrl, publicCheck, type CheckStore } from './checks.js'
 import { checkObjectives, splitObjectives, type CheckPoint } from './objectives-check.js'
 
@@ -100,7 +100,94 @@ function bestIndicator(standard: V2Standard, terms: string[]) {
     return best ? { code: best.code, text: best.text, page: pagesNote(best.pages), url: standardUrl(standard.code, best.code) } : null
 }
 
+// 「ma-s3-na-01.3」「ＭＡ－Ｓ３－ＮＡ－０１」 → MA-S3-NA-01.3
+const normCode = (value: unknown) => str(value).normalize('NFKC').toUpperCase().replace(/\s+/gu, '').replace(/[–—－]/gu, '-').replace(/[。．]/gu, '.')
+// An unknown code gets the real codes nearby, so the assistant copies one instead of guessing again.
+async function codeHint(asked: string, ctx: ToolContext) {
+    const tail = '编码请从 search_standards 或 find_textbook_chapter 的结果里复制，不要自己拼。'
+    const [prefix, stage, domain] = asked.split('-')
+    const entry = (await ctx.v2.manifest())?.subjects.find(item => item.prefix === prefix)
+    const subject = entry ? await ctx.v2.subject(entry.subject_slug) : null
+    if (!entry || !subject) return `没有这个编码：${asked}。${tail}`
+    const inStage = subject.standards.filter(item => !/^S\d$/u.test(stage || '') || item.code.split('-')[1] === stage)
+    const inDomain = inStage.filter(item => !domain || item.code.split('-')[2] === domain.replace(/\..*$/u, ''))
+    const near = (inDomain.length ? inDomain : inStage).slice(0, 8)
+    return `没有这个编码：${asked}。${entry.subject}${/^S\d$/u.test(stage || '') ? `第 ${stage.slice(1)} 学段` : ''}的标准有：${near.map(item => `${item.code} ${item.level2}`).join('；')}${(inDomain.length ? inDomain : inStage).length > near.length ? ' 等' : ''}。${tail}`
+}
+
 const SOURCE_NOTE = '要点逐字取自《义务教育课程标准（2022年版2025年修订）》；修订版文本取自凤溪中学转载的日常修订版，以官方出版物为准。'
+
+// How teachers name a lesson: 「人教版 八年级上册 光的反射」「统编版四年级上册《观潮》」「五下 分数的基本性质」.
+// The edition, grade, volume and subject become filters; what is left is the title.
+const PUBLISHERS: Array<[string, string]> = [
+    ['人教版?|人民教育出版社|PEP', '人教版'], ['统编版?|部编版?', '统编版'], ['北师大?版?', '北师大版'], ['苏教版?', '苏教版'],
+    ['冀教版?', '冀教版'], ['青岛版?', '青岛版'], ['华东师大版?|华师大?版', '华东师大版'], ['教科版?', '教科版'], ['人美版?', '人美版'], ['人音版?', '人音版']
+]
+export const publisherOf = (text: string) => PUBLISHERS.find(([pattern]) => new RegExp(pattern, 'iu').test(text))?.[1] || null
+const GRADE_CN = '一二三四五六七八九'
+const gradeNumber = (g: string) => (/\d/u.test(g) ? Number(g) : GRADE_CN.indexOf(g) + 1)
+const volumeOf = (v: string) => (v.startsWith('上') ? '上册' : v.startsWith('下') ? '下册' : '全一册')
+// lesson numbering a teacher leaves out: 「第2节」「24 」「3.」「一、」「课题1」「☆」, and 「（第一课时）」
+const TITLE_PREFIX = /^(?:第[一二三四五六七八九十百零\d]+\s*(?:单元|章|节|课时|课)|课题\s*\d+|[一二三四五六七八九十]+\s*[、.．]|\d+(?:\.\d+)*(?:\s+|\s*[.、．]\s*)|[☆★*＊]+)\s*/u
+export function normTitle(title: string) {
+    let t = title.normalize('NFKC').trim()
+    for (let i = 0; i < 3; i += 1) t = t.replace(TITLE_PREFIX, '')
+    t = t.replace(/[（(]\s*第?[一二三四五六七八九十\d]+\s*课时\s*[)）]$/u, '')
+    return t.toLowerCase().replace(/[\s\p{P}\p{S}]+/gu, '')
+}
+// 100 = same title; less for a title that contains the words asked, or is contained in them
+function titleScore(title: string, asked: string) {
+    const t = normTitle(title)
+    if (!t || !asked) return 0
+    if (t === asked) return 100
+    if (asked.length >= 2 && t.includes(asked)) return 60 + Math.round(20 * asked.length / t.length)
+    if (t.length >= 2 && asked.includes(t) && t.length / asked.length >= 0.34) return 40 + Math.round(20 * t.length / asked.length)
+    return 0
+}
+
+export type LessonQuery = { publisher: string | null, grade: number | null, volume: string | null, subject: string | null, title: string, label: string }
+export function parseLessonQuery(raw: string, subjectWords: string[]): LessonQuery {
+    const q: LessonQuery = { publisher: null, grade: null, volume: null, subject: null, title: '', label: '' }
+    let s = raw.normalize('NFKC').replace(/[（(]?\s*第?[一二三四五六七八九十\d]+\s*课时\s*[)）]?/gu, ' ')
+        .replace(/(?:主要)?(?:对应|涉及|依据|是)?(?:哪[几些]?条?|什么)?(?:的)?(?:课标|课程标准)[\s\S]*$/u, ' ')
+        .replace(/(?:的)?(?:教案|教学设计|说课稿|课件)$/u, ' ')
+    const tokens: Array<[string, (m: RegExpMatchArray) => void, string?]> = [
+        [`([1-9]|[${GRADE_CN}])\\s*年级\\s*(上册|下册|全一册|上|下)?`, m => { q.grade = gradeNumber(m[1]); if (m[2]) q.volume = volumeOf(m[2]) }],
+        ['初([一二三])\\s*(上册|下册|上|下)?', m => { q.grade = 6 + gradeNumber(m[1]); if (m[2]) q.volume = volumeOf(m[2]) }],
+        [`([1-9]|[${GRADE_CN}])\\s*(上册|下册|上|下)(?=$|[\\s《册])`, m => { q.grade = gradeNumber(m[1]); q.volume = volumeOf(m[2]) }],
+        ['(上册|下册|全一册)', m => { q.volume = volumeOf(m[1]) }],
+        ...PUBLISHERS.map(([pattern, label]) => [`(?:${pattern})`, () => { q.publisher = label }] as [string, (m: RegExpMatchArray) => void]),
+        // a subject word counts only when it stands apart from the title: 「数学 五年级」, not 「数学广角」
+        ...[...subjectWords].sort((a, b) => b.length - a.length).map(word => [`${word}(?=$|[\\s,，、·:：/|《]|[1-9${GRADE_CN}]\\s*(?:年级|上|下)|初[一二三]|上册|下册|全一册|${PUBLISHERS.map(([p]) => p).join('|')})`, () => { q.subject = word }, `(?<=^|[\\s,，、·:：/|》]|年级|上册|下册|全一册|版)${word}`] as [string, (m: RegExpMatchArray) => void, string?])
+    ]
+    const quoted = s.match(/[《〈「“"]([^》〉」”"]+)[》〉」”"]/u)
+    if (quoted) {
+        // 《title》 is the title; the rest only says which book
+        q.title = quoted[1]
+        const rest = s.replace(quoted[0], ' ')
+        for (const [source, apply] of tokens) {
+            const m = rest.match(new RegExp(source, 'iu'))
+            if (m) apply(m)
+        }
+    } else {
+        // book words sit before or after the title: peel them off both ends
+        const SEP = '[\\s,，、·:：/|\\-—]*'
+        for (const edge of ['start', 'end'] as const) {
+            for (let guard = 0; guard < 8; guard += 1) {
+                s = s.trim()
+                const hit = tokens.map(([source, apply, endSource]) => [s.match(new RegExp(edge === 'start' ? `^${SEP}(?:${source})${SEP}` : `${SEP}(?:${endSource || source})${SEP}$`, 'iu')), apply] as const).find(([m]) => m)
+                if (!hit) break
+                hit[1](hit[0]!)
+                s = edge === 'start' ? s.slice(hit[0]![0].length) : s.slice(0, s.length - hit[0]![0].length)
+            }
+        }
+        q.title = s.trim()
+    }
+    // label: the title as the teacher wrote it; title: the form compared with lesson titles
+    q.label = q.title.trim()
+    q.title = normTitle(q.title)
+    return q
+}
 
 export const KEBIAO_TOOLS: KebiaoTool[] = [
     {
@@ -121,7 +208,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
     {
         name: 'search_standards',
         title: '检索课标',
-        description: '用一句话检索义务教育课程标准（2025 修订版），返回最相关的标准、命中的要点原文和链接。可按学科、学段筛选。适合「三年级科学里讲植物生长的课标」「初中物理 浮力」这类问题。Search the standards by topic.',
+        description: '老师说的是教学内容或主题时用它：用一句话检索义务教育课程标准（2025 修订版），返回最相关的标准、命中的要点原文、页码和链接，可按学科、学段筛选。例如「三年级科学里讲植物生长的课标」「初中物理 浮力」。老师说的是教材里的某一课时，改用 find_textbook_chapter。结果里的编码可以直接传给 get_standard 取全部要点。Search the standards by topic.',
         inputSchema: {
             type: 'object',
             properties: {
@@ -158,7 +245,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
     {
         name: 'get_standard',
         title: '查看一条标准',
-        description: '按编码查看一条课标：标准句（标明是课标原文还是 kebiao 整理）、全部要点原文和页码、学业要求、链接。接受标准编码（MA-S2-NA-02）、要点编码（MA-S2-NA-02.1）和 2022 年版旧编码（MA-D2-AL-005，会说明它并入了哪条新标准）。Look up one standard by code.',
+        description: '按编码查看一条课标：标准句（标明是课标原文还是 kebiao 整理）、全部要点原文和页码、学业要求、链接。接受标准编码（MA-S2-NA-02）、要点编码（MA-S2-NA-02.1）和 2022 年版旧编码（MA-D2-AL-005，会说明它并入了哪条新标准）。编码请从其他工具的结果里复制，不要自己拼；编码不存在时，会返回同学科同学段的真实编码供选择。Look up one standard by code.',
         inputSchema: {
             type: 'object',
             properties: { code: { type: 'string', description: '标准、要点或旧编码' } },
@@ -166,13 +253,13 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             additionalProperties: false
         },
         async run(args, ctx) {
-            const asked = str(args.code).toUpperCase()
+            const asked = normCode(args.code)
             if (!asked) throw new ToolInputError('请提供编码，例如 MA-S2-NA-02。')
             let code = asked
             let movedFrom: string | null = null
             if (!V2_CODE.test(asked)) {
                 const target = await ctx.v2.movedTo(asked)
-                if (!target) throw new ToolInputError(`没有这个编码：${asked}。`)
+                if (!target) throw new ToolInputError(await codeHint(asked, ctx))
                 if (!target.startsWith('/standards/')) {
                     return { data: { code: asked, moved_to: `${SITE}${target}` }, text: `旧编码 ${asked} 在 2025 修订版重建时并入了学科概览（学段目标），没有单独的标准：${SITE}${target}` }
                 }
@@ -182,7 +269,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
                 code = anchor || path
             }
             const found = await ctx.v2.find(code)
-            if (!found) throw new ToolInputError(`没有这个编码：${asked}。`)
+            if (!found) throw new ToolInputError(await codeHint(asked, ctx))
             const { standard, subject } = found
             const focus = code !== standard.code ? code : null
             const indicators = standard.indicators.map(item => ({ code: item.code, text: item.text, page: pagesNote(item.pages), grades: item.grades || null, revised_2025: item.check?.status === 'revised' }))
@@ -252,7 +339,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
     {
         name: 'get_textbook_links',
         title: '标准对应的教材',
-        description: '查看一条标准或要点在哪些教材的哪一课教（人教版、统编版等）：AI 逐课读了教材原文判断，每条附这一课教材的原话和页码；没有逐课结果的，再列机器对齐的单元。都待核验。Textbook lessons and chapters for a standard.',
+        description: '从一条课标反查教材：查看一条标准或要点在哪些教材的哪一课教（人教版、统编版等）：AI 逐课读了教材原文判断，每条附这一课教材的原话和页码；没有逐课结果的，再列机器对齐的单元。都待核验。Textbook lessons and chapters for a standard.',
         inputSchema: {
             type: 'object',
             properties: { code: { type: 'string', description: '标准或要点编码' } },
@@ -260,9 +347,9 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             additionalProperties: false
         },
         async run(args, ctx) {
-            const asked = str(args.code).toUpperCase()
+            const asked = normCode(args.code)
             const found = await ctx.v2.find(asked)
-            if (!found) throw new ToolInputError(`没有这个标准编码：${str(args.code)}。`)
+            if (!found) throw new ToolInputError(await codeHint(asked, ctx))
             const { standard } = found
             // lesson by lesson, with the textbook's own words (教材与课标对应)
             const wanted = (point: string) => (/\.\d+$/u.test(asked) ? point === asked : point.replace(/\.\d+$/u, '') === standard.code)
@@ -306,40 +393,91 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
     },
     {
         name: 'find_textbook_chapter',
-        title: '从教材章节找课标',
-        description: '按教材单元、章节或课的标题（如「分数的基本性质」「七七事变与全民族抗战」）找到它，再给出它对应的课标要点：先列 AI 逐课读了教材原文判断的（附教材原话、页码和这一课的课堂学习目标，每条目标注明依据的要点原词），再列机器按目录对齐的。可按学科、年级筛选。适合「下周教这一课，对应哪条课标」。Find a textbook lesson or chapter and its standards.',
+        title: '从教材的一课找课标',
+        description: '老师说的是教材里的一课时用它。把老师的原话放进 query 即可，例如「人教版 八年级上册 光的反射」「统编版四年级上册《观潮》」「五下 分数的基本性质」，工具会认出版本、年级、册次和学科。返回这一课「主要在教」「也涉及」的课标要点：要点原文和课标页码、教材里的原话和出处、这一课的课堂学习目标；再列机器按目录对齐的章节。对应关系是 AI 逐课判断，引用时注明「待核验」。找不到时如实告诉老师，不要编造。Find a textbook lesson the way teachers name it, with the standards it teaches.',
         inputSchema: {
             type: 'object',
             properties: {
-                query: { type: 'string', description: '单元、章节或课的标题' },
-                subject: { type: 'string', description: '学科，可选' },
-                grade: { type: 'string', description: '年级，可选，例如「五年级」「8」' }
+                query: { type: 'string', description: '老师对这一课的说法，可以带版本和年级册次，例如「人教版 八年级上册 光的反射」；只写课题也可以' },
+                subject: { type: 'string', description: '学科，可选，例如「物理」' },
+                grade: { type: 'string', description: '年级，可选，例如「八年级」「8」' },
+                edition: { type: 'string', description: '教材版本，可选，例如「人教版」「统编版」「北师大版」' },
+                volume: { type: 'string', description: '册次，可选：上册、下册、全一册' }
             },
             required: ['query'],
             additionalProperties: false
         },
         async run(args, ctx) {
-            const query = str(args.query).replace(/\s+/gu, '').slice(0, 100)
-            if (query.length < 2) throw new ToolInputError('请给出至少两个字的章节标题。')
-            const slug = await subjectSlug(args.subject, ctx, false)
-            const grade = gradeOf(args.grade)
+            const raw = str(args.query).slice(0, 200)
+            if (raw.replace(/\s+/gu, '').length < 2) throw new ToolInputError('请给出至少两个字的课题，例如「光的反射」。')
+            const manifest = await ctx.v2.manifest()
+            const asked = parseLessonQuery(raw, [...(manifest?.subjects.map(s => s.subject) || []), ...Object.keys(SUBJECT_ALIASES)])
+            if (str(args.edition)) asked.publisher = publisherOf(str(args.edition)) || asked.publisher
+            if (str(args.volume)) asked.volume = volumeOf(str(args.volume))
+            asked.grade = gradeOf(args.grade) ?? asked.grade
+            const subjectWord = str(args.subject) || asked.subject
+            const slug = subjectWord ? await subjectSlug(subjectWord, ctx, false) : null
+            // 美术 and 音乐 are separate books under one 艺术 standard
+            const bookSubject = subjectWord === '美术' ? 'art' : subjectWord === '音乐' ? 'music' : null
+            if (asked.title.length < 2) throw new ToolInputError(`「${raw}」里没有课题。请写上这一课的题目，例如「人教版 八年级上册 光的反射」。`)
+            const understood = [asked.publisher, asked.grade ? `${asked.grade} 年级` : '', asked.volume, subjectWord, asked.label].filter(Boolean).join(' · ')
+
             // every textbook's units, chapters and lessons, read from its 目录 at build time, with the standards aligned to its pages
             const index = await ctx.v2.textbookChapters()
-            const v2Slug = (bookSlug: string) => (['art', 'music'].includes(bookSlug) ? 'arts' : bookSlug)
-            // first the 国家平台 lessons judged one by one on their own pages, with the textbook's own words
             const alignment = await ctx.v2.lessonAlignment()
-            const lessonHits = alignment.lessons.filter(([edition, , unit, title]) => {
-                const book = index.books[edition] || alignment.platform_books?.[edition]
-                if (book && ((slug && v2Slug(book[1]) !== slug) || (grade && book[2] !== grade))) return false
-                const name = title.replace(/\s+/gu, '')
-                return name.includes(query) || (query.length >= 3 && name.length >= 3 && query.includes(name)) || (!name.includes(query) && unit.replace(/\s+/gu, '').includes(query) && title === unit)
-            }).slice(0, 6)
-            const hits = index.chapters.filter(([edition, title]) => {
-                const book = index.books[edition]
-                if (!book || (slug && v2Slug(book[1]) !== slug) || (grade && book[2] !== grade)) return false
-                const name = title.replace(/\s+/gu, '').replace(/^(?:第[一二三四五六七八九十百零\d]+(?:单元|章|节|课)|课题\d+|\d+(?:\.\d+)*\*?)\s*/u, '')
-                return name.includes(query) || (query.length >= 3 && name.length >= 3 && query.includes(name))
-            }).slice(0, 8)
+            const v2Slug = (bookSlug: string) => (['art', 'music'].includes(bookSlug) ? 'arts' : bookSlug)
+            const bookOf = (edition: string) => index.books[edition] || alignment.platform_books?.[edition]
+            const filtered = !!(slug || bookSubject || asked.grade || asked.volume)
+            const fits = (edition: string, withVolume: boolean, strict = true) => {
+                const book = bookOf(edition)
+                if (!book) return !strict || !filtered
+                if (!strict) return true
+                return (!slug || v2Slug(book[1]) === slug) && (!bookSubject || book[1] === bookSubject) && (!asked.grade || book[2] === asked.grade)
+                    && (!withVolume || !asked.volume || book[3].split('·')[0] === asked.volume)
+            }
+            // best title first, then the edition asked for, then the library's own books; a volume asked for is dropped if nothing has it
+            const rank = <T>(rows: T[], edition: (row: T) => string, score: (row: T) => number, strict = true) => {
+                for (const withVolume of [true, false]) {
+                    const scored = rows.map(row => ({ row, edition: edition(row), score: score(row) }))
+                        .filter(x => x.score > 0 && fits(x.edition, withVolume, strict))
+                        .map(x => {
+                            const publisher = publisherOf(bookOf(x.edition)?.[0] || '')
+                            return { ...x, publisher, score: x.score + (asked.publisher && publisher === asked.publisher ? 30 : 0) + (x.edition.startsWith('ed_') ? 3 : 0) }
+                        })
+                        .sort((a, b) => b.score - a.score)
+                    if (scored.length || !asked.volume || !strict) return scored
+                }
+                return []
+            }
+            // with the edition asked for found, other editions only get a mention
+            const focus = <T extends { publisher: string | null, edition: string }>(items: T[]) => {
+                if (!asked.publisher || !items.some(x => x.publisher === asked.publisher)) return { items, others: [] as string[] }
+                const others = [...new Set(items.filter(x => x.publisher !== asked.publisher).map(x => bookOf(x.edition)?.[0]).filter(Boolean) as string[])]
+                return { items: items.filter(x => x.publisher === asked.publisher), others }
+            }
+
+            // first the lessons judged one by one on their own pages, with the textbook's own words; a unit title brings its first lessons
+            const lessonScore = ([, , unit, title]: LessonAlignRow) => {
+                const own = titleScore(title, asked.title)
+                const byUnit = title !== unit ? titleScore(unit, asked.title) : 0
+                return Math.max(own, byUnit >= 60 ? byUnit - 30 : 0)
+            }
+            const perUnit = new Map<string, number>()
+            const rankedLessons = focus(rank(alignment.lessons, row => row[0], lessonScore).filter(({ row }) => {
+                const key = `${row[0]}|${row[2]}`
+                perUnit.set(key, (perUnit.get(key) || 0) + 1)
+                return perUnit.get(key)! <= 3
+            }))
+            const lessonHits = rankedLessons.items.slice(0, asked.publisher ? 4 : 6).map(x => x.row)
+            const rankedChapters = focus(rank(index.chapters, row => row[0], ([, title]) => titleScore(title, asked.title)))
+            const hits = rankedChapters.items.slice(0, lessonHits.length ? 3 : 8).map(x => x.row)
+            const otherEditions = [...new Set([...rankedLessons.others, ...rankedChapters.others])].slice(0, 5)
+
+            const indicatorOf = async (point: string) => {
+                const found = await ctx.v2.find(point)
+                const item = found?.standard.indicators.find(entry => entry.code === point)
+                return item ? { text: item.text, page: pagesNote(item.pages) } : { text: '', page: '' }
+            }
             const results = []
             for (const [edition, title, printedPage, , unitId, codes] of hits) {
                 const [textbook, bookSlug, bookGrade] = index.books[edition]
@@ -351,7 +489,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
                 // a chapter with no aligned pages gets the standards its own title finds, marked as a search
                 let via = 'aligned'
                 if (!standards.length) {
-                    const name = title.replace(/^(?:第[一二三四五六七八九十百零\d]+(?:单元|章|节|课)|课题\d+|\d+(?:\.\d+)*)\s*/u, '')
+                    const name = title.replace(TITLE_PREFIX, '')
                     const response = await ctx.repository.smartSearchStandards({ query: name, subjects: [v2Slug(bookSlug)], grade_bands: [BAND_OF_GRADE(bookGrade)], limit: 3 })
                     for (const r of response.results.filter(x => x.match_strength === 'direct')) {
                         const found = await ctx.v2.find(r.code)
@@ -365,21 +503,32 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             const lessons = await Promise.all(lessonHits.map(async ([edition, textbook, unit, title, lessonId, pdfPage, matches]) => {
                 const goals = await ctx.v2.lessonGoals(edition, lessonId)
                 return {
-                    textbook, unit, lesson: title, pdf_page: pdfPage, url: `${SITE}/textbooks/${edition}/standards#lesson-${lessonId}`,
-                    points: matches.map(([point, relation, quote, source, page]) => ({ point, relation: relation === 'T' ? '主要在教' : '也涉及', quote, where: SOURCE_LABEL(source, page), url: standardUrl(point.replace(/\.\d+$/u, ''), point) })),
+                    textbook: bookOf(edition)?.[0] || textbook, unit, lesson: title, pdf_page: pdfPage, url: `${SITE}/textbooks/${edition}/standards#lesson-${lessonId}`,
+                    points: await Promise.all(matches.map(async ([point, relation, quote, source, page]) => {
+                        const indicator = await indicatorOf(point)
+                        return { point, relation: relation === 'T' ? '主要在教' : '也涉及', text: indicator.text, page: indicator.page, quote, where: SOURCE_LABEL(source, page), url: standardUrl(point.replace(/\.\d+$/u, ''), point) }
+                    })),
                     objectives: (goals?.items || []).map(([text, basis, from, show]) => ({ text, basis, from, show }))
                 }
             }))
-            const lessonText = lessons.map(item => `- ${item.textbook} · ${item.unit}${item.lesson !== item.unit ? ` · ${item.lesson}` : ''} ${item.url}\n${item.points.map(point => `  ${point.relation} ${point.point}：教材里写着“${point.quote}”（${point.where}）`).join('\n') || '  没找到这一课主要在教的要点'}${item.objectives.length ? `\n  课堂学习目标（AI 依据要点原文起草，待核验）：\n${item.objectives.map((goal, index) => `   ${index + 1}. ${goal.text}（依据 ${goal.basis.join('、')}「${goal.from}」）`).join('\n')}` : ''}`)
+            const lessonText = lessons.map(item => `- ${item.textbook} · ${item.unit}${item.lesson !== item.unit ? ` · ${item.lesson}` : ''} ${item.url}\n${item.points.map(point => `  ${point.relation} ${point.point}${point.text ? `「${point.text}」（${point.page}）` : ''}\n    教材里写着“${point.quote}”（${point.where}）`).join('\n') || '  没找到这一课主要在教的要点'}${item.objectives.length ? `\n  课堂学习目标（AI 依据要点原文起草，待核验）：\n${item.objectives.map((goal, k) => `   ${k + 1}. ${goal.text}（依据 ${goal.basis.join('、')}「${goal.from}」）`).join('\n')}` : ''}`)
             const chapterText = results.map(r => `- ${r.textbook} · ${r.chapter}${r.printed_page ? `（第 ${r.printed_page} 页）` : ''} ${r.url}\n  ${r.standards.length ? `${r.standards.map(s => `${s.code} ${s.name}（${s.subject} · ${s.stage}）`).join('；')}（${note[r.via]}）` : note.none}`)
+            // nothing under the filters: say where a lesson of that title does exist, so the next call can fix the grade or edition
+            const elsewhere = !lessons.length && !results.length && filtered
+                ? [...new Set(rank(alignment.lessons, row => row[0], lessonScore, false).slice(0, 12).map(x => bookOf(x.edition)?.[0]).filter(Boolean) as string[])].slice(0, 4)
+                : []
+            const data = { query: raw, understood: { edition: asked.publisher, grade: asked.grade, volume: asked.volume, subject: subjectWord || null, title: asked.title }, lessons, results, other_editions: otherEditions, elsewhere }
             return {
-                data: { query, lessons, results },
+                data,
                 text: lessons.length || results.length
                     ? [
+                        `按「${understood}」查找。`,
                         ...(lessons.length ? [`找到 ${lessons.length} 节课（AI 逐课读了教材原文判断，附原话，待核验）：`, ...lessonText] : []),
-                        ...(results.length ? [`${lessons.length ? '另外，' : ''}找到 ${results.length} 个教材章节（对应关系为机器对齐，待核验）：`, ...chapterText] : [])
+                        ...(otherEditions.length ? [`其他版本也有这一课：${otherEditions.join('、')}。`] : []),
+                        ...(results.length ? [`${lessons.length ? '另外，' : ''}找到 ${results.length} 个教材章节（对应关系为机器对齐，待核验）：`, ...chapterText] : []),
+                        SOURCE_NOTE
                     ].join('\n')
-                    : `没有找到标题包含「${query}」的教材章节；可以换个写法，或用 search_standards 按内容检索。`
+                    : `按「${understood}」没有找到这一课。${elsewhere.length ? `同名的课在：${elsewhere.join('、')}，请核对年级、册次或版本。` : '可以只写课题再试，或用 search_standards 按内容检索。'}`
             }
         }
     },
@@ -508,8 +657,8 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             additionalProperties: false
         },
         async run(args, ctx) {
-            const found = await ctx.v2.find(str(args.code).toUpperCase())
-            if (!found) throw new ToolInputError(`没有这个标准编码：${str(args.code)}。`)
+            const found = await ctx.v2.find(normCode(args.code))
+            if (!found) throw new ToolInputError(await codeHint(normCode(args.code), ctx))
             const { standard } = found
             const changes = [
                 ...(standard.statement_check?.status === 'revised' ? [{ where: '标准句', text_2025: standard.statement, summary: String(standard.statement_check.summary || '') }] : []),

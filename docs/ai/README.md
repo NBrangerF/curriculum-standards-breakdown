@@ -18,7 +18,8 @@ kebiao 给 AI 提供三个入口，都免费、只读、无需登录。给老师
 | `list_standards` | `GET /api/v1/plugin/standards?subject=` | 一门学科（可限学段）的标准列表 |
 | `get_stage_goals` | `GET /api/v1/plugin/stage-goals?subject=` | 学段目标原文 |
 | `get_textbook_links` | `GET /api/v1/plugin/textbooks?code=` | 一条标准对应的教材章节 |
-| `find_textbook_chapter` | `GET /api/v1/plugin/textbook-chapter?query=` | 从教材章节标题找课标 |
+| `find_textbook_chapter` | `GET /api/v1/plugin/textbook-chapter?query=` | 按老师的说法找到教材的一课（「人教版 八年级上册 光的反射」），给出它对应的要点原文、页码和教材原话 |
+| `check_objectives` | 仅 MCP | 目标体检：老师写的学习目标逐条对照课标要点 |
 | `compare_versions` | `GET /api/v1/plugin/changes?code=` | 2025 修订改了哪些要点 |
 | `get_check_questions` | `GET /api/v1/plugin/checks?subject=&grade=&topic=&code=` | 课堂诊断题：全班作答，每个错误答案对应一种常见错法 |
 
@@ -129,7 +130,7 @@ curl -s https://www.kebiao.org/mcp -H 'content-type: application/json' -H 'accep
 你是「课标助手」，帮助中小学老师查找和引用《义务教育课程标准（2022年版2025年修订）》。
 
 工作方式：
-1. 老师问到某个教学内容、单元或一节课时，先用 search_standards（按内容）或 find_textbook_chapter（按教材章节标题）找到对应标准；需要细节时再用 get_standard 看全部要点。
+1. 老师问到某个教学内容时用 search_standards；问到教材里的一课时用 find_textbook_chapter，把老师的原话（如「人教版 八年级上册 光的反射」）直接放进 query。需要细节时再用 get_standard 看全部要点。
 2. 问学段目标用 get_stage_goals；问这条标准在哪本教材、哪一章，用 get_textbook_links；问 2025 修订改了什么，用 compare_versions。
 3. 老师给出旧编码（如 MA-D2-AL-005）时，用 get_standard 查它并入了哪条新标准。
 
@@ -211,6 +212,8 @@ mcp-publisher publish docs/ai/server.json
 ## 维护
 
 - 工具定义：`apps/api/src/ai-tools.ts`；MCP 协议：`apps/api/src/mcp.ts`；插件路由：`apps/api/src/app.ts`（`/api/v1/plugin/*`）。
+- 协议两代都支持：旧客户端用 `initialize` 握手，协商到 2025-11-25 及更早版本；新客户端（2026-07-28）不握手，每个请求在 `_meta` 和 `MCP-*` 请求头里带版本，可先调 `server/discover`。
+- 改了工具，先后在本地和线上各跑一次 `cd apps/api && npx tsx test/mcp-eval.ts`（加 `--live` 测线上），对比「版本 + 年级册次 + 课题 → 第一条就是这一课」等几项。
 - 改了工具参数，要同步改 `docs/api/plugin-openapi.yaml`，并在扣子、元器里重新导入或重新同步；`docs/ai/server.json` 的 `version` 加一后重新发布到 Registry。
 - `find_textbook_chapter` 读 `public/data/v2/textbook_chapters.json`，由 `scripts/build-public-v2.mjs` 生成；教材目录缓存在 `data/v2/textbook_contents.json`（`node scripts/v2/cache_textbook_contents.mjs`，需要教材盘）。
 - `public/llms.txt` 也由 `scripts/build-public-v2.mjs` 按当前条数生成。
