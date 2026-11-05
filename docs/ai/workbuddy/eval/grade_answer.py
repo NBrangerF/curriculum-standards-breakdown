@@ -40,15 +40,17 @@ def grade(name, text):
             if code in ind and norm(m.group(1).rstrip('…')) not in norm(ind[code][0]):
                 problems.append(f'引文对不上 {code}：「{m.group(1)[:30]}」')
     # 「MA-S3-NA-01.3 … 第 27、28 页」: pages given right after a 要点 code
-    for m in re.finditer(r'([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2}\.\d+)[^\n]{0,80}?(?:课标)?第\s*([\d、,，\s–-]+)\s*页', text):
-        code = m.group(1)
-        if code not in ind:
-            continue
-        said = {int(n) for n in re.findall(r'\d+', m.group(2))}
-        if said and not said <= set(ind[code][1]) and ind[code][1]:
+    # 课标 pages only: 「课标第 N 页」 after a 要点 code, or the page cell of a citation row
+    # (| 编码 | 「原文」 | 第 N 页 |); 「教材 PDF 第 N 页」 is the textbook's page and is not checked
+    page_claims = [(m.group(1), m.group(2)) for m in re.finditer(r'([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2}\.\d+)[^\n]{0,200}?课标第\s*([\d、,，\s–-]+)\s*页', text)]
+    page_claims += [(m.group(1), m.group(2)) for m in re.finditer(r'([A-Z]{2}-S\d-[A-Z]{2,3}-\d{2}\.\d+)[^|\n]*\|\s*「[^」]*」\s*\|\s*第\s*([\d、,，\s–-]+)\s*页\s*\|', text)]
+    for code, pages in page_claims:
+        said = {int(n) for n in re.findall(r'\d+', pages)}
+        if code in ind and ind[code][1] and said and not said <= set(ind[code][1]):
             problems.append(f'页码不对 {code}：写了 {sorted(said)}，应为 {ind[code][1]}')
-    for m in re.finditer(r'学生能[^\n\[［]{0,200}', text):
-        body = re.sub(r'[\[［][^\]］]*[\]］]', '', m.group(0)).strip()
+    # an objective runs from 学生能 to the end of its line or table cell; 「学生能……」 in prose is a pattern, not a goal
+    for m in re.finditer(r'学生能(?![…\.。]{2})[^\n|\[［]{0,200}', text):
+        body = m.group(0).strip()
         if len(body) > 90:
             problems.append(f'目标过长（{len(body)} 字）：{body[:24]}…')
     kind = name[:1]
