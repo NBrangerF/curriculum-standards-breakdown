@@ -764,6 +764,25 @@ test('OPTIONS preflight returns CORS headers', async () => {
     assert.match(response.headers.get('access-control-allow-methods') || '', /POST/)
 })
 
+test('MCP and plugin endpoints accept any origin even when the site restricts origins', async () => {
+    const before = process.env.CURRICULUM_ALLOWED_ORIGINS
+    process.env.CURRICULUM_ALLOWED_ORIGINS = 'https://www.kebiao.org'
+    try {
+        const preflight = (path: string, origin: string) => app.request(path, { method: 'OPTIONS', headers: { origin, 'access-control-request-method': 'POST' } })
+        for (const path of ['/mcp', '/api/v1/mcp', '/api/v1/plugin/search']) {
+            const response = await preflight(path, 'https://open.workbuddy.cn')
+            assert.equal(response.headers.get('access-control-allow-origin'), '*', path)
+            assert.match(response.headers.get('access-control-allow-headers') || '', /mcp-method,mcp-name/)
+        }
+        // the rest of the API keeps the configured list
+        assert.equal((await preflight('/api/v1/health', 'https://open.workbuddy.cn')).headers.get('access-control-allow-origin'), null)
+        assert.equal((await preflight('/api/v1/health', 'https://www.kebiao.org')).headers.get('access-control-allow-origin'), 'https://www.kebiao.org')
+    } finally {
+        if (before === undefined) delete process.env.CURRICULUM_ALLOWED_ORIGINS
+        else process.env.CURRICULUM_ALLOWED_ORIGINS = before
+    }
+})
+
 test('GET /api/v1/openapi.yaml and /api/v1/docs expose API documentation', async () => {
     const specResponse = await app.request('/api/v1/openapi.yaml')
     assert.equal(specResponse.status, 200)

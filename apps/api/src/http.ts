@@ -233,7 +233,10 @@ export const securityHeadersMiddleware: MiddlewareHandler<ApiBindings> = async (
         .split(',')
         .map(value => value.trim())
         .filter(Boolean)
-    const allowAnyOrigin = allowedOrigins.includes('*')
+    // the MCP server and plugin endpoints are public and read-only, so any page may call them
+    // (WorkBuddy and other AI platforms test connectors from their own web pages)
+    const publicTools = /^\/(?:api\/v1\/)?mcp\/?$|^\/api\/v1\/plugin\//u.test(c.req.path)
+    const allowAnyOrigin = allowedOrigins.includes('*') || publicTools
     const allowedOrigin = allowAnyOrigin ? '*' : origin && allowedOrigins.includes(origin) ? origin : null
 
     if (allowedOrigin) {
@@ -242,7 +245,7 @@ export const securityHeadersMiddleware: MiddlewareHandler<ApiBindings> = async (
     }
     c.header('access-control-allow-methods', 'GET,POST,OPTIONS')
     // the MCP headers let browser-based MCP clients reach /mcp
-    c.header('access-control-allow-headers', 'content-type,x-api-key,x-request-id,accept,mcp-protocol-version,mcp-session-id,last-event-id')
+    c.header('access-control-allow-headers', 'content-type,x-api-key,x-request-id,accept,mcp-protocol-version,mcp-method,mcp-name,mcp-session-id,last-event-id')
     c.header('access-control-max-age', '86400')
     c.header('x-content-type-options', 'nosniff')
     c.header('x-frame-options', 'SAMEORIGIN')
