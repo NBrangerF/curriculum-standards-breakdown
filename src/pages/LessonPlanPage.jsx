@@ -29,8 +29,8 @@ const SUBJECT_ORDER = ['语文', '数学', '英语', '道德与法治', '科学'
 const TOPIC_SUBJECTS = [['语文', 'chinese'], ['数学', 'math'], ['英语', 'english'], ['道德与法治', 'morality_law'], ['科学', 'science'], ['物理', 'physics'], ['化学', 'chemistry'], ['生物学', 'biology'], ['历史', 'history'], ['地理', 'geography'], ['信息科技', 'it'], ['体育与健康', 'pe'], ['艺术（音乐、美术等）', 'arts'], ['劳动', 'labor']]
 const MATERIAL_ORDER = ['视频课程', '课件', '教学设计', '学习任务单', '课后练习']
 const STEPS = [
-    { key: 'frame', label: 'AI 读课标，写目标、重难点和评价', hint: '同时写课标解读，约 20–40 秒' },
-    { key: 'process', label: 'AI 写教学过程、当堂练习和板书', hint: '约 20–40 秒' },
+    { key: 'frame', label: 'AI 读课标，写目标、重难点和评价', hint: '同时写课标解读，一般 20–40 秒，慢时 1–2 分钟' },
+    { key: 'process', label: 'AI 写教学过程、当堂练习和板书', hint: '一般 20–40 秒，慢时 1–2 分钟' },
     { key: 'check', label: '对照课标和课堂实际核验', hint: '编码、超标、目标—活动—评价、时间与作业量' }
 ]
 // the class as it usually is: about 45 students; 课型 left to the AI unless the teacher says

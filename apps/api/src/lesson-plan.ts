@@ -585,7 +585,9 @@ const practiceAdapter = (frame: Frame, codes: Set<string>): StructuredLlmAdapter
 
 export type DraftResult<T> = { status: LlmStatus, output: T | null, usage: LlmUsage | null, latency_ms: number, model: string | null }
 
-const DRAFT_TIMEOUT_MS = 45000
+// most drafts finish in 15–35 s; a slow provider answer can pass 45 s, so wait well beyond that
+// (the API function itself may run 120 s, see vercel.json)
+const DRAFT_TIMEOUT_MS = 100000
 
 export async function draftFrame(input: DraftInput, options: StructuredLlmOptions = {}): Promise<DraftResult<Frame>> {
     const codes = new Set(input.indicators.map(item => item.code))
