@@ -1,7 +1,7 @@
 {
   "name": "kebiao-lesson-coach",
-  "version": "1.1.0",
-  "description": "Chief curriculum-standards expert for Chinese K-9 teachers: finds the real 2025-revised standards with page numbers, maps them to every textbook lesson, then drafts or refines lesson plans with each line cited",
+  "version": "2.0.0",
+  "description": "Standards-based lesson prep for Chinese K-9 teachers: quotes the real 2025-revised curriculum standards with page numbers, finds the standards each textbook lesson teaches, drafts standards-aligned lesson plans, and checks or refines a teacher's own objectives and plans with every change cited",
   "author": {
     "name": "较真的范老师",
     "email": ""
@@ -16,27 +16,27 @@
   "expertType": "agent",
   "agentName": "kebiao-lesson-coach",
   "displayName": {
-    "en": "Chief of Standards",
-    "zh": "课标首席"
+    "en": "Standards-Based Lesson Prep | kebiao",
+    "zh": "依标备课｜kebiao"
   },
   "profession": {
-    "en": "Curriculum Standards & Textbook Alignment Lead",
-    "zh": "课标与教材对位 · 依标备课顾问"
+    "en": "K-9 Curriculum Standards Citation & Lesson Plan Alignment",
+    "zh": "义务教育课标查证 · 教案对标与精修"
   },
   "displayDescription": {
-    "en": "Finds the real 2025-revised curriculum standards with page numbers, maps them to each lesson of your textbook, then drafts a standards-based lesson plan or refines your own plan, citing every line.",
-    "zh": "查2025修订版课标原文和页码，对到你这本教材的每一课，再依标写教案或精修你的教案，每处都有出处。"
+    "en": "Quotes the 2025-revised K-9 curriculum standards with page numbers, maps them to textbook lessons, drafts standards-aligned lesson plans, and checks or refines teachers' objectives and plans, with every citation verifiable.",
+    "zh": "查义务教育课标原文和页码，对到教材的课；依标写教案，核对、精修教学目标与教案，引文均可查证。"
   },
   "avatar": "avatars/expert.png",
   "categoryId": "15-Education",
   "defaultInitPrompt": {
-    "zh": "人教版五下《分数的基本性质》对应哪几条课标？列原文和页码",
-    "en": "Which standards does 'basic property of fractions' (PEP Grade 5) teach? Quote text and pages"
+    "zh": "人教版五年级下册《分数的基本性质》对应哪几条课标？列出原文和页码",
+    "en": "Which standards does the PEP Grade 5 (vol. 2) lesson 'Basic property of fractions' teach? Quote the text and pages"
   },
   "plugin": "kebiao-lesson-coach",
   "tags": [
     {
-      "en": "Real Standards",
+      "en": "Standards Text",
       "zh": "课标原文"
     },
     {
@@ -50,19 +50,16 @@
   ],
   "quickPrompts": [
     {
-      "zh": "人教版五下《分数的基本性质》对应哪几条课标？列原文和页码",
-      "en": "Which standards does 'basic property of fractions' (PEP Grade 5) teach? Quote text and pages"
+      "zh": "人教版五年级下册《分数的基本性质》对应哪几条课标？列出原文和页码",
+      "en": "Which standards does the PEP Grade 5 (vol. 2) lesson 'Basic property of fractions' teach? Quote the text and pages"
     },
     {
-      "zh": "帮我依标写这一课的教案，先给我确认课标依据",
-      "en": "Draft a standards-based plan for this lesson; let me confirm the basis first"
+      "zh": "统编版四年级上册《观潮》第一课时，帮我写一份依标教案（45 人，40 分钟）",
+      "en": "Write a standards-based plan for lesson 1 of 'Watching the Tide' (Grade 4, vol. 1) for a class of 45, 40 minutes"
     },
     {
-      "zh": "精修我写的教案：对齐课标，标出每一处改动",
-      "en": "Refine my lesson plan against the standards and mark every change"
+      "zh": "帮我核对并改写这两条教学目标：1. 使学生掌握分数的基本性质；2. 培养学生的合作意识（人教版五年级下册）",
+      "en": "Check and rewrite these objectives: 1. Students master the basic property of fractions; 2. Develop cooperation (PEP Grade 5)"
     }
-  ],
-  "dependencies": {
-    "mcpServers": "./.mcp.json"
-  }
+  ]
 }

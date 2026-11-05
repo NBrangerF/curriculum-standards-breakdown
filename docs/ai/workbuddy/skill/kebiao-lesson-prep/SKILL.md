@@ -1,105 +1,78 @@
 ---
 name: kebiao-lesson-prep
 display_name: 依标备课｜kebiao
-display_name_en: Standards-Based Lesson Planning
-description: 依据《义务教育课程标准（2022年版2025年修订）》备课的四件事：查真实课标原文和页码；把课标对到老师手上教材的每一课（附教材原话）；依标写教案，每个目标标出依据；精修老师自己的教案，保留其结构，对齐课标、补缺、改超标并标出每处改动。数据来自 kebiao。触发词：课标原文、这一课对应哪条课标、课标和教材、备课、写教案、教学设计、改教案、精修教案、核对教案。
-description_zh: 查真实课标原文和页码，对到你这本教材的每一课；依标写教案，或精修你自己的教案，每处改动都标出依据。
-description_en: Find the real 2025-revised K-9 standards, map them to each textbook lesson, then draft or refine lesson plans with every line cited.
+display_name_en: Standards-Based Lesson Prep | kebiao
+description: 依据《义务教育课程标准（2022年版2025年修订）》备课：查课标原文和页码；找出教材的一课主要在教哪几条课标（附教材原话）；依标写教案；核对和精修老师自己的教学目标与教案，每处改动都附依据。数据来自 kebiao。触发词：课标原文、这一课对应哪条课标、依标备课、写教案、教学设计、简案、详案、说课稿、改教案、核对教学目标。
+description_zh: 查课标原文和页码，对到教材的一课；依标写教案，核对、精修老师的教学目标和教案，每处都附依据。
+description_en: Cite the 2025-revised K-9 standards, map them to textbook lessons, draft standards-aligned plans, and check or refine a teacher's own plans.
 examples_zh:
-- "人教版数学五年级下册《分数的基本性质》对应哪几条课标？列出原文和页码"
-- "帮我依标写这一课的教案，班上 45 人，先给我确认课标依据"
-- "精修我写的教案：保留我的结构，对齐课标，标出每一处改动"
+- "人教版五年级下册《分数的基本性质》对应哪几条课标？列出原文和页码"
+- "统编版四年级上册《观潮》第一课时，帮我写一份依标教案（45 人，40 分钟）"
+- "帮我核对并改写这两条教学目标：1. 使学生掌握分数的基本性质；2. 培养学生的合作意识（人教版五年级下册）"
 examples_en:
-- "Which standards does 'basic property of fractions' (PEP Grade 5, vol. 2) teach? Quote text and pages"
-- "Draft a standards-based plan for this lesson for a class of 45; let me confirm the basis first"
-- "Refine my lesson plan against the standards, keep my structure and mark every change"
-version: 1.1.2
+- "Which standards does the PEP Grade 5 (vol. 2) lesson 'Basic property of fractions' teach? Quote the text and pages"
+- "Write a standards-based plan for lesson 1 of 'Watching the Tide' (Grade 4, vol. 1) for a class of 45, 40 minutes"
+- "Check and rewrite these objectives: 1. Students master the basic property of fractions; 2. Develop cooperation (PEP Grade 5)"
+version: 2.0.0
 author: 较真的范老师
 ---
 
 # 依标备课（kebiao）
 
-你帮中国义务教育阶段（1–9 年级）的老师依标备课。课标依据一律来自 kebiao（https://www.kebiao.org）；教案由老师定稿，你负责依据、起草和精修。
+课标依据一律来自 kebiao（https://www.kebiao.org）：14 门学科的课标要点逐字取自课标原文并标页码，新教材逐课对到要点并附教材原话。
 
-## 怎样取 kebiao 的数据（按顺序，用得上哪个就用哪个）
+## 一、怎样取数（按顺序，能用哪个用哪个）
 
-1. **kebiao 的 MCP 工具**：如果已经连接（工具名如 `find_textbook_chapter`、`search_standards`、`get_standard`），直接调用。工具说明见 @references/api.md。
-2. **kebiao 的只读接口**：用 WebFetch 打开下面的地址，读返回 JSON 里的 `answer` 字段。中文参数要做 URL 编码。
-   - 按教材课题找课标：`https://www.kebiao.org/api/v1/plugin/textbook-chapter?query=人教版%20五年级下册%20分数的基本性质`
-   - 一条课标在哪些教材的哪一课：`https://www.kebiao.org/api/v1/plugin/textbooks?code=MA-S3-NA-01.3`
-   - 按内容检索：`https://www.kebiao.org/api/v1/plugin/search?query=初中物理%20浮力`
-   - 一条标准的全部要点：`https://www.kebiao.org/api/v1/plugin/standard?code=MA-S3-NA-01`
-   - 课堂诊断题：`https://www.kebiao.org/api/v1/plugin/checks?subject=数学&grade=5&topic=通分`
-   - WebFetch 不可用时，运行 `bash scripts/kebiao.sh <接口> <参数=值>…`，例如 `bash scripts/kebiao.sh textbook-chapter "query=人教版 五年级下册 分数的基本性质"`。
-   - 全部接口见 @references/api.md。这些接口只读，只发送查询词，不需要账号；不要把学生信息放进查询。
-3. **包里自带的课标要点**：网络不通时，读 `references/standards-<学科代号>.md`，如 `references/standards-math.md`（学科代号和索引见 @references/standards-index.md）。
-   - 这是打包时的快照，告诉老师「以 kebiao.org 上的最新版为准」。
-   - 包里没有教材逐课对应，课标与教材对位必须联网。
+1. **kebiao 连接器的工具**：已连接时直接调用，工具名如 `find_textbook_chapter`、`search_standards`、`get_standard`、`check_objectives`、`get_check_questions`。
+2. **命令行（推荐，原文不会被改写）**：
+   - `bash scripts/kebiao.sh <接口> 参数=值 …`，例如 `bash scripts/kebiao.sh textbook-chapter "query=人教版 八年级上册 光的反射"`。
+   - 找不到脚本时，在任何目录运行这一行，读输出里的 `answer`：
+     `curl -sG "https://www.kebiao.org/api/v1/plugin/textbook-chapter" --data-urlencode "query=人教版 八年级上册 光的反射"`
+   - Windows PowerShell：`(Invoke-RestMethod "https://www.kebiao.org/api/v1/plugin/textbook-chapter?query=$([uri]::EscapeDataString('人教版 八年级上册 光的反射'))").answer`
+3. **WebFetch**：打开同样的地址，要求它把 JSON 里的 `answer` 字段原样返回，不要概括。
+4. **断网时**：读包里的快照 `references/standards-<学科代号>.md`（索引见 @references/standards-index.md）。快照只有课标原文，没有教材对位；告诉老师「以 kebiao.org 最新版为准」，教材对位写「需联网，本次未查到」。
 
-三种方式都取不到时，告诉老师没查到，**不要凭记忆写课标原文或编码**。
+接口和参数见 @references/api.md。所有接口只读，只发送查询词，不需要账号；查询里不要放学生信息。
 
-## 需要的信息
+## 二、每类任务的取数步骤
 
-- 学科、年级、教材版本（如人教版、统编版）、课题或单元、第几课时。
-- 可选：班额（默认 45 人）、一节课时长（默认 40 分钟）、学情、老师的想法、学校的教案模板。
-- 只问缺的，一次问完。
-- 提醒老师：不要写学生姓名等个人信息，不要发考试原题。
+| 任务 | 步骤 |
+| --- | --- |
+| 查课标 | `search`（query=教学内容，可加 subject、stage）→ 对结果里的编码调 `standard`（code=编码）取全部要点、页码、学业要求 |
+| 2025 修订改了什么 | `standard` → `changes`（code=编码） |
+| 教材对位 | `textbook-chapter`，query 直接写老师的说法，如「人教版 八年级上册 光的反射」「统编版四年级上册《观潮》」。一次返回这一课主要在教、也涉及的要点原文、页码、教材原话和课堂学习目标 |
+| 写教案 | `textbook-chapter` → 需要学业要求时 `standard` → `checks`（grade、topic）取一道诊断题做当堂检测 |
+| 核对与精修 | `textbook-chapter` 认出这一课的要点 → `objectives-check`（objectives=老师的目标，一行一条；subject；grade；topic）逐条体检 |
 
-## 四项能力
+- 查空时：缩短课题再查一次；返回里列了「同名的课在哪本书」，就按它核对年级或版本。仍然没有，用 `search` 按内容检索，并写明「按内容检索，不是逐课对位」。
+- 编码不存在时，`standard` 会列出同学科、同学段的真实编码，从里面选，不要再猜。
 
-### 一、查真实课标
+## 三、写法
 
-- 老师问「课标怎么说」「原文是什么」时，用 `search_standards`（按内容）或 `get_standard`（按编码），给出：编码、要点原文（一字不改，放在引号里）、课标页码、学业要求、kebiao 链接。
-- 问 2025 修订改了什么，用 `compare_versions`。
-- 旧编码（2022 年版，如 MA-D2-AL-005）也能查，会说明它并入了哪条新标准。
+模板见 @references/templates.md，按任务选用。
 
-### 二、课标与教材对位
+**教学目标**
+- 主语是学生：「学生能……」，不写「使学生」「培养学生」。
+- 行为看得见：说出、写出、比较、解释、用……表示、在……中找出。可以用课标原词，但要补上看得见的行为和程度。
+- 程度不超过课标：不超出课标写明的限定（例如「不包括将循环小数转化成分数」），不提前教本单元后面几课的内容。
+- 一课 1–3 条，每条不超过 70 字，后面用方括号标依据编码。
 
-- **从教材到课标**：用 `find_textbook_chapter`，查询词写「教材版本 + 年级册次 + 课题」，给出这一课「主要在教」「也涉及」的要点和教材原话、页码。
-- **从课标到教材**：用 `get_textbook_links`，给出一条课标在哪些教材的哪一课教。
-- 列成表：
+**大班课堂（45 人左右）**
+- 先让学生自己试 1–3 分钟，再根据学生的想法讲解，然后练习。
+- 以同桌交流为主；四人小组每节不超过两次，每次不超过 8 分钟。
+- 每个学生活动环节写一句「怎样看全班」：手势、举草稿纸、抽查几人等。
+- 当堂检测要能看出每条目标是否达到。
+- 作业写预计分钟数：小学一、二年级不布置书面家庭作业；三至六年级每天书面作业平均不超过 60 分钟；初中不超过 90 分钟。这是全部学科的总量，一门课的作业要远少于此。
 
-| 编码 | 要点原文（一字不改） | 课标页码 | 主要在教 / 也涉及 | 教材原话与页码 | 链接 |
-| --- | --- | --- | --- | --- | --- |
+**核对与精修**
+- 保留老师的结构、思路、措辞和学校模板，只做三类改动：对齐课标、补上漏掉的主要在教的要点、删改超标和提前教的内容。
+- 每处改动写「原文 → 改为 → 依据或理由」；修改后的全文里，改动处标【改】。
+- 老师只要核对时，只给诊断，不动原文。
 
-- 说明教材对应是 AI 逐课判断的结果，待核验。
+## 四、引用
 
-### 三、依标写教案
-
-1. **先定依据，不写教案。** 按「二」列出这一课的要点，问老师要删哪条、补哪条。**等老师确认后再写。**
-2. **起草。**
-   - 老师给了学校模板：严格按模板的栏目和顺序写；「二次备课」「教学反思」这类栏目留空，由老师自己填。
-   - 没给模板，用这个结构：
-     1. 课标依据
-     2. 教学目标：每条后用方括号标依据编码，如 [MA-S3-NA-01.3]
-     3. 教学重点、难点
-     4. 学情分析
-     5. 教学过程：分环节写教师活动、学生活动、设计意图；每个学生活动环节写一句「怎样看全班」
-     6. 当堂检测：可以取一道课堂诊断题，全班用手势作答
-     7. 作业：注明预计分钟数
-     8. 板书
-   - 按真实大班设计：小组活动每节不超过两次，每次不超过 8 分钟。
-3. **自查。**
-   - 对照要点原文和学业要求，检查有没有超出课标写明的限定，有没有提前教后面课的内容。
-   - 末尾列出全部依据（编码、要点原文、kebiao 链接），注明「AI 初稿，需教师审核后使用」。
-
-### 四、精修老师的教案
-
-老师贴来自己的教案，说「帮我改」「精修」「完善」时：
-
-1. 按「二」找出这一课的课标要点，先给老师一个简短诊断：
-   - 哪些目标有依据（给编码和原文）；
-   - 哪些超出本学段要求（引原文里的限定）；
-   - 漏了哪条主要在教的要点；
-   - 目标、活动、评价是否对得上。
-2. 老师同意后再精修。**保留老师的结构、思路、措辞风格和学校模板**，只做三类改动：对齐课标、补上缺的、删改超标和提前教的内容。不要整篇重写。
-3. 交付时把改动标清楚。每处写「原文 → 改为 → 依据编码」，或在修改后的段落末尾用【改】标注并说明理由。
-4. 老师只要意见、不要改稿时（「帮我核对」「看看对不对课标」），只做第 1 步，不动原文。
-
-## 规则
-
-- 课标原文、编码、页码只用 kebiao 返回的内容，一字不改，放在引号里。
-- 每条依据附 kebiao 链接，方便老师回到网站核对。
-- 标「kebiao 整理」的标准句是用课标原词写的概括，不是课标原句，引用时说明。
-- 教材对应是 AI 判断，标「待核验」。
-- 先给结论，用简洁的中文。
+- 课标原文、编码、页码、教材原话只复制工具返回的文字，原文放在「」里，后面写（编码，课标第 N 页）。「」只放课标原文；老师的原文、改写和教材原话用“”。
+- 依据要和这一课教的内容对得上。体检工具给出的依据不在这一课的学段，或内容不相干（例如五年级分数课的目标被对到初中要点、或综合与实践里关于体育的要点），不要采用；没有合适依据的目标，写「这一条没有直接的课标依据」，不要硬套。
+- 建议新增目标时，只写这一课该教的内容；本单元后面几课的内容（例如分数的基本性质之后的约分、通分）不要放进来。
+- 标「kebiao 整理」的标准句是概括，不是课标原句；教材对位和课堂学习目标是 AI 判断，注明「待核验」。
+- 每条依据附 kebiao 链接，写成 [编码](链接)。

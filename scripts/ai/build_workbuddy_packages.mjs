@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Builds the WorkBuddy skill and expert zips from docs/ai/workbuddy plus a snapshot of the 课标 要点.
-// Individuals may publish skills and experts on WorkBuddy, not connectors, so the expert carries its own
-// .mcp.json and the skill reads kebiao over WebFetch/curl, with references/standards as the offline copy.
+// The kebiao connector (docs/ai/workbuddy/connector) is its own asset. The expert declares no MCP dependency:
+// it uses the connector's tools when a teacher has connected it, else reads kebiao over curl/WebFetch,
+// with references/standards-*.md as the offline copy.
 // Usage: node scripts/ai/build_workbuddy_packages.mjs [--out <dir>]   (needs `zip` on PATH)
 import { execFileSync } from 'node:child_process'
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
@@ -80,7 +81,7 @@ const expertDir = join(BUILD, 'expert', expertName)
 cpSync(join(SRC, 'expert', expertName), expertDir, { recursive: true })
 cpSync(skillDir, join(expertDir, 'skills', skillName), { recursive: true })
 const expertZip = join(OUT, `workbuddy-expert-${expertName}.zip`)
-for (const required of ['.codebuddy-plugin/plugin.json', '.mcp.json', `agents/${expertName}.md`, 'avatars/expert.png']) {
+for (const required of ['.codebuddy-plugin/plugin.json', `agents/${expertName}.md`, 'avatars/expert.png', 'README.md']) {
     if (!existsSync(join(expertDir, required))) throw new Error(`expert is missing ${required}`)
 }
 const expertSize = zipDir(join(BUILD, 'expert'), expertName, expertZip, ['-x', '*/avatars/expert.svg'])
