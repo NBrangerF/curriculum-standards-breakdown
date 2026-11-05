@@ -5,6 +5,7 @@
 // - modern clients (2026-07-28) send the version in every request's _meta and the MCP-* headers, with no handshake.
 import type { Context } from 'hono'
 import { KEBIAO_TOOLS, ToolInputError, findTool, runTool, SITE, type ToolContext } from './ai-tools.js'
+import type { McpMetrics } from './http.js'
 
 const MODERN_VERSION = '2026-07-28'
 const LEGACY_VERSIONS = ['2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05']
@@ -20,6 +21,7 @@ const LIST_CACHE = { ttlMs: 3_600_000, cacheScope: 'public' }
 const META = {
     version: 'io.modelcontextprotocol/protocolVersion',
     capabilities: 'io.modelcontextprotocol/clientCapabilities',
+    clientInfo: 'io.modelcontextprotocol/clientInfo',
     serverInfo: 'io.modelcontextprotocol/serverInfo'
 }
 const INSTRUCTIONS = [
@@ -133,6 +135,21 @@ const isModern = (c: Context, message: JsonRpcMessage) => {
 // only a malformed Origin is refused.
 const badOrigin = (origin: string | undefined) => Boolean(origin) && !/^(?:null|[a-z][a-z0-9+.-]*:\/\/[^\s]+)$/iu.test(origin!)
 
+// The request log line says which tools were called and by which app, so real use can be told from directory crawlers.
+// Legacy clients name themselves in initialize, modern ones in every request's _meta; arguments are never logged.
+const clip = (value: unknown, max = 80) => typeof value === 'string' && value ? value.slice(0, max) : null
+function describeCall(c: Context, messages: JsonRpcMessage[]): McpMetrics {
+    const info = messages
+        .map(m => m.method === 'initialize' ? m.params?.clientInfo : (m.params?._meta as Record<string, unknown> | undefined)?.[META.clientInfo])
+        .find(value => value && typeof value === 'object') as { name?: unknown, version?: unknown } | undefined
+    return {
+        methods: messages.map(m => clip(m.method, 40) ?? 'response'),
+        tools: messages.filter(m => m.method === 'tools/call').map(m => clip(m.params?.name, 40) ?? ''),
+        client: info ? [clip(info.name), clip(info.version, 40)].filter(Boolean).join(' ') || null : null,
+        user_agent: clip(c.req.header('user-agent'), 120)
+    }
+}
+
 export async function handleMcp(c: Context, ctx: ToolContext) {
     if (badOrigin(c.req.header('origin'))) return c.json(failure(null, -32600, 'Forbidden origin'), 403)
     if (c.req.method === 'GET') {
@@ -152,6 +169,7 @@ export async function handleMcp(c: Context, ctx: ToolContext) {
     if (!messages.length || messages.length > MAX_BATCH || messages.some(m => !m || typeof m !== 'object' || m.jsonrpc !== '2.0')) {
         return c.json(failure(null, -32600, 'Invalid Request'), 400)
     }
+    c.set('mcpMetrics', describeCall(c, messages))
     if (!batch && isModern(c, messages[0])) return answerModern(c, messages[0], ctx)
     // modern requests travel one per POST; batches belong to the 2025-03-26 era
     if (batch && messages.some(m => isModern(c, m))) return c.json(failure(null, -32600, 'Invalid Request: batches are not allowed in protocol 2026-07-28'), 400)

@@ -1936,9 +1936,9 @@ test('MCP transport handles notifications, batches and bad requests', async () =
 })
 
 // a 2026-07-28 request: version and capabilities in _meta, mirrored in the MCP-* headers, no handshake
-async function modern(method: string, params: Record<string, unknown> = {}, options: { id?: number | null, headers?: Record<string, string>, version?: string } = {}) {
+async function modern(method: string, params: Record<string, unknown> = {}, options: { id?: number | null, headers?: Record<string, string>, version?: string, meta?: Record<string, unknown> } = {}) {
     const version = options.version ?? '2026-07-28'
-    const meta = { 'io.modelcontextprotocol/protocolVersion': version, 'io.modelcontextprotocol/clientCapabilities': {} }
+    const meta = { 'io.modelcontextprotocol/protocolVersion': version, 'io.modelcontextprotocol/clientCapabilities': {}, ...options.meta }
     return publicApp.request('/mcp', {
         method: 'POST',
         headers: { 'content-type': 'application/json', accept: 'application/json, text/event-stream', 'mcp-protocol-version': version, 'mcp-method': method, ...(method === 'tools/call' ? { 'mcp-name': String(params.name) } : {}), ...options.headers },
@@ -1998,6 +1998,29 @@ test('MCP 2026-07-28 requests are served statelessly, with discover and cache hi
     // any well-formed Origin may call (desktop apps send app:// or null); a malformed one is refused
     assert.equal((await publicApp.request('/mcp', { method: 'POST', headers: { 'content-type': 'application/json', origin: 'null' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'ping' }) })).status, 200)
     assert.equal((await publicApp.request('/mcp', { method: 'POST', headers: { 'content-type': 'application/json', origin: 'not an origin' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'ping' }) })).status, 403)
+})
+
+test('the request log names the MCP tools and the app that called them, never the arguments', async () => {
+    const lines: string[] = []
+    const log = console.log
+    const was = process.env.CURRICULUM_ENABLE_REQUEST_LOGS
+    process.env.CURRICULUM_ENABLE_REQUEST_LOGS = 'true'
+    console.log = (line: unknown) => { lines.push(String(line)) }
+    try {
+        await mcp({ jsonrpc: '2.0', id: 1, method: 'initialize', params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'claude-ai', version: '0.1.0' } } })
+        await mcp({ jsonrpc: '2.0', id: 2, method: 'tools/call', params: { name: 'search_standards', arguments: { query: '光的反射' } } })
+        await modern('tools/call', { name: 'get_standard', arguments: { code: 'MA-S3-NA-01.3' } }, { meta: { 'io.modelcontextprotocol/clientInfo': { name: 'Cursor', version: '2.0' } }, headers: { 'user-agent': 'Cursor/2.0' } })
+    } finally {
+        console.log = log
+        if (was === undefined) delete process.env.CURRICULUM_ENABLE_REQUEST_LOGS
+        else process.env.CURRICULUM_ENABLE_REQUEST_LOGS = was
+    }
+    const events = lines.map(line => JSON.parse(line)).filter(e => e.event === 'api_request' && e.path === '/mcp')
+    assert.equal(events.length, 3)
+    assert.deepEqual(events[0].mcp, { methods: ['initialize'], tools: [], client: 'claude-ai 0.1.0', user_agent: null })
+    assert.deepEqual(events[1].mcp.tools, ['search_standards'])
+    assert.ok(!lines.join('\n').includes('光的反射'))
+    assert.deepEqual(events[2].mcp, { methods: ['tools/call'], tools: ['get_standard'], client: 'Cursor 2.0', user_agent: 'Cursor/2.0' })
 })
 
 test('find_textbook_chapter reads a lesson the way teachers name it', async () => {

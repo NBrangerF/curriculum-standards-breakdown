@@ -10,7 +10,17 @@ export type ApiBindings = {
         accessTier: AccessTier
         apiKeyId: string
         aiMetrics?: AiMetrics
+        mcpMetrics?: McpMetrics
     }
+}
+
+/** what an /mcp request asked for and which app sent it; the tool arguments (what a teacher typed) are never kept */
+export interface McpMetrics {
+    methods: string[]
+    tools: string[]
+    /** the app's own name and version, from clientInfo */
+    client: string | null
+    user_agent: string | null
 }
 
 export interface AiMetrics {
@@ -113,6 +123,7 @@ interface MetricsEvent {
     tier: AccessTier
     api_key_id: string
     ai?: AiMetrics
+    mcp?: McpMetrics
 }
 
 type DurableMetricsEvent = Omit<MetricsEvent, 'request_id'>
@@ -334,6 +345,8 @@ export const observabilityMiddleware: MiddlewareHandler<ApiBindings> = async (c,
     }
     const aiMetrics = c.get('aiMetrics')
     if (aiMetrics) event.ai = aiMetrics
+    const mcpMetrics = c.get('mcpMetrics')
+    if (mcpMetrics) event.mcp = mcpMetrics
     await recordMetricsEvent(event)
 
     if (process.env.CURRICULUM_ENABLE_REQUEST_LOGS === 'true') {
