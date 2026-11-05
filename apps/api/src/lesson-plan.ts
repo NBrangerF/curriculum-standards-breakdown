@@ -621,7 +621,8 @@ async function draftChecked<T>(prompt: string, adapter: StructuredLlmAdapter<T>,
     const elapsed = performance.now() - started
     if (!first.output || !problems.length || elapsed > REVISE_BEFORE_MS) return result
     const fix = [prompt, `你上一次写的（JSON）：\n${JSON.stringify(first.output)}`, `自查发现下面的问题。只改这些地方，其余内容保持不变，返回完整的 JSON：\n${problems.map(item => `- ${item}`).join('\n')}`].join('\n\n')
-    const second = await runStructuredLlm(fix, adapter, { ...options, timeoutMs: Math.min(options.timeoutMs ?? DRAFT_TIMEOUT_MS, Math.max(5000, 105000 - elapsed)) })
+    // a whole number: runStructuredLlm takes only an integer timeout, and anything else falls back to its 3.5 s default
+    const second = await runStructuredLlm(fix, adapter, { ...options, timeoutMs: Math.min(options.timeoutMs ?? DRAFT_TIMEOUT_MS, Math.max(5000, Math.round(105000 - elapsed))) })
     const kept = Boolean(second.output) && problemsOf(second.output!).length <= problems.length
     return { ...result, output: kept ? second.output : first.output, self_check: { sent: problems.length, kept, status: second.status }, usage: addUsage(first.usage, second.usage), latency_ms: Math.round(performance.now() - started) }
 }
