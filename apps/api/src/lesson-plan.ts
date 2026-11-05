@@ -598,8 +598,9 @@ const practiceAdapter = (frame: Frame, codes: Set<string>): StructuredLlmAdapter
     validate: value => validatePractice(value, frame, codes)
 })
 
-// revised: how many problems the self-check sent back (0 when the first draft passed or the fix was not kept)
-export type DraftResult<T> = { status: LlmStatus, output: T | null, usage: LlmUsage | null, latency_ms: number, model: string | null, revised?: number }
+// self_check: the problems sent back to the model, whether its fix was kept, and how that second call ended
+export type SelfCheck = { sent: number, kept: boolean, status: LlmStatus }
+export type DraftResult<T> = { status: LlmStatus, output: T | null, usage: LlmUsage | null, latency_ms: number, model: string | null, self_check?: SelfCheck }
 
 // most drafts finish in 15–35 s; a slow provider answer can pass 45 s, so wait well beyond that
 // (the API function itself may run 120 s, see vercel.json)
@@ -621,8 +622,8 @@ async function draftChecked<T>(prompt: string, adapter: StructuredLlmAdapter<T>,
     if (!first.output || !problems.length || elapsed > REVISE_BEFORE_MS) return result
     const fix = [prompt, `你上一次写的（JSON）：\n${JSON.stringify(first.output)}`, `自查发现下面的问题。只改这些地方，其余内容保持不变，返回完整的 JSON：\n${problems.map(item => `- ${item}`).join('\n')}`].join('\n\n')
     const second = await runStructuredLlm(fix, adapter, { ...options, timeoutMs: Math.min(options.timeoutMs ?? DRAFT_TIMEOUT_MS, Math.max(5000, 105000 - elapsed)) })
-    const kept = second.output && problemsOf(second.output).length <= problems.length
-    return { ...result, output: kept ? second.output : first.output, revised: kept ? problems.length : 0, usage: addUsage(first.usage, second.usage), latency_ms: Math.round(performance.now() - started) }
+    const kept = Boolean(second.output) && problemsOf(second.output!).length <= problems.length
+    return { ...result, output: kept ? second.output : first.output, self_check: { sent: problems.length, kept, status: second.status }, usage: addUsage(first.usage, second.usage), latency_ms: Math.round(performance.now() - started) }
 }
 
 // each failed check as an order to the model (the checks' own messages are advice to the teacher)
