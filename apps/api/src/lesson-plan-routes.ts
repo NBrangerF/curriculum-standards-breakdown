@@ -12,7 +12,7 @@ import { alignLessons, type AlignPoint } from './textbook-align.js'
 import { checkObjectives, splitObjectives, type CheckPoint } from './objectives-check.js'
 import { writeLessonObjectives, type ObjectivePoint } from './lesson-objectives.js'
 import type { ApiBindings } from './http.js'
-import { checkPlan, checkPractice, checkTeacherPlan, checkUnit, DEFAULT_CLASS_SIZE, draftFrame, draftPractice, draftProcess, draftReading, draftTalk, draftTrial, draftUnit, LESSON_TYPES, limitsOf, rankPoints, readTest, checkTest, splitTest, mergeReads, sanitiseProcess, readTeacherPlan, sanitiseFrame, v2SubjectSlug, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type PointLink, type PointLinks, type SubjectNote } from './lesson-plan.js'
+import { checkPlan, notesChecks, checkPractice, checkTeacherPlan, checkUnit, DEFAULT_CLASS_SIZE, draftFrame, draftPractice, draftProcess, draftReading, draftTalk, draftTrial, draftUnit, LESSON_TYPES, limitsOf, rankPoints, readTest, checkTest, splitTest, mergeReads, sanitiseProcess, readTeacherPlan, sanitiseFrame, v2SubjectSlug, type DraftInput, type PlanIndicator, type PlanLesson, type PlanStandard, type PointLink, type PointLinks, type SubjectNote } from './lesson-plan.js'
 import type { V2Store } from './v2-store.js'
 
 type Deps = {
@@ -59,7 +59,7 @@ const cleanTitle = (title: string) => title.replace(/^(?:第[一二三四五六�
 
 const BaseRequestSchema = z.object({
     lesson: z.object({
-        title: z.string().trim().min(1).max(60),
+        title: z.string().trim().min(1).max(120), // 国家平台 titles can run past 60 characters
         unit_title: z.string().trim().max(60).optional(),
         textbook_title: z.string().trim().max(40).optional(),
         edition_name: z.string().trim().max(40).optional(),
@@ -104,7 +104,7 @@ export const DraftRequestSchema = BaseRequestSchema.extend({
 })
 export const PickRequestSchema = z.object({
     lesson: z.object({
-        title: z.string().trim().min(1).max(60),
+        title: z.string().trim().min(1).max(120),
         unit_title: z.string().trim().max(60).optional(),
         textbook_title: z.string().trim().max(40).optional(),
         subject_slug: z.string().trim().max(20),
@@ -597,7 +597,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
             const run = await draftFrame(input)
             c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
             if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `draft_${run.status}`, run.status === 'disabled' ? 'AI 起草暂不可用。' : run.status === 'timeout' ? 'AI 这次写得太久，没有完成。请再试一次。' : 'AI 这次没有写出可用的草稿。请再试一次。')
-            return deps.ok(c, version as never, { step: 'frame', frame: run.output, checks: checkPlan(run.output, null, input), evidence, privacy, model: run.model, latency_ms: run.latency_ms })
+            return deps.ok(c, version as never, { step: 'frame', frame: run.output, checks: [...notesChecks(input.teacherNotes), ...checkPlan(run.output, null, input)], evidence, privacy, model: run.model, latency_ms: run.latency_ms })
         }
 
         const frame = sanitiseFrame(body.frame, new Set(input.indicators.map(item => item.code)))
@@ -605,7 +605,7 @@ export function registerLessonPlanRoutes(app: Hono<ApiBindings>, deps: Deps) {
         const run = await draftProcess(input, frame)
         c.set('aiMetrics', { feature: 'lesson_plan', used: run.status === 'ok', status: run.status, model: run.model, protocol: 'chat_completions', latency_ms: run.latency_ms, redaction_count: privacy.redaction_count, input_tokens: run.usage?.input_tokens || 0, output_tokens: run.usage?.output_tokens || 0, total_tokens: run.usage?.total_tokens || 0 })
         if (!run.output) return deps.apiError(c, run.status === 'disabled' ? 503 : 502, `draft_${run.status}`, run.status === 'disabled' ? 'AI 起草暂不可用。' : run.status === 'timeout' ? 'AI 这次写得太久，没有完成。请再试一次。' : 'AI 这次没有写出可用的教学过程。请再试一次。')
-        return deps.ok(c, version as never, { step: 'process', frame, process: run.output, checks: checkPlan(frame, run.output, input), evidence, privacy, model: run.model, latency_ms: run.latency_ms })
+        return deps.ok(c, version as never, { step: 'process', frame, process: run.output, checks: [...notesChecks(input.teacherNotes), ...checkPlan(frame, run.output, input)], evidence, privacy, model: run.model, latency_ms: run.latency_ms })
     })
 
     // 核验我的教案: the teacher's own (or another AI's) plan, read and checked against the picked 要点

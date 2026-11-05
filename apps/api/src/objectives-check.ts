@@ -124,6 +124,9 @@ function adapter(objectives: string[], input: ObjectiveCheckInput): StructuredLl
                 let rewrite = String(answer.rewrite || '').trim().slice(0, 120)
                 if (rewrite && (!rewrite.startsWith('学生') || VAGUE.test(rewrite.slice(0, 8)) || squash(rewrite) === squash(text))) rewrite = ''
                 const flags = ruleFlags(text, basis.map(code => points.get(code)!.text), input.unitLessons)
+                const missing = [...new Set((Array.isArray(answer.missing) ? answer.missing : []).map(String).filter(part => PARTS.includes(part)))]
+                // a good objective is left as the teacher wrote it: no rewrite when it matches and lacks nothing
+                if (level === 'match' && !missing.length && !flags.length) rewrite = ''
                 if (!basis.length) flags.unshift({ kind: 'no_basis', message: `在这${input.unit ? '个单元' : '节课'}的要点里找不到这条目标的依据。如果它是过程或素养目标（如分类讨论、合作交流），可以保留，但要写清在哪个活动里、学生做出什么；如果它只是一项活动，就不算目标。` })
                 return {
                     text,
@@ -131,7 +134,7 @@ function adapter(objectives: string[], input: ObjectiveCheckInput): StructuredLl
                     from,
                     level,
                     level_note: level ? String(answer.level_note || '').trim().slice(0, 80) : '',
-                    missing: [...new Set((Array.isArray(answer.missing) ? answer.missing : []).map(String).filter(part => PARTS.includes(part)))],
+                    missing,
                     rewrite,
                     flags
                 }
