@@ -18,7 +18,10 @@ import {
 import { redactSensitiveText } from '../src/ai-privacy.js'
 import { judgeSearchCandidates, searchJudgeCache } from '../src/search-judge.js'
 import { parsePlanWithLlm } from '../src/plan-llm.js'
-import { normTitle, parseLessonQuery } from '../src/ai-tools.js'
+import { normTitle, objectiveCheckPoints, parseLessonQuery } from '../src/ai-tools.js'
+import { createV2Store } from '../src/v2-store.js'
+import { createCheckStore } from '../src/checks.js'
+import { resolveDataRoot } from '../src/config.js'
 import vercelHandler from '../../../api/v1/[...path].js'
 
 const dataRoot = resolve(process.cwd(), '../../data/internal')
@@ -2200,4 +2203,13 @@ test('MCP search tools cut an oversized query instead of searching all of it', a
     const body = { jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'search_standards', arguments: { query: '分数'.repeat(50000) } } }
     const reply = await json(await mcp(body))
     assert.equal(reply.result.isError, false)
+})
+
+test('目标体检 keeps the 要点 it compares against within the grade asked for', async () => {
+    const ctx = { repository: new FileCurriculumRepository(publicDataRoot), textbookRepository: new FileTextbookRepository(publicDataRoot), v2: createV2Store(resolveDataRoot()), checks: createCheckStore(resolveDataRoot()) }
+    // 「通分」 is a later lesson in grade 5 and, as a word, a 初中 分式 要点; the 初中 one must not be offered
+    const { points, taught } = await objectiveCheckPoints({ objectives: ['使学生掌握分数的基本性质，并能熟练通分'], slug: 'math', grade: 5, topic: '分数的基本性质', codes: [] }, ctx)
+    assert.ok(taught.includes('MA-S3-NA-01.3'))
+    assert.ok(points.some(point => point.code === 'MA-S3-NA-01.3'))
+    assert.ok(points.every(point => !point.code.startsWith('MA-S4-')), points.map(point => point.code).join(','))
 })

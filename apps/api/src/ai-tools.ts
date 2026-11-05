@@ -189,6 +189,46 @@ export function parseLessonQuery(raw: string, subjectWords: string[]): LessonQue
     return q
 }
 
+// The 要点 a teacher's objectives are checked against: the codes given, or the lesson's own 要点 (found by its title
+// in the lessons kebiao read one by one), topped up by a search limited to the grade asked for.
+export async function objectiveCheckPoints(input: { objectives: string[], slug: string, grade: number | null, topic: string, codes?: unknown }, ctx: ToolContext) {
+    // the 要点 to check against: the codes given, or else the standards the topic (or the objectives) find
+    const given: string[] = (Array.isArray(input.codes) ? input.codes : []).map(code => str(code).slice(0, 24)).filter(code => V2_CODE.test(code)).slice(0, 6)
+    const taught: string[] = given.filter(code => /\.\d+$/u.test(code))
+    // a lesson title is looked up in the lessons kebiao read one by one: its 主要在教 要点 are what it should teach
+    if (!given.length && input.topic.length >= 2) {
+        const index = await ctx.v2.textbookChapters()
+        const alignment = await ctx.v2.lessonAlignment()
+        const name = input.topic.replace(/\s+/gu, '')
+        const hit = alignment.lessons.find(([edition, , , title]) => {
+            const book = index.books[edition] || alignment.platform_books?.[edition]
+            if (book && ((['art', 'music'].includes(book[1]) ? 'arts' : book[1]) !== input.slug || (input.grade && book[2] !== input.grade))) return false
+            return title.replace(/\s+/gu, '').includes(name)
+        })
+        for (const [code, relation] of hit?.[6] || []) if (relation === 'T' || given.length < 4) given.push(code)
+        taught.push(...(hit?.[6] || []).filter(match => match[1] === 'T').map(match => match[0]))
+    }
+    const searched = given.length >= 3 ? [] : (await ctx.repository.smartSearchStandards({ query: (given.length ? input.objectives.join('；') : input.topic || input.objectives.join('；')).slice(0, 300), subjects: [input.slug], ...(input.grade ? { grade_bands: [BAND_OF_GRADE(input.grade)] } : {}), limit: given.length ? 2 : 4 })).results.map(r => r.code)
+    // the search ranks by words, so the grade asked for is enforced here: 五年级「通分」 must not pull in 初中 分式
+    const inGrade = []
+    for (const code of searched) {
+        const found = await ctx.v2.find(code)
+        const stage = found?.subject.stages.find(st => st.stage_code === found.standard.stage_code)
+        if (found && (!input.grade || !stage || stage.grades.includes(input.grade))) inGrade.push(code)
+    }
+    const lessonCodes = given.concat(inGrade)
+    const standardCodes = [...new Set(lessonCodes.map(code => code.replace(/\.\d+$/u, '')))]
+    const points: CheckPoint[] = []
+    for (const code of standardCodes) {
+        const found = await ctx.v2.find(code)
+        if (!found) continue
+        for (const item of found.standard.indicators || []) {
+            if (!lessonCodes.some(c => c.startsWith(`${found.standard.code}.`)) || lessonCodes.includes(item.code)) points.push({ code: item.code, text: String(item.text || ''), header: `${found.standard.level2} · ${stageLabel(found.standard, found.subject)}` })
+        }
+    }
+    return { points, taught }
+}
+
 export const KEBIAO_TOOLS: KebiaoTool[] = [
     {
         name: 'list_subjects',
@@ -559,32 +599,7 @@ export const KEBIAO_TOOLS: KebiaoTool[] = [
             const slug = await subjectSlug(args.subject, ctx)
             const grade = gradeOf(args.grade)
             const topic = str(args.topic).slice(0, 60)
-            // the 要点 to check against: the codes given, or else the standards the topic (or the objectives) find
-            const given: string[] = (Array.isArray(args.codes) ? args.codes : []).map(code => str(code).slice(0, 24)).filter(code => V2_CODE.test(code)).slice(0, 6)
-            const taught: string[] = given.filter(code => /\.\d+$/u.test(code))
-            // a lesson title is looked up in the lessons kebiao read one by one: its 主要在教 要点 are what it should teach
-            if (!given.length && topic.length >= 2) {
-                const index = await ctx.v2.textbookChapters()
-                const alignment = await ctx.v2.lessonAlignment()
-                const name = topic.replace(/\s+/gu, '')
-                const hit = alignment.lessons.find(([edition, , , title]) => {
-                    const book = index.books[edition] || alignment.platform_books?.[edition]
-                    if (book && ((['art', 'music'].includes(book[1]) ? 'arts' : book[1]) !== slug || (grade && book[2] !== grade))) return false
-                    return title.replace(/\s+/gu, '').includes(name)
-                })
-                for (const [code, relation] of hit?.[6] || []) if (relation === 'T' || given.length < 4) given.push(code)
-                taught.push(...(hit?.[6] || []).filter(match => match[1] === 'T').map(match => match[0]))
-            }
-            const lessonCodes = given.length >= 3 ? given : given.concat((await ctx.repository.smartSearchStandards({ query: (given.length ? objectives.join('；') : topic || objectives.join('；')).slice(0, 300), subjects: [slug!], ...(grade ? { grade_bands: [BAND_OF_GRADE(grade)] } : {}), limit: given.length ? 2 : 4 })).results.map(r => r.code))
-            const standardCodes = [...new Set(lessonCodes.map(code => code.replace(/\.\d+$/u, '')))]
-            const points: CheckPoint[] = []
-            for (const code of standardCodes) {
-                const found = await ctx.v2.find(code)
-                if (!found) continue
-                for (const item of found.standard.indicators || []) {
-                    if (!lessonCodes.some(c => c.startsWith(`${found.standard.code}.`)) || lessonCodes.includes(item.code)) points.push({ code: item.code, text: String(item.text || ''), header: `${found.standard.level2} · ${stageLabel(found.standard, found.subject)}` })
-                }
-            }
+            const { points, taught } = await objectiveCheckPoints({ objectives, slug: slug!, grade, topic, codes: args.codes }, ctx)
             if (!points.length) return { data: { objectives, points: [] }, text: '没有找到可对照的课标要点；请给出课题，或用 search_standards 找到要点编码后放进 codes。' }
             const run = await checkObjectives(objectives, { line: `${grade ? `${grade}年级` : ''}${slug}${topic ? `，课题「${topic}」` : ''}`, subject_slug: slug!, points: points.slice(0, 24), taught, unitLessons: [] })
             if (!run.output) throw new Error('AI 这次没有读完这些目标，请再试一次。')
