@@ -385,6 +385,8 @@ function lessonBlock(input: DraftInput) {
         `学科：${lesson.subject}${lesson.grade ? `　年级：${lesson.grade} 年级` : ''}`,
         `课题：${lesson.title}${lesson.unit_title && lesson.unit_title !== lesson.title ? `（所在单元：${lesson.unit_title}）` : ''}`,
         input.unitLessons?.length ? `本单元的课（教材顺序）：${input.unitLessons.map(item => (item.current ? `「${item.title}」（本课）` : item.title)).join(' → ')}` : '',
+        // named outright: the model otherwise covers the whole 要点 (「比较分数大小」 pulls in 通分)
+        laterLessons(input.unitLessons).length ? `本课不教（本单元后面的课专门教）：${laterLessons(input.unitLessons).join('、')}。这些词不写进本课的目标、练习和作业。` : '',
         lesson.textbook_title ? `教材：${lesson.edition_name ? `${lesson.edition_name} ` : ''}${lesson.textbook_title}${lesson.pages ? `，${lesson.pages}` : ''}` : '',
         `课时：第 ${input.lessonIndex} 课时（共 ${input.lessonCount} 课时），每课时 ${input.periodMinutes} 分钟`
     ]
@@ -596,14 +598,15 @@ const practiceAdapter = (frame: Frame, codes: Set<string>): StructuredLlmAdapter
     validate: value => validatePractice(value, frame, codes)
 })
 
-export type DraftResult<T> = { status: LlmStatus, output: T | null, usage: LlmUsage | null, latency_ms: number, model: string | null }
+// revised: how many problems the self-check sent back (0 when the first draft passed or the fix was not kept)
+export type DraftResult<T> = { status: LlmStatus, output: T | null, usage: LlmUsage | null, latency_ms: number, model: string | null, revised?: number }
 
 // most drafts finish in 15–35 s; a slow provider answer can pass 45 s, so wait well beyond that
 // (the API function itself may run 120 s, see vercel.json)
 const DRAFT_TIMEOUT_MS = 100000
 
 // 自查后发出 (the WorkBuddy expert's rule, done in code): the draft's own checks run, and when a hard rule fails the
-// model gets one more call with its draft and the problems. The fix is kept only if it leaves fewer problems.
+// model gets one more call with its draft and the problems. The fix is kept unless it leaves more problems.
 // A first answer slower than REVISE_BEFORE_MS is sent as it is, so the call stays inside the function's 120 s.
 const REVISE_BEFORE_MS = 55000
 const STAMP = /(完全|百分之百|100%)\s*(符合|对齐|达到)[^。；\n]{0,6}课标|符合新课标/u
@@ -618,12 +621,20 @@ async function draftChecked<T>(prompt: string, adapter: StructuredLlmAdapter<T>,
     if (!first.output || !problems.length || elapsed > REVISE_BEFORE_MS) return result
     const fix = [prompt, `你上一次写的（JSON）：\n${JSON.stringify(first.output)}`, `自查发现下面的问题。只改这些地方，其余内容保持不变，返回完整的 JSON：\n${problems.map(item => `- ${item}`).join('\n')}`].join('\n\n')
     const second = await runStructuredLlm(fix, adapter, { ...options, timeoutMs: Math.min(options.timeoutMs ?? DRAFT_TIMEOUT_MS, Math.max(5000, 105000 - elapsed)) })
-    const better = second.output && problemsOf(second.output).length < problems.length
-    return { ...result, output: better ? second.output : first.output, usage: addUsage(first.usage, second.usage), latency_ms: Math.round(performance.now() - started) }
+    const kept = second.output && problemsOf(second.output).length <= problems.length
+    return { ...result, output: kept ? second.output : first.output, revised: kept ? problems.length : 0, usage: addUsage(first.usage, second.usage), latency_ms: Math.round(performance.now() - started) }
 }
 
-const REVISE_KINDS = new Set(['no_basis', 'later_lesson', 'beyond_standard', 'group_work', 'class_check', 'homework_load'])
-const problemsOf = (checks: PlanCheck[]) => checks.filter(item => item.level !== 'ok' && REVISE_KINDS.has(item.kind)).map(item => item.message)
+// each failed check as an order to the model (the checks' own messages are advice to the teacher)
+const REVISE_ORDERS: Record<string, string> = {
+    no_basis: '这条目标的 basis 为空：填上它依据的要点编码（只能从「依据」里选）；找不到依据就删掉这条目标。',
+    later_lesson: '把这条目标里属于后面那一课的内容删掉，只写本课课题的内容。',
+    beyond_standard: '删掉超出课标限定的这部分内容。',
+    group_work: '小组活动每节最多 2 次，有小组活动的环节不超过 8 分钟：把长的小组环节拆成「小组活动（不超过 8 分钟）」和「全班交流」或「独立练习」两个环节，总时长不变；多出的小组活动改成同桌交流。',
+    class_check: '给这些学生自己做的环节写上 check：老师在 1 分钟内看到全班学会没有的办法（手势表决、同桌互查、巡视抽看、随机点名）。',
+    homework_load: '按「双减」改作业：一、二年级不布置书面作业（改成口头、阅读或实践类）；三至六年级必做书面作业不超过 15 分钟，初中不超过 25 分钟。'
+}
+const problemsOf = (checks: PlanCheck[]) => checks.filter(item => item.level !== 'ok' && REVISE_ORDERS[item.kind]).map(item => `${item.message}${item.quote ? `（「${item.quote}」）` : ''} → ${REVISE_ORDERS[item.kind]}`)
 
 export function frameProblems(frame: Frame, input: DraftInput): string[] {
     const problems: string[] = []

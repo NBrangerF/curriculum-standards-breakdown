@@ -87,6 +87,7 @@ function gradePlan(item: Case, ctx: Awaited<ReturnType<typeof context>>, result:
     const notes: string[] = []
     const plan = result.plan
     for (const [step, call] of Object.entries(result.calls)) if (call.status !== 200) (step === 'frame' || step === 'process' ? fails : notes).push(`${step} ${call.status} ${call.error || ''}`.trim())
+    for (const [step, call] of Object.entries(result.calls)) if (call.data?.revised) notes.push(`${step} 自查送回 ${call.data.revised} 个问题`)
     if (!plan?.frame || !plan.process) return { fails, notes }
     const picked = new Set(ctx.codes)
     for (const objective of plan.frame.objectives) {
