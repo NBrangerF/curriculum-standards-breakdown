@@ -2041,7 +2041,7 @@ test('plugin API serves the 扣子/元器 OpenAPI file and answers each operatio
     const spec = await publicApp.request('/api/v1/plugin/openapi.yaml')
     assert.equal(spec.status, 200)
     const text = await spec.text()
-    for (const path of ['search', 'standard', 'standards', 'stage-goals', 'textbook-chapter', 'textbooks', 'changes', 'subjects', 'checks']) assert.match(text, new RegExp(`/api/v1/plugin/${path}:`))
+    for (const path of ['search', 'standard', 'standards', 'stage-goals', 'textbook-chapter', 'textbooks', 'changes', 'subjects', 'checks', 'objectives-check']) assert.match(text, new RegExp(`/api/v1/plugin/${path}:`))
     // every answer leads back to kebiao.org, including the ones whose text has no page link of its own
     const subjects = await json(await publicApp.request('/api/v1/plugin/subjects'))
     assert.match(subjects.answer, /https:\/\/www\.kebiao\.org/)
@@ -2059,6 +2059,10 @@ test('plugin API serves the 扣子/元器 OpenAPI file and answers each operatio
     assert.equal(missing.status, 400)
     assert.ok((await json(missing)).error)
     assert.equal((await publicApp.request('/api/v1/plugin/nothing')).status, 404)
+    // 目标体检 is reachable without MCP too; a missing subject is a caller mistake, answered before any AI call
+    const objectives = await publicApp.request(`/api/v1/plugin/objectives-check?objectives=${encodeURIComponent('使学生掌握分数的基本性质')}`)
+    assert.equal(objectives.status, 400)
+    assert.match((await json(objectives)).error, /学科/)
 })
 
 test('MCP and plugin routes get the larger tools rate budget', async () => {

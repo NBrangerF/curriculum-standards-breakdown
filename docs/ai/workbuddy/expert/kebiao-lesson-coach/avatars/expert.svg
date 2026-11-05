@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="30%" r="80%"><stop offset="0" stop-color="#1d2a4a"/><stop offset="0.55" stop-color="#0b1020"/><stop offset="1" stop-color="#05060a"/></radialGradient>
+    <linearGradient id="coat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a2133"/><stop offset="1" stop-color="#0c0f18"/></linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9b892"/><stop offset="0.7" stop-color="#f3c9a4"/><stop offset="1" stop-color="#d9a37f"/></linearGradient>
+    <linearGradient id="beam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#f6d38c" stop-opacity="0.85"/><stop offset="1" stop-color="#f6d38c" stop-opacity="0"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="14"/></filter>
+    <clipPath id="frame"><rect width="512" height="512" rx="96"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="512" height="512" fill="url(#bg)"/>
+    <!-- constellation -->
+    <g stroke="#e9c887" stroke-opacity="0.45" stroke-width="1.6" fill="none"><path d="M62 132L118 86L176 112L150 168"/><path d="M360 70L414 110L452 92M414 110L430 176"/></g>
+    <g fill="#f3d89c" filter="url(#glow)"><circle cx="62" cy="132" r="3.5"/><circle cx="118" cy="86" r="4.5"/><circle cx="176" cy="112" r="3"/><circle cx="150" cy="168" r="3.5"/><circle cx="360" cy="70" r="3"/><circle cx="414" cy="110" r="5"/><circle cx="452" cy="92" r="3"/><circle cx="430" cy="176" r="3.5"/></g>
+    <!-- seal halo -->
+    <circle cx="256" cy="214" r="150" fill="none" stroke="#e9c887" stroke-opacity="0.55" stroke-width="3"/>
+    <circle cx="256" cy="214" r="136" fill="none" stroke="#e9c887" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="3 9"/>
+    <!-- coat -->
+    <path d="M70 512C76 410 150 352 256 352C362 352 436 410 442 512Z" fill="url(#coat)"/>
+    <path d="M150 512L196 372L256 430L316 372L362 512" fill="none" stroke="#e9c887" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M214 362L256 430L298 362Z" fill="#e8ecf3"/>
+    <path d="M244 380L256 430L268 380L256 392Z" fill="#1d2a4a"/>
+    <circle cx="350" cy="420" r="9" fill="#e9c887" filter="url(#glow)"/>
+    <!-- rim light on shoulder -->
+    <path d="M362 368C404 388 430 428 438 480" fill="none" stroke="#5fd4e6" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round"/>
+    <!-- neck + head -->
+    <path d="M226 300H286V364C270 376 242 376 226 364Z" fill="#d9a37f"/>
+    <path d="M166 214C166 148 206 112 256 112C306 112 346 148 346 214C346 286 308 330 256 330C204 330 166 286 166 214Z" fill="url(#skin)"/>
+    <path d="M340 190C350 230 346 280 314 314" fill="none" stroke="#5fd4e6" stroke-opacity="0.65" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="166" cy="226" rx="13" ry="22" fill="#d9a37f"/>
+    <ellipse cx="346" cy="226" rx="13" ry="22" fill="#e2ad88"/>
+    <!-- sharp hair with side part -->
+    <path d="M158 206C150 132 198 92 262 94C330 96 366 140 352 208C344 172 326 150 300 140C282 162 238 172 200 166C184 176 168 190 158 206Z" fill="#111521"/>
+    <path d="M300 140C318 150 334 166 344 190" fill="none" stroke="#5fd4e6" stroke-opacity="0.5" stroke-width="3"/>
+    <!-- level brows -->
+    <path d="M196 198L238 192" stroke="#111521" stroke-width="8" stroke-linecap="round"/>
+    <path d="M274 192L318 198" stroke="#111521" stroke-width="8" stroke-linecap="round"/>
+    <!-- rectangular glasses with a gold glint -->
+    <g fill="rgba(140,200,230,0.16)" stroke="#0d1018" stroke-width="6"><rect x="186" y="208" width="60" height="38" rx="8"/><rect x="266" y="208" width="60" height="38" rx="8"/></g>
+    <path d="M246 224H266" stroke="#0d1018" stroke-width="6"/>
+    <path d="M196 236L214 214M206 240L222 220" stroke="#f6d38c" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+    <g fill="#141822"><circle cx="220" cy="228" r="5.5"/><circle cx="300" cy="228" r="5.5"/></g>
+    <!-- confident half smile -->
+    <path d="M232 284Q258 296 284 280" fill="none" stroke="#9b4d42" stroke-width="5.5" stroke-linecap="round"/>
+    <!-- glowing book with beams -->
+    <path d="M196 452L232 316M256 446V300M316 452L282 316" stroke="url(#beam)" stroke-width="10" stroke-linecap="round" opacity="0.6"/>
+    <ellipse cx="256" cy="466" rx="120" ry="26" fill="#f6d38c" opacity="0.35" filter="url(#soft)"/>
+    <path d="M140 452C180 436 220 438 256 456C292 438 332 436 372 452V512H140Z" fill="#f4efe2"/>
+    <path d="M256 456V512" stroke="#d6c9a6" stroke-width="3"/>
+    <g stroke="#b8a77c" stroke-width="4" stroke-linecap="round"><path d="M164 476H230M164 492H222M282 476H348M282 492H340"/></g>
+  </g>
+</svg>

@@ -305,7 +305,7 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
     const PLUGIN_ROUTES: Record<string, string> = {
         subjects: 'list_subjects', search: 'search_standards', standard: 'get_standard', standards: 'list_standards',
         'stage-goals': 'get_stage_goals', textbooks: 'get_textbook_links', 'textbook-chapter': 'find_textbook_chapter', changes: 'compare_versions',
-        checks: 'get_check_questions'
+        checks: 'get_check_questions', 'objectives-check': 'check_objectives'
     }
     app.get('/api/v1/plugin/openapi.yaml', async c => {
         c.header('content-type', 'application/yaml; charset=utf-8')
@@ -317,6 +317,8 @@ export function createApp(repository: FileCurriculumRepository, options: Curricu
         const args: Record<string, unknown> = { ...c.req.query() }
         if (args.limit) args.limit = Number(args.limit)
         if (args.grade) args.grade = Number(args.grade)
+        // codes arrive as one query value: 「MA-S3-NA-01.3,MA-S3-NA-01.4」
+        if (typeof args.codes === 'string') args.codes = args.codes.split(/[,，\s]+/u).filter(Boolean)
         try {
             const out = await runTool(tool, args, toolContext)
             // `answer` is the same text an MCP client gets: ready to quote, with codes, 原文 and links

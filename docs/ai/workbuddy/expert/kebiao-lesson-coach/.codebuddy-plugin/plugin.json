@@ -1,0 +1,68 @@
+{
+  "name": "kebiao-lesson-coach",
+  "version": "1.1.0",
+  "description": "Chief curriculum-standards expert for Chinese K-9 teachers: finds the real 2025-revised standards with page numbers, maps them to every textbook lesson, then drafts or refines lesson plans with each line cited",
+  "author": {
+    "name": "较真的范老师",
+    "email": ""
+  },
+  "homepage": "https://www.kebiao.org/ai",
+  "agents": [
+    "./agents/kebiao-lesson-coach.md"
+  ],
+  "skills": [
+    "./skills/kebiao-lesson-prep"
+  ],
+  "expertType": "agent",
+  "agentName": "kebiao-lesson-coach",
+  "displayName": {
+    "en": "Chief of Standards",
+    "zh": "课标首席"
+  },
+  "profession": {
+    "en": "Curriculum Standards & Textbook Alignment Lead",
+    "zh": "课标与教材对位 · 依标备课顾问"
+  },
+  "displayDescription": {
+    "en": "Finds the real 2025-revised curriculum standards with page numbers, maps them to each lesson of your textbook, then drafts a standards-based lesson plan or refines your own plan, citing every line.",
+    "zh": "查2025修订版课标原文和页码，对到你这本教材的每一课，再依标写教案或精修你的教案，每处都有出处。"
+  },
+  "avatar": "avatars/expert.png",
+  "categoryId": "15-Education",
+  "defaultInitPrompt": {
+    "zh": "人教版五下《分数的基本性质》对应哪几条课标？列原文和页码",
+    "en": "Which standards does 'basic property of fractions' (PEP Grade 5) teach? Quote text and pages"
+  },
+  "plugin": "kebiao-lesson-coach",
+  "tags": [
+    {
+      "en": "Real Standards",
+      "zh": "课标原文"
+    },
+    {
+      "en": "Textbook Alignment",
+      "zh": "教材对位"
+    },
+    {
+      "en": "Plan Refining",
+      "zh": "教案精修"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "zh": "人教版五下《分数的基本性质》对应哪几条课标？列原文和页码",
+      "en": "Which standards does 'basic property of fractions' (PEP Grade 5) teach? Quote text and pages"
+    },
+    {
+      "zh": "帮我依标写这一课的教案，先给我确认课标依据",
+      "en": "Draft a standards-based plan for this lesson; let me confirm the basis first"
+    },
+    {
+      "zh": "精修我写的教案：对齐课标，标出每一处改动",
+      "en": "Refine my lesson plan against the standards and mark every change"
+    }
+  ],
+  "dependencies": {
+    "mcpServers": "./.mcp.json"
+  }
+}
